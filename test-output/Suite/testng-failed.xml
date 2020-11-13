@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="tests">
+  <parameter name="appPackage" value="com.tce.afs"/>
+  <parameter name="appActivity" value="com.tce.view.ui.activities.SplashScreenActivity"/>
+  <parameter name="platformVersion" value="7"/>
+  <parameter name="type" value="Android"/>
+  <parameter name="platformName" value="Android"/>
+  <parameter name="deviceName" value="ZY223HQBHZ"/>
+  <parameter name="APPIUM_SERVER_URL" value="http://127.0.0.1:4723/wd/hub"/>
+  <parameter name="wdaLocalPort" value=""/>
+  <parameter name="iOSversion" value=""/>
+  <test name="Device 01(failed)" parallel="tests">
+    <parameter name="appPackage" value="com.tce.afs"/>
+    <parameter name="appActivity" value="com.tce.view.ui.activities.SplashScreenActivity"/>
+    <parameter name="platformVersion" value="7"/>
+    <parameter name="type" value="Android"/>
+    <parameter name="platformName" value="Android"/>
+    <parameter name="deviceName" value="ZY223HQBHZ"/>
+    <parameter name="APPIUM_SERVER_URL" value="http://127.0.0.1:4723/wd/hub"/>
+    <parameter name="wdaLocalPort" value=""/>
+    <parameter name="iOSversion" value=""/>
+    <classes>
+      <class name="studi.co.testScripts.Login">
+        <methods>
+          <include name="setUp"/>
+          <include name="beforeTest"/>
+          <include name="teardown"/>
+        </methods>
+      </class> <!-- studi.co.testScripts.Login -->
+      <class name="studi.co.testScripts.Review_Plan_Tab">
+        <methods>
+          <include name="Verify_Review_Plan_Tab"/>
+          <include name="teardown"/>
+        </methods>
+      </class> <!-- studi.co.testScripts.Review_Plan_Tab -->
+    </classes>
+  </test> <!-- Device 01(failed) -->
+</suite> <!-- Failed suite [Suite] -->
