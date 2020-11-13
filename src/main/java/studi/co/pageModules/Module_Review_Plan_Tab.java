@@ -4,6 +4,10 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+
 import studi.co.Base.BaseClass;
 import studi.co.pageObjects.Object_Review_Plan_Tab;
 
@@ -34,10 +38,11 @@ public class Module_Review_Plan_Tab extends BaseClass{
 			System.out.println("My Lessons Landing page not displayed");
 		
 		Robot robot = new Robot();
+		robot.keyPress(KeyEvent.VK_TAB);
+		Thread.sleep(2000);
 		robot.keyPress(KeyEvent.VK_DOWN);
+		Thread.sleep(2000);
 		robot.keyPress(KeyEvent.VK_DOWN);
-		robot.keyPress(KeyEvent.VK_DOWN);
-		
 		Thread.sleep(5000);
 		
 		RMQP.click_Review_Plan.click();

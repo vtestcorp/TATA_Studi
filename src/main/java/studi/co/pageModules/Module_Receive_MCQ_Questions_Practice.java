@@ -4,13 +4,6 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-
-import io.appium.java_client.MobileDriver;
-import io.appium.java_client.PerformsTouchActions;
-import io.appium.java_client.TouchAction;
 import studi.co.Base.BaseClass;
 import studi.co.pageObjects.Object_Receive_MCQ_Questions_Practice;
 

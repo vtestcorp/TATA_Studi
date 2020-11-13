@@ -3,7 +3,6 @@ package studi.co.testScripts;
 import org.testng.annotations.Test;
 
 import studi.co.Base.BaseClass;
-import studi.co.pageModules.Module_Receive_MCQ_Questions_Practice;
 import studi.co.pageModules.Module_Review_Plan_Tab;
 
 public class Review_Plan_Tab extends BaseClass {
