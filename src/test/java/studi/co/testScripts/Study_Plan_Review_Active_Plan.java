@@ -33,7 +33,7 @@ public class Study_Plan_Review_Active_Plan extends BaseClass{
 		//How to Check Users Cirriculam
 	}
 	
-	@Test(description="To Verify a user should be able to view its grade, School Detail and Education Board details", priority=3, threadPoolSize=1, enabled=true)
+	@Test(description="To Verify a user should be able to view its grade, School Detail and Education Board details", priority=3, threadPoolSize=1, enabled=false)
 	public void To_Verify_user_should_be_able_to_view_the_available_Resource_of_bookshelf_1() throws Exception 
 	{
 		Module_Study_Plan_Review_Active_Plan activePlan = new Module_Study_Plan_Review_Active_Plan();
@@ -45,5 +45,16 @@ public class Study_Plan_Review_Active_Plan extends BaseClass{
 		activePlan.Verify_Navigation_After_Tapping_On_Edit_On_Books_Page();
 	}
 	
+	
+	@Test(description="To Verify the user should be able to Mark the TP status as Completed In School Manually", priority=4, threadPoolSize=1, enabled=true)
+	public void To_Verify_the_user_should_be_able_to_Mark_the_TP_status_as_Completed_In_School_Manually() throws Exception 
+	{
+		Module_Study_Plan_Review_Active_Plan activePlan = new Module_Study_Plan_Review_Active_Plan();
+		activePlan.Validate_Home_Page_Header();
+		activePlan.Navigate_To_Books_Shelf_Page();
+		activePlan.Verify_Tapping_On_Book();
+		activePlan.Verify_Tapping_And_Navigation_To_Chapter();
+		activePlan.Verify_Tapping_On_TP();
+	}
 	
 }

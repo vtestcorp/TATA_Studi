@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.tools.ant.taskdefs.Sleep;
 import org.assertj.core.util.FailureMessages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -261,6 +262,90 @@ public class Module_Study_Plan_Review_Active_Plan extends BaseClass {
 				System.out.println("Exception is: "+e.getMessage());
 			}
 		}
+
+		public void Verify_Tapping_On_Book() throws Exception
+		{
+			Navigate_To_Book(objStudyPlan.lbl_book_1);
+		}
+		
+		public void Verify_Tapping_And_Navigation_To_Chapter() throws Exception
+		{
+			Verify_Various_Status_Of_Each_Chapter("Myself", objStudyPlan.lbl_mySelfChapter, 
+					objStudyPlan.lbl_mySelfChapter_excludeFromSyllabus, objStudyPlan.lbl_mySelfChapter_completedInSchool);
+			/*
+			Verify_Various_Status_Of_Each_Chapter("My Body", objStudyPlan.lbl_myBodyChapter, 
+					objStudyPlan.lbl_myBodyChapter_excludeFromSyllabus, objStudyPlan.lbl_myBodyChapter_completedInSchool);
+			scrollDown(21);
+			Verify_Various_Status_Of_Each_Chapter("My Family", objStudyPlan.lbl_myFamilyChapter, 
+					objStudyPlan.lbl_myFamilyChapter_excludeFromSyllabus, objStudyPlan.lbl_myFamilyChapter_completedInSchool);
+			scrollDown(25);
+			*/
+		}
+		
+		public void Verify_Tapping_On_TP() throws InterruptedException
+		{
+			Validate_Required_Label_Text("ABOUT ME", objStudyPlan.lbl_mySelfChapter_TP_aboutMe.getText(), 
+					"Label 'ABOUT ME' is present in chapter 'Myself' on Book's page.", "Label 'ABOUT ME' is NOT present in chapter 'Myself' on Book's page.");
+			objStudyPlan.lbl_mySelfChapter_TP_aboutMe.click();
+			Thread.sleep(1000);
+			Validate_Required_Label_Text("Completed in School", objStudyPlan.lbl_mySelfChapter_TP_completedInSchool.getText(), 
+					"Label 'Completed in School' is present in TP of chapter 'Myself' on Book's page.", 
+					"Label 'Completed in School' is NOT present in TP of chapter 'Myself' on Book's page.");
+			Verify_Click(objStudyPlan.lbl_mySelfChapter_TP_completedInSchool_switch, 
+					"User is able to switch ON/ OFF the 'Completed in School' in TP 'ABOUT ME' for chapter 'Myself'",
+					"User is NOT able to switch ON/ OFF the 'Completed in School' in TP 'ABOUT ME' for chapter 'Myself'");
+		}
+		
+		
+		public void Verify_Various_Status_Of_Each_Chapter(String chapterName, WebElement ele1, WebElement ele2, WebElement ele3) throws InterruptedException
+		{
+			Navigate_To_Chapter(ele1);
+			Validate_Required_Label_Text(ele1.getText(), chapterName, 
+					"Label '"+chapterName+"' is present on Book's page.", "Label '"+chapterName+"' is NOT present on Book's page.");
+			Validate_Required_Label_Text("Exclude from Syllabus", ele2.getText(), 
+					"Label 'Exclude from Syllabus' is present for chapter '"+chapterName+"'.", "Label 'Exclude from Syllabus' is NOT present for chapter '"+chapterName+"'.");
+			Validate_Required_Label_Text("Completed in School", ele3.getText(), 
+					"Label 'Completed in School' is present for chapter '"+chapterName+"'.", "Label 'Completed in School' is NOT present for chapter '"+chapterName+"'.");
+			Navigate_To_Chapter(ele1);
+		}
+		
+		
+		
+		public void Navigate_To_Book(WebElement ele_bookName) throws InterruptedException
+		{
+			ele_bookName.click();
+			Thread.sleep(6000);
+			Validate_Required_Label_Text("All Chapters", objStudyPlan.lbl_allChapters.getText(), 
+			"Label 'All Chapters' is present on Book's page.", "Label 'All Chapters' is NOT present on Book's page.");
+		}
+		public void Navigate_To_Chapter(WebElement ele_ChapterName) throws InterruptedException
+		{
+			ele_ChapterName.click();
+			Thread.sleep(2000);
+		}
+		
+		public void scrollDown(int count) throws InterruptedException, AWTException
+		{
+			Thread.sleep(3000);
+			int counter=0;
+			Robot robot = new Robot();
+			robot.keyPress(KeyEvent.VK_TAB);
+			Thread.sleep(500);
+			robot.keyPress(KeyEvent.VK_TAB);
+			Thread.sleep(500);
+			robot.keyPress(KeyEvent.VK_TAB);
+			Thread.sleep(500);
+			while(counter<count)
+			{
+					robot.keyPress(KeyEvent.VK_DOWN);
+				Thread.sleep(500);
+				counter++;
+			}
+			
+		}
+		
 		
 }
+
+
 
