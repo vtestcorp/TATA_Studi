@@ -275,16 +275,13 @@ public class Module_Study_Plan_Review_Active_Plan extends BaseClass {
 		
 		public void Navigate_To_Book1() throws Exception
 		{
+			Thread.sleep(3000);
 			Navigate_To_Book(objStudyPlan.lbl_book_1);
 		}
 		
 		public void Verify_Tapping_And_Navigation_To_Chapter() throws Exception
 		{
-			//initializeScrolling();
-		/*	System.out.println("Scrolling");
-			scrollDown_SecondTime(27);
-		*/	
-			
+			Thread.sleep(3000);
 			Verify_Various_Status_Of_Each_Chapter("Myself", objStudyPlan.lbl_mySelfChapter, 
 					objStudyPlan.lbl_mySelfChapter_excludeFromSyllabus, objStudyPlan.lbl_mySelfChapter_completedInSchool);
 			Verify_Various_Status_Of_Each_Chapter("My Body", objStudyPlan.lbl_myBodyChapter, 
@@ -293,24 +290,34 @@ public class Module_Study_Plan_Review_Active_Plan extends BaseClass {
 			scrollDown_SecondTime(13);
 			Verify_Various_Status_Of_Each_Chapter("My Family", objStudyPlan.lbl_myFamilyChapter, 
 					objStudyPlan.lbl_myFamilyChapter_excludeFromSyllabus, objStudyPlan.lbl_myFamilyChapter_completedInSchool);
-			System.out.println("Going for Second");
-		
+			
+			Thread.sleep(2000);
 			scrollDown_SecondTime(27);
-			Verify_Various_Status_Of_Each_Chapter("Festivals and Celebrations", objStudyPlan.lbl_FestivalsAndCelebrationsChapter, 
-					objStudyPlan.lbl_FestivalsAndCelebrationsChapter_excludeFromSyllabus, objStudyPlan.lbl_FestivalsAndCelebrationsChapter_completedInSchool);
-			Verify_Various_Status_Of_Each_Chapter("Festivals and Celebrations", objStudyPlan.lbl_FoodWeEatChapter, 
-					objStudyPlan.lbl_FoodWeEatChapter_excludeFromSyllabus, objStudyPlan.lbl_FoodWeEatChapter_completedInSchool);
+			Verify_Various_Status_Of_Each_Chapter("Festivals and Celebrations", objStudyPlan.lbl_Chapter_2, 
+					objStudyPlan.lbl_Chapter_2_excludeFromSyllabus, objStudyPlan.lbl_Chapter_2_completedInSchool);
+			Verify_Various_Status_Of_Each_Chapter("Food We Eat", objStudyPlan.lbl_Chapter_3, 
+					objStudyPlan.lbl_Chapter_3_excludeFromSyllabus, objStudyPlan.lbl_Chapter_3_completedInSchool);
 		
+			Thread.sleep(2000);
 			scrollDown_SecondTime(24);
 			Verify_Various_Status_Of_Each_Chapter("My House", objStudyPlan.lbl_Chapter_2, 
 					objStudyPlan.lbl_Chapter_2_excludeFromSyllabus, objStudyPlan.lbl_Chapter_2_completedInSchool);
 			Verify_Various_Status_Of_Each_Chapter("My Neighbourhood", objStudyPlan.lbl_Chapter_3, 
 					objStudyPlan.lbl_Chapter_3_excludeFromSyllabus, objStudyPlan.lbl_Chapter_3_completedInSchool);
+			/*
+			System.out.println("AFter My Neighbourhood");
+			scrollDown_SecondTime(25);
+			Verify_Various_Status_Of_Each_Chapter("What People Do", objStudyPlan.lbl_Chapter_2, 
+					objStudyPlan.lbl_Chapter_2_excludeFromSyllabus, objStudyPlan.lbl_Chapter_2_completedInSchool);
+			Verify_Various_Status_Of_Each_Chapter("Plants Arround Us", objStudyPlan.lbl_Chapter_3, 
+					objStudyPlan.lbl_Chapter_3_excludeFromSyllabus, objStudyPlan.lbl_Chapter_3_completedInSchool);
 		
-			//objStudyPlan.lbl_Chapter_3.click();
-			 
-			
-			
+			scrollDown_SecondTime(34);
+			Verify_Various_Status_Of_Each_Chapter("Animals Arround Us", objStudyPlan.lbl_Chapter_2, 
+					objStudyPlan.lbl_Chapter_2_excludeFromSyllabus, objStudyPlan.lbl_Chapter_2_completedInSchool);
+			Verify_Various_Status_Of_Each_Chapter("Air and Water", objStudyPlan.lbl_Chapter_3, 
+					objStudyPlan.lbl_Chapter_3_excludeFromSyllabus, objStudyPlan.lbl_Chapter_3_completedInSchool);
+			 */
 		}
 		
 		public void Verify_Tapping_On_TP() throws InterruptedException
@@ -339,9 +346,7 @@ public class Module_Study_Plan_Review_Active_Plan extends BaseClass {
 					"Label 'Completed in School' is present for chapter '"+chapterName+"'.", "Label 'Completed in School' is NOT present for chapter '"+chapterName+"'.");
 			Navigate_To_Chapter(ele1);
 		}
-		
-		
-		
+
 		public void Navigate_To_Book(WebElement ele_bookName) throws InterruptedException
 		{
 			ele_bookName.click();
@@ -379,7 +384,6 @@ public class Module_Study_Plan_Review_Active_Plan extends BaseClass {
 			}
 		}
 	
-		
 		public void moveBack(int count) throws InterruptedException, AWTException
 		{
 			Thread.sleep(3000);
@@ -398,10 +402,71 @@ public class Module_Study_Plan_Review_Active_Plan extends BaseClass {
 				robot.keyPress(KeyEvent.VK_BACK_SPACE);
 				counter++;
 			}
-			
+		}
+		public void Verify_Tapping_And_Navigation_To_Chapter_Myself() throws Exception
+		{
+			Thread.sleep(3000);
+			Verify_Various_Status_Of_Each_Chapter("Myself", objStudyPlan.lbl_mySelfChapter, 
+					objStudyPlan.lbl_mySelfChapter_excludeFromSyllabus, objStudyPlan.lbl_mySelfChapter_completedInSchool);
+		}
+		public void Navigate_To_TP_AboutMe_And_Verify_Presence_Of_Toggle_Switch_Options() throws Exception
+		{
+			Validate_Required_Label_Text("ABOUT ME", objStudyPlan.lbl_mySelfChapter_TP_aboutMe.getText(), 
+					"Label 'ABOUT ME' is present in chapter 'Myself' on Book's page.", "Label 'ABOUT ME' is NOT present in chapter 'Myself' on Book's page.");
+			objStudyPlan.lbl_mySelfChapter_TP_aboutMe.click();
+			Thread.sleep(5000);
+			Toggle_Switch_Operation(objStudyPlan.lbl_mySelfChapter_TP_aboutMe_excludeFromSyllabus,
+					"Able to click on Toggle Switch for 'Exclude from Syllabus' for TP 'ABOUT ME' in chapter 'Myself' on Book's page.",
+					"NOT Able to click on Toggle Switch for 'Exclude from Syllabus' for TP 'ABOUT ME' in chapter 'Myself' on Book's page.");
+			Validate_Required_Label_Text("Exclude from Syllabus", objStudyPlan.lbl_mySelfChapter_TP_aboutMe_excludeFromSyllabus.getText(), 
+					"Label 'Exclude from Syllabus' is present in TP 'ABOUT ME' of chapter 'Myself' on Book's page.", 
+					"Label 'Exclude from Syllabus' is NOT present in TP 'ABOUT ME' of chapter 'Myself' on Book's page.");
+			Toggle_Switch_Operation(objStudyPlan.switch_mySelfChapter_TP_aboutMe_compltedInSchool,
+					"Able to click on Toggle Switch for 'Completed in School' for TP 'ABOUT ME' in chapter 'Myself' on Book's page.",
+					"NOT Able to click on Toggle Switch for 'Exclude from Syllabus' for TP 'ABOUT ME' in chapter 'Myself' on Book's page.");
+			Validate_Required_Label_Text("Completed in School", objStudyPlan.switch_mySelfChapter_TP_aboutMe_compltedInSchool.getText(), 
+					"Label 'Completed in School' is present in TP 'ABOUT ME' of chapter 'Myself' on Book's page.", 
+					"Label 'Completed in School' is NOT present in TP 'ABOUT ME' of chapter 'Myself' on Book's page.");
 		}
 		
+		public void Toggle_Switch_Operation(WebElement ele1, String strSuccessMsg, String strFailureMsg)
+		{
+			try {
+				ele1.click();
+				Thread.sleep(8000);
+				System.out.println(strSuccessMsg);
+			}
+			catch (Exception e) {
+				System.out.println("NOT able to perform click Toggle Switch. Exception is: \n"+e.getMessage());
+				System.out.println(strFailureMsg);
+			}
+		}
+
+		public void Verify_Confidence_Present_Against_TP() throws Exception
+		{
+			Validate_Required_Label_Text("ABOUT ME", objStudyPlan.lbl_mySelfChapter_TP_aboutMe.getText(), 
+					"Label 'ABOUT ME' is present in chapter 'Myself' on Book's page.", "Label 'ABOUT ME' is NOT present in chapter 'Myself' on Book's page.");
+			Thread.sleep(5000);
+			Verify_Presence_Of_Confidence_Score_Iage(objStudyPlan.img_mySelfChapter_TP_aboutMe_confidanceScore, 
+					"Confidance Score for 'ABOUT ME' is present for present.", 
+					"Confidance Score for 'ABOUT ME' is NOT present for present.");
+		}
+		
+		public void Verify_Presence_Of_Confidence_Score_Iage(WebElement ele1, String strSuccessMsg, String strFailureMsg)
+		{
+			try {
+				ele1.isEnabled();
+				System.out.println(strSuccessMsg);
+			}
+			catch (Exception e) {
+				System.out.println("NOT able to find 'Confidance Score'. Exception is: \n"+e.getMessage());
+				System.out.println(strFailureMsg);
+			}
+		}
+
 }
+
+
 
 
 
