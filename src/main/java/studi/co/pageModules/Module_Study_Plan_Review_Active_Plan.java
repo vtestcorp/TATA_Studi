@@ -29,6 +29,8 @@ public class Module_Study_Plan_Review_Active_Plan extends BaseClass {
 	Object_Study_Plan_Review_Active_Plan objStudyPlan = new Object_Study_Plan_Review_Active_Plan();
 	Module_Create_Study_Plan CSP = new Module_Create_Study_Plan();
 	public static String homepage_title, no_active_study_plan, lbl_testUnit, review_button_name, lbl_browse_books, lbl_all_subjects, lbl_book_1, lbl_book_2;
+	Robot robot=null;
+	
 	
 	public void Validate_Home_Page_Header() throws InterruptedException
 	{
@@ -266,20 +268,49 @@ public class Module_Study_Plan_Review_Active_Plan extends BaseClass {
 		public void Verify_Tapping_On_Book() throws Exception
 		{
 			Navigate_To_Book(objStudyPlan.lbl_book_1);
+			objStudyPlan.arrow_back_book.click();
+			Navigate_To_Book(objStudyPlan.lbl_book_2);
+			objStudyPlan.arrow_back_book.click();
+		}
+		
+		public void Navigate_To_Book1() throws Exception
+		{
+			Navigate_To_Book(objStudyPlan.lbl_book_1);
 		}
 		
 		public void Verify_Tapping_And_Navigation_To_Chapter() throws Exception
 		{
+			//initializeScrolling();
+		/*	System.out.println("Scrolling");
+			scrollDown_SecondTime(27);
+		*/	
+			
 			Verify_Various_Status_Of_Each_Chapter("Myself", objStudyPlan.lbl_mySelfChapter, 
 					objStudyPlan.lbl_mySelfChapter_excludeFromSyllabus, objStudyPlan.lbl_mySelfChapter_completedInSchool);
-			/*
 			Verify_Various_Status_Of_Each_Chapter("My Body", objStudyPlan.lbl_myBodyChapter, 
 					objStudyPlan.lbl_myBodyChapter_excludeFromSyllabus, objStudyPlan.lbl_myBodyChapter_completedInSchool);
-			scrollDown(21);
+			//initializeScrolling();
+			scrollDown_SecondTime(13);
 			Verify_Various_Status_Of_Each_Chapter("My Family", objStudyPlan.lbl_myFamilyChapter, 
 					objStudyPlan.lbl_myFamilyChapter_excludeFromSyllabus, objStudyPlan.lbl_myFamilyChapter_completedInSchool);
-			scrollDown(25);
-			*/
+			System.out.println("Going for Second");
+		
+			scrollDown_SecondTime(27);
+			Verify_Various_Status_Of_Each_Chapter("Festivals and Celebrations", objStudyPlan.lbl_FestivalsAndCelebrationsChapter, 
+					objStudyPlan.lbl_FestivalsAndCelebrationsChapter_excludeFromSyllabus, objStudyPlan.lbl_FestivalsAndCelebrationsChapter_completedInSchool);
+			Verify_Various_Status_Of_Each_Chapter("Festivals and Celebrations", objStudyPlan.lbl_FoodWeEatChapter, 
+					objStudyPlan.lbl_FoodWeEatChapter_excludeFromSyllabus, objStudyPlan.lbl_FoodWeEatChapter_completedInSchool);
+		
+			scrollDown_SecondTime(24);
+			Verify_Various_Status_Of_Each_Chapter("My House", objStudyPlan.lbl_Chapter_2, 
+					objStudyPlan.lbl_Chapter_2_excludeFromSyllabus, objStudyPlan.lbl_Chapter_2_completedInSchool);
+			Verify_Various_Status_Of_Each_Chapter("My Neighbourhood", objStudyPlan.lbl_Chapter_3, 
+					objStudyPlan.lbl_Chapter_3_excludeFromSyllabus, objStudyPlan.lbl_Chapter_3_completedInSchool);
+		
+			//objStudyPlan.lbl_Chapter_3.click();
+			 
+			
+			
 		}
 		
 		public void Verify_Tapping_On_TP() throws InterruptedException
@@ -324,7 +355,32 @@ public class Module_Study_Plan_Review_Active_Plan extends BaseClass {
 			Thread.sleep(2000);
 		}
 		
-		public void scrollDown(int count) throws InterruptedException, AWTException
+		public void initializeScrolling() throws InterruptedException, AWTException
+		{
+			Thread.sleep(3000);
+			int counter=0;
+			robot = new Robot();
+			robot.keyPress(KeyEvent.VK_TAB);
+			Thread.sleep(500);
+			robot.keyPress(KeyEvent.VK_TAB);
+			Thread.sleep(500);
+			robot.keyPress(KeyEvent.VK_TAB);
+			Thread.sleep(500);
+		}
+		public void scrollDown_SecondTime(int count) throws InterruptedException, AWTException
+		{
+			int counter=0;
+			robot = new Robot();
+			while(counter<count)
+			{
+				robot.keyPress(KeyEvent.VK_DOWN);
+				Thread.sleep(500);
+				counter++;
+			}
+		}
+	
+		
+		public void moveBack(int count) throws InterruptedException, AWTException
 		{
 			Thread.sleep(3000);
 			int counter=0;
@@ -337,13 +393,13 @@ public class Module_Study_Plan_Review_Active_Plan extends BaseClass {
 			Thread.sleep(500);
 			while(counter<count)
 			{
-					robot.keyPress(KeyEvent.VK_DOWN);
+				robot.keyPress(KeyEvent.VK_BACK_QUOTE);
 				Thread.sleep(500);
+				robot.keyPress(KeyEvent.VK_BACK_SPACE);
 				counter++;
 			}
 			
 		}
-		
 		
 }
 

@@ -46,7 +46,7 @@ public class Study_Plan_Review_Active_Plan extends BaseClass{
 	}
 	
 	
-	@Test(description="To Verify the user should be able to Mark the TP status as Completed In School Manually", priority=4, threadPoolSize=1, enabled=true)
+	@Test(description="To Verify the user should be able to Mark the TP status as Completed In School Manually", priority=4, threadPoolSize=1, enabled=false)
 	public void To_Verify_the_user_should_be_able_to_Mark_the_TP_status_as_Completed_In_School_Manually() throws Exception 
 	{
 		Module_Study_Plan_Review_Active_Plan activePlan = new Module_Study_Plan_Review_Active_Plan();
@@ -56,5 +56,31 @@ public class Study_Plan_Review_Active_Plan extends BaseClass{
 		activePlan.Verify_Tapping_And_Navigation_To_Chapter();
 		activePlan.Verify_Tapping_On_TP();
 	}
+	
+	@Test(description="To Verify User should be shown Excluded from Syllabus Status for the chapter which is excluded from the users curriculum", priority=5, threadPoolSize=1, enabled=true)
+	public void To_Verify_User_should_be_shown_Excluded_from_Syllabus_Status_for_the_chapter_which_is_excluded_from_the_users_curriculum() throws Exception 
+	{
+		Module_Study_Plan_Review_Active_Plan activePlan = new Module_Study_Plan_Review_Active_Plan();
+		activePlan.Validate_Home_Page_Header();
+		activePlan.Navigate_To_Books_Shelf_Page();
+		activePlan.Verify_Books_Page();
+		//activePlan.Verify_Tapping_On_Book();
+		activePlan.Navigate_To_Book1();
+		activePlan.Verify_Tapping_And_Navigation_To_Chapter();
+		//activePlan.Verify_Tapping_On_TP();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
