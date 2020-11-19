@@ -10,12 +10,20 @@
         <parameter name="appActivity" value="com.tce.view.ui.activities.SplashScreenActivity"/>  
         <parameter name="platformVersion" value="7"/>
         <parameter name="wdaLocalPort" value=""/>
-        <parameter name="iOSversion" value=""/>              
+        <parameter name="iOSversion" value=""/>            
         <classes>
             <class name="studi.co.testScripts.Login" />
-            <!-- <class name="studi.co.testScripts.Create_Study_Plan" />
-            <class name="studi.co.testScripts.Receive_MCQ_Questions_Practice" /> -->
+           <!-- <class name="studi.co.testScripts.Create_Study_Plan" />
+            <class name="studi.co.testScripts.Receive_MCQ_Questions_Practice" />
             <class name="studi.co.testScripts.Review_Plan_Tab" />
+            <class name="studi.co.testScripts.Completed_In_School_Status_Chapter" />
+            <class name="studi.co.testScripts.Confirm_Syllabus_Tab" />
+            <class name="studi.co.testScripts.Confirm_Syllabus_Page_Tappable" />
+            <class name="studi.co.testScripts.Mark_Completed_In_School_Manually" />
+            <class name="studi.co.testScripts.Mark_Excluded_From_Syllabus_Manually" /
+           <class name="studi.co.testScripts.View_Chapter_Listing_Page_Content" />
+           <class name="studi.co.testScripts.View_Chapter_Listing_Page_Content" /> -->
+           <class name="studi.co.testScripts.Navigate_Revision_From_Topic_Listing" />
         </classes>
     </test>           
 </suite>

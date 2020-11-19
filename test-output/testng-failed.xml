@@ -28,12 +28,12 @@
           <include name="teardown"/>
         </methods>
       </class> <!-- studi.co.testScripts.Login -->
-      <class name="studi.co.testScripts.Review_Plan_Tab">
+      <class name="studi.co.testScripts.Navigate_Revision_From_Topic_Listing">
         <methods>
-          <include name="Verify_Review_Plan_Tab"/>
           <include name="teardown"/>
+          <include name="Verify_Review_Plan_Tab"/>
         </methods>
-      </class> <!-- studi.co.testScripts.Review_Plan_Tab -->
+      </class> <!-- studi.co.testScripts.Navigate_Revision_From_Topic_Listing -->
     </classes>
   </test> <!-- Device 01(failed) -->
 </suite> <!-- Failed suite [Suite] -->
