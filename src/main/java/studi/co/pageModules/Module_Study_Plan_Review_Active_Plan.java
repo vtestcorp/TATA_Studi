@@ -7,12 +7,15 @@ import java.awt.event.KeyEvent;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.tools.ant.taskdefs.Sleep;
 import org.assertj.core.util.FailureMessages;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -286,7 +289,6 @@ public class Module_Study_Plan_Review_Active_Plan extends BaseClass {
 					objStudyPlan.lbl_mySelfChapter_excludeFromSyllabus, objStudyPlan.lbl_mySelfChapter_completedInSchool);
 			Verify_Various_Status_Of_Each_Chapter("My Body", objStudyPlan.lbl_myBodyChapter, 
 					objStudyPlan.lbl_myBodyChapter_excludeFromSyllabus, objStudyPlan.lbl_myBodyChapter_completedInSchool);
-			//initializeScrolling();
 			scrollDown_SecondTime(13);
 			Verify_Various_Status_Of_Each_Chapter("My Family", objStudyPlan.lbl_myFamilyChapter, 
 					objStudyPlan.lbl_myFamilyChapter_excludeFromSyllabus, objStudyPlan.lbl_myFamilyChapter_completedInSchool);
@@ -360,18 +362,6 @@ public class Module_Study_Plan_Review_Active_Plan extends BaseClass {
 			Thread.sleep(2000);
 		}
 		
-		public void initializeScrolling() throws InterruptedException, AWTException
-		{
-			Thread.sleep(3000);
-			int counter=0;
-			robot = new Robot();
-			robot.keyPress(KeyEvent.VK_TAB);
-			Thread.sleep(500);
-			robot.keyPress(KeyEvent.VK_TAB);
-			Thread.sleep(500);
-			robot.keyPress(KeyEvent.VK_TAB);
-			Thread.sleep(500);
-		}
 		public void scrollDown_SecondTime(int count) throws InterruptedException, AWTException
 		{
 			int counter=0;
@@ -409,6 +399,131 @@ public class Module_Study_Plan_Review_Active_Plan extends BaseClass {
 			Verify_Various_Status_Of_Each_Chapter("Myself", objStudyPlan.lbl_mySelfChapter, 
 					objStudyPlan.lbl_mySelfChapter_excludeFromSyllabus, objStudyPlan.lbl_mySelfChapter_completedInSchool);
 		}
+	
+		public void Verify_Tapping_And_Navigation_To_Chapter_MyBody(int chapterCount) throws Exception
+		{
+			Verify_Status_Of_Chapter("My Body", objStudyPlan.lbl_myBodyChapter, 
+					objStudyPlan.lbl_myBodyChapter_excludeFromSyllabus, objStudyPlan.lbl_myBodyChapter_completedInSchool);
+			List<WebElement> lst_chapterTopics=objStudyPlan.getChapterTopic_myBody_chaper(chapterCount);
+			Navigate_To_Begin_Practice(lst_chapterTopics, "My Body");
+		}
+		
+		public void Verify_Tapping_And_Navigation_To_Chapter_MyBody_Check_Notes(int chapterCount) throws Exception
+		{
+			String chapterName="My Body";
+			Verify_Status_Of_Chapter(chapterName, objStudyPlan.lbl_myBodyChapter, 
+					objStudyPlan.lbl_myBodyChapter_excludeFromSyllabus, objStudyPlan.lbl_myBodyChapter_completedInSchool);
+			List<WebElement> lst_chapterTopics=objStudyPlan.getChapterTopic_myBody_chaper(chapterCount);
+			lst_chapterTopics.get(0).click();
+			scrollDown_SecondTime(16);
+			Navigate_To_Notes_PopUP(chapterName);
+		}
+
+		public void Navigate_To_Notes_PopUP(String chapterName) throws Exception
+		{
+			String str_topicName_ui=objStudyPlan.lbl_notes_myBodyChapter.getText();
+			objStudyPlan.lbl_notes_myBodyChapter.click();
+			
+			System.out.println("The Tile for Topic '"+str_topicName_ui+"' is expanded.");
+			if(str_topicName_ui.equals("Notes"))
+				System.out.println("The label '"+str_topicName_ui+"' is present in chapter '"+chapterName+"'.");
+			else
+				System.out.println("The label '"+str_topicName_ui+"' is NOT present in chapter '"+chapterName+"'.");
+			String str_notesPopUpName=objStudyPlan.lbl_NOTES_notesPopUp.getText();
+			if(str_notesPopUpName.equals("NOTES"))
+				System.out.println("The label '"+str_notesPopUpName+"' is present in 'NOTES' popup for chapter '"+chapterName+"'.");
+			else
+				System.out.println("The label '"+str_notesPopUpName+"' is NOT present in 'NOTES' popup for chapter '"+chapterName+"'.");
+			String xpath_closePopUp="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ImageView";
+			getDriver().findElement(By.xpath(xpath_closePopUp)).click();
+			Thread.sleep(2000);
+			System.out.println("The Tile for Topic '"+str_topicName_ui+"' is expanded.");
+			String str_topicName_ui_2=objStudyPlan.lbl_notes_myBodyChapter.getText();
+			
+			if(str_topicName_ui_2.equals("Notes"))
+				System.out.println("The label '"+str_topicName_ui_2+"' is present in chapter '"+chapterName+"'.");
+			else
+				System.out.println("The label '"+str_topicName_ui_2+"' is NOT present in chapter '"+chapterName+"'.");
+
+		}
+		
+		
+		public void Verify_Status_Of_Chapter(String chapterName, WebElement ele1, WebElement ele2, WebElement ele3) throws Exception
+		{
+			Thread.sleep(3000);
+			Verify_Various_Status_Of_Each_Chapter(chapterName, ele1, ele2, ele3);
+		}
+		
+		
+		public void Navigate_To_Begin_Practice(List<WebElement> lst_ele, String chapterName) throws Exception
+		{
+			int counterEle=0;
+			WebElement ele_lbl_confReport;
+			for(int i=1;i<=lst_ele.size();i++)
+			{
+				lst_ele.get(counterEle).click();
+				String xpath1= "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/androidx.recyclerview.widget.RecyclerView";
+				String xpath2= xpath1 + "/android.view.ViewGroup["+i+"]/android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.widget.TextView[1]";
+
+				String xpath_conf="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView";
+				String xpath_back="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.ImageView[2]";
+
+				WebElement ele1=getDriver().findElement(By.xpath(xpath2));
+				String str_topicName_ui=lst_ele.get(counterEle).getText();
+				System.out.println("The Tile for Topic '"+str_topicName_ui+"' is expanded.");
+				if(ele1.getText().equals("Begin Practice"))
+				{
+					System.out.println("The label 'Begin Practice' is present in topic '"+str_topicName_ui+"' for chapter '"+chapterName+"'.");
+				}
+				else
+				{
+					System.out.println("The label 'Begin Practice' is NOT present in topic '"+str_topicName_ui+"' for chapter '"+chapterName+"'.");
+				}
+				ele1.click();
+				Thread.sleep(4000);
+				ele_lbl_confReport=getDriver().findElement(By.xpath(xpath_conf));
+				if(ele_lbl_confReport.getText().equals("Your Confidence Report"))
+				{
+					System.out.println("User is Navigated to 'Onboarding page of Practice Module'");
+				}
+				else
+				{
+					System.out.println("User is NOT Navigated to 'Onboarding page of Practice Module'");
+				}
+				getDriver().findElement(By.xpath(xpath_back)).click();;
+				Thread.sleep(4000);
+				break;
+			}
+			
+			
+		}
+		
+		
+		public boolean Compare_Two_Lists(List<String> reqLst, List<String> actLst, String successMsg, String failureMsg)
+		{
+			boolean flag_isLstEqual=false;
+			if(reqLst.equals(reqLst))
+			{
+				System.out.println(successMsg);
+				flag_isLstEqual=true;
+			}
+			else
+			{
+				System.out.println(failureMsg);
+			}
+			return flag_isLstEqual;
+		}
+		public List<String> getChapterTopics()
+		{
+			List<String> lst_topics= new ArrayList<>();
+			lst_topics.add("Parts of the Body");
+			lst_topics.add("Sense Organs");
+			lst_topics.add("Keeping Healthy");
+			lst_topics.add("Same and Different");
+			return lst_topics;
+		}
+		
+		
 		public void Navigate_To_TP_AboutMe_And_Verify_Presence_Of_Toggle_Switch_Options() throws Exception
 		{
 			Validate_Required_Label_Text("ABOUT ME", objStudyPlan.lbl_mySelfChapter_TP_aboutMe.getText(), 
@@ -464,7 +579,61 @@ public class Module_Study_Plan_Review_Active_Plan extends BaseClass {
 			}
 		}
 
+		public void Verify_Highlight_Pop_Up() throws Exception
+		{
+			objStudyPlan.btn_highlight.click();
+			Thread.sleep(5000);
+			List<String> lst_actualHighLights= new ArrayList<>();
+			lst_actualHighLights.add(objStudyPlan.lbl_NotAccessed.getText());
+			lst_actualHighLights.add(objStudyPlan.lbl_CompletedinSchool.getText());
+			lst_actualHighLights.add(objStudyPlan.lbl_LowConfidence.getText());
+			lst_actualHighLights.add(objStudyPlan.lbl_MediumConfidence.getText());
+			lst_actualHighLights.add(objStudyPlan.lbl_HighConfidence.getText());
+			Compare_Two_Lists(reqHighlights(), lst_actualHighLights, 
+					"In the pop up 'Highlight', the study statuses are present", 
+					"In the pop up 'Highlight', the study statuses are NOT present");
+			
+			Validate_Presense_Of_Statuses_And_CheckBox_In_Highlights_PopUp();
+			objStudyPlan.chkBox_NotAccessed.click();
+			Thread.sleep(2000);
+			objStudyPlan.btn_apply.click();
+			Thread.sleep(5000);
+			Verify_Tapping_And_Navigation_To_Chapter_Myself();
+		}
+
+		public void Validate_Presense_Of_Statuses_And_CheckBox_In_Highlights_PopUp() 
+		{
+			objStudyPlan.chkBox_NotAccessed.isEnabled();
+			objStudyPlan.chkBox_CompletedinSchool.isEnabled();
+			objStudyPlan.chkBox_LowConfidence.isEnabled();
+			objStudyPlan.chkBox_MediumConfidence.isEnabled();
+			objStudyPlan.chkBox_HighConfidence.isEnabled();	
+			objStudyPlan.chkBox_NotAccessed.click();
+			objStudyPlan.chkBox_NotAccessed.click();
+			objStudyPlan.chkBox_CompletedinSchool.click();
+			objStudyPlan.chkBox_CompletedinSchool.click();
+			objStudyPlan.chkBox_LowConfidence.click();
+			objStudyPlan.chkBox_LowConfidence.click();
+			objStudyPlan.chkBox_MediumConfidence.click();
+			objStudyPlan.chkBox_MediumConfidence.click();
+			objStudyPlan.chkBox_HighConfidence.click();
+			objStudyPlan.chkBox_HighConfidence.click();
+		}
+		
+		
+		public List<String> reqHighlights()
+		{
+			List<String> lst_topics= new ArrayList<>();
+			lst_topics.add("Not Accessed");
+			lst_topics.add("Completed in School");
+			lst_topics.add("Low Confidence");
+			lst_topics.add("Medium Confidence");
+			lst_topics.add("High Confidence");
+			return lst_topics;
+		}
+
 }
+
 
 
 

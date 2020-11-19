@@ -1,5 +1,6 @@
 package studi.co.testScripts;
 
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import studi.co.Base.BaseClass;
@@ -81,27 +82,53 @@ public class Study_Plan_Review_Active_Plan extends BaseClass{
 		activePlan.Navigate_To_TP_AboutMe_And_Verify_Presence_Of_Toggle_Switch_Options();
 	}
 	
-	@Test(description="To Verify User should be shown the Status / Confidence score of TP", priority=7, threadPoolSize=1, enabled=true)
+	@Test(description="To Verify User should be shown the Status / Confidence score of TP", priority=7, threadPoolSize=1, enabled=false)
 	public void Verify_User_should_be_shown_the_Status_Confidence_score_of_TP() throws Exception 
 	{
 		Module_Study_Plan_Review_Active_Plan activePlan = new Module_Study_Plan_Review_Active_Plan();
 		activePlan.Validate_Home_Page_Header();
 		activePlan.Navigate_To_Books_Shelf_Page();
 		activePlan.Verify_Books_Page();
-		//activePlan.Verify_Tapping_On_Book();
+		activePlan.Verify_Tapping_On_Book();
 		activePlan.Navigate_To_Book1();
 		activePlan.Verify_Tapping_And_Navigation_To_Chapter_Myself();
 		activePlan.Verify_Confidence_Present_Against_TP();
 	}
 	
-
 	
+	@Test(description="AFS-127: TC-15: To Verify the user should be able to Navigate to Practice from Topic", priority=8, threadPoolSize=1, enabled=false)
+	public void Verify_the_user_should_be_able_to_Navigate_to_Practice_from_Topic() throws Exception 
+	{
+		Module_Study_Plan_Review_Active_Plan activePlan = new Module_Study_Plan_Review_Active_Plan();
+		activePlan.Validate_Home_Page_Header();
+		activePlan.Navigate_To_Books_Shelf_Page();
+		activePlan.Verify_Books_Page();
+		activePlan.Verify_Tapping_On_Book();
+		activePlan.Navigate_To_Book1();
+		activePlan.Verify_Tapping_And_Navigation_To_Chapter_MyBody(4);
+	}
 	
+	@Test(description="AFS-127: TC-16: To Verify the user should be able to Navigate to Notes listing page", priority=8, threadPoolSize=1, enabled=false)
+	public void Verify_the_user_should_be_able_to_Navigate_to_Notes_listing_page() throws Exception 
+	{
+		Module_Study_Plan_Review_Active_Plan activePlan = new Module_Study_Plan_Review_Active_Plan();
+		activePlan.Validate_Home_Page_Header();
+		activePlan.Navigate_To_Books_Shelf_Page();
+		activePlan.Verify_Books_Page();
+		activePlan.Verify_Tapping_On_Book();
+		activePlan.Navigate_To_Book1();
+		activePlan.Verify_Tapping_And_Navigation_To_Chapter_MyBody_Check_Notes(4);
+	}
 	
-	
-	
-	
-	
+	@Test(description="AFS-127: TC-22: To Verify user should be able to navigate to  the StrikedOut Topics", priority=8, threadPoolSize=1, enabled=true)
+	public void Verify_user_should_be_able_to_navigate_to_the_StrikedOut_Topics() throws Exception 
+	{
+		Module_Study_Plan_Review_Active_Plan activePlan = new Module_Study_Plan_Review_Active_Plan();
+		activePlan.Validate_Home_Page_Header();
+		activePlan.Navigate_To_Books_Shelf_Page();
+		activePlan.Navigate_To_Book1();
+		activePlan.Verify_Highlight_Pop_Up();
+	}
 	
 	
 	
