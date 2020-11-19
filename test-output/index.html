@@ -2,9 +2,10 @@
 
 <html>
   <head>
+  <meta charset='utf-8'>
   <title>TestNG reports</title>
 
-    <link type="text/css" href="testng-reports.css" rel="stylesheet" />  
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />
     <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="testng-reports.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -23,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -37,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Suite">
-              <span class="suite-name border-passed">Suite</span>
+              <span class="suite-name border-failed">Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -48,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Suite">
-                    <span>C:\Users\Admin\git\TATA\TATA_Studi_Automation\testng.xml</span>
+                    <span>C:\Users\INDRANEEL GHULE\Eclipse V Test Workspace\TATA_Studi\testng.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -90,7 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods failed suite-Suite"> (hide)</a> <!-- hide-methods failed suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Suite">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="studi.co.testScripts.Study_Plan_Review_Active_Plan" hash-for-method="Verify_user_should_be_able_to_view_the_available_Resource_of_bookshelf_1">Verify_user_should_be_able_to_view_the_available_Resource_of_bookshelf_1</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -99,11 +114,6 @@
                       <a href="#" panel-name="suite-Suite" class="show-methods passed suite-Suite"> (show)</a> <!-- show-methods passed suite-Suite -->
                     </span>
                     <div class="method-list-content passed suite-Suite">
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="studi.co.testScripts.Receive_MCQ_Questions_Practice" hash-for-method="Receive_MCQ_Questions">Receive_MCQ_Questions</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-Suite" title="studi.co.testScripts.Login" hash-for-method="Validate_Login">Validate_Login</a> <!-- method navigator-link -->
@@ -121,6 +131,50 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite" class="panel Suite">
+          <div class="suite-Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">studi.co.testScripts.Study_Plan_Review_Active_Plan</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="Verify_user_should_be_able_to_view_the_available_Resource_of_bookshelf_1">
+                  </a> <!-- Verify_user_should_be_able_to_view_the_available_Resource_of_bookshelf_1 -->
+                  <span class="method-name">Verify_user_should_be_able_to_view_the_available_Resource_of_bookshelf_1</span>
+                  <div class="stack-trace">org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: Could not proxy command to the remote server. Original error: read ECONNRESET
+Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
+System info: host: &apos;INDRANEELGHULE&apos;, ip: &apos;192.168.0.100&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_25&apos;
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Capabilities [{appPackage=com.tce.afs, deviceScreenSize=720x1520, networkConnectionEnabled=true, statBarHeight=59, warnings={}, viewportRect={top=59, left=0, width=720, height=1306}, databaseEnabled=false, deviceName=R9ZN71027SD, platform=LINUX, deviceUDID=R9ZN71027SD, appActivity=com.tce.view.ui.activities.SplashScreenActivity, desired={appPackage=com.tce.afs, appActivity=com.tce.view.ui.activities.SplashScreenActivity, newCommandTimeout=120, platformVersion=10, platformName=Android, deviceName=ZY223HQBHZ}, newCommandTimeout=120, platformVersion=10, pixelRatio=2, webStorageEnabled=false, locationContextEnabled=false, takesScreenshot=true, javascriptEnabled=true, deviceScreenDensity=320, deviceModel=SM-M015G, deviceApiLevel=29, deviceManufacturer=samsung, platformName=LINUX}]
+Session ID: 6f4da9f1-e8df-45ec-81e6-dbc08396810a
+*** Element info: {Using=xpath, value=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView[1]}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:416)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:518)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:408)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy13.getText(Unknown Source)
+	at studi.co.pageModules.Module_Study_Plan_Review_Active_Plan.Verify_Bottom_Of_Books_Page(Module_Study_Plan_Review_Active_Plan.java:220)
+	at studi.co.testScripts.Study_Plan_Review_Active_Plan.Verify_user_should_be_able_to_view_the_available_Resource_of_bookshelf_1(Study_Plan_Review_Active_Plan.java:43)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+... Removed 20 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(To Verify a user should be able to view its grade, School Detail and Education Board details)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-failed -->
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -136,35 +190,20 @@
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Suite-class-passed -->
-          <div class="suite-Suite-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">studi.co.testScripts.Receive_MCQ_Questions_Practice</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="Receive_MCQ_Questions">
-                  </a> <!-- Receive_MCQ_Questions -->
-                  <span class="method-name">Receive_MCQ_Questions</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Suite-class-passed -->
         </div> <!-- panel Suite -->
         <div panel-name="test-xml-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Admin\git\TATA\TATA_Studi_Automation\testng.xml</span>
+            <span class="header-content">C:\Users\INDRANEEL GHULE\Eclipse V Test Workspace\TATA_Studi\testng.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite thread-count=&quot;1&quot; guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Suite&quot; parallel=&quot;tests&quot;&gt;
-  &lt;test name=&quot;Device 01&quot;&gt;
+  &lt;test thread-count=&quot;1&quot; name=&quot;Device 01&quot; parallel=&quot;tests&quot;&gt;
     &lt;parameter name=&quot;appPackage&quot; value=&quot;com.tce.afs&quot;/&gt;
     &lt;parameter name=&quot;appActivity&quot; value=&quot;com.tce.view.ui.activities.SplashScreenActivity&quot;/&gt;
-    &lt;parameter name=&quot;platformVersion&quot; value=&quot;7&quot;/&gt;
+    &lt;parameter name=&quot;platformVersion&quot; value=&quot;10&quot;/&gt;
     &lt;parameter name=&quot;type&quot; value=&quot;Android&quot;/&gt;
     &lt;parameter name=&quot;platformName&quot; value=&quot;Android&quot;/&gt;
     &lt;parameter name=&quot;deviceName&quot; value=&quot;ZY223HQBHZ&quot;/&gt;
@@ -173,7 +212,7 @@
     &lt;parameter name=&quot;iOSversion&quot; value=&quot;&quot;/&gt;
     &lt;classes&gt;
       &lt;class name=&quot;studi.co.testScripts.Login&quot;/&gt;
-      &lt;class name=&quot;studi.co.testScripts.Receive_MCQ_Questions_Practice&quot;/&gt;
+      &lt;class name=&quot;studi.co.testScripts.Study_Plan_Review_Active_Plan&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Device 01 --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
@@ -215,18 +254,18 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'Receive_MCQ_Questions')
-data.setCell(0, 2, 'studi.co.testScripts.Receive_MCQ_Questions_Practice')
-data.setCell(0, 3, 28932);
+data.setCell(0, 1, 'Validate_Login')
+data.setCell(0, 2, 'studi.co.testScripts.Login')
+data.setCell(0, 3, 12486);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'Validate_Login')
-data.setCell(1, 2, 'studi.co.testScripts.Login')
-data.setCell(1, 3, 12450);
+data.setCell(1, 1, 'Verify_user_should_be_able_to_view_the_available_Resource_of_bookshelf_1')
+data.setCell(1, 2, 'studi.co.testScripts.Study_Plan_Review_Active_Plan')
+data.setCell(1, 3, 6816);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 41 seconds</span>
+              <span class="suite-total-time">Total running time: 19 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -241,9 +280,40 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">13 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">studi.co.testScripts.Study_Plan_Review_Active_Plan</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">Verify_the_user_should_be_able_to_Mark_the_TP_status_as_Completed_In_School_Manually</span>
+                <br/>
+                <span class="ignored-method-name">setUp</span>
+                <br/>
+                <span class="ignored-method-name">beforeTest</span>
+                <br/>
+                <span class="ignored-method-name">Verify_user_should_be_able_to_navigate_to_the_StrikedOut_Topics</span>
+                <br/>
+                <span class="ignored-method-name">Verify_User_should_be_shown_the_Status_Confidence_score_of_TP</span>
+                <br/>
+                <span class="ignored-method-name">Verify_user_should_be_able_to_view_the_available_Resource_of_bookshelf</span>
+                <br/>
+                <span class="ignored-method-name">Verify_the_user_should_be_able_to_Navigate_to_Notes_listing_page</span>
+                <br/>
+                <span class="ignored-method-name">afterTest</span>
+                <br/>
+                <span class="ignored-method-name">Verify_the_user_should_be_able_to_Mark_the_TP_status_as_Excluded_from_Syllabus</span>
+                <br/>
+                <span class="ignored-method-name">Verify_User_should_be_shown_Excluded_from_Syllabus_Status_for_the_chapter_which_is_excluded_from_the_users_curriculum</span>
+                <br/>
+                <span class="ignored-method-name">Verify_user_should_be_able_to_navigate_to_review_plan</span>
+                <br/>
+                <span class="ignored-method-name">tearDown</span>
+                <br/>
+                <span class="ignored-method-name">Verify_the_user_should_be_able_to_Navigate_to_Practice_from_Topic</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Suite" class="panel">
@@ -259,34 +329,31 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-test before">
                 <span class="method-name">beforeTest(Android, http://127.0.0.1:4723/wd/hub, Android, ZY223HQBHZ, com.tce.afs, com.tce.view.ui.activities....)</span>
-                <span class="method-start">250 ms</span>
+                <span class="method-start">221 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
                 <span class="method-name">Validate_Login</span>
-                <span class="method-start">18868 ms</span>
+                <span class="method-start">12553 ms</span>
               </div> <!-- test-method -->
-            </div> <!-- chronological-class -->
-            <div class="chronological-class">
-              <div class="chronological-class-name">studi.co.testScripts.Receive_MCQ_Questions_Practice</div> <!-- chronological-class-name -->
-              <div class="test-method">
-                <span class="method-name">Receive_MCQ_Questions</span>
-                <span class="method-start">31322 ms</span>
-              </div> <!-- test-method -->
-            </div> <!-- chronological-class -->
-            <div class="chronological-class">
-              <div class="chronological-class-name">studi.co.testScripts.Login</div> <!-- chronological-class-name -->
               <div class="configuration-method after">
                 <span class="method-name">teardown([TestResult name=Validate_Login status=SUCCESS method=Login.Validate_Login()[pri:0, instance:studi.c...)</span>
-                <span class="method-start">31322 ms</span>
+                <span class="method-start">25043 ms</span>
               </div> <!-- configuration-method after -->
-              <div class="configuration-test after">
-                <span class="method-name">afterTest</span>
-                <span class="method-start">60258 ms</span>
-              </div> <!-- configuration-test after -->
-              <div class="configuration-suite after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">61634 ms</span>
-              </div> <!-- configuration-suite after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">studi.co.testScripts.Study_Plan_Review_Active_Plan</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">Verify_user_should_be_able_to_view_the_available_Resource_of_bookshelf_1</span>
+                <span class="method-start">25047 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">teardown([TestResult name=Verify_user_should_be_able_to_view_the_available_Resource_of_bookshelf_1 status=FAI...)</span>
+                <span class="method-start">31892 ms</span>
+              </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->
