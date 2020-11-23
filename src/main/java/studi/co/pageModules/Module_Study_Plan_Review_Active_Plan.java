@@ -600,7 +600,6 @@ public class Module_Study_Plan_Review_Active_Plan extends BaseClass {
 			Thread.sleep(5000);
 			Verify_Tapping_And_Navigation_To_Chapter_Myself();
 		}
-
 		public void Validate_Presense_Of_Statuses_And_CheckBox_In_Highlights_PopUp() 
 		{
 			objStudyPlan.chkBox_NotAccessed.isEnabled();
@@ -619,8 +618,6 @@ public class Module_Study_Plan_Review_Active_Plan extends BaseClass {
 			objStudyPlan.chkBox_HighConfidence.click();
 			objStudyPlan.chkBox_HighConfidence.click();
 		}
-		
-		
 		public List<String> reqHighlights()
 		{
 			List<String> lst_topics= new ArrayList<>();
@@ -632,9 +629,278 @@ public class Module_Study_Plan_Review_Active_Plan extends BaseClass {
 			return lst_topics;
 		}
 
+		public void Navigate_To_First_Book_Political_Science() throws Exception
+		{
+			Validate_Home_Page_Header();
+			Navigate_To_Books_Shelf_Page();
+			Navigate_To_Book1();
+		}
+
+		public void Navigate_To_First_Chapter_Political_Science_Quize_Page()throws Exception
+		{
+			Thread.sleep(3000);
+			Validate_Required_Label_Text("Aspects and Influence of Diversity", objStudyPlan.lbl_PoliticalScience_Chapter1.getText(), 
+					"Chapter 'Aspects and Influence of Diversity' label is present on 'Political Science' book's page", 
+					"Chapter 'Aspects and Influence of Diversity' label is NOT present on 'Political Science' book's page");
+			objStudyPlan.lbl_PoliticalScience_Chapter1.click();
+			Thread.sleep(2000);
+			Validate_Required_Label_Text("Begin Revision", objStudyPlan.lbl_PoliticalScience_Chapter1_beginRevision.getText(), 
+					"Label 'Begin Revision' is present under chapter label 'Aspects and Influence of Diversity' on 'Political Science' book's page", 
+					"Label 'Begin Revision' is NOT present under chapter label 'Aspects and Influence of Diversity' on 'Political Science' book's page");
+			objStudyPlan.lbl_PoliticalScience_Chapter1_beginRevision.click();
+			Thread.sleep(3000);
+			Validate_Required_Label_Text("WHAT YOU WILL REVISE", objStudyPlan.lbl_PoliticalScience_Chapter1_whatWillYouRevise.getText(), 
+					"Label 'WHAT YOU WILL REVISE' is present on Revise page", "Label 'WHAT YOU WILL REVISE' is NOT present on Revise page");
+			Validate_Required_Label_Text("Begin Revision", objStudyPlan.btn_PoliticalScience_Chapter1_RevisionPg_BeginRevise.getText(), 
+					"Button 'Begin Revision' is present on Revise page", "Button 'Begin Revision' is NOT present on Revise page");
+			objStudyPlan.btn_PoliticalScience_Chapter1_RevisionPg_BeginRevise.click();
+			Thread.sleep(3000);
+			Validate_Required_Label_Text("Overview", objStudyPlan.lbl_PoliticalScience_Chapter1_OverviewPg_Overview.getText(), 
+					"Label 'Overview' is present on Overview page", "Label 'Overview' is NOT present on Overview page");
+			objStudyPlan.img_OverviewPg_screen.click();
+			String totalVedioTime=objStudyPlan.img_OverviewPg_screen_time.getText();
+			int totalWaitingMins=Integer.parseInt(totalVedioTime.split(":")[0]);
+			int totalWaitingSecs=Integer.parseInt(totalVedioTime.split(":")[1]);
+			int minSecs=(totalWaitingMins)*60;
+			int totalWait=(minSecs+totalWaitingSecs+5)*1000;
+			System.out.println("Waiting for Video to complete. Waiting for '"+(totalWait)/1000+"' seconds");
+			int wait=0; 
+			try {
+			while(wait<totalWait)
+			{
+				Thread.sleep(5000);
+				objStudyPlan.img_OverviewPg_screen.click();
+				wait=wait+5000;
+			}
+			}
+			catch (Exception e) {}
+			System.out.println("Waited till '"+(totalWait)/1000+"' seconds");
+		}
+		public void Validate_Quize_Page() throws Exception
+		{
+			Validate_Required_Label_Text("What are the aspects of diversity?", objStudyPlan.btn_quize_pg_header.getText(), 
+					"Header 'What are the aspects of diversity?' is present on Quize page", 
+					"Header 'What are the aspects of diversity?' is NOT present on Quize page");
+			Validate_Required_Label_Text("WHAT DO YOU THINK?", objStudyPlan.lbl_qaizepg_whatDoYouThink.getText(), 
+					"Label 'WHAT DO YOU THINK?' is present on Quize page", 
+					"Label 'WHAT DO YOU THINK?' is NOT present on Quize page");
+			Validate_Required_Label_Text("CONTINUE", objStudyPlan.btn_quize_pg_continue.getText(), 
+					"Button 'CONTINUE' is present on Quize page", 
+					"Button 'CONTINUE' is NOT present on Quize page");
+		}
+		
+		public void Validate_Quize_Page_Questions_Format() throws Exception
+		{
+			Validate_Quize_Page_Single_Select_Question();
+			objStudyPlan.btn_quize_pg_continue.click();
+			Thread.sleep(3000);
+			Validate_Quize_Page_Multi_Select_Question();
+			objStudyPlan.btn_quize_pg_continue.click();
+			Thread.sleep(3000);
+			Validate_Quize_Page_Single_Select_Question_Radio_Btn();
+		}
+		
+		public boolean Validate_Quize_Page_Single_Select_Question_Radio_Btn()throws Exception
+		{
+			boolean flag_radioSelect=false, flag_radio1=false,flag_radio2=false;
+			String parentXpath_Text="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[3]";
+			String xpathOpt1=parentXpath_Text+"/android.view.View[2]/android.view.View/android.view.View[2]/android.view.View",
+				xpathOpt2=parentXpath_Text+"/android.view.View[3]/android.view.View/android.view.View[2]/android.view.View",
+				xpathOpt3=parentXpath_Text+"/android.view.View[4]/android.view.View/android.view.View[2]/android.view.View";
+			try {
+				System.out.println("Select options are:");
+				System.out.println(getDriver().findElement(By.xpath(xpathOpt1)).getText());
+				System.out.println(getDriver().findElement(By.xpath(xpathOpt2)).getText());
+				System.out.println(getDriver().findElement(By.xpath(xpathOpt3)).getText());
+			}
+			catch (Exception e) {
+				System.out.println("NOT able to fetch the Single Select (Radio Button) options.");
+				System.out.println("Exception is: "+e.getMessage());
+			}
+			
+			String parentXpath_radio="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[3]";
+			String radioXpath1="";
+			System.out.println("Question is: "+objStudyPlan.lbl_quize_pg_q1.getText());
+			try {
+				radioXpath1 = parentXpath_radio+"/android.view.View[2]/android.view.View/android.view.View[3]";
+				
+				getDriver().findElement(By.xpath(radioXpath1)).click();
+				flag_radio1=true;
+				Thread.sleep(1000);
+				System.out.println("This question is of Type Single Select (Radio Button).");
+				if(flag_radio1)
+				{
+					System.out.println("User is able to select Radio Button");
+				}
+				else
+				{
+					System.out.println("User is NOT able to select Radio Button");
+				}
+				flag_radioSelect=true;
+			}
+			catch (Exception e) {
+				System.out.println("Got the Exception while performaing operation in Single Select (Redio Button) Question: "+e.getMessage());
+			}
+		return flag_radioSelect;
+		}
+			
+		public boolean Validate_Quize_Page_Multi_Select_Question()throws Exception
+		{
+			boolean flag_multiSelect=false, flag_chk1=false, flag_chk2=false;
+			String parentXpath_Text="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[3]/android.view.View[2]";
+			String xpathOpt1=parentXpath_Text+"/android.view.View[1]/android.view.View/android.view.View[2]/android.view.View",
+				xpathOpt2=parentXpath_Text+"/android.view.View[2]/android.view.View/android.view.View[2]/android.view.View",
+				xpathOpt3=parentXpath_Text+"/android.view.View[3]/android.view.View/android.view.View[2]/android.view.View",
+				xpathOpt4=parentXpath_Text+"/android.view.View[4]/android.view.View/android.view.View[2]/android.view.View";
+			
+			try {
+				System.out.println("Select options are:");
+				System.out.println(getDriver().findElement(By.xpath(xpathOpt1)).getText());
+				System.out.println(getDriver().findElement(By.xpath(xpathOpt2)).getText());
+				System.out.println(getDriver().findElement(By.xpath(xpathOpt3)).getText());
+				System.out.println(getDriver().findElement(By.xpath(xpathOpt4)).getText());
+			}
+			catch (Exception e) {
+				System.out.println("NOT able to fetch the Single Select (Radio Button) options.");
+				System.out.println("Exception is: "+e.getMessage());
+			}
+			
+			String parentXpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[3]";
+			String chktXpath1="", chktXpath2="", chkXpath_aterChk1="";
+			System.out.println("Question is: "+objStudyPlan.lbl_quize_pg_q1.getText());
+			try {
+				chktXpath1 = parentXpath+"/android.view.View[2]/android.view.View[1]/android.widget.CheckBox";
+				chktXpath2 = parentXpath+"/android.view.View/android.view.View[2]/android.widget.CheckBox";
+				
+				getDriver().findElement(By.xpath(chktXpath1)).click();
+				flag_chk1=true;
+				Thread.sleep(1000);
+				getDriver().findElement(By.xpath(chktXpath2)).click();
+				flag_chk2=true;
+				Thread.sleep(1000);
+				System.out.println("This question is of Type Multiple Select.");
+				if(flag_chk1 & flag_chk2)
+				{
+					System.out.println("User is able to select Multiple Check Boxes");
+				}
+				else
+				{
+					System.out.println("User is NOT able to select Multiple Check Boxes");
+				}
+				flag_multiSelect=true;
+			}
+			catch (Exception e) {
+				System.out.println("Got the Exception while performaing operation in Multi Select Question: "+e.getMessage());
+			}
+		return flag_multiSelect;
+		}
+		
+		public boolean Validate_Quize_Page_Single_Select_Question() throws Exception
+		{
+			boolean flag_singleSelect=false;
+			String parentXpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[3]";
+			String singleSelectXpath1="", singleSelectXpath2="", singleSelectXpath3="";
+			System.out.println("Question is: "+objStudyPlan.lbl_quize_pg_q1.getText());
+			objStudyPlan.btn_quize_pg_q1_checkAns.click();
+			Thread.sleep(2000);
+			try {
+				singleSelectXpath1 = parentXpath+"/android.view.View[3]/android.widget.Button";
+				singleSelectXpath2 = parentXpath+"/android.view.View[4]/android.widget.Button";
+				singleSelectXpath3 = parentXpath+"/android.view.View[5]/android.widget.Button";
+				WebElement btn1 = getDriver().findElement(By.xpath(singleSelectXpath1));
+				btn1.click();
+				Thread.sleep(1000);
+				System.out.println("User is able to click on Button '"+btn1.getText()+"'");
+				WebElement btn2 = getDriver().findElement(By.xpath(singleSelectXpath2));
+				btn2.click();
+				Thread.sleep(1000);
+				System.out.println("User is able to click on Button '"+btn2.getText()+"'");
+				WebElement btn3 = getDriver().findElement(By.xpath(singleSelectXpath3));
+				btn3.click();
+				Thread.sleep(1000);
+				System.out.println("User is able to click on Button '"+btn3.getText()+"'");
+				flag_singleSelect=true;
+			}
+			catch (Exception e) {
+				System.out.println("Got the Exception while performaing operation in Single Select Question: "+e.getMessage());
+			}
+		return flag_singleSelect;
+		}
+		
+		public void Validate_Quize_Page_Questions_Format_InstantFeedback() throws Exception
+		{
+			Validate_Quize_Page_Questions_Format_InstantFeedback_Single_Select();
+			objStudyPlan.btn_quize_pg_continue.click();
+			Thread.sleep(3000);
+			Validate_Quize_Page_Questions_Format_InstantFeedback_Multi_Select();
+			objStudyPlan.btn_quize_pg_continue.click();
+			Thread.sleep(3000);
+			Validate_Quize_Page_Questions_Format_InstantFeedback_Single_Select_Radio_Button();
+			
+			
+		}
+
+		public void Validate_Quize_Page_Questions_Format_InstantFeedback_Single_Select() throws Exception
+		{
+			Validate_Quize_Page_Single_Select_Question();
+			String strQuestion=objStudyPlan.lbl_quize_pg_q1.getText();
+			System.out.println("Question is: "+strQuestion);
+			WebElement ele1=null;
+			try {
+			ele1 = objStudyPlan.btn_selected_Text_singleSelect;
+			System.out.println("The Instant Feedback is given for selected option '"+ele1.getText()+"' for question '"+strQuestion+"'.");
+			}
+			catch (Exception e) {
+				System.out.println("NOT able to fetch the Instant Feedback for selected option for question '"+strQuestion+"'.");
+			}
+			Thread.sleep(1000);
+		}
+
+		public void Validate_Quize_Page_Questions_Format_InstantFeedback_Multi_Select() throws Exception
+		{
+			Validate_Quize_Page_Multi_Select_Question();
+			String strQuestion=objStudyPlan.lbl_quize_pg_q1.getText();
+			System.out.println("Question is: "+strQuestion);
+			String eleXpath1="//android.view.View[3]/android.view.View/android.view.View[1]/android.widget.CheckBox[@checked='true']";
+			String eleXpath2="//android.view.View[3]/android.view.View/android.view.View[2]/android.widget.CheckBox[@checked='true']";
+			
+			try {
+				getDriver().findElement(By.xpath(eleXpath1));
+				getDriver().findElement(By.xpath(eleXpath2));
+				String strop1=objStudyPlan.chk_selected_Text_multiSelect1.getText();
+				String strop2=objStudyPlan.chk_selected_Text_multiSelect2.getText();
+				
+			System.out.println("The Instant Feedback is given for selected option '"+strop1+"' for question '"+strQuestion+"'.");
+			System.out.println("The Instant Feedback is given for selected option '"+strop2+"' for question '"+strQuestion+"'.");
+			}
+			catch (Exception e) {
+				System.out.println("NOT able to fetch the Instant Feedback for selected option for question '"+strQuestion+"'.");
+			}
+			Thread.sleep(1000);
+		}
+		
+		public void Validate_Quize_Page_Questions_Format_InstantFeedback_Single_Select_Radio_Button() throws Exception
+		{
+			Validate_Quize_Page_Single_Select_Question_Radio_Btn();
+			String strQuestion=objStudyPlan.lbl_quize_pg_q1.getText();
+			System.out.println("Question is: "+strQuestion);
+			String eleXpath1="//android.view.View/android.widget.CheckBox[@checked='true']";
+			
+			try {
+				getDriver().findElement(By.xpath(eleXpath1));
+				String strop1=objStudyPlan.radio_selected_Text_singleSelect.getText();
+				System.out.println("The Instant Feedback is given for selected option '"+strop1+"' for question '"+strQuestion+"'.");
+			}
+			catch (Exception e) {
+				System.out.println("NOT able to fetch the Instant Feedback for selected option for question '"+strQuestion+"'.");
+			}
+			Thread.sleep(1000);
+	}
+		
+		
+		
+		
 }
-
-
 
 
 

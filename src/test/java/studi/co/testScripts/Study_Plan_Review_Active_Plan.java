@@ -1,10 +1,8 @@
 package studi.co.testScripts;
 
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import studi.co.Base.BaseClass;
-import studi.co.pageModules.Module_Create_Study_Plan;
 import studi.co.pageModules.Module_Study_Plan_Review_Active_Plan;
 
 public class Study_Plan_Review_Active_Plan extends BaseClass{
@@ -14,7 +12,7 @@ public class Study_Plan_Review_Active_Plan extends BaseClass{
 		super();
 	}
 	
-	@Test(description="To Verify user should be able to navigate to review plan", priority=1, threadPoolSize=1, enabled=false)
+	@Test(description="AFS-1046: TC-1: To Verify user should be able to navigate to review plan", priority=1, threadPoolSize=1, enabled=false)
 	public void Verify_user_should_be_able_to_navigate_to_review_plan() throws Exception 
 	{
 		Module_Study_Plan_Review_Active_Plan activePlan = new Module_Study_Plan_Review_Active_Plan();
@@ -120,7 +118,7 @@ public class Study_Plan_Review_Active_Plan extends BaseClass{
 		activePlan.Verify_Tapping_And_Navigation_To_Chapter_MyBody_Check_Notes(4);
 	}
 	
-	@Test(description="AFS-127: TC-22: To Verify user should be able to navigate to  the StrikedOut Topics", priority=8, threadPoolSize=1, enabled=true)
+	@Test(description="AFS-127: TC-22: To Verify user should be able to navigate to  the StrikedOut Topics", priority=8, threadPoolSize=1, enabled=false)
 	public void Verify_user_should_be_able_to_navigate_to_the_StrikedOut_Topics() throws Exception 
 	{
 		Module_Study_Plan_Review_Active_Plan activePlan = new Module_Study_Plan_Review_Active_Plan();
@@ -129,6 +127,51 @@ public class Study_Plan_Review_Active_Plan extends BaseClass{
 		activePlan.Navigate_To_Book1();
 		activePlan.Verify_Highlight_Pop_Up();
 	}
+	
+	//For Test Cases- AFS-76: TC-5,6,7, etc. Credential Used: qaapp6
+	@Test(description="AFS-76: TC-5: To Verify a student should be able to select multiple answer options to attempt MCQ question  in Revision Module", priority=9, threadPoolSize=1, enabled=false)
+	public void Verify_student_should_be_able_to_select_multiple_answer_options_to_attempt_MCQ_question_in_Revision_Module() throws Exception 
+	{
+		Module_Study_Plan_Review_Active_Plan activePlan = new Module_Study_Plan_Review_Active_Plan();
+		activePlan.Navigate_To_First_Book_Political_Science();
+		activePlan.Navigate_To_First_Chapter_Political_Science_Quize_Page();
+		activePlan.Validate_Quize_Page();
+		activePlan.Validate_Quize_Page_Questions_Format();
+	}
+
+	@Test(description="AFS-76: TC-6: To Verify a student should be getting Instand feedback on attempting MCQ question in Revision Module", priority=10, threadPoolSize=1, enabled=false)
+	public void Verify_student_should_be_getting_Instant_feedback_on_attempting_MCQ_question_in_Revision_Module() throws Exception 
+	{
+		Module_Study_Plan_Review_Active_Plan activePlan = new Module_Study_Plan_Review_Active_Plan();
+		activePlan.Navigate_To_First_Book_Political_Science();
+		activePlan.Navigate_To_First_Chapter_Political_Science_Quize_Page();
+		activePlan.Validate_Quize_Page();
+		activePlan.Validate_Quize_Page_Questions_Format_InstantFeedback();
+	}
+
+	@Test(description="AFS-76: TC-7: To Verify attempt state of MCQ question in Revision Module " + 
+			"should be maintained while taking Quiz from Revision", priority=11, threadPoolSize=1, enabled=true)
+	public void Verify_attempt_state_of_MCQ_question_in_Revision_Module() throws Exception 
+	{
+		Module_Study_Plan_Review_Active_Plan activePlan = new Module_Study_Plan_Review_Active_Plan();
+		activePlan.Navigate_To_First_Book_Political_Science();
+		activePlan.Navigate_To_First_Chapter_Political_Science_Quize_Page();
+		activePlan.Validate_Quize_Page();
+		activePlan.Validate_Quize_Page_Questions_Format_InstantFeedback();
+		//Feature NOT delivered Maintaining Attempt to answer
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
