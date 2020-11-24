@@ -211,12 +211,24 @@ public class Object_Study_Plan_Review_Active_Plan extends BaseClass{
 	@FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.TextView[1]")
 	public WebElement lbl_PoliticalScience_Chapter1_beginRevision;
 	
+	@FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.widget.TextView[1]")
+	public WebElement lbl_PoliticalScience_Chapter1_beginPractice;
+	
 	@FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView")
 	public WebElement lbl_PoliticalScience_Chapter1_whatWillYouRevise;
+	
+	@FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView")
+	public WebElement lbl_PoliticalScience_Chapter1_yourConfidenceReport;
 	
 	@FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView[1]")
 	public WebElement btn_PoliticalScience_Chapter1_RevisionPg_BeginRevise;
 	
+	@FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView[1]")
+	public WebElement btn_PoliticalScience_Chapter1_PracticePg_BeginPractice;
+	
+	@FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView[2]")
+	public WebElement btn_PoliticalScience_Chapter1_RevisionPg_NotRightNow;
+		
 	@FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.widget.TextView")
 	public WebElement lbl_PoliticalScience_Chapter1_OverviewPg_Overview;
 	
@@ -252,11 +264,54 @@ public class Object_Study_Plan_Review_Active_Plan extends BaseClass{
 	
 	@FindBy(xpath = "//android.view.View[2]/android.widget.CheckBox[@checked='true'][1]/parent::android.view.View/android.view.View[1]/android.view.View[2]/android.view.View")
 	public WebElement chk_selected_Text_multiSelect2;
-
+	
+	@FindBy(xpath = "//android.view.View[3]/android.widget.CheckBox[@checked='true'][1]/parent::android.view.View/android.view.View[1]/android.view.View[2]/android.view.View")
+	public WebElement chk_selected_Text_multiSelect3;
+	
+	@FindBy(xpath = "//android.view.View[4]/android.widget.CheckBox[@checked='true'][1]/parent::android.view.View/android.view.View[1]/android.view.View[2]/android.view.View")
+	public WebElement chk_selected_Text_multiSelect4;
+	
 	@FindBy(xpath = "//android.view.View/android.widget.CheckBox[@checked='true']/parent::android.view.View/android.view.View[1]/android.view.View[2]/android.view.View")
 	public WebElement radio_selected_Text_singleSelect;
 	
+	@FindBy(xpath = "//android.view.View/android.view.View[3]/android.view.View[1]/android.widget.CheckBox[@checked='true']/parent::android.view.View/android.view.View[1]/android.view.View[2]/android.view.View")
+	public WebElement radio_selected_Text_singleSelect_1;
 	
+	@FindBy(xpath = "//android.view.View/android.view.View[3]/android.view.View[2]/android.widget.CheckBox[@checked='true']/parent::android.view.View/android.view.View[1]/android.view.View[2]/android.view.View")
+	public WebElement radio_selected_Text_singleSelect_2;
+
+	@FindBy(xpath = "//android.view.View/android.view.View[3]/android.view.View[3]/android.widget.CheckBox[@checked='true']/parent::android.view.View/android.view.View[1]/android.view.View[2]/android.view.View")
+	public WebElement radio_selected_Text_singleSelect_3;
+	
+	@FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.widget.TextView[1]")
+	public WebElement lbl_Practice_Quize_QNos;
+
+	@FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View[1]/android.view.View")
+	public WebElement lbl_Practice_Quize_Q_selectInstruction;
+	
+	@FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View/android.view.View")
+	public WebElement lbl_Practice_Quize_Question;
+	
+	@FindBy(xpath = "//android.widget.CheckBox[@resource-id='0']/parent::android.view.View/android.view.View[1]/android.view.View[2]/android.view.View")
+	public WebElement lbl_Practice_Quize_Q_opt1;
+	
+	@FindBy(xpath = "//android.widget.CheckBox[@resource-id='1']/parent::android.view.View/android.view.View[1]/android.view.View[2]/android.view.View")
+	public WebElement lbl_Practice_Quize_Q_opt2;
+	
+	@FindBy(xpath = "//android.widget.CheckBox[@resource-id='2']/parent::android.view.View/android.view.View[1]/android.view.View[2]/android.view.View")
+	public WebElement lbl_Practice_Quize_Q_opt3;
+	
+	@FindBy(xpath = "//android.widget.CheckBox[@resource-id='3']/parent::android.view.View/android.view.View[1]/android.view.View[2]/android.view.View")
+	public WebElement lbl_Practice_Quize_Q_opt4;
+	
+	@FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.widget.TextView[3]")
+	public WebElement lbl_Practice_Qauize_IwillAttemptLater;
+
+	@FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.widget.TextView[2]")
+	public WebElement lbl_Practice_Quize_Continue;
+
+	@FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.widget.TextView[2][@enabled='true']")
+	public WebElement btn_Practice_Quize_CheckAnswer;
 	
 	
 	public Object_Study_Plan_Review_Active_Plan() {

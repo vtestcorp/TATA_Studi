@@ -9,20 +9,16 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.tools.ant.taskdefs.Sleep;
-import org.assertj.core.util.FailureMessages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import studi.co.Base.BaseClass;
 import studi.co.pageObjects.Object_Study_Plan_Review_Active_Plan;
@@ -447,13 +443,11 @@ public class Module_Study_Plan_Review_Active_Plan extends BaseClass {
 
 		}
 		
-		
 		public void Verify_Status_Of_Chapter(String chapterName, WebElement ele1, WebElement ele2, WebElement ele3) throws Exception
 		{
 			Thread.sleep(3000);
 			Verify_Various_Status_Of_Each_Chapter(chapterName, ele1, ele2, ele3);
 		}
-		
 		
 		public void Navigate_To_Begin_Practice(List<WebElement> lst_ele, String chapterName) throws Exception
 		{
@@ -836,8 +830,6 @@ public class Module_Study_Plan_Review_Active_Plan extends BaseClass {
 			objStudyPlan.btn_quize_pg_continue.click();
 			Thread.sleep(3000);
 			Validate_Quize_Page_Questions_Format_InstantFeedback_Single_Select_Radio_Button();
-			
-			
 		}
 
 		public void Validate_Quize_Page_Questions_Format_InstantFeedback_Single_Select() throws Exception
@@ -895,10 +887,504 @@ public class Module_Study_Plan_Review_Active_Plan extends BaseClass {
 				System.out.println("NOT able to fetch the Instant Feedback for selected option for question '"+strQuestion+"'.");
 			}
 			Thread.sleep(1000);
-	}
+		}
 		
 		
+		public void Validate_Quize_Page_Questions_By_Default_Selected_Answer() throws Exception
+		{
+			Validate_Quize_Page_Questions_By_Default_Selected_Answer_Single_Select();
+			objStudyPlan.btn_quize_pg_continue.click();
+			Thread.sleep(3000);
+			Validate_Quize_Page_Questions_By_Default_Selected_Answer_Multi_Select();
+			objStudyPlan.btn_quize_pg_continue.click();
+			Thread.sleep(3000);
+			Validate_Quize_Page_Questions_By_Default_Selected_Answer_Single_Select_Radio_Button();
+		}
 		
+		
+		public void Validate_Quize_Page_Questions_By_Default_Selected_Answer_Single_Select() throws Exception
+		{
+			String parentXpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[3]";
+			String singleSelectXpath1="", singleSelectXpath2="", singleSelectXpath3="";
+			String strQuestion = objStudyPlan.lbl_quize_pg_q1.getText();
+			System.out.println("Question is: "+strQuestion);
+			objStudyPlan.btn_quize_pg_q1_checkAns.click();
+			Thread.sleep(2000);
+			try {
+				singleSelectXpath1 = parentXpath+"/android.view.View[3]/android.widget.Button";
+				singleSelectXpath2 = parentXpath+"/android.view.View[4]/android.widget.Button";
+				singleSelectXpath3 = parentXpath+"/android.view.View[5]/android.widget.Button";
+				System.out.println("Options are: ");
+				System.out.println(getDriver().findElement(By.xpath(singleSelectXpath1)).getText());
+				System.out.println(getDriver().findElement(By.xpath(singleSelectXpath2)).getText());
+				System.out.println(getDriver().findElement(By.xpath(singleSelectXpath3)).getText());
+			}
+			catch (Exception e) {
+				System.out.println("NOT able to fetch the Options label (present on Buttons). Exception is: "+e.getMessage());
+			}
+			WebElement ele1=null;
+			try {
+			ele1 = objStudyPlan.btn_selected_Text_singleSelect;
+			System.out.println("By Default the option/ answer is selected as '"+ele1.getText()+"' for question '"+strQuestion+"'.");
+			}
+			catch (Exception e) {
+				System.out.println("By Default the option/ answer is NOT selected for question '"+strQuestion+"'.");
+			}
+			Thread.sleep(1000);
+		}
+		
+		public void Validate_Quize_Page_Questions_By_Default_Selected_Answer_Multi_Select() throws Exception
+		{
+			String strQuestion = objStudyPlan.lbl_quize_pg_q1.getText();
+			System.out.println("Question is: "+strQuestion);
+			String parentXpath_Text="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[3]/android.view.View[2]";
+			String xpathOpt1=parentXpath_Text+"/android.view.View[1]/android.view.View/android.view.View[2]/android.view.View",
+				xpathOpt2=parentXpath_Text+"/android.view.View[2]/android.view.View/android.view.View[2]/android.view.View",
+				xpathOpt3=parentXpath_Text+"/android.view.View[3]/android.view.View/android.view.View[2]/android.view.View",
+				xpathOpt4=parentXpath_Text+"/android.view.View[4]/android.view.View/android.view.View[2]/android.view.View";
+			try {
+				System.out.println("Multi Select (Using Check Box) options are:");
+				System.out.println(getDriver().findElement(By.xpath(xpathOpt1)).getText());
+				System.out.println(getDriver().findElement(By.xpath(xpathOpt2)).getText());
+				System.out.println(getDriver().findElement(By.xpath(xpathOpt3)).getText());
+				System.out.println(getDriver().findElement(By.xpath(xpathOpt4)).getText());
+			}
+			catch (Exception e) {
+				System.out.println("NOT able to fetch the Multi Select (Check Boxes) options.");
+				System.out.println("Exception is: "+e.getMessage());
+			}
+			String eleXpath1="//android.view.View[3]/android.view.View/android.view.View[1]/android.widget.CheckBox[@checked='true']",
+					eleXpath2="//android.view.View[3]/android.view.View/android.view.View[2]/android.widget.CheckBox[@checked='true']",
+					eleXpath3="//android.view.View[3]/android.view.View/android.view.View[3]/android.widget.CheckBox[@checked='true']",
+					eleXpath4="//android.view.View[3]/android.view.View/android.view.View[4]/android.widget.CheckBox[@checked='true']";
+			try {
+				getDriver().findElement(By.xpath(eleXpath1));
+				System.out.println("By Default the option/ answer is selected as '"+objStudyPlan.chk_selected_Text_multiSelect1.getText()+
+						"' for question '"+strQuestion+"'.");
+			}
+			catch (Exception e) {
+				System.out.println("By Default the option/ answer is NOT selected for question '"+strQuestion+"'.");
+			}
+			try {
+				getDriver().findElement(By.xpath(eleXpath2));
+				System.out.println("By Default the option/ answer is selected as '"+objStudyPlan.chk_selected_Text_multiSelect2.getText()+
+						"' for question '"+strQuestion+"'.");
+			}
+			catch (Exception e) {
+				System.out.println("By Default the option/ answer is NOT selected for question '"+strQuestion+"'.");
+			}
+			try {
+				getDriver().findElement(By.xpath(eleXpath3));
+				System.out.println("By Default the option/ answer is selected as '"+objStudyPlan.chk_selected_Text_multiSelect3.getText()+
+						"' for question '"+strQuestion+"'.");
+			}
+			catch (Exception e) {
+				System.out.println("By Default the option/ answer is NOT selected for question '"+strQuestion+"'.");
+			}
+			try {
+				getDriver().findElement(By.xpath(eleXpath4));
+				System.out.println("By Default the option/ answer is selected as '"+objStudyPlan.chk_selected_Text_multiSelect4.getText()+
+						"' for question '"+strQuestion+"'.");
+			}
+			catch (Exception e) {
+				System.out.println("By Default the option/ answer is NOT selected for question '"+strQuestion+"'.");
+			}
+			Thread.sleep(1000);
+		}
+		
+		public void Validate_Quize_Page_Questions_By_Default_Selected_Answer_Single_Select_Radio_Button() throws Exception
+		{
+			String strQuestion = objStudyPlan.lbl_quize_pg_q1.getText();
+			System.out.println("Question is: "+strQuestion);
+			String parentXpath_Text="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[3]";
+			String xpathOpt1=parentXpath_Text+"/android.view.View[2]/android.view.View/android.view.View[2]/android.view.View",
+				xpathOpt2=parentXpath_Text+"/android.view.View[3]/android.view.View/android.view.View[2]/android.view.View",
+				xpathOpt3=parentXpath_Text+"/android.view.View[4]/android.view.View/android.view.View[2]/android.view.View";
+			try {
+				System.out.println("Select options are:");
+				System.out.println(getDriver().findElement(By.xpath(xpathOpt1)).getText());
+				System.out.println(getDriver().findElement(By.xpath(xpathOpt2)).getText());
+				System.out.println(getDriver().findElement(By.xpath(xpathOpt3)).getText());
+			}
+			catch (Exception e) {
+				System.out.println("NOT able to fetch the Single Select (Radio Button) options.");
+				System.out.println("Exception is: "+e.getMessage());
+			}
+			String eleXpath1="//android.view.View/android.view.View[3]/android.view.View[1]/android.widget.CheckBox[@checked='true']",
+					eleXpath2="//android.view.View/android.view.View[3]/android.view.View[2]/android.widget.CheckBox[@checked='true']",
+					eleXpath3="//android.view.View/android.view.View[3]/android.view.View[3]/android.widget.CheckBox[@checked='true']";
+			try {
+				getDriver().findElement(By.xpath(eleXpath1));
+				System.out.println("By Default the option/ answer is selected as '"+objStudyPlan.radio_selected_Text_singleSelect_1.getText()+
+						"' for question '"+strQuestion+"'.");
+			}
+			catch (Exception e) {
+				System.out.println("By Default the option/ answer is NOT selected for question '"+strQuestion+"'.");
+			}
+			try {
+				getDriver().findElement(By.xpath(eleXpath2));
+				System.out.println("By Default the option/ answer is selected as '"+objStudyPlan.radio_selected_Text_singleSelect_2.getText()+
+						"' for question '"+strQuestion+"'.");
+			}
+			catch (Exception e) {
+				System.out.println("By Default the option/ answer is NOT selected for question '"+strQuestion+"'.");
+			}
+			try {
+				getDriver().findElement(By.xpath(eleXpath3));
+				System.out.println("By Default the option/ answer is selected as '"+objStudyPlan.radio_selected_Text_singleSelect_3.getText()+
+						"' for question '"+strQuestion+"'.");
+			}
+			catch (Exception e) {
+				System.out.println("By Default the option/ answer is NOT selected for question '"+strQuestion+"'.");
+			}
+			Thread.sleep(1000);
+		}
+		
+		public void Validate_Quize_Page_Questions_Are_Not_Mandatory_To_Answer() throws Exception
+		{
+			Validate_Quize_Page_Questions_By_Default_Selected_Answer_Single_Select();
+			System.out.println("Performing click on button 'CONTINUE' for proceeding to next question.");
+			objStudyPlan.btn_quize_pg_continue.click();
+			Thread.sleep(3000);
+			System.out.println("User is able to move to NEXT question without answering current question");
+			Validate_Quize_Page_Questions_By_Default_Selected_Answer_Multi_Select();
+			System.out.println("Performing click on button 'CONTINUE' for proceeding to next question.");
+			objStudyPlan.btn_quize_pg_continue.click();
+			Thread.sleep(3000);
+			System.out.println("User is able to move to NEXT question without answering current question");
+			Validate_Quize_Page_Questions_By_Default_Selected_Answer_Single_Select_Radio_Button();
+		}
+
+		public void Navigate_To_First_Chapter_Political_Science_Practice_Module_Page()throws Exception
+		{
+			Thread.sleep(3000);
+			Validate_Required_Label_Text("Aspects and Influence of Diversity", objStudyPlan.lbl_PoliticalScience_Chapter1.getText(), 
+					"Chapter 'Aspects and Influence of Diversity' label is present on 'Political Science' book's page", 
+					"Chapter 'Aspects and Influence of Diversity' label is NOT present on 'Political Science' book's page");
+			objStudyPlan.lbl_PoliticalScience_Chapter1.click();
+			Thread.sleep(2000);
+			Validate_Required_Label_Text("Begin Practice", objStudyPlan.lbl_PoliticalScience_Chapter1_beginPractice.getText(), 
+					"Label 'Begin Practice' is present under chapter label 'Aspects and Influence of Diversity' on 'Political Science' book's page", 
+					"Label 'Begin Practice' is NOT present under chapter label 'Aspects and Influence of Diversity' on 'Political Science' book's page");
+			objStudyPlan.lbl_PoliticalScience_Chapter1_beginPractice.click();
+			Thread.sleep(3000);
+			Validate_Required_Label_Text("Your Confidence Report", objStudyPlan.lbl_PoliticalScience_Chapter1_yourConfidenceReport.getText(), 
+					"Label 'Your Confidence Report' is present on Practice page", "Label 'Your Confidence Report' is NOT present on Practice page");
+			Validate_Required_Label_Text("Begin Practice", objStudyPlan.btn_PoliticalScience_Chapter1_PracticePg_BeginPractice.getText(), 
+					"Button 'Begin Practice' is present on Practice page", "Button 'Begin Practice' is NOT present on Practice page");
+			Validate_Required_Label_Text("Not right now", objStudyPlan.btn_PoliticalScience_Chapter1_RevisionPg_NotRightNow.getText(), 
+					"Label 'Not right now' is present on Practice page", "Label 'Not right now' is NOT present on Practice page");
+			Navigate_To_Quize_page();
+		}
+		
+		public void Navigate_To_Quize_page()throws Exception
+		{
+			int counter=0;
+			while(counter<5)
+			{
+				try {
+					counter++;
+					objStudyPlan.btn_PoliticalScience_Chapter1_PracticePg_BeginPractice.click();
+					Thread.sleep(5000);
+					objStudyPlan.lbl_Practice_Quize_QNos.getText();
+					System.out.println("User is navigated to 'Practice Quize' page");
+					break;
+				} catch (Exception e) {
+					System.out.println("User is NOT navigated to 'Practice Quize' page");
+				}
+			}
+		}
+		
+		public void Validate_Quize_Questions() throws Exception
+		{
+			String questionsCount= objStudyPlan.lbl_Practice_Quize_QNos.getText().split(" ")[2];
+			int length= Integer.parseInt(questionsCount);
+			String question="";
+			int counter=1;
+			boolean flagOpt1=false, flagOpt2=false, multipleOptionSelectQuestion=false;
+			for(int i=0;i<length;i++)
+			{
+				question=objStudyPlan.lbl_Practice_Quize_Question.getText();
+				System.out.println("Current question number is '"+counter+"' and question is: "+question);
+				Validate_Quize_Question_Select_Instruction();
+				System.out.println("Scrolling the Mobile Screen");
+				scrollDown_SecondTime(15);
+				Thread.sleep(2000);
+				Validate_Quize_Question_Get_Options(question);
+				Validate_Quize_Question_Click_Option(objStudyPlan.lbl_Practice_Quize_Q_opt1,
+						"User is able to select First Option",
+						"User is NOT able to select First Option");
+				Validate_Quize_Question_Click_Option(objStudyPlan.lbl_Practice_Quize_Q_opt2,
+						"User is able to select Second Option",
+						"User is NOT able to select Second Option");
+				flagOpt1 = Validate_Quize_Question_Selected_Option(objStudyPlan.lbl_Practice_Quize_Q_opt1.getText(), 0, 
+						"Option 1 is in selected Mode", "Option 1 is NOT in selected Mode");
+				flagOpt2 = Validate_Quize_Question_Selected_Option(objStudyPlan.lbl_Practice_Quize_Q_opt2.getText(), 1, 
+						"Option 2 is in selected Mode", "Option 2 is NOT in selected Mode");
+				if(flagOpt1 & flagOpt2)
+				{
+					multipleOptionSelectQuestion=true;
+					break;
+				}
+				else
+				{
+					objStudyPlan.lbl_Practice_Qauize_IwillAttemptLater.click();
+					Thread.sleep(2000);
+				}
+				counter++;
+			}
+			if(multipleOptionSelectQuestion)
+			{
+				System.out.println("'Multiple Option Select' question is present in 'Practice Quize'.");
+				System.out.println("'Multiple Option Select' question was present in 'Practice Quize' at number '"+counter+"'.");
+			}
+			else
+			{
+				System.out.println("'Multiple Option Select' question is NOT present in 'Practice Quize'.");
+			}
+		}
+		
+		public boolean Validate_Quize_Question_Selected_Option(String optLabel, int id, String successMsg, String failureMsg)
+		{
+			boolean flag=false;
+			String xpath="//android.widget.CheckBox[@resource-id='"+id+"' and @checked='true']";
+			try {
+				getDriver().findElement(By.xpath(xpath));
+				System.out.println("The option/ answer is selected as '"+optLabel+"'.");
+				flag=true;
+			}
+			catch (Exception e) {
+				System.out.println("Option/ answer is NOT selected as '"+optLabel+"'.");
+			}
+			return flag;
+		}
+		
+		
+		public boolean Validate_Quize_Question_Click_Option(WebElement ele, String successMsg, String failureMsg)
+		{
+			boolean flag=false;
+			try {
+			ele.click();
+			System.out.println(successMsg);
+			flag=true;
+			}
+			catch (Exception e) {
+				System.out.println(failureMsg);
+			}
+			return flag;
+		}
+		
+		public void Validate_Quize_Question_Get_Options(String strQuestion)
+		{
+			int counter=0;
+			System.out.println("Avalable answer/ options are: ");
+			try {
+				System.out.println("First Option: "+objStudyPlan.lbl_Practice_Quize_Q_opt1.getText());
+				counter++;
+			} catch (Exception e) {
+				System.out.println("NOT able to fetch the 'First Option' label/ 'First Option' label is NOT present");
+			}
+			try {
+				System.out.println("Second Option: "+objStudyPlan.lbl_Practice_Quize_Q_opt2.getText());
+				counter++;
+			} catch (Exception e) {
+				System.out.println("NOT able to fetch the 'Second Option' label/ 'Second Option' label is NOT present");
+			}
+			try {
+				System.out.println("Third Option: "+objStudyPlan.lbl_Practice_Quize_Q_opt3.getText());
+				counter++;
+			} catch (Exception e) {
+				System.out.println("NOT able to fetch the 'Third Option' label/ 'Third Option' label is NOT present");
+			}
+			try {
+				System.out.println("Fourth Option: "+objStudyPlan.lbl_Practice_Quize_Q_opt4.getText());
+				counter++;
+			} catch (Exception e) {
+				System.out.println("NOT able to fetch the 'Fourth Option' label/ 'Fourth Option' label is NOT present");
+			}
+			if(counter>1)
+			{
+			System.out.println("The question '"+strQuestion+"' is of type MCQ");	
+			}
+			else
+			{
+				System.out.println("The question '"+strQuestion+"' is NOT of type MCQ");	
+			}
+			
+		}
+		
+		public void Validate_Quize_Question_Select_Instruction()
+		{
+			try {
+				String instruction= objStudyPlan.lbl_Practice_Quize_Q_selectInstruction.getText();
+				System.out.println("Instruction for selecting answer for question is given as: "+instruction);
+				
+			} catch (Exception e) {
+				System.out.println("Instruction for selecting answer for question is NOT given");
+			}
+		}
+		
+		public void Validate_Quize_Questions_Feedback_After_Answer() throws Exception
+		{
+			String questionsCount= objStudyPlan.lbl_Practice_Quize_QNos.getText().split(" ")[2];
+			int length= Integer.parseInt(questionsCount);
+			String question="";
+			int counter=1;
+			boolean flagOpt1=false;
+			for(int i=0;i<length;i++)
+			{
+				question=objStudyPlan.lbl_Practice_Quize_Question.getText();
+				System.out.println("Current question number is '"+counter+"' and question is: "+question);
+				Validate_Quize_Question_Select_Instruction();
+				System.out.println("Scrolling the Mobile Screen");
+				scrollDown_SecondTime(15);
+				Thread.sleep(2000);
+				Validate_Quize_Question_Get_Options(question);
+				Validate_Button_Check_Answer_Enabled();
+				Validate_Quize_Question_Click_Option(objStudyPlan.lbl_Practice_Quize_Q_opt1,
+						"User is able to select First Option",
+						"User is NOT able to select First Option");
+				Validate_Button_Check_Answer_Enabled();
+				String strText=objStudyPlan.btn_Practice_Quize_CheckAnswer.getText();
+				if(strText.equalsIgnoreCase("CHECK ANSWER"))
+				{
+				objStudyPlan.btn_Practice_Quize_CheckAnswer.click();
+				}
+				String strOpt1=objStudyPlan.lbl_Practice_Quize_Q_opt1.getText();
+				flagOpt1 = Validate_Quize_Question_Selected_Option(strOpt1, 0, 
+						"Option 1 is in selected Mode", "Option 1 is NOT in selected Mode");
+				if(flagOpt1)
+				{
+					Validate_Practice_Quize_Answers_Feedback(strOpt1, question, 0);
+				}
+				Navigate_To_Next_Question();
+				Thread.sleep(2000);
+				counter++;
+			}
+		}
+		
+		public void Navigate_To_Next_Question()
+		{
+			try {
+				objStudyPlan.lbl_Practice_Qauize_IwillAttemptLater.click();
+				System.out.println("Clicked on link 'I'll attempt later'");
+				objStudyPlan.lbl_Practice_Quize_Continue.click();
+				System.out.println("Clicked on button 'CONTINUE'");
+			}
+			catch (Exception e) {
+				objStudyPlan.lbl_Practice_Quize_Continue.click();
+				System.out.println("Clicked on button 'CONTINUE'");
+			}
+		}
+		
+		public boolean Validate_Button_Check_Answer_Enabled() throws Exception
+		{
+			boolean enableFlag=false;
+			try {
+				objStudyPlan.btn_Practice_Quize_CheckAnswer.getText();
+				System.out.println("Button 'CHECK ANSWER' is enabled.");
+				enableFlag=true;
+			} catch (Exception e) {
+				System.out.println("Button 'CHECK ANSWER' is NOT enabled.");
+			}
+			return enableFlag;
+		}
+			
+		public void Validate_Practice_Quize_Answers_Feedback(String strOptLabel, String strQuestion, int resourceID) throws Exception
+		{
+			String xpath="//android.widget.CheckBox[@resource-id='"+resourceID+"' and @checked='true']";
+			System.out.println("Question is: "+strQuestion);
+			try {
+			getDriver().findElement(By.xpath(xpath));	
+			System.out.println("The Feedback is given for selected option '"+strOptLabel+"' for question '"+strQuestion+"'.");
+			}
+			catch (Exception e) {
+				System.out.println("NOT able to fetch the Feedback for selected option for question '"+strQuestion+"'.");
+			}
+			Thread.sleep(1000);
+		}
+		
+		public void Validate_Quiz_Skipped_Questions_Added_To_Queue() throws Exception
+		{
+			String questionsCount= objStudyPlan.lbl_Practice_Quize_QNos.getText().split(" ")[2];
+			int length= Integer.parseInt(questionsCount);
+			String question="";
+			int counter=1;
+			boolean flagOpt1=false;
+			List<String> lstQues= new LinkedList<String>();
+			for(int i=0;i<length+1;i++)
+			{
+				question=objStudyPlan.lbl_Practice_Quize_Question.getText();
+				lstQues.add(question);
+				System.out.println("Current question number is '"+counter+"' and question is: "+question);
+				if(counter==1)
+				{
+					System.out.println("'Skipping', question present on number '"+counter+"' and question is: "+question);
+					objStudyPlan.lbl_Practice_Qauize_IwillAttemptLater.click();
+					System.out.println("Clicked on link 'I'll attempt later'");
+					Thread.sleep(2000);
+				}
+				else if(counter==(length+1))
+				{
+					if(lstQues.get(0).equalsIgnoreCase(question))
+					{
+						System.out.println("The 'Skipped' question is added in the queue at the last.");
+						System.out.println("The 'Skipped' question is addeded at position '"+counter+"'");
+					}
+					else
+					{
+						System.out.println("The 'Skipped' question is NOT added in the queue at the last, on number '"+counter+"'");
+					}
+				}
+				else {
+				System.out.println("Scrolling the Mobile Screen");
+				scrollDown_SecondTime(15);
+				Thread.sleep(2000);
+				Validate_Quize_Question_Click_Option(objStudyPlan.lbl_Practice_Quize_Q_opt1,
+						"User is able to select First Option",
+						"User is NOT able to select First Option");
+				String strText=objStudyPlan.btn_Practice_Quize_CheckAnswer.getText();
+				if(strText.equalsIgnoreCase("CHECK ANSWER"))
+				{
+				objStudyPlan.btn_Practice_Quize_CheckAnswer.click();
+				}
+				String strOpt1=objStudyPlan.lbl_Practice_Quize_Q_opt1.getText();
+				flagOpt1 = Validate_Quize_Question_Selected_Option(strOpt1, 0, 
+						"Option 1 is in selected Mode", "Option 1 is NOT in selected Mode");
+				if(flagOpt1)
+				{
+					Validate_Practice_Quize_Answers_Feedback(strOpt1, question, 0);
+				}
+				Navigate_To_Next_Question_Do_NOT_SKIP();
+				Thread.sleep(2000);
+				}
+				counter++;
+			}
+		}
+		
+		public void Navigate_To_Next_Question_Do_NOT_SKIP()
+		{
+			try {
+				String strText=objStudyPlan.lbl_Practice_Quize_Continue.getText();
+				objStudyPlan.lbl_Practice_Quize_Continue.click();
+				if(strText.equalsIgnoreCase("TRY AGAIN"))
+				{
+				System.out.println("Clicked on button 'TRY AGAIN'. Selecting the option 2 as '"+objStudyPlan.lbl_Practice_Quize_Q_opt2.getText()+"'.");
+				Validate_Quize_Question_Click_Option(objStudyPlan.lbl_Practice_Quize_Q_opt2,
+						"User is able to select Second Option",
+						"User is NOT able to select Second Option");
+				objStudyPlan.btn_Practice_Quize_CheckAnswer.click();
+				objStudyPlan.lbl_Practice_Quize_Continue.click();
+				}
+				else
+				{
+					System.out.println("Clicked on button 'CONTINUE'");
+				}
+			}
+			catch (Exception e) {
+				System.out.println("NOT able to navigate to Next Question");
+			}
+		}
 		
 }
 

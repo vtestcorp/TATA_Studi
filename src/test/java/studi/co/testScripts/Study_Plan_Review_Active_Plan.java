@@ -139,7 +139,8 @@ public class Study_Plan_Review_Active_Plan extends BaseClass{
 		activePlan.Validate_Quize_Page_Questions_Format();
 	}
 
-	@Test(description="AFS-76: TC-6: To Verify a student should be getting Instand feedback on attempting MCQ question in Revision Module", priority=10, threadPoolSize=1, enabled=false)
+	@Test(description="AFS-76: TC-6: To Verify a student should be getting Instand feedback on attempting MCQ question in Revision Module", 
+			priority=10, threadPoolSize=1, enabled=false)
 	public void Verify_student_should_be_getting_Instant_feedback_on_attempting_MCQ_question_in_Revision_Module() throws Exception 
 	{
 		Module_Study_Plan_Review_Active_Plan activePlan = new Module_Study_Plan_Review_Active_Plan();
@@ -150,7 +151,7 @@ public class Study_Plan_Review_Active_Plan extends BaseClass{
 	}
 
 	@Test(description="AFS-76: TC-7: To Verify attempt state of MCQ question in Revision Module " + 
-			"should be maintained while taking Quiz from Revision", priority=11, threadPoolSize=1, enabled=true)
+			"should be maintained while taking Quiz from Revision", priority=11, threadPoolSize=1, enabled=false)
 	public void Verify_attempt_state_of_MCQ_question_in_Revision_Module() throws Exception 
 	{
 		Module_Study_Plan_Review_Active_Plan activePlan = new Module_Study_Plan_Review_Active_Plan();
@@ -161,15 +162,58 @@ public class Study_Plan_Review_Active_Plan extends BaseClass{
 		//Feature NOT delivered Maintaining Attempt to answer
 	}
 	
+	//For Test Cases- AFS-76: TC- 9, 13, 16, 17, 19 etc. Credential Used: qaapp6
+	@Test(description="AFS-76: TC-9: To Verify attempting MCQ Quiz is not mandatory in Revision module", 
+			priority=12, threadPoolSize=1, enabled=false)
+	public void Verify_attempting_MCQ_Quiz_is_not_mandatory_in_Revision_Module() throws Exception 
+	{
+		Module_Study_Plan_Review_Active_Plan activePlan = new Module_Study_Plan_Review_Active_Plan();
+		activePlan.Navigate_To_First_Book_Political_Science();
+		activePlan.Navigate_To_First_Chapter_Political_Science_Quize_Page();
+		activePlan.Validate_Quize_Page();
+		activePlan.Validate_Quize_Page_Questions_Are_Not_Mandatory_To_Answer();
+	}
 	
+	@Test(description="AFS-76: TC-13: To Verify a student should be able to receive MCQ questions in default state in Practice Module", 
+			priority=13, threadPoolSize=1, enabled=false)
+	public void Verify_student_should_be_able_to_receive_MCQ_questions_in_default_state_in_Practice_Module() throws Exception 
+	{
+		Module_Study_Plan_Review_Active_Plan activePlan = new Module_Study_Plan_Review_Active_Plan();
+		activePlan.Navigate_To_First_Book_Political_Science();
+		activePlan.Navigate_To_First_Chapter_Political_Science_Quize_Page();
+		activePlan.Validate_Quize_Page();
+		activePlan.Validate_Quize_Page_Questions_By_Default_Selected_Answer();
+	}
 	
+	@Test(description="AFS-76: TC-16: To Verify a student should be able to select multiple answer options to attempt MCQ question in Practice Module", 
+			priority=14, threadPoolSize=1, enabled=false)
+	public void Verify_student_should_be_able_to_select_multiple_answer_options_to_attempt_MCQ_question_in_Practice_Module() throws Exception 
+	{
+		Module_Study_Plan_Review_Active_Plan activePlan = new Module_Study_Plan_Review_Active_Plan();
+		activePlan.Navigate_To_First_Book_Political_Science();
+		activePlan.Navigate_To_First_Chapter_Political_Science_Practice_Module_Page();
+		activePlan.Validate_Quize_Questions();
+	}
 	
+	@Test(description="AFS-76: TC-17: To Verify a student should be getting feedback on checking Answer in MCQ  in Practice Module", 
+			priority=15, threadPoolSize=1, enabled=false)
+	public void Verify_student_should_be_getting_feedback_on_checking_Answer_in_MCQ_Practice_Module() throws Exception 
+	{
+		Module_Study_Plan_Review_Active_Plan activePlan = new Module_Study_Plan_Review_Active_Plan();
+		activePlan.Navigate_To_First_Book_Political_Science();
+		activePlan.Navigate_To_First_Chapter_Political_Science_Practice_Module_Page();
+		activePlan.Validate_Quize_Questions_Feedback_After_Answer();
+	}
 	
-	
-	
-	
-	
-	
+	@Test(description="AFS-76: TC-19: To Verify attempting MCQ Quiz is mandatory in Practice module", 
+			priority=15, threadPoolSize=1, enabled=true)
+	public void Verify_attempting_MCQ_Quiz_is_mandatory_in_Practice_Module() throws Exception 
+	{
+		Module_Study_Plan_Review_Active_Plan activePlan = new Module_Study_Plan_Review_Active_Plan();
+		activePlan.Navigate_To_First_Book_Political_Science();
+		activePlan.Navigate_To_First_Chapter_Political_Science_Practice_Module_Page();
+		activePlan.Validate_Quiz_Skipped_Questions_Added_To_Queue();
+	}
 	
 	
 	
