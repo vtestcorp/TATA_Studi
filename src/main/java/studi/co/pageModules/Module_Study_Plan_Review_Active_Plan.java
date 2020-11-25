@@ -29,6 +29,8 @@ public class Module_Study_Plan_Review_Active_Plan extends BaseClass {
 	Module_Create_Study_Plan CSP = new Module_Create_Study_Plan();
 	public static String homepage_title, no_active_study_plan, lbl_testUnit, review_button_name, lbl_browse_books, lbl_all_subjects, lbl_book_1, lbl_book_2;
 	Robot robot=null;
+	private List<String> lstQuestions=null;
+	private String currentQuestionBeforeBackClicked="";
 	
 	
 	public void Validate_Home_Page_Header() throws InterruptedException
@@ -524,29 +526,29 @@ public class Module_Study_Plan_Review_Active_Plan extends BaseClass {
 					"Label 'ABOUT ME' is present in chapter 'Myself' on Book's page.", "Label 'ABOUT ME' is NOT present in chapter 'Myself' on Book's page.");
 			objStudyPlan.lbl_mySelfChapter_TP_aboutMe.click();
 			Thread.sleep(5000);
-			Toggle_Switch_Operation(objStudyPlan.lbl_mySelfChapter_TP_aboutMe_excludeFromSyllabus,
+			Perform_Click_Operation(objStudyPlan.lbl_mySelfChapter_TP_aboutMe_excludeFromSyllabus,
 					"Able to click on Toggle Switch for 'Exclude from Syllabus' for TP 'ABOUT ME' in chapter 'Myself' on Book's page.",
-					"NOT Able to click on Toggle Switch for 'Exclude from Syllabus' for TP 'ABOUT ME' in chapter 'Myself' on Book's page.");
+					"NOT Able to click on Toggle Switch for 'Exclude from Syllabus' for TP 'ABOUT ME' in chapter 'Myself' on Book's page.", 8000);
 			Validate_Required_Label_Text("Exclude from Syllabus", objStudyPlan.lbl_mySelfChapter_TP_aboutMe_excludeFromSyllabus.getText(), 
 					"Label 'Exclude from Syllabus' is present in TP 'ABOUT ME' of chapter 'Myself' on Book's page.", 
 					"Label 'Exclude from Syllabus' is NOT present in TP 'ABOUT ME' of chapter 'Myself' on Book's page.");
-			Toggle_Switch_Operation(objStudyPlan.switch_mySelfChapter_TP_aboutMe_compltedInSchool,
+			Perform_Click_Operation(objStudyPlan.switch_mySelfChapter_TP_aboutMe_compltedInSchool,
 					"Able to click on Toggle Switch for 'Completed in School' for TP 'ABOUT ME' in chapter 'Myself' on Book's page.",
-					"NOT Able to click on Toggle Switch for 'Exclude from Syllabus' for TP 'ABOUT ME' in chapter 'Myself' on Book's page.");
+					"NOT Able to click on Toggle Switch for 'Exclude from Syllabus' for TP 'ABOUT ME' in chapter 'Myself' on Book's page.", 8000);
 			Validate_Required_Label_Text("Completed in School", objStudyPlan.switch_mySelfChapter_TP_aboutMe_compltedInSchool.getText(), 
 					"Label 'Completed in School' is present in TP 'ABOUT ME' of chapter 'Myself' on Book's page.", 
 					"Label 'Completed in School' is NOT present in TP 'ABOUT ME' of chapter 'Myself' on Book's page.");
 		}
 		
-		public void Toggle_Switch_Operation(WebElement ele1, String strSuccessMsg, String strFailureMsg)
+		public void Perform_Click_Operation(WebElement ele1, String strSuccessMsg, String strFailureMsg, int sleepMillis)
 		{
 			try {
 				ele1.click();
-				Thread.sleep(8000);
+				Thread.sleep(sleepMillis);
 				System.out.println(strSuccessMsg);
 			}
 			catch (Exception e) {
-				System.out.println("NOT able to perform click Toggle Switch. Exception is: \n"+e.getMessage());
+				System.out.println("NOT able to perform click. Exception is: \n"+e.getMessage());
 				System.out.println(strFailureMsg);
 			}
 		}
@@ -1385,6 +1387,123 @@ public class Module_Study_Plan_Review_Active_Plan extends BaseClass {
 				System.out.println("NOT able to navigate to Next Question");
 			}
 		}
+		
+		public List<String> Validate_Presence_Of_Quize_Questions() throws Exception
+		{
+			lstQuestions= new ArrayList<String>();
+			String questionsCount= objStudyPlan.lbl_Practice_Quize_QNos.getText().split(" ")[2];
+			int length= Integer.parseInt(questionsCount);
+			String question="";
+			int counter=1;
+			for(int i=0;i<length;i++)
+			{
+				question=objStudyPlan.lbl_Practice_Quize_Question.getText();
+				lstQuestions.add(question);
+				System.out.println("Current question number is '"+counter+"' and question is: "+question);
+				Validate_Quize_Question_Select_Instruction();
+				System.out.println("Scrolling the Mobile Screen");
+				scrollDown_SecondTime(15);
+				Thread.sleep(2000);
+				Validate_Quize_Question_Get_Options(question);
+				objStudyPlan.lbl_Practice_Qauize_IwillAttemptLater.click();
+				Thread.sleep(2000);
+				counter++;
+			}
+			System.out.println("\nFollowing Questions are present in 'Practice Quize':");
+			int counter1=1;
+			for(int i=0;i<lstQuestions.size();i++)
+			{
+				System.out.println("Question "+counter1+": "+lstQuestions.get(i));
+				counter1++;
+			}
+			Thread.sleep(2000);
+			return lstQuestions;
+		}
+		
+		public String Validate_Warining_Msg_After_Click_On_Back_Button() throws Exception
+		{
+			currentQuestionBeforeBackClicked=objStudyPlan.lbl_Practice_Quize_Question.getText();
+			Perform_Click_Operation(objStudyPlan.btn_back_quizQuestion, 
+					"User is able to click on 'Back Button', when user is on page having question: "+currentQuestionBeforeBackClicked,
+					"User is NOT able to click on 'Back Button', when user is on page having question: "+currentQuestionBeforeBackClicked, 2000);
+			return currentQuestionBeforeBackClicked;
+		}
+		
+		public void Validate_Warining_Msg_Popup() throws Exception
+		{
+			String warningMsg=Get_Element_Text(objStudyPlan.lbl_warningPopUp_Msg,
+					"Able to fetch the 'Warning Message' from 'Warning Pop Up'",  "NOT able to fetch the 'Warning Message' from 'Warning Pop Up'");
+			if(warningMsg.equalsIgnoreCase("Your Progress will be lost. Are you sure want to go Away?"))
+			{
+				System.out.println("Correct 'Warining Message' message is shown as: "+warningMsg);
+			}
+			else
+			{
+				System.out.println("Wrong 'Warining Message' message is shown as: "+warningMsg);
+			}
+			String btn_No_Text=Get_Element_Text(objStudyPlan.btn_warningPopUp_NO,
+					"Able to fetch the label of button 'NO' from 'Warning Pop Up'", "NOT able to fetch the label of button 'NO' from 'Warning Pop Up'");
+			if(btn_No_Text.equalsIgnoreCase("NO"))
+			{
+				System.out.println("Correct label is shown on button 'NO': "+btn_No_Text);
+			}
+			else
+			{
+				System.out.println("Correct label is NOT shown on button 'NO': "+btn_No_Text);
+			}
+			String btn_Yes_Text=Get_Element_Text(objStudyPlan.btn_warningPopUp_YES,
+					"Able to fetch the label of button 'YES' from 'Warning Pop Up'", "NOT able to fetch the label of button 'YES' from 'Warning Pop Up'");
+			if(btn_Yes_Text.equalsIgnoreCase("YES"))
+			{
+				System.out.println("Correct label is shown on button 'YES': "+btn_Yes_Text);
+			}
+			else
+			{
+				System.out.println("Correct label is NOT shown on button 'YES': "+btn_Yes_Text);
+			}
+		}
+		
+		public String Get_Element_Text(WebElement ele, String successEleMsg, String failureMsg)
+		{
+			String lblText=null;
+			try {
+				lblText=ele.getText();
+				System.out.println(successEleMsg);
+			}
+			catch (Exception e) {
+				System.out.println(failureMsg);
+			}
+			return lblText;
+		}
+		
+		public void Validate_Tap_On_NO_Warining_PopUp_And_Question_From_Abandan_Initiated() throws Exception
+		{
+			Perform_Click_Operation(objStudyPlan.btn_warningPopUp_NO, 
+					"User is able to click on 'NO' button",	"User is able NOT to click on 'NO' button", 2000);
+			String currentQuestion=objStudyPlan.lbl_Practice_Quize_Question.getText();
+			if(currentQuestion.equalsIgnoreCase(currentQuestionBeforeBackClicked))
+			{
+				System.out.println("Same question appeared on the screen from where 'Quiz Abandan' was initiated.");
+			}
+			else
+			{
+				System.out.println("Same question is NOT appeared on the screen from where 'Quiz Abandan' was initiated.");
+			}
+		}
+		
+		public void Validate_Tap_On_YES_Warining_PopUp_And_Navigation_To_Practice_Again_Page() throws Exception
+		{
+			Perform_Click_Operation(objStudyPlan.btn_warningPopUp_YES, 
+					"User is able to click on 'YES' button","User is able NOT to click on 'YES' button", 2000);
+			Perform_Click_Operation(objStudyPlan.btn_back_quizQuestion, 
+					"User is able to click on 'Back Button', when user is on 'Practice Page'",
+					"User is NOT able to click on 'Back Button', when user is on 'Practice Page'", 2000);
+			Validate_Required_Label_Text("All Chapters", objStudyPlan.lbl_allChapters.getText(), 
+					"User is navigated to 'Book's Page'. Label 'All Chapters' is present on Book's page.",
+					"User is NOT navigated to 'Book's Page'. Label 'All Chapters' is NOT present on Book's page.");
+		}
+		
+		
 		
 }
 

@@ -206,7 +206,7 @@ public class Study_Plan_Review_Active_Plan extends BaseClass{
 	}
 	
 	@Test(description="AFS-76: TC-19: To Verify attempting MCQ Quiz is mandatory in Practice module", 
-			priority=15, threadPoolSize=1, enabled=true)
+			priority=15, threadPoolSize=1, enabled=false)
 	public void Verify_attempting_MCQ_Quiz_is_mandatory_in_Practice_Module() throws Exception 
 	{
 		Module_Study_Plan_Review_Active_Plan activePlan = new Module_Study_Plan_Review_Active_Plan();
@@ -215,6 +215,20 @@ public class Study_Plan_Review_Active_Plan extends BaseClass{
 		activePlan.Validate_Quiz_Skipped_Questions_Added_To_Queue();
 	}
 	
+	@Test(description="AFS-76: TC-21: To Verify user should be able to abandon the MCQ Quiz from Practice Module", 
+			priority=15, threadPoolSize=1, enabled=true)
+	public void Verify_user_should_be_able_to_abandon_the_MCQ_Quiz_from_Practice_Module() throws Exception 
+	{
+		Module_Study_Plan_Review_Active_Plan activePlan = new Module_Study_Plan_Review_Active_Plan();
+		activePlan.Navigate_To_First_Book_Political_Science();
+		activePlan.Navigate_To_First_Chapter_Political_Science_Practice_Module_Page();
+		activePlan.Validate_Presence_Of_Quize_Questions();
+		activePlan.Validate_Warining_Msg_After_Click_On_Back_Button();
+		activePlan.Validate_Warining_Msg_Popup();
+		activePlan.Validate_Tap_On_NO_Warining_PopUp_And_Question_From_Abandan_Initiated();
+		activePlan.Validate_Warining_Msg_After_Click_On_Back_Button();
+		activePlan.Validate_Tap_On_YES_Warining_PopUp_And_Navigation_To_Practice_Again_Page();
+	}
 	
 	
 	
