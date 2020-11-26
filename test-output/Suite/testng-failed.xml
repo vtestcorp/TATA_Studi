@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="tests">
-  <parameter name="appPackage" value="com.tce.afs"/>
-  <parameter name="appActivity" value="com.tce.view.ui.activities.SplashScreenActivity"/>
-  <parameter name="platformVersion" value="7"/>
-  <parameter name="type" value="Android"/>
-  <parameter name="platformName" value="Android"/>
-  <parameter name="deviceName" value="ZY223HQBHZ"/>
-  <parameter name="APPIUM_SERVER_URL" value="http://127.0.0.1:4723/wd/hub"/>
-  <parameter name="wdaLocalPort" value=""/>
-  <parameter name="iOSversion" value=""/>
-  <test name="Device 01(failed)" parallel="tests">
+  <test thread-count="1" name="Device 01(failed)" parallel="tests">
     <parameter name="appPackage" value="com.tce.afs"/>
     <parameter name="appActivity" value="com.tce.view.ui.activities.SplashScreenActivity"/>
-    <parameter name="platformVersion" value="7"/>
+    <parameter name="platformVersion" value="10"/>
     <parameter name="type" value="Android"/>
     <parameter name="platformName" value="Android"/>
     <parameter name="deviceName" value="ZY223HQBHZ"/>
@@ -21,20 +12,16 @@
     <parameter name="wdaLocalPort" value=""/>
     <parameter name="iOSversion" value=""/>
     <classes>
-      <class name="studi.co.testScripts.Login">
+      <class name="studi.co.testScripts.Study_Plan_Review_Active_Plan">
         <methods>
           <include name="afterTest"/>
+          <include name="Verify_user_should_be_able_to_view_the_available_Resource_of_bookshelf_1"/>
           <include name="setUp"/>
           <include name="beforeTest"/>
           <include name="tearDown"/>
           <include name="teardown"/>
         </methods>
-      </class> <!-- studi.co.testScripts.Login -->
-      <class name="studi.co.testScripts.Receive_MCQ_Questions_Practice">
-        <methods>
-          <include name="Receive_MCQ_Questions"/>
-        </methods>
-      </class> <!-- studi.co.testScripts.Receive_MCQ_Questions_Practice -->
+      </class> <!-- studi.co.testScripts.Study_Plan_Review_Active_Plan -->
     </classes>
   </test> <!-- Device 01(failed) -->
 </suite> <!-- Failed suite [Suite] -->
