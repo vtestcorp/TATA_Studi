@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="138814" started-at="2020-11-23T16:27:08Z" finished-at="2020-11-23T16:29:27Z">
+  <suite name="Suite" duration-ms="90879" started-at="2020-12-03T06:24:04Z" finished-at="2020-12-03T06:25:35Z">
     <groups>
     </groups>
-    <test name="Device 01" duration-ms="138814" started-at="2020-11-23T16:27:08Z" finished-at="2020-11-23T16:29:27Z">
-      <class name="studi.co.testScripts.Login">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:studi.co.testScripts.Login@2aa3cd93]" name="setUp" is-config="true" duration-ms="231" started-at="2020-11-23T21:57:08Z" finished-at="2020-11-23T21:57:08Z">
+    <test name="Device 01" duration-ms="90879" started-at="2020-12-03T06:24:04Z" finished-at="2020-12-03T06:25:35Z">
+      <class name="studi.co.testScripts.TC15_Verify_Answers_are_Selectable_and_Deselectable_in_Practice">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:studi.co.testScripts.TC15_Verify_Answers_are_Selectable_and_Deselectable_in_Practice@add0edd]" name="setUp" is-config="true" duration-ms="230" started-at="2020-12-03T11:54:04Z" finished-at="2020-12-03T11:54:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="beforeTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:studi.co.testScripts.Login@2aa3cd93]" name="beforeTest" is-config="true" duration-ms="19004" started-at="2020-11-23T21:57:08Z" finished-at="2020-11-23T21:57:27Z">
+        <test-method status="PASS" signature="beforeTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:studi.co.testScripts.TC15_Verify_Answers_are_Selectable_and_Deselectable_in_Practice@add0edd]" name="beforeTest" is-config="true" duration-ms="20021" started-at="2020-12-03T11:54:04Z" finished-at="2020-12-03T11:54:24Z">
           <params>
             <param index="0">
               <value>
@@ -62,47 +62,30 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="Validate_Login()[pri:0, instance:studi.co.testScripts.Login@2aa3cd93]" name="Validate_Login" duration-ms="12685" started-at="2020-11-23T21:57:27Z" finished-at="2020-11-23T21:57:40Z">
+        <test-method status="PASS" signature="verify_Answers_Are_Selectable_Deselectable()[pri:0, instance:studi.co.testScripts.TC15_Verify_Answers_are_Selectable_and_Deselectable_in_Practice@add0edd]" name="verify_Answers_Are_Selectable_Deselectable" duration-ms="69436" started-at="2020-12-03T11:54:24Z" finished-at="2020-12-03T11:55:34Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Validate_Login -->
-        <test-method status="PASS" signature="teardown(org.testng.ITestResult)[pri:0, instance:studi.co.testScripts.Login@2aa3cd93]" name="teardown" is-config="true" duration-ms="1" started-at="2020-11-23T21:57:40Z" finished-at="2020-11-23T21:57:40Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=Validate_Login status=SUCCESS method=Login.Validate_Login()[pri:0, instance:studi.co.testScripts.Login@2aa3cd93] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- teardown -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:studi.co.testScripts.Login@2aa3cd93]" name="afterTest" is-config="true" duration-ms="1491" started-at="2020-11-23T21:59:26Z" finished-at="2020-11-23T21:59:27Z">
+        </test-method> <!-- verify_Answers_Are_Selectable_Deselectable -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:studi.co.testScripts.TC15_Verify_Answers_are_Selectable_and_Deselectable_in_Practice@add0edd]" name="afterTest" is-config="true" duration-ms="1414" started-at="2020-12-03T11:55:34Z" finished-at="2020-12-03T11:55:35Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:studi.co.testScripts.Login@2aa3cd93]" name="tearDown" is-config="true" duration-ms="3" started-at="2020-11-23T21:59:27Z" finished-at="2020-11-23T21:59:27Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- studi.co.testScripts.Login -->
-      <class name="studi.co.testScripts.Receive_MCQ_Questions_DefaultState">
-        <test-method status="PASS" signature="Verify_Review_Plan_Tab()[pri:0, instance:studi.co.testScripts.Receive_MCQ_Questions_DefaultState@22635ba0]" name="Verify_Review_Plan_Tab" duration-ms="105616" started-at="2020-11-23T21:57:40Z" finished-at="2020-11-23T21:59:26Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Verify_Review_Plan_Tab -->
-        <test-method status="PASS" signature="teardown(org.testng.ITestResult)[pri:0, instance:studi.co.testScripts.Receive_MCQ_Questions_DefaultState@22635ba0]" name="teardown" is-config="true" duration-ms="0" started-at="2020-11-23T21:59:26Z" finished-at="2020-11-23T21:59:26Z">
+        <test-method status="PASS" signature="teardown(org.testng.ITestResult)[pri:0, instance:studi.co.testScripts.TC15_Verify_Answers_are_Selectable_and_Deselectable_in_Practice@add0edd]" name="teardown" is-config="true" duration-ms="0" started-at="2020-12-03T11:55:34Z" finished-at="2020-12-03T11:55:34Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Verify_Review_Plan_Tab status=SUCCESS method=Receive_MCQ_Questions_DefaultState.Verify_Review_Plan_Tab()[pri:0, instance:studi.co.testScripts.Receive_MCQ_Questions_DefaultState@22635ba0] output={null}]]]>
+                <![CDATA[[TestResult name=verify_Answers_Are_Selectable_Deselectable status=SUCCESS method=TC15_Verify_Answers_are_Selectable_and_Deselectable_in_Practice.verify_Answers_Are_Selectable_Deselectable()[pri:0, instance:studi.co.testScripts.TC15_Verify_Answers_are_Selectable_and_Deselectable_in_Practice@add0edd] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-      </class> <!-- studi.co.testScripts.Receive_MCQ_Questions_DefaultState -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:studi.co.testScripts.TC15_Verify_Answers_are_Selectable_and_Deselectable_in_Practice@add0edd]" name="tearDown" is-config="true" duration-ms="2" started-at="2020-12-03T11:55:35Z" finished-at="2020-12-03T11:55:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- studi.co.testScripts.TC15_Verify_Answers_are_Selectable_and_Deselectable_in_Practice -->
     </test> <!-- Device 01 -->
   </suite> <!-- Suite -->
 </testng-results>

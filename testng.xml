@@ -12,20 +12,30 @@
         <parameter name="wdaLocalPort" value=""/>
         <parameter name="iOSversion" value=""/>            
         <classes>
-            <class name="studi.co.testScripts.Login" />
-            <!-- <class name="studi.co.testScripts.Create_Study_Plan" />
+            <!-- >class name="studi.co.testScripts.Login" />
+            <class name="studi.co.testScripts.Create_Study_Plan" />
             <class name="studi.co.testScripts.Receive_MCQ_Questions_Practice" />
             <class name="studi.co.testScripts.Review_Plan_Tab" />
             <class name="studi.co.testScripts.Completed_In_School_Status_Chapter" />
             <class name="studi.co.testScripts.Confirm_Syllabus_Tab" />
             <class name="studi.co.testScripts.Confirm_Syllabus_Page_Tappable" />
             <class name="studi.co.testScripts.Mark_Completed_In_School_Manually" />
-            <class name="studi.co.testScripts.Mark_Excluded_From_Syllabus_Manually" /
+            <class name="studi.co.testScripts.Mark_Excluded_From_Syllabus_Manually" />
            <class name="studi.co.testScripts.View_Chapter_Listing_Page_Content" />
-           <class name="studi.co.testScripts.View_Chapter_Listing_Page_Content" /
+           <class name="studi.co.testScripts.View_Chapter_Listing_Page_Content" />
            <class name="studi.co.testScripts.Navigate_Revision_From_Topic_Listing" />
-           <class name="studi.co.testScripts.Receive_MCQ_Questions_Revision" /> -->
+           <class name="studi.co.testScripts.Receive_MCQ_Questions_Revision" /> 
            <class name="studi.co.testScripts.Receive_MCQ_Questions_DefaultState" />
+           <class name="studi.co.testScripts.Verify_Abandon_from_MCQ_In_Revision" />
+           <class name="studi.co.testScripts.TC11_Abandon_Quiz_from_Revision"/>
+           <class name="studi.co.testScripts.TC14_Verify_Answer_Options_in_Practice_Quiz"/>
+           <class name="studi.co.testScripts.TC15_Verify_Answers_are_Selectable_and_Deselectable_in_Practice"/>
+           <class name="studi.co.testScripts.TC08_Verify_Feedback_for_Answers_in_Revision"/>
+           <class name="studi.co.testScripts.TC14_Verify_Answer_Options_in_Practice_Quiz"/>
+           <class name="studi.co.testScripts.TC10_Select_All_Answers_And_Verify_Feedback"/>
+           <class name="studi.co.testScripts.TC12_Verify_MCQ_Questions_In_Practice_Module"/>
+           <class name="studi.co.testScripts.TC11_Abandon_Quiz_from_Revision"/>-->
+           <class name="studi.co.testScripts.TC15_Verify_Answers_are_Selectable_and_Deselectable_in_Practice"/>
         </classes>
     </test>           
 </suite>

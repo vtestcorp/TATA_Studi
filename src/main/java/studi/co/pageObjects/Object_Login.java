@@ -20,6 +20,8 @@ public class Object_Login extends BaseClass {
 	@FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView[1]")
 	public WebElement homepage_title;
 	
+	
+	
 	public Object_Login() {
 		PageFactory.initElements(getDriver(), this);
 	}

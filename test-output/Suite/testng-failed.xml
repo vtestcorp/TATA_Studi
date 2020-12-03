@@ -21,19 +21,14 @@
     <parameter name="wdaLocalPort" value=""/>
     <parameter name="iOSversion" value=""/>
     <classes>
-      <class name="studi.co.testScripts.Login">
+      <class name="studi.co.testScripts.TC15_Verify_Answers_are_Selectable_and_Deselectable_in_Practice">
         <methods>
           <include name="setUp"/>
           <include name="beforeTest"/>
           <include name="teardown"/>
+          <include name="verify_Answers_Are_Selectable_Deselectable"/>
         </methods>
-      </class> <!-- studi.co.testScripts.Login -->
-      <class name="studi.co.testScripts.Receive_MCQ_Questions_Revision">
-        <methods>
-          <include name="Verify_Review_Plan_Tab"/>
-          <include name="teardown"/>
-        </methods>
-      </class> <!-- studi.co.testScripts.Receive_MCQ_Questions_Revision -->
+      </class> <!-- studi.co.testScripts.TC15_Verify_Answers_are_Selectable_and_Deselectable_in_Practice -->
     </classes>
   </test> <!-- Device 01(failed) -->
 </suite> <!-- Failed suite [Suite] -->
