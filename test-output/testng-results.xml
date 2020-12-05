@@ -1,97 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="2" passed="2">
+<testng-results skipped="2" failed="0" total="2" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="61360" started-at="2020-11-12T03:58:46Z" finished-at="2020-11-12T03:59:47Z">
+  <suite name="Suite" duration-ms="47" started-at="2020-12-03T15:11:58Z" finished-at="2020-12-03T15:11:58Z">
     <groups>
     </groups>
-    <test name="Device 01" duration-ms="61360" started-at="2020-11-12T03:58:46Z" finished-at="2020-11-12T03:59:47Z">
-      <class name="studi.co.testScripts.Login">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:studi.co.testScripts.Login@2aa3cd93]" name="setUp" is-config="true" duration-ms="242" started-at="2020-11-12T09:28:46Z" finished-at="2020-11-12T09:28:46Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="beforeTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:studi.co.testScripts.Login@2aa3cd93]" name="beforeTest" is-config="true" duration-ms="18610" started-at="2020-11-12T09:28:46Z" finished-at="2020-11-12T09:29:04Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Android]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[http://127.0.0.1:4723/wd/hub]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Android]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[ZY223HQBHZ]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[com.tce.afs]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[com.tce.view.ui.activities.SplashScreenActivity]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[7]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="Validate_Login()[pri:0, instance:studi.co.testScripts.Login@2aa3cd93]" name="Validate_Login" duration-ms="12450" started-at="2020-11-12T09:29:04Z" finished-at="2020-11-12T09:29:17Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Validate_Login -->
-        <test-method status="PASS" signature="teardown(org.testng.ITestResult)[pri:0, instance:studi.co.testScripts.Login@2aa3cd93]" name="teardown" is-config="true" duration-ms="0" started-at="2020-11-12T09:29:17Z" finished-at="2020-11-12T09:29:17Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=Validate_Login status=SUCCESS method=Login.Validate_Login()[pri:0, instance:studi.co.testScripts.Login@2aa3cd93] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- teardown -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:studi.co.testScripts.Login@2aa3cd93]" name="afterTest" is-config="true" duration-ms="1352" started-at="2020-11-12T09:29:46Z" finished-at="2020-11-12T09:29:47Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:studi.co.testScripts.Login@2aa3cd93]" name="tearDown" is-config="true" duration-ms="4" started-at="2020-11-12T09:29:47Z" finished-at="2020-11-12T09:29:47Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- studi.co.testScripts.Login -->
+    <test name="Device 01" duration-ms="47" started-at="2020-12-03T15:11:58Z" finished-at="2020-12-03T15:11:58Z">
       <class name="studi.co.testScripts.Receive_MCQ_Questions_Practice">
-        <test-method status="PASS" signature="Receive_MCQ_Questions()[pri:0, instance:studi.co.testScripts.Receive_MCQ_Questions_Practice@22635ba0]" name="Receive_MCQ_Questions" duration-ms="28932" started-at="2020-11-12T09:29:17Z" finished-at="2020-11-12T09:29:46Z">
+        <test-method status="SKIP" signature="Receive_MCQ_Questions()[pri:0, instance:studi.co.testScripts.Receive_MCQ_Questions_Practice@223f3642]" name="Receive_MCQ_Questions" duration-ms="0" started-at="2020-12-03T20:41:58Z" finished-at="2020-12-03T20:41:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Receive_MCQ_Questions -->
       </class> <!-- studi.co.testScripts.Receive_MCQ_Questions_Practice -->
+      <class name="studi.co.testScripts.Login">
+        <test-method status="FAIL" signature="setUpDriver(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:studi.co.testScripts.Login@7fc2413d]" name="setUpDriver" is-config="true" duration-ms="0" started-at="2020-12-03T20:41:58Z" finished-at="2020-12-03T20:41:58Z">
+          <exception class="org.testng.TestNGException">
+            <message>
+              <![CDATA[
+Parameter 'type' is required by @Configuration on method setUpDriver but has not been marked @Optional or defined
+in C:\Users\Admin\git\TATA_Studi\testng.xml]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.TestNGException: 
+Parameter 'type' is required by @Configuration on method setUpDriver but has not been marked @Optional or defined
+in C:\Users\Admin\git\TATA_Studi\testng.xml
+	at org.testng.internal.Parameters.createParameters(Parameters.java:159)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:372)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:90)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:199)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:140)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:296)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1200)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1125)
+	at org.testng.TestNG.run(TestNG.java:1033)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.TestNGException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpDriver -->
+        <test-method status="SKIP" signature="Validate_Login()[pri:0, instance:studi.co.testScripts.Login@7fc2413d]" name="Validate_Login" duration-ms="15" started-at="2020-12-03T20:41:58Z" finished-at="2020-12-03T20:41:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Validate_Login -->
+      </class> <!-- studi.co.testScripts.Login -->
     </test> <!-- Device 01 -->
   </suite> <!-- Suite -->
 </testng-results>

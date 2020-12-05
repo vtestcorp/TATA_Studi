@@ -1,9 +1,7 @@
-package studi.co.pageModules;
-
-import studi.co.Base.*;
+package studi.co.pageModules; 
 import studi.co.pageObjects.*;
 
-public class Module_Login extends BaseClass {
+public class Module_Login{
 
 	public static String homepage_title;
 	
@@ -13,9 +11,9 @@ public class Module_Login extends BaseClass {
 		Object_Login login = new Object_Login();
 
 		login.username.clear();
-		login.username.sendKeys(prop.getProperty("username_password"));
+		login.username.sendKeys(prop.getProperty("username"));
 		login.password.clear();
-		login.password.sendKeys(prop.getProperty("username_password"));
+		login.password.sendKeys(prop.getProperty("password"));
 		login.login_button.click();
 		
 		Thread.sleep(5000);
@@ -26,7 +24,7 @@ public class Module_Login extends BaseClass {
 			System.out.println("Login successfull");
 		else 
 			System.out.println("Login Failed");
-
+		
 	}
 
 }

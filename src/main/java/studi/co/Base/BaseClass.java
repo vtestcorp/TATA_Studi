@@ -47,6 +47,9 @@ import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.google.common.io.Files;
 
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
+
 
 
 //Handling Config file operations and Extent report initialization
@@ -54,7 +57,7 @@ import com.google.common.io.Files;
 
 public class BaseClass {
 	
-	public static ThreadLocal<RemoteWebDriver> TLD=new ThreadLocal<RemoteWebDriver>();
+	public static AppiumDriver driver; 
 	
 	public static Properties prop; // Property file initialization
 	public static ExtentHtmlReporter htmlReporter;
@@ -62,7 +65,7 @@ public class BaseClass {
 	public ExtentTest logger;
 	public static String Report_Path = null;
 	public static String platform_version;
-	public static RemoteWebDriver driver=null;
+	//public static RemoteWebDriver driver=null;
 
 	public BaseClass() {
 		try {
@@ -147,19 +150,17 @@ public class BaseClass {
 			caps.setCapability("newCommandTimeout", "120");
 		}
 
-		driver = new RemoteWebDriver(url, caps); 
-		setDriver(driver);
+		driver = new AndroidDriver(url, caps); 
+		
 		
 		getDriver().manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);			
 
 	}
+
 	
-	public void setDriver(RemoteWebDriver driver) {
-		TLD.set(driver);
-	}
 	
-	public RemoteWebDriver getDriver() {
-		return TLD.get();
+	public static AppiumDriver getDriver() {
+		return driver; 
 	}
 	
 	public static String getScreenshot(RemoteWebDriver appiumDriver, String screenshotName) throws Exception {
@@ -193,7 +194,7 @@ public class BaseClass {
 	@AfterTest
 	public void afterTest() {
 		getDriver().quit();
-		TLD.set(null);
+		
 	}
 
 	@AfterSuite

@@ -23,11 +23,7 @@
     <classes>
       <class name="studi.co.testScripts.Login">
         <methods>
-          <include name="afterTest"/>
-          <include name="setUp"/>
-          <include name="beforeTest"/>
-          <include name="tearDown"/>
-          <include name="teardown"/>
+          <include name="Validate_Login"/>
         </methods>
       </class> <!-- studi.co.testScripts.Login -->
       <class name="studi.co.testScripts.Receive_MCQ_Questions_Practice">

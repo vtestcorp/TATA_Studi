@@ -1,9 +1,10 @@
 package studi.co.pageModules;
 
-import studi.co.Base.*;
+
+
 import studi.co.pageObjects.*;
 
-public class Module_Create_Study_Plan extends BaseClass {
+public class Module_Create_Study_Plan{
 
 	public static String browse_books_page_title, create_study_plan_page_title, created_study_page_title;
 
@@ -39,7 +40,7 @@ public class Module_Create_Study_Plan extends BaseClass {
 				CSP.Plan_Name.clear();
 				CSP.Plan_Name.clear();
 				CSP.Plan_Name.sendKeys("Test101");
-				driver.navigate().back();
+				getDriver().navigate().back();
 				CSP.Activate_Plan.click();
 				CSP.Begin_Studying.click();
 				created_study_page_title = CSP.created_study_page_title.getText();

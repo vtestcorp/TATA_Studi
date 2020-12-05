@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import studi.co.Base.*;
 import studi.co.pageModules.*;
 
-public class Create_Study_Plan extends BaseClass {
+public class Create_Study_Plan extends BaseClass2 {
 
 	// Calling base class constructor.
 	public Create_Study_Plan() {

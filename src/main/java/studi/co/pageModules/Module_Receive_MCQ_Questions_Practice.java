@@ -1,9 +1,9 @@
 package studi.co.pageModules;
 
-import studi.co.Base.BaseClass;
 import studi.co.pageObjects.Object_Receive_MCQ_Questions_Practice;
+import studi.co.testScripts.Receive_MCQ_Questions_Practice;
 
-public class Module_Receive_MCQ_Questions_Practice extends BaseClass{
+public class Module_Receive_MCQ_Questions_Practice  {
 	
 	public static String getQuestion, getQuestionCount;
 
