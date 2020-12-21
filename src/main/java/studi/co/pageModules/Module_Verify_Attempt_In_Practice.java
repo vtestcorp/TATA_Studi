@@ -1,11 +1,13 @@
 package studi.co.pageModules;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.WebElement;
 
 import junit.framework.Assert;
 import studi.co.Base.BaseClass;
+import studi.co.Base.Keyword;
 import studi.co.pageObjects.Object_Begin_Practice_Topic4_Chapter1_Mathematics;
 import studi.co.pageObjects.Object_Browse_Books;
 import studi.co.pageObjects.Object_Subject_Mathematics;
@@ -13,40 +15,42 @@ import studi.co.pageObjects.Object_Subject_Mathematics;
 public class Module_Verify_Attempt_In_Practice extends BaseClass{
 	
 	
-	public void verify_Attempt_In_Practice() throws InterruptedException {
-		Module_Login ml=new Module_Login(); 
-		ml.Login_to_app();
+	public void verify_Attempt_In_Practice() throws InterruptedException, IOException {
+//		Module_Login ml=new Module_Login(); 
+//		ml.Login_to_app();
 		Object_Browse_Books obb=new Object_Browse_Books();
 		Object_Subject_Mathematics osm=new Object_Subject_Mathematics();
 		Object_Begin_Practice_Topic4_Chapter1_Mathematics obpt = new Object_Begin_Practice_Topic4_Chapter1_Mathematics(); 
-		obb.browseBooks.click();
-		Thread.sleep(2000);
 		
-		osm.subject_Mathematics.click();
+		Keyword.clickOnElement(obb.getSyllabus());
+		Keyword.applyExplicitWait(3);
 		
-		Thread.sleep(6000);
-		osm.topic_4_chapter_1.click();
+		Keyword.clickOnElement(osm.getSubject_Mathematics());
 		
-		osm.begin_Practice_topic_4_chapter_1.click();
-		Thread.sleep(5000);
+		Keyword.applyExplicitWait(6);
+		Keyword.clickOnElement(osm.getTopic_4_chapter_1());
+		Keyword.applyExplicitWait(4);
 		
-		obpt.beginPractice.click();
-		Thread.sleep(6000);
+		Keyword.clickOnElement(osm.getBegin_Practice_topic_4_chapter_1());
+		Keyword.applyExplicitWait(5);
 		
-		String question=obpt.question1_part2_Text.getText();
+		Keyword.clickOnElement(obpt.getBeginPractice()); 
+		Keyword.applyExplicitWait(6);
+		
+		String question=Keyword.getTextOfElement(obpt.getQuestion1_part2_Text());
 		
 		System.out.println("Questions asked is : "+question);
 		
-		obpt.first_answer.click();
-		Thread.sleep(2000);
+		Keyword.clickOnElement(obpt.getFirst_answer());
+		Keyword.applyExplicitWait(2);
 		
-		obpt.check_answer.click();
-		Thread.sleep(2000);
+		Keyword.clickOnElement(obpt.getCheck_answer());
+		Keyword.applyExplicitWait(2);
 		
-		obpt.tryAgain.click();
-		Thread.sleep(2000);
+		Keyword.clickOnElement(obpt.getTryAgain());
+		Keyword.applyExplicitWait(2);
 		
-		String s=obpt.attemptLeft.getText(); 
+		String s=Keyword.getTextOfElement(obpt.getAttemptLeft());
 		System.out.println(s);
 		Boolean result=s.equals("You have one attempt left"); 
 		Assert.assertTrue(result);

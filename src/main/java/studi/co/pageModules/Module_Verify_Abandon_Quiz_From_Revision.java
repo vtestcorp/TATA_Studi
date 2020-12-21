@@ -21,7 +21,7 @@ public class Module_Verify_Abandon_Quiz_From_Revision extends Object_Begin_Revis
 		Object_Receive_MCQ_Questions_Practice RMQP = new Object_Receive_MCQ_Questions_Practice();
 		Object_Receive_MCQ_Questions_Revision RMQP1 = new Object_Receive_MCQ_Questions_Revision();
 		
-		RMQP.select_browse_books.click();
+		RMQP.select_syllabus.click();
 		Thread.sleep(1000);
 		RMQP.select_subject.click();
 		Thread.sleep(1000);
@@ -76,7 +76,7 @@ public class Module_Verify_Abandon_Quiz_From_Revision extends Object_Begin_Revis
 		driver.navigate().back();
 		Thread.sleep(2000);
 		
-		System.out.println(driver.getSessionId()); 
+		//System.out.println(((Object) driver).getSessionId()); 
 		System.out.println("Navigated to Landing Page Successfully");
 		
 			}

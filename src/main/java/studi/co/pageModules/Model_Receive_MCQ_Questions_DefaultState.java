@@ -17,7 +17,7 @@ public String firstQuestion;
 		Object_Receive_MCQ_Questions_Practice RMQP = new Object_Receive_MCQ_Questions_Practice();
 		Object_Receive_MCQ_Questions_Revision RMQP1 = new Object_Receive_MCQ_Questions_Revision();
 		
-		RMQP.select_browse_books.click();
+		RMQP.select_syllabus.click();
 		Thread.sleep(1000);
 		RMQP.select_subject.click();
 		Thread.sleep(1000);

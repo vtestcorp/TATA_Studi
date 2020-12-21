@@ -19,20 +19,19 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.net.URL;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
@@ -43,9 +42,12 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-import com.aventstack.extentreports.reporter.configuration.ChartLocation;
-import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.google.common.io.Files;
+
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.remote.MobileCapabilityType;
 
 
 
@@ -54,15 +56,19 @@ import com.google.common.io.Files;
 
 public class BaseClass {
 	
-	public static ThreadLocal<RemoteWebDriver> TLD=new ThreadLocal<RemoteWebDriver>();
+	//public static AndroidDriver<AndroidElement> TLD; 
 	
 	public static Properties prop; // Property file initialization
 	public static ExtentHtmlReporter htmlReporter;
 	public static ExtentReports extent;
 	public ExtentTest logger;
 	public static String Report_Path = null;
-	public static String platform_version;
-	public static RemoteWebDriver driver=null;
+	//public static String platform_version;
+	public static  AndroidDriver<MobileElement> driver;
+	public DesiredCapabilities caps;
+	public URL url; 
+	public static WebDriverWait wait; 
+	public static Logger log;
 
 	public BaseClass() {
 		try {
@@ -74,97 +80,103 @@ public class BaseClass {
 		}
 	}
 
-	@BeforeSuite
-	public void setUp() {
-		try {
-			// Initialize Extent Report required static fields. 
-			
-			System.out.println(System.getProperty("user.dir"));
-
-			String Report_Timestamp = "Extent_Report" + (LocalDateTime.now()).getHour() + "_"
-					+ (LocalDateTime.now()).getMinute() + "_" + (LocalDateTime.now()).getSecond();
-
-			Report_Path = System.getProperty("user.dir") + "//test-output//Report//" + Report_Timestamp;
-			File f1 = new File(Report_Path);
-			f1.mkdir();
-			File F2 = new File(Report_Path + "//" + "Snapshot");
-			F2.mkdir();
-
-			htmlReporter = new ExtentHtmlReporter(Report_Path + "//STMExtentReport" + "_" + Report_Timestamp + ".html");
-			extent = new ExtentReports();
-			extent.attachReporter(htmlReporter);
-			extent.setSystemInfo("Host Name", "Automation Server");
-			extent.setSystemInfo("Environment", "Windows-Appium-iOS");
-			extent.setSystemInfo("User Name", "vTest QA Team");
-
-			htmlReporter.config().setDocumentTitle("iOS-Appium execution report");
-			htmlReporter.config().setReportName("iOS-Appium Execution Report");
-			htmlReporter.config().setTestViewChartLocation(ChartLocation.TOP);
-			htmlReporter.config().setTheme(Theme.STANDARD);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-		}
-	}
+//	@BeforeSuite
+//	public void setUp() {
+//		try {
+//			// Initialize Extent Report required static fields. 
+//			
+//			System.out.println(System.getProperty("user.dir"));
+//
+//			String Report_Timestamp = "Extent_Report" + (LocalDateTime.now()).getHour() + "_"
+//					+ (LocalDateTime.now()).getMinute() + "_" + (LocalDateTime.now()).getSecond();
+//
+//			Report_Path = System.getProperty("user.dir") + "//test-output//Report//" + Report_Timestamp;
+//			File f1 = new File(Report_Path);
+//			f1.mkdir();
+//			File F2 = new File(Report_Path + "//" + "Snapshot");
+//			F2.mkdir();
+//
+//			htmlReporter = new ExtentHtmlReporter(Report_Path + "//STMExtentReport" + "_" + Report_Timestamp + ".html");
+//			extent = new ExtentReports();
+//			extent.attachReporter(htmlReporter);
+//			extent.setSystemInfo("Host Name", "Automation Server");
+//			extent.setSystemInfo("Environment", "Windows-Appium-iOS");
+//			extent.setSystemInfo("User Name", "vTest QA Team");
+//
+//			htmlReporter.config().setDocumentTitle("iOS-Appium execution report");
+//			htmlReporter.config().setReportName("iOS-Appium Execution Report");
+//			htmlReporter.config().setTestViewChartLocation(ChartLocation.TOP);
+//			htmlReporter.config().setTheme(Theme.STANDARD);
+//
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		} finally {
+//		}
+//	}
 	
 	/*
 	 * Initializing pre-requisite capabilities necessary for invoking corresponding
 	 * device.
 	 */
 	@BeforeTest
-	@Parameters({ "type", "APPIUM_SERVER_URL", "platformName", "deviceName", "appPackage", "appActivity", "platformVersion", "wdaLocalPort", "iOSversion" })
-	public void beforeTest(String type, String APPIUM_SERVER_URL, String platformName, String deviceName, String appPackage, String appActivity, String platformVersion, String wdaLocalPort, String iOSversion)
+	@Parameters({ "type"})
+	public void beforeTest(String type)
 			throws Exception {
-		
-
-		URL url = new URL(APPIUM_SERVER_URL);
-
-		DesiredCapabilities caps = new DesiredCapabilities();
-		
-		if (type.equalsIgnoreCase("Android")) {			
-			caps.setCapability("deviceName", deviceName);
-			caps.setCapability("platformName", platformName);
-			platform_version=deviceName;
-			caps.setCapability("appPackage", appPackage);
-			caps.setCapability("appActivity", appActivity);
-			caps.setCapability("platformVersion", platformVersion);
-			caps.setCapability("newCommandTimeout", "120");
+		String s=type; 
+		caps=new DesiredCapabilities(); 
+		if (s.equalsIgnoreCase("Android")) 
+		{	
+			
+			caps.setCapability(MobileCapabilityType.DEVICE_NAME, "ZY223HQBHZ");
+			caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
+			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "7.1.1");
+			caps.setCapability("appPackage", "com.tce.studi");
+			caps.setCapability("appActivity", "com.tce.view.ui.activities.SplashScreenActivity");
+			caps.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, "true");
+			System.out.println("Required Desired Capabilities Defined");
+			
+			//caps.setCapability("newCommandTimeout", "120");
 			//caps.setCapability("noReset", "false");
+			final String appiumserverUrl="http://127.0.0.1:4723/wd/hub"; 
+			URL url=new URL(appiumserverUrl);
+			System.out.println("Appium Server URL is entered");
+			driver=new AndroidDriver<MobileElement>(url, caps);
+			System.out.println("AndroidDriver Configured with the required Desired Capabilities and URL");
+			 
 		}
-		else {		
+		else
+		{		
+			caps = new DesiredCapabilities();
 			caps.setCapability("automationName", prop.getProperty("automationName"));
-			caps.setCapability("deviceName", deviceName);
-			platform_version=deviceName;
-			caps.setCapability("udid", platformVersion);
+			caps.setCapability("deviceName", "Apple 11");
+			//platform_version=deviceName;
+			caps.setCapability("udid", "iOS11");
 			caps.setCapability("platformName", prop.getProperty("platformName"));
-			caps.setCapability("platformVersion", iOSversion);
+			//caps.setCapability("platformVersion", iOSversion);
 			caps.setCapability("bundleId", prop.getProperty("bundleId"));
 			// caps.setCapability("appActivity",
 			// "com.demo.liveplaces.view.activity.SplashActivity");
 			caps.setCapability("noReset", "true");
-			caps.setCapability("wdaLocalPort", wdaLocalPort);
+			//caps.setCapability("wdaLocalPort", wdaLocalPort);
 			caps.setCapability("newCommandTimeout", "120");
+			//iOSDriver<MobileElement> driver = new IOSDriver<MobileElement>(url, caps); 
 		}
 
-		driver = new RemoteWebDriver(url, caps); 
-		setDriver(driver);
 		
 		getDriver().manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);			
 
 	}
 	
-	public void setDriver(RemoteWebDriver driver) {
-		TLD.set(driver);
+	
+	
+	public static AndroidDriver<MobileElement> getDriver() {
+		
+		return driver;
 	}
 	
-	public RemoteWebDriver getDriver() {
-		return TLD.get();
-	}
-	
-	public static String getScreenshot(RemoteWebDriver appiumDriver, String screenshotName) throws Exception {
+	public static String getScreenshot(WebDriver webDriver, String screenshotName) throws Exception {
 		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-		TakesScreenshot ts = (TakesScreenshot) appiumDriver;
+		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
 		
 		//String destination = System.getProperty("user.dir") + "\\test-output\\Report\\Snapshot\\"+screenshotName+dateName+".png";
@@ -193,11 +205,10 @@ public class BaseClass {
 	@AfterTest
 	public void afterTest() {
 		getDriver().quit();
-		TLD.set(null);
+		//TLD.get(null);
 	}
 
-	@AfterSuite
-	public void tearDown() {
-		extent.flush();
+//	@AfterSuite
+//	public void tearDown() {
+//		extent.flush();
 	}
-}

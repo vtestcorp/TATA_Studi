@@ -1,34 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="tests">
-  <parameter name="appPackage" value="com.tce.afs"/>
-  <parameter name="appActivity" value="com.tce.view.ui.activities.SplashScreenActivity"/>
-  <parameter name="platformVersion" value="7"/>
   <parameter name="type" value="Android"/>
-  <parameter name="platformName" value="Android"/>
-  <parameter name="deviceName" value="ZY223HQBHZ"/>
-  <parameter name="APPIUM_SERVER_URL" value="http://127.0.0.1:4723/wd/hub"/>
-  <parameter name="wdaLocalPort" value=""/>
-  <parameter name="iOSversion" value=""/>
-  <test name="Device 01(failed)" parallel="tests">
-    <parameter name="appPackage" value="com.tce.afs"/>
-    <parameter name="appActivity" value="com.tce.view.ui.activities.SplashScreenActivity"/>
-    <parameter name="platformVersion" value="7"/>
+  <listeners>
+    <listener class-name="studi.co.Base.TestListener"/>
+  </listeners>
+  <test name="Device 01">
     <parameter name="type" value="Android"/>
-    <parameter name="platformName" value="Android"/>
-    <parameter name="deviceName" value="ZY223HQBHZ"/>
-    <parameter name="APPIUM_SERVER_URL" value="http://127.0.0.1:4723/wd/hub"/>
-    <parameter name="wdaLocalPort" value=""/>
-    <parameter name="iOSversion" value=""/>
     <classes>
-      <class name="studi.co.testScripts.TC15_Verify_Answers_are_Selectable_and_Deselectable_in_Practice">
+      <class name="studi.co.testScripts.AFS_UserStory_76"/>
+    </classes>
+  </test> <!-- Device 01 -->
+  <test name="Device 01(failed)" parallel="tests">
+    <parameter name="type" value="Android"/>
+    <classes>
+      <class name="studi.co.testScripts.AFS_UserStory_76">
         <methods>
-          <include name="setUp"/>
           <include name="beforeTest"/>
-          <include name="teardown"/>
-          <include name="verify_Answers_Are_Selectable_Deselectable"/>
+          <include name="TC10_Select_All_Answers_And_Verify_Feedback"/>
         </methods>
-      </class> <!-- studi.co.testScripts.TC15_Verify_Answers_are_Selectable_and_Deselectable_in_Practice -->
+      </class> <!-- studi.co.testScripts.AFS_UserStory_76 -->
     </classes>
   </test> <!-- Device 01(failed) -->
 </suite> <!-- Failed suite [Suite] -->

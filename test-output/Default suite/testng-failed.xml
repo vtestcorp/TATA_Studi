@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test verbose="2" name="Default test">
+    <classes>
+      <class name="studi.co.testScripts.AFS_UserStory_76"/>
+    </classes>
+  </test> <!-- Default test -->
   <test name="Default test(failed)">
     <classes>
-      <class name="studi.co.testScripts.TC08_Verify_Feedback_for_Answers_in_Revision">
+      <class name="studi.co.testScripts.AFS_UserStory_76">
         <methods>
+          <include name="TC08_Verify_Feedback_For_Answers_In_Revision"/>
           <include name="setUp"/>
-          <include name="verify_feedback_for_answers"/>
         </methods>
-      </class> <!-- studi.co.testScripts.TC08_Verify_Feedback_for_Answers_in_Revision -->
+      </class> <!-- studi.co.testScripts.AFS_UserStory_76 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

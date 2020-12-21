@@ -1,5 +1,6 @@
 package studi.co.pageModules;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -17,7 +18,7 @@ import studi.co.pageObjects.Object_Subject_Mathematics;
 
 public class Module_Verify_Answer_Options_In_Practice extends BaseClass{
 	
-	public void module_Verify_Answer_Options_In_Practice() throws InterruptedException {
+	public void module_Verify_Answer_Options_In_Practice() throws InterruptedException, IOException {
 		
 		Module_Login ml=new Module_Login(); 
 		ml.Login_to_app();
@@ -26,7 +27,7 @@ public class Module_Verify_Answer_Options_In_Practice extends BaseClass{
 		Object_Browse_Books obb=new Object_Browse_Books();
 		Object_Subject_Mathematics osm=new Object_Subject_Mathematics();
 		Object_Begin_Practice_Topic4_Chapter1_Mathematics obptcm = new Object_Begin_Practice_Topic4_Chapter1_Mathematics(); 
-		obb.browseBooks.click();
+		obb.syllabus.click();
 		Thread.sleep(2000);
 		
 		osm.subject_Mathematics.click();
@@ -97,7 +98,7 @@ public class Module_Verify_Answer_Options_In_Practice extends BaseClass{
 		
 	}
 		
-		public void verify_Answers_Selectable_Deselectable() throws InterruptedException {
+		public void verify_Answers_Selectable_Deselectable() throws InterruptedException, IOException {
 			
 			Module_Login ml=new Module_Login(); 
 			ml.Login_to_app();
@@ -106,7 +107,7 @@ public class Module_Verify_Answer_Options_In_Practice extends BaseClass{
 			Object_Browse_Books obb=new Object_Browse_Books();
 			Object_Subject_Mathematics osm=new Object_Subject_Mathematics();
 			Object_Begin_Practice_Topic4_Chapter1_Mathematics obpt = new Object_Begin_Practice_Topic4_Chapter1_Mathematics(); 
-			obb.browseBooks.click();
+			obb.syllabus.click();
 			Thread.sleep(2000);
 			
 			osm.subject_Mathematics.click();

@@ -20,7 +20,7 @@ public class Module_Receive_MCQ_Questions_Practice extends BaseClass{
 		
 		
 		//login.Login_to_app();
-		RMQP.select_browse_books.click();
+		RMQP.select_syllabus.click();
 		Thread.sleep(1000);
 		RMQP.select_subject.click();
 		Thread.sleep(1000);

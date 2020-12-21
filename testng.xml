@@ -1,41 +1,21 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="Suite" verbose="1" parallel="tests" thread-count="1">
-   
+   	 <listeners>
+      	<listener class-name ="studi.co.Base.TestListener" />
+     </listeners>
      <test name="Device 01">
         <parameter name="type" value="Android"></parameter>
-        <parameter name="APPIUM_SERVER_URL" value="http://127.0.0.1:4723/wd/hub"/>
+        <!-->parameter name="APPIUM_SERVER_URL" value="http://127.0.0.1:4723/wd/hub"/>
         <parameter name="platformName" value="Android"/>
         <parameter name="deviceName" value="ZY223HQBHZ"/>
-        <parameter name="appPackage" value="com.tce.afs"/>
+        <parameter name="appPackage" value="com.tce.studi"/>
         <parameter name="appActivity" value="com.tce.view.ui.activities.SplashScreenActivity"/>  
-        <parameter name="platformVersion" value="7"/>
+        <parameter name="platformVersion" value="7.1.1"/>
         <parameter name="wdaLocalPort" value=""/>
-        <parameter name="iOSversion" value=""/>            
+        <parameter name="iOSversion" value=""/>-->   
+       
         <classes>
-            <!-- >class name="studi.co.testScripts.Login" />
-            <class name="studi.co.testScripts.Create_Study_Plan" />
-            <class name="studi.co.testScripts.Receive_MCQ_Questions_Practice" />
-            <class name="studi.co.testScripts.Review_Plan_Tab" />
-            <class name="studi.co.testScripts.Completed_In_School_Status_Chapter" />
-            <class name="studi.co.testScripts.Confirm_Syllabus_Tab" />
-            <class name="studi.co.testScripts.Confirm_Syllabus_Page_Tappable" />
-            <class name="studi.co.testScripts.Mark_Completed_In_School_Manually" />
-            <class name="studi.co.testScripts.Mark_Excluded_From_Syllabus_Manually" />
-           <class name="studi.co.testScripts.View_Chapter_Listing_Page_Content" />
-           <class name="studi.co.testScripts.View_Chapter_Listing_Page_Content" />
-           <class name="studi.co.testScripts.Navigate_Revision_From_Topic_Listing" />
-           <class name="studi.co.testScripts.Receive_MCQ_Questions_Revision" /> 
-           <class name="studi.co.testScripts.Receive_MCQ_Questions_DefaultState" />
-           <class name="studi.co.testScripts.Verify_Abandon_from_MCQ_In_Revision" />
-           <class name="studi.co.testScripts.TC11_Abandon_Quiz_from_Revision"/>
-           <class name="studi.co.testScripts.TC14_Verify_Answer_Options_in_Practice_Quiz"/>
-           <class name="studi.co.testScripts.TC15_Verify_Answers_are_Selectable_and_Deselectable_in_Practice"/>
-           <class name="studi.co.testScripts.TC08_Verify_Feedback_for_Answers_in_Revision"/>
-           <class name="studi.co.testScripts.TC14_Verify_Answer_Options_in_Practice_Quiz"/>
-           <class name="studi.co.testScripts.TC10_Select_All_Answers_And_Verify_Feedback"/>
-           <class name="studi.co.testScripts.TC12_Verify_MCQ_Questions_In_Practice_Module"/>
-           <class name="studi.co.testScripts.TC11_Abandon_Quiz_from_Revision"/>-->
-           <class name="studi.co.testScripts.TC15_Verify_Answers_are_Selectable_and_Deselectable_in_Practice"/>
+            <class name="studi.co.testScripts.AFS_UserStory_76" />
         </classes>
     </test>           
 </suite>
