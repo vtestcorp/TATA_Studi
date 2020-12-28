@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.ITestResult;
 
@@ -27,7 +28,7 @@ import studi.co.pageObjects.Object_Receive_MCQ_Questions_Practice;
 import studi.co.pageObjects.Object_Receive_MCQ_Questions_Revision;
 
 public class Module_Verify_Answer_Feedback_In_Revision extends BaseClass{
-	public void verify_Answer_Feedback() throws InterruptedException, AWTException, MalformedURLException {
+	public void verify_Answer_Feedback() throws InterruptedException, AWTException, WebDriverException, IOException {
 		Object_Receive_MCQ_Questions_Practice RMQP = new Object_Receive_MCQ_Questions_Practice();
 		Object_Receive_MCQ_Questions_Revision RMQP1 = new Object_Receive_MCQ_Questions_Revision();
 		
@@ -47,10 +48,13 @@ public class Module_Verify_Answer_Feedback_In_Revision extends BaseClass{
 		
 		System.out.println("Video started");
 		
-		Keyword.applyExplicitWait(5);
 		
-		//Used the utility method instead 
-		Keyword.handleVideoWait(RMQP1.img_OverviewPg_screen, RMQP1.img_OverviewPg_screen_time);
+		  Keyword.applyExplicitWait(5);
+		  
+		  //Used the utility method instead
+		  Keyword.handleVideoWait(RMQP1.img_OverviewPg_screen,
+		  RMQP1.img_OverviewPg_screen_time);
+		 
 		
 //		Keyword.clickOnElement(RMQP1.img_OverviewPg_screen);
 //		String totalVideoTime=Keyword.getTextOfElement(RMQP1.img_OverviewPg_screen_time);
@@ -73,6 +77,7 @@ public class Module_Verify_Answer_Feedback_In_Revision extends BaseClass{
 //		System.out.println("Waited till '"+(totalWait)/1000+"' seconds");
 		
 		Keyword.applyExplicitWait(10);
+		
 		
 		//Getting the property called bounds of the element before the click for answer 1
 		MobileElement element1before=(MobileElement)RMQP1.select_1st_Choice;
@@ -137,9 +142,8 @@ public class Module_Verify_Answer_Feedback_In_Revision extends BaseClass{
 			
 			Keyword.clickOnElementUsingText("The sun");
 			Keyword.applyExplicitWait(3);
+			takeScreenshot();
 			
-			ITestResult result = null;
-			Keyword.takeScreenshotUsingRobot(result.getName());
 		}
 
 	}
