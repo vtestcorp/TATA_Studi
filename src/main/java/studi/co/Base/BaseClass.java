@@ -135,7 +135,8 @@ public class BaseClass {
 		return driver;
 	}
 
-	public static void takeScreenshot(String screenshotName) {
+	public static void takeScreenshot(String screenshotName) throws MalformedURLException {
+		
 		DateFormat dateFormat = new SimpleDateFormat("dd-MM-YY hh-mm-ss");
 		Date date = new Date();
 		String datetime = dateFormat.format(date);
@@ -150,12 +151,13 @@ public class BaseClass {
 
 	}
 
-	public static void takeScreenshot() {
+	public static void takeScreenshot() throws MalformedURLException {
+		
 		DateFormat dateFormat = new SimpleDateFormat("dd-MM-YY hh-mm-ss");
 		Date date = new Date();
 		String datetime = dateFormat.format(date);
 		File finalDestination = new File(System.getProperty("user.dir") + "//Screenshots//"
-				+ Thread.currentThread().getStackTrace()[2].getMethodName() + "_" + datetime + ".png");
+				+ Thread.currentThread().getStackTrace()[3].getMethodName() + "_" + datetime + ".png");
 		try {
 			FileUtils.copyFile(((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE), finalDestination);
 		} catch (WebDriverException | IOException e) {
@@ -355,12 +357,9 @@ public class BaseClass {
 		/*action.tap(PointOption.point(200, 200)).perform();
 		action.tap(PointOption.point(240, 360)).perform();*/
 		getDriver().findElement(By.xpath("//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]")).click();
-		applyExplicitWait(5);
+		applyExplicitWait(2);
 		getDriver().findElementByAccessibilityId("Pause").click();
-		
-		
 		WebElement seekBar = (MobileElement) driver.findElementByClassName("android.widget.SeekBar");
-
 		// get location of seek bar from left
 		int start = seekBar.getLocation().getX();
 		System.out.println("Startpoint - " + start);

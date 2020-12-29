@@ -46,8 +46,8 @@ public class Object_Receive_MCQ_Questions_Revision extends BaseClass {
 	@AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.widget.LinearLayout")
 	public WebElement linearDots;
 	
-	//@AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[3]/android.widget.Button")
-	@AndroidFindBy(xpath = "//[contains(text(),'Check Answer’)]")
+	@AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[3]/android.widget.Button")
+	//@AndroidFindBy(xpath = "//[contains(text(),'Check Answer')]")
 	public WebElement checkAnswer;
 	
 	@AndroidFindBy(id = "com.tce.studi:id/ivNext")
@@ -58,6 +58,9 @@ public class Object_Receive_MCQ_Questions_Revision extends BaseClass {
 	
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.appcompat.widget.LinearLayoutCompat/android.widget.ScrollView/android.widget.LinearLayout/android.widget.Button[1]")
 	public WebElement popUpNo; 
+	
+	@AndroidFindBy(id = "com.tce.studi:id/tv_lets_summarise")
+	public WebElement letsSummriseTxt;
 	
 	public Object_Receive_MCQ_Questions_Revision() {
 		PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);

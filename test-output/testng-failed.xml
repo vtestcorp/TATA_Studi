@@ -9,7 +9,7 @@
     <classes>
       <class name="studi.co.testScripts.AFS_UserStory_76">
         <methods>
-          <include name="TC04_Verify_MCQ_Answers_Can_Be_Select_or_Unselect_In_Revision"/>
+          <include name="TC18_Verify_Answer_Feedback_Is_Correct_In_Practice"/>
           <include name="Validate_Login"/>
           <include name="beforeTest"/>
         </methods>

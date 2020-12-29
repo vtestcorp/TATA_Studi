@@ -2,51 +2,14 @@ package studi.co.testScripts;
 
 import java.awt.AWTException;
 import java.awt.HeadlessException;
-import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.util.List;
-
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import io.appium.java_client.MobileDriver;
-import io.appium.java_client.MobileElement;
-import io.appium.java_client.PerformsTouchActions;
-import io.appium.java_client.TouchAction;
-import io.appium.java_client.touch.LongPressOptions;
-import io.appium.java_client.touch.TapOptions;
-import io.appium.java_client.touch.offset.ElementOption;
-import io.appium.java_client.touch.offset.PointOption;
 import studi.co.Base.BaseClass;
-import studi.co.Base.Keyword;
-import studi.co.pageModules.Model_Receive_MCQ_Questions_DefaultState;
-import studi.co.pageModules.Model_Receive_MCQ_Questions_Revision;
-import studi.co.pageModules.Model_View_Chapter_Listing;
-import studi.co.pageModules.Module_Completed_In_School;
-import studi.co.pageModules.Module_Create_Study_Plan;
-import studi.co.pageModules.Module_Excluded_From_Syllabus_Manually;
-import studi.co.pageModules.Module_Get_Syllabus_Tab_Label;
-import studi.co.pageModules.Module_Login;
-import studi.co.pageModules.Module_Mark_Completed_In_School_Manually;
-import studi.co.pageModules.Module_Navigate_Revision_From_Topic_Listing;
-import studi.co.pageModules.Module_Receive_MCQ_Questions_Practice;
-import studi.co.pageModules.Module_Review_Plan_Tab;
-import studi.co.pageModules.Module_Syllabus_Tappable;
-import studi.co.pageModules.Module_Verify_Abandon_Quiz_From_Revision;
-import studi.co.pageModules.Module_Verify_Answer_Feedback_In_Practice;
-import studi.co.pageModules.Module_Verify_Answer_Feedback_In_Revision;
-import studi.co.pageModules.Module_Verify_Answer_Options_In_Practice;
-import studi.co.pageModules.Module_Verify_Attempt_In_Practice;
-import studi.co.pageModules.Module_View_Chapter_Details;
-import studi.co.pageObjects.Object_Login;
-import studi.co.pageObjects.Object_Receive_MCQ_Questions_Practice;
-import studi.co.pageObjects.Object_Receive_MCQ_Questions_Revision;
+import studi.co.pageModules.*;
+import studi.co.pageModules.AFS_UserStory_76.*;
 
 public class AFS_UserStory_76 extends BaseClass {
 
@@ -60,65 +23,17 @@ public class AFS_UserStory_76 extends BaseClass {
 		login.Login_to_app();
 	}
 
-	@Test(enabled = true)
-	public void TC04_Verify_MCQ_Answers_Can_Be_Select_or_Unselect_In_Revision()
-			throws WebDriverException, IOException, InterruptedException {
-		Object_Receive_MCQ_Questions_Practice RMQP = new Object_Receive_MCQ_Questions_Practice();
-		Object_Receive_MCQ_Questions_Revision RMQP1 = new Object_Receive_MCQ_Questions_Revision();
-		RMQP.select_syllabus.click();
-		applyExplicitWait(1);
-		RMQP.select_subject.click();
-		applyExplicitWait(1);
-		System.out.println("Subject - Geography - Geography Grade 6 is shown");
-		RMQP1.select_topic_from_chapter.click();
-		applyExplicitWait(2);
-		System.out.println("Selected Topic");
-		RMQP1.select_Begin_Revision.click();
-		applyExplicitWait(20);
-		RMQP1.click_Begin_Revision.click();
-		applyExplicitWait(2);
-		
-		System.out.println("Video started");
-		forwardVideoTimerToEnd();
-		applyExplicitWait(15);
-		List<MobileElement> questions=getDriver().findElementsByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.widget.LinearLayout/android.widget.ImageView");
-		System.out.println("Total questions : "+questions.size());
-		
-		for(int i=0;i<questions.size();i++)
-		{
-			applyExplicitWait(10);
-		if (RMQP1.checkAnswer.isDisplayed()) {
-			applyExplicitWait(5);
-			clickOnElement(RMQP1.select_1st_Choice);
-			System.out.println("1st option selected");
-			applyExplicitWait(5);
-			if (RMQP1.select_2nd_Choice.isDisplayed())
-				{clickOnElement(RMQP1.select_2nd_Choice);System.out.println("2nd option selected");}
-			
-			applyExplicitWait(5);
-			if (RMQP1.select_3rd_Choice.isDisplayed())
-				{clickOnElement(RMQP1.select_3rd_Choice);System.out.println("3rd option selected");}
-			
-			applyExplicitWait(5);
-			
-			if (RMQP1.select_4th_Choice.isDisplayed())
-				{clickOnElement(RMQP1.select_4th_Choice);System.out.println("4th option selected");}
-			
-			applyExplicitWait(5);
-			clickOnElement(RMQP1.nextButton);
-		}
-		else
-		{
-			clickOnElement(RMQP1.checkAnswer);
-			clickOnElement(RMQP1.nextButton);
-			applyExplicitWait(5);
-		}
-		}
+	
+	@Test(enabled = false)
+	public void TC04_Verify_MCQ_Answers_Can_Be_Select_or_Unselect_In_Revision() throws WebDriverException, IOException, InterruptedException {
+		Module_Verify_MCQ_Answers_Can_Be_Select_or_Unselect_In_Revision mvma=new Module_Verify_MCQ_Answers_Can_Be_Select_or_Unselect_In_Revision();
+		mvma.Verify_MCQ_Answers_Can_Be_Select_or_Unselect_In_Revision();		
 	}
 
-	@Test(enabled = false)
-	public void TC03_Verify_Answer_Options_In_Revision() {
-
+	@Test(enabled = true)
+	public void TC03_Verify_Answer_Options_In_Revision() throws WebDriverException, IOException, InterruptedException {
+		Module_Verify_Answer_Options_In_Revision vao=new Module_Verify_Answer_Options_In_Revision();
+		vao.Verify_Answer_Options_In_Revision();
 	}
 
 	@Test(enabled = false)
@@ -161,8 +76,8 @@ public class AFS_UserStory_76 extends BaseClass {
 	}
 
 	@Test(enabled = false)
-	public void TC18_Verify_Answer_Feedback_In_Practice() {
-		Module_Verify_Answer_Feedback_In_Practice mva = new Module_Verify_Answer_Feedback_In_Practice();
+	public void TC18_Verify_Answer_Feedback_Is_Correct_In_Practice() throws InterruptedException, IOException {
+		Module_Verify_Answer_Feedback_Is_Correct_In_Practice mva = new Module_Verify_Answer_Feedback_Is_Correct_In_Practice();
 		mva.verify_Answer_Feedback();
 	}
 
