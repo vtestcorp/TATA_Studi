@@ -1,4 +1,4 @@
-package studi.co.pageModules.AFS_UserStory_76;
+package studi.co.pageModules;
 
 import java.io.IOException;
 
