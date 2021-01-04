@@ -25,10 +25,18 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -53,6 +61,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
+import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 
 //Handling Config file operations and Extent report initialization
@@ -75,9 +84,10 @@ public class BaseClass {
 
 	public BaseClass() {
 		try {
+
 			prop = new Properties();
 			FileInputStream ip = new FileInputStream(
-					System.getProperty("user.dir") + "src//main//java//studi//co//Config//config.properties");
+					System.getProperty("user.dir") + "\\src\\main\\java\\studi\\co\\Config\\config.properties");
 			prop.load(ip);
 		} catch (Exception ex) {
 			System.out.println(ex.getStackTrace());
@@ -104,8 +114,8 @@ public class BaseClass {
 			caps.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, "true");
 			System.out.println("Required Desired Capabilities Defined");
 			final String appiumserverUrl = "http://127.0.0.1:4723/wd/hub";
-			URL url = new URL(appiumserverUrl);
-			System.out.println("Appium Server URL is entered");
+			url = new URL(appiumserverUrl);
+			System.out.println("Appium Server URL is entered ");
 			driver = new AndroidDriver<MobileElement>(url, caps);
 			System.out.println("AndroidDriver Configured with the required Desired Capabilities and URL");
 
@@ -126,7 +136,8 @@ public class BaseClass {
 			// iOSDriver<MobileElement> driver = new IOSDriver<MobileElement>(url, caps);
 		}
 
-		getDriver().manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
+		getDriver().manage().timeouts().implicitlyWait(Long.parseLong(prop.getProperty("object_wait_timeout")),
+				TimeUnit.SECONDS);
 
 	}
 
@@ -135,8 +146,8 @@ public class BaseClass {
 		return driver;
 	}
 
-	public static void takeScreenshot(String screenshotName) throws MalformedURLException {
-		
+	public void takeScreenshot1(String screenshotName) throws MalformedURLException {
+
 		DateFormat dateFormat = new SimpleDateFormat("dd-MM-YY hh-mm-ss");
 		Date date = new Date();
 		String datetime = dateFormat.format(date);
@@ -151,8 +162,8 @@ public class BaseClass {
 
 	}
 
-	public static void takeScreenshot() throws MalformedURLException {
-		
+	public static void takeScreenshot1() throws MalformedURLException {
+
 		DateFormat dateFormat = new SimpleDateFormat("dd-MM-YY hh-mm-ss");
 		Date date = new Date();
 		String datetime = dateFormat.format(date);
@@ -296,6 +307,7 @@ public class BaseClass {
 	 * @param timeInSeconds
 	 * @throws MalformedURLException
 	 */
+
 	public static void applyImplicitWait(int timeInSeconds) throws MalformedURLException {
 		System.out.println("Applying implicit wait for the given time duartion in Seconds : " + timeInSeconds);
 		getDriver().manage().timeouts().implicitlyWait(timeInSeconds, TimeUnit.SECONDS);
@@ -314,10 +326,16 @@ public class BaseClass {
 	public static String getElementAttribute(WebElement element, String attributeKey) throws MalformedURLException {
 		System.out.println("Geting the value for the attribute/property for the given mobile element");
 		MobileElement ele = (MobileElement) element;
-		Keyword.applyImplicitWait(20);
+		// Keyword.applyImplicitWait(20);
+		applyExplicitWait(5);
 		String value = ele.getAttribute(attributeKey);
 		return value;
 
+	}
+
+	public int getTotalQuestionsInPractice() {
+		MobileElement ele=getDriver().findElement(By.xpath("//*[contains(@text, '1 of')]"));
+		return Character.getNumericValue(ele.getText().charAt(ele.getText().length()-1));
 	}
 
 	public static void getColorFromScreenshot(WebElement element) throws HeadlessException, AWTException {
@@ -345,18 +363,22 @@ public class BaseClass {
 	 * 
 	 * @param element1
 	 * @param element2
-	 * @throws IOException 
-	 * @throws WebDriverException 
-	 * @throws InterruptedException 
+	 * @throws IOException
+	 * @throws WebDriverException
+	 * @throws InterruptedException
 	 * 
 	 * @throws MalformedURLException
 	 */
 	public static void forwardVideoTimerToEnd() throws WebDriverException, IOException, InterruptedException {
 		action = new TouchAction(getDriver());
 		Thread.sleep(5000);
-		/*action.tap(PointOption.point(200, 200)).perform();
-		action.tap(PointOption.point(240, 360)).perform();*/
-		getDriver().findElement(By.xpath("//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]")).click();
+		/*
+		 * action.tap(PointOption.point(200, 200)).perform();
+		 * action.tap(PointOption.point(240, 360)).perform();
+		 */
+		getDriver().findElement(By.xpath(
+				"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]"))
+				.click();
 		applyExplicitWait(2);
 		getDriver().findElementByAccessibilityId("Pause").click();
 		WebElement seekBar = (MobileElement) driver.findElementByClassName("android.widget.SeekBar");
@@ -376,6 +398,64 @@ public class BaseClass {
 		getDriver().findElementByAccessibilityId("Play").click();
 
 	}
+
+	public MobileElement findElementByText(String text) {
+		return getDriver().findElement(By.xpath("//*[contains(@text, '" + text + "')]"));
+	}
+
+	public List<MobileElement> getAllElementsFromPageUsingID(String id) throws Exception {
+		List<MobileElement> topics1 = (List<MobileElement>) driver.findElementsById(id);
+		int flag = 0;
+		while (flag == 0) {
+			swipeVertical(0.8, 0.1, 0.2, 500);
+			topics1.addAll(driver.findElementsById("com.tce.studi:id/tv_topic"));
+			try {
+				if (findElementByText("eBook").isDisplayed())
+					flag = 1;
+			} catch (Exception e) {
+			}
+		}
+		List<MobileElement> listWithoutDuplicates = new ArrayList<>(new HashSet<>(topics1));
+		return listWithoutDuplicates;
+
+	}
+
+	public static void swipeVertical(double startPercentage, double finalPercentage, double anchorPercentage,
+			int duration) throws Exception {
+		org.openqa.selenium.Dimension size = driver.manage().window().getSize();
+		int anchor = (int) (size.width * anchorPercentage);
+		int startPoint = (int) (size.height * startPercentage);
+		int endPoint = (int) (size.height * finalPercentage);
+		getTouchAction().press(PointOption.point(anchor, startPoint))
+				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(duration)))
+				.moveTo(PointOption.point(anchor, endPoint)).release().perform();
+	}
+
+	public static TouchAction getTouchAction() {
+		return new TouchAction(driver);
+	}
+
+	public String getReferenceImageB64() throws URISyntaxException, IOException {
+		URL refImgUrl = getClass().getResource("/logo.png");
+		System.out.println(refImgUrl.toString());
+		File refImgFile = Paths.get(refImgUrl.toURI()).toFile();
+		System.out.println(refImgFile.toPath());
+		// return Base64.encodeBase64String(Files.readAllBytes(refImgFile.toPath()));
+		return Base64.getEncoder().encodeToString(Files.readAllBytes(refImgFile.toPath()));
+	}
+
+	public static void main(String[] args) throws URISyntaxException, IOException {
+		
+		}
+
+	/*
+	 * public static String getBase64StringFormatOfImage(String imgName) throws
+	 * URISyntaxException, IOException { URL refImgUrl =
+	 * ImageUtils.class.getClassLoader().getResource(imgName); File refImgFile =
+	 * Paths.get(refImgUrl.toURI()).toFile(); // return
+	 * Base64.getEncoder().encodeToString(Files.readAllBytes(refImgFile.toPath()));
+	 * }
+	 */
 
 	// @AfterTest
 	public void afterTest() {

@@ -1,24 +1,22 @@
 package studi.co.pageModules;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.util.List;
 
 import org.openqa.selenium.WebDriverException;
-import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 import io.appium.java_client.MobileElement;
 import studi.co.Base.BaseClass;
-import studi.co.pageObjects.Object_Receive_MCQ_Questions_Practice;
-import studi.co.pageObjects.Object_Receive_MCQ_Questions_Revision;
+import studi.co.pageObjects.Object_Receive_Questions_Practice;
+import studi.co.pageObjects.Object_Receive_Questions_Revision;
 
 
 public class Module_Verify_Answer_Options_In_Revision extends BaseClass{
 
 	public void Verify_Answer_Options_In_Revision() throws WebDriverException, IOException, InterruptedException {
-		Object_Receive_MCQ_Questions_Practice RMQP = new Object_Receive_MCQ_Questions_Practice();
-		Object_Receive_MCQ_Questions_Revision RMQP1 = new Object_Receive_MCQ_Questions_Revision();
+		Object_Receive_Questions_Practice RMQP = new Object_Receive_Questions_Practice();
+		Object_Receive_Questions_Revision RMQP1 = new Object_Receive_Questions_Revision();
 		RMQP.select_syllabus.click();
 		applyExplicitWait(1);
 		RMQP.select_subject.click();

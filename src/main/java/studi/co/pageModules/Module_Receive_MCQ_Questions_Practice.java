@@ -5,7 +5,7 @@ import java.awt.Robot;
 import java.awt.event.KeyEvent;
 
 import studi.co.Base.BaseClass;
-import studi.co.pageObjects.Object_Receive_MCQ_Questions_Practice;
+import studi.co.pageObjects.Object_Receive_Questions_Practice;
 
 public class Module_Receive_MCQ_Questions_Practice extends BaseClass{
 	
@@ -15,7 +15,7 @@ public class Module_Receive_MCQ_Questions_Practice extends BaseClass{
 	public void Verify_Student_Receives_MCQ_Questions_Practice() throws InterruptedException, AWTException {
 	
 
-		Object_Receive_MCQ_Questions_Practice RMQP = new Object_Receive_MCQ_Questions_Practice();
+		Object_Receive_Questions_Practice RMQP = new Object_Receive_Questions_Practice();
 		//Module_Login login = new Module_Login();
 		
 		

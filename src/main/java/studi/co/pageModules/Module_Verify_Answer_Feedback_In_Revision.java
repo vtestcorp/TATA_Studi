@@ -24,13 +24,13 @@ import junit.framework.Assert;
 import studi.co.Base.BaseClass;
 import studi.co.Base.Keyword;
 import studi.co.pageObjects.Object_Begin_Revision_Topic1_Chapter1_Geography;
-import studi.co.pageObjects.Object_Receive_MCQ_Questions_Practice;
-import studi.co.pageObjects.Object_Receive_MCQ_Questions_Revision;
+import studi.co.pageObjects.Object_Receive_Questions_Practice;
+import studi.co.pageObjects.Object_Receive_Questions_Revision;
 
 public class Module_Verify_Answer_Feedback_In_Revision extends BaseClass{
 	public void verify_Answer_Feedback() throws InterruptedException, AWTException, WebDriverException, IOException {
-		Object_Receive_MCQ_Questions_Practice RMQP = new Object_Receive_MCQ_Questions_Practice();
-		Object_Receive_MCQ_Questions_Revision RMQP1 = new Object_Receive_MCQ_Questions_Revision();
+		Object_Receive_Questions_Practice RMQP = new Object_Receive_Questions_Practice();
+		Object_Receive_Questions_Revision RMQP1 = new Object_Receive_Questions_Revision();
 		
 		Keyword.clickOnElement(RMQP.select_syllabus);
 		Keyword.applyExplicitWait(2);
@@ -106,8 +106,8 @@ public class Module_Verify_Answer_Feedback_In_Revision extends BaseClass{
 	}
 	
 		public void Verify_Feedback_On_All_Answers_In_Revision() throws InterruptedException, AWTException, HeadlessException, IOException {
-			Object_Receive_MCQ_Questions_Practice RMQP = new Object_Receive_MCQ_Questions_Practice();
-			Object_Receive_MCQ_Questions_Revision RMQP1 = new Object_Receive_MCQ_Questions_Revision();
+			Object_Receive_Questions_Practice RMQP = new Object_Receive_Questions_Practice();
+			Object_Receive_Questions_Revision RMQP1 = new Object_Receive_Questions_Revision();
 			
 			Keyword.clickOnElement(RMQP.select_syllabus);
 			Keyword.applyExplicitWait(3);
@@ -142,7 +142,7 @@ public class Module_Verify_Answer_Feedback_In_Revision extends BaseClass{
 			
 			Keyword.clickOnElementUsingText("The sun");
 			Keyword.applyExplicitWait(3);
-			takeScreenshot();
+			takeScreenshot1();
 			
 		}
 

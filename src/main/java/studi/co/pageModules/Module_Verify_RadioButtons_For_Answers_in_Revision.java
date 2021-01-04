@@ -7,17 +7,17 @@ import org.testng.asserts.SoftAssert;
 import junit.framework.Assert;
 import studi.co.Base.Keyword;
 import studi.co.pageObjects.Object_Browse_Books;
-import studi.co.pageObjects.Object_Receive_MCQ_Questions_Revision;
+import studi.co.pageObjects.Object_Receive_Questions_Revision;
 import studi.co.pageObjects.Object_Subject_Geography;
 
-public class Module_Verify_RadioButtons_For_Answers_in_Revision extends Object_Receive_MCQ_Questions_Revision {
+public class Module_Verify_RadioButtons_For_Answers_in_Revision extends Object_Receive_Questions_Revision {
 
 	public Module_Verify_RadioButtons_For_Answers_in_Revision() {
 		super(); 
 	}
 	public void verify_RadioButton() throws MalformedURLException, InterruptedException {
 		Object_Browse_Books obb=new Object_Browse_Books(); 
-		Object_Receive_MCQ_Questions_Revision orm= new Object_Receive_MCQ_Questions_Revision(); 
+		Object_Receive_Questions_Revision orm= new Object_Receive_Questions_Revision(); 
 		Object_Subject_Geography osg= new Object_Subject_Geography(); 
 		
 		Keyword.applyExplicitWaitsUntilElementClickable(obb.syllabus);

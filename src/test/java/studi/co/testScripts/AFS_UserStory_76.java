@@ -9,7 +9,6 @@ import org.testng.annotations.Test;
 
 import studi.co.Base.BaseClass;
 import studi.co.pageModules.*;
-import studi.co.pageModules.AFS_UserStory_76.*;
 
 public class AFS_UserStory_76 extends BaseClass {
 
@@ -26,7 +25,7 @@ public class AFS_UserStory_76 extends BaseClass {
 	
 	@Test(enabled = false)
 	public void TC04_Verify_MCQ_Answers_Can_Be_Select_or_Unselect_In_Revision() throws WebDriverException, IOException, InterruptedException {
-		Module_Verify_MCQ_Answers_Can_Be_Select_or_Unselect_In_Revision mvma=new Module_Verify_MCQ_Answers_Can_Be_Select_or_Unselect_In_Revision();
+		Module_Verify_Answers_Can_Be_Select_or_Unselect_In_Revision mvma=new Module_Verify_Answers_Can_Be_Select_or_Unselect_In_Revision();
 		mvma.Verify_MCQ_Answers_Can_Be_Select_or_Unselect_In_Revision();		
 	}
 

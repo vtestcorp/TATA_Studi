@@ -6,8 +6,8 @@ import java.awt.AWTException;
 import java.awt.Robot;
 
 import studi.co.Base.BaseClass;
-import studi.co.pageObjects.Object_Receive_MCQ_Questions_Practice;
-import studi.co.pageObjects.Object_Receive_MCQ_Questions_Revision;
+import studi.co.pageObjects.Object_Receive_Questions_Practice;
+import studi.co.pageObjects.Object_Receive_Questions_Revision;
 
 public class Model_Receive_MCQ_Questions_Revision extends BaseClass{
 	
@@ -16,8 +16,8 @@ public class Model_Receive_MCQ_Questions_Revision extends BaseClass{
 	
 	public void Verify_Navigate_Revision_From_Topic_Listing() throws InterruptedException, AWTException{
 		
-		Object_Receive_MCQ_Questions_Practice RMQP = new Object_Receive_MCQ_Questions_Practice();
-		Object_Receive_MCQ_Questions_Revision RMQP1 = new Object_Receive_MCQ_Questions_Revision();
+		Object_Receive_Questions_Practice RMQP = new Object_Receive_Questions_Practice();
+		Object_Receive_Questions_Revision RMQP1 = new Object_Receive_Questions_Revision();
 		
 		RMQP.select_syllabus.click();
 		Thread.sleep(1000);

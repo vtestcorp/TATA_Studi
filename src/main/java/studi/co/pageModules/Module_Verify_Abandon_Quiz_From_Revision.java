@@ -10,16 +10,16 @@ import studi.co.Base.BaseClass;
 import studi.co.pageObjects.Object_Begin_Revision_Topic4_Chapter1_Mathematics;
 import studi.co.pageObjects.Object_Browse_Books;
 import studi.co.pageObjects.Object_Landing_Page;
-import studi.co.pageObjects.Object_Receive_MCQ_Questions_Practice;
-import studi.co.pageObjects.Object_Receive_MCQ_Questions_Revision;
+import studi.co.pageObjects.Object_Receive_Questions_Practice;
+import studi.co.pageObjects.Object_Receive_Questions_Revision;
 import studi.co.pageObjects.Object_Subject_Mathematics;
 
 public class Module_Verify_Abandon_Quiz_From_Revision extends Object_Begin_Revision_Topic4_Chapter1_Mathematics {
 
 	public void verifyAbandonQuiz() throws InterruptedException {
 		
-		Object_Receive_MCQ_Questions_Practice RMQP = new Object_Receive_MCQ_Questions_Practice();
-		Object_Receive_MCQ_Questions_Revision RMQP1 = new Object_Receive_MCQ_Questions_Revision();
+		Object_Receive_Questions_Practice RMQP = new Object_Receive_Questions_Practice();
+		Object_Receive_Questions_Revision RMQP1 = new Object_Receive_Questions_Revision();
 		
 		RMQP.select_syllabus.click();
 		Thread.sleep(1000);
