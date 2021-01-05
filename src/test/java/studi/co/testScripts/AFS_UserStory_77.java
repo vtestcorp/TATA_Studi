@@ -65,7 +65,7 @@ public class AFS_UserStory_77 extends BaseClass {
 		rqr.Module_Receive_SCQ_Questions_Practice(prop.getProperty("Psubject"), prop.getProperty("Ptopic"));
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void TC13_To_Verify_SCQ_Answers_Is_In_Default_State_In_Practice()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
@@ -81,12 +81,38 @@ public class AFS_UserStory_77 extends BaseClass {
 				prop.getProperty("Ptopic"));
 	}
 
-	@Test(enabled = false)//needs questions data
-	public void TC15_To_Verify_SCQ_Answer_Can_Be_Slect_In_Practice() throws MalformedURLException, InterruptedException {
+	@Test(enabled = false)
+	public void TC15_To_Verify_SCQ_Answer_Can_Be_Select_In_Practice()
+			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
-		rqr.Module_Verify_SCQ_Answer_Can_Be_Slect_In_Practice(prop.getProperty("Psubject"),prop.getProperty("Ptopic"));
+		rqr.Module_Verify_SCQ_Answer_Can_Be_Slect_In_Practice(prop.getProperty("Psubject"), prop.getProperty("Ptopic"));
 	}
 
+	@Test(enabled = false)
+	public void TC16_To_Verify_Only_Single_SCQ_Answer_Can_Be_Select_In_Practice()
+			throws MalformedURLException, InterruptedException {
+		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
+		rqr.Module_Verify_Only_Single_SCQ_Answer_Can_Be_Select_In_Practice(prop.getProperty("Psubject"),
+				prop.getProperty("Ptopic"));
+	}
+
+	@Test(enabled = false) // needs questions data
+	public void TC17_To_Verify_Correct_Feedback_Shown_After_SCQ_Answer_Selection_In_Practice()
+			throws MalformedURLException, InterruptedException {
+		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
+		rqr.Module_Verify_Correct_Feedback_Shown_After_SCQ_Answer_Selection_In_Practice(prop.getProperty("Psubject"),
+				prop.getProperty("Ptopic"));
+
+	}
+
+	@Test(enabled = true)
+	public void TC18_To_Verify_Correct_Incorrect_Feedback_Shown_After_SCQ_Answer_Selection_In_Practice()
+			throws MalformedURLException, InterruptedException {
+		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
+		rqr.Module_Verify_Correct_Incorrect_Feedback_Shown_After_SCQ_Answer_Selection_In_Practice(
+				prop.getProperty("Psubject"), prop.getProperty("Ptopic"));
+
+	}
 	/*
 	 * @AfterMethod public void restApp() { // getDriver().resetApp();
 	 * getDriver().launchApp(); }

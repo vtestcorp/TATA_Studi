@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="4" total="5" passed="1" failed="0" skipped="0">
+<testng-results ignored="10" total="11" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-01-04T13:33:32Z" name="Suite" finished-at="2021-01-04T13:35:16Z" duration-ms="103222">
+  <suite started-at="2021-01-05T14:26:18Z" name="Suite" finished-at="2021-01-05T14:29:10Z" duration-ms="172081">
     <groups>
     </groups>
-    <test started-at="2021-01-04T13:33:32Z" name="Device 01" finished-at="2021-01-04T13:35:16Z" duration-ms="103222">
+    <test started-at="2021-01-05T14:26:18Z" name="Device 01" finished-at="2021-01-05T14:29:10Z" duration-ms="172081">
       <class name="studi.co.testScripts.AFS_UserStory_77">
-        <test-method is-config="true" signature="beforeTest(java.lang.String)[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@41e68d87]" started-at="2021-01-04T13:33:33Z" name="beforeTest" finished-at="2021-01-04T13:33:49Z" duration-ms="16449" status="PASS">
+        <test-method is-config="true" signature="beforeTest(java.lang.String)[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@7331196b]" started-at="2021-01-05T14:26:18Z" name="beforeTest" finished-at="2021-01-05T14:26:37Z" duration-ms="18570" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,14 +18,14 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method is-config="true" signature="Validate_Login()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@41e68d87]" started-at="2021-01-04T13:33:49Z" name="Validate_Login" finished-at="2021-01-04T13:34:13Z" duration-ms="23718" status="PASS">
+        <test-method is-config="true" signature="Validate_Login()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@7331196b]" started-at="2021-01-05T14:26:37Z" name="Validate_Login" finished-at="2021-01-05T14:27:20Z" duration-ms="42964" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Validate_Login -->
-        <test-method signature="TC12_Verify_Receive_SCQ_Questions_In_Practice()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@41e68d87]" started-at="2021-01-04T13:34:13Z" name="TC12_Verify_Receive_SCQ_Questions_In_Practice" finished-at="2021-01-04T13:35:16Z" duration-ms="62734" status="PASS">
+        <test-method signature="TC18_To_Verify_Correct_Incorrect_Feedback_Shown_After_SCQ_Answer_Selection_In_Practice()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@7331196b]" started-at="2021-01-05T14:27:20Z" name="TC18_To_Verify_Correct_Incorrect_Feedback_Shown_After_SCQ_Answer_Selection_In_Practice" finished-at="2021-01-05T14:29:10Z" duration-ms="110123" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC12_Verify_Receive_SCQ_Questions_In_Practice -->
+        </test-method> <!-- TC18_To_Verify_Correct_Incorrect_Feedback_Shown_After_SCQ_Answer_Selection_In_Practice -->
       </class> <!-- studi.co.testScripts.AFS_UserStory_77 -->
     </test> <!-- Device 01 -->
   </suite> <!-- Suite -->
