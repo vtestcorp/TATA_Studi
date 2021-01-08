@@ -57,7 +57,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 				// MobileElement iconButton =
 				// getDriver().findElementByImage(base64FormatOfImageFromImage);
 				// if(iconButton.isDisplayed())
-				System.out.println("SCQ Question...............................................");
+				//System.out.println("SCQ Question...............................................");
 				applyExplicitWait(5);
 
 				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");

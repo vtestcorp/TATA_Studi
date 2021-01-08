@@ -60,6 +60,7 @@ import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
@@ -119,7 +120,7 @@ public class BaseClass {
 			driver = new AndroidDriver<MobileElement>(url, caps);
 			System.out.println("AndroidDriver Configured with the required Desired Capabilities and URL");
 
-		} else {
+		} else if (s.equalsIgnoreCase("IOS")) {
 			caps = new DesiredCapabilities();
 			caps.setCapability("automationName", prop.getProperty("automationName"));
 			caps.setCapability("deviceName", "Apple 11");
@@ -134,6 +135,30 @@ public class BaseClass {
 			// caps.setCapability("wdaLocalPort", wdaLocalPort);
 			caps.setCapability("newCommandTimeout", "120");
 			// iOSDriver<MobileElement> driver = new IOSDriver<MobileElement>(url, caps);
+		} else if (s.equalsIgnoreCase("Jenkins")) {
+			caps = new DesiredCapabilities();
+
+			// Set your access credentials
+			caps.setCapability("browserstack.user", "bhushans5");
+			caps.setCapability("browserstack.key", "CV55rv5TWx9wRXus2oqr");
+
+			// Set URL of the application under test
+			caps.setCapability("browserstack.resignApp", "false");
+			caps.setCapability("browserstack.local", "false");
+			caps.setCapability("app", "bs://2ce8c5d0e48c3395807bddb7076959994e1b6883");
+			// Specify device and os_version for testing
+			caps.setCapability("device", "Google Pixel 4 XL");
+			caps.setCapability("os_version", "10.0");
+
+			// Set other BrowserStack capabilities
+			caps.setCapability("project", "Tata Studi");
+			caps.setCapability("build", "0.0.1");
+			caps.setCapability("name", "Test_Module");
+
+			// Initialise the remote Webdriver using BrowserStack remote URL
+			// and desired capabilities defined above
+			driver = new AndroidDriver<MobileElement>(new URL("http://hub.browserstack.com/wd/hub"), caps);
+
 		}
 
 		getDriver().manage().timeouts().implicitlyWait(Long.parseLong(prop.getProperty("object_wait_timeout")),
@@ -199,7 +224,7 @@ public class BaseClass {
 	 * @param element
 	 */
 	public static void clickOnElement(WebElement element) {
-		System.out.println("Clicking on element" + element.getText());
+		System.out.println("Clicking on element " + element.getText());
 		element.click();
 	}
 
@@ -334,8 +359,15 @@ public class BaseClass {
 	}
 
 	public int getTotalQuestionsInPractice() {
-		MobileElement ele=getDriver().findElement(By.xpath("//*[contains(@text, '1 of')]"));
-		return Character.getNumericValue(ele.getText().charAt(ele.getText().length()-1));
+		MobileElement ele = getDriver().findElement(By.xpath("//*[contains(@text, '1 of')]"));
+		String temp[]=ele.getText().split(" ");
+		return Integer.parseInt(temp[temp.length-1]);
+	}
+	
+	public int getCurrentQuestionInPractice(int totalQue) {
+		MobileElement ele = getDriver().findElement(By.xpath("//*[contains(@text, 'of '"+totalQue+")]"));
+		String temp[]=ele.getText().split(" ");
+		return Integer.parseInt(temp[0]);
 	}
 
 	public static void getColorFromScreenshot(WebElement element) throws HeadlessException, AWTException {
@@ -445,8 +477,8 @@ public class BaseClass {
 	}
 
 	public static void main(String[] args) throws URISyntaxException, IOException {
-		
-		}
+
+	}
 
 	/*
 	 * public static String getBase64StringFormatOfImage(String imgName) throws
