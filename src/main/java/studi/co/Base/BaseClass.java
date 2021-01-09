@@ -46,6 +46,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -55,12 +56,12 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
@@ -70,18 +71,23 @@ import io.appium.java_client.touch.offset.PointOption;
 
 public class BaseClass {
 
+	
+	
+	public static ExtentTest test, temptest;
 	public static Properties prop; // Property file initialization
 	public static ExtentHtmlReporter htmlReporter;
 	public static ExtentReports extent;
 	public ExtentTest logger;
 	public static String Report_Path = null;
 	// public static String platform_version;
+	public static WebDriver dr2;
 	public static AndroidDriver<MobileElement> driver;
 	public DesiredCapabilities caps;
 	public URL url;
 	public static TouchAction action;
 	public static WebDriverWait wait;
 	public static Logger log;
+	
 
 	public BaseClass() {
 		try {
@@ -118,6 +124,7 @@ public class BaseClass {
 			url = new URL(appiumserverUrl);
 			System.out.println("Appium Server URL is entered ");
 			driver = new AndroidDriver<MobileElement>(url, caps);
+			
 			System.out.println("AndroidDriver Configured with the required Desired Capabilities and URL");
 
 		} else if (s.equalsIgnoreCase("IOS")) {
@@ -164,6 +171,7 @@ public class BaseClass {
 		getDriver().manage().timeouts().implicitlyWait(Long.parseLong(prop.getProperty("object_wait_timeout")),
 				TimeUnit.SECONDS);
 
+		
 	}
 
 	public static AndroidDriver<MobileElement> getDriver() {
@@ -225,6 +233,7 @@ public class BaseClass {
 	 */
 	public static void clickOnElement(WebElement element) {
 		System.out.println("Clicking on element " + element.getText());
+		//test.log(Status.INFO,"Clicking on element " + element.getText());
 		element.click();
 	}
 
@@ -237,6 +246,7 @@ public class BaseClass {
 	 */
 	public static void sendText(WebElement element, String text) {
 		System.out.println("Sending Text in the Text Input Field");
+		//test.log(Status.INFO,"Sending Text in the Text Input Field");
 		element.sendKeys(text);
 
 	}
@@ -250,6 +260,7 @@ public class BaseClass {
 	 */
 	public static void clearText(WebElement element) {
 		System.out.println("Clearing the previousy entered Text if any");
+		//test.log(Status.INFO,"Clearing the previousy entered Text if any");
 		element.clear();
 	}
 
@@ -259,6 +270,7 @@ public class BaseClass {
 	 */
 	public static String getTextOfElement(WebElement element) {
 		System.out.println("Geting the text property of the given Element");
+		//test.log(Status.INFO,"Geting the text property of the given Element");
 		String s = element.getText();
 		return s;
 	}
@@ -271,6 +283,7 @@ public class BaseClass {
 	 */
 	public static void scrollTo1(String text) {
 		System.out.println("Scrolling to the Element which has the given text property : " + text);
+		//test.log(Status.INFO,"Scrolling to the Element which has the given text property : " + text);
 		getDriver().findElement(MobileBy
 				.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + text + "\"));"));
 	}
@@ -350,6 +363,7 @@ public class BaseClass {
 	 */
 	public static String getElementAttribute(WebElement element, String attributeKey) throws MalformedURLException {
 		System.out.println("Geting the value for the attribute/property for the given mobile element");
+		//test.log(Status.INFO,"Geting the value for the attribute/property for the given mobile element");
 		MobileElement ele = (MobileElement) element;
 		// Keyword.applyImplicitWait(20);
 		applyExplicitWait(5);
@@ -360,13 +374,13 @@ public class BaseClass {
 
 	public int getTotalQuestionsInPractice() {
 		MobileElement ele = getDriver().findElement(By.xpath("//*[contains(@text, '1 of')]"));
-		String temp[]=ele.getText().split(" ");
-		return Integer.parseInt(temp[temp.length-1]);
+		String temp[] = ele.getText().split(" ");
+		return Integer.parseInt(temp[temp.length - 1]);
 	}
-	
+
 	public int getCurrentQuestionInPractice(int totalQue) {
-		MobileElement ele = getDriver().findElement(By.xpath("//*[contains(@text, 'of '"+totalQue+")]"));
-		String temp[]=ele.getText().split(" ");
+		MobileElement ele = getDriver().findElement(By.xpath("//*[contains(@text, 'of '" + totalQue + ")]"));
+		String temp[] = ele.getText().split(" ");
 		return Integer.parseInt(temp[0]);
 	}
 
@@ -494,5 +508,7 @@ public class BaseClass {
 		getDriver().quit();
 		// TLD.get(null);
 	}
+
+
 
 }

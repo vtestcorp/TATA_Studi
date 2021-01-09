@@ -30,9 +30,7 @@ public class TestListener extends Keyword implements ITestListener {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ExtentHtmlReporter htmlReporter;
-	public ExtentReports extent;
-	public ExtentTest test, temptest;
+
 
 	@Override
 	public void onTestStart(ITestResult result) {
@@ -51,27 +49,27 @@ public class TestListener extends Keyword implements ITestListener {
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		System.out.println("On Test Failure : " + result.getName());
-		test.log(Status.FAIL, "On Test Failure : " + result.getName());
-		test.log(Status.FAIL, MarkupHelper.createLabel(result.getName(), ExtentColor.RED));
-		test.log(Status.INFO, "Fails Test");
-		test.log(Status.FAIL, result.getThrowable());
-
-		String failedTCScreenshotPath = screenshotforExtentReport(getDriver(), result.getName());
-		try {
-			test.fail(result.getThrowable().getMessage(),
-					MediaEntityBuilder.createScreenCaptureFromPath(failedTCScreenshotPath).build());
-		} catch (IOException e) {
-			System.out.println("File not not found");
-			e.printStackTrace();
-		}
-
+		
+		  System.out.println("On Test Failure : " + result.getName());
+		  test.log(Status.FAIL, "On Test Failure : " + result.getName());
+		  test.log(Status.FAIL, MarkupHelper.createLabel(result.getName(),
+		  ExtentColor.RED)); test.log(Status.INFO, "Fails Test"); test.log(Status.FAIL,
+		  result.getThrowable());
+		  
+		  String failedTCScreenshotPath = screenshotforExtentReport(getDriver(),
+		  result.getName()); try { test.fail(result.getThrowable().getMessage(),
+		  MediaEntityBuilder.createScreenCaptureFromPath(failedTCScreenshotPath).build(
+		  )); } catch (IOException e) { System.out.println("File not not found");
+		  e.printStackTrace(); }
+		 
 	}
 
 	@Override
 	public void onTestSkipped(ITestResult result) {
-		test = extent.createTest(result.getName());
-		test.log(Status.SKIP, MarkupHelper.createLabel(result.getName(), ExtentColor.ORANGE));
+		
+		  test = extent.createTest(result.getName()); test.log(Status.SKIP,
+		  MarkupHelper.createLabel(result.getName(), ExtentColor.ORANGE));
+		 
 	}
 
 	@Override
@@ -80,6 +78,7 @@ public class TestListener extends Keyword implements ITestListener {
 		//String reportName = "Test-Report- " + timeStamp + ".html";
 		String reportName = "Test-Report.html";
 		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/ExtentReport/" + reportName);
+		htmlReporter.setAppendExisting(true);
 		htmlReporter.loadXMLConfig(System.getProperty("user.dir") + "/extents-config.xml");
 
 		extent = new ExtentReports();
@@ -87,7 +86,7 @@ public class TestListener extends Keyword implements ITestListener {
 		extent.setSystemInfo("Tester", "Author");
 		temptest = extent.createTest("Tata Studi");
 		temptest.log(Status.INFO, "Tata Studi");
-		htmlReporter.config().setReportName("Tata Studi Automation Report");
+		htmlReporter.config().setReportName("Tata Studi Automation Report - AFS77");
 		htmlReporter.config().setDocumentTitle("E-Learning");// Title of Report
 		htmlReporter.config().setTheme(Theme.DARK);
 

@@ -62,12 +62,12 @@ public class Object_Begin_Practice extends BaseClass {
 	public void selectCorrectOption(int queNumber) {
 
 		switch (queNumber) {
-		case 1:
+		case 2:
 			// clickOnElement(getDriver().findElement(By.xpath("//*[contains(@text, '3 × (3
 			// + 5)')]")));
 			clickOnElement(getDriver().findElement(By.xpath("//*[contains(@text, '11,128')]")));
 			break;
-		case 2:
+		case 3:
 			clickOnElement(getDriver().findElement(By.xpath("//*[contains(@text, '(7 – 3) ÷ 4')]")));
 			//clickOnElement(getDriver().findElement(By.xpath("//*[contains(@text, '(7 – 3) ÷ 4')]")));
 			break;
@@ -79,7 +79,7 @@ public class Object_Begin_Practice extends BaseClass {
 			clickOnElement(getDriver().findElement(By.xpath("//*[contains(@text, '312')]")));
 			//clickOnElement(getDriver().findElement(By.xpath("//*[contains(@text, '44')]")));
 			break;
-		case 3:
+		case 1:
 			clickOnElement(getDriver().findElement(By.xpath("//*[contains(@text, '4')]")));
 		}
 
@@ -88,11 +88,11 @@ public class Object_Begin_Practice extends BaseClass {
 	public void selectWrongOption(int queNumber) {
 
 		switch (queNumber) {
-		case 1:
+		case 2:
 			clickOnElement(getDriver().findElement(By.xpath("//*[contains(@text, '12,228')]")));
 			//clickOnElement(getDriver().findElement(By.xpath("//*[contains(@text, '3 × (3 × 5)')]")));
 			break;
-		case 2:
+		case 3:
 			clickOnElement(getDriver().findElement(By.xpath("//*[contains(@text, '4 ÷ (7 – 3)')]")));
 			//clickOnElement(getDriver().findElement(By.xpath("//*[contains(@text, '4 ÷ (7 – 3)')]")));
 			break;
@@ -104,7 +104,7 @@ public class Object_Begin_Practice extends BaseClass {
 			clickOnElement(getDriver().findElement(By.xpath("//*[contains(@text, '412')]")));
 			//clickOnElement(getDriver().findElement(By.xpath("//*[contains(@text, '41')]")));
 			break;
-		case 3:
+		case 1:
 			clickOnElement(getDriver().findElement(By.xpath("//*[contains(@text, '55')]")));
 		}
 

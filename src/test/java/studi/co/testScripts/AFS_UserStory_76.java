@@ -3,6 +3,8 @@ package studi.co.testScripts;
 import java.awt.AWTException;
 import java.awt.HeadlessException;
 import java.io.IOException;
+import java.net.MalformedURLException;
+
 import org.openqa.selenium.WebDriverException;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -29,7 +31,7 @@ public class AFS_UserStory_76 extends BaseClass {
 		mvma.Verify_MCQ_Answers_Can_Be_Select_or_Unselect_In_Revision();		
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void TC03_Verify_Answer_Options_In_Revision() throws WebDriverException, IOException, InterruptedException {
 		Module_Verify_Answer_Options_In_Revision vao=new Module_Verify_Answer_Options_In_Revision();
 		vao.Verify_Answer_Options_In_Revision();
@@ -54,11 +56,19 @@ public class AFS_UserStory_76 extends BaseClass {
 		mvaqfr.verifyAbandonQuiz();
 	}
 
+	/*
+	 * @Test(enabled = false) public void TC12_Verify_MCQ_Questions_In_Pratice()
+	 * throws InterruptedException, IOException {
+	 * Module_Verify_Answer_Options_In_Practice mvaoip = new
+	 * Module_Verify_Answer_Options_In_Practice();
+	 * mvaoip.module_Verify_Answer_Options_In_Practice();
+	 * mvaoip.verify_Question_Count_In_Practice(); }
+	 */
 	@Test(enabled = false)
-	public void TC12_Verify_MCQ_Questions_In_Pratice() throws InterruptedException, IOException {
-		Module_Verify_Answer_Options_In_Practice mvaoip = new Module_Verify_Answer_Options_In_Practice();
-		mvaoip.module_Verify_Answer_Options_In_Practice();
-		mvaoip.verify_Question_Count_In_Practice();
+	public void TC12_Verify_MCQ_Questions_In_Pratice() throws MalformedURLException, InterruptedException
+	{
+		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
+		rqr.Module_Receive_MCQ_Questions_Practice(prop.getProperty("Psubject"), prop.getProperty("Ptopic"));
 	}
 
 	@Test(enabled = false)
