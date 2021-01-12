@@ -7,13 +7,15 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import junit.framework.Assert;
 import studi.co.Base.BaseClass;
-import studi.co.pageModules.Module_Login;
 import studi.co.pageModules.*;
 
 public class AFS_UserStory_77 extends BaseClass {
+
 	public AFS_UserStory_77() {
 		super();
+
 	}
 
 	@BeforeMethod
@@ -43,6 +45,12 @@ public class AFS_UserStory_77 extends BaseClass {
 		// rqr.Module_Receive_SCQ_Questions_Default_State_In_Revision(subject, topic);
 	}
 
+	@Test(enabled = false) // Blocked
+	public void TC03_To_Verify_Answer_Layout_Of_SCQ_Answers_In_Revision()
+			throws WebDriverException, InterruptedException, IOException {
+		Assert.assertTrue(false);
+	}
+
 	@Test(enabled = false)
 	public void TC04_To_Verify_SCQ_Answers_Can_Be_Select_In_Revision()
 			throws WebDriverException, InterruptedException, IOException {
@@ -51,12 +59,53 @@ public class AFS_UserStory_77 extends BaseClass {
 				prop.getProperty("topic"));
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = false) // Blocked
 	public void TC05_To_Verify_Single_Answer_Is_Correct_For_SCQ_Question_In_Revision()
 			throws WebDriverException, InterruptedException, IOException {
 		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
 		rqr.Single_Answer_Is_Correct_For_SCQ_Question_In_Revision(prop.getProperty("subject"),
 				prop.getProperty("topic"));
+	}
+
+	@Test(enabled = false) // Blocked
+	public void TC06_To_Verify_Student_Should_Get_Instant_Feedback_For_SCQ_Question_In_Revision()
+			throws WebDriverException, InterruptedException, IOException {
+		Assert.assertTrue(false);
+	}
+
+	@Test(enabled = false) // Blocked
+	public void TC07_To_Verify_State_Of_Answer_Should_Be_Maintained_For_SCQ_Question_In_Revision()
+			throws WebDriverException, InterruptedException, IOException {
+		Assert.assertTrue(false);
+	}
+
+	@Test(enabled = false) // needs questions data
+	public void TC08_To_Verify_Correct_Incorrect_Feedback_Shown_After_SCQ_Answer_Selection_In_Revision()
+			throws MalformedURLException, InterruptedException {
+		Assert.assertTrue(false);
+	}
+
+	@Test(enabled = false)
+	public void TC09_To_Verify_Attempting_SCQ_Quiz_Is_Not_Mandatory_In_Revision()
+			throws InterruptedException, WebDriverException, IOException {
+		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
+		rqr.Module_Verify_Attempting_Quiz_Is_Not_Mandatory_In_Revision(prop.getProperty("Psubject"),
+				prop.getProperty("Ptopic"));
+	}
+
+	@Test(enabled = false) // Blocked
+	public void TC10_To_Verify_User_Can_Click_On_All_SCQ_Answers_In_Practice()
+			throws MalformedURLException, InterruptedException {
+		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
+		rqr.Module_Verify_Attempting_SCQ_Quiz_Is_Mandatory_In_Practice(prop.getProperty("Psubject"),
+				prop.getProperty("Ptopic"));
+	}
+
+	@Test(enabled = false)
+	public void TC11_To_Verify_User_Can_Abandon_SCQ_Quiz_In_Revision()
+			throws InterruptedException, WebDriverException, IOException {
+		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
+		rqr.Module_Verify_User_Can_Abandon_Quiz_In_Revision(prop.getProperty("Psubject"), prop.getProperty("Ptopic"));
 	}
 
 	@Test(enabled = false)
@@ -192,36 +241,36 @@ public class AFS_UserStory_77 extends BaseClass {
 	@Test(enabled = false)
 	public void TC29_To_Verify_Attempting_SCQ_Quiz_Is_Not_Mandatory_In_Test()
 			throws MalformedURLException, InterruptedException {
+
 		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
 		rqt.Module_Verify_Attempting_SCQ_Quiz_Is_Not_Mandatory_In_Test(prop.getProperty("Psubject"));
 
 	}
 
 	@Test(enabled = false)
-	public void TC30_To_Verify_User_Should_Be_Able_To_Flag_The_Question_In_Test()
+	public void TC30_To_Verify_User_Should_Be_Able_To_Flag_The_SCQ_Question_In_Test()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
 		rqt.Module_Verify_User_Should_Be_Able_To_Flag_The_Question_In_Test(prop.getProperty("Psubject"));
 
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void TC32_To_Verify_Marks_Shown_With_SCQ_In_Test() throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
 		rqt.Module_Verify_Marks_Shown_With_SCQ_In_Test(prop.getProperty("Psubject"));
 
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void TC33_To_Verify_User_Can_Abond_SCQ_Quiz_In_Test() throws MalformedURLException, InterruptedException {
+		System.out.println("Test started");
 		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
 		rqt.Module_Verify_User_Can_Abond_SCQ_Quiz_In_Test(prop.getProperty("Psubject"));
-
 	}
 
 	@AfterMethod
 	public void restApp() throws MalformedURLException {
-		getDriver().resetApp();
 		applyExplicitWait(5);
 		getDriver().launchApp();
 	}

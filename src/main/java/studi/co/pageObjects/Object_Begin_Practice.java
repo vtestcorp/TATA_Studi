@@ -13,6 +13,12 @@ public class Object_Begin_Practice extends BaseClass {
 	public Object_Begin_Practice() {
 		PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);
 	}
+	
+	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ImageView[1]")
+	public WebElement hamburgerBtn;
+	
+	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.TextView[1]")
+	public WebElement testUnit;
 
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]")
 	public WebElement question;
@@ -58,6 +64,32 @@ public class Object_Begin_Practice extends BaseClass {
 
 	@AndroidFindBy(id = "com.tce.studi:id/txtNegativeBtn")
 	public WebElement noBtn;
+	
+	@AndroidFindBy(id = "com.tce.studi:id/btnSubmitTest")
+	public WebElement submitTestBtn;
+	
+	@AndroidFindBy(id = "com.tce.studi:id/txtPositiveBtn")
+	public WebElement submitTestPopup;
+	
+	@AndroidFindBy(id = "com.tce.studi:id/txtNegativeBtn")
+	public WebElement returnToTestPopup;
+	
+	@AndroidFindBy(id = "com.tce.studi:id/txtSubtitle")
+	public WebElement unattemtQueTxt;
+	
+	@AndroidFindBy(id = "com.tce.studi:id/tv_review_id")
+	public WebElement reviewAttemt;
+
+	@AndroidFindBy(id = "com.tce.studi:id/ibFlag")
+	public WebElement queFlag; 
+	
+	@AndroidFindBy(id = "com.tce.studi:id/imgFlagId")
+	public WebElement hamFlag;
+	
+	@AndroidFindBy(id = "com.tce.studi:id/tvQuestionMarks")
+	public WebElement marks;
+	
+	
 
 	public void selectCorrectOption(int queNumber) {
 

@@ -87,7 +87,7 @@ public class BaseClass {
 	public static TouchAction action;
 	public static WebDriverWait wait;
 	public static Logger log;
-	
+	protected int actualcount=0;
 
 	public BaseClass() {
 		try {
@@ -502,7 +502,59 @@ public class BaseClass {
 	 * Base64.getEncoder().encodeToString(Files.readAllBytes(refImgFile.toPath()));
 	 * }
 	 */
+	public String check_For_MSQ_or_SCQ() throws InterruptedException {
+		Thread.sleep(200);
+		int ansFlag = 0;
+		int count = 0;
+		try {
+			ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver()
+					.findElementsByClassName("android.widget.CheckBox");
+			System.out.println("Answer Count " + answerCount.size());
+			ansFlag = 1;
 
+			for (MobileElement mobileElement : answerCount) {
+				mobileElement.click();
+				System.out.println(mobileElement.getText() + " Clicked");
+			}
+
+			for (MobileElement mobileElement : answerCount) {
+				Thread.sleep(200);
+				if (getElementAttribute(mobileElement, "checked").trim().equalsIgnoreCase("true")) {
+					System.out.println("count " + (++count));
+					applyExplicitWait(5);
+					clickOnElement(mobileElement);
+					mobileElement.clear();
+					System.out.println(mobileElement.getText() + " checked");
+				}
+
+			}
+			answerCount = (ArrayList<MobileElement>) getDriver().findElementsByClassName("android.widget.CheckBox");
+			for (MobileElement mobileElement : answerCount) {
+				Thread.sleep(200);
+				if (getElementAttribute(mobileElement, "checked").trim().equalsIgnoreCase("true")) {
+					applyExplicitWait(5);
+					clickOnElement(mobileElement);
+
+				}
+
+			}
+
+			if (count > 1)
+				ansFlag = 2;
+			System.out.println("count " + count);
+
+		} catch (Exception e) {
+			System.out.println("Exception ocurred at MCQ.SCQ cheking module");
+		}
+		if (ansFlag == 0)
+			return "none";
+		else if (ansFlag == 2) {
+			actualcount++;
+			return "MCQ";
+		} else
+			return "SCQ";
+
+	}
 	// @AfterTest
 	public void afterTest() {
 		getDriver().quit();
