@@ -274,10 +274,10 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 			try {
 				applyExplicitWait(5);
 
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver().findElementsByClassName("android.widget.CheckBox");
 				int ansCount = answerCount.size();
 
-				test.log(Status.INFO, "answerCont = " + ansCount);
+				//test.log(Status.INFO, "answerCont = " + ansCount);
 				if (flag == 1) {
 					if (flag == 1) {
 						RMQR.select_1st_Choice.isDisplayed();
@@ -291,25 +291,26 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 									Boolean.parseBoolean(getElementAttribute(RMQR.select_2nd_Choice, "checked")));
 							test.log(Status.INFO, "2nd answer can be select");
 						}
+						Thread.sleep(100);
 						if (--ansCount > 0) {
 							clickOnElement(RMQR.select_3rd_Choice);
 							sAss.assertTrue(
 									Boolean.parseBoolean(getElementAttribute(RMQR.select_3rd_Choice, "checked")));
 							test.log(Status.INFO, "3rd answer can be select");
-						}
+						}Thread.sleep(100);
 						if (--ansCount > 0) {
 							clickOnElement(RMQR.select_4th_Choice);
 							sAss.assertTrue(
 									Boolean.parseBoolean(getElementAttribute(RMQR.select_4th_Choice, "checked")));
 							test.log(Status.INFO, "4th answer can be select");
-						}
+						}Thread.sleep(100);
 						if (--ansCount > 0) {
 							clickOnElement(RMQR.select_5th_Choice);
 							sAss.assertTrue(
 									Boolean.parseBoolean(getElementAttribute(RMQR.select_5th_Choice, "checked")));
 							test.log(Status.INFO, "5th answer can be select");
 
-						}
+						}Thread.sleep(100);
 						clickOnElement(RMQR.nextButton);
 						i++;
 					}

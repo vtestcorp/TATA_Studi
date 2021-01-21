@@ -33,7 +33,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 		applyExplicitWait(5);
 		scrollTo1("Test");
 		applyExplicitWait(5);
-		List<MobileElement> mobileElement = getDriver().findElementsById("com.tce.studi:id/tv_chapter_type");
+		ArrayList<MobileElement> mobileElement = (ArrayList<MobileElement>) getDriver().findElementsById("com.tce.studi:id/tv_chapter_type");
 		for (MobileElement mobileElement2 : mobileElement) {
 			if (mobileElement2.getText().trim().equalsIgnoreCase("Test")) {
 				clickOnElement(mobileElement2);
@@ -56,7 +56,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 
 	public void startTest() throws MalformedURLException {
 		try {
-			new WebDriverWait(getDriver(), 1).ignoring(StaleElementReferenceException.class);
+			new WebDriverWait(getDriver(), 10).ignoring(StaleElementReferenceException.class);
 			clickOnElement(findElementByText("Begin Test"));
 			test.log(Status.INFO, "Begin Test");
 		} catch (Exception e) {
@@ -126,6 +126,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 
 	public void Module_Verify_Correct_Feedback_Shown_After_SCQ_Answer_Selection_In_Test(String property)
 			throws MalformedURLException, InterruptedException {
+		Assert.assertTrue(false);
 		traverse_To_Begin_Test();
 		Thread.sleep(3000);
 		startTest();
@@ -137,6 +138,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 
 	public void Module_Verify_Correct_Feedback_Shown_Under_Hamburger_Menu_In_Test(String property)
 			throws MalformedURLException, InterruptedException {
+		Assert.assertTrue(false);
 		traverse_To_Begin_Test();
 		// Thread.sleep(3000);
 		startTest();
@@ -204,7 +206,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 		String temp;
 		// int actualcount = 0;
 		try {
-			List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+			ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver().findElementsByClassName("android.widget.CheckBox");
 			int ansCount = answerCount.size();
 			System.out.println("answerCont = " + ansCount);
 			queFlag = 1;
@@ -278,7 +280,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 			try {
 				applyExplicitWait(5);
 				queFlag = 0;
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver().findElementsByClassName("android.widget.CheckBox");
 				int ansCount = answerCount.size();
 				ort.question.isDisplayed();
 				System.out.println("answerCont = " + ansCount);
@@ -334,7 +336,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 			try {
 				applyExplicitWait(5);
 				queFlag = 0;
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver().findElementsByClassName("android.widget.CheckBox");
 				int ansCount = answerCount.size();
 				ort.question.isDisplayed();
 				System.out.println("answerCont = " + ansCount);
@@ -392,7 +394,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 			try {
 				applyExplicitWait(5);
 				queFlag = 0;
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver().findElementsByClassName("android.widget.CheckBox");
 				int ansCount = answerCount.size();
 				ort.question.isDisplayed();
 				System.out.println("answerCont = " + ansCount);
@@ -450,7 +452,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 			try {
 				applyExplicitWait(5);
 				queFlag = 0;
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver().findElementsByClassName("android.widget.CheckBox");
 				int ansCount = answerCount.size();
 				ort.question.isDisplayed();
 				System.out.println("answerCont = " + ansCount);
@@ -504,7 +506,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 		normal: while (i < questions) {
 			try {
 				Thread.sleep(2000);
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver().findElementsByClassName("android.widget.CheckBox");
 				int ansCount = answerCount.size();
 
 				System.out.println("answerCont = " + ansCount);
@@ -514,6 +516,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 					for (MobileElement mobileElement : answerCount) {
 						applyImplicitWait(5);
 						try {
+							Thread.sleep(100);
 							mobileElement.click();
 							applyExplicitWait(1);
 							mobileElement.click();
@@ -566,19 +569,19 @@ public class Module_Receive_Questions_Test extends BaseClass {
 			try {
 				applyExplicitWait(5);
 				Thread.sleep(1000);
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver().findElementsByClassName("android.widget.CheckBox");
 				int ansCount = answerCount.size();
 
 				System.out.println("answerCont = " + ansCount);
 				test.log(Status.INFO, "Answer count " + ansCount);
 				prvsElement = true;
 				int c = 1;
-				if (ansCount != 0 && flag == 1) {
+				if (ansCount != 0 && flag == 1 && check_For_MSQ_or_SCQ()=="SCQ") {
 					for (MobileElement mobileElement : answerCount) {
 						applyImplicitWait(5);
 						mobileElement.click();
-
-						prvsElement = Boolean.parseBoolean(getElementAttribute(mobileElement, "focused"));
+						Thread.sleep(300);
+						prvsElement = Boolean.parseBoolean(getElementAttribute(mobileElement, "checked"));
 						if (prvsElement == false)
 							mobileElement.click();
 
@@ -586,9 +589,10 @@ public class Module_Receive_Questions_Test extends BaseClass {
 						ansFlag = 0;
 						for (MobileElement mobileElement2 : answerCount) {
 							applyImplicitWait(5);
-							if (getElementAttribute(mobileElement2, "focused").equalsIgnoreCase("true")) {
+							Thread.sleep(200);
+							if (getElementAttribute(mobileElement2, "checked").equalsIgnoreCase("true")) {
 								ansFlag++;
-								// test.log(Status.INFO, (c - 1) + " " + ansFlag);
+								
 							}
 						}
 
@@ -598,9 +602,6 @@ public class Module_Receive_Questions_Test extends BaseClass {
 					ansCount = 0;
 					clickOnElement(ort.nextBtn);
 					i++;
-				} else if (ansCount != 0) {
-					test.log(Status.INFO, "Answer count " + ansCount);
-					flag = 1;
 				} else {
 					clickOnElement(ort.nextBtn);
 					i++;
@@ -637,7 +638,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 				applyExplicitWait(5);
 				allQuestions.add(ort.question.getText());
 				queFlag = 0;
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver().findElementsByClassName("android.widget.CheckBox");
 				int ansCount = answerCount.size();
 				ort.question.isDisplayed();
 				System.out.println("answerCont = " + ansCount);
@@ -708,7 +709,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 
 		clickOnElement(ort.hamburgerBtn);
 		Iterator<String> it = allQuestions.iterator();
-		List<MobileElement> queCount = getDriver().findElementsById("com.tce.studi:id/tvQuesId");
+		ArrayList<MobileElement> queCount = (ArrayList<MobileElement>) getDriver().findElementsById("com.tce.studi:id/tvQuesId");
 		String[] hList = new String[queCount.size()];
 		for (MobileElement mobileElement : queCount)
 			hList[j++] = mobileElement.getText();
@@ -754,7 +755,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 		sAss.assertAll();
 		j = 0;
 		clickOnElement(ort.hamburgerBtn);
-		queCount = getDriver().findElementsById("com.tce.studi:id/tvQuesId");
+		queCount = (ArrayList<MobileElement>) getDriver().findElementsById("com.tce.studi:id/tvQuesId");
 		String[] hList2 = new String[queCount.size()];
 		for (MobileElement mobileElement : queCount)
 			hList2[j++] = mobileElement.getText();
@@ -787,7 +788,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 		// int actualcount = 0;
 		normal: while (i < questions) {
 			try {
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver().findElementsByClassName("android.widget.CheckBox");
 				int ansCount = answerCount.size();
 				System.out.println("answerCont = " + ansCount);
 
@@ -868,7 +869,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 		applyExplicitWait(2);
 		clickOnElement(ort.hamburgerBtn);
 		Iterator<String> it = allQuestions.iterator();
-		List<MobileElement> queCount = getDriver().findElementsById("com.tce.studi:id/tvQuesId");
+		ArrayList<MobileElement> queCount = (ArrayList<MobileElement>) getDriver().findElementsById("com.tce.studi:id/tvQuesId");
 		String[] hList = new String[queCount.size()];
 		for (MobileElement mobileElement : queCount)
 			hList[j++] = mobileElement.getText();
@@ -1049,7 +1050,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 			try {
 				Thread.sleep(500);
 				queFlag = 0;
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver().findElementsByClassName("android.widget.CheckBox");
 				int ansCount = answerCount.size();
 				ort.question.isDisplayed();
 				System.out.println("answerCont = " + ansCount);
@@ -1077,7 +1078,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 				if (queFlag == 0) {
 					i++;
 					test.log(Status.INFO, "Question " + i + " not displayed");
-					sAss.assertTrue(false);
+					
 					clickOnElement(ort.nextBtn);
 				} else {
 					if (flag == 1) {
@@ -1107,10 +1108,11 @@ public class Module_Receive_Questions_Test extends BaseClass {
 
 		normal: while (i < questions) {
 			try {
+				Thread.sleep(500);
 				applyExplicitWait(5);
 				queFlag = 0;
 				Thread.sleep(500);
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver().findElementsByClassName("android.widget.CheckBox");
 				int ansCount = answerCount.size();
 				ort.question.isDisplayed();
 				System.out.println("answerCont = " + ansCount);
@@ -1175,7 +1177,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 		normal: while (i < questions) {
 			try {
 				Thread.sleep(2000);
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver().findElementsByClassName("android.widget.CheckBox");
 				int ansCount = answerCount.size();
 
 				System.out.println("answerCont = " + ansCount);
@@ -1192,8 +1194,9 @@ public class Module_Receive_Questions_Test extends BaseClass {
 							ansFlag = 0;
 						}
 						if (ansFlag != 0)
-							test.log(Status.INFO, c++ + " can be select or unselect");
+							test.log(Status.INFO, c + " can be select or unselect");
 						System.out.println(c + " can be select or unselect");
+						c++;
 						applyExplicitWait(1);
 					}
 					sAss.assertTrue(ansFlag != 0 ? true : false);
@@ -1343,7 +1346,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 
 		clickOnElement(ort.hamburgerBtn);
 		Iterator<String> it = allQuestions.iterator();
-		List<MobileElement> queCount = getDriver().findElementsById("com.tce.studi:id/tvQuesId");
+		ArrayList<MobileElement> queCount = (ArrayList<MobileElement>) getDriver().findElementsById("com.tce.studi:id/tvQuesId");
 		String[] hList = new String[queCount.size()];
 		for (MobileElement mobileElement : queCount)
 			hList[j++] = mobileElement.getText();
@@ -1390,7 +1393,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 		sAss.assertAll();
 		j = 0;
 		clickOnElement(ort.hamburgerBtn);
-		queCount = getDriver().findElementsById("com.tce.studi:id/tvQuesId");
+		queCount = (ArrayList<MobileElement>) getDriver().findElementsById("com.tce.studi:id/tvQuesId");
 		String[] hList2 = new String[queCount.size()];
 		for (MobileElement mobileElement : queCount)
 			hList2[j++] = mobileElement.getText();

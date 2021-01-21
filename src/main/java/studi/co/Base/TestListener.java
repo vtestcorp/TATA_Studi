@@ -86,7 +86,7 @@ public class TestListener extends Keyword implements ITestListener {
 		// String reportName = "Test-Report- " + timeStamp + ".html";
 		String reportName = "Test-Report.html";
 		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/ExtentReport/" + reportName);
-		htmlReporter.setAppendExisting(true);
+		//htmlReporter.setAppendExisting(true);
 		htmlReporter.loadXMLConfig(System.getProperty("user.dir") + "/extents-config.xml");
 
 		extent = new ExtentReports();
@@ -94,7 +94,7 @@ public class TestListener extends Keyword implements ITestListener {
 		extent.setSystemInfo("Tester", "Author");
 		temptest = extent.createTest("Tata Studi");
 		temptest.log(Status.INFO, "Tata Studi");
-		htmlReporter.config().setReportName("Tata Studi Automation Report - AFS77");
+		htmlReporter.config().setReportName("Tata Studi Automation Report - Milestone 1");
 		htmlReporter.config().setDocumentTitle("E-Learning");// Title of Report
 		htmlReporter.config().setTheme(Theme.DARK);
 	}

@@ -15,10 +15,16 @@
 package studi.co.Base;
 
 import java.awt.AWTException;
+import java.awt.CardLayout;
+import java.awt.Dimension;
+import java.awt.GridBagLayout;
 import java.awt.HeadlessException;
 import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -40,24 +46,36 @@ import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.Timer;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
+
+import com.android.uiautomator.core.UiDevice;
+import com.android.uiautomator.core.UiObject;
+import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+
+import android.graphics.Color;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
@@ -65,14 +83,15 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import studi.co.pageModules.Module_Login;
+import studi.co.pageObjects.Object_Syllabus_Option;
 
 //Handling Config file operations and Extent report initialization
 //Included @BeforeSuite & @AfterSuite capabilities for handling various iOS platforms
 
 public class BaseClass {
 
-	
-	
 	public static ExtentTest test, temptest;
 	public static Properties prop; // Property file initialization
 	public static ExtentHtmlReporter htmlReporter;
@@ -87,7 +106,10 @@ public class BaseClass {
 	public static TouchAction action;
 	public static WebDriverWait wait;
 	public static Logger log;
-	protected int actualcount=0;
+	public int actualcount = 0;
+	public static Timer timer;
+	public static int notesCount;
+	static int timerCount = 0;
 
 	public BaseClass() {
 		try {
@@ -101,10 +123,14 @@ public class BaseClass {
 		}
 	}
 
+	public static void main(String[] args) {
+		
+	}
 	/*
 	 * Initializing pre-requisite capabilities necessary for invoking corresponding
 	 * device.
 	 */
+
 	@BeforeTest
 	@Parameters({ "type" })
 	public void beforeTest(String type) throws Exception {
@@ -119,12 +145,14 @@ public class BaseClass {
 			caps.setCapability("appPackage", "com.tce.studi");
 			caps.setCapability("appActivity", "com.tce.view.ui.activities.SplashScreenActivity");
 			caps.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, "true");
+			caps.setCapability(MobileCapabilityType.NO_RESET, "true");
 			System.out.println("Required Desired Capabilities Defined");
 			final String appiumserverUrl = "http://127.0.0.1:4723/wd/hub";
 			url = new URL(appiumserverUrl);
+
 			System.out.println("Appium Server URL is entered ");
 			driver = new AndroidDriver<MobileElement>(url, caps);
-			
+
 			System.out.println("AndroidDriver Configured with the required Desired Capabilities and URL");
 
 		} else if (s.equalsIgnoreCase("IOS")) {
@@ -171,7 +199,6 @@ public class BaseClass {
 		getDriver().manage().timeouts().implicitlyWait(Long.parseLong(prop.getProperty("object_wait_timeout")),
 				TimeUnit.SECONDS);
 
-		
 	}
 
 	public static AndroidDriver<MobileElement> getDriver() {
@@ -233,7 +260,7 @@ public class BaseClass {
 	 */
 	public static void clickOnElement(WebElement element) {
 		System.out.println("Clicking on element " + element.getText());
-		//test.log(Status.INFO,"Clicking on element " + element.getText());
+		// test.log(Status.INFO,"Clicking on element " + element.getText());
 		element.click();
 	}
 
@@ -246,7 +273,7 @@ public class BaseClass {
 	 */
 	public static void sendText(WebElement element, String text) {
 		System.out.println("Sending Text in the Text Input Field");
-		//test.log(Status.INFO,"Sending Text in the Text Input Field");
+		// test.log(Status.INFO,"Sending Text in the Text Input Field");
 		element.sendKeys(text);
 
 	}
@@ -260,7 +287,7 @@ public class BaseClass {
 	 */
 	public static void clearText(WebElement element) {
 		System.out.println("Clearing the previousy entered Text if any");
-		//test.log(Status.INFO,"Clearing the previousy entered Text if any");
+		// test.log(Status.INFO,"Clearing the previousy entered Text if any");
 		element.clear();
 	}
 
@@ -270,7 +297,7 @@ public class BaseClass {
 	 */
 	public static String getTextOfElement(WebElement element) {
 		System.out.println("Geting the text property of the given Element");
-		//test.log(Status.INFO,"Geting the text property of the given Element");
+		// test.log(Status.INFO,"Geting the text property of the given Element");
 		String s = element.getText();
 		return s;
 	}
@@ -283,7 +310,8 @@ public class BaseClass {
 	 */
 	public static void scrollTo1(String text) {
 		System.out.println("Scrolling to the Element which has the given text property : " + text);
-		//test.log(Status.INFO,"Scrolling to the Element which has the given text property : " + text);
+		// test.log(Status.INFO,"Scrolling to the Element which has the given text
+		// property : " + text);
 		getDriver().findElement(MobileBy
 				.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + text + "\"));"));
 	}
@@ -308,9 +336,9 @@ public class BaseClass {
 	 */
 	public static void applyExplicitWaitsUntilElementVisible(WebElement element) throws MalformedURLException {
 		System.out.println("Applying Explicit wait until the given element is visible");
-		WebDriverWait wait = new WebDriverWait(getDriver(), 15);
+		WebDriverWait wait = new WebDriverWait(driver, 20);
 		wait.until(ExpectedConditions.visibilityOf(element));
-		wait.withTimeout(15, TimeUnit.SECONDS);
+
 	}
 
 	/**
@@ -363,7 +391,8 @@ public class BaseClass {
 	 */
 	public static String getElementAttribute(WebElement element, String attributeKey) throws MalformedURLException {
 		System.out.println("Geting the value for the attribute/property for the given mobile element");
-		//test.log(Status.INFO,"Geting the value for the attribute/property for the given mobile element");
+		// test.log(Status.INFO,"Geting the value for the attribute/property for the
+		// given mobile element");
 		MobileElement ele = (MobileElement) element;
 		// Keyword.applyImplicitWait(20);
 		applyExplicitWait(5);
@@ -382,6 +411,15 @@ public class BaseClass {
 		MobileElement ele = getDriver().findElement(By.xpath("//*[contains(@text, 'of '" + totalQue + ")]"));
 		String temp[] = ele.getText().split(" ");
 		return Integer.parseInt(temp[0]);
+	}
+
+	public int getNotesCount() throws InterruptedException {
+		Thread.sleep(500);
+		MobileElement ele = getDriver().findElementById("com.tce.studi:id/tv_notes_count");
+		System.out.println("notecount string " + ele.getText());
+		String temp = ele.getText().replaceAll("[A-Za-z\\s]+", "");
+		System.err.println("temp : " + temp);
+		return Integer.parseInt(temp.trim());
 	}
 
 	public static void getColorFromScreenshot(WebElement element) throws HeadlessException, AWTException {
@@ -417,6 +455,7 @@ public class BaseClass {
 	 */
 	public static void forwardVideoTimerToEnd() throws WebDriverException, IOException, InterruptedException {
 		action = new TouchAction(getDriver());
+
 		Thread.sleep(5000);
 		/*
 		 * action.tap(PointOption.point(200, 200)).perform();
@@ -450,15 +489,17 @@ public class BaseClass {
 	}
 
 	public List<MobileElement> getAllElementsFromPageUsingID(String id) throws Exception {
+		System.out.println("startef");
 		List<MobileElement> topics1 = (List<MobileElement>) driver.findElementsById(id);
 		int flag = 0;
-		while (flag == 0) {
-			swipeVertical(0.8, 0.1, 0.2, 500);
-			topics1.addAll(driver.findElementsById("com.tce.studi:id/tv_topic"));
+		normal: while (flag == 0) {
+			swipeVertical(0.8, 0.3, 0.2, 500);
+			topics1.addAll(driver.findElementsById(id));
 			try {
-				if (findElementByText("eBook").isDisplayed())
+				if (driver.findElementById("com.tce.studi:id/tv_ebook").isEnabled())
 					flag = 1;
 			} catch (Exception e) {
+				continue normal;
 			}
 		}
 		List<MobileElement> listWithoutDuplicates = new ArrayList<>(new HashSet<>(topics1));
@@ -477,6 +518,16 @@ public class BaseClass {
 				.moveTo(PointOption.point(anchor, endPoint)).release().perform();
 	}
 
+	public static void swipeTop() throws Exception {
+		org.openqa.selenium.Dimension size = driver.manage().window().getSize();
+		int anchor = (int) (size.width * 0.2);
+		int startPoint = (int) (size.height * 0.3);
+		int endPoint = (int) (size.height * 0.8);
+		getTouchAction().press(PointOption.point(anchor, startPoint))
+				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(100))).moveTo(PointOption.point(anchor, endPoint))
+				.release().perform();
+	}
+
 	public static TouchAction getTouchAction() {
 		return new TouchAction(driver);
 	}
@@ -488,10 +539,6 @@ public class BaseClass {
 		System.out.println(refImgFile.toPath());
 		// return Base64.encodeBase64String(Files.readAllBytes(refImgFile.toPath()));
 		return Base64.getEncoder().encodeToString(Files.readAllBytes(refImgFile.toPath()));
-	}
-
-	public static void main(String[] args) throws URISyntaxException, IOException {
-
 	}
 
 	/*
@@ -555,12 +602,153 @@ public class BaseClass {
 			return "SCQ";
 
 	}
+
+	public String verify_TQ_Resource() throws MalformedURLException {
+		applyExplicitWait(10);
+		try {
+			if (getDriver().findElement(By.xpath(
+					"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]"))
+					.isDisplayed())
+				return "Video";
+		} catch (Exception e) {
+		}
+		try {
+			if (getDriver().findElementByXPath(
+					"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.widget.LinearLayout")
+					.isDisplayed())
+				return "Quiz";
+		} catch (Exception e) {
+		}
+		return " ";
+
+	}
+
+	public void sendTestUsingRobot(String keys) throws AWTException {
+		Robot robot = new Robot();
+		for (char c : keys.toCharArray()) {
+			int keyCode = KeyEvent.getExtendedKeyCodeForChar(c);
+			if (KeyEvent.CHAR_UNDEFINED == keyCode) {
+				throw new RuntimeException("Key code not found for character '" + c + "'");
+			}
+			robot.keyPress(keyCode);
+			robot.delay(100);
+			robot.keyRelease(keyCode);
+			robot.delay(100);
+		}
+	}
+
+	public void closePopup() {
+		try {
+			while (getDriver().findElementById("com.tce.studi:id/tutorialDoNotShow").isDisplayed()) {
+				clickOnElement(getDriver().findElementById("com.tce.studi:id/tutorialDoNotShow"));
+			}
+		} catch (Exception e) {
+			test.log(Status.INFO, "Popup closed");
+		}
+	}
+
+	public void closeVideoPopup(int note) throws InterruptedException {
+		int c = 1;
+		// notesCount=4;
+		System.err.println(note + " Notes");
+		while (note > 0) {
+			try {
+				if (driver.findElementById("com.tce.studi:id/tv_disruptive_continue").isDisplayed()) {
+					clickOnElement(findElementByText("CONTINUE"));
+					note--;
+					System.err.println("Skipping note " + c);
+					test.log(Status.INFO, "Skipping note " + c);
+					c++;
+				} else
+					wait.until(ExpectedConditions
+							.visibilityOf(driver.findElementById("com.tce.studi:id/disruptive_note_container")));
+			} catch (Exception e) {
+
+			}
+		}
+		if (notesCount == 0) {
+			test.log(Status.INFO, "All Popup closed");
+			System.out.println("All Popup closed");
+
+		}
+	}
+
+	public void createNoteInVideo(String note) throws MalformedURLException, AWTException {
+		Object_Syllabus_Option oso = new Object_Syllabus_Option();
+		applyExplicitWait(5);
+		clickOnElement(oso.notesBtn);
+		applyExplicitWait(5);
+		clickOnElement(oso.playBtn);
+
+		sendTestUsingRobot(note);
+		driver.hideKeyboard();
+
+		applyExplicitWait(5);
+		clickOnElement(findElementByText("Save Note"));
+		System.out.println("Note " + prop.getProperty("note") + " Saved");
+		test.log(Status.INFO, "Note " + prop.getProperty("note") + " Saved");
+
+		applyExplicitWait(2);
+		closePopup();
+
+		getDriver().findElement(By.xpath(
+				"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]"))
+				.click();
+		applyExplicitWait(2);
+		getDriver().findElementByAccessibilityId("Pause").click();
+		System.out.println("Clicked on Pause Button");
+		test.log(Status.INFO, "Clicked on Pause Button");
+
+	}
+
+	public static void startCounter(int timer1) {
+		JLabel label;
+		JLabel label2;
+		Timer timer;
+		timerCount = timer1;
+		JFrame frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLayout(new CardLayout());
+
+		label = new JLabel("Wait until timer ends : ");
+		label2 = new JLabel("1");
+		label.setForeground(java.awt.Color.WHITE);
+		label2.setForeground(java.awt.Color.WHITE);
+		
+		frame.setResizable(false);
+		frame.setLayout(new GridBagLayout());
+		frame.add(label);
+		frame.add(label2);
+		timer = new Timer(20, new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				timerCount--;
+				if (timerCount >= 0) {
+					label2.setText(Integer.toString(timerCount + 1));
+				} else {
+					((Timer) (e.getSource())).stop();
+					frame.dispose();
+				}
+			}
+		});
+
+		timer.setDelay(1000);
+		timer.start();
+		frame.getContentPane().setBackground( java.awt.Color.GRAY);
+		
+		frame.pack();
+		frame.setSize(new Dimension(200, 70));
+		frame.setMaximumSize(new Dimension(200, 70));
+		frame.setLocation(500, 200);
+		
+		frame.setVisible(true);
+		frame.requestFocus();
+	}
+
 	// @AfterTest
 	public void afterTest() {
 		getDriver().quit();
 		// TLD.get(null);
 	}
-
-
 
 }
