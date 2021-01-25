@@ -53,14 +53,14 @@
 			<version>3.7.1</version>
 			<scope>compile</scope>
 		</dependency>
-
+	
 		<dependency>
 			<groupId>com.sap.cloud.sdk.testutil</groupId>
 			<artifactId>testutil-core</artifactId>
 			<version>3.19.1</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 
 
 		<dependency>

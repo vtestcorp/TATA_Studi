@@ -4,18 +4,11 @@ import java.awt.AWTException;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.text.ParseException;
-import java.util.Set;
-
 import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.GsmCallActions;
 import studi.co.Base.BaseClass;
 import studi.co.pageModules.Module_Login;
 import studi.co.pageModules.Module_Syllabus_Options;
@@ -26,7 +19,7 @@ public class AFS_UserStory_2 extends BaseClass {
 		super();
 	}
 
-	// @BeforeMethod
+	//@BeforeMethod
 	public void Validate_Login() throws Exception {
 		Module_Login login = new Module_Login();
 		login.Login_to_app();
@@ -36,36 +29,36 @@ public class AFS_UserStory_2 extends BaseClass {
 	public void TC01_Verify_User_Should_Be_Able_To_Navigate_To_Revision_Via_MySyllabus()
 			throws MalformedURLException, InterruptedException {
 		Module_Syllabus_Options so = new Module_Syllabus_Options();
-		so.Verify_User_Should_Be_Able_To_Navigate_To_Revision_Via_MySyllabus(prop.getProperty("subject"),
-				prop.getProperty("topic"));
+		so.Verify_User_Should_Be_Able_To_Navigate_To_Revision_Via_MySyllabus(prop.getProperty("msubject"),
+				prop.getProperty("mtopic"));
 	}
 
 	@Test(enabled = false)
 	public void TC02_Verify_User_Should_Be_Able_To_Launch_Revision_Via_MySyllabus()
 			throws MalformedURLException, InterruptedException {
 		Module_Syllabus_Options so = new Module_Syllabus_Options();
-		so.Verify_User_Should_Be_Able_To_Launch_Revision_Via_MySyllabus(prop.getProperty("subject"),
-				prop.getProperty("topic"));
+		so.Verify_User_Should_Be_Able_To_Launch_Revision_Via_MySyllabus(prop.getProperty("msubject"),
+				prop.getProperty("mtopic"));
 	}
 
 	@Test(enabled = false)
 	public void TC03_Verify_Revision_Overview_() throws MalformedURLException, InterruptedException {
 		Module_Syllabus_Options so = new Module_Syllabus_Options();
-		so.Verify_Revision_Overview(prop.getProperty("subject"), prop.getProperty("topic"));
+		so.Verify_Revision_Overview(prop.getProperty("msubject"), prop.getProperty("mtopic"));
 	}
 
 	@Test(enabled = false)
 	public void TC04_Verify_User_Should_Be_Able_To_Begin_Revision_From_Syllabus()
 			throws WebDriverException, IOException, InterruptedException {
 		Module_Syllabus_Options so = new Module_Syllabus_Options();
-		so.Verify_User_Should_Be_Able_To_Begin_Revision(prop.getProperty("subject"), prop.getProperty("topic"));
+		so.Verify_User_Should_Be_Able_To_Begin_Revision(prop.getProperty("msubject"), prop.getProperty("mtopic"));
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = false, priority = 1)
 	public void TC05_Verify_User_Should_Be_Able_To_View_Video_In_Revision_From_Syllabus()
 			throws WebDriverException, IOException, InterruptedException, AWTException {
 		Module_Syllabus_Options so = new Module_Syllabus_Options();
-		so.Verify_User_Should_Be_Able_To_View_Video(prop.getProperty("subject"), prop.getProperty("topic"));
+		so.Verify_User_Should_Be_Able_To_View_Video(prop.getProperty("msubject"), prop.getProperty("mtopic"));
 	}
 
 	@Test(enabled = false) // need to delete note manually(if any already created).
@@ -79,7 +72,7 @@ public class AFS_UserStory_2 extends BaseClass {
 	@Test(enabled = false) // each time need to send new subject. As it check initial revision completes
 	public void TC10_Verify_User_Should_Be_Able_To_View_Summary_Pages() throws InterruptedException, IOException {
 		Module_Syllabus_Options so = new Module_Syllabus_Options();
-		so.Verify_User_Should_Be_Able_To_View_Summary_Pages(prop.getProperty("Asubject"), prop.getProperty("Atopic"));
+		so.Verify_User_Should_Be_Able_To_View_Summary_Pages(prop.getProperty("msubject"), prop.getProperty("mtopic"));
 	}
 
 	@Test(enabled = false)
@@ -121,7 +114,7 @@ public class AFS_UserStory_2 extends BaseClass {
 				prop.getProperty("mtopic"));
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC17_Verify_Behaviour_In_Landscape_And_Portrait_Mode_Transition()
 			throws InterruptedException, IOException {
 		Module_Syllabus_Options so = new Module_Syllabus_Options();
@@ -129,8 +122,8 @@ public class AFS_UserStory_2 extends BaseClass {
 				prop.getProperty("mtopic"));
 	}
 
-	@Test(enabled = false)
-	public void TC18_Verify_Behaviour_In_Sleep_Mode() throws InterruptedException, IOException {
+	@Test(enabled = false, priority = 2)
+	public void TC_18_Verify_Behaviour_In_Sleep_Mode() throws InterruptedException, IOException {
 		Module_Syllabus_Options so = new Module_Syllabus_Options();
 		so.Verify_Behaviour_In_Sleep_Mode(prop.getProperty("msubject"), prop.getProperty("mtopic"));
 	}
@@ -142,9 +135,10 @@ public class AFS_UserStory_2 extends BaseClass {
 				prop.getProperty("mtopic"));
 	}
 
-	
-	/*
-	 * @AfterMethod public void restApp() throws MalformedURLException {
-	 * applyExplicitWait(5); getDriver().launchApp(); }
-	 */
+	@AfterMethod
+	public void restApp() throws MalformedURLException {
+		applyExplicitWait(5);
+		getDriver().launchApp();
+	}
+
 }

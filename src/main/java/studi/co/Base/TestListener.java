@@ -53,22 +53,23 @@ public class TestListener extends Keyword implements ITestListener {
 
 	@Override
 	public void onTestFailure(ITestResult result) {
+		if (result.getName().equals("TC_18_Verify_Behaviour_In_Sleep_Mode")) {
+		} else {
+			System.out.println("On Test Failure : " + result.getName());
+			test.log(Status.FAIL, "On Test Failure : " + result.getName());
+			test.log(Status.FAIL, MarkupHelper.createLabel(result.getName(), ExtentColor.RED));
+			test.log(Status.INFO, "Fails Test");
+			test.log(Status.FAIL, result.getThrowable());
 
-		System.out.println("On Test Failure : " + result.getName());
-		test.log(Status.FAIL, "On Test Failure : " + result.getName());
-		test.log(Status.FAIL, MarkupHelper.createLabel(result.getName(), ExtentColor.RED));
-		test.log(Status.INFO, "Fails Test");
-		test.log(Status.FAIL, result.getThrowable());
-
-		String failedTCScreenshotPath = screenshotforExtentReport(getDriver(), result.getName());
-		try {
-			test.fail(result.getThrowable().getMessage(),
-					MediaEntityBuilder.createScreenCaptureFromPath(failedTCScreenshotPath).build());
-		} catch (IOException e) {
-			System.out.println("File not not found");
-			e.printStackTrace();
+			String failedTCScreenshotPath = screenshotforExtentReport(getDriver(), result.getName());
+			try {
+				test.fail(result.getThrowable().getMessage(),
+						MediaEntityBuilder.createScreenCaptureFromPath(failedTCScreenshotPath).build());
+			} catch (IOException e) {
+				System.out.println("File not not found");
+				e.printStackTrace();
+			}
 		}
-
 	}
 
 	@Override
@@ -86,7 +87,7 @@ public class TestListener extends Keyword implements ITestListener {
 		// String reportName = "Test-Report- " + timeStamp + ".html";
 		String reportName = "Test-Report.html";
 		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/ExtentReport/" + reportName);
-		//htmlReporter.setAppendExisting(true);
+		// htmlReporter.setAppendExisting(true);
 		htmlReporter.loadXMLConfig(System.getProperty("user.dir") + "/extents-config.xml");
 
 		extent = new ExtentReports();

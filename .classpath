@@ -31,5 +31,6 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/Dell/AppData/Local/Android/Sdk/platforms/android-30/android.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Dell/AppData/Local/Android/Sdk/platforms/android-30/uiautomator.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Dell/Downloads/opencv/build/java/opencv-451.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

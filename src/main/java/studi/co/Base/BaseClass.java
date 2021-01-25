@@ -53,29 +53,24 @@ import javax.swing.Timer;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
-import com.android.uiautomator.core.UiDevice;
-import com.android.uiautomator.core.UiObject;
-import com.android.uiautomator.core.UiObjectNotFoundException;
+import com.android.uiautomator.core.UiSelector;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
-import android.graphics.Color;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
@@ -83,8 +78,6 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import studi.co.pageModules.Module_Login;
 import studi.co.pageObjects.Object_Syllabus_Option;
 
 //Handling Config file operations and Extent report initialization
@@ -92,6 +85,7 @@ import studi.co.pageObjects.Object_Syllabus_Option;
 
 public class BaseClass {
 
+	public static Boolean notesFlag = false;
 	public static ExtentTest test, temptest;
 	public static Properties prop; // Property file initialization
 	public static ExtentHtmlReporter htmlReporter;
@@ -110,7 +104,9 @@ public class BaseClass {
 	public static Timer timer;
 	public static int notesCount;
 	static int timerCount = 0;
-
+	public static JFrame frame = new JFrame();
+	public static JLabel label=new JLabel("Wait until timer ends : ");
+	public static JLabel label2=new JLabel("1");;
 	public BaseClass() {
 		try {
 
@@ -123,7 +119,7 @@ public class BaseClass {
 		}
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		
 	}
 	/*
@@ -145,6 +141,7 @@ public class BaseClass {
 			caps.setCapability("appPackage", "com.tce.studi");
 			caps.setCapability("appActivity", "com.tce.view.ui.activities.SplashScreenActivity");
 			caps.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, "true");
+			
 			caps.setCapability(MobileCapabilityType.NO_RESET, "true");
 			System.out.println("Required Desired Capabilities Defined");
 			final String appiumserverUrl = "http://127.0.0.1:4723/wd/hub";
@@ -415,11 +412,13 @@ public class BaseClass {
 
 	public int getNotesCount() throws InterruptedException {
 		Thread.sleep(500);
-		MobileElement ele = getDriver().findElementById("com.tce.studi:id/tv_notes_count");
+		MobileElement ele = getDriver().findElementByAndroidUIAutomator(
+				"new UiSelector().className(\"android.widget.TextView\").resourceId(\"com.tce.studi:id/tvLessonDescription\").textContains(\"Note\")");
 		System.out.println("notecount string " + ele.getText());
 		String temp = ele.getText().replaceAll("[A-Za-z\\s]+", "");
 		System.err.println("temp : " + temp);
 		return Integer.parseInt(temp.trim());
+
 	}
 
 	public static void getColorFromScreenshot(WebElement element) throws HeadlessException, AWTException {
@@ -455,12 +454,18 @@ public class BaseClass {
 	 */
 	public static void forwardVideoTimerToEnd() throws WebDriverException, IOException, InterruptedException {
 		action = new TouchAction(getDriver());
-
+		if (notesFlag) {
+			//applyExplicitWaitsUntilElementVisible(oso.continueOnVdoBtn);
+			closeVideoPopup(notesCount);
+			notesFlag = false;
+		}
 		Thread.sleep(5000);
 		/*
 		 * action.tap(PointOption.point(200, 200)).perform();
 		 * action.tap(PointOption.point(240, 360)).perform();
 		 */
+		applyExplicitWaitsUntilElementVisible(driver.findElement(By.xpath(
+				"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]")));
 		getDriver().findElement(By.xpath(
 				"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]"))
 				.click();
@@ -484,20 +489,23 @@ public class BaseClass {
 
 	}
 
-	public MobileElement findElementByText(String text) {
+	public static MobileElement findElementByText(String text) {
 		return getDriver().findElement(By.xpath("//*[contains(@text, '" + text + "')]"));
 	}
 
 	public List<MobileElement> getAllElementsFromPageUsingID(String id) throws Exception {
 		System.out.println("startef");
+		int c=0;
 		List<MobileElement> topics1 = (List<MobileElement>) driver.findElementsById(id);
 		int flag = 0;
 		normal: while (flag == 0) {
 			swipeVertical(0.8, 0.3, 0.2, 500);
 			topics1.addAll(driver.findElementsById(id));
 			try {
-				if (driver.findElementById("com.tce.studi:id/tv_ebook").isEnabled())
-					flag = 1;
+				//if (driver.findElementById("com.tce.studi:id/tv_ebook").isEnabled())
+				//if (ExpectedConditions.visibilityOfElementLocated(By.id("com.tce.studi:id/tv_ebook"))==null)						
+				if(c++==25)
+				flag = 1;
 			} catch (Exception e) {
 				continue normal;
 			}
@@ -647,7 +655,7 @@ public class BaseClass {
 		}
 	}
 
-	public void closeVideoPopup(int note) throws InterruptedException {
+	public static void closeVideoPopup(int note) throws InterruptedException {
 		int c = 1;
 		// notesCount=4;
 		System.err.println(note + " Notes");
@@ -676,7 +684,7 @@ public class BaseClass {
 	public void createNoteInVideo(String note) throws MalformedURLException, AWTException {
 		Object_Syllabus_Option oso = new Object_Syllabus_Option();
 		applyExplicitWait(5);
-		clickOnElement(oso.notesBtn);
+		clickOnElement(oso.addNotesBtn);
 		applyExplicitWait(5);
 		clickOnElement(oso.playBtn);
 
@@ -702,45 +710,39 @@ public class BaseClass {
 	}
 
 	public static void startCounter(int timer1) {
-		JLabel label;
-		JLabel label2;
+	
 		Timer timer;
 		timerCount = timer1;
-		JFrame frame = new JFrame();
+		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new CardLayout());
 
-		label = new JLabel("Wait until timer ends : ");
-		label2 = new JLabel("1");
+	
 		label.setForeground(java.awt.Color.WHITE);
 		label2.setForeground(java.awt.Color.WHITE);
-		
+
 		frame.setResizable(false);
 		frame.setLayout(new GridBagLayout());
 		frame.add(label);
 		frame.add(label2);
-		timer = new Timer(20, new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				timerCount--;
-				if (timerCount >= 0) {
-					label2.setText(Integer.toString(timerCount + 1));
-				} else {
-					((Timer) (e.getSource())).stop();
-					frame.dispose();
-				}
-			}
-		});
+		/*
+		 * timer = new Timer(20, new ActionListener() {
+		 * 
+		 * @Override public void actionPerformed(ActionEvent e) { timerCount--; if
+		 * (timerCount >= 0) { label2.setText(Integer.toString(timerCount + 1)); } else
+		 * { ((Timer) (e.getSource())).stop(); frame.dispose(); } } });
+		 */
+		label.setText("Wait until timer ends : ");
+		label2.setText(Integer.toString(timerCount));
+		//timer.setDelay(1000);
+		//timer.start();
+		frame.getContentPane().setBackground(java.awt.Color.GRAY);
 
-		timer.setDelay(1000);
-		timer.start();
-		frame.getContentPane().setBackground( java.awt.Color.GRAY);
-		
 		frame.pack();
 		frame.setSize(new Dimension(200, 70));
 		frame.setMaximumSize(new Dimension(200, 70));
 		frame.setLocation(500, 200);
-		
+
 		frame.setVisible(true);
 		frame.requestFocus();
 	}

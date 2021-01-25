@@ -7,15 +7,12 @@ import java.text.ParseException;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.interactions.touch.ScrollAction;
 import org.testng.asserts.SoftAssert;
 
+import com.android.uiautomator.core.UiSelector;
 import com.aventstack.extentreports.Status;
 
 import io.appium.java_client.MobileBy;
@@ -34,12 +31,12 @@ public class Module_Syllabus_Options extends BaseClass {
 	Object_Receive_Questions_Revision rqr = new Object_Receive_Questions_Revision();
 
 	private void pauseVideo() throws MalformedURLException, InterruptedException {
-		if (oso.notesFlag) {
-			applyExplicitWaitsUntilElementVisible(oso.continueOnVdoBtn);
+		if (BaseClass.notesFlag) {
+			//applyExplicitWaitsUntilElementVisible(oso.continueOnVdoBtn);
 			closeVideoPopup(notesCount);
-			oso.notesFlag = false;
+			BaseClass.notesFlag = false;
 		}
-		applyExplicitWaitsUntilElementVisible(oso.notesBtn);
+		applyExplicitWaitsUntilElementVisible(oso.addNotesBtn);
 		getDriver().findElement(By.xpath(
 				"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]"))
 				.click();
@@ -153,9 +150,9 @@ public class Module_Syllabus_Options extends BaseClass {
 			if (resource.equals("Video")) {
 				System.out.println("Video started");
 				test.log(Status.INFO, "Video started");
-				if (oso.notesFlag) {
+				if (BaseClass.notesFlag) {
 					closeVideoPopup(notesCount);
-					oso.notesFlag = true;
+					BaseClass.notesFlag = true;
 				}
 				forwardVideoTimerToEnd();
 			} else if (resource.equals("Quiz")) {
@@ -166,8 +163,9 @@ public class Module_Syllabus_Options extends BaseClass {
 					applyExplicitWait(5);
 					clickOnElement(rqr.nextButton);
 				}
-				fl = 1;
 			}
+			fl = 1;
+
 		}
 
 		System.out.println("All resouces completed");
@@ -192,7 +190,7 @@ public class Module_Syllabus_Options extends BaseClass {
 		oso.startRevision2();
 
 		applyExplicitWait(5);
-
+		Thread.sleep(1000);
 		status = getDriver()
 				.findElement(
 						MobileBy.AndroidUIAutomator("new UiSelector().descriptionContains(\"Show player controls\")"))
@@ -204,20 +202,7 @@ public class Module_Syllabus_Options extends BaseClass {
 			test.log(Status.INFO, "Video started");
 			Thread.sleep(2000);
 
-			if (oso.notesFlag) {
-				applyExplicitWaitsUntilElementVisible(findElementByText("CONTINUE"));
-				closeVideoPopup(notesCount);
-				oso.notesFlag = false;
-			}
-
-			applyExplicitWaitsUntilElementVisible(oso.notesBtn);
-			applyExplicitWait(5);
-
-			getDriver().findElement(By.xpath(
-					"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]"))
-					.click();
-			applyExplicitWait(2);
-			getDriver().findElementByAccessibilityId("Pause").click();
+			pauseVideo();
 			System.out.println("Clicked on Pause Button");
 			test.log(Status.INFO, "Clicked on Pause Button");
 
@@ -251,8 +236,10 @@ public class Module_Syllabus_Options extends BaseClass {
 				System.out.println("QuePoints visible");
 				test.log(Status.INFO, "QuePoints visible");
 			}
+			
+			
 ////////////////////////////////////////////Note Creation///////////////////////////////
-			// createNoteInVideo(prop.getProperty("note"));
+			//createNoteInVideo(prop.getProperty("note"));
 
 			System.out.println("Verifying added note");
 			test.log(Status.INFO, "Verifying added note");
@@ -303,13 +290,13 @@ public class Module_Syllabus_Options extends BaseClass {
 		sAss.assertTrue(status);
 		Thread.sleep(2000);
 		if (status) {
-			if (oso.notesFlag) {
-				applyExplicitWaitsUntilElementVisible(oso.continueOnVdoBtn);
+			if (BaseClass.notesFlag) {
+				//applyExplicitWaitsUntilElementVisible(oso.continueOnVdoBtn);
 				closeVideoPopup(notesCount);
-				oso.notesFlag = false;
+				BaseClass.notesFlag = false;
 			}
 
-			applyExplicitWaitsUntilElementVisible(oso.notesBtn);
+			applyExplicitWaitsUntilElementVisible(oso.addNotesBtn);
 			applyExplicitWait(5);
 
 			/*
@@ -326,21 +313,21 @@ public class Module_Syllabus_Options extends BaseClass {
 
 			System.out.println("actual " + actualBookmarkDesc);
 
-			status = oso.notesBtn.isDisplayed();
+			status = oso.addNotesBtn.isDisplayed();
 			sAss.assertTrue(status);
 			if (status) {
 				System.out.println("Create note Button visible");
 				test.log(Status.INFO, "Create note Button visible");
 			}
 
-			status = oso.notesBtn.isDisplayed();
+			status = oso.addNotesBtn.isDisplayed();
 			sAss.assertTrue(status);
 			if (status) {
 				System.out.println("Create note Button is tappable");
 				test.log(Status.INFO, "Create note Button is tappable");
 			}
 
-			clickOnElement(oso.notesBtn);
+			clickOnElement(oso.addNotesBtn);
 			System.out.println("Clicked on Create note Button");
 			test.log(Status.INFO, "Clicked on Create note Button");
 
@@ -398,20 +385,24 @@ public class Module_Syllabus_Options extends BaseClass {
 			System.out.println("Note " + prop.getProperty("note") + " Saved");
 			test.log(Status.INFO, "Note " + prop.getProperty("note") + " Saved");
 
+			try
+			{
 			status = driver.findElementById("com.tce.studi:id/tutorialDoNotShow").isDisplayed();
 			sAss.assertTrue(status);
 			if (status) {
 				System.out.println("Guidance model displayed after saving note");
 				test.log(Status.INFO, "Guidance model displayed after saving note");
-			} else {
+				
+				System.out.println("Clicking on Do not show me again");
+				test.log(Status.INFO, "Clicking on Do not show me again");
+				clickOnElement(getDriver().findElementById("com.tce.studi:id/tutorialDoNotShow"));
+			} }
+			catch(Exception e){
 				System.out.println("Guidance model not displayed after saving note");
 				test.log(Status.INFO, "Guidance model not displayed after saving note");
 			}
 
-			System.out.println("Clicking on Do not show me again");
-			test.log(Status.INFO, "Clicking on Do not show me again");
-			clickOnElement(getDriver().findElementById("com.tce.studi:id/tutorialDoNotShow"));
-
+			
 			System.out.println("Verifyind added Bookmark of note");
 			test.log(Status.INFO, "Verifyind added Bookmark of note");
 
@@ -436,7 +427,7 @@ public class Module_Syllabus_Options extends BaseClass {
 			int diff = Integer.parseInt(actualBookmarkDesc.replaceAll("[:0]", ""))
 					- Integer.parseInt(expected.replaceAll("[:0]", ""));
 
-			status = (diff < 3 && diff > -3) ? true : false;
+			status = (diff < 5 && diff > -5) ? true : false;
 
 			sAss.assertTrue(status);
 			if (status) {
@@ -747,15 +738,20 @@ public class Module_Syllabus_Options extends BaseClass {
 		test.log(Status.INFO, "Traverse towards " + subject + " -> " + topic);
 		oso.startRevision1();
 
+		applyExplicitWait(5);
+		String temp=driver.findElementById("com.tce.studi:id/tv_overview").getText();
+		
+		applyExplicitWait(5);
 		System.out.println("Lock the device");
 		test.log(Status.INFO, "Lock the device");
-		driver.lockDevice();
-
+        driver.lockDevice();
+		
+        applyExplicitWait(5);
 		System.out.println("Unlock the device");
 		test.log(Status.INFO, "Unlock the device");
 		driver.unlockDevice();
 
-		status = findElementByText("What you will revise:").isDisplayed();
+		status = findElementByText(temp).isDisplayed();
 		sAss.assertTrue(status);
 		if (status) {
 			System.out.println("Landed on same page after lock\\unlock");
@@ -779,9 +775,9 @@ public class Module_Syllabus_Options extends BaseClass {
 
 		System.out.println("Video started");
 		test.log(Status.INFO, "Video started");
-		if (oso.notesFlag) {
+		if (BaseClass.notesFlag) {
 			closeVideoPopup(notesCount);
-			oso.notesFlag = true;
+			BaseClass.notesFlag = true;
 		}
 
 		System.out.println("Pressed back buton");
@@ -1089,24 +1085,19 @@ public class Module_Syllabus_Options extends BaseClass {
 		}
 
 		applyExplicitWait(5);
-		try {
-			status1 = Boolean.parseBoolean(findElementByText("Begin Revision").getAttribute("clickable"));
-		} catch (Exception e) {
-		}
-		try {
-			status2 = Boolean.parseBoolean(findElementByText("Revise Again").getAttribute("clickable"));
-		} catch (Exception e) {
-		}
-		if (status1) {
-			sAss.assertTrue(status1);
-			test.log(Status.INFO, "Begin Revision tab clickable");
-			System.out.println("Begin Revision tab clickable");
-		} else {
-			sAss.assertTrue(status2);
-			test.log(Status.INFO, "Revise Again tab clickable");
-			System.out.println("Revise Again tab clickable");
-		}
-
+		/*
+		 * try { status1 =
+		 * Boolean.parseBoolean(findElementByText("Begin Revision").getAttribute(
+		 * "clickable")); } catch (Exception e) { } try { status2 =
+		 * Boolean.parseBoolean(findElementByText("Revise Again").getAttribute(
+		 * "clickable")); } catch (Exception e) { } if (status1) {
+		 * sAss.assertTrue(status1); test.log(Status.INFO,
+		 * "Begin Revision tab clickable");
+		 * System.out.println("Begin Revision tab clickable"); } else {
+		 * sAss.assertTrue(status2); test.log(Status.INFO,
+		 * "Revise Again tab clickable");
+		 * System.out.println("Revise Again tab clickable"); }
+		 */
 		try {
 			findElementByText("Begin Revision").click();
 		} catch (Exception e) {
@@ -1305,22 +1296,30 @@ public class Module_Syllabus_Options extends BaseClass {
 		test.log(Status.INFO, "Traverse towards " + subject + " -> " + topic);
 		oso.startRevision1();
 
-		System.out.println("Lock the device");
-		test.log(Status.INFO, "Lock the device");
-		driver.lockDevice();
+		try {
+			System.out.println("Left the app unattended for 1 Min");
+			test.log(Status.INFO, "Left the app unattended for 1 Min");
+			for (int i = Integer.parseInt(prop.getProperty("timerDuration")); i > 0; i--) {
+				label2.setText("");
+				label.setText("");
 
-		System.out.println("Unlock the device");
-		test.log(Status.INFO, "Unlock the device");
-		driver.unlockDevice();
+				startCounter(i);
+				Thread.sleep(1000);
+				frame.dispose();
+			}
+			status = findElementByText("What you will revise:").isDisplayed();
+			sAss.assertFalse(status);
+			if (status) {
+				System.out.println("Same page is visible after visible after sleep");
+				test.log(Status.INFO, "Same page is visible after visible after sleep");
+			}
+		} catch (Exception ne) {
+			System.out.println("Session expired/User Logged out after sleep mode");
+			test.log(Status.INFO, "Session expired/User Logged out after sleep mode");
 
-		status = findElementByText("What you will revise:").isDisplayed();
-		sAss.assertTrue(status);
-		if (status) {
-			System.out.println("Landed on same page after lock\\unlock");
-			test.log(Status.INFO, "Landed on same page after lock\\unlock");
 		}
-
 		sAss.assertAll();
+
 	}
 
 	public void Verify_Create_Note_Icon_Should_Be_Visible_In_Video(String subject, String topic)
@@ -1344,12 +1343,13 @@ public class Module_Syllabus_Options extends BaseClass {
 				.isDisplayed();
 		sAss.assertTrue(status);
 		if (status) {
-			System.out.println("TQ started again");
-			test.log(Status.INFO, "TQ started again");
+			System.out.println("TQ started");
+			test.log(Status.INFO, "TQ started");
+			pauseVideo();
 		}
 
-		applyExplicitWaitsUntilElementVisible(oso.notesBtn);
-		status = oso.notesBtn.isDisplayed();
+		applyExplicitWaitsUntilElementVisible(oso.addNotesBtn);
+		status = oso.addNotesBtn.isDisplayed();
 		sAss.assertTrue(status);
 		if (status) {
 			System.out.println("Add notes option displayed at top right of video");
@@ -1370,20 +1370,20 @@ public class Module_Syllabus_Options extends BaseClass {
 		oso.startRevision1();
 		oso.startRevision2();
 
-		applyExplicitWaitsUntilElementVisible(oso.notesBtn);
-		status = oso.notesBtn.isDisplayed();
+		applyExplicitWaitsUntilElementVisible(oso.addNotesBtn);
+		status = oso.addNotesBtn.isDisplayed();
 		sAss.assertTrue(status);
 		if (status) {
 			System.out.println("Add notes option displayed at top right of video");
 			test.log(Status.INFO, "Add notes option displayed at top right of video");
 		}
 
-		clickOnElement(oso.notesBtn);
+		clickOnElement(oso.addNotesBtn);
 		System.out.println("Clicked on Add note Button");
 		test.log(Status.INFO, "Clicked on Add note Button");
 
 		applyExplicitWait(5);
-		//clickOnElement(oso.noteTxtArea);
+		// clickOnElement(oso.noteTxtArea);
 
 		System.out.println("Try to enter more than 3000 characters in note");
 		test.log(Status.INFO, "Try to enter more than 3000 characters in note");
@@ -1398,16 +1398,19 @@ public class Module_Syllabus_Options extends BaseClass {
 
 		String temp2 = oso.noteTxtArea.getText();
 
-		System.out.println("Entering "+temp.length()+" characters but only "+temp2.length()+" characters accepted");
-		test.log(Status.INFO, "Entering "+temp.length()+" characters but only "+temp2.length()+" characters accepted");
-		
+		System.out.println(
+				"Entering " + temp.length() + " characters but only " + temp2.length() + " characters accepted");
+		test.log(Status.INFO,
+				"Entering " + temp.length() + " characters but only " + temp2.length() + " characters accepted");
+
 		status = oso.notesLimit == temp2.length() ? true : false;
 		sAss.assertTrue(status);
-		
+
 		sAss.assertAll();
 	}
 
-	public void Verify_User_Is_Unable_To_Add_Empty_Note(String subject, String topic) throws MalformedURLException, InterruptedException {
+	public void Verify_User_Is_Unable_To_Add_Empty_Note(String subject, String topic)
+			throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
 		int flag = 0;
 		Boolean status;
@@ -1418,20 +1421,21 @@ public class Module_Syllabus_Options extends BaseClass {
 		oso.startRevision1();
 		oso.startRevision2();
 
-		applyExplicitWaitsUntilElementVisible(oso.notesBtn);
-		status = oso.notesBtn.isDisplayed();
+		pauseVideo();
+		applyExplicitWaitsUntilElementVisible(oso.addNotesBtn);
+		status = oso.addNotesBtn.isDisplayed();
 		sAss.assertTrue(status);
 		if (status) {
 			System.out.println("Add notes option displayed at top right of video");
 			test.log(Status.INFO, "Add notes option displayed at top right of video");
 		}
 
-		clickOnElement(oso.notesBtn);
+		clickOnElement(oso.addNotesBtn);
 		System.out.println("Clicked on Add note Button");
 		test.log(Status.INFO, "Clicked on Add note Button");
 
 		applyExplicitWait(5);
-		//clickOnElement(oso.noteTxtArea);
+		// clickOnElement(oso.noteTxtArea);
 
 		status = oso.noteTxtArea.isDisplayed();
 		sAss.assertTrue(status);
@@ -1442,12 +1446,12 @@ public class Module_Syllabus_Options extends BaseClass {
 
 		System.out.println("Try to add note without any Text");
 		test.log(Status.INFO, "Try to add note without any Text");
-		
+
 		clickOnElement(oso.saveNoteBtn);
 		System.out.println("Clicked on Save note Button");
 		test.log(Status.INFO, "Clicked on Save note Button");
 
-		status=oso.noteTxtArea.isDisplayed();
+		status = oso.noteTxtArea.isDisplayed();
 		sAss.assertTrue(status);
 		if (status) {
 			System.out.println("Error message displayed. Not Allowed to add empty note");
@@ -1456,21 +1460,21 @@ public class Module_Syllabus_Options extends BaseClass {
 
 		System.out.println("Try to add note with adding Blank-spaces");
 		test.log(Status.INFO, "Try to add note with adding Blank-spaces");
-		
+
 		System.out.println("Adding spaces in Text area");
 		test.log(Status.INFO, "Adding spaces in Text area");
-		String temp="";
+		String temp = "";
 		for (int i = 0; i < 10; i++) {
-			temp=temp+" ";
+			temp = temp + " ";
 		}
-		
+
 		oso.noteTxtArea.sendKeys(temp);
 		driver.hideKeyboard();
 		clickOnElement(oso.saveNoteBtn);
 		System.out.println("Clicked on Save note Button");
 		test.log(Status.INFO, "Clicked on Save note Button");
 
-		status=oso.noteTxtArea.isDisplayed();
+		status = oso.noteTxtArea.isDisplayed();
 		sAss.assertTrue(status);
 		if (status) {
 			System.out.println("Error message displayed. Not Allowed to add empty note");
@@ -1480,7 +1484,8 @@ public class Module_Syllabus_Options extends BaseClass {
 		sAss.assertAll();
 	}
 
-	public void Verify_Create_Note_Icon_Should_Be_Clickable_In_Video(String subject, String topic) throws MalformedURLException, InterruptedException {
+	public void Verify_Create_Note_Icon_Should_Be_Clickable_In_Video(String subject, String topic)
+			throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
 		int flag = 0;
 		Boolean status;
@@ -1500,29 +1505,30 @@ public class Module_Syllabus_Options extends BaseClass {
 				.isDisplayed();
 		sAss.assertTrue(status);
 		if (status) {
-			System.out.println("TQ started again");
-			test.log(Status.INFO, "TQ started again");
+			System.out.println("Video started");
+			test.log(Status.INFO, "Video started ");
+			pauseVideo();
 		}
 
-		applyExplicitWaitsUntilElementVisible(oso.notesBtn);
-		status = oso.notesBtn.isDisplayed();
+		applyExplicitWaitsUntilElementVisible(oso.addNotesBtn);
+		status = oso.addNotesBtn.isDisplayed();
 		sAss.assertTrue(status);
 		if (status) {
 			System.out.println("Add notes option displayed at top right of video");
 			test.log(Status.INFO, "Add notes option displayed at top right of video");
 		}
-		
-		status = oso.notesBtn.getAttribute("clickable").trim().equalsIgnoreCase("true");
+
+		status = oso.addNotesBtn.getAttribute("clickable").trim().equalsIgnoreCase("true");
 		sAss.assertTrue(status);
 		if (status) {
 			System.out.println("Add notes button is Clickable");
 			test.log(Status.INFO, "Add notes button is Clickable");
 		}
-		
+
 		System.out.println("Clicked on Add note Button");
 		test.log(Status.INFO, "Clicked on Add note Button");
-		clickOnElement(oso.notesBtn);
-		
+		clickOnElement(oso.addNotesBtn);
+
 		applyExplicitWait(5);
 
 		status = oso.noteTxtArea.isDisplayed();
@@ -1531,11 +1537,12 @@ public class Module_Syllabus_Options extends BaseClass {
 			System.out.println("Add Note module window displayed");
 			test.log(Status.INFO, "Add Note module window displayed");
 		}
-		
-		sAss.assertAll();		
+
+		sAss.assertAll();
 	}
 
-	public void Verify_User_Is_Able_To_Enter_Special_Characters_In_Note(String subject, String topic) throws MalformedURLException, InterruptedException {
+	public void Verify_User_Is_Able_To_Enter_Special_Characters_In_Note(String subject, String topic)
+			throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
 		int flag = 0;
 		Boolean status;
@@ -1546,15 +1553,16 @@ public class Module_Syllabus_Options extends BaseClass {
 		oso.startRevision1();
 		oso.startRevision2();
 
-		applyExplicitWaitsUntilElementVisible(oso.notesBtn);
-		status = oso.notesBtn.isDisplayed();
+		pauseVideo();
+		applyExplicitWaitsUntilElementVisible(oso.addNotesBtn);
+		status = oso.addNotesBtn.isDisplayed();
 		sAss.assertTrue(status);
 		if (status) {
 			System.out.println("Add notes option displayed at top right of video");
 			test.log(Status.INFO, "Add notes option displayed at top right of video");
 		}
 
-		clickOnElement(oso.notesBtn);
+		clickOnElement(oso.addNotesBtn);
 		System.out.println("Clicked on Add note Button");
 		test.log(Status.INFO, "Clicked on Add note Button");
 
@@ -1570,22 +1578,22 @@ public class Module_Syllabus_Options extends BaseClass {
 
 		String temp2 = oso.noteTxtArea.getText();
 
-		System.out.println("Entered text: "+temp+", Accepted text by note module: "+temp2);
-		test.log(Status.INFO, "Entered text: "+temp+", Accepted text by note module: "+temp2);
-		
+		System.out.println("Entered text: " + temp + ", Accepted text by note module: " + temp2);
+		test.log(Status.INFO, "Entered text: " + temp + ", Accepted text by note module: " + temp2);
+
 		status = temp.equalsIgnoreCase(temp2) ? true : false;
 		sAss.assertTrue(status);
-		if(status)
-		{
+		if (status) {
 			System.out.println("User can enter special characters in note");
-			test.log(Status.INFO, "User can enter special characters in note");	
+			test.log(Status.INFO, "User can enter special characters in note");
 		}
-		
+
 		sAss.assertAll();
-		
+
 	}
 
-	public void Verify_Note_Module_Will_Cosed_Without_Warning(String subject, String topic) throws MalformedURLException, InterruptedException {
+	public void Verify_Note_Module_Will_Cosed_Without_Warning(String subject, String topic)
+			throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
 		int flag = 0;
 		Boolean status;
@@ -1596,35 +1604,285 @@ public class Module_Syllabus_Options extends BaseClass {
 		oso.startRevision1();
 		oso.startRevision2();
 
-		applyExplicitWaitsUntilElementVisible(oso.notesBtn);
-		status = oso.notesBtn.isDisplayed();
+		pauseVideo();
+		applyExplicitWaitsUntilElementVisible(oso.addNotesBtn);
+		status = oso.addNotesBtn.isDisplayed();
 		sAss.assertTrue(status);
 		if (status) {
 			System.out.println("Add notes option displayed at top right of video");
 			test.log(Status.INFO, "Add notes option displayed at top right of video");
 		}
 
-		clickOnElement(oso.notesBtn);
+		clickOnElement(oso.addNotesBtn);
 		System.out.println("Clicked on Add note Button");
 		test.log(Status.INFO, "Clicked on Add note Button");
 
 		applyExplicitWait(5);
-		
+
 		System.out.println("Try to close Note Module without adding any text in note");
-		test.log(Status.INFO, "Try to close Note Module without adding any text in note");	
+		test.log(Status.INFO, "Try to close Note Module without adding any text in note");
 
 		System.out.println("Clicked on Close(X) Button");
 		test.log(Status.INFO, "Clicked on Close(X) Button");
 		clickOnElement(oso.closeNotesBtn);
-		
-		
-		status = oso.notesBtn.isDisplayed();
+
+		status = oso.addNotesBtn.isDisplayed();
 		sAss.assertTrue(status);
-		if(status)
-		{
+		if (status) {
 			System.out.println("Notes Module closed without any warning message");
-			test.log(Status.INFO, "Notes Module closed without any warning message");	
-		}		
-		sAss.assertAll();		
+			test.log(Status.INFO, "Notes Module closed without any warning message");
+		}
+		sAss.assertAll();
+	}
+
+	public void Verify_Warning_Message_Shown_After_Clicking_Discard_In_Notes(String subject, String topic)
+			throws MalformedURLException, InterruptedException {
+		SoftAssert sAss = new SoftAssert();
+		int flag = 0;
+		Boolean status;
+
+		System.out.println("Traverse towards " + subject + " -> " + topic);
+		oso.traverse_toward_topic(subject, topic);
+		test.log(Status.INFO, "Traverse towards " + subject + " -> " + topic);
+		oso.startRevision1();
+		oso.startRevision2();
+
+		pauseVideo();
+		applyExplicitWaitsUntilElementVisible(oso.addNotesBtn);
+		status = oso.addNotesBtn.isDisplayed();
+		sAss.assertTrue(status);
+		if (status) {
+			System.out.println("Add notes option displayed at top right of video");
+			test.log(Status.INFO, "Add notes option displayed at top right of video");
+		}
+
+		clickOnElement(oso.addNotesBtn);
+		System.out.println("Clicked on Add note Button");
+		test.log(Status.INFO, "Clicked on Add note Button");
+
+		applyExplicitWait(5);
+
+		System.out.println("Try to close Note Module without adding any text in note");
+		test.log(Status.INFO, "Try to close Note Module without adding any text in note");
+
+		System.out.println("Clicked on Close(X) Button");
+		test.log(Status.INFO, "Clicked on Close(X) Button");
+		clickOnElement(oso.closeNotesBtn);
+
+		status = oso.addNotesBtn.isDisplayed();
+		sAss.assertTrue(status);
+		if (status) {
+			System.out.println("Notes Module closed without any warning message");
+			test.log(Status.INFO, "Notes Module closed without any warning message");
+		}
+
+		System.out.println("Verifying Discard Button");
+		test.log(Status.INFO, "Verifying Discard Button");
+
+		applyExplicitWaitsUntilElementVisible(oso.addNotesBtn);
+		status = oso.addNotesBtn.isDisplayed();
+		sAss.assertTrue(status);
+		if (status) {
+			System.out.println("Add notes option displayed at top right of video");
+			test.log(Status.INFO, "Add notes option displayed at top right of video");
+		}
+
+		clickOnElement(oso.addNotesBtn);
+		System.out.println("Clicked on Add note Button");
+		test.log(Status.INFO, "Clicked on Add note Button");
+
+		applyExplicitWait(5);
+
+		System.out.println("Try to enter text in note and Click Discard Button");
+		test.log(Status.INFO, "Try to enter text in note and Click Discard Button");
+
+		oso.noteTxtArea.sendKeys(prop.getProperty("note"));
+
+		System.out.println("Checking entered text");
+		test.log(Status.INFO, "Checking entered text");
+
+		String temp2 = oso.noteTxtArea.getText();
+
+		System.out.println("Entered text: " + prop.getProperty("note") + ", Accepted text by note module: " + temp2);
+		test.log(Status.INFO, "Entered text: " + prop.getProperty("note") + ", Accepted text by note module: " + temp2);
+
+		driver.hideKeyboard();
+
+		System.out.println("Clicked on Discard Button");
+		test.log(Status.INFO, "Clicked on Discard Button");
+		clickOnElement(oso.discardNoteBtn);
+
+		status = oso.discardWarnMsg.isDisplayed();
+		sAss.assertTrue(status);
+		if (status) {
+			System.out.println("Warning message displayed to Discard Note");
+			test.log(Status.INFO, "Warning message displayed to Discard Note");
+		}
+
+		System.out.println("Cancel the discarding process");
+		test.log(Status.INFO, "Cancel the discarding process");
+		clickOnElement(oso.discardDenyBtn);
+
+		status = oso.noteTxtArea.isDisplayed();
+		sAss.assertTrue(status);
+		if (status) {
+			System.out.println("User can still able to modify entered text");
+			test.log(Status.INFO, "User can still able to modify entered text");
+		}
+
+		System.out.println("Clicked on Discard Button");
+		test.log(Status.INFO, "Clicked on Discard Button");
+		clickOnElement(oso.discardNoteBtn);
+
+		status = oso.discardWarnMsg.isDisplayed();
+		sAss.assertTrue(status);
+		if (status) {
+			System.out.println("Warning message displayed to Discard Note");
+			test.log(Status.INFO, "Warning message displayed to Discard Note");
+		}
+
+		System.out.println("Accept the discarding process");
+		test.log(Status.INFO, "Accept the discarding process");
+		clickOnElement(oso.discardAcceptBtn);
+
+		status = oso.addNotesBtn.isDisplayed();
+		sAss.assertTrue(status);
+		if (status) {
+			System.out.println("Note discarded using Discard Button");
+			test.log(Status.INFO, "Note discarded using Discard Button");
+		}
+		sAss.assertAll();
+	}
+
+	public void Verify_Notes_Will_Be_Saved_Using_Save_Note_Option(String subject, String topic)
+			throws MalformedURLException, InterruptedException {
+		SoftAssert sAss = new SoftAssert();
+		int flag = 0;
+		Boolean status;
+
+		System.out.println("Traverse towards " + subject + " -> " + topic);
+		oso.traverse_toward_topic(subject, topic);
+
+		test.log(Status.INFO, "Traverse towards " + subject + " -> " + topic);
+
+		oso.startRevision1();
+
+		oso.startRevision2();
+
+		applyExplicitWait(5);
+		status = getDriver().findElement(By.xpath(
+				"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]"))
+				.isDisplayed();
+		sAss.assertTrue(status);
+		if (status) {
+			System.out.println("Video started");
+			test.log(Status.INFO, "Video started");
+			pauseVideo();
+		}
+
+		applyExplicitWaitsUntilElementVisible(oso.addNotesBtn);
+		status = oso.addNotesBtn.isDisplayed();
+		sAss.assertTrue(status);
+		if (status) {
+			System.out.println("Add notes option displayed at top right of video");
+			test.log(Status.INFO, "Add notes option displayed at top right of video");
+		}
+
+		System.out.println("Clicked on Add note Button");
+		test.log(Status.INFO, "Clicked on Add note Button");
+		clickOnElement(oso.addNotesBtn);
+
+		applyExplicitWait(5);
+
+		status = oso.noteTxtArea.isDisplayed();
+		sAss.assertTrue(status);
+		if (status) {
+			System.out.println("Add Note module window displayed");
+			test.log(Status.INFO, "Add Note module window displayed");
+		}
+
+		status = oso.saveNoteBtn.isDisplayed();
+		sAss.assertTrue(status);
+		if (status) {
+			System.out.println("Save Note option is visible");
+			test.log(Status.INFO, "Save Note option is visible");
+		}
+
+		applyExplicitWait(5);
+		clickOnElement(oso.noteTxtArea);
+
+		oso.noteTxtArea.sendKeys(prop.getProperty("note"));
+		applyExplicitWait(5);
+
+		System.out.println("Checking entered text");
+		test.log(Status.INFO, "Checking entered text");
+
+		String temp2 = oso.noteTxtArea.getText();
+
+		System.out.println("Entered text: " + prop.getProperty("note") + ", Accepted text by note module: " + temp2);
+		test.log(Status.INFO, "Entered text: " + prop.getProperty("note") + ", Accepted text by note module: " + temp2);
+
+		driver.hideKeyboard();
+
+		status = oso.saveNoteBtn.isDisplayed();
+		sAss.assertTrue(status);
+		if (status) {
+			System.out.println("Save Note option is visible after entering note");
+			test.log(Status.INFO, "Save Note option is visible after entering note");
+		}
+
+		applyExplicitWait(5);
+		clickOnElement(oso.saveNoteBtn);
+		System.out.println("Clicking on Save Note");
+		test.log(Status.INFO, "Clicking on Save Note");
+
+		System.out.println("Note " + prop.getProperty("note") + " Saved");
+		test.log(Status.INFO, "Note " + prop.getProperty("note") + " Saved");
+
+		try {
+			status = driver.findElementById("com.tce.studi:id/tutorialDoNotShow").isDisplayed();
+			if (status) {
+				System.out.println("Guidance model displayed after saving note");
+				test.log(Status.INFO, "Guidance model displayed after saving note");
+
+				System.out.println("Clicking on Do not show me again");
+				test.log(Status.INFO, "Clicking on Do not show me again");
+				clickOnElement(getDriver().findElementById("com.tce.studi:id/tutorialDoNotShow"));
+
+			} else {
+				System.out.println("Guidance model not displayed after saving note");
+				test.log(Status.INFO, "Guidance model not displayed after saving note");
+			}
+		} catch (Exception e) {
+			System.out.println("Guidance model not displayed after saving note");
+			test.log(Status.INFO, "Guidance model not displayed after saving note");
+		}
+
+		System.out.println("Verifyind added Bookmark of note");
+		test.log(Status.INFO, "Verifyind added Bookmark of note");
+
+		clickOnElement(oso.hamburgerBtn);
+
+		System.out.println("Verifying total notes count");
+		test.log(Status.INFO, "Verifying total notes count");
+		status = Integer.parseInt(oso.notesCountIndicator.getText()) == (notesCount + 1) ? true : false;
+		if (status) {
+			System.out.println("Notes count increased by 1 succefully");
+			test.log(Status.INFO, "Notes count increased by 1 succefully");
+		}
+
+		clickOnElement(driver.findElementById("com.tce.studi:id/tv_notes"));
+
+		System.out.println("Opening note list");
+		test.log(Status.INFO, "Opening note list");
+
+		status = findElementByText(prop.getProperty("note")).isDisplayed();
+		if (status) {
+			System.out.println(prop.getProperty("note") + " succefully save in list");
+			test.log(Status.INFO, prop.getProperty("note") + " succefully save in list");
+		}
+
+		sAss.assertAll();
+
 	}
 }

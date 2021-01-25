@@ -2,6 +2,7 @@ package studi.co.pageObjects;
 
 import android.*;
 import java.net.MalformedURLException;
+import java.time.Duration;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -11,8 +12,11 @@ import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiSelector;
 import com.aventstack.extentreports.Status;
 
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
 import studi.co.Base.BaseClass;
 
 public class Object_Syllabus_Option extends BaseClass {
@@ -44,7 +48,7 @@ public class Object_Syllabus_Option extends BaseClass {
 	public WebElement bkwdBtn;
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/ib_create_note\")")
-	public WebElement notesBtn;
+	public WebElement addNotesBtn;
 
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ImageView[1]")
 	public WebElement hamburgerBtn;
@@ -70,7 +74,7 @@ public class Object_Syllabus_Option extends BaseClass {
 	@AndroidFindBy(id = "com.tce.studi:id/iv_tertiary_action")
 	public WebElement tertiaryBtnBottom;
 
-	public Boolean notesFlag = false;
+	
 	public int notesLimit = 3000;
 
 	@AndroidFindBy(id = "com.tce.studi:id/et_notes")
@@ -84,7 +88,19 @@ public class Object_Syllabus_Option extends BaseClass {
 	
 	@AndroidFindBy(id = "com.tce.studi:id/ivCross")
 	public WebElement closeNotesBtn;
+	
+	@AndroidFindBy(id = "com.tce.studi:id/tv_discard_confirmation")
+	public WebElement discardWarnMsg;
+	
+	@AndroidFindBy(id = "com.tce.studi:id/ib_discard_accept")
+	public WebElement discardAcceptBtn;
+	
+	@AndroidFindBy(id = "com.tce.studi:id/ib_discard_deny")
+	public WebElement discardDenyBtn;
 
+	@AndroidFindBy(id = "com.tce.studi:id/tv_notes_indicator")
+	public WebElement notesCountIndicator;
+	
 	public void traverse_toward_syllabus() throws MalformedURLException {
 		applyExplicitWait(5);
 		scrollTo1("Syllabus");
@@ -109,6 +125,7 @@ public class Object_Syllabus_Option extends BaseClass {
 	}
 
 	public void traverse_toward_topic(String subject, String topic) throws MalformedURLException, InterruptedException {
+		
 		applyExplicitWait(5);
 		scrollTo1("Syllabus");
 		applyExplicitWait(5);
@@ -131,6 +148,9 @@ public class Object_Syllabus_Option extends BaseClass {
 			if (findElementByText("Notes").isDisplayed()) {
 				notesFlag = true;
 				System.out.println("Notes available");
+				action=new TouchAction(driver);
+				action.press(PointOption.point(115, 650)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(100)))
+				.moveTo(PointOption.point(115, 550)).release().perform();
 				notesCount = getNotesCount();
 				System.err.println("returned notes :" + notesCount);
 
@@ -148,6 +168,8 @@ public class Object_Syllabus_Option extends BaseClass {
 		Boolean status;
 		while (temp == 0) {
 			try {
+				findElementByText("Begin Revision");
+				scrollTo1("Begin Revision");
 				clickOnElement(findElementByText("Begin Revision"));
 				test.log(Status.INFO, "Clicked on Begin Revision");
 				System.out.println("Clicked on Begin Revision");
@@ -165,6 +187,7 @@ public class Object_Syllabus_Option extends BaseClass {
 				test.log(Status.INFO, "Revision already attempted previously");
 				System.out.println("Revision already attempted previously");
 
+				scrollTo1("Revise Again");
 				clickOnElement(findElementByText("Revise Again"));
 				test.log(Status.INFO, "Clicked on Revise Again");
 				System.out.println("Clicked on Revise Again");
