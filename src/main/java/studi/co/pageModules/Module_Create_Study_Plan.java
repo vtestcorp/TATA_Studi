@@ -2,9 +2,10 @@ package studi.co.pageModules;
 
 
 
+import studi.co.Base.BaseClass;
 import studi.co.pageObjects.*;
 
-public class Module_Create_Study_Plan{
+public class Module_Create_Study_Plan extends BaseClass{
 
 	public static String browse_books_page_title, create_study_plan_page_title, created_study_page_title;
 

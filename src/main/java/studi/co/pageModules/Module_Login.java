@@ -1,7 +1,8 @@
 package studi.co.pageModules; 
+import studi.co.Base.BaseClass;
 import studi.co.pageObjects.*;
 
-public class Module_Login{
+public class Module_Login extends BaseClass{
 
 	public static String homepage_title;
 	

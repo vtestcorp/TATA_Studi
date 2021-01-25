@@ -9,7 +9,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import studi.co.Base.BaseClass;
 
 
-public class Object_Login{
+public class Object_Login extends BaseClass{
 	
 	@AndroidBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.EditText[1]")
 	public WebElement username;

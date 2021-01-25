@@ -8,7 +8,7 @@ import io.appium.java_client.pagefactory.AndroidBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import studi.co.Base.*;
 
-public class Object_Create_Study_Plan  {
+public class Object_Create_Study_Plan extends BaseClass  {
 	
 	@AndroidBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]")
 	public WebElement browse_books_tab;
