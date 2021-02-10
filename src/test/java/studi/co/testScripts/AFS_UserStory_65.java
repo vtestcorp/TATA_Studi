@@ -15,10 +15,10 @@ import studi.co.pageModules.Module_Verify_Syllabus_Section;
 public class AFS_UserStory_65 extends BaseClass {
 
 	public AFS_UserStory_65() {
-		super();
+		super(); 
 	}
-
-	//@BeforeMethod
+ 
+	//@BeforeMethod 
 	public void Validate_Login() throws Exception {
 		Module_Login login = new Module_Login();
 		login.Login_to_app();

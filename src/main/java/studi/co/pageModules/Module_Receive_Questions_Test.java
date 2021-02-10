@@ -22,24 +22,26 @@ import studi.co.pageObjects.Object_Receive_Questions_Test;
 public class Module_Receive_Questions_Test extends BaseClass {
 	Object_Receive_Questions_Test ort = new Object_Receive_Questions_Test();
 	Set<String> allQuestions = new HashSet<>();
-	
-
-	
 
 	public void traverse_To_Begin_Test() throws MalformedURLException, InterruptedException {
-		clickOnElement(ort.testUnit);
-		System.out.println("caling method");
+		applyExplicitWaitsUntilElementClickable(ort.testUnit);
+
 		test.log(Status.INFO, "Opening Test Unit");
+		System.out.println("Opening Test Unit");
+		clickOnElement(ort.testUnit);
+
 		applyExplicitWait(5);
-		scrollTo1("Test");
+		scrollTo1("Upcoming");
 		applyExplicitWait(5);
-		ArrayList<MobileElement> mobileElement = (ArrayList<MobileElement>) getDriver().findElementsById("com.tce.studi:id/tv_chapter_type");
+		ArrayList<MobileElement> mobileElement = (ArrayList<MobileElement>) getDriver()
+				.findElementsById("com.tce.studi:id/tv_chapter_type");
 		for (MobileElement mobileElement2 : mobileElement) {
 			if (mobileElement2.getText().trim().equalsIgnoreCase("Test")) {
 				clickOnElement(mobileElement2);
 				break;
 			}
 		}
+		System.out.println("Opening Test");
 		test.log(Status.INFO, "Opening Test");
 		Thread.sleep(3000);
 	}
@@ -50,19 +52,13 @@ public class Module_Receive_Questions_Test extends BaseClass {
 				clickOnElement(getDriver().findElementById("com.tce.studi:id/tutorialDoNotShow"));
 			}
 		} catch (Exception e) {
+			System.out.println("Popup closed");
 			test.log(Status.INFO, "Popup closed");
 		}
 	}
 
 	public void startTest() throws MalformedURLException {
-		try {
-			new WebDriverWait(getDriver(), 10).ignoring(StaleElementReferenceException.class);
-			clickOnElement(findElementByText("Begin Test"));
-			test.log(Status.INFO, "Begin Test");
-		} catch (Exception e) {
-			clickOnElement(findElementByText("Test again"));
-			test.log(Status.INFO, "Test Again");
-		}
+		clickOnElement(getDriver().findElementById("com.tce.studi:id/tv_primary_action"));
 		applyExplicitWait(5);
 	}
 
@@ -120,7 +116,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 		closePopup();
 		SoftAssert sAss = Only_Single_SCQ_Answer_Can_Be_Select();
 
-		sAss.assertAll();
+		sAss.assertAll(); 
 
 	}
 
@@ -128,7 +124,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 			throws MalformedURLException, InterruptedException {
 		Assert.assertTrue(false);
 		traverse_To_Begin_Test();
-		Thread.sleep(3000);
+		Thread.sleep(3000); 
 		startTest();
 		closePopup();
 		SoftAssert sAss = Correct_Feedback_Shown_After_Test_Complition();
@@ -194,7 +190,6 @@ public class Module_Receive_Questions_Test extends BaseClass {
 
 		sAss.assertAll();
 	}
-	
 
 	private SoftAssert User_Can_Abond_Quiz() throws MalformedURLException {
 		SoftAssert sAss = new SoftAssert();
@@ -206,7 +201,8 @@ public class Module_Receive_Questions_Test extends BaseClass {
 		String temp;
 		// int actualcount = 0;
 		try {
-			ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver().findElementsByClassName("android.widget.CheckBox");
+			ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver()
+					.findElementsByClassName("android.widget.CheckBox");
 			int ansCount = answerCount.size();
 			System.out.println("answerCont = " + ansCount);
 			queFlag = 1;
@@ -234,7 +230,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 					sAss.assertTrue(true);
 
 				ansCount = 0;
-				//clickOnElement(ort.nextBtn);
+				// clickOnElement(ort.nextBtn);
 
 			} else if (ansCount != 0) {
 				test.log(Status.INFO, "Answer count " + ansCount);
@@ -280,7 +276,8 @@ public class Module_Receive_Questions_Test extends BaseClass {
 			try {
 				applyExplicitWait(5);
 				queFlag = 0;
-				ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver().findElementsByClassName("android.widget.CheckBox");
+				ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver()
+						.findElementsByClassName("android.widget.CheckBox");
 				int ansCount = answerCount.size();
 				ort.question.isDisplayed();
 				System.out.println("answerCont = " + ansCount);
@@ -288,7 +285,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 				int c = 1;
 				if (ansCount != 0 && flag == 1) {
 					sAss.assertTrue(ort.marks.isDisplayed());
-					test.log(Status.INFO, "Markes shown for question "+(i+1));
+					test.log(Status.INFO, "Markes shown for question " + (i + 1));
 					ansCount = 0;
 					clickOnElement(ort.nextBtn);
 					i++;
@@ -328,300 +325,207 @@ public class Module_Receive_Questions_Test extends BaseClass {
 		SoftAssert sAss = new SoftAssert();
 		applyExplicitWait(5);
 		int questions = getTotalQuestionsInPractice();
-		int flag = 1;
 		int i = 0;
-		int queFlag = 0;
-		// int actualcount = 0;
-		normal: while (i < questions) {
-			try {
-				applyExplicitWait(5);
-				queFlag = 0;
-				ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver().findElementsByClassName("android.widget.CheckBox");
-				int ansCount = answerCount.size();
-				ort.question.isDisplayed();
-				System.out.println("answerCont = " + ansCount);
-				queFlag = 1;
-				int c = 1;
-				if (ansCount != 0 && flag == 1) {
-					for (MobileElement mobileElement : answerCount) {
-						sAss.assertTrue(mobileElement.isDisplayed());
-						test.log(Status.INFO, "Answer " + c++ + "  displayed");
-					}
-					ansCount = 0;
-					clickOnElement(ort.nextBtn);
-					i++;
-				} else if (ansCount != 0) {
-					test.log(Status.INFO, "Answer count " + ansCount);
-					flag = 1;
-				} else {
-					clickOnElement(ort.nextBtn);
-					i++;
-					flag = 1;
-				}
 
-			} catch (Exception e) {
-				System.out.println("Exception occured");
-				if (queFlag == 0) {
-					i++;
-					test.log(Status.INFO, "Question " + i + " not displayed");
-					sAss.assertTrue(false);
-					clickOnElement(ort.nextBtn);
-				} else {
-					if (flag == 1) {
-						flag = 0;
-						System.out.println("Flag set to 0");
-						continue normal;
-					} else {
-						flag = 1;
-						System.out.println("Flag set to 1");
-						continue normal;
-					}
+		while (i < questions) {
+			test.log(Status.INFO, "Question " + (i + 1));
+			System.out.println("Question " + (i + 1));
+
+			if (verifySCQorMCQ().equalsIgnoreCase("scq")) {
+				applyExplicitWait(5);
+				actualcount++;
+				swipeUp();
+				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				int t = 1;
+				for (MobileElement mobileElement : answerCount) {
+					if (mobileElement.isDisplayed()) {
+						sAss.assertTrue(true);
+						test.log(Status.INFO, "Answer " + t + " Displayed");
+						System.out.println("Answer " + t + " Displayed");
+
+					} else
+						sAss.assertTrue(false);
+					t++;
 				}
 			}
+			if ((i + 1) != questions)
+				clickOnElement(ort.nextBtn);
+			i++;
+
 		}
+
+		test.log(Status.INFO, "Total " + actualcount + " SCQ questions are displayed");
+		System.out.println("Total " + actualcount + " SCQ questions are displayed");
 		return sAss;
+
 	}
 
 	public SoftAssert verify_All_SCQ_Answer_In_Default_State() throws InterruptedException, MalformedURLException {
+		SoftAssert sAss = new SoftAssert();
 		applyExplicitWait(5);
 		int questions = getTotalQuestionsInPractice();
-		SoftAssert sAss = new SoftAssert();
-		int flag = 1;
 		int i = 0;
-		int queFlag = 0;
-		// int actualcount = 0;
-		normal: while (i < questions) {
-			try {
-				applyExplicitWait(5);
-				queFlag = 0;
-				ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver().findElementsByClassName("android.widget.CheckBox");
-				int ansCount = answerCount.size();
-				ort.question.isDisplayed();
-				System.out.println("answerCont = " + ansCount);
-				queFlag = 1;
-				int c = 1;
-				if (ansCount != 0 && flag == 1) {
-					for (MobileElement mobileElement : answerCount) {
-						sAss.assertFalse(Boolean.parseBoolean(getElementAttribute(mobileElement, "checked")));
-						test.log(Status.INFO, "Answer " + c++ + "  is unchecked as default");
-					}
-					ansCount = 0;
-					clickOnElement(ort.nextBtn);
-					i++;
-				} else if (ansCount != 0) {
-					test.log(Status.INFO, "Answer count " + ansCount);
-					flag = 1;
-				} else {
-					clickOnElement(ort.nextBtn);
-					i++;
-					flag = 1;
-				}
+		Boolean status;
 
-			} catch (Exception e) {
-				System.out.println("Exception occured");
-				if (queFlag == 0) {
-					i++;
-					test.log(Status.INFO, "Question " + i + " not displayed");
-					sAss.assertTrue(false);
-					clickOnElement(ort.nextBtn);
-				} else {
-					if (flag == 1) {
-						flag = 0;
-						System.out.println("Flag set to 0");
-						continue normal;
-					} else {
-						flag = 1;
-						System.out.println("Flag set to 1");
-						continue normal;
+		while (i < questions) {
+			test.log(Status.INFO, "Question " + (i + 1));
+			System.out.println("Question " + (i + 1));
+
+			if (verifySCQorMCQ().equalsIgnoreCase("scq")) {
+				applyExplicitWait(5);
+				actualcount++;
+				swipeUp();
+				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				int c = 1;
+				for (MobileElement mobileElement : answerCount) {
+
+					status = Boolean.parseBoolean(mobileElement.getAttribute("checked"));
+					if (!status) {
+
+						test.log(Status.INFO, "Answer " + c + "  is unchecked as default");
+						System.out.println("Answer " + c + "  is unchecked as default");
+
 					}
+					sAss.assertFalse(status);
+					c++;
 				}
 			}
+			if ((i + 1) != questions)
+				clickOnElement(ort.nextBtn);
+			i++;
 		}
+
+		test.log(Status.INFO, "Total " + actualcount + " SCQ questions are displayed");
+		System.out.println("Total " + actualcount + " SCQ questions are displayed");
 		return sAss;
+
 	}
 
 	public SoftAssert verify_Multiple_Answers_Shown_For_SCQ() throws InterruptedException, MalformedURLException {
+		SoftAssert sAss = new SoftAssert();
 		applyExplicitWait(5);
 		int questions = getTotalQuestionsInPractice();
-		SoftAssert sAss = new SoftAssert();
-		int flag = 1;
 		int i = 0;
-		int queFlag = 0;
-		// int actualcount = 0;
-		normal: while (i < questions) {
-			try {
+		Boolean status;
+
+		while (i < questions) {
+			test.log(Status.INFO, "Question " + (i + 1));
+			System.out.println("Question " + (i + 1));
+
+			if (verifySCQorMCQ().equalsIgnoreCase("scq")) {
 				applyExplicitWait(5);
-				queFlag = 0;
-				ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver().findElementsByClassName("android.widget.CheckBox");
-				int ansCount = answerCount.size();
-				ort.question.isDisplayed();
-				System.out.println("answerCont = " + ansCount);
-				queFlag = 1;
+				actualcount++;
+				swipeUp();
+				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				status = answerCount.size() > 1 ? true : false;
+				sAss.assertTrue(status, "Multiple answers not available for question " + (i + 1));
+				System.out.println("Multiple answers available for question " + (i + 1));
+				test.log(Status.INFO, "Multiple answers available for question " + (i + 1));
 
-				if (ansCount != 0 && flag == 1) {
-					sAss.assertTrue(ansCount >= 2 ? true : false);
-					test.log(Status.INFO, "Multiple answers available for question " + (i + 1));
-					ansCount = 0;
-					clickOnElement(ort.nextBtn);
-					i++;
-				} else if (ansCount != 0) {
-					test.log(Status.INFO, "Answer count " + ansCount);
-					flag = 1;
-				} else {
-					clickOnElement(ort.nextBtn);
-					i++;
-					flag = 1;
-				}
-
-			} catch (Exception e) {
-				System.out.println("Exception occured");
-				if (queFlag == 0) {
-					i++;
-					test.log(Status.INFO, "Question " + i + " not displayed");
-					sAss.assertTrue(false);
-					clickOnElement(ort.nextBtn);
-				} else {
-					if (flag == 1) {
-						flag = 0;
-						System.out.println("Flag set to 0");
-						continue normal;
-					} else {
-						flag = 1;
-						System.out.println("Flag set to 1");
-						continue normal;
-					}
-				}
 			}
+			if ((i + 1) != questions)
+				clickOnElement(ort.nextBtn);
+			i++;
 		}
+
+		test.log(Status.INFO, "Total " + actualcount + " SCQ questions are displayed");
+		System.out.println("Total " + actualcount + " SCQ questions are displayed");
 		return sAss;
+
 	}
 
 	public SoftAssert SCQ_Answers_Can_Be_Slect() throws InterruptedException, MalformedURLException {
+		SoftAssert sAss = new SoftAssert();
 		applyExplicitWait(5);
 		int questions = getTotalQuestionsInPractice();
-		SoftAssert sAss = new SoftAssert();
-		int flag = 1;
 		int i = 0;
-		int ansFlag = 0;
-		normal: while (i < questions) {
-			try {
-				Thread.sleep(2000);
-				ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver().findElementsByClassName("android.widget.CheckBox");
-				int ansCount = answerCount.size();
+		Boolean status;
 
-				System.out.println("answerCont = " + ansCount);
-				ansFlag = 1;
+		while (i < questions) {
+			test.log(Status.INFO, "Question " + (i + 1));
+			System.out.println("Question " + (i + 1));
+
+			if (verifySCQorMCQ().equalsIgnoreCase("scq")) {
+				applyExplicitWait(5);
+				actualcount++;
+				swipeUp();
+				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
 				int c = 1;
-				if (ansCount != 0) {
-					for (MobileElement mobileElement : answerCount) {
-						applyImplicitWait(5);
-						try {
-							Thread.sleep(100);
-							mobileElement.click();
-							applyExplicitWait(1);
-							mobileElement.click();
-						} catch (Exception e) {
-							ansFlag = 0;
-						}
-						if (ansFlag != 0)
-							test.log(Status.INFO, c++ + " can be select or unselect");
-						applyExplicitWait(1);
+				for (MobileElement mobileElement : answerCount) {
+					mobileElement.click();
+					Thread.sleep(150);
+					status = Boolean.parseBoolean(mobileElement.getAttribute("focused"));
+
+					sAss.assertTrue(status, "Multiple answers not available for question " + (i + 1));
+					if (status) {
+						System.out.println("Answer " + c + " can be select or unselect");
+						test.log(Status.INFO, "Answer " + c++ + " can be select or unselect");
+					} else {
+						System.err.println("Answer " + c + " can't be select or unselect");
+						test.log(Status.INFO, "Answer " + c++ + " can't be select or unselect");
 					}
-					sAss.assertTrue(ansFlag != 0 ? true : false);
-					ansCount = 0;
-					clickOnElement(ort.nextBtn);
-					i++;
-				} else if (ansCount != 0) {
-					test.log(Status.INFO, "Answer count " + ansCount);
-					flag = 1;
-				} else if (ansCount == 0 && flag == 0) {
-					clickOnElement(ort.nextBtn);
-					i++;
-					flag = 1;
 				}
 
-			} catch (Exception e) {
-				System.out.println("Exception occured");
-				if (flag == 1) {
-					flag = 0;
-					System.out.println("Flag set to 0");
-					continue normal;
-				} else {
-					flag = 1;
-					System.out.println("Flag set to 1");
-					continue normal;
-				}
 			}
+			if ((i + 1) != questions)
+				clickOnElement(ort.nextBtn);
+			i++;
 		}
+
+		test.log(Status.INFO, "Total " + actualcount + " SCQ questions are displayed");
+		System.out.println("Total " + actualcount + " SCQ questions are displayed");
 		return sAss;
+
 	}
 
 	public SoftAssert Only_Single_SCQ_Answer_Can_Be_Select() throws InterruptedException, MalformedURLException {
+		SoftAssert sAss = new SoftAssert();
 		applyExplicitWait(5);
 		int questions = getTotalQuestionsInPractice();
-		SoftAssert sAss = new SoftAssert();
-		int flag = 1;
 		int i = 0;
-		int ansFlag = 0;
-		Boolean prvsElement;
-		// int actualcount = 0;
-		normal: while (i < questions) {
-			try {
+		Boolean status;
+
+		while (i < questions) {
+			test.log(Status.INFO, "Question " + (i + 1));
+			System.out.println("Question " + (i + 1));
+
+			if (verifySCQorMCQ().equalsIgnoreCase("scq")) {
 				applyExplicitWait(5);
-				Thread.sleep(1000);
-				ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver().findElementsByClassName("android.widget.CheckBox");
-				int ansCount = answerCount.size();
-
-				System.out.println("answerCont = " + ansCount);
-				test.log(Status.INFO, "Answer count " + ansCount);
-				prvsElement = true;
+				actualcount++;
+				swipeUp();
+				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
 				int c = 1;
-				if (ansCount != 0 && flag == 1 && check_For_MSQ_or_SCQ()=="SCQ") {
-					for (MobileElement mobileElement : answerCount) {
-						applyImplicitWait(5);
-						mobileElement.click();
-						Thread.sleep(300);
-						prvsElement = Boolean.parseBoolean(getElementAttribute(mobileElement, "checked"));
-						if (prvsElement == false)
-							mobileElement.click();
+				for (MobileElement mobileElement : answerCount) {
+					mobileElement.click();
+					Thread.sleep(300);
 
-						test.log(Status.INFO, "Answer " + c++ + "  is selected");
-						ansFlag = 0;
-						for (MobileElement mobileElement2 : answerCount) {
-							applyImplicitWait(5);
-							Thread.sleep(200);
-							if (getElementAttribute(mobileElement2, "checked").equalsIgnoreCase("true")) {
-								ansFlag++;
-								
-							}
+					int ansFlag = 0;
+
+					for (MobileElement mobileElement2 : answerCount) {
+						if (Boolean.parseBoolean(mobileElement2.getAttribute("focused"))) {
+							ansFlag++;
 						}
-
-						sAss.assertTrue(ansFlag == 1 ? true : false);
-						applyExplicitWait(1);
 					}
-					ansCount = 0;
-					clickOnElement(ort.nextBtn);
-					i++;
-				} else {
-					clickOnElement(ort.nextBtn);
-					i++;
-					flag = 1;
+
+					status = ansFlag == 1 ? true : false;
+					sAss.assertTrue(status, "Able to select multiple answers for SCQ question " + (i + 1));
+					if (status) {
+						System.out.println("Answer " + c + " selected individually");
+						test.log(Status.INFO, "Answer " + c++ + " selected individually");
+					} else {
+						System.err.println("Able to select multiple answers for SCQ question " + (i + 1));
+						test.log(Status.INFO, "Able to select multiple answers for SCQ question " + (i + 1));
+						c++;
+					}
 				}
 
-			} catch (Exception e) {
-				System.out.println("Exception occured");
-				if (flag == 1) {
-					flag = 0;
-					System.out.println("Flag set to 0");
-					continue normal;
-				} else {
-					flag = 1;
-					System.out.println("Flag set to 1");
-					continue normal;
-				}
 			}
+			clickOnElement(ort.nextBtn);
+			i++;
 		}
 
+		test.log(Status.INFO, "Total " + actualcount + " SCQ questions are displayed");
+		System.out.println("Total " + actualcount + " SCQ questions are displayed");
 		return sAss;
 	}
 
@@ -638,7 +542,8 @@ public class Module_Receive_Questions_Test extends BaseClass {
 				applyExplicitWait(5);
 				allQuestions.add(ort.question.getText());
 				queFlag = 0;
-				ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver().findElementsByClassName("android.widget.CheckBox");
+				ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver()
+						.findElementsByClassName("android.widget.CheckBox");
 				int ansCount = answerCount.size();
 				ort.question.isDisplayed();
 				System.out.println("answerCont = " + ansCount);
@@ -709,7 +614,8 @@ public class Module_Receive_Questions_Test extends BaseClass {
 
 		clickOnElement(ort.hamburgerBtn);
 		Iterator<String> it = allQuestions.iterator();
-		ArrayList<MobileElement> queCount = (ArrayList<MobileElement>) getDriver().findElementsById("com.tce.studi:id/tvQuesId");
+		ArrayList<MobileElement> queCount = (ArrayList<MobileElement>) getDriver()
+				.findElementsById("com.tce.studi:id/tvQuesId");
 		String[] hList = new String[queCount.size()];
 		for (MobileElement mobileElement : queCount)
 			hList[j++] = mobileElement.getText();
@@ -788,7 +694,8 @@ public class Module_Receive_Questions_Test extends BaseClass {
 		// int actualcount = 0;
 		normal: while (i < questions) {
 			try {
-				ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver().findElementsByClassName("android.widget.CheckBox");
+				ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver()
+						.findElementsByClassName("android.widget.CheckBox");
 				int ansCount = answerCount.size();
 				System.out.println("answerCont = " + ansCount);
 
@@ -869,7 +776,8 @@ public class Module_Receive_Questions_Test extends BaseClass {
 		applyExplicitWait(2);
 		clickOnElement(ort.hamburgerBtn);
 		Iterator<String> it = allQuestions.iterator();
-		ArrayList<MobileElement> queCount = (ArrayList<MobileElement>) getDriver().findElementsById("com.tce.studi:id/tvQuesId");
+		ArrayList<MobileElement> queCount = (ArrayList<MobileElement>) getDriver()
+				.findElementsById("com.tce.studi:id/tvQuesId");
 		String[] hList = new String[queCount.size()];
 		for (MobileElement mobileElement : queCount)
 			hList[j++] = mobileElement.getText();
@@ -1050,7 +958,8 @@ public class Module_Receive_Questions_Test extends BaseClass {
 			try {
 				Thread.sleep(500);
 				queFlag = 0;
-				ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver().findElementsByClassName("android.widget.CheckBox");
+				ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver()
+						.findElementsByClassName("android.widget.CheckBox");
 				int ansCount = answerCount.size();
 				ort.question.isDisplayed();
 				System.out.println("answerCont = " + ansCount);
@@ -1078,7 +987,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 				if (queFlag == 0) {
 					i++;
 					test.log(Status.INFO, "Question " + i + " not displayed");
-					
+
 					clickOnElement(ort.nextBtn);
 				} else {
 					if (flag == 1) {
@@ -1112,7 +1021,8 @@ public class Module_Receive_Questions_Test extends BaseClass {
 				applyExplicitWait(5);
 				queFlag = 0;
 				Thread.sleep(500);
-				ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver().findElementsByClassName("android.widget.CheckBox");
+				ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver()
+						.findElementsByClassName("android.widget.CheckBox");
 				int ansCount = answerCount.size();
 				ort.question.isDisplayed();
 				System.out.println("answerCont = " + ansCount);
@@ -1177,7 +1087,8 @@ public class Module_Receive_Questions_Test extends BaseClass {
 		normal: while (i < questions) {
 			try {
 				Thread.sleep(2000);
-				ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver().findElementsByClassName("android.widget.CheckBox");
+				ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver()
+						.findElementsByClassName("android.widget.CheckBox");
 				int ansCount = answerCount.size();
 
 				System.out.println("answerCont = " + ansCount);
@@ -1346,7 +1257,8 @@ public class Module_Receive_Questions_Test extends BaseClass {
 
 		clickOnElement(ort.hamburgerBtn);
 		Iterator<String> it = allQuestions.iterator();
-		ArrayList<MobileElement> queCount = (ArrayList<MobileElement>) getDriver().findElementsById("com.tce.studi:id/tvQuesId");
+		ArrayList<MobileElement> queCount = (ArrayList<MobileElement>) getDriver()
+				.findElementsById("com.tce.studi:id/tvQuesId");
 		String[] hList = new String[queCount.size()];
 		for (MobileElement mobileElement : queCount)
 			hList[j++] = mobileElement.getText();
@@ -1426,7 +1338,8 @@ public class Module_Receive_Questions_Test extends BaseClass {
 
 	}
 
-	public void Module_Verify_User_Should_Be_Able_To_Flag_The_Questions_In_Test(String property) throws MalformedURLException, InterruptedException {
+	public void Module_Verify_User_Should_Be_Able_To_Flag_The_Questions_In_Test(String property)
+			throws MalformedURLException, InterruptedException {
 		traverse_To_Begin_Test();
 		Thread.sleep(3000);
 		startTest();
@@ -1461,12 +1374,11 @@ public class Module_Receive_Questions_Test extends BaseClass {
 				if (flag == 1) {
 					applyExplicitWait(2);
 					clickOnElement(ort.queFlag);
-					
 
 					applyExplicitWait(2);
 					sAss.assertTrue(ort.queFlag.isDisplayed());
 					test.log(Status.INFO, "quesetion flag selected");
-					
+
 					applyExplicitWait(2);
 					if ((i + 1) != questions)
 						clickOnElement(ort.nextBtn);
@@ -1496,7 +1408,8 @@ public class Module_Receive_Questions_Test extends BaseClass {
 
 	}
 
-	public void Module_Verify_Marks_Shown_With_MCQ_In_Test(String property) throws MalformedURLException, InterruptedException {
+	public void Module_Verify_Marks_Shown_With_MCQ_In_Test(String property)
+			throws MalformedURLException, InterruptedException {
 		traverse_To_Begin_Test();
 		Thread.sleep(3000);
 		startTest();
@@ -1504,7 +1417,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 		SoftAssert sAss = Marks_Shown_In_Test();
 
 		sAss.assertAll();
-		
+
 	}
 
 	public void Module_Verify_User_Can_Abond_MCQ_Quiz_In_Test(String property)
@@ -1517,7 +1430,5 @@ public class Module_Receive_Questions_Test extends BaseClass {
 
 		sAss.assertAll();
 	}
-
-	
 
 }

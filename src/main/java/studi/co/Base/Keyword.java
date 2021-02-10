@@ -4,11 +4,15 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.net.MalformedURLException;
+import java.time.Duration;
 import java.util.List;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebElement;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
 
 public class Keyword extends BaseClass {
 
@@ -16,6 +20,7 @@ public class Keyword extends BaseClass {
 
 		super();
 	}
+
 	/**
 	 * This method will tap on the element on which we want to tap on
 	 * 
@@ -50,8 +55,7 @@ public class Keyword extends BaseClass {
 	 * This method performs click operation on the element for which the text
 	 * property has been passed as an argument
 	 * 
-	 * @param:text:The text
-	 *                     property of the element on which we want to click
+	 * @param:text:The text property of the element on which we want to click
 	 */
 	public static void clickOnElementUsingText(String text) {
 		getDriver().findElementByAndroidUIAutomator("text(\"" + text + "\")").click();
@@ -60,8 +64,7 @@ public class Keyword extends BaseClass {
 	 * 
 	 * This method will perform long press on the WebElement parameter passed
 	 * 
-	 * @param:WebElement ele
-	 *                       on which we want to perform long press on
+	 * @param:WebElement ele on which we want to perform long press on
 	 */
 	// public static void longPressOnElement(WebElement element {
 	// TouchAction action = new TouchAction(getDriver());
@@ -71,8 +74,7 @@ public class Keyword extends BaseClass {
 	 * 
 	 * This method takes String filepath as a parameter and it is
 	 * 
-	 * @param filepath:The
-	 *            path where we want to save the screenshot
+	 * @param filepath:The path where we want to save the screenshot
 	 * @return the filepath which we have passed as a parameter
 	 * @throws IOException
 	 */
@@ -124,6 +126,7 @@ public class Keyword extends BaseClass {
 		boolean isSelected = element.isSelected();
 		return isSelected;
 	}
+
 	/*
 	 * public static void dragAndDrop(WebElement element) { TouchAction action = new
 	 * TouchAction((PerformsTouchActions) getDriver()); //
@@ -179,14 +182,25 @@ public class Keyword extends BaseClass {
 		robot.keyRelease(KeyEvent.VK_TAB);
 
 	}
+
 	/**
-	 * This method can be used to create logs. It uses the log4j library to create logs. 
+	 * This method can be used to create logs. It uses the log4j library to create
+	 * logs.
+	 * 
 	 * @param message
 	 */
 	public static void createLog(String message) {
 		log = Logger.getLogger(Keyword.class);
 		PropertyConfigurator.configure("log4j.properties");
 		log.info(message);
+
+	}
+
+	public static void scrollToEnd() {
+		action = new TouchAction(driver);
+
+		action.press(PointOption.point(115, 650)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
+				.moveTo(PointOption.point(115, 350)).release().perform();
 
 	}
 }

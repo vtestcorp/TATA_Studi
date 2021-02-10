@@ -1,15 +1,13 @@
 package studi.co.pageObjects;
 
-import android.*;
 import java.net.MalformedURLException;
 import java.time.Duration;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.asserts.SoftAssert;
 
-import com.android.uiautomator.core.UiObject;
-import com.android.uiautomator.core.UiSelector;
 import com.aventstack.extentreports.Status;
 
 import io.appium.java_client.TouchAction;
@@ -74,7 +72,6 @@ public class Object_Syllabus_Option extends BaseClass {
 	@AndroidFindBy(id = "com.tce.studi:id/iv_tertiary_action")
 	public WebElement tertiaryBtnBottom;
 
-	
 	public int notesLimit = 3000;
 
 	@AndroidFindBy(id = "com.tce.studi:id/et_notes")
@@ -82,25 +79,25 @@ public class Object_Syllabus_Option extends BaseClass {
 
 	@AndroidFindBy(id = "com.tce.studi:id/tv_save_note")
 	public WebElement saveNoteBtn;
-	
+
 	@AndroidFindBy(id = "com.tce.studi:id/tv_discard")
 	public WebElement discardNoteBtn;
-	
+
 	@AndroidFindBy(id = "com.tce.studi:id/ivCross")
 	public WebElement closeNotesBtn;
-	
+
 	@AndroidFindBy(id = "com.tce.studi:id/tv_discard_confirmation")
 	public WebElement discardWarnMsg;
-	
+
 	@AndroidFindBy(id = "com.tce.studi:id/ib_discard_accept")
 	public WebElement discardAcceptBtn;
-	
+
 	@AndroidFindBy(id = "com.tce.studi:id/ib_discard_deny")
 	public WebElement discardDenyBtn;
 
 	@AndroidFindBy(id = "com.tce.studi:id/tv_notes_indicator")
 	public WebElement notesCountIndicator;
-	
+
 	public void traverse_toward_syllabus() throws MalformedURLException {
 		applyExplicitWait(5);
 		scrollTo1("Syllabus");
@@ -125,7 +122,7 @@ public class Object_Syllabus_Option extends BaseClass {
 	}
 
 	public void traverse_toward_topic(String subject, String topic) throws MalformedURLException, InterruptedException {
-		
+
 		applyExplicitWait(5);
 		scrollTo1("Syllabus");
 		applyExplicitWait(5);
@@ -143,14 +140,17 @@ public class Object_Syllabus_Option extends BaseClass {
 		applyExplicitWait(5);
 
 		Thread.sleep(500);
+		action = new TouchAction(driver);
+		action.press(PointOption.point(115, 650)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(700)))
+				.moveTo(PointOption.point(115, 450)).release().perform();
 
 		try {
 			if (findElementByText("Notes").isDisplayed()) {
 				notesFlag = true;
 				System.out.println("Notes available");
-				action=new TouchAction(driver);
-				action.press(PointOption.point(115, 650)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(100)))
-				.moveTo(PointOption.point(115, 550)).release().perform();
+				//action = new TouchAction(driver);
+				//action.press(PointOption.point(115, 650)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(100)))
+					//	.moveTo(PointOption.point(115, 550)).release().perform();
 				notesCount = getNotesCount();
 				System.err.println("returned notes :" + notesCount);
 
@@ -179,8 +179,8 @@ public class Object_Syllabus_Option extends BaseClass {
 				status = findElementByText("What you will revise:").isDisplayed();
 				if (status) {
 					count = driver.findElementsById("com.tce.studi:id/iv_overview").size();
-					System.out.println("List of TQ'a Displayed");
-					test.log(Status.INFO, "List of TQ'a Displayed");
+					System.out.println("List of TQ's Displayed");
+					test.log(Status.INFO, "List of TQ's Displayed");
 				}
 
 			} catch (Exception e) {
@@ -197,8 +197,8 @@ public class Object_Syllabus_Option extends BaseClass {
 				status = findElementByText("What have you revised:").isDisplayed();
 				if (status) {
 					count = driver.findElementsById("com.tce.studi:id/iv_overview").size();
-					System.out.println("List of TQ'a Displayed");
-					test.log(Status.INFO, "List of TQ'a Displayed");
+					System.out.println("List of TQ's Displayed");
+					test.log(Status.INFO, "List of TQ's Displayed");
 				}
 
 			}
@@ -243,6 +243,12 @@ public class Object_Syllabus_Option extends BaseClass {
 			}
 
 		}
+	}
+
+	public void deleteNote() {
+		clickOnElement(hamburgerBtn);
+		clickOnElement(findElementByText("Notes"));
+
 	}
 
 }

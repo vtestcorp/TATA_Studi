@@ -16,7 +16,7 @@ public class AFS_UserStory_63 extends BaseClass {
 		super();
 	}
 
-	// @BeforeMethod
+	//@BeforeMethod
 	public void Validate_Login() throws Exception {
 		Module_Login login = new Module_Login();
 		login.Login_to_app();
@@ -61,12 +61,49 @@ public class AFS_UserStory_63 extends BaseClass {
 	}
 
 	@Test(enabled = true)
+	public void TC08_Verify_Save_Note_Button_Should_Be_Disable_Initially()
+			throws MalformedURLException, InterruptedException, AWTException {
+		Module_Syllabus_Options so = new Module_Syllabus_Options();
+		so.Verify_Save_Note_Button_Should_Be_Disable_Initially(prop.getProperty("Asubject"), prop.getProperty("Atopic"));
+	}
+	
+	@Test(enabled = true)
+	public void TC09_Verify_Save_Note_Button_Enable_After_User_Entering_Note()
+			throws MalformedURLException, InterruptedException, AWTException {
+		Module_Syllabus_Options so = new Module_Syllabus_Options();
+		so.Verify_Save_Note_Button_Enable_After_User_Entering_Note(prop.getProperty("Asubject"), prop.getProperty("Atopic"));
+	}
+
+	@Test(enabled = true)
+	public void TC10_Verify_Save_Note_And_Discard_Button_Should_Be_Disable_Initially()
+			throws MalformedURLException, InterruptedException, AWTException {
+		Module_Syllabus_Options so = new Module_Syllabus_Options();
+		so.Verify_Save_Note_And_Discard_Button_Should_Be_Disable_Initially(prop.getProperty("Asubject"), prop.getProperty("Atopic"));
+	}
+	
+	@Test(enabled = true)
+	public void TC11_Verify_Save_Note_And_Discard_Button_Enable_After_User_Entering_Note()
+			throws MalformedURLException, InterruptedException, AWTException {
+		Module_Syllabus_Options so = new Module_Syllabus_Options();
+		so.Verify_Save_Note_And_Discard_Button_Enable_After_User_Entering_Note(prop.getProperty("Asubject"), prop.getProperty("Atopic"));
+	}
+
+	
+	@Test(enabled = true)
 	public void TC14_Verify_Note_Module_Will_Closed_Without_Warning()
 			throws MalformedURLException, InterruptedException, AWTException {
 		Module_Syllabus_Options so = new Module_Syllabus_Options();
 		so.Verify_Note_Module_Will_Cosed_Without_Warning(prop.getProperty("Asubject"), prop.getProperty("Atopic"));
 	}
 
+	@Test(enabled = true)
+	public void TC15_Verify_Note_Area_Have_Initial_Message_For_Entering_Text()
+			throws MalformedURLException, InterruptedException, AWTException {
+		Module_Syllabus_Options so = new Module_Syllabus_Options();
+		so.Verify_Note_Area_Have_Initial_Message_For_Entering_Text(prop.getProperty("Asubject"), prop.getProperty("Atopic"));
+	}
+
+	
 	@Test(enabled = true)
 	public void TC42_Verify_Warning_Message_Shown_After_Clicking_Discard_In_Notes()
 			throws MalformedURLException, InterruptedException, AWTException {

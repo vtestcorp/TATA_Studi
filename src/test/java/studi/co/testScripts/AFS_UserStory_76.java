@@ -6,71 +6,72 @@ import java.net.MalformedURLException;
 import org.openqa.selenium.WebDriverException;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import io.appium.java_client.TouchAction;
 import studi.co.Base.BaseClass;
 import studi.co.pageModules.*;
+import studi.co.pageObjects.Object_Create_Study_Plan;
 
 public class AFS_UserStory_76 extends BaseClass {
-
+ 
 	public AFS_UserStory_76() {
 		super();
 	}
 
-	@BeforeMethod
+	// @BeforeMethod
 	public void Validate_Login() throws Exception {
 		Module_Login login = new Module_Login();
-		login.Login_to_app();
-	}
+		login.Login_to_app(); 
+	} 
 
 ////////////////////////////////////////////Practice-MCQ////////////////////////////////////////////////////////
 
 	@Test(enabled = true)
 	public void TC12_Verify_MCQ_Questions_In_Pratice() throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
-		rqr.Module_Receive_MCQ_Questions_Practice(prop.getProperty("msubject"), prop.getProperty("mtopic"));
+		rqr.Module_Receive_MCQ_Questions_Practice(prop.getProperty("subject76"), prop.getProperty("topic76"));
 	}
 
 	@Test(enabled = true)
 	public void TC13_To_Verify_MCQ_Answers_Is_In_Default_State_In_Practice()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
-		rqr.Module_Receive_MCQ_Answers_In_Default_State_In_Practice(prop.getProperty("msubject"),
-				prop.getProperty("mtopic"));
+		rqr.Module_Receive_MCQ_Answers_In_Default_State_In_Practice(prop.getProperty("subject76"),
+				prop.getProperty("topic76"));
 	}
 
 	@Test(enabled = true)
 	public void TC14_To_Verify_Multiple_Answers_Shown_For_MCQ_In_Practice()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
-		rqr.Module_Verify_Multiple_Answers_Shown_For_MCQ_In_Practice(prop.getProperty("msubject"),
-				prop.getProperty("mtopic"));
+		rqr.Module_Verify_Multiple_Answers_Shown_For_MCQ_In_Practice(prop.getProperty("subject76"),
+				prop.getProperty("topic76"));
 	}
 
 	@Test(enabled = true)
 	public void TC15_To_Verify_MCQ_Answers_Can_Be_Select_In_Practice()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Practice rqt = new Module_Receive_Questions_Practice();
-		rqt.Module_Verify_MCQ_Answer_Can_Be_Slect_In_Practice(prop.getProperty("msubject"), prop.getProperty("mtopic"));
-		
+		rqt.Module_Verify_MCQ_Answer_Can_Be_Slect_In_Practice(prop.getProperty("subject76"), prop.getProperty("topic76"));
+
 	}
 
 	@Test(enabled = true)
 	public void TC16_To_Verify_Multiple_MSQ_Answer_Can_Be_Select_In_Practice()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Practice rqt = new Module_Receive_Questions_Practice();
-		rqt.Module_Verify_Multiple_MCQ_Answer_Can_Be_Select_In_Practice(prop.getProperty("msubject"),
-				prop.getProperty("mtopic"));
+		rqt.Module_Verify_Multiple_MCQ_Answer_Can_Be_Select_In_Practice(prop.getProperty("subject76"),
+				prop.getProperty("topic76"));
 	}
 
-	@Test(enabled = true) // needs questions data // Failed for now
-	public void TC17_To_Verify_Correct_Feedback_Shown_After_MCQ_Answer_Selection_In_Practice()
+	@Test(enabled = true) 
+	public void TC17_To_Verify_Correct_Feedback_Shown_After_Correct_Answer_Selection_For_MCQ_In_Practice()
 			throws MalformedURLException, InterruptedException {
-		Assert.assertTrue(false);
 		Module_Receive_Questions_Practice rqt = new Module_Receive_Questions_Practice();
-		rqt.Module_Verify_Correct_Feedback_Shown_After_MCQ_Answer_Selection_In_Practice(prop.getProperty("msubject"),
-				prop.getProperty("mtopic"));
+		rqt.Module_Verify_Correct_Feedback_Shown_After_Correct_Answer_Selection_For_MCQ_In_Practice(prop.getProperty("subject76"),
+				prop.getProperty("topic76"));
 
 	}
 
@@ -93,7 +94,7 @@ public class AFS_UserStory_76 extends BaseClass {
 
 	}
 
-	@Test(enabled = true) // needs questions data // Failed for now
+	@Test(enabled = true) 
 	public void TC20_To_Verify_In_Wrong_Answer_Selection_User_Should_Get_1_More_Attempt_For_MCQ_In_Practice()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
@@ -112,57 +113,65 @@ public class AFS_UserStory_76 extends BaseClass {
 	@Test(enabled = true)
 	public void TC01_Verify_MCQ_Questions_In_Revision() throws InterruptedException, WebDriverException, IOException {
 		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
-		rqr.Module_Receive_MCQ_Questions_Revision(prop.getProperty("msubject"), prop.getProperty("mtopic"));
+		rqr.Module_Receive_MCQ_Questions_Revision(prop.getProperty("subject76"), prop.getProperty("topic76"));
 	}
 
-	@Test(enabled = true) // Blocked
+	@Test(enabled = true)
 	public void TC02_To_Verify_MCQ_Answers_Is_In_Default_State_In_Revision()
-			throws MalformedURLException, InterruptedException {
-		Assert.assertTrue(false);
-		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
-		rqr.Module_Receive_MCQ_Answers_In_Default_State_In_Practice(prop.getProperty("msubject"),
-				prop.getProperty("mtopic"));
+			throws InterruptedException, WebDriverException, IOException {
+		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
+		rqr.Module_Receive_MCQ_Answers_In_Default_State_In_Revision(prop.getProperty("subject76"),
+				prop.getProperty("topic76"));
 	}
 
-	@Test(enabled = true) // Blocked
+	@Test(enabled = true)
 	public void TC03_To_Verify_Multiple_Answers_Shown_For_MCQ_In_Revision()
-			throws MalformedURLException, InterruptedException {
-		Assert.assertTrue(false);
-		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
-		rqr.Module_Verify_Multiple_Answers_Shown_For_MCQ_In_Practice(prop.getProperty("msubject"),
-				prop.getProperty("mtopic"));
+			throws InterruptedException, WebDriverException, IOException {
+		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
+		rqr.Module_Verify_Multiple_Answers_Shown_For_MCQ_In_Revision(prop.getProperty("subject76"),
+				prop.getProperty("topic76"));
 	}
 
-	@Test(enabled = true) // Blocked
+	@Test(enabled = true)
 	public void TC04_To_Verify_MCQ_Answers_Can_Be_Select_In_Revision()
 			throws InterruptedException, WebDriverException, IOException {
-		Assert.assertTrue(false);
+		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
+		rqr.Module_Verify_MCQ_Answers_Can_Be_Select_In_Revision(prop.getProperty("subject76"),
+				prop.getProperty("topic76"));
 	}
 
-	@Test(enabled = true) // Blocked
-	public void TC05_To_Verify_Multiple_MSQ_Answer_Can_Be_Select_In_Revision()
-			throws MalformedURLException, InterruptedException {
-		Assert.assertTrue(false);
+	@Test(enabled = true)
+	public void TC05_To_Verify_Multiple_Answers_Can_Be_Select_For_MCQ_Question_In_Revision()
+			throws InterruptedException, WebDriverException, IOException {
+		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
+		rqr.Module_Verify_Multiple_Answers_Can_Be_Select_For_MCQ_Question_In_Revision(prop.getProperty("subject76"),
+				prop.getProperty("topic76"));
 	}
 
-	@Test(enabled = true) // needs questions data // Failed for now
-	public void TC06_To_Verify_Correct_Feedback_Shown_After_MCQ_Answer_Selection_In_Revision()
-			throws MalformedURLException, InterruptedException {
-		Assert.assertTrue(false);
+	@Test(enabled = true)
+	public void TC06_To_Verify_Instant_Feedback_Shown_After_MCQ_Correct_Answer_Selection_In_Revision()
+			throws InterruptedException, WebDriverException, IOException {
+		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
+		rqr.Module_Verify_Instant_Feedback_Shown_After_MCQ_Answer_Selection_In_Revision(prop.getProperty("subject76"),
+				prop.getProperty("topic76"));
 
 	}
 
-	@Test(enabled = true) // needs questions data // Failed for now
+	@Test(enabled = true) 
 	public void TC07_To_Verify_State_Of_Answer_Should_Be_Maintained_For_MCQ_Answer_In_Revision()
-			throws MalformedURLException, InterruptedException {
-		Assert.assertTrue(false);
+			throws InterruptedException, WebDriverException, IOException {
+		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
+		rqr.Module_Verify_State_Of_Answer_Should_Be_Maintained_For_MCQ_Answer_In_Revision(prop.getProperty("subject76"),
+				prop.getProperty("topic76"));
 
 	}
 
-	@Test(enabled = true) // needs questions data
-	public void TC08_To_Verify_Correct_Incorrect_Feedback_Shown_After_MCQ_Answer_Selection_In_Revision()
-			throws MalformedURLException, InterruptedException {
-		Assert.assertTrue(false);
+	@Test(enabled = true) 
+	public void TC08_To_Verify_Instant_Feedback_Shown_After_MCQ_Wrong_Answer_Selection_In_Revision()
+			throws InterruptedException, WebDriverException, IOException {
+		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
+		rqr.Module_Verify_Instant_Feedback_Shown_After_MCQ_Wrong_Answer_Selection_In_Revision(
+				prop.getProperty("subject76"), prop.getProperty("topic76"));
 	}
 
 	@Test(enabled = true)
@@ -171,12 +180,6 @@ public class AFS_UserStory_76 extends BaseClass {
 		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
 		rqr.Module_Verify_Attempting_Quiz_Is_Not_Mandatory_In_Revision(prop.getProperty("Psubject"),
 				prop.getProperty("Ptopic"));
-	}
-
-	@Test(enabled = true) // Blocked
-	public void TC10_To_Verify_User_Can_Click_On_All_MCQ_Answers_In_Revision()
-			throws MalformedURLException, InterruptedException {
-		Assert.assertTrue(false);
 	}
 
 	@Test(enabled = true)
@@ -188,14 +191,14 @@ public class AFS_UserStory_76 extends BaseClass {
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void TC22_To_Verify_Receive_MCQ_Questions_In_Test() throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
 		rqt.Module_Receive_MCQ_Questions_Test(prop.getProperty("msubject"));
 
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void TC23_Module_Receive_MCQ_Answers_In_Default_State_In_Test()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
@@ -203,27 +206,27 @@ public class AFS_UserStory_76 extends BaseClass {
 
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void TC24_To_Verify_Multiple_Answers_Shown_For_MCQ_In_Test()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
 		rqt.Module_Verify_Multiple_Answers_Shown_For_MCQ_In_Test(prop.getProperty("Psubject"));
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void TC25_To_Verify_MCQ_Answers_Can_Be_Select_In_Test() throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
 		rqt.Module_Verify_MCQ_Answer_Can_Be_Slect_In_Test(prop.getProperty("Psubject"));
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void TC26_To_Verify_Multiple_MSQ_Answer_Can_Be_Select_In_Test()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
 		rqt.Module_Verify_Multiple_MCQ_Answer_Can_Be_Select_In_Test(prop.getProperty("Psubject"));
 	}
 
-	@Test(enabled = true) // needs questions data // Failed for now
+	@Test(enabled = false) // needs questions data // Failed for now
 	public void TC27_To_Verify_Correct_Feedback_Shown_After_MCQ_Answer_Selection_In_Test()
 			throws MalformedURLException, InterruptedException {
 		Assert.assertTrue(false);
@@ -232,7 +235,7 @@ public class AFS_UserStory_76 extends BaseClass {
 
 	}
 
-	@Test(enabled = true) // needs questions data // Failed for now
+	@Test(enabled = false) // needs questions data // Failed for now
 	public void TC28_To_Verify_Correct_Feedback_Shown_Under_Hamburger_Menu_In_Test()
 			throws MalformedURLException, InterruptedException {
 		Assert.assertTrue(false);
@@ -241,7 +244,7 @@ public class AFS_UserStory_76 extends BaseClass {
 
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void TC29_To_Verify_Attempting_MCQ_Quiz_Is_Not_Mandatory_In_Test()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
@@ -249,7 +252,7 @@ public class AFS_UserStory_76 extends BaseClass {
 
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void TC30_To_Verify_User_Should_Be_Able_To_Flag_The_MCQ_Question_With_Hamburger_In_Test()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
@@ -257,7 +260,7 @@ public class AFS_UserStory_76 extends BaseClass {
 
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void TC31_To_Verify_User_Should_Be_Able_To_Flag_The_MCQ_Question_In_Test()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
@@ -265,14 +268,14 @@ public class AFS_UserStory_76 extends BaseClass {
 
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void TC32_To_Verify_Marks_Shown_With_MCQ_In_Test() throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
 		rqt.Module_Verify_Marks_Shown_With_MCQ_In_Test(prop.getProperty("Psubject"));
 
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void TC33_To_Verify_User_Can_Abond_MCQ_Quiz_In_Test() throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
 		rqt.Module_Verify_User_Can_Abond_MCQ_Quiz_In_Test(prop.getProperty("Psubject"));
@@ -285,6 +288,70 @@ public class AFS_UserStory_76 extends BaseClass {
 		getDriver().launchApp();
 	}
 
+	//@BeforeClass
+	public void createPlan() throws MalformedURLException {
+
+		Object_Create_Study_Plan temp = new Object_Create_Study_Plan();
+		clickOnElement(temp.testUnitModule);
+		scrollTo1("Manage and Create Plans");
+		applyExplicitWait(5);
+		System.out.println("Clicking on Manage and Create Plans");
+		clickOnElement(temp.managePlanBtn);
+
+		applyExplicitWaitsUntilElementClickable(temp.createStudyPlanBtn);
+		applyExplicitWait(5);
+		System.out.println("Clicking on Create Study Plans");
+		clickOnElement(temp.createStudyPlanBtn);
+
+		System.err.println("Clicked on " + prop.getProperty("subject76"));
+		scrollTo2(prop.getProperty("subject76"));
+		clickOnElement(findElementByText(prop.getProperty("subject76")));
+
+		System.err.println("Clicked on " + prop.getProperty("topic76"));
+		scrollTo2(prop.getProperty("topic76"));
+		clickOnElement(findElementByText(prop.getProperty("topic76")));
+
+		applyExplicitWait(5);
+		clickOnElement(findElementByText("Add to portion"));
+
+		applyExplicitWaitsUntilElementClickable(temp.nextStepBtn);
+		clickOnElement(temp.nextStepBtn);
+		applyExplicitWait(5);
+
+		action = new TouchAction(driver);
+
+		Boolean status = Boolean.parseBoolean(driver.findElementByXPath(
+				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View/android.view.View["
+						+ 1 + "]/android.view.View[2]/android.view.View/android.view.View[1]/android.widget.Button")
+				.getAttribute("focused"));
+		if (status) {
+			temp.subjectFlag.put(prop.getProperty("subject76"), true);
+		} else {
+			temp.subjectFlag.put(prop.getProperty("subject76"), false);
+		}
+
+		applyExplicitWaitsUntilElementClickable(temp.nextStepBtn);
+		clickOnElement(temp.nextStepBtn);
+		applyExplicitWaitsUntilElementClickable(temp.nextStepBtn);
+		clickOnElement(temp.nextStepBtn);
+
+		applyExplicitWaitsUntilElementClickable(findElementByText("Activate Plan"));
+		applyExplicitWait(5);
+		clickOnElement(findElementByText("Activate Plan"));
+		clickOnElement(findElementByText("Begin Studying"));
+
+		System.out.println("New plan created");
+		for (int i = 0; i < 3; i++) {
+			applyExplicitWaitsUntilElementClickable(temp.topLessonStatus);
+			clickOnElement(temp.topLessonStatus);
+			applyExplicitWait(5);
+			clickOnElement(temp.markAsComplete);
+
+		}
+		applyExplicitWait(5);
+		clickOnElement(getDriver().findElementById("com.tce.studi:id/iv_left_icon"));
+
+	}
 	/*
 	 * @Test(enabled = false) public void
 	 * TC04_Verify_MCQ_Answers_Can_Be_Select_or_Unselect_In_Revision() throws

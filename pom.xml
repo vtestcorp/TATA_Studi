@@ -27,7 +27,8 @@
 				<version>2.19</version>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>testng.xml</suiteXmlFile>
+						<suiteXmlFile>Milestone1.xml</suiteXmlFile>
+						<suiteXmlFile>Milestone2.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>

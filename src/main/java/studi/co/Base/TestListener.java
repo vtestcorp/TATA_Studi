@@ -39,6 +39,7 @@ public class TestListener extends Keyword implements ITestListener {
 
 	@Override
 	public void onTestSuccess(ITestResult result) {
+		
 		test.log(Status.INFO, "On Test Success : " + result.getName());
 		test.log(Status.PASS, MarkupHelper.createLabel(result.getName(), ExtentColor.GREEN));
 		String passedTCScreenshotPath = screenshotforExtentReport(getDriver(), result.getName());

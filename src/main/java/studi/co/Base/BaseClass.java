@@ -14,6 +14,8 @@
 
 package studi.co.Base;
 
+import org.openqa.selenium.JavascriptExecutor;
+
 import java.awt.AWTException;
 import java.awt.CardLayout;
 import java.awt.Dimension;
@@ -22,8 +24,6 @@ import java.awt.HeadlessException;
 import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -31,15 +31,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.net.URISyntaxException;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -64,17 +60,17 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
-
-import com.android.uiautomator.core.UiSelector;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
@@ -92,11 +88,10 @@ public class BaseClass {
 	public static ExtentReports extent;
 	public ExtentTest logger;
 	public static String Report_Path = null;
-	// public static String platform_version;
 	public static WebDriver dr2;
-	public static AndroidDriver<MobileElement> driver;
-	public DesiredCapabilities caps;
-	public URL url;
+	public static AppiumDriver<MobileElement> driver;
+	public static DesiredCapabilities caps;
+	public static URL url;
 	public static TouchAction action;
 	public static WebDriverWait wait;
 	public static Logger log;
@@ -105,8 +100,12 @@ public class BaseClass {
 	public static int notesCount;
 	static int timerCount = 0;
 	public static JFrame frame = new JFrame();
-	public static JLabel label=new JLabel("Wait until timer ends : ");
-	public static JLabel label2=new JLabel("1");;
+	public static JLabel label = new JLabel("Wait until timer ends : ");
+	public static JLabel label2 = new JLabel("1");;
+	public static int correctAnswers;
+	public static int[] correctAnswer = new int[10];
+	public static int wrongAnswers;
+
 	public BaseClass() {
 		try {
 
@@ -119,9 +118,62 @@ public class BaseClass {
 		}
 	}
 
-	public static void main(String[] args) throws InterruptedException {
-		
+	public static void main(String[] args) throws Exception {
+
 	}
+
+	public void selectCorrectAnswer() {
+		action = new TouchAction(driver);
+		action.press(PointOption.point(115, 650)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(400)))
+				.moveTo(PointOption.point(115, 350)).release().perform();
+		correctAnswers = 0;
+		int i = 0;
+		getDriver().context("WEBVIEW_com.tce.studi");
+		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		List<MobileElement> as = driver.findElements(By.tagName("tce-option"));
+		for (WebElement s : as) {
+			if (s.getAttribute("class").equalsIgnoreCase("tick")) {
+				s.click();
+				System.err.println((correctAnswers + 1) + "th answer selected");
+				correctAnswers++;
+			}
+			swipeUp();
+		}
+		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		getDriver().context("NATIVE_APP");
+	}
+
+	public void selectIncorrectAnswer() {
+		getDriver().context("WEBVIEW_com.tce.studi");
+		List<MobileElement> as = driver.findElements(By.tagName("tce-option"));
+
+		for (WebElement s : as) {
+			System.err.println("checking");
+			if (s.getAttribute("class").equalsIgnoreCase("tick")) {
+			} else {
+				wrongAnswers = 1;
+				s.click();
+				break;
+			}
+		}
+		getDriver().context("NATIVE_APP");
+	}
+
+	public String verifySCQorMCQ() {
+		correctAnswers = 0;
+		getDriver().context("WEBVIEW_com.tce.studi");
+		String as = driver.findElementByXPath("//*[contains(@class, 'theme')]").getTagName();
+		getDriver().context("NATIVE_APP");
+		System.err.println("as :" + as);
+		if (as.contains("scq")) {
+			return "SCQ";
+		} else if (as.contains("mcq")) {
+			return "MCQ";
+		} else
+			return "OTHR";
+
+	}
+
 	/*
 	 * Initializing pre-requisite capabilities necessary for invoking corresponding
 	 * device.
@@ -129,19 +181,22 @@ public class BaseClass {
 
 	@BeforeTest
 	@Parameters({ "type" })
-	public void beforeTest(String type) throws Exception {
+	public static void beforeTest(String type) throws Exception {
 		String s = type;
 		caps = new DesiredCapabilities();
 		if (s.equalsIgnoreCase("Android")) {
 			// caps.setCapability(MobileCapabilityType.DEVICE_NAME, "ZY223HQBHZ");
-			caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Appium");
+			caps.setCapability(MobileCapabilityType.DEVICE_NAME, "SM M105F");
+			// caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Redmi 6");
 			caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
 			// caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "7.1.1");
-			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11");
+			// caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9
+			// PPR1.180610.011");
+			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10");
 			caps.setCapability("appPackage", "com.tce.studi");
 			caps.setCapability("appActivity", "com.tce.view.ui.activities.SplashScreenActivity");
 			caps.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, "true");
-			
+
 			caps.setCapability(MobileCapabilityType.NO_RESET, "true");
 			System.out.println("Required Desired Capabilities Defined");
 			final String appiumserverUrl = "http://127.0.0.1:4723/wd/hub";
@@ -155,18 +210,20 @@ public class BaseClass {
 		} else if (s.equalsIgnoreCase("IOS")) {
 			caps = new DesiredCapabilities();
 			caps.setCapability("automationName", prop.getProperty("automationName"));
-			caps.setCapability("deviceName", "Apple 11");
+			caps.setCapability("deviceName", "iPhone 6s");
 			// platform_version=deviceName;
-			caps.setCapability("udid", "iOS11");
-			caps.setCapability("platformName", prop.getProperty("platformName"));
-			// caps.setCapability("platformVersion", iOSversion);
-			caps.setCapability("bundleId", prop.getProperty("bundleId"));
-			// caps.setCapability("appActivity",
-			// "com.demo.liveplaces.view.activity.SplashActivity");
+			caps.setCapability("udid", "d179cb05cdb31945cc0ec2e6ba0d3044ff2fd41a");
+			caps.setCapability("platformName", "iOS");
+			caps.setCapability("platformVersion", "13.3.1");
+			caps.setCapability("bundleId", "com.google.Chrome");
+			caps.setCapability("appActivity", "com.demo.liveplaces.view.activity.SplashActivity");
 			caps.setCapability("noReset", "true");
 			// caps.setCapability("wdaLocalPort", wdaLocalPort);
 			caps.setCapability("newCommandTimeout", "120");
-			// iOSDriver<MobileElement> driver = new IOSDriver<MobileElement>(url, caps);
+			AppiumDriver<MobileElement> driver = new IOSDriver<>(new URL("http://localhost:4723/wd/hub"), caps);
+
+			System.out.println("iOSDriver Configured with the required Desired Capabilities and URL");
+
 		} else if (s.equalsIgnoreCase("Jenkins")) {
 			caps = new DesiredCapabilities();
 
@@ -200,7 +257,7 @@ public class BaseClass {
 
 	public static AndroidDriver<MobileElement> getDriver() {
 
-		return driver;
+		return (AndroidDriver<MobileElement>) driver;
 	}
 
 	public void takeScreenshot1(String screenshotName) throws MalformedURLException {
@@ -325,6 +382,13 @@ public class BaseClass {
 						+ text + "\").instance(0))");
 	}
 
+	public static void scrollTo3(String text, int instance) {
+		System.out.println("Scrolling to the Element which has the given text property : " + text);
+		getDriver().findElementByAndroidUIAutomator(
+				"new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\""
+						+ text + "\").instance(" + (instance - 1) + "))");
+	}
+
 	/**
 	 * This will apply fluent wait until the given element is visible
 	 * 
@@ -421,6 +485,18 @@ public class BaseClass {
 
 	}
 
+	public void swipeUp() {
+		action = new TouchAction(driver);
+		action.press(PointOption.point(115, 650)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
+				.moveTo(PointOption.point(115, 350)).release().perform();
+	}
+
+	public void swipeDown() {
+		action = new TouchAction(driver);
+		action.press(PointOption.point(115, 350)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
+				.moveTo(PointOption.point(115, 650)).release().perform();
+	}
+
 	public static void getColorFromScreenshot(WebElement element) throws HeadlessException, AWTException {
 		MobileElement ele = (MobileElement) element;
 		Point point = ele.getCenter();
@@ -455,8 +531,8 @@ public class BaseClass {
 	public static void forwardVideoTimerToEnd() throws WebDriverException, IOException, InterruptedException {
 		action = new TouchAction(getDriver());
 		if (notesFlag) {
-			//applyExplicitWaitsUntilElementVisible(oso.continueOnVdoBtn);
-			closeVideoPopup(notesCount);
+			// applyExplicitWaitsUntilElementVisible(oso.continueOnVdoBtn);
+			closeVideoPopup();
 			notesFlag = false;
 		}
 		Thread.sleep(5000);
@@ -487,6 +563,7 @@ public class BaseClass {
 		action.press(PointOption.point(start, y)).moveTo(PointOption.point(end + start - 3, y)).release().perform();
 		getDriver().findElementByAccessibilityId("Play").click();
 
+		applyExplicitWaitsUntilElementVisible(driver.findElementById("com.tce.studi:id/layoutQuiz"));
 	}
 
 	public static MobileElement findElementByText(String text) {
@@ -495,17 +572,18 @@ public class BaseClass {
 
 	public List<MobileElement> getAllElementsFromPageUsingID(String id) throws Exception {
 		System.out.println("startef");
-		int c=0;
+		int c = 0;
 		List<MobileElement> topics1 = (List<MobileElement>) driver.findElementsById(id);
 		int flag = 0;
 		normal: while (flag == 0) {
 			swipeVertical(0.8, 0.3, 0.2, 500);
 			topics1.addAll(driver.findElementsById(id));
 			try {
-				//if (driver.findElementById("com.tce.studi:id/tv_ebook").isEnabled())
-				//if (ExpectedConditions.visibilityOfElementLocated(By.id("com.tce.studi:id/tv_ebook"))==null)						
-				if(c++==25)
-				flag = 1;
+				// if (driver.findElementById("com.tce.studi:id/tv_ebook").isEnabled())
+				// if
+				// (ExpectedConditions.visibilityOfElementLocated(By.id("com.tce.studi:id/tv_ebook"))==null)
+				if (c++ == 15)
+					flag = 1;
 			} catch (Exception e) {
 				continue normal;
 			}
@@ -527,6 +605,7 @@ public class BaseClass {
 	}
 
 	public static void swipeTop() throws Exception {
+		System.out.println("Swiping top");
 		org.openqa.selenium.Dimension size = driver.manage().window().getSize();
 		int anchor = (int) (size.width * 0.2);
 		int startPoint = (int) (size.height * 0.3);
@@ -540,23 +619,6 @@ public class BaseClass {
 		return new TouchAction(driver);
 	}
 
-	public String getReferenceImageB64() throws URISyntaxException, IOException {
-		URL refImgUrl = getClass().getResource("/logo.png");
-		System.out.println(refImgUrl.toString());
-		File refImgFile = Paths.get(refImgUrl.toURI()).toFile();
-		System.out.println(refImgFile.toPath());
-		// return Base64.encodeBase64String(Files.readAllBytes(refImgFile.toPath()));
-		return Base64.getEncoder().encodeToString(Files.readAllBytes(refImgFile.toPath()));
-	}
-
-	/*
-	 * public static String getBase64StringFormatOfImage(String imgName) throws
-	 * URISyntaxException, IOException { URL refImgUrl =
-	 * ImageUtils.class.getClassLoader().getResource(imgName); File refImgFile =
-	 * Paths.get(refImgUrl.toURI()).toFile(); // return
-	 * Base64.getEncoder().encodeToString(Files.readAllBytes(refImgFile.toPath()));
-	 * }
-	 */
 	public String check_For_MSQ_or_SCQ() throws InterruptedException {
 		Thread.sleep(200);
 		int ansFlag = 0;
@@ -655,15 +717,15 @@ public class BaseClass {
 		}
 	}
 
-	public static void closeVideoPopup(int note) throws InterruptedException {
+	public static void closeVideoPopup() throws InterruptedException {
 		int c = 1;
 		// notesCount=4;
-		System.err.println(note + " Notes");
-		while (note > 0) {
+		System.err.println(notesCount + " Notes");
+		while (notesCount > 0) {
 			try {
 				if (driver.findElementById("com.tce.studi:id/tv_disruptive_continue").isDisplayed()) {
 					clickOnElement(findElementByText("CONTINUE"));
-					note--;
+					notesCount--;
 					System.err.println("Skipping note " + c);
 					test.log(Status.INFO, "Skipping note " + c);
 					c++;
@@ -710,14 +772,13 @@ public class BaseClass {
 	}
 
 	public static void startCounter(int timer1) {
-	
+
 		Timer timer;
 		timerCount = timer1;
-		
+
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new CardLayout());
 
-	
 		label.setForeground(java.awt.Color.WHITE);
 		label2.setForeground(java.awt.Color.WHITE);
 
@@ -734,8 +795,8 @@ public class BaseClass {
 		 */
 		label.setText("Wait until timer ends : ");
 		label2.setText(Integer.toString(timerCount));
-		//timer.setDelay(1000);
-		//timer.start();
+		// timer.setDelay(1000);
+		// timer.start();
 		frame.getContentPane().setBackground(java.awt.Color.GRAY);
 
 		frame.pack();
