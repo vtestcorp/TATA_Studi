@@ -11,7 +11,7 @@
 
 		<parameter name="type" value="Android"></parameter>
 		<classes>
-			<class name="studi.co.testScripts.AFS_UserStory_77" />
+			<!--<class name="studi.co.testScripts.AFS_UserStory_77" />-->
 			<!-- <class name="studi.co.testScripts.AFS_UserStory_76" /> -->
 		</classes>
 
