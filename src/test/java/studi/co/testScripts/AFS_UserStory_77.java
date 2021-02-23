@@ -27,7 +27,7 @@ public class AFS_UserStory_77 extends BaseClass {
 		rqr.Module_Receive_SCQ_Questions_Practice(prop.getProperty("subject77"), prop.getProperty("topic77"));
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC13_To_Verify_SCQ_Answers_Is_In_Default_State_In_Practice()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
@@ -35,7 +35,7 @@ public class AFS_UserStory_77 extends BaseClass {
 				prop.getProperty("topic77"));
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC14_To_Verify_Multiple_Answers_Shown_For_SCQ_In_Practice()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
