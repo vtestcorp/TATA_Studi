@@ -44,7 +44,7 @@ public class EmailableReportListener implements ISuiteListener {
 
 			StringWriter sw = new StringWriter();
 			t.merge(vc, sw);
-			File file = new File(new File(System.getProperty("user.dir")+"target/surefire-reports"), REPORT_NAME);
+			File file = new File(new File(suite.getOutputDirectory()).getParent(), REPORT_NAME);
 			FileUtils.write(file, sw.toString(), "utf-8");
 		} catch (Exception e) {
 			e.printStackTrace();
