@@ -508,7 +508,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 
 	}
 
-	public SoftAssert verify_All_Questions_Are_Visible_MCQ_Practice() throws MalformedURLException {
+	public SoftAssert verify_All_Questions_Are_Visible_MCQ_Practice() throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
 		applyExplicitWait(5);
 		int questions = getTotalQuestionsInPractice();
@@ -554,7 +554,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		sAss.assertAll();
 	}
 
-	public SoftAssert verify_All_MCQ_Answer_In_Default_State() throws MalformedURLException {
+	public SoftAssert verify_All_MCQ_Answer_In_Default_State() throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
 		applyExplicitWait(5);
 		int questions = getTotalQuestionsInPractice();
@@ -603,7 +603,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 
 	}
 
-	public SoftAssert verify_Multiple_Answers_Shown_For_MCQ() throws MalformedURLException {
+	public SoftAssert verify_Multiple_Answers_Shown_For_MCQ() throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
 		applyExplicitWait(5);
 		int questions = getTotalQuestionsInPractice();

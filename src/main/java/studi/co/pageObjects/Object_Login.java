@@ -1,5 +1,7 @@
 package studi.co.pageObjects;
 
+import java.net.MalformedURLException;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -44,10 +46,10 @@ public class Object_Login extends BaseClass {
 	// public WebElement ihomepage_title;
 
 	// Page 1
-	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView[1]")
+	@FindBy(id = "com.tce.studi:id/tvAlreadyUser")
 	public WebElement alreadyAUser;
 
-	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.EditText")
+	@FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.EditText")
 	public WebElement nameTextBox;
 
 	// Page 2
@@ -71,7 +73,7 @@ public class Object_Login extends BaseClass {
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.TextView")
 	public WebElement verifypasswordButton;
 
-	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.TextView[1]")
+	@FindBy(id = "com.tce.studi:id/txtChildName")
 	public WebElement registeredUserName;
 
 	public WebElement getAlreadyAUser() {
@@ -147,8 +149,9 @@ public class Object_Login extends BaseClass {
 		this.verifypasswordButton = verifypasswordButton;
 	}
 
-	public WebElement getRegisteredUserName() {
+	public WebElement getRegisteredUserName() throws MalformedURLException {
 		System.out.println("Performing Operation on registeredUserName");
+		applyExplicitWaitsUntilElementVisible(registeredUserName);
 		return registeredUserName;
 	}
 

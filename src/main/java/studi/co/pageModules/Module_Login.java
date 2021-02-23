@@ -35,6 +35,7 @@ public class Module_Login extends BaseClass {
 //			System.out.println("Login Failed");
 		Object_Login ol = new Object_Login();
 		//Keyword.applyImplicitWait(20);
+		applyExplicitWaitsUntilElementVisible(ol.getAlreadyAUser());
 		Keyword.clickOnElement(ol.getAlreadyAUser());
 
 		Keyword.applyExplicitWait(2);

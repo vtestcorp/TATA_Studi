@@ -60,6 +60,12 @@ public class Object_Receive_Questions_Test extends BaseClass {
 	@AndroidFindBy(id = "com.tce.studi:id/iv_left_icon")
 	public WebElement backBtn;
 	
+	@AndroidFindBy(id = "com.tce.studi:id/vp_lesson_cards")
+	public WebElement objectiveCard;
+	
+	@AndroidFindBy(id = "com.tce.studi:id/cl_confidence_container")
+	public WebElement confidenceCtnr;
+	
 	public Boolean selectCorrectOption(int queNumber) {
 		switch (queNumber) {
 

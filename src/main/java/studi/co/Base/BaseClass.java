@@ -56,6 +56,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeTest;
@@ -66,14 +67,17 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.FindsByAndroidUIAutomator;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.events.EventFiringWebDriverFactory;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
+import studi.co.pageModules.Module_Login;
 import studi.co.pageObjects.Object_Syllabus_Option;
 
 //Handling Config file operations and Extent report initialization
@@ -162,6 +166,12 @@ public class BaseClass {
 	public String verifySCQorMCQ() {
 		correctAnswers = 0;
 		getDriver().context("WEBVIEW_com.tce.studi");
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		String as = driver.findElementByXPath("//*[contains(@class, 'theme')]").getTagName();
 		getDriver().context("NATIVE_APP");
 		System.err.println("as :" + as);
@@ -186,26 +196,30 @@ public class BaseClass {
 		caps = new DesiredCapabilities();
 		if (s.equalsIgnoreCase("Android")) {
 			// caps.setCapability(MobileCapabilityType.DEVICE_NAME, "ZY223HQBHZ");
-			caps.setCapability(MobileCapabilityType.DEVICE_NAME, "SM M105F");
-			// caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Redmi 6");
+			// caps.setCapability(MobileCapabilityType.DEVICE_NAME, "SM M105F");
+			caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Appium");
 			caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-			// caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "7.1.1");
+			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "7.1.1");
 			// caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9
 			// PPR1.180610.011");
-			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10");
+			// caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9");
 			caps.setCapability("appPackage", "com.tce.studi");
 			caps.setCapability("appActivity", "com.tce.view.ui.activities.SplashScreenActivity");
+			// caps.setCapability("app",
+			// "C:\\Users\\Dell\\Downloads\\Studi_v1.0.1(1)17feb.apk");
 			caps.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, "true");
 
-			caps.setCapability(MobileCapabilityType.NO_RESET, "true");
+			caps.setCapability(MobileCapabilityType.NO_RESET, true);
 			System.out.println("Required Desired Capabilities Defined");
 			final String appiumserverUrl = "http://127.0.0.1:4723/wd/hub";
 			url = new URL(appiumserverUrl);
 
 			System.out.println("Appium Server URL is entered ");
-			driver = new AndroidDriver<MobileElement>(url, caps);
+			driver = new AppiumDriver<MobileElement>(url, caps);
+			
 
 			System.out.println("AndroidDriver Configured with the required Desired Capabilities and URL");
+			applyExplicitWait(20);
 
 		} else if (s.equalsIgnoreCase("IOS")) {
 			caps = new DesiredCapabilities();
@@ -231,33 +245,29 @@ public class BaseClass {
 			caps.setCapability("browserstack.user", "bhushans5");
 			caps.setCapability("browserstack.key", "CV55rv5TWx9wRXus2oqr");
 
-			// Set URL of the application under test
-			caps.setCapability("browserstack.resignApp", "false");
+			caps.setCapability("bundleId", "com.google.Chrome");
+			caps.setCapability("appActivity", "com.demo.liveplaces.view.activity.SplashActivity");
+			caps.setCapability("app", "bs://ebe9e4d351887da685fd245723d9bc981cf04df1");
+			caps.setCapability("os_version", "13");
+			caps.setCapability("device", "iPhone 11 Pro");
+			caps.setCapability("real_mobile", "true");
+			caps.setCapability("autoAcceptAlerts", true);
+
+			// caps.setCapability("browserstack.appium_version", "1.7.1");
 			caps.setCapability("browserstack.local", "false");
-			caps.setCapability("app", "bs://2ce8c5d0e48c3395807bddb7076959994e1b6883");
-			// Specify device and os_version for testing
-			caps.setCapability("device", "Google Pixel 4 XL");
-			caps.setCapability("os_version", "10.0");
-
-			// Set other BrowserStack capabilities
-			caps.setCapability("project", "Tata Studi");
-			caps.setCapability("build", "0.0.1");
-			caps.setCapability("name", "Test_Module");
-
-			// Initialise the remote Webdriver using BrowserStack remote URL
-			// and desired capabilities defined above
-			driver = new AndroidDriver<MobileElement>(new URL("http://hub.browserstack.com/wd/hub"), caps);
+			driver = new AppiumDriver<MobileElement>(new URL("http://hub-cloud.browserstack.com/wd/hub"), caps);
+			System.out.println("Launched");
 
 		}
 
-		getDriver().manage().timeouts().implicitlyWait(Long.parseLong(prop.getProperty("object_wait_timeout")),
+		driver.manage().timeouts().implicitlyWait(Integer.parseInt(prop.getProperty("object_wait_timeout")),
 				TimeUnit.SECONDS);
 
 	}
 
-	public static AndroidDriver<MobileElement> getDriver() {
+	public static AppiumDriver<MobileElement> getDriver() {
 
-		return (AndroidDriver<MobileElement>) driver;
+		return (AppiumDriver<MobileElement>) driver;
 	}
 
 	public void takeScreenshot1(String screenshotName) throws MalformedURLException {
@@ -315,6 +325,7 @@ public class BaseClass {
 	public static void clickOnElement(WebElement element) {
 		System.out.println("Clicking on element " + element.getText());
 		// test.log(Status.INFO,"Clicking on element " + element.getText());
+		applyExplicitWaitsUntilElementClickable(element);
 		element.click();
 	}
 
@@ -377,16 +388,18 @@ public class BaseClass {
 	 */
 	public static void scrollTo2(String text) {
 		System.out.println("Scrolling to the Element which has the given text property : " + text);
-		getDriver().findElementByAndroidUIAutomator(
+		getDriver().findElement(MobileBy
+				.AndroidUIAutomator(
 				"new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""
-						+ text + "\").instance(0))");
+						+ text + "\").instance(0))"));
 	}
 
 	public static void scrollTo3(String text, int instance) {
 		System.out.println("Scrolling to the Element which has the given text property : " + text);
-		getDriver().findElementByAndroidUIAutomator(
+		getDriver().findElement(MobileBy
+				.AndroidUIAutomator(
 				"new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\""
-						+ text + "\").instance(" + (instance - 1) + "))");
+						+ text + "\").instance(" + (instance - 1) + "))"));
 	}
 
 	/**
@@ -476,7 +489,7 @@ public class BaseClass {
 
 	public int getNotesCount() throws InterruptedException {
 		Thread.sleep(500);
-		MobileElement ele = getDriver().findElementByAndroidUIAutomator(
+		MobileElement ele = ((FindsByAndroidUIAutomator<MobileElement>) getDriver()).findElementByAndroidUIAutomator(
 				"new UiSelector().className(\"android.widget.TextView\").resourceId(\"com.tce.studi:id/tvLessonDescription\").textContains(\"Note\")");
 		System.out.println("notecount string " + ele.getText());
 		String temp = ele.getText().replaceAll("[A-Za-z\\s]+", "");
@@ -495,6 +508,24 @@ public class BaseClass {
 		action = new TouchAction(driver);
 		action.press(PointOption.point(115, 350)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
 				.moveTo(PointOption.point(115, 650)).release().perform();
+	}
+
+	public void swipeLeft() {
+		org.openqa.selenium.Dimension size = driver.manage().window().getSize();
+		System.out.println(size.height + "height");
+		System.out.println(size.width + "width");
+		System.out.println(size);
+		int startPoint = (int) (size.width * 0.99);
+		int endPoint = (int) (size.width * 0.15);
+		int ScreenPlace = (int) (size.height * 0.40);
+		int y = (int) size.height * 20;
+
+		TouchAction ts = new TouchAction(driver);
+		// for(int i=0;i<=3;i++) {
+		ts.press(PointOption.point(startPoint, ScreenPlace))
+				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000)))
+				.moveTo(PointOption.point(endPoint, ScreenPlace)).release().perform();
+
 	}
 
 	public static void getColorFromScreenshot(WebElement element) throws HeadlessException, AWTException {
@@ -545,7 +576,7 @@ public class BaseClass {
 		getDriver().findElement(By.xpath(
 				"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]"))
 				.click();
-		applyExplicitWait(2);
+		applyExplicitWait(1);
 		getDriver().findElementByAccessibilityId("Pause").click();
 		WebElement seekBar = (MobileElement) driver.findElementByClassName("android.widget.SeekBar");
 		// get location of seek bar from left

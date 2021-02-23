@@ -1,4 +1,5 @@
 C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\src\main\java\studi\co\pageObjects\Object_Syllabus_Option.java
+C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\src\main\java\studi\co\pageObjects\Object_ReviewPlan.java
 C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\src\main\java\studi\co\Base\Keyword.java
 C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\src\main\java\studi\co\pageModules\Model_Receive_MCQ_Questions_Revision.java
 C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\src\main\java\studi\co\pageObjects\Object_Create_Study_Plan.java
@@ -6,7 +7,9 @@ C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\src\main\java\studi\co\pag
 C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\src\main\java\studi\co\pageObjects\Object_Receive_Questions_Test.java
 C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\src\main\java\studi\co\pageModules\Module_Verify_Syllabus_Section.java
 C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\src\main\java\studi\co\pageModules\Module_Verify_Answers_Can_Be_Select_or_Unselect_In_Revision.java
+C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\src\main\java\studi\co\testng\SuiteSummary.java
 C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\src\main\java\studi\co\pageObjects\Object_Syllabus_Section.java
+C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\src\main\java\studi\co\testng\ResourceUtils.java
 C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\src\main\java\studi\co\pageObjects\Object_Landing_Page.java
 C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\src\main\java\studi\co\pageModules\Module_Receive_Questions_Test.java
 C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\src\main\java\studi\co\Base\TestListener.java
@@ -15,7 +18,10 @@ C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\src\main\java\studi\co\pag
 C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\src\main\java\studi\co\pageModules\Model_Receive_MCQ_Questions_DefaultState.java
 C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\src\main\java\studi\co\pageObjects\Object_Login.java
 C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\src\main\java\studi\co\pageModules\Module_Receive_Questions_Revision.java
+C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\src\main\java\studi\co\testng\RangeParser.java
 C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\src\main\java\studi\co\pageModules\Module_Receive_Questions_Practice.java
+C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\src\main\java\studi\co\pageModules\Module_ReviewPlan.java
+C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\src\main\java\studi\co\testng\EmailableReportListener.java
 C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\src\main\java\studi\co\pageModules\Module_Syllabus_Options.java
 C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\src\main\java\studi\co\pageObjects\Object_Begin_Practice.java
 C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\src\main\java\studi\co\pageModules\Module_Verify_Answer_Options_In_Revision.java

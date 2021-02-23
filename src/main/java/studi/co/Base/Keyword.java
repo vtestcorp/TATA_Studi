@@ -1,16 +1,43 @@
 package studi.co.Base;
 
 import java.awt.AWTException;
+import java.awt.HeadlessException;
+import java.awt.Rectangle;
 import java.awt.Robot;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.net.MalformedURLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 import java.util.List;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
+
+import javax.imageio.ImageIO;
+
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.apache.maven.surefire.shade.common.org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.appium.java_client.FindsByAndroidUIAutomator;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.PerformsTouchActions;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 
@@ -20,7 +47,6 @@ public class Keyword extends BaseClass {
 
 		super();
 	}
-
 	/**
 	 * This method will tap on the element on which we want to tap on
 	 * 
@@ -55,16 +81,18 @@ public class Keyword extends BaseClass {
 	 * This method performs click operation on the element for which the text
 	 * property has been passed as an argument
 	 * 
-	 * @param:text:The text property of the element on which we want to click
+	 * @param:text:The text
+	 *                     property of the element on which we want to click
 	 */
 	public static void clickOnElementUsingText(String text) {
-		getDriver().findElementByAndroidUIAutomator("text(\"" + text + "\")").click();
+		((FindsByAndroidUIAutomator<MobileElement>) getDriver()).findElementByAndroidUIAutomator("text(\"" + text + "\")").click();
 	}
 	/**
 	 * 
 	 * This method will perform long press on the WebElement parameter passed
 	 * 
-	 * @param:WebElement ele on which we want to perform long press on
+	 * @param:WebElement ele
+	 *                       on which we want to perform long press on
 	 */
 	// public static void longPressOnElement(WebElement element {
 	// TouchAction action = new TouchAction(getDriver());
@@ -74,7 +102,8 @@ public class Keyword extends BaseClass {
 	 * 
 	 * This method takes String filepath as a parameter and it is
 	 * 
-	 * @param filepath:The path where we want to save the screenshot
+	 * @param filepath:The
+	 *            path where we want to save the screenshot
 	 * @return the filepath which we have passed as a parameter
 	 * @throws IOException
 	 */
@@ -126,7 +155,6 @@ public class Keyword extends BaseClass {
 		boolean isSelected = element.isSelected();
 		return isSelected;
 	}
-
 	/*
 	 * public static void dragAndDrop(WebElement element) { TouchAction action = new
 	 * TouchAction((PerformsTouchActions) getDriver()); //
@@ -182,11 +210,8 @@ public class Keyword extends BaseClass {
 		robot.keyRelease(KeyEvent.VK_TAB);
 
 	}
-
 	/**
-	 * This method can be used to create logs. It uses the log4j library to create
-	 * logs.
-	 * 
+	 * This method can be used to create logs. It uses the log4j library to create logs. 
 	 * @param message
 	 */
 	public static void createLog(String message) {
@@ -195,12 +220,43 @@ public class Keyword extends BaseClass {
 		log.info(message);
 
 	}
+	
+	public static void scrollDown() throws AWTException {
+		 Robot robot = new Robot();
 
+	        // Scroll Down using Robot class
+	        robot.keyPress(KeyEvent.VK_PAGE_DOWN);
+	        robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
+	}
+	
+
+public static void scrollToId(AndroidDriver<MobileElement> driver, String id) {
+	MobileElement el = (MobileElement) driver.findElementByAndroidUIAutomator(
+			"new UiScrollable(" + "new UiSelector().scrollable(true)).scrollIntoView("
+					+ "new UiSelector().resourceIdMatches(\"" + id + "\"));");
+}
+	
+	public static void clickOnCoordinate(int x,int y){
+		TouchAction touchAction = new TouchAction(driver);
+		touchAction.tap(new PointOption().withCoordinates(x, y)).perform();
+		
+	}
+	
+	public static void scrollByID(String Id, int index) {
+
+        try {
+
+             driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().resourceId(\""+Id+"\").instance("+index+"));")); 
+
+        } catch (Exception e) {
+           e.printStackTrace();
+        }
+    }
+	
 	public static void scrollToEnd() {
 		action = new TouchAction(driver);
 
-		action.press(PointOption.point(115, 650)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
-				.moveTo(PointOption.point(115, 350)).release().perform();
-
+		action.press(PointOption.point(115, 750)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(100))).moveTo(PointOption.point(115, 50)).release().perform();
 	}
+	
 }

@@ -20,6 +20,7 @@ import org.testng.asserts.SoftAssert;
 
 import com.aventstack.extentreports.Status;
 
+import io.appium.java_client.FindsByAndroidUIAutomator;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.WaitOptions;
@@ -1356,7 +1357,7 @@ public class Module_Create_Study_Plan extends BaseClass {
 		System.out.println("Try to attempt completed lessons again");
 		test.log(Status.INFO, "Try to attempt completed lessons again");
 
-		getDriver().findElementByAndroidUIAutomator(
+		((FindsByAndroidUIAutomator<MobileElement>) getDriver()).findElementByAndroidUIAutomator(
 				"new UiScrollable(new UiSelector().scrollable(true)).scrollToBeginning(20)");
 
 		i = 0;

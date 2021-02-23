@@ -89,7 +89,7 @@ public class Object_Receive_Questions_Revision extends BaseClass {
 
 	public Object_Receive_Questions_Revision() {
 		PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);
-
+ 
 	}
 
 	public List<MobileElement> get_Total_Number_Of_Questions_InRevision() {

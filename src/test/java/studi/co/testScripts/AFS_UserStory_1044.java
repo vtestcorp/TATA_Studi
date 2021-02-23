@@ -274,7 +274,7 @@ public class AFS_UserStory_1044 extends BaseClass {
 				prop.getProperty("topic"));
 	}
 
-	//@AfterMethod
+	@AfterMethod
 	public void restApp() throws MalformedURLException {
 		applyExplicitWait(5);
 		getDriver().launchApp();

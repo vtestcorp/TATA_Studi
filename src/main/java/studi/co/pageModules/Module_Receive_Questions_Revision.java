@@ -50,9 +50,12 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		test.log(Status.INFO, "Opening revision for " + topic);
 		System.out.println("Opening revision for " + topic);
 
+		
 		try {
+			applyExplicitWaitsUntilElementClickable(findElementByText("Revision"));
 			clickOnElement(findElementByText("Revision"));
 		} catch (Exception e) {
+			applyExplicitWaitsUntilElementClickable(findElementByText("Revise"));
 			clickOnElement(findElementByText("Revise"));
 		}
 
@@ -104,6 +107,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		int i = 0;
 		SoftAssert sAss = new SoftAssert();
 		normal: while (i < questions.size()) {
+			applyExplicitWaitsUntilElementVisible(RMQR.question);
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -206,7 +210,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 				for (MobileElement mobileElement : answerCount) {
 					swipeUp();
 					mobileElement.click();
-					Thread.sleep(200);
+					Thread.sleep(300);
 					status = Boolean.parseBoolean(mobileElement.getAttribute("focused"));
 					System.err.println(status);
 					if (status) {
@@ -257,12 +261,12 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
 				for (MobileElement mobileElement : answerCount) {
 					swipeUp();
-					mobileElement.click();
+					clickOnElement(mobileElement);
 				}
 				Thread.sleep(200);
 				int c = 0;
 				for (MobileElement mobileElement : answerCount) {
-					
+
 					status = Boolean.parseBoolean(mobileElement.getAttribute("checked"));
 					System.err.println(status);
 					if (status)
@@ -483,8 +487,6 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 			if (verifySCQorMCQ().equalsIgnoreCase("scq")) {
 				applyExplicitWait(5);
 				actualcount++;
-				swipeUp();
-
 				selectCorrectAnswer();
 				status = check_Right_Answer_Feedback_In_Revision();
 
@@ -556,13 +558,13 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 	}
 
 	public void Verify_State_Of_Answer_Should_Be_Maintained_For_SCQ_Question(String subject, String topic)
-			throws InterruptedException, WebDriverException, IOException {
+			throws IOException, InterruptedException {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
 		forwardVideoTimerToEnd();
 		applyExplicitWait(15);
- 
+
 		List<MobileElement> questions = RMQR.get_Total_Number_Of_Questions_InRevision();
 		test.log(Status.INFO, "Total questions : " + questions.size());
 		int i = 0;
@@ -606,7 +608,8 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 					System.err.println(status);
 					if (status)
 						checkCnt++;
-				}
+					swipeUp();
+					}
 
 				status = checkCnt == 1 ? true : false;
 				sAss.assertTrue(status, "Attempted state not maintained in Revision");
@@ -893,7 +896,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		SoftAssert sAss = new SoftAssert();
 		int actualcount = 0;
 		Boolean status;
- 
+
 		test.log(Status.INFO, "Checking feedback for wrong answer selection");
 		System.out.println("Checking feedback for wrong answer selection");
 
