@@ -166,3 +166,59 @@
 2021-02-23 10:36:27,920 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
 2021-02-23 10:36:27,920 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
 2021-02-23 10:36:27,920 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2021-02-23 18:44:24,300 - Log4JLogChute initialized using file 'velocity.log'
+2021-02-23 18:44:24,307 - Initializing Velocity, Calling init()...
+2021-02-23 18:44:24,307 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2021-02-23 18:44:24,307 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2021-02-23 18:44:24,307 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2021-02-23 18:44:24,307 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2021-02-23 18:44:24,307 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2021-02-23 18:44:24,307 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2021-02-23 18:44:24,313 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2021-02-23 18:44:24,315 - Do unicode file recognition:  false
+2021-02-23 18:44:24,315 - FileResourceLoader : adding path '.'
+2021-02-23 18:44:24,326 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2021-02-23 18:44:24,328 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2021-02-23 18:44:24,329 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2021-02-23 18:44:24,330 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2021-02-23 18:44:24,330 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2021-02-23 18:44:24,330 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2021-02-23 18:44:24,330 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2021-02-23 18:44:24,330 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2021-02-23 18:44:24,337 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2021-02-23 18:44:24,339 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2021-02-23 18:44:24,365 - Created '20' parsers.
+2021-02-23 18:44:24,370 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2021-02-23 18:44:24,370 - Velocimacro : Default library not found.
+2021-02-23 18:44:24,370 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2021-02-23 18:44:24,370 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2021-02-23 18:44:24,370 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2021-02-23 18:44:24,370 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2021-02-23 18:49:01,642 - Log4JLogChute initialized using file 'velocity.log'
+2021-02-23 18:49:01,642 - Initializing Velocity, Calling init()...
+2021-02-23 18:49:01,642 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2021-02-23 18:49:01,642 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2021-02-23 18:49:01,642 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2021-02-23 18:49:01,642 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2021-02-23 18:49:01,642 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2021-02-23 18:49:01,642 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2021-02-23 18:49:01,642 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2021-02-23 18:49:01,650 - Do unicode file recognition:  false
+2021-02-23 18:49:01,650 - FileResourceLoader : adding path '.'
+2021-02-23 18:49:01,662 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2021-02-23 18:49:01,662 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2021-02-23 18:49:01,662 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2021-02-23 18:49:01,662 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2021-02-23 18:49:01,662 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2021-02-23 18:49:01,662 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2021-02-23 18:49:01,670 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2021-02-23 18:49:01,670 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2021-02-23 18:49:01,672 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2021-02-23 18:49:01,672 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2021-02-23 18:49:01,701 - Created '20' parsers.
+2021-02-23 18:49:01,703 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2021-02-23 18:49:01,703 - Velocimacro : Default library not found.
+2021-02-23 18:49:01,703 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2021-02-23 18:49:01,703 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2021-02-23 18:49:01,703 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2021-02-23 18:49:01,703 - Velocimacro : autoload off : VM system will not automatically reload global library macros
