@@ -7,12 +7,7 @@ import org.testng.IResultMap;
 import org.testng.ISuite;
 import org.testng.internal.ResultMap;
 
-/**
- * Convenient helper class that summaries the results from all the suits.
- * 
- * @author Itai Agmon
- *
- */
+
 public class SuiteSummary {
 
 	private SuiteSummary() {

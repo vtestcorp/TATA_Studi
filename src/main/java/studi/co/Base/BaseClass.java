@@ -47,6 +47,7 @@ import javax.swing.JLabel;
 import javax.swing.Timer;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
@@ -55,12 +56,16 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
+
+import com.android.uiautomator.core.UiScrollable;
+import com.android.uiautomator.core.UiSelector;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
@@ -122,7 +127,75 @@ public class BaseClass {
 		}
 	}
 
+	public static String RandomString() {
+
+		int length = 10;
+		boolean useLetters = true;
+		boolean useNumbers = false;
+		String generatedString = RandomStringUtils.random(length, useLetters, useNumbers);
+		return generatedString;
+	}
+
 	public static void main(String[] args) throws Exception {
+		caps = new DesiredCapabilities();
+		caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Appium");
+		caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
+		caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9");
+		caps.setCapability("appPackage", "com.example.reminder_app");
+		caps.setCapability("appActivity", "com.example.reminder_app.MainActivity");
+		caps.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, "true");
+
+		// caps.setCapability("app",
+		// "C:\\Users\\Dell\\Downloads\\22-feb-2021app-profile.apk");
+		System.out.println("Required Desired Capabilities Defined");
+		final String appiumserverUrl = "http://127.0.0.1:4723/wd/hub";
+		url = new URL(appiumserverUrl);
+		System.out.println("Appium Server URL is entered ");
+		driver = new AppiumDriver<MobileElement>(url, caps);
+		System.out.println("AndroidDriver Configured with the required Desired Capabilities and URL");
+		applyExplicitWait(20);
+		Thread.sleep(5000);
+		clickOnElement(driver.findElement(MobileBy.AccessibilityId("Get Started")));
+		applyExplicitWait(5);
+		Thread.sleep(3000);
+		clickOnElement(driver.findElement(MobileBy.AccessibilityId("Register Here")));
+		applyExplicitWait(5);
+		String name = RandomString();
+		findElementByText("Full name").click();
+		sendTestUsingRobot(name);
+
+		driver.findElement(
+				MobileBy.AndroidUIAutomator("new UiSelector().className(\"android.widget.EditText\").index(5)"))
+				.click();
+
+		sendTestUsingRobot(name + "@gmail.com");
+
+		clickOnElement(findElementByText("Password"));
+		sendTestUsingRobot(name + "@123");
+		action = new TouchAction(driver);
+		action.tap(PointOption.point(900, 1800)).perform();
+		Thread.sleep(5000);
+		clickOnElement(driver.findElement(
+				MobileBy.AndroidUIAutomator("new UiSelector().className(\"android.view.View\").index(6)")));
+		applyExplicitWait(5);
+
+		MobileElement seekBar = driver.findElement(
+				MobileBy.AndroidUIAutomator("new UiSelector().className(\"android.widget.SeekBar\").index(1)"));
+
+		while (Integer.parseInt(seekBar.getAttribute("content-desc")) >= 2) {
+			//Thread.sleep(300);
+			System.err.println(seekBar.getAttribute("content-desc"));
+			int start = seekBar.getLocation().getY();
+			System.out.println("Startpoint - " + start);
+			// get location of seekbar from top
+			int y = seekBar.getLocation().getX();
+			System.out.println("Yaxis - " + y);
+			// Get total width of seekbar
+			int end = seekBar.getSize().getHeight();
+			System.out.println("End point - " + end);
+			action.press(PointOption.point(y + 100, start + 20))
+					.moveTo(PointOption.point(y + 20, (end / 3) + start - 3)).release().perform();
+		}
 
 	}
 
@@ -216,7 +289,6 @@ public class BaseClass {
 
 			System.out.println("Appium Server URL is entered ");
 			driver = new AppiumDriver<MobileElement>(url, caps);
-			
 
 			System.out.println("AndroidDriver Configured with the required Desired Capabilities and URL");
 			applyExplicitWait(20);
@@ -388,16 +460,14 @@ public class BaseClass {
 	 */
 	public static void scrollTo2(String text) {
 		System.out.println("Scrolling to the Element which has the given text property : " + text);
-		getDriver().findElement(MobileBy
-				.AndroidUIAutomator(
+		getDriver().findElement(MobileBy.AndroidUIAutomator(
 				"new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""
 						+ text + "\").instance(0))"));
 	}
 
 	public static void scrollTo3(String text, int instance) {
 		System.out.println("Scrolling to the Element which has the given text property : " + text);
-		getDriver().findElement(MobileBy
-				.AndroidUIAutomator(
+		getDriver().findElement(MobileBy.AndroidUIAutomator(
 				"new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\""
 						+ text + "\").instance(" + (instance - 1) + "))"));
 	}
@@ -724,17 +794,26 @@ public class BaseClass {
 
 	}
 
-	public void sendTestUsingRobot(String keys) throws AWTException {
+	public static void sendTestUsingRobot(String keys) throws AWTException {
 		Robot robot = new Robot();
 		for (char c : keys.toCharArray()) {
-			int keyCode = KeyEvent.getExtendedKeyCodeForChar(c);
-			if (KeyEvent.CHAR_UNDEFINED == keyCode) {
-				throw new RuntimeException("Key code not found for character '" + c + "'");
+
+			if (c == '@') {
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_2);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+				robot.keyRelease(KeyEvent.VK_2);
+			} else {
+				int keyCode = KeyEvent.getExtendedKeyCodeForChar(c);
+				/*
+				 * if (KeyEvent.CHAR_UNDEFINED == keyCode) { throw new
+				 * RuntimeException("Key code not found for character '" + c + "'"); }
+				 */
+				robot.keyPress(keyCode);
+				robot.delay(100);
+				robot.keyRelease(keyCode);
+				robot.delay(100);
 			}
-			robot.keyPress(keyCode);
-			robot.delay(100);
-			robot.keyRelease(keyCode);
-			robot.delay(100);
 		}
 	}
 
