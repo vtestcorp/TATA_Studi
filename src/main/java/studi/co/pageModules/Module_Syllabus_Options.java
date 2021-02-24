@@ -37,7 +37,6 @@ public class Module_Syllabus_Options extends BaseClass {
 
 		applyExplicitWait(5);
 		if (BaseClass.notesFlag) {
-			// applyExplicitWaitsUntilElementVisible(oso.continueOnVdoBtn);
 			closeVideoPopup();
 			BaseClass.notesFlag = false;
 		}

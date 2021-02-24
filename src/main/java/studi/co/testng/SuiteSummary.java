@@ -75,10 +75,14 @@ public class SuiteSummary {
 					.forEach(t -> summary.failedButWithinSuccessPercentageTests.addResult(t, t.getMethod())));		
 
 		// @formatter:on
+		try {
 		summary.startDate = suite.getResults().values().stream().map(s -> s.getTestContext().getStartDate())
 				.min(Date::compareTo).get();
 		summary.endDate = suite.getResults().values().stream().map(s -> s.getTestContext().getEndDate())
 				.max(Date::compareTo).get();
+		
+		}
+		catch(Exception e) {System.err.println("Error at report");}
 		return summary;
 	}
 

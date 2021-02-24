@@ -45,11 +45,11 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		test.log(Status.INFO, "Selecting " + topic);
 		System.out.println("Selecting " + topic);
 		clickOnElement(findElementByText(topic));
-
+		
 		scrollTo2("Practice");
 		test.log(Status.INFO, "Opening revision for " + topic);
 		System.out.println("Opening revision for " + topic);
-
+		swipeUp();
 		
 		try {
 			applyExplicitWaitsUntilElementClickable(findElementByText("Revision"));

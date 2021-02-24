@@ -14,6 +14,7 @@ import org.apache.velocity.runtime.parser.node.SimpleNode;
 import org.apache.velocity.tools.generic.NumberTool;
 import org.testng.ISuite;
 import org.testng.ISuiteListener;
+import studi.co.testng.*;
 
 public class EmailableReportListener implements ISuiteListener {
 

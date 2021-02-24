@@ -19,6 +19,7 @@ public class Module_Login extends BaseClass {
 
 	public void Login_to_app() throws InterruptedException, IOException {
 
+		getDriver().resetApp();
 //		login.username.clear();
 //		login.username.sendKeys(prop.getProperty("username_password"));
 //		login.password.clear();
@@ -56,7 +57,7 @@ public class Module_Login extends BaseClass {
 		System.out.println("Credentials verified");
 		Keyword.clickOnElement(ol.getRegisteredUserName());
 		Keyword.applyExplicitWait(2);
-
+		applyExplicitWaitsUntilElementVisible(ol.signOut);
 		Keyword.scrollTo1("Report an issue");
 		System.out.println("Scrolled across the entire viewport on the LandingPage successfully");
 		System.out.println("Login is Successful");

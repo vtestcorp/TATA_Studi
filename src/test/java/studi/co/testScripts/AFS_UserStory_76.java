@@ -304,17 +304,20 @@ public class AFS_UserStory_76 extends BaseClass {
 		System.out.println("Clicking on Manage and Create Plans");
 		clickOnElement(temp.managePlanBtn);
 
-		applyExplicitWaitsUntilElementClickable(temp.createStudyPlanBtn);
+		
 		applyExplicitWait(5);
 		System.out.println("Clicking on Create Study Plans");
+		applyExplicitWaitsUntilElementClickable(temp.createStudyPlanBtn);
 		clickOnElement(temp.createStudyPlanBtn);
 
 		System.err.println("Clicked on " + prop.getProperty("subject76"));
 		scrollTo2(prop.getProperty("subject76"));
+		applyExplicitWaitsUntilElementVisible(findElementByText(prop.getProperty("subject76")));
 		clickOnElement(findElementByText(prop.getProperty("subject76")));
 
 		System.err.println("Clicked on " + prop.getProperty("topic76"));
 		scrollTo2(prop.getProperty("topic76"));
+		applyExplicitWaitsUntilElementVisible(findElementByText(prop.getProperty("topic76")));
 		clickOnElement(findElementByText(prop.getProperty("topic76")));
 
 		applyExplicitWait(5);

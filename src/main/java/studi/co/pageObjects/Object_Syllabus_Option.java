@@ -4,7 +4,6 @@ import java.net.MalformedURLException;
 import java.time.Duration;
 
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.asserts.SoftAssert;
 
@@ -54,7 +53,7 @@ public class Object_Syllabus_Option extends BaseClass {
 	@AndroidFindBy(id = "com.tce.studi:id/tv_disruptive_continue")
 	public WebElement continueOnVdoBtn;
 
-	@AndroidFindBy(id = "com.tce.studi:id/profilePic")
+	@AndroidFindBy(id = "com.tce.studi:id/ivProfile")
 	public WebElement profilePic;
 
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View/android.view.View")
@@ -139,6 +138,7 @@ public class Object_Syllabus_Option extends BaseClass {
 		clickOnElement(findElementByText(topic));
 		applyExplicitWait(5);
 
+		
 		Thread.sleep(500);
 		action = new TouchAction(driver);
 		action.press(PointOption.point(115, 650)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(700)))
@@ -148,9 +148,6 @@ public class Object_Syllabus_Option extends BaseClass {
 			if (findElementByText("Notes").isDisplayed()) {
 				notesFlag = true;
 				System.out.println("Notes available");
-				//action = new TouchAction(driver);
-				//action.press(PointOption.point(115, 650)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(100)))
-					//	.moveTo(PointOption.point(115, 550)).release().perform();
 				notesCount = getNotesCount();
 				System.err.println("returned notes :" + notesCount);
 

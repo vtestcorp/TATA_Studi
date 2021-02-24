@@ -59,6 +59,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
@@ -76,6 +77,7 @@ import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
+import studi.co.pageModules.Module_Login;
 import studi.co.pageObjects.Object_Syllabus_Option;
 
 //Handling Config file operations and Extent report initialization
@@ -176,7 +178,7 @@ public class BaseClass {
 				MobileBy.AndroidUIAutomator("new UiSelector().className(\"android.widget.SeekBar\").index(1)"));
 
 		while (Integer.parseInt(seekBar.getAttribute("content-desc")) >= 2) {
-			//Thread.sleep(300);
+			// Thread.sleep(300);
 			System.err.println(seekBar.getAttribute("content-desc"));
 			int start = seekBar.getLocation().getY();
 			System.out.println("Startpoint - " + start);
@@ -265,16 +267,14 @@ public class BaseClass {
 			// caps.setCapability(MobileCapabilityType.DEVICE_NAME, "SM M105F");
 			caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Appium");
 			caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "7.1.1");
+			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "7");
 			// caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9
 			// PPR1.180610.011");
 			// caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9");
 			caps.setCapability("appPackage", "com.tce.studi");
 			caps.setCapability("appActivity", "com.tce.view.ui.activities.SplashScreenActivity");
-			// caps.setCapability("app",
-			// "C:\\Users\\Dell\\Downloads\\Studi_v1.0.1(1)17feb.apk");
+			caps.setCapability("app", "C:\\Users\\Dell\\Downloads\\Studi_v1.0.1(1)17feb.apk");
 			caps.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, "true");
-
 			caps.setCapability(MobileCapabilityType.NO_RESET, true);
 			System.out.println("Required Desired Capabilities Defined");
 			final String appiumserverUrl = "http://127.0.0.1:4723/wd/hub";
@@ -285,6 +285,8 @@ public class BaseClass {
 
 			System.out.println("AndroidDriver Configured with the required Desired Capabilities and URL");
 			applyExplicitWait(20);
+			Module_Login login = new Module_Login();
+			login.Login_to_app();
 
 		} else if (s.equalsIgnoreCase("IOS")) {
 			caps = new DesiredCapabilities();
@@ -911,10 +913,10 @@ public class BaseClass {
 		frame.requestFocus();
 	}
 
-	// @AfterTest
+	@AfterTest
 	public void afterTest() {
 		getDriver().quit();
-		// TLD.get(null);
+
 	}
 
 }
