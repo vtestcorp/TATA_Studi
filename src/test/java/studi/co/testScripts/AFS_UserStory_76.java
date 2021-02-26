@@ -204,7 +204,7 @@ public class AFS_UserStory_76 extends BaseClass {
 
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC23_Module_Receive_MCQ_Answers_In_Default_State_In_Test()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
