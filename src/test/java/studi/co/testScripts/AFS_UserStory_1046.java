@@ -168,7 +168,7 @@ public class AFS_UserStory_1046 extends BaseClass{
 	}
 	
 	@Test(enabled=true)
-    public void	T23_To_Verify_User_Should_Be_Able_To_Modify_The_Plans_DeadLine() throws IOException, InterruptedException{
+    public void	T23_To_Verify_User_Should_Be_Able_To_Modify_The_Plans_DeadLine() throws Exception{
 		Module_ReviewPlan mrs=new Module_ReviewPlan();
 		mrs.toVerify_ToModify_ThePlansDeadLine();
 	}

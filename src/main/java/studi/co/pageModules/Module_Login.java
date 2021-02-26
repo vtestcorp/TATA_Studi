@@ -35,30 +35,30 @@ public class Module_Login extends BaseClass {
 //		else 
 //			System.out.println("Login Failed");
 		Object_Login ol = new Object_Login();
-		//Keyword.applyImplicitWait(20);
+		//applyImplicitWait(20);
 		applyExplicitWaitsUntilElementVisible(ol.getAlreadyAUser());
-		Keyword.clickOnElement(ol.getAlreadyAUser());
+		clickOnElement(ol.getAlreadyAUser());
 
-		Keyword.applyExplicitWait(2);
+		applyExplicitWait(2);
 
-		Keyword.clearText(ol.getMobileNumberTextBox());
-		Keyword.sendText(ol.mobileNumberTextBox, prop.getProperty("mobileNumber"));
+		clearText(ol.getMobileNumberTextBox());
+		sendText(ol.mobileNumberTextBox, prop.getProperty("mobileNumber"));
 		System.out.println("Entered Mobile Number");
-		Keyword.applyExplicitWait(2);
-		Keyword.clickOnElement(ol.getLoginButton());
-		Keyword.applyExplicitWait(2);
+		applyExplicitWait(2);
+		clickOnElement(ol.getLoginButton());
+		applyExplicitWait(2);
 
-		Keyword.sendText(ol.getPasswordTextBox(), prop.getProperty("password"));
+		sendText(ol.getPasswordTextBox(), prop.getProperty("password"));
 		System.out.println("Entered Password");
-		Keyword.applyExplicitWait(2);
+		applyExplicitWait(2);
 
-		Keyword.clickOnElement(ol.getVerifypasswordButton());
-		Keyword.applyExplicitWait(2);
+		clickOnElement(ol.getVerifypasswordButton());
+		applyExplicitWait(2);
 		System.out.println("Credentials verified");
-		Keyword.clickOnElement(ol.getRegisteredUserName());
-		Keyword.applyExplicitWait(2);
+		clickOnElement(ol.getRegisteredUserName());
+		applyExplicitWait(2);
 		applyExplicitWaitsUntilElementVisible(ol.signOut);
-		Keyword.scrollTo1("Report an issue");
+		scrollTo1("Report an issue");
 		System.out.println("Scrolled across the entire viewport on the LandingPage successfully");
 		System.out.println("Login is Successful");
 	}

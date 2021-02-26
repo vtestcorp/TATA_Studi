@@ -63,6 +63,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
+import com.android.uiautomator.core.UiSelector;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
@@ -284,8 +285,8 @@ public class BaseClass {
 
 			System.out.println("AndroidDriver Configured with the required Desired Capabilities and URL");
 			applyExplicitWait(20);
-			//Module_Login login = new Module_Login();
-			//login.Login_to_app();
+			// Module_Login login = new Module_Login();
+			// login.Login_to_app();
 
 		} else if (s.equalsIgnoreCase("IOS")) {
 			caps = new DesiredCapabilities();
@@ -387,7 +388,7 @@ public class BaseClass {
 	 * an argument
 	 * 
 	 * @param element
-	 * @throws MalformedURLException 
+	 * @throws MalformedURLException
 	 */
 	public static void clickOnElement(WebElement element) {
 		System.out.println("Clicking on element " + element.getText());
@@ -401,29 +402,20 @@ public class BaseClass {
 		element.click();
 	}
 
-	 public static String getBetweenStrings(
-			    String text,
-			    String textFrom,
-			    String textTo) {
+	public static String getBetweenStrings(String text, String textFrom, String textTo) {
 
-			    String result = "";
+		String result = "";
 
-			    // Cut the beginning of the text to not occasionally meet a      
-			    // 'textTo' value in it:
-			    result =
-			      text.substring(
-			        text.indexOf(textFrom) + textFrom.length(),
-			        text.length());
+		// Cut the beginning of the text to not occasionally meet a
+		// 'textTo' value in it:
+		result = text.substring(text.indexOf(textFrom) + textFrom.length(), text.length());
 
-			    // Cut the excessive ending of the text:
-			    result =
-			      result.substring(
-			        0,
-			        result.indexOf(textTo));
+		// Cut the excessive ending of the text:
+		result = result.substring(0, result.indexOf(textTo));
 
-			    return result;
-			  }
-	
+		return result;
+	}
+
 	/**
 	 * This method will send the text at the location for which we have specified
 	 * the locator
@@ -580,19 +572,34 @@ public class BaseClass {
 		return Integer.parseInt(temp[0]);
 	}
 
-	public int getNotesCount() throws InterruptedException {
-		String temp = "sample";
-		try {
-		Thread.sleep(1000);
-		MobileElement ele = driver.findElement(MobileBy.AndroidUIAutomator("new UiSelector().className(\"android.widget.TextView\").resourceId(\"com.tce.studi:id/tvLessonDescription\").textContains(\"Notes\")"));
-		System.out.println("notecount string " + ele.getText());
-		temp = ele.getText().replaceAll("[A-Za-z\\s]+", "");
-		System.err.println("temp : " + temp);
-		}
-		catch(Exception e){System.err.println(temp);}
-		
-		return Integer.parseInt(temp.trim());
+	public static int getBetweenString(WebElement ele, String firstString, String secondString) {
+		String text = ele.getText();
+		System.out.println(text);
+		String betweenString = getBetweenStrings(text, firstString, secondString).trim();
+		System.out.println(betweenString);
+		int betweenValue = Integer.parseInt(betweenString);
+		return betweenValue;
 
+	}
+
+	public void deleteNotesCount() throws InterruptedException {
+		try {
+			applyExplicitWaitsUntilElementVisible(findElementByText("NOTES"));
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		List<MobileElement> notes = (List<MobileElement>) driver.findElementsById("com.tce.studi:id/clScrollableView");
+		System.err.println("Total notes :" + notes.size());
+		for (int i = 0; i < notes.size(); i++) {
+			// applyExplicitWaitsUntilElementClickable(mobileElement);
+			Thread.sleep(5000);
+			driver.findElementById("com.tce.studi:id/clScrollableView").click();
+			clickOnElement(driver.findElementById("com.tce.studi:id/ivDeleteNote"));
+			clickOnElement(driver.findElementById("com.tce.studi:id/txtPositiveBtn"));
+			System.out.println("deleted");
+		}
+		clickOnElement(driver.findElementById("com.tce.studi:id/ivCross"));
 	}
 
 	public void swipeUp() {
@@ -943,6 +950,18 @@ public class BaseClass {
 
 		frame.setVisible(true);
 		frame.requestFocus();
+	}
+
+	public static void scrollToEnd() {
+		action = new TouchAction(driver);
+		action.press(PointOption.point(115, 750)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(100)))
+				.moveTo(PointOption.point(115, 50)).release().perform();
+	}
+
+	public static void clickOnCoordinate(int x, int y) {
+		TouchAction touchAction = new TouchAction(driver);
+		touchAction.tap(new PointOption().withCoordinates(x, y)).perform();
+
 	}
 
 	@AfterTest

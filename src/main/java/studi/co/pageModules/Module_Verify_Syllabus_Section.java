@@ -18,7 +18,6 @@ import com.aventstack.extentreports.Status;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import studi.co.Base.BaseClass;
-import studi.co.Base.Keyword;
 import studi.co.pageObjects.Object_Syllabus_Section;
 
 public class Module_Verify_Syllabus_Section extends BaseClass {
@@ -35,14 +34,14 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		
 		applyExplicitWait(5);
 		scrollTo2(subject);
-		Keyword.clickOnElementUsingText(subject);
+		clickOnElement(findElementByText(subject));
 		test.log(Status.INFO, "Cilcked on "+subject+" subject");
 		applyExplicitWait(5);
 
 		action = new TouchAction(driver);
 		List<MobileElement> chapters = getAllElementsFromPageUsingID("com.tce.studi:id/tvChapter");
- 
-		ArrayList<String> aa = new ArrayList<>(); 
+
+		ArrayList<String> aa = new ArrayList<>();
 		for (MobileElement mobileElement : chapters) {
 			aa.add(mobileElement.getText().replaceAll("\\d", "").trim());
 		}
@@ -110,7 +109,7 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		
 		applyExplicitWait(5);
 		scrollTo2(subject);
-		Keyword.clickOnElementUsingText(subject);
+		clickOnElement(findElementByText(subject));
 		test.log(Status.INFO, "Cilcked on "+subject+" subject");
 		clickOnElement(findElementByText(topic1));
 		test.log(Status.INFO, "Clicked on "+topic1);
@@ -150,7 +149,8 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		
 		applyExplicitWait(5);
 		scrollTo2(subject);
-		Keyword.clickOnElementUsingText(subject);
+		clickOnElement(findElementByText(subject));
+		
 		test.log(Status.INFO, "Cilcked on "+subject+" subject");
 		clickOnElement(findElementByText(topic1));
 		test.log(Status.INFO, "Clicked on "+topic1+" Topic");
@@ -207,7 +207,7 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		
 		applyExplicitWait(5);
 		scrollTo2(subject);
-		Keyword.clickOnElementUsingText(subject);
+		clickOnElement(findElementByText(subject));
 		test.log(Status.INFO, "Cilcked on "+subject+" Subject");
 		clickOnElement(findElementByText(topic1));
 		test.log(Status.INFO, "Clicked on "+topic1+" Topic");
@@ -228,7 +228,7 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		System.out.println(checkbox.size());
 		int j=1;
 		applyExplicitWaitsUntilElementVisible(osm.question1_part_Text);
-		Keyword.scrollToEnd();
+		scrollToEnd();
 			for(MobileElement check : checkbox) {
 				new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
 				.until(ExpectedConditions.elementToBeClickable(check));
@@ -259,7 +259,7 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		applyExplicitWait(10);
 		applyExplicitWaitsUntilElementVisible(osm.question1_part_Text);
 
-		Keyword.scrollToEnd();
+		scrollToEnd();
 		selectCorrectAnswer();
 		osm.check_answer.click();
 		applyExplicitWaitsUntilElementVisible(osm.right_Answer_message);
@@ -277,10 +277,10 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		
 		osm.continue1.click();
 		applyExplicitWaitsUntilElementVisible(osm.question1_part_Text);
-		Keyword.scrollToEnd();
+		scrollToEnd();
 
 		
-		Keyword.scrollToEnd();
+		scrollToEnd();
 		selectIncorrectAnswer();
 		osm.check_answer.click();
 		applyExplicitWaitsUntilElementVisible(osm.wrong_Answer_message);
@@ -308,7 +308,7 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 
 		
 		applyExplicitWaitsUntilElementVisible(osm.question1_part_Text);
-		Keyword.scrollToEnd();
+		scrollToEnd();
 		selectCorrectAnswer();
 		osm.check_answer.click();
 		applyExplicitWaitsUntilElementVisible(osm.right_Answer_message);
@@ -401,7 +401,7 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		SoftAssert assert1=new SoftAssert();
 		to_Launch_Practise_Quetions_Quiz();
 		applyExplicitWaitsUntilElementVisible(osm.question1_part_Text);
-		Keyword.scrollToEnd();
+		scrollToEnd();
 		selectIncorrectAnswer();
 		osm.check_answer.click();
 		String check_message=osm.right_Answer_message.getText();
@@ -474,7 +474,7 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		
 		applyExplicitWaitsUntilElementVisible(osm.question1_part_Text);
 		
-		Keyword.scrollToEnd();
+		scrollToEnd();
 		selectIncorrectAnswer();
 		osm.check_answer.click();
 		
@@ -498,7 +498,7 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		}
 		
 		applyExplicitWaitsUntilElementVisible(osm.question1_part_Text);
-		Keyword.scrollToEnd();
+		scrollToEnd();
 		Thread.sleep(2000);
 //		osm.answerOption1.click();
 //		applyExplicitWait(5);
@@ -533,13 +533,15 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		String topic1="Diversity in India";
 		osm.syllabus.click();
 		applyExplicitWait(10);
-		Keyword.clickOnElementUsingText(subject);
+	//	Keyword.clickOnElementUsingText(subject);
+		clickOnElement(findElementByText(subject));
 		System.out.println("Clicked on "+subject+" subject");
 		test.log(Status.INFO, "Clicked on "+subject+" subject");
 		Thread.sleep(10000);
 
 //		osm.estimationOfNumbers.click();
-		Keyword.clickOnElementUsingText(topic1);
+//		Keyword.clickOnElementUsingText(topic1);
+		clickOnElement(findElementByText(subject));
 		System.out.println("Clicked on "+topic1);
 		test.log(Status.INFO, "Clicked on "+topic1);
 		applyExplicitWait(10);
@@ -555,32 +557,14 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 			Thread.sleep(1000);
 			System.out.println(i);
 			applyExplicitWaitsUntilElementVisible(osm.question1_part_Text);
-			Keyword.scrollToEnd();
+			scrollToEnd();
 			selectCorrectAnswer();
 			osm.check_answer.click();
 			applyExplicitWaitsUntilElementVisible(osm.right_Answer_message);
 			applyExplicitWaitsUntilElementVisible(osm.continue1);
 			osm.continue1.click();
 		}
-//	//		osm.answerOption.click();
-////			applyExplicitWait(5);
-////			osm.check_answer.click();
-////			applyExplicitWait(5);
-////			Thread.sleep(2000);
-////			if(osm.right_Answer_message.getText().equals("Great job! Let's continue.")) {
-////				System.out.println("Right answer");
-////				applyExplicitWait(5);
-////				osm.continue1.click();
-////			}
-////			
-////			else if(osm.right_Answer_message.getText().equals("Uh-oh! Give it another shot!")) {
-////				System.out.println("wrong answer");
-////				osm.I_dont_know_Button.click();
-////				applyExplicitWait(5);
-////				osm.continue1.click();
-////			}
-//		
-////		applyExplicitWait(5);
+
 		Boolean report=osm.your_Confidence_Report.isDisplayed();
 		if(report) {
 			System.out.println("Confidence Report is displayed");
@@ -637,18 +621,13 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 //		applyExplicitWait(5);
 //		Thread.sleep(2000);
 //		osm.returnToSubject.click();
-//		Keyword.clickOnElementUsingText("Subject");
 		clickOnElement(findElementByText("Return"));
 		
 		applyExplicitWait(10);
-//		applyExplicitWaitsUntilElementClickable(osm.practise3);
-//		osm.practise3.click();
-//		Keyword.clickOnElementUsingText("Practice");
 		clickOnElement(findElementByText("Practice"));
 		applyExplicitWait(5);
 //		Thread.sleep(10000);
 		applyExplicitWaitsUntilElementVisible(osm.practise_Again1);
-//		Keyword.clickOnElementUsingText("Practice");
 		clickOnElement(findElementByText("Practice"));
 	//	osm.practise_Again1.click();
 		applyExplicitWait(20);
@@ -672,10 +651,12 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		osm = new Object_Syllabus_Section();
 		osm.syllabus.click();
 		applyExplicitWait(10);
-		Keyword.clickOnElementUsingText(subject);
+//		Keyword.clickOnElementUsingText(subject);
+		clickOnElement(findElementByText(subject));
 		System.out.println("Clicked on "+subject+" subject");
 		test.log(Status.INFO, "Clicked on "+subject+" subject");
-		Keyword.clickOnElementUsingText(topic1);
+//		Keyword.clickOnElementUsingText(topic1);
+		clickOnElement(findElementByText(subject));
 		System.out.println("Clicked on "+ topic1);
 		test.log(Status.INFO, "Clicked on "+ topic1);
 		applyExplicitWait(10);

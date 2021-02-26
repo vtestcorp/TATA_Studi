@@ -1,30 +1,27 @@
 package studi.co.pageModules;
 
-import static org.testng.Assert.assertNotEquals;
-
 import java.net.MalformedURLException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 import com.aventstack.extentreports.Status;
 
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.TouchAction;
-import io.appium.java_client.touch.offset.PointOption;
 import studi.co.Base.BaseClass;
-import studi.co.Base.Keyword;
+import studi.co.pageObjects.Object_MyLesson_Page;
 import studi.co.pageObjects.Object_ReviewPlan;
 import studi.co.pageObjects.Object_Syllabus_Section;
 
 public class Module_ReviewPlan extends BaseClass{
+	Object_MyLesson_Page omp;
 	
 	Object_Syllabus_Section osm;
 	Object_ReviewPlan orp;
@@ -36,18 +33,18 @@ public class Module_ReviewPlan extends BaseClass{
 		orp=new Object_ReviewPlan();
 		SoftAssert assert1=new SoftAssert();
 		
-		/*
-		 * Boolean landingPage=orp.userName.isDisplayed(); if(landingPage) {
-		 * System.out.println("User can be navigated to the landing page after login");
-		 * test.log(Status.INFO,
-		 * "User can be navigated to the landing page after login"); } else {
-		 * System.out.
-		 * println("User can not be navigated to the landing page after login");
-		 * test.log(Status.INFO,
-		 * "User can not be navigated to the landing page after login");
-		 * 
-		 * } assert1.assertTrue(landingPage);
-		 */
+		Boolean landingPage=orp.userName.isDisplayed();
+		if(landingPage) {
+			System.out.println("User can be navigated to the landing page after login");
+			test.log(Status.INFO, "User can be navigated to the landing page after login");
+		}
+		else {
+			System.out.println("User can not be navigated to the landing page after login");
+			test.log(Status.INFO, "User can not be navigated to the landing page after login");
+
+		}
+		assert1.assertTrue(landingPage);
+		
 		if(orp.subHeading.getText().contains("Paused")){
 			orp.test_unit.click();
 			applyExplicitWait(5);
@@ -210,7 +207,7 @@ public class Module_ReviewPlan extends BaseClass{
 		
 		applyExplicitWait(10);
 		
-		Keyword.clickOnCoordinate(450, 550);
+		clickOnCoordinate(450, 550);
 		Thread.sleep(2000);
 		System.out.println("Clicked on a graph on a Date");
 		test.log(Status.INFO, "Clicked on a graph on a Date");
@@ -320,7 +317,7 @@ public class Module_ReviewPlan extends BaseClass{
 	Boolean graph=orp.defaultGraph.isDisplayed();
 	assert1.assertTrue(graph);
 	
-	Keyword.clickOnCoordinate(450, 550);
+	clickOnCoordinate(450, 550);
 	applyExplicitWait(10);
 	Boolean defaultViewGraph=orp.plan.isDisplayed();
 	assert1.assertTrue(defaultViewGraph);
@@ -728,15 +725,12 @@ public class Module_ReviewPlan extends BaseClass{
 		applyExplicitWait(5);
 		Thread.sleep(3000);
 //		orp.nextStep.click();
-		Keyword.clickOnElementUsingText("Next Step");
+		clickOnElement(findElementByText("Next Step"));
 		applyExplicitWait(5);
-		Thread.sleep(3000);
-//		orp.activateplan.click();
-		Keyword.clickOnElementUsingText("Activate Plan");
+		clickOnElement(findElementByText("Activate Plan"));
 		applyExplicitWait(5);
-		Thread.sleep(3000);
-		orp.beginStudying.click();
-		applyExplicitWait(5);
+	//	orp.beginStudying.click();
+		clickOnElement(findElementByText("Begin Studying"));
 		Thread.sleep(3000);
 		scrollTo2("Review Plan");
 		String dailyGoalWithEndDate=orp.dailyGoals.getText();
@@ -830,13 +824,14 @@ public class Module_ReviewPlan extends BaseClass{
 //		Thread.sleep(1000);
 //		orp.date.click();
 		applyExplicitWait(5);
-		Keyword.clickOnElementUsingText("Next Step");
+		clickOnElement(findElementByText("Next Step"));
 		applyExplicitWait(5);
-		Keyword.clickOnElementUsingText("Activate Plan");
-		applyExplicitWait(10);
-		Thread.sleep(2000);
-		Keyword.clickOnElementUsingText("Begin Studying");
+		clickOnElement(findElementByText("Activate Plan"));
 		applyExplicitWait(5);
+	//	orp.beginStudying.click();
+		clickOnElement(findElementByText("Begin Studying"));
+		
+		applyExplicitWaitsUntilElementVisible(orp.testPlanHeading);
 		
 		Boolean testPlanPage=orp.testPlanHeading.isDisplayed();
 		if(testPlanPage) {
@@ -1364,7 +1359,11 @@ public class Module_ReviewPlan extends BaseClass{
 	}
 
 
-	public void toVerify_ToModify_ThePlansDeadLine() throws MalformedURLException, InterruptedException {
+	public void toVerify_ToModify_ThePlansDeadLine() throws Exception {
+		createPlans();
+		omp= new Object_MyLesson_Page();
+		applyExplicitWaitsUntilElementVisible(omp.backIcon);
+		omp.backIcon.click();
 		SoftAssert assert1=new SoftAssert();
 		toVerify_DeadLineTab_UnderModifyTab();
 		
@@ -1375,38 +1374,32 @@ public class Module_ReviewPlan extends BaseClass{
 	String actualDate = s1[1].trim();
 	System.out.println(actualDate);
 	int i = Integer.parseInt(actualDate);
-	 int date2=i+2;
+	 int date2=i+4;
 	 
 	 if(i>=26) {
 		 orp.nextMonthButton.click();
-		 MobileElement date1=getDriver().findElement(By.xpath("//*[contains(@text, '1, 2021')]"));
+		 Thread.sleep(2000);
+		 MobileElement date1=getDriver().findElement(By.xpath("//*[contains(@text, '14, 2021')]"));
+		 new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
+			.until(ExpectedConditions.elementToBeClickable(date1));
 			date1.click();
 	 }
 	 else {
 	MobileElement date1=getDriver().findElement(By.xpath("//*[contains(@text, '"+date2+", 2021')]"));
+	 new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
+		.until(ExpectedConditions.elementToBeClickable(date1));
 	date1.click();
 	 }
 	
-	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-//		for (int i = 0; i <2; i++) {
-//			applyExplicitWait(5);
-//			orp.backMonthButton.click();
-//		}
-//		orp.date1.click();
-		Keyword.clickOnElementUsingText("Next Step");
+
+		clickOnElement(findElementByText("Next Step"));
 		applyExplicitWait(5);
-		Keyword.clickOnElementUsingText("Activate Plan");
+		clickOnElement(findElementByText("Activate Plan"));
 		applyExplicitWait(5);
-		orp.beginStudying.click();
+//		orp.beginStudying.click();
+		applyExplicitWaitsUntilElementVisible(orp.beginStudying);
+		clickOnElement(findElementByText("Begin Studying"));
+		Thread.sleep(2000);
 		
 		scrollTo2("Review Plan");	
 		String dailyStudyHoursBefore1=dailyStudyHoursBefore;
@@ -1438,16 +1431,17 @@ public class Module_ReviewPlan extends BaseClass{
 		String chapters=getBetweenStrings(topicAndChapters, "in", "chapter").trim();
 		System.out.println(chapters);
 		
-		Keyword.clickOnElementUsingText("Next Step");
+		clickOnElement(findElementByText("Next Step"));
 		applyExplicitWait(5);
-		Keyword.clickOnElementUsingText("Next Step");
+		clickOnElement(findElementByText("Next Step"));
 		applyExplicitWait(5);
-		Keyword.clickOnElementUsingText("Next Step");
+		clickOnElement(findElementByText("Next Step"));
 		applyExplicitWait(5);
-		Keyword.clickOnElementUsingText("Activate Plan");
+		clickOnElement(findElementByText("Activate Plan"));
 		applyExplicitWait(5);
-	//	orp.beginStudying.click();
-		Keyword.clickOnElementUsingText("Begin Studying");
+//		orp.beginStudying.click();
+		applyExplicitWaitsUntilElementVisible(orp.beginStudying);
+		clickOnElement(findElementByText("Begin Studying"));
 		
 		applyExplicitWaitsUntilElementVisible(orp.testPlanHeading);
 		Boolean testPlanPage=orp.testPlanHeading.isDisplayed();
@@ -1504,10 +1498,9 @@ public class Module_ReviewPlan extends BaseClass{
 		orp.topicCheckBoxAtCreateStudyPlan.click();
 		orp.addToPortion.click();
 		
-		Keyword.clickOnElementUsingText("Next Step");
-		applyExplicitWait(5);
-		Keyword.clickOnElementUsingText("Next Step");
-		applyExplicitWait(5);
+		clickOnElement(findElementByText("Next Step"));
+		Thread.sleep(2000);
+		clickOnElement(findElementByText("Next Step"));
 		
 		String date=orp.selectDate.getText();
 		System.out.println(date);
@@ -1520,22 +1513,106 @@ public class Module_ReviewPlan extends BaseClass{
 		 
 		 if(i>=26) {
 			 orp.nextMonthButton.click();
+			 Thread.sleep(2000);
 			 MobileElement date1=getDriver().findElement(By.xpath("//*[contains(@text, '1, 2021')]"));
+			
+			 
+			 new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
+				.until(ExpectedConditions.elementToBeClickable(date1));
 				date1.click();
 		 }
 		 else {
 		MobileElement date1=getDriver().findElement(By.xpath("//*[contains(@text, '"+date2+", 2021')]"));
+		 new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
+			.until(ExpectedConditions.elementToBeClickable(date1));
 		date1.click();
 		 }
 		
 		
-		Keyword.clickOnElementUsingText("Next Step");
+		 	clickOnElement(findElementByText("Next Step"));
+			applyExplicitWait(5);
+			clickOnElement(findElementByText("Activate Plan"));
+			applyExplicitWait(5);
+//			orp.beginStudying.click();
+			applyExplicitWaitsUntilElementVisible(orp.beginStudying);
+			clickOnElement(findElementByText("Begin Studying"));
+			Thread.sleep(2000);
+	}
+	
+	public void createPlans() throws Exception {
+		orp=new Object_ReviewPlan();
+		if(orp.subHeading.getText().contains("Paused")){
+			orp.test_unit.click();
+			applyExplicitWait(5);
+			orp.resumePlan.click();
+			applyExplicitWait(5);
+		}
+		else {
 		applyExplicitWait(5);
-		Keyword.clickOnElementUsingText("Activate Plan");
+		orp.test_unit.click();
+		}
 		applyExplicitWait(5);
-	//	orp.beginStudying.click();
-		Keyword.clickOnElementUsingText("Begin Studying");
+		Boolean myLessonPage=orp.planTestUnit.isDisplayed();
+		if(myLessonPage) {
+			System.out.println("User able to navigate to MyLessons Page");
+//			test.log(Status.INFO, "User able to navigate to MyLessons Page");
+		}
+		else {
+			System.out.println("User unable to navigate to MyLessons Page");
+//			test.log(Status.INFO, "User unable to navigate to MyLessons Page");
+		}
 		
+		scrollTo2("Manage and Create Plans");		
+		applyExplicitWait(5);
+		orp.manageAndCreatePlan.click();
+	//	applyExplicitWaitsUntilElementVisible(orp.);
+		
+		clickOnElement(findElementByText("CREATE"));
+		applyExplicitWaitsUntilElementVisible(orp.subjectAtCreatePlan);
+		orp.subjectAtCreatePlan.click();
+		applyExplicitWaitsUntilElementVisible(orp.topicCheckBoxAtCreateStudyPlan);
+		orp.topicCheckBoxAtCreateStudyPlan.click();
+		orp.addToPortion.click();
+		
+		clickOnElement(findElementByText("Next Step"));
+		Thread.sleep(2000);
+		clickOnElement(findElementByText("Next Step"));
+		
+		String date=orp.selectDate.getText();
+		System.out.println(date);
+		String[] s = date.split(", ");
+		String[] s1 = s[1].split(" ");
+		String actualDate = s1[1].trim();
+		System.out.println(actualDate);
+		int i = Integer.parseInt(actualDate);
+		 int date2=i+1;
+		 
+		 if(i>=28) {
+			 orp.nextMonthButton.click();
+			 Thread.sleep(2000);
+			 MobileElement date1=getDriver().findElement(By.xpath("//*[contains(@text, '1, 2021')]"));
+			
+			 
+			 new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
+				.until(ExpectedConditions.elementToBeClickable(date1));
+				date1.click();
+		 }
+		 else {
+		MobileElement date1=getDriver().findElement(By.xpath("//*[contains(@text, '"+date2+", 2021')]"));
+		 new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
+			.until(ExpectedConditions.elementToBeClickable(date1));
+		date1.click();
+		 }
+		
+		
+		 	clickOnElement(findElementByText("Next Step"));
+			applyExplicitWait(5);
+			clickOnElement(findElementByText("Activate Plan"));
+			applyExplicitWait(5);
+//			orp.beginStudying.click();
+			applyExplicitWaitsUntilElementVisible(orp.beginStudying);
+			clickOnElement(findElementByText("Begin Studying"));
+			Thread.sleep(2000);
 	}
 	}
 	

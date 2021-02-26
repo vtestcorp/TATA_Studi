@@ -258,9 +258,9 @@ public class Module_Syllabus_Options extends BaseClass {
 			if (status) {
 				System.out.println("Note added succesfully");
 				test.log(Status.INFO, "Note added succesfully");
-				clickOnElement(findElementByText(prop.getProperty("note").toLowerCase()));
-				clickOnElement(findElementByText("Delete"));
-				clickOnElement(findElementByText("Delete"));
+				//clickOnElement(findElementByText(prop.getProperty("note").toLowerCase()));
+				//clickOnElement(findElementByText("Delete"));
+				//clickOnElement(findElementByText("Delete"));
 			}
 
 		} else {

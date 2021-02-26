@@ -24,7 +24,7 @@ import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
-public class TestListener extends Keyword implements ITestListener {
+public class TestListener extends BaseClass implements ITestListener {
 	public TestListener() throws MalformedURLException {
 		super();
 		// TODO Auto-generated constructor stub

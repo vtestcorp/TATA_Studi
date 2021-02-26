@@ -145,18 +145,19 @@ public class Object_Syllabus_Option extends BaseClass {
 				.moveTo(PointOption.point(115, 450)).release().perform();
 
 		try {
-			if (findElementByText("Notes").isDisplayed()) {
+			while(findElementByText("Notes").isDisplayed()) {
 				notesFlag = true;
+				clickOnElement(findElementByText("Notes"));
 				System.out.println("Notes available");
-				notesCount = getNotesCount();
-				System.err.println("returned notes :" + notesCount);
+				deleteNotesCount();
+				System.err.println("Deleted");
 
-			} else {
+			} 
 				notesFlag = false;
-				System.out.println("Notes not available");
-			}
+				
+			
 		} catch (Exception e) {
-			System.out.println("Notes not created previously");
+			System.out.println("Notes Deleted");
 		}
 	}
 
