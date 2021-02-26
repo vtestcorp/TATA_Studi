@@ -255,7 +255,6 @@ public static void scrollToId(AndroidDriver<MobileElement> driver, String id) {
 	
 	public static void scrollToEnd() {
 		action = new TouchAction(driver);
-
 		action.press(PointOption.point(115, 750)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(100))).moveTo(PointOption.point(115, 50)).release().perform();
 	}
 	

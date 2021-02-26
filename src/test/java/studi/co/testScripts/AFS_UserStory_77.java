@@ -107,14 +107,14 @@ public class AFS_UserStory_77 extends BaseClass {
 				prop.getProperty("Ptopic"));
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC01_To_Verify_Receive_SCQ_Questions_In_Revision()
 			throws WebDriverException, IOException, InterruptedException {
 		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
 		rqr.Module_Receive_SCQ_Questions_Revision(prop.getProperty("subject77"), prop.getProperty("topic77"));
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC02_To_Verify_SCQ_Answers_In_Default_State_In_Revision()
 			throws WebDriverException, InterruptedException, IOException {
 		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
@@ -122,7 +122,7 @@ public class AFS_UserStory_77 extends BaseClass {
 				prop.getProperty("topic77"));
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC03_To_Verify_Various_SCQ_Answers_Available_In_Revision()
 			throws WebDriverException, InterruptedException, IOException {
 		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
@@ -131,7 +131,7 @@ public class AFS_UserStory_77 extends BaseClass {
 
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC04_To_Verify_SCQ_Answers_Can_Be_Select_In_Revision()
 			throws WebDriverException, InterruptedException, IOException {
 		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
@@ -155,7 +155,7 @@ public class AFS_UserStory_77 extends BaseClass {
 				prop.getProperty("topic77"));
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC07_To_Verify_State_Of_Answer_Should_Be_Maintained_For_SCQ_Question_In_Revision()
 			throws WebDriverException, InterruptedException, IOException {
 		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();

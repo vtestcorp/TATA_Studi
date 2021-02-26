@@ -22,13 +22,13 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 	public void traverse_To_Begin_Practice(String subject, String topic)
 			throws MalformedURLException, InterruptedException {
 		applyExplicitWaitsUntilElementClickable(obp.testUnit);
+		scrollTo1("Syllabus");
 		clickOnElement(obp.syllabus);
 		test.log(Status.INFO, "Opening Syllabus tab");
 		System.out.println("Opening Syllabus tab"); 
 		applyExplicitWait(5);
  
 		scrollTo1(subject);
-
 		test.log(Status.INFO, "Opening " + subject);
 		System.out.println("Opening " + subject);
 		applyExplicitWaitsUntilElementClickable(findElementByText(subject));
@@ -39,7 +39,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		System.out.println("Selecting " + topic);
 		applyExplicitWaitsUntilElementClickable(findElementByText(topic));
 		clickOnElement(findElementByText(topic));
-
+		swipeUp();
 		scrollTo2("Practice"); 
 		test.log(Status.INFO, "Opening practice for " + topic);
 		System.out.println("Opening practice for " + topic);
@@ -309,6 +309,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				for (MobileElement mobileElement : answerCount) {
 					if (mobileElement.isDisplayed()) {
 						sAss.assertTrue(true);
+						swipeUp();
 						test.log(Status.INFO, "Answer " + t + " Displayed");
 						System.out.println("Answer " + t + " Displayed");
 
@@ -351,7 +352,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 
 					status = Boolean.parseBoolean(mobileElement.getAttribute("checked"));
 					if (!status) {
-
+						swipeUp();
 						test.log(Status.INFO, "Answer " + c + "  is unchecked as default");
 						System.out.println("Answer " + c + "  is unchecked as default");
 
@@ -425,7 +426,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 					mobileElement.click();
 					Thread.sleep(100);
 					status = Boolean.parseBoolean(mobileElement.getAttribute("focused"));
-
+					swipeUp();
 					sAss.assertTrue(status, "Multiple answers not available for question " + (i + 1));
 					if (status) {
 						System.out.println("Answer " + c + " can be select or unselect");
@@ -475,7 +476,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 							ansFlag++;
 						}
 					}
-
+					swipeUp();
 					status = ansFlag == 1 ? true : false;
 					sAss.assertTrue(status, "Able to select multiple answers for SCQ question " + (i + 1));
 					if (status) {
@@ -527,6 +528,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				for (MobileElement mobileElement : answerCount) {
 					if (mobileElement.isDisplayed()) {
 						sAss.assertTrue(true);
+						swipeUp();
 						test.log(Status.INFO, "Answer " + t + " Displayed");
 						System.out.println("Answer " + t + " Displayed");
 
@@ -575,7 +577,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 
 					status = Boolean.parseBoolean(mobileElement.getAttribute("checked"));
 					if (!status) {
-
+						swipeUp();
 						test.log(Status.INFO, "Answer " + c++ + "  is unchecked as default");
 						System.out.println("Answer " + c++ + "  is unchecked as default");
 
@@ -668,7 +670,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 					mobileElement.click();
 					Thread.sleep(100);
 					status = Boolean.parseBoolean(mobileElement.getAttribute("focused"));
-
+					
 					sAss.assertTrue(status, "Multiple answers not available for question " + (i + 1));
 					if (status) {
 						System.out.println("Answer " + c + " can be select or unselect");
@@ -729,6 +731,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 						ansFlag++;
 					}
 				}
+				swipeUp();
 				System.err.println("ansFlag :" + ansFlag);
 				status = ansFlag > 1 ? true : false;
 				sAss.assertTrue(status, "Not able to select multiple answers for MCQ question " + (i + 1));

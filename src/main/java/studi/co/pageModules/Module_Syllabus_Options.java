@@ -887,52 +887,39 @@ public class Module_Syllabus_Options extends BaseClass {
 		test.log(Status.INFO, "Selecting Syllabus option");
 		clickOnElement(findElementByText("Syllabus"));
 
-		status = oso.allSubjectLbl.isDisplayed();
-		sAss.assertTrue(status);
-		if (status) {
-			System.out.println("All Subjects displayed as follow :");
-			test.log(Status.INFO, "All Subjects displayed as follow :");
-		}
-		int endX = oso.allSubjectLbl.getLocation().getX();
-		int endY = oso.allSubjectLbl.getLocation().getY();
-		int startX = 0;
-		int startY = 0;
-
-		action = new TouchAction(driver);
-		List<MobileElement> subjects = driver.findElementsById("com.tce.studi:id/tv_book_name");
-		int flag = 0;
-		while (flag == 0) {
-			subjects.addAll(driver.findElementsById("com.tce.studi:id/tv_book_name"));
-
-			try {
-				if (driver.findElementById("com.tce.studi:id/tv_syllabus").isDisplayed()) {
-					flag = 1;
-					startX = driver.findElementById("com.tce.studi:id/tv_syllabus").getLocation().getX();
-					startY = driver.findElementById("com.tce.studi:id/tv_syllabus").getLocation().getY();
-
-				}
-			} catch (Exception e) {
-				action.press(PointOption.point(115, 650)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(100)))
-						.moveTo(PointOption.point(115, 350)).release().perform();
-			}
-
-		}
-
-		ArrayList<String> aa = new ArrayList<>();
-		for (MobileElement mobileElement : subjects) {
-			aa.add(mobileElement.getText());
-		}
-
-		List<String> subjectsWD = new ArrayList<>(new HashSet<>(aa));
-		for (String mobileElement : subjectsWD) {
-			System.out.println(mobileElement);
-			test.log(Status.INFO, mobileElement);
-		}
-
-		action.press(PointOption.point(startX, startY))
-				.waitAction(new WaitOptions().withDuration(Duration.ofMillis(100)))
-				.moveTo(PointOption.point(endX, endY)).release().perform();
-
+		/*
+		 * status = oso.allSubjectLbl.isDisplayed(); sAss.assertTrue(status); if
+		 * (status) { System.out.println("All Subjects displayed as follow :");
+		 * test.log(Status.INFO, "All Subjects displayed as follow :"); } int endX =
+		 * oso.allSubjectLbl.getLocation().getX(); int endY =
+		 * oso.allSubjectLbl.getLocation().getY(); int startX = 0; int startY = 0;
+		 * 
+		 * action = new TouchAction(driver); List<MobileElement> subjects =
+		 * driver.findElementsById("com.tce.studi:id/tv_book_name"); int flag = 0; while
+		 * (flag == 0) {
+		 * subjects.addAll(driver.findElementsById("com.tce.studi:id/tv_book_name"));
+		 * 
+		 * try { if
+		 * (driver.findElementById("com.tce.studi:id/tv_syllabus").isDisplayed()) { flag
+		 * = 1; startX =
+		 * driver.findElementById("com.tce.studi:id/tv_syllabus").getLocation().getX();
+		 * startY =
+		 * driver.findElementById("com.tce.studi:id/tv_syllabus").getLocation().getY();
+		 * } } catch (Exception e) { swipeUp(); }
+		 * 
+		 * }
+		 * 
+		 * ArrayList<String> aa = new ArrayList<>(); for (MobileElement mobileElement :
+		 * subjects) { aa.add(mobileElement.getText()); }
+		 * 
+		 * List<String> subjectsWD = new ArrayList<>(new HashSet<>(aa)); for (String
+		 * mobileElement : subjectsWD) { System.out.println(mobileElement);
+		 * test.log(Status.INFO, mobileElement); }
+		 * 
+		 * action.press(PointOption.point(startX, startY)) .waitAction(new
+		 * WaitOptions().withDuration(Duration.ofMillis(100)))
+		 * .moveTo(PointOption.point(endX, endY)).release().perform();
+		 */
 		scrollTo2(subject);
 		clickOnElement(findElementByText(subject));
 		System.out.println("Opening book for :" + subject);

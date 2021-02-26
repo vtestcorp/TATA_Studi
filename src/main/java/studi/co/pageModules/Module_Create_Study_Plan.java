@@ -73,7 +73,7 @@ public class Module_Create_Study_Plan extends BaseClass {
 	}
 
 	public void Verify_Existing_User_With_Active_Study_Plan_Able_To_Navigate_Create_Plan(String property,
-			String property2) {
+			String property2) throws MalformedURLException {
 		SoftAssert sAss = new SoftAssert();
 		Boolean status;
 
@@ -260,7 +260,7 @@ public class Module_Create_Study_Plan extends BaseClass {
 
 	}
 
-	public void Verify_Lesson_Order_In_Test_Unit(String property, String property2) {
+	public void Verify_Lesson_Order_In_Test_Unit(String property, String property2) throws MalformedURLException {
 		SoftAssert sAss = new SoftAssert();
 		Boolean status;
 

@@ -53,7 +53,7 @@ public class Object_Syllabus_Option extends BaseClass {
 	@AndroidFindBy(id = "com.tce.studi:id/tv_disruptive_continue")
 	public WebElement continueOnVdoBtn;
 
-	@AndroidFindBy(id = "com.tce.studi:id/ivProfile")
+	@AndroidFindBy(id = "com.tce.studi:id/profilePic")
 	public WebElement profilePic;
 
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View/android.view.View")

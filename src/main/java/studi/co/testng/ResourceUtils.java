@@ -3,12 +3,6 @@ package studi.co.testng;
 import java.io.IOException;
 import java.util.Scanner;
 
-/**
- * Utility class for reading files from the classpath
- * 
- * @author Itai Agmon
- *
- */
 public class ResourceUtils {
 
 	private ResourceUtils() {

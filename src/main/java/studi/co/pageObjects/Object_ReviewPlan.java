@@ -9,6 +9,8 @@ import studi.co.Base.BaseClass;
 
 public class Object_ReviewPlan extends BaseClass{
 	
+	
+
 	public Object_ReviewPlan() {
 		PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);
 	}
@@ -292,8 +294,18 @@ public class Object_ReviewPlan extends BaseClass{
 	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View/android.view.View[2]/android.view.View[2]/android.view.View[1]")
 	public WebElement subjectAtCreatePlan;
 	
+	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View/android.view.View[3]/android.view.View[2]/android.view.View[1]")
+	public  WebElement subjectGeographyAtCreatePlan;
+	
 	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View[2]/android.view.View[2]/android.widget.TabWidget[1]/android.view.View[1]/android.view.View/android.view.View/android.widget.CheckBox")
 	public WebElement topicCheckBoxAtCreateStudyPlan;
+	
+	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View[2]/android.view.View[2]/android.widget.TabWidget[1]/android.view.View[2]/android.view.View[2]/android.view.View[2]/android.view.View/android.view.View[2]")
+	public WebElement chapterCheckBox;
+
+	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View[2]/android.view.View[2]/android.widget.TabWidget[2]/android.view.View[1]/android.view.View/android.view.View/android.widget.CheckBox")
+	public WebElement topicCheckBoxAtCreateStudyPlan1;
+	
 	
 	
 }

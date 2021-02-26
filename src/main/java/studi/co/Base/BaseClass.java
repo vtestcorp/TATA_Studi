@@ -69,15 +69,14 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.FindsByAndroidUIAutomator;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
-import studi.co.pageModules.Module_Login;
 import studi.co.pageObjects.Object_Syllabus_Option;
 
 //Handling Config file operations and Extent report initialization
@@ -267,13 +266,13 @@ public class BaseClass {
 			// caps.setCapability(MobileCapabilityType.DEVICE_NAME, "SM M105F");
 			caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Appium");
 			caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "7");
+			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9");
 			// caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9
 			// PPR1.180610.011");
 			// caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9");
 			caps.setCapability("appPackage", "com.tce.studi");
 			caps.setCapability("appActivity", "com.tce.view.ui.activities.SplashScreenActivity");
-			caps.setCapability("app", "C:\\Users\\Dell\\Downloads\\Studi_v1.0.1(1)17feb.apk");
+			caps.setCapability("app", "C:\\Users\\Dell\\Downloads\\Studi-QA[Feb 08, 2021].apk");
 			caps.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, "true");
 			caps.setCapability(MobileCapabilityType.NO_RESET, true);
 			System.out.println("Required Desired Capabilities Defined");
@@ -281,12 +280,12 @@ public class BaseClass {
 			url = new URL(appiumserverUrl);
 
 			System.out.println("Appium Server URL is entered ");
-			driver = new AppiumDriver<MobileElement>(url, caps);
+			driver = new AndroidDriver<MobileElement>(url, caps);
 
 			System.out.println("AndroidDriver Configured with the required Desired Capabilities and URL");
 			applyExplicitWait(20);
-			Module_Login login = new Module_Login();
-			login.Login_to_app();
+			//Module_Login login = new Module_Login();
+			//login.Login_to_app();
 
 		} else if (s.equalsIgnoreCase("IOS")) {
 			caps = new DesiredCapabilities();
@@ -388,14 +387,43 @@ public class BaseClass {
 	 * an argument
 	 * 
 	 * @param element
+	 * @throws MalformedURLException 
 	 */
 	public static void clickOnElement(WebElement element) {
 		System.out.println("Clicking on element " + element.getText());
 		// test.log(Status.INFO,"Clicking on element " + element.getText());
-		applyExplicitWaitsUntilElementClickable(element);
+		try {
+			applyExplicitWaitsUntilElementVisible(element);
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		element.click();
 	}
 
+	 public static String getBetweenStrings(
+			    String text,
+			    String textFrom,
+			    String textTo) {
+
+			    String result = "";
+
+			    // Cut the beginning of the text to not occasionally meet a      
+			    // 'textTo' value in it:
+			    result =
+			      text.substring(
+			        text.indexOf(textFrom) + textFrom.length(),
+			        text.length());
+
+			    // Cut the excessive ending of the text:
+			    result =
+			      result.substring(
+			        0,
+			        result.indexOf(textTo));
+
+			    return result;
+			  }
+	
 	/**
 	 * This method will send the text at the location for which we have specified
 	 * the locator
@@ -553,12 +581,16 @@ public class BaseClass {
 	}
 
 	public int getNotesCount() throws InterruptedException {
-		Thread.sleep(500);
-		MobileElement ele = ((FindsByAndroidUIAutomator<MobileElement>) getDriver()).findElementByAndroidUIAutomator(
-				"new UiSelector().className(\"android.widget.TextView\").resourceId(\"com.tce.studi:id/tvLessonDescription\").textContains(\"Note\")");
+		String temp = "sample";
+		try {
+		Thread.sleep(1000);
+		MobileElement ele = driver.findElement(MobileBy.AndroidUIAutomator("new UiSelector().className(\"android.widget.TextView\").resourceId(\"com.tce.studi:id/tvLessonDescription\").textContains(\"Notes\")"));
 		System.out.println("notecount string " + ele.getText());
-		String temp = ele.getText().replaceAll("[A-Za-z\\s]+", "");
+		temp = ele.getText().replaceAll("[A-Za-z\\s]+", "");
 		System.err.println("temp : " + temp);
+		}
+		catch(Exception e){System.err.println(temp);}
+		
 		return Integer.parseInt(temp.trim());
 
 	}

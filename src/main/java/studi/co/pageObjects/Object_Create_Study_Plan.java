@@ -7,7 +7,6 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.asserts.SoftAssert;
@@ -58,8 +57,9 @@ public class Object_Create_Study_Plan extends BaseClass {
 	@AndroidFindBy(id = "com.tce.studi:id/profilePic")
 	public WebElement profilePic;
 
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/tvHeading\").textContains(\"Test Unit\")")
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/tvHeading\").index(1)")
 	public WebElement testUnitModule;
+	
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/tvHeading\").textContains(\"Syllabus\")")
 	public WebElement syllabusUnitModule;

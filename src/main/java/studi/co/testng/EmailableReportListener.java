@@ -22,9 +22,11 @@ public class EmailableReportListener implements ISuiteListener {
 	private static final String REPORT_NAME = "emailable-testng-report.html";
 	private static final String ENABLED_SECTIONS_PARAM = "emailReportEnabledSections";
 	private static final int MAX_SECTION_NUMBER = 100;
+	File file;
 
 	@Override
 	public void onFinish(ISuite suite) {
+		System.err.println("Listener finish");
 		boolean[] sections = new boolean[100];
 		Arrays.fill(sections, Boolean.TRUE);
 		try {
@@ -45,8 +47,7 @@ public class EmailableReportListener implements ISuiteListener {
 
 			StringWriter sw = new StringWriter();
 			t.merge(vc, sw);
-			File file = new File(new File(suite.getOutputDirectory()).getParent(), REPORT_NAME);
-			FileUtils.write(file, sw.toString(), "utf-8");
+			FileUtils.write(file, sw.toString(), "utf-8",false);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -72,6 +73,8 @@ public class EmailableReportListener implements ISuiteListener {
 
 	@Override
 	public void onStart(ISuite suite) {
+		file = new File(new File(suite.getOutputDirectory()).getParent(), REPORT_NAME);
+		System.err.println("Listener start");
 	}
 	// ***********************************
 

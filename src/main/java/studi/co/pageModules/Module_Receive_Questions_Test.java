@@ -611,6 +611,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 			if (verifySCQorMCQ().equalsIgnoreCase("scq")) {
 				applyExplicitWait(5);
 				swipeUp();
+
 				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
 				int c = 1;
 				int ansFlag = 0;
