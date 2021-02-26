@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Tata Studi QA">
+	<listeners>
+		<listener class-name="studi.co.Base.TestListener" />
+		<listener
+			class-name="studi.co.testng.EmailableReportListener" />
+	</listeners>
+	<test thread-count="5" name="Test">
+		<parameter name="type" value="Android"></parameter>
+		<classes>
+			<class name="studi.co.testScripts.AFS_UserStory_2">
+				<methods>
+					<include
+						name="TC13_Verify_Functionality_After_Killing_The_App" />
+					<include
+						name="TC08_Verify_User_Should_Be_Able_To_Create_Note_During_Video_In_Revision_From_Syllabus" />
+					<include
+						name="TC14_Verify_Functionality_The_App_After_Network_Loss_" />
+					<include name="TC_18_Verify_Behaviour_In_Sleep_Mode" />
+					<include
+						name="TC16_Verify_Functionality_Of_App_In_App_Background_Scenario" />
+					<include
+						name="TC05_Verify_User_Should_Be_Able_To_View_Video_In_Revision_From_Syllabus" />
+					<include
+						name="TC15_Verify_Functionality_Of_App_After_Call_Interrupt" />
+				</methods>
+			</class>
+
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

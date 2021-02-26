@@ -1,0 +1,11 @@
+{
+  "name": "Akbar",
+  "company": "CoolerScreens",
+  "roletier": "DIVISION",
+  "appRoles": [
+    "AccessManager.Edit",
+    "PlanogramEditor.View", 
+    "ProductUpdater.Edit",
+    "LocationManager.View"
+  ]
+}
