@@ -52,7 +52,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Feb 26, 2021 05:31:59 PM</span>
+                    <span class='label suite-start-time blue darken-3'>Feb 26, 2021 06:09:52 PM</span>
 				</a>
 			</li>
 			<li>
@@ -77,7 +77,8 @@
 					<i class='material-icons'>warning</i> Status
 				</a>
 				<ul id='tests-toggle' class='dropdown-content'>
-											<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
 					<li class='divider'></li>
 					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
 				</ul>
@@ -128,10 +129,10 @@
 					<canvas id='parent-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> test(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='57.143%'><span class='strong'>4</span> test(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>2</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='42.857%'>3</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -143,10 +144,10 @@
 					<canvas id='child-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> step(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='7.143%'><span class='strong'>7</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='50%'>10</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='50%'>10</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='12.245%'>12</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='80.612%'>79</span> others
 				</div>
 			</div>
 		</div>
@@ -161,17 +162,17 @@
 			<ul id='test-collection' class='test-collection'>
 				
 				
-				<li class='test displayed active  fail' status='fail' bdd='false' test-id='2'>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='2'>
 					<div class='test-heading'>
 						<span class='test-name'>TC13_Verify_Functionality_After_Killing_The_App</span>
-						<span class='test-time'>Feb 26, 2021 05:32:19 PM</span>
-						<span class='test-status right fail'>fail</span>
+						<span class='test-time'>Feb 26, 2021 06:10:09 PM</span>
+						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Feb 26, 2021 05:32:19 PM</span>
-	<span class='label end-time'>Feb 26, 2021 05:34:41 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 2m 21s+986ms</span>
+	<span class='label start-time'>Feb 26, 2021 06:10:09 PM</span>
+	<span class='label end-time'>Feb 26, 2021 06:13:30 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 3m 21s+507ms</span>
 </div>
 	<div class='test-steps'>
 		<table class='bordered table-results'>
@@ -185,49 +186,641 @@
 			<tbody>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>5:32:19 PM</td>
+					<td class='timestamp'>6:10:09 PM</td>
 					<td class='step-details'>On Test Start : TC13_Verify_Functionality_After_Killing_The_App</td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>5:33:39 PM</td>
+					<td class='timestamp'>6:11:33 PM</td>
 					<td class='step-details'>Traverse towards Political Science -> Gram Sabha</td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>5:34:10 PM</td>
+					<td class='timestamp'>6:12:03 PM</td>
 					<td class='step-details'>Revision already attempted previously</td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>5:34:10 PM</td>
+					<td class='timestamp'>6:12:04 PM</td>
 					<td class='step-details'>Clicked on Revise Again</td>
-				</tr>
-				<tr class='log' status='fail'>
-					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
-					<td class='timestamp'>5:34:40 PM</td>
-					<td class='step-details'>On Test Failure : TC13_Verify_Functionality_After_Killing_The_App</td>
-				</tr>
-				<tr class='log' status='fail'>
-					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
-					<td class='timestamp'>5:34:40 PM</td>
-					<td class='step-details'><span class='label white-text red'>TC13_Verify_Functionality_After_Killing_The_App</span></td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>5:34:40 PM</td>
+					<td class='timestamp'>6:12:07 PM</td>
+					<td class='step-details'>List of TQ's Displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:12:40 PM</td>
+					<td class='step-details'>Revise again button Displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:12:40 PM</td>
+					<td class='step-details'>Clicking on Revise again</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:12:42 PM</td>
+					<td class='step-details'>TQ resource started for revision</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:12:42 PM</td>
+					<td class='step-details'>Reset the App</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:12:48 PM</td>
+					<td class='step-details'>App relaunching</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:12:56 PM</td>
+					<td class='step-details'>Try to login with valid credintials</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:13:29 PM</td>
+					<td class='step-details'>After relauch, user lands on Homepage</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:13:29 PM</td>
+					<td class='step-details'>On Test Success : TC13_Verify_Functionality_After_Killing_The_App</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:13:29 PM</td>
+					<td class='step-details'><span class='label white-text green'>TC13_Verify_Functionality_After_Killing_The_App</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:13:30 PM</td>
+					<td class='step-details'>TC13_Verify_Functionality_After_Killing_The_App Passed<img data-featherlight='C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\Screenshots\TC13_Verify_Functionality_After_Killing_The_App ExtendReport 26-02-21 06-13-29.png' width='10%' src='C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\Screenshots\TC13_Verify_Functionality_After_Killing_The_App ExtendReport 26-02-21 06-13-29.png' data-src='C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\Screenshots\TC13_Verify_Functionality_After_Killing_The_App ExtendReport 26-02-21 06-13-29.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='3'>
+					<div class='test-heading'>
+						<span class='test-name'>TC08_Verify_User_Should_Be_Able_To_Create_Note_During_Video_In_Revision_From_Syllabus</span>
+						<span class='test-time'>Feb 26, 2021 06:13:38 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 26, 2021 06:13:38 PM</span>
+	<span class='label end-time'>Feb 26, 2021 06:16:42 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 3m 3s+825ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:13:38 PM</td>
+					<td class='step-details'>On Test Start : TC08_Verify_User_Should_Be_Able_To_Create_Note_During_Video_In_Revision_From_Syllabus</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:14:52 PM</td>
+					<td class='step-details'>Traverse towards Political Science -> Gram Sabha</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:15:22 PM</td>
+					<td class='step-details'>Revision already attempted previously</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:15:23 PM</td>
+					<td class='step-details'>Clicked on Revise Again</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:15:26 PM</td>
+					<td class='step-details'>List of TQ's Displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:15:58 PM</td>
+					<td class='step-details'>Revise again button Displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:15:58 PM</td>
+					<td class='step-details'>Clicking on Revise again</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:16:02 PM</td>
+					<td class='step-details'>All Popup closed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:16:10 PM</td>
+					<td class='step-details'>Create note Button visible</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:16:10 PM</td>
+					<td class='step-details'>Create note Button is tappable</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:16:10 PM</td>
+					<td class='step-details'>Clicked on Create note Button</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:16:11 PM</td>
+					<td class='step-details'>Save Note option is visible</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:16:11 PM</td>
+					<td class='step-details'>Discard option is visible</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:16:15 PM</td>
+					<td class='step-details'>Note entered correctly</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:16:17 PM</td>
+					<td class='step-details'>Save Note option is visible after entering note</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:16:17 PM</td>
+					<td class='step-details'>Discard option is visible after entering note</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:16:17 PM</td>
+					<td class='step-details'>Clicking on Save Note</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:16:17 PM</td>
+					<td class='step-details'>Note tata studi Saved</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:16:23 PM</td>
+					<td class='step-details'>Guidance model displayed after saving note</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:16:23 PM</td>
+					<td class='step-details'>Clicking on Do not show me again</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:16:24 PM</td>
+					<td class='step-details'>Verifyind added Bookmark of note</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:16:27 PM</td>
+					<td class='step-details'>Opening notes</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:16:28 PM</td>
+					<td class='step-details'>Opening notes : tata studi</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:16:29 PM</td>
+					<td class='step-details'>Clicking on Go to Note Location</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:16:40 PM</td>
+					<td class='step-details'>Note succefully bookmarked in Video</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:16:40 PM</td>
+					<td class='step-details'>On Test Success : TC08_Verify_User_Should_Be_Able_To_Create_Note_During_Video_In_Revision_From_Syllabus</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:16:40 PM</td>
+					<td class='step-details'><span class='label white-text green'>TC08_Verify_User_Should_Be_Able_To_Create_Note_During_Video_In_Revision_From_Syllabus</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:16:42 PM</td>
+					<td class='step-details'>TC08_Verify_User_Should_Be_Able_To_Create_Note_During_Video_In_Revision_From_Syllabus Passed<img data-featherlight='C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\Screenshots\TC08_Verify_User_Should_Be_Able_To_Create_Note_During_Video_In_Revision_From_Syllabus ExtendReport 26-02-21 06-16-40.png' width='10%' src='C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\Screenshots\TC08_Verify_User_Should_Be_Able_To_Create_Note_During_Video_In_Revision_From_Syllabus ExtendReport 26-02-21 06-16-40.png' data-src='C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\Screenshots\TC08_Verify_User_Should_Be_Able_To_Create_Note_During_Video_In_Revision_From_Syllabus ExtendReport 26-02-21 06-16-40.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='4'>
+					<div class='test-heading'>
+						<span class='test-name'>TC14_Verify_Functionality_The_App_After_Network_Loss_</span>
+						<span class='test-time'>Feb 26, 2021 06:16:49 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 26, 2021 06:16:49 PM</span>
+	<span class='label end-time'>Feb 26, 2021 06:22:16 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 5m 27s+531ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:16:49 PM</td>
+					<td class='step-details'>On Test Start : TC14_Verify_Functionality_The_App_After_Network_Loss_</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:18:11 PM</td>
+					<td class='step-details'>Traverse towards Political Science -> Gram Sabha</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:18:42 PM</td>
+					<td class='step-details'>Revision already attempted previously</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:18:42 PM</td>
+					<td class='step-details'>Clicked on Revise Again</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:18:45 PM</td>
+					<td class='step-details'>List of TQ's Displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:19:25 PM</td>
+					<td class='step-details'>Revise again button Displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:19:25 PM</td>
+					<td class='step-details'>Clicking on Revise again</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:19:27 PM</td>
+					<td class='step-details'>No internet connection message displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:19:33 PM</td>
+					<td class='step-details'>App relaunching</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:19:40 PM</td>
+					<td class='step-details'>Try to login with valid credintials</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:21:12 PM</td>
+					<td class='step-details'>Traverse towards Political Science -> Gram Sabha</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:21:42 PM</td>
+					<td class='step-details'>Revision already attempted previously</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:21:42 PM</td>
+					<td class='step-details'>Clicked on Revise Again</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:21:45 PM</td>
+					<td class='step-details'>List of TQ's Displayed</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>6:22:16 PM</td>
+					<td class='step-details'>On Test Failure : TC14_Verify_Functionality_The_App_After_Network_Loss_</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>6:22:16 PM</td>
+					<td class='step-details'><span class='label white-text red'>TC14_Verify_Functionality_The_App_After_Network_Loss_</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:22:16 PM</td>
 					<td class='step-details'>Fails Test</td>
 				</tr>
 				<tr class='log' status='fail'>
 					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
-					<td class='timestamp'>5:34:40 PM</td>
+					<td class='timestamp'>6:22:16 PM</td>
 					<td class='step-details'><pre>org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
 For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'DESKTOP-JHURRHK', ip: '192.168.31.93', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.9'
 Driver info: io.appium.java_client.android.AndroidDriver
 Capabilities {app: C:\Users\Dell\Downloads\Stu..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, databaseEnabled: false, desired: {app: C:\Users\Dell\Downloads\Stu..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, deviceName: Appium, noReset: true, platformName: android, platformVersion: 9, takesScreenshot: true}, deviceApiLevel: 28, deviceManufacturer: Google, deviceModel: Android SDK built for x86_64, deviceName: emulator-5554, deviceScreenDensity: 560, deviceScreenSize: 1440x3040, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, pixelRatio: 3.5, platform: LINUX, platformName: Android, platformVersion: 9, statBarHeight: 172, takesScreenshot: true, viewportRect: {height: 2529, left: 0, top: 172, width: 1440}, warnings: {}, webStorageEnabled: false}
-Session ID: b54e2a28-e0bf-45ba-9d29-ec034778b2de
+Session ID: fa9a9998-d47a-4c13-b604-656d8bf933ff
+*** Element info: {Using=xpath, value=//*[contains(@text, 'Begin Revision')]}
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:62)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElementByXPath(DefaultGenericMobileDriver.java:152)
+	at io.appium.java_client.AppiumDriver.findElementByXPath(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElementByXPath(AndroidDriver.java:1)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at studi.co.Base.BaseClass.findElementByText(BaseClass.java:705)
+	at studi.co.pageModules.Module_Syllabus_Options.Verify_Functionality_After_Network_Loss_The_App(Module_Syllabus_Options.java:591)
+	at studi.co.testScripts.AFS_UserStory_2.TC14_Verify_Functionality_The_App_After_Network_Loss_(AFS_UserStory_2.java:101)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>6:22:16 PM</td>
+					<td class='step-details'>An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-JHURRHK', ip: '192.168.31.93', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.9'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {app: C:\Users\Dell\Downloads\Stu..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, databaseEnabled: false, desired: {app: C:\Users\Dell\Downloads\Stu..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, deviceName: Appium, noReset: true, platformName: android, platformVersion: 9, takesScreenshot: true}, deviceApiLevel: 28, deviceManufacturer: Google, deviceModel: Android SDK built for x86_64, deviceName: emulator-5554, deviceScreenDensity: 560, deviceScreenSize: 1440x3040, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, pixelRatio: 3.5, platform: LINUX, platformName: Android, platformVersion: 9, statBarHeight: 172, takesScreenshot: true, viewportRect: {height: 2529, left: 0, top: 172, width: 1440}, warnings: {}, webStorageEnabled: false}
+Session ID: fa9a9998-d47a-4c13-b604-656d8bf933ff
+*** Element info: {Using=xpath, value=//*[contains(@text, 'Begin Revision')]}<img data-featherlight='C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\Screenshots\TC14_Verify_Functionality_The_App_After_Network_Loss_ ExtendReport 26-02-21 06-22-16.png' width='10%' src='C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\Screenshots\TC14_Verify_Functionality_The_App_After_Network_Loss_ ExtendReport 26-02-21 06-22-16.png' data-src='C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\Screenshots\TC14_Verify_Functionality_The_App_After_Network_Loss_ ExtendReport 26-02-21 06-22-16.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='5'>
+					<div class='test-heading'>
+						<span class='test-name'>TC16_Verify_Functionality_Of_App_In_App_Background_Scenario</span>
+						<span class='test-time'>Feb 26, 2021 06:22:24 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 26, 2021 06:22:24 PM</span>
+	<span class='label end-time'>Feb 26, 2021 06:23:28 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 3s+745ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:22:24 PM</td>
+					<td class='step-details'>On Test Start : TC16_Verify_Functionality_Of_App_In_App_Background_Scenario</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>6:23:27 PM</td>
+					<td class='step-details'>On Test Failure : TC16_Verify_Functionality_Of_App_In_App_Background_Scenario</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>6:23:27 PM</td>
+					<td class='step-details'><span class='label white-text red'>TC16_Verify_Functionality_Of_App_In_App_Background_Scenario</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:23:27 PM</td>
+					<td class='step-details'>Fails Test</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>6:23:27 PM</td>
+					<td class='step-details'><pre>org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-JHURRHK', ip: '192.168.31.93', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.9'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {app: C:\Users\Dell\Downloads\Stu..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, databaseEnabled: false, desired: {app: C:\Users\Dell\Downloads\Stu..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, deviceName: Appium, noReset: true, platformName: android, platformVersion: 9, takesScreenshot: true}, deviceApiLevel: 28, deviceManufacturer: Google, deviceModel: Android SDK built for x86_64, deviceName: emulator-5554, deviceScreenDensity: 560, deviceScreenSize: 1440x3040, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, pixelRatio: 3.5, platform: LINUX, platformName: Android, platformVersion: 9, statBarHeight: 172, takesScreenshot: true, viewportRect: {height: 2529, left: 0, top: 172, width: 1440}, warnings: {}, webStorageEnabled: false}
+Session ID: fa9a9998-d47a-4c13-b604-656d8bf933ff
+*** Element info: {Using=-android uiautomator, value=new UiScrollable(new UiSelector()).scrollIntoView(text("Gram Sabha"));}
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:62)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at io.appium.java_client.FindsByAndroidUIAutomator.findElementByAndroidUIAutomator(FindsByAndroidUIAutomator.java:38)
+	at io.appium.java_client.MobileBy$ByAndroidUIAutomator.findElement(MobileBy.java:278)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at studi.co.Base.BaseClass.scrollTo1(BaseClass.java:467)
+	at studi.co.pageObjects.Object_Syllabus_Option.traverse_toward_topic(Object_Syllabus_Option.java:136)
+	at studi.co.pageModules.Module_Syllabus_Options.Verify_Functionality_Of_App_In_App_Background_Scenario(Module_Syllabus_Options.java:639)
+	at studi.co.testScripts.AFS_UserStory_2.TC16_Verify_Functionality_Of_App_In_App_Background_Scenario(AFS_UserStory_2.java:113)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>6:23:28 PM</td>
+					<td class='step-details'>An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-JHURRHK', ip: '192.168.31.93', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.9'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {app: C:\Users\Dell\Downloads\Stu..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, databaseEnabled: false, desired: {app: C:\Users\Dell\Downloads\Stu..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, deviceName: Appium, noReset: true, platformName: android, platformVersion: 9, takesScreenshot: true}, deviceApiLevel: 28, deviceManufacturer: Google, deviceModel: Android SDK built for x86_64, deviceName: emulator-5554, deviceScreenDensity: 560, deviceScreenSize: 1440x3040, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, pixelRatio: 3.5, platform: LINUX, platformName: Android, platformVersion: 9, statBarHeight: 172, takesScreenshot: true, viewportRect: {height: 2529, left: 0, top: 172, width: 1440}, warnings: {}, webStorageEnabled: false}
+Session ID: fa9a9998-d47a-4c13-b604-656d8bf933ff
+*** Element info: {Using=-android uiautomator, value=new UiScrollable(new UiSelector()).scrollIntoView(text("Gram Sabha"));}<img data-featherlight='C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\Screenshots\TC16_Verify_Functionality_Of_App_In_App_Background_Scenario ExtendReport 26-02-21 06-23-27.png' width='10%' src='C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\Screenshots\TC16_Verify_Functionality_Of_App_In_App_Background_Scenario ExtendReport 26-02-21 06-23-27.png' data-src='C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\Screenshots\TC16_Verify_Functionality_Of_App_In_App_Background_Scenario ExtendReport 26-02-21 06-23-27.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='6'>
+					<div class='test-heading'>
+						<span class='test-name'>TC05_Verify_User_Should_Be_Able_To_View_Video_In_Revision_From_Syllabus</span>
+						<span class='test-time'>Feb 26, 2021 06:23:34 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 26, 2021 06:23:34 PM</span>
+	<span class='label end-time'>Feb 26, 2021 06:25:54 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 2m 19s+414ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:23:34 PM</td>
+					<td class='step-details'>On Test Start : TC05_Verify_User_Should_Be_Able_To_View_Video_In_Revision_From_Syllabus</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:24:52 PM</td>
+					<td class='step-details'>Traverse towards Political Science -> Gram Sabha</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:25:22 PM</td>
+					<td class='step-details'>Revision already attempted previously</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:25:22 PM</td>
+					<td class='step-details'>Clicked on Revise Again</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>6:25:53 PM</td>
+					<td class='step-details'>On Test Failure : TC05_Verify_User_Should_Be_Able_To_View_Video_In_Revision_From_Syllabus</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>6:25:53 PM</td>
+					<td class='step-details'><span class='label white-text red'>TC05_Verify_User_Should_Be_Able_To_View_Video_In_Revision_From_Syllabus</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:25:53 PM</td>
+					<td class='step-details'>Fails Test</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>6:25:53 PM</td>
+					<td class='step-details'><pre>org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-JHURRHK', ip: '192.168.31.93', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.9'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {app: C:\Users\Dell\Downloads\Stu..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, databaseEnabled: false, desired: {app: C:\Users\Dell\Downloads\Stu..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, deviceName: Appium, noReset: true, platformName: android, platformVersion: 9, takesScreenshot: true}, deviceApiLevel: 28, deviceManufacturer: Google, deviceModel: Android SDK built for x86_64, deviceName: emulator-5554, deviceScreenDensity: 560, deviceScreenSize: 1440x3040, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, pixelRatio: 3.5, platform: LINUX, platformName: Android, platformVersion: 9, statBarHeight: 172, takesScreenshot: true, viewportRect: {height: 2529, left: 0, top: 172, width: 1440}, warnings: {}, webStorageEnabled: false}
+Session ID: fa9a9998-d47a-4c13-b604-656d8bf933ff
 *** Element info: {Using=xpath, value=//*[contains(@text, 'What have you revised:')]}
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
@@ -255,10 +848,10 @@ Session ID: b54e2a28-e0bf-45ba-9d29-ec034778b2de
 	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
 	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
 	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
-	at studi.co.Base.BaseClass.findElementByText(BaseClass.java:695)
-	at studi.co.pageObjects.Object_Syllabus_Option.startRevision1(Object_Syllabus_Option.java:196)
-	at studi.co.pageModules.Module_Syllabus_Options.Verify_Functionality_After_Killing_The_App(Module_Syllabus_Options.java:458)
-	at studi.co.testScripts.AFS_UserStory_2.TC13_Verify_Functionality_After_Killing_The_App(AFS_UserStory_2.java:95)
+	at studi.co.Base.BaseClass.findElementByText(BaseClass.java:705)
+	at studi.co.pageObjects.Object_Syllabus_Option.startRevision1(Object_Syllabus_Option.java:195)
+	at studi.co.pageModules.Module_Syllabus_Options.Verify_User_Should_Be_Able_To_View_Video(Module_Syllabus_Options.java:188)
+	at studi.co.testScripts.AFS_UserStory_2.TC05_Verify_User_Should_Be_Able_To_View_Video_In_Revision_From_Syllabus(AFS_UserStory_2.java:61)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -288,15 +881,15 @@ Session ID: b54e2a28-e0bf-45ba-9d29-ec034778b2de
 				</tr>
 				<tr class='log' status='fail'>
 					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
-					<td class='timestamp'>5:34:41 PM</td>
+					<td class='timestamp'>6:25:54 PM</td>
 					<td class='step-details'>An element could not be located on the page using the given search parameters.
 For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'DESKTOP-JHURRHK', ip: '192.168.31.93', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.9'
 Driver info: io.appium.java_client.android.AndroidDriver
 Capabilities {app: C:\Users\Dell\Downloads\Stu..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, databaseEnabled: false, desired: {app: C:\Users\Dell\Downloads\Stu..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, deviceName: Appium, noReset: true, platformName: android, platformVersion: 9, takesScreenshot: true}, deviceApiLevel: 28, deviceManufacturer: Google, deviceModel: Android SDK built for x86_64, deviceName: emulator-5554, deviceScreenDensity: 560, deviceScreenSize: 1440x3040, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, pixelRatio: 3.5, platform: LINUX, platformName: Android, platformVersion: 9, statBarHeight: 172, takesScreenshot: true, viewportRect: {height: 2529, left: 0, top: 172, width: 1440}, warnings: {}, webStorageEnabled: false}
-Session ID: b54e2a28-e0bf-45ba-9d29-ec034778b2de
-*** Element info: {Using=xpath, value=//*[contains(@text, 'What have you revised:')]}<img data-featherlight='C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\Screenshots\TC13_Verify_Functionality_After_Killing_The_App ExtendReport 26-02-21 05-34-40.png' width='10%' src='C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\Screenshots\TC13_Verify_Functionality_After_Killing_The_App ExtendReport 26-02-21 05-34-40.png' data-src='C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\Screenshots\TC13_Verify_Functionality_After_Killing_The_App ExtendReport 26-02-21 05-34-40.png'></td>
+Session ID: fa9a9998-d47a-4c13-b604-656d8bf933ff
+*** Element info: {Using=xpath, value=//*[contains(@text, 'What have you revised:')]}<img data-featherlight='C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\Screenshots\TC05_Verify_User_Should_Be_Able_To_View_Video_In_Revision_From_Syllabus ExtendReport 26-02-21 06-25-53.png' width='10%' src='C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\Screenshots\TC05_Verify_User_Should_Be_Able_To_View_Video_In_Revision_From_Syllabus ExtendReport 26-02-21 06-25-53.png' data-src='C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\Screenshots\TC05_Verify_User_Should_Be_Able_To_View_Video_In_Revision_From_Syllabus ExtendReport 26-02-21 06-25-53.png'></td>
 				</tr>
 			</tbody>
 		</table>
@@ -305,17 +898,17 @@ Session ID: b54e2a28-e0bf-45ba-9d29-ec034778b2de
 				</li>
 				
 				
-				<li class='test displayed active  fail' status='fail' bdd='false' test-id='3'>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='7'>
 					<div class='test-heading'>
-						<span class='test-name'>TC08_Verify_User_Should_Be_Able_To_Create_Note_During_Video_In_Revision_From_Syllabus</span>
-						<span class='test-time'>Feb 26, 2021 05:34:49 PM</span>
-						<span class='test-status right fail'>fail</span>
+						<span class='test-name'>TC15_Verify_Functionality_Of_App_After_Call_Interrupt</span>
+						<span class='test-time'>Feb 26, 2021 06:26:03 PM</span>
+						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Feb 26, 2021 05:34:49 PM</span>
-	<span class='label end-time'>Feb 26, 2021 05:35:40 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 51s+80ms</span>
+	<span class='label start-time'>Feb 26, 2021 06:26:03 PM</span>
+	<span class='label end-time'>Feb 26, 2021 06:28:01 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 57s+920ms</span>
 </div>
 	<div class='test-steps'>
 		<table class='bordered table-results'>
@@ -329,161 +922,137 @@ Session ID: b54e2a28-e0bf-45ba-9d29-ec034778b2de
 			<tbody>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>5:34:49 PM</td>
-					<td class='step-details'>On Test Start : TC08_Verify_User_Should_Be_Able_To_Create_Note_During_Video_In_Revision_From_Syllabus</td>
+					<td class='timestamp'>6:26:03 PM</td>
+					<td class='step-details'>On Test Start : TC15_Verify_Functionality_Of_App_After_Call_Interrupt</td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>5:35:40 PM</td>
+					<td class='timestamp'>6:27:15 PM</td>
 					<td class='step-details'>Traverse towards Political Science -> Gram Sabha</td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>5:35:40 PM</td>
+					<td class='timestamp'>6:27:46 PM</td>
 					<td class='step-details'>Revision already attempted previously</td>
 				</tr>
-				<tr class='log' status='fail'>
-					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
-					<td class='timestamp'>5:35:40 PM</td>
-					<td class='step-details'>On Test Failure : TC08_Verify_User_Should_Be_Able_To_Create_Note_During_Video_In_Revision_From_Syllabus</td>
-				</tr>
-				<tr class='log' status='fail'>
-					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
-					<td class='timestamp'>5:35:40 PM</td>
-					<td class='step-details'><span class='label white-text red'>TC08_Verify_User_Should_Be_Able_To_Create_Note_During_Video_In_Revision_From_Syllabus</span></td>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:27:46 PM</td>
+					<td class='step-details'>Clicked on Revise Again</td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>5:35:40 PM</td>
-					<td class='step-details'>Fails Test</td>
-				</tr>
-				<tr class='log' status='fail'>
-					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
-					<td class='timestamp'>5:35:40 PM</td>
-					<td class='step-details'><pre>org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: 'POST /element' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-JHURRHK', ip: '192.168.31.93', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.9'
-Driver info: io.appium.java_client.android.AndroidDriver
-Capabilities {app: C:\Users\Dell\Downloads\Stu..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, databaseEnabled: false, desired: {app: C:\Users\Dell\Downloads\Stu..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, deviceName: Appium, noReset: true, platformName: android, platformVersion: 9, takesScreenshot: true}, deviceApiLevel: 28, deviceManufacturer: Google, deviceModel: Android SDK built for x86_64, deviceName: emulator-5554, deviceScreenDensity: 560, deviceScreenSize: 1440x3040, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, pixelRatio: 3.5, platform: LINUX, platformName: Android, platformVersion: 9, statBarHeight: 172, takesScreenshot: true, viewportRect: {height: 2529, left: 0, top: 172, width: 1440}, warnings: {}, webStorageEnabled: false}
-Session ID: b54e2a28-e0bf-45ba-9d29-ec034778b2de
-*** Element info: {Using=-android uiautomator, value=new UiScrollable(new UiSelector()).scrollIntoView(text("Revise Again"));}
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
-	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:62)
-	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
-	at io.appium.java_client.FindsByAndroidUIAutomator.findElementByAndroidUIAutomator(FindsByAndroidUIAutomator.java:38)
-	at io.appium.java_client.MobileBy$ByAndroidUIAutomator.findElement(MobileBy.java:278)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
-	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
-	at studi.co.Base.BaseClass.scrollTo1(BaseClass.java:467)
-	at studi.co.pageObjects.Object_Syllabus_Option.startRevision1(Object_Syllabus_Option.java:189)
-	at studi.co.pageModules.Module_Syllabus_Options.Verify_User_Should_Be_Able_To_Create_Note_During_Video(Module_Syllabus_Options.java:284)
-	at studi.co.testScripts.AFS_UserStory_2.TC08_Verify_User_Should_Be_Able_To_Create_Note_During_Video_In_Revision_From_Syllabus(AFS_UserStory_2.java:68)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:648)
-	at org.testng.TestRunner.run(TestRunner.java:505)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-	at org.testng.TestNG.runSuites(TestNG.java:1049)
-	at org.testng.TestNG.run(TestNG.java:1017)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></td>
-				</tr>
-				<tr class='log' status='fail'>
-					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
-					<td class='timestamp'>5:35:40 PM</td>
-					<td class='step-details'>On Test Failure : TC08_Verify_User_Should_Be_Able_To_Create_Note_During_Video_In_Revision_From_Syllabus</td>
-				</tr>
-				<tr class='log' status='fail'>
-					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
-					<td class='timestamp'>5:35:40 PM</td>
-					<td class='step-details'><span class='label white-text red'>TC08_Verify_User_Should_Be_Able_To_Create_Note_During_Video_In_Revision_From_Syllabus</span></td>
+					<td class='timestamp'>6:27:49 PM</td>
+					<td class='step-details'>List of TQ's Displayed</td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>5:35:40 PM</td>
-					<td class='step-details'>Fails Test</td>
+					<td class='timestamp'>6:27:49 PM</td>
+					<td class='step-details'>Trying Call</td>
 				</tr>
-				<tr class='log' status='fail'>
-					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
-					<td class='timestamp'>5:35:40 PM</td>
-					<td class='step-details'><pre>org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: 'GET /screenshot' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-JHURRHK', ip: '192.168.31.93', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.9'
-Driver info: io.appium.java_client.android.AndroidDriver
-Capabilities {app: C:\Users\Dell\Downloads\Stu..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, databaseEnabled: false, desired: {app: C:\Users\Dell\Downloads\Stu..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, deviceName: Appium, noReset: true, platformName: android, platformVersion: 9, takesScreenshot: true}, deviceApiLevel: 28, deviceManufacturer: Google, deviceModel: Android SDK built for x86_64, deviceName: emulator-5554, deviceScreenDensity: 560, deviceScreenSize: 1440x3040, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, pixelRatio: 3.5, platform: LINUX, platformName: Android, platformVersion: 9, statBarHeight: 172, takesScreenshot: true, viewportRect: {height: 2529, left: 0, top: 172, width: 1440}, warnings: {}, webStorageEnabled: false}
-Session ID: b54e2a28-e0bf-45ba-9d29-ec034778b2de
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:46)
-	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:295)
-	at studi.co.Base.TestListener.screenshotforExtentReport(TestListener.java:126)
-	at studi.co.Base.TestListener.onTestFailure(TestListener.java:65)
-	at org.testng.internal.TestListenerHelper.runTestListeners(TestListenerHelper.java:67)
-	at org.testng.internal.Invoker.runTestListeners(Invoker.java:1389)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:636)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:648)
-	at org.testng.TestRunner.run(TestRunner.java:505)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-	at org.testng.TestNG.runSuites(TestNG.java:1049)
-	at org.testng.TestNG.run(TestNG.java:1017)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></td>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:27:54 PM</td>
+					<td class='step-details'>Call Recieved</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:27:59 PM</td>
+					<td class='step-details'>Call End</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:27:59 PM</td>
+					<td class='step-details'>Landed on same page after call inturruption</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:27:59 PM</td>
+					<td class='step-details'>On Test Success : TC15_Verify_Functionality_Of_App_After_Call_Interrupt</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:27:59 PM</td>
+					<td class='step-details'><span class='label white-text green'>TC15_Verify_Functionality_Of_App_After_Call_Interrupt</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:28:01 PM</td>
+					<td class='step-details'>TC15_Verify_Functionality_Of_App_After_Call_Interrupt Passed<img data-featherlight='C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\Screenshots\TC15_Verify_Functionality_Of_App_After_Call_Interrupt ExtendReport 26-02-21 06-27-59.png' width='10%' src='C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\Screenshots\TC15_Verify_Functionality_Of_App_After_Call_Interrupt ExtendReport 26-02-21 06-27-59.png' data-src='C:\Users\Dell\eclipse-workspace\TATA_Studi\TATA_Studi\Screenshots\TC15_Verify_Functionality_Of_App_After_Call_Interrupt ExtendReport 26-02-21 06-27-59.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='8'>
+					<div class='test-heading'>
+						<span class='test-name'>TC_18_Verify_Behaviour_In_Sleep_Mode</span>
+						<span class='test-time'>Feb 26, 2021 06:28:08 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 26, 2021 06:28:08 PM</span>
+	<span class='label end-time'>Feb 26, 2021 06:30:56 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 2m 47s+967ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:28:08 PM</td>
+					<td class='step-details'>On Test Start : TC_18_Verify_Behaviour_In_Sleep_Mode</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:29:19 PM</td>
+					<td class='step-details'>Traverse towards Political Science -> Gram Sabha</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:29:50 PM</td>
+					<td class='step-details'>Revision already attempted previously</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:29:50 PM</td>
+					<td class='step-details'>Clicked on Revise Again</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:29:53 PM</td>
+					<td class='step-details'>List of TQ's Displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:29:53 PM</td>
+					<td class='step-details'>Left the app unattended for 1 Min</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:30:56 PM</td>
+					<td class='step-details'>Session expired/User Logged out after sleep mode</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:30:56 PM</td>
+					<td class='step-details'>On Test Success : TC_18_Verify_Behaviour_In_Sleep_Mode</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:30:56 PM</td>
+					<td class='step-details'><span class='label white-text green'>TC_18_Verify_Behaviour_In_Sleep_Mode</span></td>
 				</tr>
 			</tbody>
 		</table>
@@ -544,7 +1113,7 @@ Session ID: b54e2a28-e0bf-45ba-9d29-ec034778b2de
                         <li class='exception displayed active'>
                             <div class='exception-heading'>
                                 <span class='exception-name'>org.openqa.selenium.NoSuchElementException</span>
-                                <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>3</span></span>
                             </div>
                             <div class='exception-content hide'>
                                 <div class='exception-tests'>
@@ -558,15 +1127,147 @@ Session ID: b54e2a28-e0bf-45ba-9d29-ec034778b2de
                                         </thead>
                                         <tbody>
                                                     <tr>
-                                                        <td>Feb 26, 2021 05:32:19 PM</td>
-                                                        <td class='linked' test-id='2'>TC13_Verify_Functionality_After_Killing_The_App</td>
+                                                        <td>Feb 26, 2021 06:16:49 PM</td>
+                                                        <td class='linked' test-id='4'>TC14_Verify_Functionality_The_App_After_Network_Loss_</td>
                                                         <td><pre><pre>org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
 For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'DESKTOP-JHURRHK', ip: '192.168.31.93', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.9'
 Driver info: io.appium.java_client.android.AndroidDriver
 Capabilities {app: C:\Users\Dell\Downloads\Stu..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, databaseEnabled: false, desired: {app: C:\Users\Dell\Downloads\Stu..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, deviceName: Appium, noReset: true, platformName: android, platformVersion: 9, takesScreenshot: true}, deviceApiLevel: 28, deviceManufacturer: Google, deviceModel: Android SDK built for x86_64, deviceName: emulator-5554, deviceScreenDensity: 560, deviceScreenSize: 1440x3040, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, pixelRatio: 3.5, platform: LINUX, platformName: Android, platformVersion: 9, statBarHeight: 172, takesScreenshot: true, viewportRect: {height: 2529, left: 0, top: 172, width: 1440}, warnings: {}, webStorageEnabled: false}
-Session ID: b54e2a28-e0bf-45ba-9d29-ec034778b2de
+Session ID: fa9a9998-d47a-4c13-b604-656d8bf933ff
+*** Element info: {Using=xpath, value=//*[contains(@text, 'Begin Revision')]}
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:62)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElementByXPath(DefaultGenericMobileDriver.java:152)
+	at io.appium.java_client.AppiumDriver.findElementByXPath(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElementByXPath(AndroidDriver.java:1)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at studi.co.Base.BaseClass.findElementByText(BaseClass.java:705)
+	at studi.co.pageModules.Module_Syllabus_Options.Verify_Functionality_After_Network_Loss_The_App(Module_Syllabus_Options.java:591)
+	at studi.co.testScripts.AFS_UserStory_2.TC14_Verify_Functionality_The_App_After_Network_Loss_(AFS_UserStory_2.java:101)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></pre></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Feb 26, 2021 06:22:24 PM</td>
+                                                        <td class='linked' test-id='5'>TC16_Verify_Functionality_Of_App_In_App_Background_Scenario</td>
+                                                        <td><pre><pre>org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-JHURRHK', ip: '192.168.31.93', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.9'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {app: C:\Users\Dell\Downloads\Stu..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, databaseEnabled: false, desired: {app: C:\Users\Dell\Downloads\Stu..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, deviceName: Appium, noReset: true, platformName: android, platformVersion: 9, takesScreenshot: true}, deviceApiLevel: 28, deviceManufacturer: Google, deviceModel: Android SDK built for x86_64, deviceName: emulator-5554, deviceScreenDensity: 560, deviceScreenSize: 1440x3040, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, pixelRatio: 3.5, platform: LINUX, platformName: Android, platformVersion: 9, statBarHeight: 172, takesScreenshot: true, viewportRect: {height: 2529, left: 0, top: 172, width: 1440}, warnings: {}, webStorageEnabled: false}
+Session ID: fa9a9998-d47a-4c13-b604-656d8bf933ff
+*** Element info: {Using=-android uiautomator, value=new UiScrollable(new UiSelector()).scrollIntoView(text("Gram Sabha"));}
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:62)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at io.appium.java_client.FindsByAndroidUIAutomator.findElementByAndroidUIAutomator(FindsByAndroidUIAutomator.java:38)
+	at io.appium.java_client.MobileBy$ByAndroidUIAutomator.findElement(MobileBy.java:278)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at studi.co.Base.BaseClass.scrollTo1(BaseClass.java:467)
+	at studi.co.pageObjects.Object_Syllabus_Option.traverse_toward_topic(Object_Syllabus_Option.java:136)
+	at studi.co.pageModules.Module_Syllabus_Options.Verify_Functionality_Of_App_In_App_Background_Scenario(Module_Syllabus_Options.java:639)
+	at studi.co.testScripts.AFS_UserStory_2.TC16_Verify_Functionality_Of_App_In_App_Background_Scenario(AFS_UserStory_2.java:113)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></pre></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Feb 26, 2021 06:23:34 PM</td>
+                                                        <td class='linked' test-id='6'>TC05_Verify_User_Should_Be_Able_To_View_Video_In_Revision_From_Syllabus</td>
+                                                        <td><pre><pre>org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-JHURRHK', ip: '192.168.31.93', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.9'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {app: C:\Users\Dell\Downloads\Stu..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, databaseEnabled: false, desired: {app: C:\Users\Dell\Downloads\Stu..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, deviceName: Appium, noReset: true, platformName: android, platformVersion: 9, takesScreenshot: true}, deviceApiLevel: 28, deviceManufacturer: Google, deviceModel: Android SDK built for x86_64, deviceName: emulator-5554, deviceScreenDensity: 560, deviceScreenSize: 1440x3040, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, pixelRatio: 3.5, platform: LINUX, platformName: Android, platformVersion: 9, statBarHeight: 172, takesScreenshot: true, viewportRect: {height: 2529, left: 0, top: 172, width: 1440}, warnings: {}, webStorageEnabled: false}
+Session ID: fa9a9998-d47a-4c13-b604-656d8bf933ff
 *** Element info: {Using=xpath, value=//*[contains(@text, 'What have you revised:')]}
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
@@ -594,150 +1295,16 @@ Session ID: b54e2a28-e0bf-45ba-9d29-ec034778b2de
 	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
 	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
 	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
-	at studi.co.Base.BaseClass.findElementByText(BaseClass.java:695)
-	at studi.co.pageObjects.Object_Syllabus_Option.startRevision1(Object_Syllabus_Option.java:196)
-	at studi.co.pageModules.Module_Syllabus_Options.Verify_Functionality_After_Killing_The_App(Module_Syllabus_Options.java:458)
-	at studi.co.testScripts.AFS_UserStory_2.TC13_Verify_Functionality_After_Killing_The_App(AFS_UserStory_2.java:95)
+	at studi.co.Base.BaseClass.findElementByText(BaseClass.java:705)
+	at studi.co.pageObjects.Object_Syllabus_Option.startRevision1(Object_Syllabus_Option.java:195)
+	at studi.co.pageModules.Module_Syllabus_Options.Verify_User_Should_Be_Able_To_View_Video(Module_Syllabus_Options.java:188)
+	at studi.co.testScripts.AFS_UserStory_2.TC05_Verify_User_Should_Be_Able_To_View_Video_In_Revision_From_Syllabus(AFS_UserStory_2.java:61)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:648)
-	at org.testng.TestRunner.run(TestRunner.java:505)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-	at org.testng.TestNG.runSuites(TestNG.java:1049)
-	at org.testng.TestNG.run(TestNG.java:1017)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></pre></td>
-                                                    </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </li>
-                        <li class='exception displayed active'>
-                            <div class='exception-heading'>
-                                <span class='exception-name'>org.openqa.selenium.WebDriverException</span>
-                                <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
-                            </div>
-                            <div class='exception-content hide'>
-                                <div class='exception-tests'>
-                                    <table class='bordered table-results'>
-                                        <thead>
-                                        <tr>
-                                            <th>Timestamp</th>
-                                            <th>TestName</th>
-                                            <th>Status</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                                    <tr>
-                                                        <td>Feb 26, 2021 05:34:49 PM</td>
-                                                        <td class='linked' test-id='3'>TC08_Verify_User_Should_Be_Able_To_Create_Note_During_Video_In_Revision_From_Syllabus</td>
-                                                        <td><pre><pre>org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: 'POST /element' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-JHURRHK', ip: '192.168.31.93', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.9'
-Driver info: io.appium.java_client.android.AndroidDriver
-Capabilities {app: C:\Users\Dell\Downloads\Stu..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, databaseEnabled: false, desired: {app: C:\Users\Dell\Downloads\Stu..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, deviceName: Appium, noReset: true, platformName: android, platformVersion: 9, takesScreenshot: true}, deviceApiLevel: 28, deviceManufacturer: Google, deviceModel: Android SDK built for x86_64, deviceName: emulator-5554, deviceScreenDensity: 560, deviceScreenSize: 1440x3040, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, pixelRatio: 3.5, platform: LINUX, platformName: Android, platformVersion: 9, statBarHeight: 172, takesScreenshot: true, viewportRect: {height: 2529, left: 0, top: 172, width: 1440}, warnings: {}, webStorageEnabled: false}
-Session ID: b54e2a28-e0bf-45ba-9d29-ec034778b2de
-*** Element info: {Using=-android uiautomator, value=new UiScrollable(new UiSelector()).scrollIntoView(text("Revise Again"));}
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
-	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:62)
-	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
-	at io.appium.java_client.FindsByAndroidUIAutomator.findElementByAndroidUIAutomator(FindsByAndroidUIAutomator.java:38)
-	at io.appium.java_client.MobileBy$ByAndroidUIAutomator.findElement(MobileBy.java:278)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
-	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
-	at studi.co.Base.BaseClass.scrollTo1(BaseClass.java:467)
-	at studi.co.pageObjects.Object_Syllabus_Option.startRevision1(Object_Syllabus_Option.java:189)
-	at studi.co.pageModules.Module_Syllabus_Options.Verify_User_Should_Be_Able_To_Create_Note_During_Video(Module_Syllabus_Options.java:284)
-	at studi.co.testScripts.AFS_UserStory_2.TC08_Verify_User_Should_Be_Able_To_Create_Note_During_Video_In_Revision_From_Syllabus(AFS_UserStory_2.java:68)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:648)
-	at org.testng.TestRunner.run(TestRunner.java:505)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-	at org.testng.TestNG.runSuites(TestNG.java:1049)
-	at org.testng.TestNG.run(TestNG.java:1017)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></pre></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Feb 26, 2021 05:34:49 PM</td>
-                                                        <td class='linked' test-id='3'>TC08_Verify_User_Should_Be_Able_To_Create_Note_During_Video_In_Revision_From_Syllabus</td>
-                                                        <td><pre><pre>org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: 'GET /screenshot' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-JHURRHK', ip: '192.168.31.93', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.9'
-Driver info: io.appium.java_client.android.AndroidDriver
-Capabilities {app: C:\Users\Dell\Downloads\Stu..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, databaseEnabled: false, desired: {app: C:\Users\Dell\Downloads\Stu..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, deviceName: Appium, noReset: true, platformName: android, platformVersion: 9, takesScreenshot: true}, deviceApiLevel: 28, deviceManufacturer: Google, deviceModel: Android SDK built for x86_64, deviceName: emulator-5554, deviceScreenDensity: 560, deviceScreenSize: 1440x3040, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, pixelRatio: 3.5, platform: LINUX, platformName: Android, platformVersion: 9, statBarHeight: 172, takesScreenshot: true, viewportRect: {height: 2529, left: 0, top: 172, width: 1440}, warnings: {}, webStorageEnabled: false}
-Session ID: b54e2a28-e0bf-45ba-9d29-ec034778b2de
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:46)
-	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:295)
-	at studi.co.Base.TestListener.screenshotforExtentReport(TestListener.java:126)
-	at studi.co.Base.TestListener.onTestFailure(TestListener.java:65)
-	at org.testng.internal.TestListenerHelper.runTestListeners(TestListenerHelper.java:67)
-	at org.testng.internal.Invoker.runTestListeners(Invoker.java:1389)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:636)
 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
@@ -783,31 +1350,31 @@ Session ID: b54e2a28-e0bf-45ba-9d29-ec034778b2de
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Tests
-					<div class='panel-lead'>2</div>
+					<div class='panel-lead'>7</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>20</div>
+					<div class='panel-lead'>98</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Feb 26, 2021 05:31:59 PM</div>
+					<div class='panel-lead'>Feb 26, 2021 06:09:52 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Feb 26, 2021 05:35:42 PM</div>
+			 		<div class='panel-lead'>Feb 26, 2021 06:30:56 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>0h 3m 43s+323ms</div>
+					<div class='panel-lead'>0h 21m 3s+780ms</div>
 				</div>
 			</div>
 			<div class='col s4'>
@@ -836,22 +1403,22 @@ Session ID: b54e2a28-e0bf-45ba-9d29-ec034778b2de
 
 		<script>
 			var statusGroup = {
-				passParent: 0,
-				failParent: 2,
+				passParent: 4,
+				failParent: 3,
 				fatalParent: 0,
 				errorParent: 0,
 				warningParent: 0,
 				skipParent: 0,
-				exceptionsParent: 2,
+				exceptionsParent: 3,
 				
-				passChild: 0,
-				failChild: 10,
+				passChild: 7,
+				failChild: 12,
 				fatalChild: 0,
 				errorChild: 0,
 				warningChild: 0,
 				skipChild: 0,
-				infoChild: 10,
-				exceptionsChild: 10,
+				infoChild: 79,
+				exceptionsChild: 12,
 				
 				passGrandChild: 0,
 				failGrandChild: 0,
