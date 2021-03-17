@@ -166,17 +166,17 @@ public class Object_Syllabus_Option extends BaseClass {
 		Boolean status;
 		while (temp == 0) {
 			try {
-				findElementByText("Begin Revision");
-				scrollTo1("Begin Revision");
-				clickOnElement(findElementByText("Begin Revision"));
+				findElementByText("Revis");
+				scrollTo2("Revis");
+				clickOnElement(findElementByText("Revis"));
 				test.log(Status.INFO, "Clicked on Begin Revision");
 				System.out.println("Clicked on Begin Revision");
 				applyExplicitWait(5);
 				temp = 1;
-
-				status = findElementByText("What you will revise:").isDisplayed();
+				Thread.sleep(2000);
+				status = findElementByText("What").isDisplayed();
 				if (status) {
-					count = driver.findElementsById("com.tce.studi:id/iv_overview").size();
+					//count = driver.findElementsById("com.tce.studi:id/iv_overview").size();
 					System.out.println("List of TQ's Displayed");
 					test.log(Status.INFO, "List of TQ's Displayed");
 				}
@@ -185,14 +185,14 @@ public class Object_Syllabus_Option extends BaseClass {
 				test.log(Status.INFO, "Revision already attempted previously");
 				System.out.println("Revision already attempted previously");
 
-				scrollTo1("Revise Again");
-				clickOnElement(findElementByText("Revise Again"));
-				test.log(Status.INFO, "Clicked on Revise Again");
+				//scrollTo1("Revis");
+				clickOnElement(findElementByText("Revis"));
+				test.log(Status.INFO, "Clicked on Revis");
 				System.out.println("Clicked on Revise Again");
 				applyExplicitWait(5);
 				temp = 1;
 
-				status = findElementByText("What have you revised:").isDisplayed();
+				status = findElementByText("What").isDisplayed();
 				if (status) {
 					count = driver.findElementsById("com.tce.studi:id/iv_overview").size();
 					System.out.println("List of TQ's Displayed");
@@ -213,7 +213,7 @@ public class Object_Syllabus_Option extends BaseClass {
 		while (flag == 0) {
 			try {
 				applyExplicitWait(5);
-				status = findElementByText("Begin Revision").isDisplayed();
+				status = findElementByText("Revis").isDisplayed();
 				sAss.assertTrue(status);
 				if (status) {
 					System.out.println("Begin Revision button Displayed");
@@ -224,7 +224,7 @@ public class Object_Syllabus_Option extends BaseClass {
 			} catch (Exception e) {
 
 				applyExplicitWait(5);
-				status = findElementByText("Revise again").isDisplayed();
+				status = findElementByText("Revis").isDisplayed();
 				sAss.assertTrue(status);
 				if (status) {
 

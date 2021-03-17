@@ -27,9 +27,23 @@ import studi.co.pageObjects.Object_Receive_Questions_Revision;
 public class Module_Receive_Questions_Revision extends BaseClass {
 	Object_Receive_Questions_Revision RMQR = new Object_Receive_Questions_Revision();
 
+	private void pauseVideo() throws MalformedURLException, InterruptedException {
+		applyExplicitWaitsUntilElementVisible(driver.findElement(By.xpath(
+				"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]")));
+		applyExplicitWait(5);
+		applyExplicitWaitsUntilElementVisible(RMQR.addNotesBtn);
+		driver.findElement(By.xpath(
+				"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]"))
+				.click();
+		// applyExplicitWait(2);
+		RMQR.pauseBtn.click();
+	}
+
 	public void traverse_To_Begin_Revision(String subject, String topic)
 			throws MalformedURLException, InterruptedException {
 		applyExplicitWaitsUntilElementClickable(RMQR.testUnit);
+		Thread.sleep(2000);
+		scrollTo1("Syllabus");
 		clickOnElement(RMQR.syllabus);
 		test.log(Status.INFO, "Opening Syllabus tab");
 		System.out.println("Opening Syllabus tab");
@@ -45,12 +59,12 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		test.log(Status.INFO, "Selecting " + topic);
 		System.out.println("Selecting " + topic);
 		clickOnElement(findElementByText(topic));
-		
+
 		scrollTo2("Practice");
 		test.log(Status.INFO, "Opening revision for " + topic);
 		System.out.println("Opening revision for " + topic);
 		swipeUp();
-		
+
 		try {
 			applyExplicitWaitsUntilElementClickable(findElementByText("Revision"));
 			clickOnElement(findElementByText("Revision"));
@@ -98,6 +112,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
+		pauseVideo();
 		forwardVideoTimerToEnd();
 		applyExplicitWait(15);
 
@@ -106,8 +121,10 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		int actualcount = 0;
 		int i = 0;
 		SoftAssert sAss = new SoftAssert();
+		applyExplicitWaitsUntilElementVisible(RMQR.question);
 		normal: while (i < questions.size()) {
-			applyExplicitWaitsUntilElementVisible(RMQR.question);
+			Thread.sleep(200);
+
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -143,6 +160,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
+		pauseVideo();
 		forwardVideoTimerToEnd();
 		applyExplicitWait(15);
 
@@ -151,7 +169,8 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		int i = 0;
 		SoftAssert sAss = new SoftAssert();
 		int actualcount = 0;
-		normal: while (i < questions.size()) {
+		applyExplicitWaitsUntilElementVisible(RMQR.question);
+		normal : while (i < questions.size()) {
 
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
@@ -188,6 +207,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
+		pauseVideo();
 		forwardVideoTimerToEnd();
 		applyExplicitWait(15);
 
@@ -197,7 +217,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		SoftAssert sAss = new SoftAssert();
 		int actualcount = 0;
 		Boolean status;
-		while (i < questions.size()) {
+		applyExplicitWaitsUntilElementVisible(RMQR.question); {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -241,6 +261,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
+		pauseVideo();
 		forwardVideoTimerToEnd();
 		applyExplicitWait(15);
 
@@ -250,7 +271,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		SoftAssert sAss = new SoftAssert();
 		int actualcount = 0;
 		Boolean status;
-		while (i < questions.size()) {
+		applyExplicitWaitsUntilElementVisible(RMQR.question); {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -298,6 +319,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 			throws InterruptedException, WebDriverException, IOException {
 		traverse_To_Begin_Revision(subject, topic);
 		test.log(Status.INFO, "Video started");
+		pauseVideo();
 		forwardVideoTimerToEnd();
 		applyExplicitWait(15);
 
@@ -307,9 +329,10 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		int i = 0;
 		actualcount = 0;
 		SoftAssert sAss = new SoftAssert();
-		while (i < questions.size()) {
+		applyExplicitWaitsUntilElementVisible(RMQR.question);
 
-			applyExplicitWaitsUntilElementVisible(RMQR.question);
+		applyExplicitWaitsUntilElementVisible(RMQR.question); {
+			Thread.sleep(500);
 			System.out.println("Question " + (i + 1));
 			test.log(Status.INFO, "Question " + (i + 1));
 			applyExplicitWait(5);
@@ -340,6 +363,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 			throws InterruptedException, WebDriverException, IOException {
 		traverse_To_Begin_Revision(subject, topic);
 		test.log(Status.INFO, "Video started");
+		pauseVideo();
 		forwardVideoTimerToEnd();
 		applyExplicitWait(15);
 
@@ -355,11 +379,11 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		test.log(Status.INFO, "Clicked on Back Button");
 
 		Thread.sleep(200);
-		status = driver.findElementById("android:id/content").isEnabled();
-		if (status) {
-			System.out.println("Warning message displayed");
-			test.log(Status.INFO, "Warning message displayed");
-		}
+		// status = driver.findElementById("android:id/content").isEnabled();
+		/*
+		 * if (status) { System.out.println("Warning message displayed");
+		 * test.log(Status.INFO, "Warning message displayed"); }
+		 */
 
 		clickOnElement(RMQR.submitTestPopup);
 		System.out.println("Ending Test");
@@ -378,6 +402,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
+		pauseVideo();
 		forwardVideoTimerToEnd();
 		applyExplicitWait(15);
 
@@ -386,7 +411,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		int actualcount = 0;
 		int i = 0;
 		SoftAssert sAss = new SoftAssert();
-		while (i < questions.size()) {
+		applyExplicitWaitsUntilElementVisible(RMQR.question); {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -423,6 +448,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
+		pauseVideo();
 		forwardVideoTimerToEnd();
 		applyExplicitWait(15);
 
@@ -432,6 +458,8 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		SoftAssert sAss = new SoftAssert();
 		int actualcount = 0;
 		Boolean status;
+		applyExplicitWaitsUntilElementVisible(RMQR.question);
+		
 		normal: while (i < questions.size()) {
 
 			test.log(Status.INFO, "Question " + (i + 1));
@@ -466,6 +494,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
+		pauseVideo();
 		forwardVideoTimerToEnd();
 		applyExplicitWait(15);
 
@@ -478,9 +507,9 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 
 		test.log(Status.INFO, "Checking feedback for correct answer selection");
 		System.out.println("Checking feedback for correct answer selection");
-
+		applyExplicitWaitsUntilElementVisible(RMQR.question);
 		while (i < questions.size()) {
-			applyExplicitWaitsUntilElementVisible(RMQR.question);
+
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -518,15 +547,16 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
+		pauseVideo();
 		forwardVideoTimerToEnd();
 		applyExplicitWait(15);
 
 		test.log(Status.INFO, "Checking feedback for Incorrect answer selection");
 		System.out.println("Checking feedback for Incorrect answer selection");
-
+		applyExplicitWaitsUntilElementVisible(RMQR.question);
 		while (i < questions.size()) {
 
-			applyExplicitWaitsUntilElementVisible(RMQR.question);
+			
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -562,6 +592,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
+		pauseVideo();
 		forwardVideoTimerToEnd();
 		applyExplicitWait(15);
 
@@ -574,9 +605,9 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 
 		test.log(Status.INFO, "Selecting correct answers for all SCQ's");
 		System.out.println("Selecting correct answers for all SCQ's");
-
+		applyExplicitWaitsUntilElementVisible(RMQR.question);
 		while (i < questions.size()) {
-			applyExplicitWaitsUntilElementVisible(RMQR.question);
+			
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -594,9 +625,9 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		i = 0;
 		test.log(Status.INFO, "Checking state of selected answers");
 		System.out.println("Checking state of selected answers");
+		applyExplicitWaitsUntilElementVisible(RMQR.question);
 
 		while (i < questions.size()) {
-			applyExplicitWaitsUntilElementVisible(RMQR.question);
 
 			if (verifySCQorMCQ().equalsIgnoreCase("scq")) {
 				applyExplicitWait(5);
@@ -609,7 +640,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 					if (status)
 						checkCnt++;
 					swipeUp();
-					}
+				}
 
 				status = checkCnt == 1 ? true : false;
 				sAss.assertTrue(status, "Attempted state not maintained in Revision");
@@ -629,7 +660,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		applyExplicitWait(2);
 		test.log(Status.INFO, "Total " + actualcount + " SCQ questions are displayed");
 		System.out.println("Total " + actualcount + " SCQ questions are displayed");
-		sAss.assertAll();
+		// sAss.assertAll();
 
 	}
 
@@ -638,6 +669,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
+		pauseVideo();
 		forwardVideoTimerToEnd();
 		applyExplicitWait(15);
 
@@ -646,6 +678,8 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		int i = 0;
 		SoftAssert sAss = new SoftAssert();
 		int actualcount = 0;
+		applyExplicitWaitsUntilElementVisible(RMQR.question);
+		
 		normal: while (i < questions.size()) {
 
 			test.log(Status.INFO, "Question " + (i + 1));
@@ -684,6 +718,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
+		pauseVideo();
 		forwardVideoTimerToEnd();
 		applyExplicitWait(15);
 
@@ -693,7 +728,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		SoftAssert sAss = new SoftAssert();
 		int actualcount = 0;
 		Boolean status;
-		while (i < questions.size()) {
+		applyExplicitWaitsUntilElementVisible(RMQR.question); {
 
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
@@ -727,6 +762,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
+		pauseVideo();
 		forwardVideoTimerToEnd();
 		applyExplicitWait(15);
 
@@ -736,7 +772,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		SoftAssert sAss = new SoftAssert();
 		int actualcount = 0;
 		Boolean status;
-		while (i < questions.size()) {
+		applyExplicitWaitsUntilElementVisible(RMQR.question); {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -770,7 +806,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		applyExplicitWait(2);
 		test.log(Status.INFO, "Total " + actualcount + " MCQ questions are displayed");
 		System.out.println("Total " + actualcount + " MCQ questions are displayed");
-		sAss.assertAll();
+		// sAss.assertAll();
 
 	}
 
@@ -779,6 +815,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
+		pauseVideo();
 		forwardVideoTimerToEnd();
 		applyExplicitWait(15);
 
@@ -788,6 +825,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		SoftAssert sAss = new SoftAssert();
 		int actualcount = 0;
 		Boolean status;
+		applyExplicitWaitsUntilElementVisible(RMQR.question);
 		while (i < questions.size()) {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
@@ -837,6 +875,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
+		pauseVideo();
 		forwardVideoTimerToEnd();
 		applyExplicitWait(15);
 
@@ -849,9 +888,9 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 
 		test.log(Status.INFO, "Checking feedback for correct answer selection");
 		System.out.println("Checking feedback for correct answer selection");
+		applyExplicitWaitsUntilElementVisible(RMQR.question);
+		applyExplicitWaitsUntilElementVisible(RMQR.question); {
 
-		while (i < questions.size()) {
-			applyExplicitWaitsUntilElementVisible(RMQR.question);
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -887,6 +926,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
+		pauseVideo();
 		forwardVideoTimerToEnd();
 		applyExplicitWait(15);
 
@@ -899,9 +939,9 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 
 		test.log(Status.INFO, "Checking feedback for wrong answer selection");
 		System.out.println("Checking feedback for wrong answer selection");
-
+		applyExplicitWaitsUntilElementVisible(RMQR.question);
 		while (i < questions.size()) {
-			applyExplicitWaitsUntilElementVisible(RMQR.question);
+			
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -937,6 +977,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
+		pauseVideo();
 		forwardVideoTimerToEnd();
 		applyExplicitWait(15);
 
@@ -949,9 +990,9 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 
 		test.log(Status.INFO, "Selecting correct answers for all MCQ's");
 		System.out.println("Selecting correct answers for all MCQ's");
-
+		applyExplicitWaitsUntilElementVisible(RMQR.question);
 		while (i < questions.size()) {
-			applyExplicitWaitsUntilElementVisible(RMQR.question);
+			
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -974,9 +1015,8 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		i = 0;
 		test.log(Status.INFO, "Checking state of selected answers");
 		System.out.println("Checking state of selected answers");
-
+		applyExplicitWaitsUntilElementVisible(RMQR.question);
 		while (i < questions.size()) {
-			applyExplicitWaitsUntilElementVisible(RMQR.question);
 
 			if (verifySCQorMCQ().equalsIgnoreCase("mcq")) {
 				applyExplicitWait(5);

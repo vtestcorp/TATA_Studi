@@ -14,6 +14,8 @@ public class Object_Receive_Questions_Revision extends BaseClass {
 
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View/android.view.View")
 	public WebElement question;
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/ib_create_note\")")
+	public WebElement addNotesBtn;
 
 	@AndroidFindBy(id = "com.tce.studi:id/iv_left_icon")
 	public WebElement backBtn;
@@ -89,7 +91,7 @@ public class Object_Receive_Questions_Revision extends BaseClass {
 
 	public Object_Receive_Questions_Revision() {
 		PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);
- 
+
 	}
 
 	public List<MobileElement> get_Total_Number_Of_Questions_InRevision() {

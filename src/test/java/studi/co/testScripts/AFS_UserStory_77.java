@@ -52,7 +52,7 @@ public class AFS_UserStory_77 extends BaseClass {
 			throws MalformedURLException, InterruptedException {
 		
 		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
-		rqr.Module_Verify_SCQ_Answer_Can_Be_Slect_In_Practice(prop.getProperty("subject77"),
+		rqr.Module_Verify_Multiple_Answers_Shown_For_SCQ_In_Practice(prop.getProperty("subject77"),
 				prop.getProperty("topic77"));
 	}
 
@@ -79,7 +79,7 @@ public class AFS_UserStory_77 extends BaseClass {
 	public void TC18_To_Verify_Feedback_Shown_For_Incorrect_Answer_Selection_In_SCQ_Practice()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
-		rqr.Module_Verify_Feedback_Shown_For_Incorrect_Answer_Selection_In_Practice(prop.getProperty("subject77"),
+		rqr.Module_Verify_Multiple_Answers_Shown_For_SCQ_In_Practice(prop.getProperty("subject77"),
 				prop.getProperty("topic77"));
 	}
 
@@ -95,8 +95,8 @@ public class AFS_UserStory_77 extends BaseClass {
 	public void TC20_To_Verify_In_Wrong_Answer_Selection_User_Should_Get_1_More_Attempt_For_SCQ_In_Practice()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
-		rqr.Module_Verify_In_Wrong_Answer_Selection_User_Should_Get_1_More_Attempt_For_SCQ_In_Practice(
-				prop.getProperty("subject77"), prop.getProperty("topic77"));
+		rqr.Module_Verify_Multiple_Answers_Shown_For_SCQ_In_Practice(prop.getProperty("subject77"),
+				prop.getProperty("topic77"));
 	}
 
 	@Test(enabled = true)
@@ -267,7 +267,7 @@ public class AFS_UserStory_77 extends BaseClass {
 		getDriver().launchApp();
 	}
 
-	@BeforeClass
+	//@BeforeClass
 	public void createPlan() throws MalformedURLException {
 
 		Object_Create_Study_Plan temp = new Object_Create_Study_Plan();

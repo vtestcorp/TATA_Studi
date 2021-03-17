@@ -117,7 +117,7 @@ public class Module_MyLesson_Page extends BaseClass{
 		SoftAssert assert1=new SoftAssert();
 //		createPlan();
 //		omp= new Object_MyLesson_Page();
-//		applyExplicitWaitsUntilElementVisible(omp.backIcon);
+//		applyExplicitWaitsUntilElementVisible(omp.studyRing);
 //		omp.backIcon.click();
 		toVerify_User_Navigate_to_MyLessonsPage();
 		
@@ -234,8 +234,8 @@ public class Module_MyLesson_Page extends BaseClass{
 		
 		createPlan();
 		omp= new Object_MyLesson_Page();
-		applyExplicitWaitsUntilElementVisible(omp.backicon);
-		omp.backicon.click();
+		applyExplicitWaitsUntilElementVisible(omp.studyRing);
+		omp.backIcon.click();
 		
 		
 		toVerify_User_Navigate_to_MyLessonsPage();
@@ -368,8 +368,8 @@ public class Module_MyLesson_Page extends BaseClass{
 		SoftAssert assert1=new SoftAssert();
 		createPlan();
 		omp= new Object_MyLesson_Page();
-		applyExplicitWaitsUntilElementVisible(omp.backicon);
-		omp.backicon.click();
+		applyExplicitWaitsUntilElementVisible(omp.studyRing);
+		omp.backIcon.click();
 		
 		toVerify_Todays_Tab();
 		scrollTo2("Upcoming");
@@ -456,8 +456,8 @@ public class Module_MyLesson_Page extends BaseClass{
 		
 		createPlan3(7);
 		omp= new Object_MyLesson_Page();
-		applyExplicitWaitsUntilElementVisible(omp.backicon);
-		omp.backicon.click();
+		applyExplicitWaitsUntilElementVisible(omp.studyRing);
+		omp.backIcon.click();
 		
 		toVerify_User_Navigate_to_MyLessonsPage();
 		SoftAssert assert1=new SoftAssert();
@@ -525,7 +525,7 @@ public class Module_MyLesson_Page extends BaseClass{
 	public void toVerify_Lesson_Card_Content() throws Exception {
 		createPlan();
 		omp= new Object_MyLesson_Page();
-		applyExplicitWaitsUntilElementVisible(omp.backIcon);
+		applyExplicitWaitsUntilElementVisible(omp.studyRing);
 		omp.backIcon.click();
 		
 		
@@ -607,8 +607,8 @@ public class Module_MyLesson_Page extends BaseClass{
 		
 		createPlan();
 		omp= new Object_MyLesson_Page();
-		applyExplicitWaitsUntilElementVisible(omp.backicon);
-		omp.backicon.click();
+		applyExplicitWaitsUntilElementVisible(omp.studyRing);
+		omp.backIcon.click();
 		
 		toVerify_User_Navigate_to_MyLessonsPage();
 		SoftAssert assert1=new SoftAssert();
@@ -634,8 +634,8 @@ public class Module_MyLesson_Page extends BaseClass{
 		
 		createPlan();
 		omp= new Object_MyLesson_Page();
-		applyExplicitWaitsUntilElementVisible(omp.backicon);
-		omp.backicon.click();
+		applyExplicitWaitsUntilElementVisible(omp.studyRing);
+		omp.backIcon.click();
 		
 		toVerify_User_Navigate_to_MyLessonsPage();
 		SoftAssert assert1=new SoftAssert();
@@ -658,7 +658,7 @@ public class Module_MyLesson_Page extends BaseClass{
 		}
 		assert1.assertTrue(lessonTappable);
 		
-		applyExplicitWaitsUntilElementVisible(omp.backIcon);
+		applyExplicitWaitsUntilElementVisible(omp.studyRing);
 		omp.backIcon.click();
 		
 		scrollTo2("View");
@@ -790,7 +790,7 @@ public class Module_MyLesson_Page extends BaseClass{
 			else {
 				scrollToEnd();
 			}
-			MobileElement  date=getDriver().findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup["+i+"]/android.view.ViewGroup[1]/android.widget.TextView");
+		MobileElement  date=getDriver().findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup["+i+"]/android.view.ViewGroup[1]/android.widget.TextView");
 		System.out.println(date.getText());
 		assert1.assertTrue(date.isDisplayed());
 		
@@ -803,6 +803,8 @@ public class Module_MyLesson_Page extends BaseClass{
 			else {
 			int j=1;
 			test.log(Status.INFO, "Lessons for "+date.getText());
+			if(i<7) {
+				
 				for(MobileElement lesson : lessons) {
 					MobileElement lesson1=getDriver().findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup["+i+"]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup["+j+"]/android.widget.TextView[3]");
 					Boolean isLesson=lesson1.isDisplayed();
@@ -812,6 +814,7 @@ public class Module_MyLesson_Page extends BaseClass{
 					j++;
 				}
 			}
+			}
 		}
 		assert1.assertAll();
 	}
@@ -820,7 +823,7 @@ public class Module_MyLesson_Page extends BaseClass{
 	public void toVerify_Schedule_List_Of_Plan_For_Other_Weeks() throws Exception {
 		createPlan1(7);
 		omp= new Object_MyLesson_Page();
-		applyExplicitWaitsUntilElementVisible(omp.backIcon);
+		applyExplicitWaitsUntilElementVisible(omp.studyRing);
 		omp.backIcon.click();
 		toVerify_Schedule_List_Page();
 		SoftAssert assert1=new SoftAssert();
@@ -972,7 +975,7 @@ public class Module_MyLesson_Page extends BaseClass{
 	public void toVerify_Various_Filter_Options_On_Schedule_List_Should_Be_Functional() throws Exception {
 		createPlan2(7);
 		omp= new Object_MyLesson_Page();
-		applyExplicitWaitsUntilElementVisible(omp.backIcon);
+		applyExplicitWaitsUntilElementVisible(omp.studyRing);
 		omp.backIcon.click();
 		
 		
@@ -1090,7 +1093,7 @@ public class Module_MyLesson_Page extends BaseClass{
 			
 //			createPlan2(7);
 //			omp= new Object_MyLesson_Page();
-//			applyExplicitWaitsUntilElementVisible(omp.backIcon);
+//			applyExplicitWaitsUntilElementVisible(omp.studyRing);
 //			omp.backIcon.click();
 			
 			toVerify_Filter_Option();
@@ -1183,7 +1186,7 @@ public class Module_MyLesson_Page extends BaseClass{
 		
 		createPlan1(0);
 		omp= new Object_MyLesson_Page();
-		applyExplicitWaitsUntilElementVisible(omp.backIcon);
+		applyExplicitWaitsUntilElementVisible(omp.studyRing);
 		omp.backIcon.click();
 		toVerify_HighLighted_Lesson();
 		SoftAssert assert1=new SoftAssert();
@@ -1465,9 +1468,11 @@ public class Module_MyLesson_Page extends BaseClass{
 		
 		clickOnElement(findElementByText("Next Step"));
 		applyExplicitWait(5);
+		Thread.sleep(2000);
 		clickOnElement(findElementByText("Next Step"));
 		applyExplicitWait(5);
 		
+		applyExplicitWaitsUntilElementVisible(orp.selectDate);
 		String date=orp.selectDate.getText();
 		System.out.println(date);
 		String[] s = date.split(", ");
@@ -1499,7 +1504,7 @@ public class Module_MyLesson_Page extends BaseClass{
 			Thread.sleep(2000);
 			clickOnElement(findElementByText("Begin Studying"));
 		
-		
+		applyExplicitWaitsUntilElementVisible(omp.testUnitHeading);
 		Boolean testUnit=omp.testUnitHeading.isDisplayed();
 		assert1.assertTrue(testUnit);
 		if(testUnit) {
@@ -1586,7 +1591,7 @@ public class Module_MyLesson_Page extends BaseClass{
 		
 		createPlan1(4);
 		omp= new Object_MyLesson_Page();
-		applyExplicitWaitsUntilElementVisible(omp.backIcon);
+		applyExplicitWaitsUntilElementVisible(omp.studyRing);
 		omp.backIcon.click();
 		
 		SoftAssert assert1 =new SoftAssert();

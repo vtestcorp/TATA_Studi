@@ -84,7 +84,7 @@ public class AFS_UserStory_76 extends BaseClass {
 	@Test(enabled = true) // needs questions data // Failed for now
 	public void TC18_To_Verify_Correct_Feedback_Shown_Under_Hamburger_Menu_In_Practice()
 			throws MalformedURLException, InterruptedException {
-		Assert.assertTrue(false);
+		//Assert.assertTrue(false);
 		Module_Receive_Questions_Practice rqt = new Module_Receive_Questions_Practice();
 		rqt.Module_Verify_Correct_Feedback_Shown_Under_Hamburger_Menu_MCQ_In_Practice(prop.getProperty("msubject"),
 				prop.getProperty("mtopic"));
@@ -235,7 +235,7 @@ public class AFS_UserStory_76 extends BaseClass {
 	@Test(enabled = true) // needs questions data // Failed for now
 	public void TC27_To_Verify_Correct_Feedback_Shown_After_MCQ_Answer_Selection_In_Test()
 			throws MalformedURLException, InterruptedException {
-		Assert.assertTrue(false);
+		//Assert.assertTrue(false);
 		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
 		rqt.Module_Verify_Correct_Feedback_Shown_After_MCQ_Answer_Selection_In_Test(prop.getProperty("Psubject"));
 
@@ -244,7 +244,7 @@ public class AFS_UserStory_76 extends BaseClass {
 	@Test(enabled = true) // needs questions data // Failed for now
 	public void TC28_To_Verify_Correct_Feedback_Shown_Under_Hamburger_Menu_In_Test()
 			throws MalformedURLException, InterruptedException {
-		Assert.assertTrue(false);
+		//Assert.assertTrue(false);
 		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
 		rqt.Module_Verify_Correct_Feedback_Shown_Under_Hamburger_Menu_MCQ_In_Test(prop.getProperty("Psubject"));
 

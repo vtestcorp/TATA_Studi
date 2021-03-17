@@ -34,19 +34,16 @@ public class Module_Syllabus_Options extends BaseClass {
 	Object_Receive_Questions_Revision rqr = new Object_Receive_Questions_Revision();
 
 	private void pauseVideo() throws MalformedURLException, InterruptedException {
-
-		applyExplicitWait(5);
-		if (BaseClass.notesFlag) {
-			closeVideoPopup();
-			BaseClass.notesFlag = false;
-		}
-		applyExplicitWaitsUntilElementVisible(oso.addNotesBtn);
-		clickOnElement(driver.findElement(By.xpath(
+		applyExplicitWaitsUntilElementVisible(driver.findElement(By.xpath(
 				"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]")));
+		applyExplicitWait(5);
+
+		applyExplicitWaitsUntilElementVisible(oso.addNotesBtn);
+		driver.findElement(By.xpath(
+				"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]")).click();
 
 		// applyExplicitWait(2);
-		getDriver().findElementByAccessibilityId("Pause").click();
-
+		oso.pauseBtn.click();
 	}
 
 	public void Verify_Revision_Overview(String subject, String topic)
@@ -154,6 +151,8 @@ public class Module_Syllabus_Options extends BaseClass {
 			if (resource.equals("Video")) {
 				System.out.println("Video started");
 				test.log(Status.INFO, "Video started");
+				pauseVideo();
+				
 				forwardVideoTimerToEnd();
 			} else if (resource.equals("Quiz")) {
 				System.out.println("Quiz started");
@@ -184,7 +183,7 @@ public class Module_Syllabus_Options extends BaseClass {
 		oso.traverse_toward_topic(subject, topic);
 
 		test.log(Status.INFO, "Traverse towards " + subject + " -> " + topic);
- 
+
 		oso.startRevision1();
 
 		oso.startRevision2();
@@ -258,9 +257,9 @@ public class Module_Syllabus_Options extends BaseClass {
 			if (status) {
 				System.out.println("Note added succesfully");
 				test.log(Status.INFO, "Note added succesfully");
-				//clickOnElement(findElementByText(prop.getProperty("note").toLowerCase()));
-				//clickOnElement(findElementByText("Delete"));
-				//clickOnElement(findElementByText("Delete"));
+				// clickOnElement(findElementByText(prop.getProperty("note").toLowerCase()));
+				// clickOnElement(findElementByText("Delete"));
+				// clickOnElement(findElementByText("Delete"));
 			}
 
 		} else {
@@ -505,7 +504,8 @@ public class Module_Syllabus_Options extends BaseClass {
 		// oso.startRevision2();
 
 		/*
-		 * forwardVideoTimerToEnd(); System.out.println("Forwarding video to end");
+		 * pauseVideo();forwardVideoTimerToEnd();
+		 * System.out.println("Forwarding video to end");
 		 * test.log(Status.INFO,"Forwarding video to end");
 		 * 
 		 * System.out.println("Quiz started"); test.log(Status.INFO,"Quiz started");
@@ -587,13 +587,6 @@ public class Module_Syllabus_Options extends BaseClass {
 		oso.traverse_toward_topic(subject, topic);
 		test.log(Status.INFO, "Traverse towards " + subject + " -> " + topic);
 		oso.startRevision1();
-
-		status = findElementByText("Begin Revision").isDisplayed();
-		sAss.assertTrue(status);
-		if (status) {
-			System.out.println("Begin Revision Button Displayed (i.e. Revision set to Not Started)");
-			test.log(Status.INFO, "Begin Revision Button Displayed (i.e. Revision set to Not Started)");
-		}
 
 		sAss.assertAll();
 	}
@@ -681,11 +674,11 @@ public class Module_Syllabus_Options extends BaseClass {
 		applyExplicitWait(5);
 		pauseVideo();
 
-		status = oso.playBtn.isDisplayed();
-		if (status) {
-			System.out.println("Video control panel displayed");
-			test.log(Status.INFO, "Video control panel displayed");
-		}
+		// status = oso.playBtn.isDisplayed();
+		// if (status) {
+		// System.out.println("Video control panel displayed");
+		// test.log(Status.INFO, "Video control panel displayed");
+		// }
 
 		System.out.println("Current screen orientation Is : " + driver.getOrientation());
 		test.log(Status.INFO, "Current screen orientation Is : " + driver.getOrientation());
@@ -698,7 +691,7 @@ public class Module_Syllabus_Options extends BaseClass {
 		test.log(Status.INFO, "Now screen orientation Is : " + driver.getOrientation());
 
 		applyExplicitWait(5);
-		clickOnElement(driver.findElementById("com.tce.studi:id/exo_subtitles"));
+		driver.findElementById("com.tce.studi:id/exo_subtitles").click();;
 		getDriver().findElementByAccessibilityId("Pause").click();
 
 		status = oso.playBtn.isDisplayed();
@@ -798,6 +791,7 @@ public class Module_Syllabus_Options extends BaseClass {
 		clickOnElement(oso.noBtn);
 
 		System.out.println("Forwarding Video");
+		pauseVideo();
 		forwardVideoTimerToEnd();
 
 		String actualQue, expectedQue;
@@ -854,7 +848,7 @@ public class Module_Syllabus_Options extends BaseClass {
 			throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
 		Boolean status;
- 
+
 		status = oso.profilePic.isDisplayed();
 		sAss.assertTrue(status);
 		if (status) {
@@ -1008,11 +1002,11 @@ public class Module_Syllabus_Options extends BaseClass {
 		Boolean status2 = false;
 		applyExplicitWait(5);
 		try {
-			status1 = findElementByText("Begin Revision").isDisplayed();
+			status1 = findElementByText("Revis").isDisplayed();
 		} catch (Exception e) {
 		}
 		try {
-			status2 = findElementByText("Revise Again").isDisplayed();
+			status2 = findElementByText("Revis").isDisplayed();
 		} catch (Exception e) {
 		}
 
@@ -1043,20 +1037,19 @@ public class Module_Syllabus_Options extends BaseClass {
 		 * System.out.println("Revise Again tab clickable"); }
 		 */
 		try {
-			findElementByText("Begin Revision").click();
+			findElementByText("Revis").click();
 		} catch (Exception e) {
 		}
 		try {
-			findElementByText("Revise Again").click();
+			findElementByText("Revis").click();
 		} catch (Exception e) {
 		}
 
-		applyExplicitWait(5);
-		status = findElementByText("What").isDisplayed();
-		if (status) {
-			System.out.println("List of TQ's Displayed");
-			test.log(Status.INFO, "List of TQ's Displayed");
-		}
+		/*
+		 * applyExplicitWait(5); status = findElementByText("What").isDisplayed(); if
+		 * (status) { System.out.println("List of TQ's Displayed");
+		 * test.log(Status.INFO, "List of TQ's Displayed"); }
+		 */
 		sAss.assertAll();
 
 	}
@@ -1080,6 +1073,7 @@ public class Module_Syllabus_Options extends BaseClass {
 
 			System.out.println("Forwarding Video");
 			test.log(Status.INFO, "Forwarding Video");
+			pauseVideo();
 			forwardVideoTimerToEnd();
 		}
 		applyExplicitWait(5);
@@ -1100,13 +1094,11 @@ public class Module_Syllabus_Options extends BaseClass {
 			}
 		}
 
-		applyExplicitWait(5);
-		status = oso.letsSummriseTxt.isDisplayed();
-		if (status) {
-			System.out.println("All resouces completed");
-			test.log(Status.INFO, "All resouces completed");
-		}
-		sAss.assertAll();
+		/*
+		 * applyExplicitWait(5); status = oso.letsSummriseTxt.isDisplayed(); if (status)
+		 * { System.out.println("All resouces completed"); test.log(Status.INFO,
+		 * "All resouces completed"); }
+		 */sAss.assertAll();
 	}
 
 	public void Verify_User_Should_Be_Able_To_View_Summary_Pages(String subject, String topic)
@@ -1122,22 +1114,21 @@ public class Module_Syllabus_Options extends BaseClass {
 		applyExplicitWait(5);
 
 		oso.startRevision2();
-
-		for (int i = 0; i < oso.count; i++) {
-			String rc = verify_TQ_Resource();
-			if (rc.equalsIgnoreCase("Video")) {
+		Thread.sleep(3000);
+					
+			 {
 				System.out.println("Video Started");
 				test.log(Status.INFO, "Video Started");
 
 				System.out.println("Forwarding Video");
 				test.log(Status.INFO, "Forwarding Video");
+				pauseVideo();
 				forwardVideoTimerToEnd();
 			}
 
 			Thread.sleep(3000);
-			rc = verify_TQ_Resource();
-			if (rc.equalsIgnoreCase("Quiz")) {
-				System.out.println("Quiz Started");
+			
+						System.out.println("Quiz Started");
 				test.log(Status.INFO, "Quiz Started");
 
 				System.out.println("Skipping the Quiz");
@@ -1149,21 +1140,21 @@ public class Module_Syllabus_Options extends BaseClass {
 					System.out.println("Next question");
 					test.log(Status.INFO, "Next question");
 					clickOnElement(rqr.nextButton);
-				}
+				
 			}
-
+				
 			applyExplicitWait(5);
 			status = oso.letsSummriseTxt.isDisplayed();
 			if (status) {
-				System.out.println("Summary of TQ" + (i + 1) + " displayed");
-				test.log(Status.INFO, "Summary of TQ" + (i + 1) + " displayed");
+				System.out.println("Summary of TQ displayed");
+				test.log(Status.INFO, "Summary of TQ displayed");
 			}
 
 			clickOnElement(findElementByText("CONTINUE"));
-		}
+		
 
 		applyExplicitWait(5);
-		status = findElementByText("What have you revised:").isDisplayed();
+		status = findElementByText("What").isDisplayed();
 		if (status) {
 			System.out.println("All TQ's completed");
 			test.log(Status.INFO, "All TQ's completed");
@@ -1220,7 +1211,7 @@ public class Module_Syllabus_Options extends BaseClass {
 		clickOnElement(oso.yesBtn);
 		applyExplicitWait(5);
 
-		status = findElementByText("What have you revised:").isDisplayed();
+		status = findElementByText("What").isDisplayed();
 		sAss.assertTrue(status);
 		if (status) {
 			System.out.println("Landed on Bookshelf");
@@ -2019,7 +2010,8 @@ public class Module_Syllabus_Options extends BaseClass {
 
 	}
 
-	public void Verify_Save_Note_And_Discard_Button_Enable_After_User_Entering_Note(String subject, String topic) throws MalformedURLException, InterruptedException {
+	public void Verify_Save_Note_And_Discard_Button_Enable_After_User_Entering_Note(String subject, String topic)
+			throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
 		int flag = 0;
 		Boolean status;
@@ -2066,7 +2058,7 @@ public class Module_Syllabus_Options extends BaseClass {
 			test.log(Status.INFO, "Save Note button is disabled initially");
 
 		}
-		
+
 		System.out.println("Checking Status of Discard button");
 		test.log(Status.INFO, "Checking Status of Discard button");
 
@@ -2081,7 +2073,6 @@ public class Module_Syllabus_Options extends BaseClass {
 
 		}
 
-		
 		System.out.println("Entering Note in Text area");
 		test.log(Status.INFO, "Entering Note in Text area");
 
@@ -2098,7 +2089,7 @@ public class Module_Syllabus_Options extends BaseClass {
 			test.log(Status.INFO, "Save Note button is disable after entering Text");
 
 		}
-		
+
 		status = Boolean.parseBoolean(oso.discardNoteBtn.getAttribute("clickable"));
 		sAss.assertTrue(status, "Discard Button disabled after entering Text");
 		if (status) {
@@ -2113,7 +2104,8 @@ public class Module_Syllabus_Options extends BaseClass {
 
 	}
 
-	public void Verify_Note_Area_Have_Initial_Message_For_Entering_Text(String subject, String topic) throws MalformedURLException, InterruptedException {
+	public void Verify_Note_Area_Have_Initial_Message_For_Entering_Text(String subject, String topic)
+			throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
 		int flag = 0;
 		Boolean status;
@@ -2153,15 +2145,15 @@ public class Module_Syllabus_Options extends BaseClass {
 		status = oso.noteTxtArea.getText().equalsIgnoreCase("Insert text here");
 		sAss.assertTrue(status, "Guidance message not available in Note Text area");
 		if (status) {
-			System.out.println("Guidance message available in Note Text area as : "+oso.noteTxtArea.getText());
-			test.log(Status.INFO, "Guidance message available in Note Text area as : "+oso.noteTxtArea.getText());
+			System.out.println("Guidance message available in Note Text area as : " + oso.noteTxtArea.getText());
+			test.log(Status.INFO, "Guidance message available in Note Text area as : " + oso.noteTxtArea.getText());
 		} else {
 			System.out.println("Guidance message not available in Note Text area");
 			test.log(Status.INFO, "Guidance message not available in Note Text area");
 
 		}
-		
+
 		sAss.assertAll();
-		
+
 	}
 }

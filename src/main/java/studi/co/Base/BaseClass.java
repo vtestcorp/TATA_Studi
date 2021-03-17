@@ -74,6 +74,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
@@ -108,7 +109,9 @@ public class BaseClass {
 	public static int correctAnswers;
 	public static int[] correctAnswer = new int[10];
 	public static int wrongAnswers;
-
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/exo_pause\").className(\"android.widget.ImageButton\")")
+	public WebElement pauseBtn;
+	
 	public BaseClass() {
 		try {
 
@@ -664,23 +667,6 @@ public class BaseClass {
 	 */
 	public static void forwardVideoTimerToEnd() throws WebDriverException, IOException, InterruptedException {
 		action = new TouchAction(getDriver());
-		if (notesFlag) {
-			// applyExplicitWaitsUntilElementVisible(oso.continueOnVdoBtn);
-			closeVideoPopup();
-			notesFlag = false;
-		}
-		Thread.sleep(5000);
-		/*
-		 * action.tap(PointOption.point(200, 200)).perform();
-		 * action.tap(PointOption.point(240, 360)).perform();
-		 */
-		applyExplicitWaitsUntilElementVisible(driver.findElement(By.xpath(
-				"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]")));
-		getDriver().findElement(By.xpath(
-				"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]"))
-				.click();
-		applyExplicitWait(1);
-		getDriver().findElementByAccessibilityId("Pause").click();
 		WebElement seekBar = (MobileElement) driver.findElementByClassName("android.widget.SeekBar");
 		// get location of seek bar from left
 		int start = seekBar.getLocation().getX();
@@ -808,7 +794,12 @@ public class BaseClass {
 	}
 
 	public String verify_TQ_Resource() throws MalformedURLException {
-		applyExplicitWait(10);
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		try {
 			if (getDriver().findElement(By.xpath(
 					"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]"))

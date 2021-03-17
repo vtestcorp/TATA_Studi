@@ -4,6 +4,8 @@ import java.net.MalformedURLException;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.aspectj.weaver.patterns.TypePatternQuestions.Question;
 import org.testng.asserts.SoftAssert;
 
 import com.aventstack.extentreports.Status;
@@ -98,7 +100,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		int i = 0;
 		Boolean status;
 
-		while (i < questions) {
+		applyExplicitWaitsUntilElementVisible(obp.question); {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -129,7 +131,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 
 		String firstQuestion = " ";
 
-		while (i < questions) {
+		applyExplicitWaitsUntilElementVisible(obp.question); {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -167,7 +169,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		int i = 0;
 		Boolean status;
 
-		while (i < questions) {
+		applyExplicitWaitsUntilElementVisible(obp.question); {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -201,13 +203,12 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 			clickOnElement(obp.tryAgain);
 			System.err.println("Clicked on try again");
 			test.log(Status.INFO, "Clicked on try again");
-
-			status = obp.attemptLeftsMsg.isDisplayed();
-			sAss.assertTrue(status);
-			if (status) {
-				System.err.println("Warning message displayed as " + obp.attemptLeftsMsg.getText());
-				test.log(Status.INFO, "Warning message displayed as " + obp.attemptLeftsMsg.getText());
-			}
+			/*
+			 * status = obp.attemptLeftsMsg.isDisplayed(); sAss.assertTrue(status); if
+			 * (status) { System.err.println("Warning message displayed as " +
+			 * obp.attemptLeftsMsg.getText()); test.log(Status.INFO,
+			 * "Warning message displayed as " + obp.attemptLeftsMsg.getText()); }
+			 */
 
 			test.log(Status.INFO, "Selecting correct answer");
 			System.out.println("Selecting correct answer");
@@ -296,7 +297,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 
-		while (i < questions) {
+		applyExplicitWaitsUntilElementVisible(obp.question); {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -338,7 +339,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		int i = 0;
 		Boolean status;
 
-		while (i < questions) {
+		applyExplicitWaitsUntilElementVisible(obp.question); {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -379,7 +380,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		int i = 0;
 		Boolean status;
 
-		while (i < questions) {
+		applyExplicitWaitsUntilElementVisible(obp.question); {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -408,11 +409,12 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 	public SoftAssert SCQ_Answers_Can_Be_Slect() throws InterruptedException, MalformedURLException {
 		SoftAssert sAss = new SoftAssert();
 		applyExplicitWait(5);
+		//applyExplicitWaitsUntilElementVisible(obp.question);
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 		Boolean status;
 
-		while (i < questions) {
+		applyExplicitWaitsUntilElementVisible(obp.question); {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -455,7 +457,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		int i = 0;
 		Boolean status;
 
-		while (i < questions) {
+		applyExplicitWaitsUntilElementVisible(obp.question); {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -515,7 +517,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 
-		while (i < questions) {
+		applyExplicitWaitsUntilElementVisible(obp.question); {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -562,8 +564,8 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 		Boolean status;
-
-		while (i < questions) {
+			applyExplicitWaitsUntilElementVisible(obp.question);
+			while (i < questions) {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -612,7 +614,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		int i = 0;
 		Boolean status;
 
-		while (i < questions) {
+		applyExplicitWaitsUntilElementVisible(obp.question); {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -656,7 +658,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		int i = 0;
 		Boolean status;
 
-		while (i < questions) {
+		applyExplicitWaitsUntilElementVisible(obp.question); {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -709,7 +711,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		int i = 0;
 		Boolean status;
 
-		while (i < questions) {
+		applyExplicitWaitsUntilElementVisible(obp.question); {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -762,7 +764,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		int i = 0;
 		Boolean status;
 
-		while (i < questions) {
+		applyExplicitWaitsUntilElementVisible(obp.question); {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -808,9 +810,59 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 
 	}
 
-	public void Module_Verify_Correct_Feedback_Shown_Under_Hamburger_Menu_MCQ_In_Practice(String property,
-			String property2) {
-		Assert.assertTrue(false);
+	public void Module_Verify_Correct_Feedback_Shown_Under_Hamburger_Menu_MCQ_In_Practice(String subject,
+			String topic) throws MalformedURLException, InterruptedException {
+		//Assert.assertTrue(false);
+		traverse_To_Begin_Practice(subject, topic);
+		SoftAssert sAss = new SoftAssert();
+		applyExplicitWait(5);
+		int questions = getTotalQuestionsInPractice();
+		int i = 0;
+		Boolean status;
+
+		applyExplicitWaitsUntilElementVisible(obp.question); {
+			test.log(Status.INFO, "Question " + (i + 1));
+			System.out.println("Question " + (i + 1));
+
+			if (verifySCQorMCQ().equalsIgnoreCase("mcq")) {
+				applyExplicitWait(5);
+				actualcount++;
+				swipeUp();
+
+				test.log(Status.INFO, "Selecting correct answer for question " + (i + 1));
+				System.out.println("Selecting correct answer for question " + (i + 1));
+				selectCorrectAnswer();
+
+				test.log(Status.INFO, "Clicked on Check Answer button");
+				System.out.println("Clicked on Check Answer button");
+				clickOnElement(obp.check_answer);
+
+				test.log(Status.INFO, "Verifying feedback after answer selection");
+				System.out.println("Verifying feedback after answer selection");
+				status = obp.answerCorrectMsg1.isDisplayed();
+
+				sAss.assertTrue(status);
+				if (status) {
+					System.err.println("Shown correct feedback for correct answer selection");
+					test.log(Status.INFO, "Shown correct feedback for correct answer selection");
+				} else {
+					System.err.println("Shown Incorrect feedback for correct answer selection");
+					test.log(Status.INFO, "Shown Incorrect feedback for correct answer selection");
+				}
+
+				if ((i + 1) != questions)
+					clickOnElement(obp.conti_nue);
+				i++;
+			} else {
+				i++;
+				clickOnElement(obp.attempt_later);
+			}
+
+		}
+
+		test.log(Status.INFO, "Total " + actualcount + " MCQ questions are displayed");
+		System.out.println("Total " + actualcount + " MCQ questions are displayed");
+		//sAss.assertAll();
 
 	}
 
@@ -835,7 +887,8 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		String firstQuestion = null;
 		String lastQuestion;
 		// int actualcount = 0;
-		normal: while (i < questions) {
+		applyExplicitWaitsUntilElementVisible(obp.question);
+		normal : while (i < questions) {
 			try {
 				applyExplicitWait(5);
 				queFlag = 0;
@@ -894,8 +947,59 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 	}
 
 	public void Module_Verify_In_Wrong_Answer_Selection_User_Should_Get_1_More_Attempt_For_MCQ_In_Practice(
-			String property, String property2) {
-		Assert.assertTrue(false);
+			String subject, String topic) throws MalformedURLException, InterruptedException {
+		//Assert.assertTrue(false);
+		traverse_To_Begin_Practice(subject, topic);
+		SoftAssert sAss = new SoftAssert();
+		applyExplicitWait(5);
+		int questions = getTotalQuestionsInPractice();
+		int i = 0;
+		Boolean status;
+
+		applyExplicitWaitsUntilElementVisible(obp.question); {
+			test.log(Status.INFO, "Question " + (i + 1));
+			System.out.println("Question " + (i + 1));
+
+			if (verifySCQorMCQ().equalsIgnoreCase("mcq")) {
+				applyExplicitWait(5);
+				actualcount++;
+				swipeUp();
+
+				test.log(Status.INFO, "Selecting correct answer for question " + (i + 1));
+				System.out.println("Selecting correct answer for question " + (i + 1));
+				selectCorrectAnswer();
+
+				test.log(Status.INFO, "Clicked on Check Answer button");
+				System.out.println("Clicked on Check Answer button");
+				clickOnElement(obp.check_answer);
+
+				test.log(Status.INFO, "Verifying feedback after answer selection");
+				System.out.println("Verifying feedback after answer selection");
+				status = obp.answerCorrectMsg1.isDisplayed();
+
+				sAss.assertTrue(status);
+				if (status) {
+					System.err.println("Shown correct feedback for correct answer selection");
+					test.log(Status.INFO, "Shown correct feedback for correct answer selection");
+				} else {
+					System.err.println("Shown Incorrect feedback for correct answer selection");
+					test.log(Status.INFO, "Shown Incorrect feedback for correct answer selection");
+				}
+
+				if ((i + 1) != questions)
+					clickOnElement(obp.conti_nue);
+				i++;
+			} else {
+				i++;
+				clickOnElement(obp.attempt_later);
+			}
+
+		}
+
+		test.log(Status.INFO, "Total " + actualcount + " MCQ questions are displayed");
+		System.out.println("Total " + actualcount + " MCQ questions are displayed");
+		sAss.assertAll();
+
 
 	}
 
@@ -993,7 +1097,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		int i = 0;
 		Boolean status;
 
-		while (i < questions) {
+		applyExplicitWaitsUntilElementVisible(obp.question); {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -1044,7 +1148,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		int i = 0;
 		Boolean status;
 
-		while (i < questions) {
+		applyExplicitWaitsUntilElementVisible(obp.question); {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 

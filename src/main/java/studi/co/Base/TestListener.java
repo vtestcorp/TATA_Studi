@@ -96,7 +96,7 @@ public class TestListener extends BaseClass implements ITestListener {
 		extent.setSystemInfo("Tester", "Author");
 		temptest = extent.createTest("Tata Studi");
 		temptest.log(Status.INFO, "Tata Studi");
-		htmlReporter.config().setReportName("Tata Studi Automation Report - Milestone 1");
+		htmlReporter.config().setReportName("Tata Studi Automation Report");
 		htmlReporter.config().setDocumentTitle("E-Learning");// Title of Report
 		htmlReporter.config().setTheme(Theme.DARK);
 	}
