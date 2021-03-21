@@ -402,7 +402,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		test.log(Status.INFO, "Clicked on Back Button");
 
 		Thread.sleep(200);
-		status = driver.findElementById("android:id/content").isEnabled();
+		status =RMQR.exitPopup.isEnabled();
 		if (status) {
 			System.out.println("Warning message displayed");
 			test.log(Status.INFO, "Warning message displayed");
