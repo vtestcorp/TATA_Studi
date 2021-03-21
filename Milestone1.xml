@@ -9,11 +9,11 @@
 	</listeners>
 	<test thread-count="5" name="Milestone 1">
 
-		<parameter name="type" value="Android"></parameter>
+		<parameter name="type" value="IOS"></parameter>
 		<classes>
 			<class name="studi.co.testScripts.AFS_UserStory_77" />
-			<class name="studi.co.testScripts.AFS_UserStory_76" />
-		</classes>
+<!-- 			<class name="studi.co.testScripts.AFS_UserStory_76" />
+ -->		</classes>
 
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

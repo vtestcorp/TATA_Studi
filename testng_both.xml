@@ -5,8 +5,19 @@
 		<listener class-name="studi.co.Base.TestListener" />
 		<listener class-name="studi.co.testng.EmailableReportListener" />
 	</listeners>
-	<test thread-count="5" name="IOS_Test">
-		<parameter name="type" value="Android"></parameter>
+	<test name="IOS_Test" thread-count="5">
+		<parameter name="type" value="IOS"></parameter>
+		<classes>
+<!-- 			<class name="studi.co.testScripts.AFS_UserStory_77" /> -->
+			<class name="studi.co.testScripts.AFS_UserStory_76" />
+<!-- 			<class name="studi.co.testScripts.AFS_UserStory_2" /> -->
+<!-- 			<class name="studi.co.testScripts.AFS_UserStory_65" /> -->
+<!-- 			<class name="studi.co.testScripts.AFS_UserStory_1044" /> -->
+<!-- 			<class name="studi.co.testScripts.AFS_UserStory_63" /> -->
+		</classes>
+	</test> 
+	<test name="Android_Test" thread-count="5">
+		<parameter name="type" value="Android" ></parameter>
 		<classes>
 <!-- 			<class name="studi.co.testScripts.AFS_UserStory_77" /> -->
 			<class name="studi.co.testScripts.AFS_UserStory_76" />

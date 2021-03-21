@@ -120,7 +120,7 @@ public class TestListener extends Keyword implements ITestListener {
 		Date date = new Date();
 		String datetime = dateFormat.format(date);
 
-		String screenshotPath = System.getProperty("user.dir") + "\\Screenshots\\" + tcName + " ExtendReport "
+		String screenshotPath = System.getProperty("user.dir")+"/ExtentReport/Screenshots/" + tcName + " ExtendReport "
 				+ datetime + ".png";
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);

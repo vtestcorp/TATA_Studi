@@ -15,6 +15,7 @@
 package studi.co.Base;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 
 import java.awt.AWTException;
 import java.awt.CardLayout;
@@ -37,9 +38,12 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import javax.swing.JFrame;
@@ -57,8 +61,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.ITestContext;
+import org.testng.Reporter;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
@@ -74,6 +82,9 @@ import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.iOSFindBy;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
@@ -85,6 +96,7 @@ import studi.co.pageObjects.Object_Syllabus_Option;
 
 public class BaseClass {
 
+	public static String device;
 	public static Boolean notesFlag = false;
 	public static ExtentTest test, temptest;
 	public static Properties prop; // Property file initialization
@@ -109,17 +121,22 @@ public class BaseClass {
 	public static int correctAnswers;
 	public static int[] correctAnswer = new int[10];
 	public static int wrongAnswers;
+	public static String appPath = "/Users/shakilhanjgikar/Downloads/Studi_1_3_8.ipa";
+
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/exo_pause\").className(\"android.widget.ImageButton\")")
+	public WebElement pauseBtn;
 
 	public BaseClass() {
 		try {
 
 			prop = new Properties();
 			FileInputStream ip = new FileInputStream(
-					System.getProperty("user.dir") + "\\src\\main\\java\\studi\\co\\Config\\config.properties");
+					System.getProperty("user.dir") + "/src/main/java/studi/co/Config/config.properties");
 			prop.load(ip);
 		} catch (Exception ex) {
 			System.out.println(ex.getStackTrace());
 		}
+		PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);
 	}
 
 	public static String RandomString() {
@@ -131,67 +148,8 @@ public class BaseClass {
 		return generatedString;
 	}
 
-	public static void main(String[] args) throws Exception {
-		caps = new DesiredCapabilities();
-		caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Appium");
-		caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-		caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9");
-		caps.setCapability("appPackage", "com.example.reminder_app");
-		caps.setCapability("appActivity", "com.example.reminder_app.MainActivity");
-		caps.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, "true");
-
-		// caps.setCapability("app",
-		// "C:\\Users\\Dell\\Downloads\\22-feb-2021app-profile.apk");
-		System.out.println("Required Desired Capabilities Defined");
-		final String appiumserverUrl = "http://127.0.0.1:4723/wd/hub";
-		url = new URL(appiumserverUrl);
-		System.out.println("Appium Server URL is entered ");
-		driver = new AppiumDriver<MobileElement>(url, caps);
-		System.out.println("AndroidDriver Configured with the required Desired Capabilities and URL");
-		applyExplicitWait(20);
-		Thread.sleep(5000);
-		clickOnElement(driver.findElement(MobileBy.AccessibilityId("Get Started")));
-		applyExplicitWait(5);
-		Thread.sleep(3000);
-		clickOnElement(driver.findElement(MobileBy.AccessibilityId("Register Here")));
-		applyExplicitWait(5);
-		String name = RandomString();
-		findElementByText("Full name").click();
-		sendTestUsingRobot(name);
-
-		driver.findElement(
-				MobileBy.AndroidUIAutomator("new UiSelector().className(\"android.widget.EditText\").index(5)"))
-				.click();
-
-		sendTestUsingRobot(name + "@gmail.com");
-
-		clickOnElement(findElementByText("Password"));
-		sendTestUsingRobot(name + "@123");
-		action = new TouchAction(driver);
-		action.tap(PointOption.point(900, 1800)).perform();
-		Thread.sleep(5000);
-		clickOnElement(driver.findElement(
-				MobileBy.AndroidUIAutomator("new UiSelector().className(\"android.view.View\").index(6)")));
-		applyExplicitWait(5);
-
-		MobileElement seekBar = driver.findElement(
-				MobileBy.AndroidUIAutomator("new UiSelector().className(\"android.widget.SeekBar\").index(1)"));
-
-		while (Integer.parseInt(seekBar.getAttribute("content-desc")) >= 2) {
-			// Thread.sleep(300);
-			System.err.println(seekBar.getAttribute("content-desc"));
-			int start = seekBar.getLocation().getY();
-			System.out.println("Startpoint - " + start);
-			// get location of seekbar from top
-			int y = seekBar.getLocation().getX();
-			System.out.println("Yaxis - " + y);
-			// Get total width of seekbar
-			int end = seekBar.getSize().getHeight();
-			System.out.println("End point - " + end);
-			action.press(PointOption.point(y + 100, start + 20))
-					.moveTo(PointOption.point(y + 20, (end / 3) + start - 3)).release().perform();
-		}
-
+	public static String getDevice() {
+		return Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getParameter("type");
 	}
 
 	public void selectCorrectAnswer() {
@@ -200,40 +158,74 @@ public class BaseClass {
 				.moveTo(PointOption.point(115, 350)).release().perform();
 		correctAnswers = 0;
 		int i = 0;
-		getDriver().context("WEBVIEW_com.tce.studi");
+		Set<String> context = driver.getContextHandles();
+		for (String cont : context) {
+			if (cont.contains("WEBVIEW"))
+				getDriver().context(cont);
+		}
 		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
 		List<MobileElement> as = driver.findElements(By.tagName("tce-option"));
 		for (WebElement s : as) {
+			
 			if (s.getAttribute("class").equalsIgnoreCase("tick")) {
-				s.click();
+				String visibleText = s.findElement(By.xpath("*//p")).getText();
+				getDriver().context("NATIVE_APP");
+				tapOnElement(findElementByText(visibleText));
+				context = driver.getContextHandles();
+				for (String cont : context) {
+					if (cont.contains("WEBVIEW"))
+						getDriver().context(cont);
+				}
 				System.err.println((correctAnswers + 1) + "th answer selected");
 				correctAnswers++;
 			}
-			swipeUp();
+			 swipeUp();
 		}
 		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
 		getDriver().context("NATIVE_APP");
 	}
 
 	public void selectIncorrectAnswer() {
-		getDriver().context("WEBVIEW_com.tce.studi");
-		List<MobileElement> as = driver.findElements(By.tagName("tce-option"));
-
-		for (WebElement s : as) {
-			System.err.println("checking");
-			if (s.getAttribute("class").equalsIgnoreCase("tick")) {
-			} else {
-				wrongAnswers = 1;
-				s.click();
-				break;
-			}
+		action = new TouchAction(driver);
+		action.press(PointOption.point(115, 650)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(400)))
+				.moveTo(PointOption.point(115, 350)).release().perform();
+		wrongAnswers = 0;
+		int i = 0;
+		Set<String> context = driver.getContextHandles();
+		for (String cont : context) {
+			if (cont.contains("WEBVIEW"))
+				getDriver().context(cont);
 		}
+		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		List<MobileElement> as = driver.findElements(By.tagName("tce-option"));
+		for (WebElement s : as) {
+			
+			if (!s.getAttribute("class").equalsIgnoreCase("tick")) {
+				String visibleText = s.findElement(By.xpath("*//p")).getText();
+				getDriver().context("NATIVE_APP");
+				tapOnElement(findElementByText(visibleText));
+				context = driver.getContextHandles();
+				for (String cont : context) {
+					if (cont.contains("WEBVIEW"))
+						getDriver().context(cont);
+				}
+				System.err.println((wrongAnswers + 1) + "th answer selected");
+				wrongAnswers++;
+			}
+			 swipeUp();
+		}
+		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
 		getDriver().context("NATIVE_APP");
 	}
 
 	public String verifySCQorMCQ() {
 		correctAnswers = 0;
-		getDriver().context("WEBVIEW_com.tce.studi");
+
+		Set<String> context = driver.getContextHandles();
+		for (String cont : context) {
+			if (cont.contains("WEBVIEW"))
+				getDriver().context(cont);
+		}
 		try {
 			Thread.sleep(500);
 		} catch (InterruptedException e) {
@@ -261,23 +253,24 @@ public class BaseClass {
 	@Parameters({ "type" })
 	public static void beforeTest(String type) throws Exception {
 		String s = type;
+		device = new String(type);
 		caps = new DesiredCapabilities();
 		if (s.equalsIgnoreCase("Android")) {
 			// caps.setCapability(MobileCapabilityType.DEVICE_NAME, "ZY223HQBHZ");
 			// caps.setCapability(MobileCapabilityType.DEVICE_NAME, "SM M105F");
 			caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Appium");
 			caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "7");
+			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9");
 			// caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9
 			// PPR1.180610.011");
 			// caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9");
 			caps.setCapability("appPackage", "com.tce.studi");
 			caps.setCapability("appActivity", "com.tce.view.ui.activities.SplashScreenActivity");
-			caps.setCapability("app", "C:\\Users\\Dell\\Downloads\\Studi_v1.0.1(1)17feb.apk");
+			// caps.setCapability("app","/Users/shakilhanjgikar/Downloads/Studi_QA_v1.1.19mar.apk");
 			caps.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, "true");
 			caps.setCapability(MobileCapabilityType.NO_RESET, true);
 			System.out.println("Required Desired Capabilities Defined");
-			final String appiumserverUrl = "http://127.0.0.1:4723/wd/hub";
+			final String appiumserverUrl = "http://localhost:4723/wd/hub";
 			url = new URL(appiumserverUrl);
 
 			System.out.println("Appium Server URL is entered ");
@@ -285,23 +278,24 @@ public class BaseClass {
 
 			System.out.println("AndroidDriver Configured with the required Desired Capabilities and URL");
 			applyExplicitWait(20);
-			Module_Login login = new Module_Login();
-			login.Login_to_app();
+			// Module_Login login = new Module_Login();
+			// login.Login_to_app();
 
 		} else if (s.equalsIgnoreCase("IOS")) {
+
 			caps = new DesiredCapabilities();
-			caps.setCapability("automationName", prop.getProperty("automationName"));
+			caps.setCapability("automationName", "XCUITest");
 			caps.setCapability("deviceName", "iPhone 6s");
-			// platform_version=deviceName;
-			caps.setCapability("udid", "d179cb05cdb31945cc0ec2e6ba0d3044ff2fd41a");
+			caps.setCapability("udid", "dd587b26e65a1100a6ba7b2026478c1967bb4422");
 			caps.setCapability("platformName", "iOS");
-			caps.setCapability("platformVersion", "13.3.1");
-			caps.setCapability("bundleId", "com.google.Chrome");
-			caps.setCapability("appActivity", "com.demo.liveplaces.view.activity.SplashActivity");
-			caps.setCapability("noReset", "true");
-			// caps.setCapability("wdaLocalPort", wdaLocalPort);
+			caps.setCapability("app", appPath);
+			caps.setCapability("platformVersion", "13");
+			caps.setCapability("appActivity", "com.tce.view.ui.activities.SplashScreenActivity");
+			caps.setCapability(MobileCapabilityType.NO_RESET, true);
+			caps.setCapability("simpleIsVisibleCheck", true);
+			caps.setCapability("webviewConnectTimeout", "60000");
 			caps.setCapability("newCommandTimeout", "120");
-			AppiumDriver<MobileElement> driver = new IOSDriver<>(new URL("http://localhost:4723/wd/hub"), caps);
+			driver = new IOSDriver<>(new URL("http://localhost:4723/wd/hub"), caps);
 
 			System.out.println("iOSDriver Configured with the required Desired Capabilities and URL");
 
@@ -317,6 +311,7 @@ public class BaseClass {
 			caps.setCapability("app", "bs://ebe9e4d351887da685fd245723d9bc981cf04df1");
 			caps.setCapability("os_version", "13");
 			caps.setCapability("device", "iPhone 11 Pro");
+
 			caps.setCapability("real_mobile", "true");
 			caps.setCapability("autoAcceptAlerts", true);
 
@@ -392,7 +387,21 @@ public class BaseClass {
 	public static void clickOnElement(WebElement element) {
 		System.out.println("Clicking on element " + element.getText());
 		// test.log(Status.INFO,"Clicking on element " + element.getText());
-		applyExplicitWaitsUntilElementClickable(element);
+
+		try {
+			if (device.equalsIgnoreCase("Android"))
+				applyExplicitWaitsUntilElementVisible(element);
+			else
+				try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		element.click();
 	}
 
@@ -442,10 +451,29 @@ public class BaseClass {
 	 */
 	public static void scrollTo1(String text) {
 		System.out.println("Scrolling to the Element which has the given text property : " + text);
-		// test.log(Status.INFO,"Scrolling to the Element which has the given text
-		// property : " + text);
-		getDriver().findElement(MobileBy
-				.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + text + "\"));"));
+
+		if (getDevice().contentEquals("Android")) {
+			getDriver().findElement(MobileBy.AndroidUIAutomator(
+					"new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(text(\"" + text + "\"));"));
+
+		} else {
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			action = new TouchAction(driver);
+
+			org.openqa.selenium.Dimension size = driver.manage().window().getSize();
+			while (!driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='" + text + "']")).isDisplayed()) {
+				System.out.println("checked1");
+				action.press(PointOption.point(size.width / 3, (int) (size.height * 0.8)))
+						.waitAction(WaitOptions.waitOptions(Duration.ofMillis(700)))
+						.moveTo(PointOption.point(size.width / 3, (int) (size.height * 0.8) - size.height / 3))
+						.release().perform();
+			}
+		}
 	}
 
 	/**
@@ -454,10 +482,30 @@ public class BaseClass {
 	 * @param text
 	 */
 	public static void scrollTo2(String text) {
-		System.out.println("Scrolling to the Element which has the given text property : " + text);
-		getDriver().findElement(MobileBy.AndroidUIAutomator(
-				"new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""
-						+ text + "\").instance(0))"));
+		if (getDevice().equalsIgnoreCase("ios")) {
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			action = new TouchAction(driver);
+
+			org.openqa.selenium.Dimension size = driver.manage().window().getSize();
+			while (!driver.findElement(By.xpath("//XCUIElementTypeStaticText[contains(@name, '" + text + "')]"))
+					.isDisplayed()) {
+				System.out.println("checked2");
+				action.press(PointOption.point(size.width / 3, (int) (size.height * 0.8)))
+						.waitAction(WaitOptions.waitOptions(Duration.ofMillis(700)))
+						.moveTo(PointOption.point(size.width / 3, (int) (size.height * 0.8) - size.height / 3))
+						.release().perform();
+			}
+		} else {
+			System.out.println("Scrolling to the Element which has the given text property : " + text);
+			getDriver().findElement(MobileBy.AndroidUIAutomator(
+					"new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""
+							+ text + "\").instance(0))"));
+		}
 	}
 
 	public static void scrollTo3(String text, int instance) {
@@ -541,7 +589,11 @@ public class BaseClass {
 	}
 
 	public int getTotalQuestionsInPractice() {
-		MobileElement ele = getDriver().findElement(By.xpath("//*[contains(@text, '1 of')]"));
+		MobileElement ele;
+		if (device.equalsIgnoreCase("Android"))
+			ele = getDriver().findElement(By.xpath("//*[contains(@text, '1 of')]"));
+		else
+			ele = getDriver().findElement(By.xpath("//*[contains(@name, '1 of')]"));
 		String temp[] = ele.getText().split(" ");
 		return Integer.parseInt(temp[temp.length - 1]);
 	}
@@ -625,45 +677,50 @@ public class BaseClass {
 	 * @throws MalformedURLException
 	 */
 	public static void forwardVideoTimerToEnd() throws WebDriverException, IOException, InterruptedException {
-		action = new TouchAction(getDriver());
-		if (notesFlag) {
-			// applyExplicitWaitsUntilElementVisible(oso.continueOnVdoBtn);
-			closeVideoPopup();
-			notesFlag = false;
-		}
-		Thread.sleep(5000);
-		/*
-		 * action.tap(PointOption.point(200, 200)).perform();
-		 * action.tap(PointOption.point(240, 360)).perform();
-		 */
-		applyExplicitWaitsUntilElementVisible(driver.findElement(By.xpath(
-				"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]")));
-		getDriver().findElement(By.xpath(
-				"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]"))
-				.click();
-		applyExplicitWait(1);
-		getDriver().findElementByAccessibilityId("Pause").click();
-		WebElement seekBar = (MobileElement) driver.findElementByClassName("android.widget.SeekBar");
+		action = new TouchAction(driver);
+		Object_Syllabus_Option oso = new Object_Syllabus_Option();
+		// Thread.sleep(1000);
+
 		// get location of seek bar from left
-		int start = seekBar.getLocation().getX();
+		int start = oso.seekBar.getLocation().getX();
 		System.out.println("Startpoint - " + start);
 
 		// get location of seekbar from top
-		int y = seekBar.getLocation().getY();
+		int y = oso.seekBar.getLocation().getY();
+		y = y + ((oso.seekBar.getSize().getHeight()) / 2);
 		System.out.println("Yaxis - " + y);
 
 		// Get total width of seekbar
-		int end = seekBar.getSize().getWidth();
+		int end = oso.seekBar.getSize().getWidth();
 		System.out.println("End point - " + end);
 
-		action.press(PointOption.point(start, y)).moveTo(PointOption.point(end + start - 3, y)).release().perform();
-		getDriver().findElementByAccessibilityId("Play").click();
-
-		applyExplicitWaitsUntilElementVisible(driver.findElementById("com.tce.studi:id/layoutQuiz"));
+		if (device.equalsIgnoreCase("Android"))
+			action.press(PointOption.point(start, y)).moveTo(PointOption.point(end + start, y)).release().perform();
+		else
+			action.press(PointOption.point(start, y)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000)))
+					.moveTo(PointOption.point(end + start, y)).release().perform();
+		System.err.println("Forwarded");
+		if (device.equalsIgnoreCase("Android"))
+			oso.playBtn.click();
+		applyExplicitWaitsUntilElementVisible(oso.quiz);
 	}
 
 	public static MobileElement findElementByText(String text) {
-		return getDriver().findElement(By.xpath("//*[contains(@text, '" + text + "')]"));
+		if (device.equalsIgnoreCase("Android"))
+			return getDriver().findElement(By.xpath("//*[contains(@text, '" + text + "')]"));
+		else
+			return getDriver().findElement(By.xpath("//XCUIElementTypeStaticText[contains(@name, '" + text
+					+ "') or contains(@name, '" + text.toUpperCase() + "')]"));
+
+	}
+
+	public static MobileElement findElementByExactText(String text) {
+		if (device.equalsIgnoreCase("Android"))
+			return getDriver().findElement(By.xpath("//*[contains(@text, '" + text + "')]"));
+		else
+			return getDriver().findElement(By
+					.xpath("//XCUIElementTypeStaticText[@name='" + text + "' or @name='" + text.toUpperCase() + "']"));
+
 	}
 
 	public List<MobileElement> getAllElementsFromPageUsingID(String id) throws Exception {
@@ -770,18 +827,15 @@ public class BaseClass {
 	}
 
 	public String verify_TQ_Resource() throws MalformedURLException {
+		Object_Syllabus_Option oso = new Object_Syllabus_Option();
 		applyExplicitWait(10);
 		try {
-			if (getDriver().findElement(By.xpath(
-					"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]"))
-					.isDisplayed())
+			if (oso.videoPlayer.isDisplayed())
 				return "Video";
 		} catch (Exception e) {
 		}
 		try {
-			if (getDriver().findElementByXPath(
-					"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.widget.LinearLayout")
-					.isDisplayed())
+			if (oso.quiz.isDisplayed())
 				return "Quiz";
 		} catch (Exception e) {
 		}
@@ -814,8 +868,18 @@ public class BaseClass {
 
 	public void closePopup() {
 		try {
-			while (getDriver().findElementById("com.tce.studi:id/tutorialDoNotShow").isDisplayed()) {
-				clickOnElement(getDriver().findElementById("com.tce.studi:id/tutorialDoNotShow"));
+			if (device.equalsIgnoreCase("Android")) {
+				while (getDriver().findElementById("com.tce.studi:id/tutorialDoNotShow").isDisplayed()) {
+					clickOnElement(getDriver().findElementById("com.tce.studi:id/tutorialDoNotShow"));
+				}
+			} else {
+				while (driver.findElement(By.xpath(
+						"//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeButton"))
+						.isDisplayed()) {
+					driver.findElement(By.xpath(
+							"//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeButton"))
+							.click();
+				}
 			}
 		} catch (Exception e) {
 			test.log(Status.INFO, "Popup closed");
@@ -848,29 +912,79 @@ public class BaseClass {
 		}
 	}
 
+	public void deleteNotesCount() throws InterruptedException {
+		try {
+			applyExplicitWaitsUntilElementVisible(findElementByText("NOTES"));
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		List<MobileElement> notes;
+
+		if (device.equalsIgnoreCase("Android"))
+			notes = (List<MobileElement>) driver.findElementsById("com.tce.studi:id/clScrollableView");
+		else
+			notes = (List<MobileElement>) driver.findElementsByXPath(
+					"//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell/XCUIElementTypeButton");
+
+		System.err.println("Total notes :" + notes.size());
+
+		for (int i = 0; i < notes.size(); i++) {
+			// applyExplicitWaitsUntilElementClickable(mobileElement);
+			Thread.sleep(3000);
+
+			if (device.equalsIgnoreCase("Android")) {
+				driver.findElementById("com.tce.studi:id/clScrollableView").click();
+				clickOnElement(driver.findElementById("com.tce.studi:id/ivDeleteNote"));
+				clickOnElement(driver.findElementById("com.tce.studi:id/txtPositiveBtn"));
+			} else {
+				driver.findElementByXPath(
+						"//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell/XCUIElementTypeButton")
+						.click();
+				clickOnElement(driver.findElementByXPath("//XCUIElementTypeButton[@name=\"Delete\"]"));
+				clickOnElement(driver.findElement(By.xpath("//XCUIElementTypeButton[@name=\"Delete Note\"]")));
+			}
+			System.out.println("deleted");
+		}
+		if (device.equalsIgnoreCase("Android"))
+			clickOnElement(driver.findElementById("com.tce.studi:id/ivCross"));
+		else
+			clickOnElement(driver.findElement(By.xpath("//XCUIElementTypeButton[@name=\"cross\"]")));
+	}
+
 	public void createNoteInVideo(String note) throws MalformedURLException, AWTException {
 		Object_Syllabus_Option oso = new Object_Syllabus_Option();
 		applyExplicitWait(5);
 		clickOnElement(oso.addNotesBtn);
-		applyExplicitWait(5);
-		clickOnElement(oso.playBtn);
+		applyExplicitWaitsUntilElementVisible(oso.saveNoteBtn);
 
-		sendTestUsingRobot(note);
+		clickOnElement(oso.noteTxtArea);
+		oso.noteTxtArea.sendKeys(note);
 		driver.hideKeyboard();
 
 		applyExplicitWait(5);
-		clickOnElement(findElementByText("Save Note"));
+		oso.saveNoteBtn.click();
 		System.out.println("Note " + prop.getProperty("note") + " Saved");
 		test.log(Status.INFO, "Note " + prop.getProperty("note") + " Saved");
 
-		applyExplicitWait(2);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		closePopup();
 
-		getDriver().findElement(By.xpath(
-				"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]"))
-				.click();
+		if (device.equalsIgnoreCase("Android"))
+			getDriver().findElement(By.xpath(
+					"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]"))
+					.click();
+		else {
+			clickOnElement(findElementByText("CONTINUE"));
+		}
 		applyExplicitWait(2);
-		getDriver().findElementByAccessibilityId("Pause").click();
+
+		oso.pauseBtn.click();
 		System.out.println("Clicked on Pause Button");
 		test.log(Status.INFO, "Clicked on Pause Button");
 
@@ -911,6 +1025,12 @@ public class BaseClass {
 
 		frame.setVisible(true);
 		frame.requestFocus();
+	}
+
+	public void tapOnElement(WebElement element) {
+		action = new TouchAction(driver);
+		action.tap(PointOption.point(element.getLocation().x + (element.getSize().width / 2),
+				element.getLocation().y + (element.getSize().height / 2))).perform();
 	}
 
 	@AfterTest

@@ -10,6 +10,8 @@ import org.testng.annotations.Test;
 import com.sun.mail.imap.Utility.Condition;
 
 import io.appium.java_client.functions.ExpectedCondition;
+import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.remote.HideKeyboardStrategy;
 import studi.co.Base.*;
 import studi.co.pageObjects.*;
 
@@ -35,24 +37,34 @@ public class Module_Login extends BaseClass {
 //		else 
 //			System.out.println("Login Failed");
 		Object_Login ol = new Object_Login();
-		//Keyword.applyImplicitWait(20);
+		// Keyword.applyImplicitWait(20);
+		if(device=="Android") {
 		applyExplicitWaitsUntilElementVisible(ol.getAlreadyAUser());
-		Keyword.clickOnElement(ol.getAlreadyAUser());
+		clickOnElement(ol.getAlreadyAUser());
+		}
+		applyExplicitWait(2);
 
-		Keyword.applyExplicitWait(2);
-
-		Keyword.clearText(ol.getMobileNumberTextBox());
-		Keyword.sendText(ol.mobileNumberTextBox, prop.getProperty("mobileNumber"));
+		//ol.getMobileNumberTextBox().click();
+		//ol.getMobileNumberTextBox().clear();
+		
+		ol.mobileNumberTextBox.sendKeys(prop.getProperty("mobileNumber"));
+		Thread.sleep(500);
+		if(device!="Android")
+			driver.findElement(By.xpath("//XCUIElementTypeButton[@name=\"Done\"]")).click();
 		System.out.println("Entered Mobile Number");
-		Keyword.applyExplicitWait(2);
-		Keyword.clickOnElement(ol.getLoginButton());
-		Keyword.applyExplicitWait(2);
+		
+		applyExplicitWait(2);
+		clickOnElement(ol.getLoginButton());
+		applyExplicitWait(2);
 
-		Keyword.sendText(ol.getPasswordTextBox(), prop.getProperty("password"));
+		ol.getPasswordTextBox().click();
+		ol.getPasswordTextBox().sendKeys(prop.getProperty("password"));
 		System.out.println("Entered Password");
-		Keyword.applyExplicitWait(2);
+		if(!(device!="Android"))
+			driver.findElement(By.xpath("//XCUIElementTypeButton[@name=\"Done\"]")).click();
+		applyExplicitWait(2);
 
-		Keyword.clickOnElement(ol.getVerifypasswordButton());
+		clickOnElement(ol.getVerifypasswordButton());
 		Keyword.applyExplicitWait(2);
 		System.out.println("Credentials verified");
 		Keyword.clickOnElement(ol.getRegisteredUserName());

@@ -8,6 +8,7 @@ import org.testng.asserts.SoftAssert;
 
 import com.aventstack.extentreports.Status;
 
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.WaitOptions;
@@ -24,9 +25,9 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		applyExplicitWaitsUntilElementClickable(obp.testUnit);
 		clickOnElement(obp.syllabus);
 		test.log(Status.INFO, "Opening Syllabus tab");
-		System.out.println("Opening Syllabus tab"); 
+		System.out.println("Opening Syllabus tab");
 		applyExplicitWait(5);
- 
+
 		scrollTo1(subject);
 
 		test.log(Status.INFO, "Opening " + subject);
@@ -34,20 +35,18 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		applyExplicitWaitsUntilElementClickable(findElementByText(subject));
 		clickOnElement(findElementByText(subject));
 
-		scrollTo2(topic);
+		scrollTo1(topic);
 		test.log(Status.INFO, "Selecting " + topic);
 		System.out.println("Selecting " + topic);
 		applyExplicitWaitsUntilElementClickable(findElementByText(topic));
 		clickOnElement(findElementByText(topic));
 
-		scrollTo2("Practice"); 
+		scrollTo2("Practice");
 		test.log(Status.INFO, "Opening practice for " + topic);
 		System.out.println("Opening practice for " + topic);
 		clickOnElement(findElementByText("Practice"));
 		Thread.sleep(5000);
-		applyExplicitWaitsUntilElementClickable(getDriver().findElementById("com.tce.studi:id/tv_primary_action"));
-
-		clickOnElement(getDriver().findElementById("com.tce.studi:id/tv_primary_action"));
+		clickOnElement(obp.primaryAction);
 	}
 
 	public void Module_Receive_SCQ_Questions_Practice(String subject, String topic)
@@ -304,7 +303,11 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				List<MobileElement> answerCount;
+				if (device == "Android")
+					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				else
+					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
 				int t = 1;
 				for (MobileElement mobileElement : answerCount) {
 					if (mobileElement.isDisplayed()) {
@@ -345,7 +348,11 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				List<MobileElement> answerCount;
+				if (device == "Android")
+					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				else
+					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
 				int c = 0;
 				for (MobileElement mobileElement : answerCount) {
 
@@ -386,7 +393,11 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				List<MobileElement> answerCount;
+				if (device == "Android")
+					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				else
+					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
 				status = answerCount.size() > 1 ? true : false;
 				sAss.assertTrue(status, "Multiple answers not available for question " + (i + 1));
 				System.out.println("Multiple answers available for question " + (i + 1));
@@ -419,7 +430,11 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				List<MobileElement> answerCount;
+				if (device == "Android")
+					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				else
+					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
 				int c = 1;
 				for (MobileElement mobileElement : answerCount) {
 					mobileElement.click();
@@ -462,7 +477,11 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				List<MobileElement> answerCount;
+				if (device == "Android")
+					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				else
+					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
 				int c = 1;
 				for (MobileElement mobileElement : answerCount) {
 					mobileElement.click();
@@ -508,7 +527,8 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 
 	}
 
-	public SoftAssert verify_All_Questions_Are_Visible_MCQ_Practice() throws MalformedURLException, InterruptedException {
+	public SoftAssert verify_All_Questions_Are_Visible_MCQ_Practice()
+			throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
 		applyExplicitWait(5);
 		int questions = getTotalQuestionsInPractice();
@@ -522,7 +542,11 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				List<MobileElement> answerCount;
+				if (device == "Android")
+					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				else
+					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
 				int t = 1;
 				for (MobileElement mobileElement : answerCount) {
 					if (mobileElement.isDisplayed()) {
@@ -569,7 +593,11 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				List<MobileElement> answerCount;
+				if (device == "Android")
+					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				else
+					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
 				int c = 0;
 				for (MobileElement mobileElement : answerCount) {
 
@@ -618,7 +646,11 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				List<MobileElement> answerCount;
+				if (device == "Android")
+					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				else
+					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
 				status = answerCount.size() > 1 ? true : false;
 				sAss.assertTrue(status, "Multiple answers not available for question " + (i + 1));
 				System.out.println("Multiple answers available for question " + (i + 1));
@@ -662,7 +694,11 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				List<MobileElement> answerCount;
+				if (device == "Android")
+					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				else
+					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
 				int c = 1;
 				for (MobileElement mobileElement : answerCount) {
 					mobileElement.click();
@@ -715,7 +751,11 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				List<MobileElement> answerCount;
+				if (device == "Android")
+					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				else
+					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
 
 				for (MobileElement mobileElement : answerCount) {
 					mobileElement.click();
@@ -898,7 +938,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 
 	public void Module_Verify_User_Can_Abond_MCQ_Quiz_In_Practice(String subject, String topic)
 			throws MalformedURLException, InterruptedException {
-		traverse_To_Begin_Practice(subject, topic); 
+		traverse_To_Begin_Practice(subject, topic);
 
 		SoftAssert sAss = User_Can_Abond_Quiz();
 
@@ -917,7 +957,11 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		test.log(Status.INFO, "Total " + questions + " appeared");
 		// int actualcount = 0;
 		try {
-			List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+			List<MobileElement> answerCount;
+				if (device == "Android")
+					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				else
+					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
 			int ansCount = answerCount.size();
 			System.out.println("answerCont = " + ansCount);
 			queFlag = 1;

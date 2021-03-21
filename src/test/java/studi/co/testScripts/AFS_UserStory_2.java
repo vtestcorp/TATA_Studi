@@ -29,36 +29,36 @@ public class AFS_UserStory_2 extends BaseClass {
 	public void TC01_Verify_User_Should_Be_Able_To_Navigate_To_Revision_Via_MySyllabus()
 			throws MalformedURLException, InterruptedException {
 		Module_Syllabus_Options so = new Module_Syllabus_Options();
-		so.Verify_User_Should_Be_Able_To_Navigate_To_Revision_Via_MySyllabus(prop.getProperty("msubject"),
-				prop.getProperty("mtopic")); 
+		so.Verify_User_Should_Be_Able_To_Navigate_To_Revision_Via_MySyllabus(prop.getProperty("Isubject"),
+				prop.getProperty("Itopic")); 
 	}
 
 	@Test(enabled = true)
 	public void TC02_Verify_User_Should_Be_Able_To_Launch_Revision_Via_MySyllabus()
 			throws MalformedURLException, InterruptedException {
 		Module_Syllabus_Options so = new Module_Syllabus_Options();
-		so.Verify_User_Should_Be_Able_To_Launch_Revision_Via_MySyllabus(prop.getProperty("msubject"),
-				prop.getProperty("mtopic"));
+		so.Verify_User_Should_Be_Able_To_Launch_Revision_Via_MySyllabus(prop.getProperty("Isubject"),
+				prop.getProperty("Itopic"));
 	}
 
 	@Test(enabled = true)
 	public void TC03_Verify_Revision_Overview_() throws MalformedURLException, InterruptedException {
 		Module_Syllabus_Options so = new Module_Syllabus_Options();
-		so.Verify_Revision_Overview(prop.getProperty("msubject"), prop.getProperty("mtopic"));
+		so.Verify_Revision_Overview(prop.getProperty("Isubject"), prop.getProperty("Itopic"));
 	}
 
 	@Test(enabled = true)
 	public void TC04_Verify_User_Should_Be_Able_To_Begin_Revision_From_Syllabus()
 			throws WebDriverException, IOException, InterruptedException {
 		Module_Syllabus_Options so = new Module_Syllabus_Options();
-		so.Verify_User_Should_Be_Able_To_Begin_Revision(prop.getProperty("msubject"), prop.getProperty("mtopic"));
+		so.Verify_User_Should_Be_Able_To_Begin_Revision(prop.getProperty("Isubject"), prop.getProperty("Itopic"));
 	}
 
 	@Test(enabled = true)
 	public void TC05_Verify_User_Should_Be_Able_To_View_Video_In_Revision_From_Syllabus()
 			throws WebDriverException, IOException, InterruptedException, AWTException {
 		Module_Syllabus_Options so = new Module_Syllabus_Options();
-		so.Verify_User_Should_Be_Able_To_View_Video(prop.getProperty("msubject"), prop.getProperty("mtopic"));
+		so.Verify_User_Should_Be_Able_To_View_Video(prop.getProperty("Isubject"), prop.getProperty("Itopic"));
 	}
 
 	@Test(enabled = true) // need to delete note manually(if any already created).
@@ -101,7 +101,7 @@ public class AFS_UserStory_2 extends BaseClass {
 		so.Verify_Functionality_After_Network_Loss_The_App(prop.getProperty("msubject"), prop.getProperty("mtopic"));
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = true) // for emulator only
 	public void TC15_Verify_Functionality_Of_App_After_Call_Interrupt() throws InterruptedException, IOException {
 		Module_Syllabus_Options so = new Module_Syllabus_Options();
 		so.Verify_Functionality_The_App_After_Call_Interrupt(prop.getProperty("msubject"), prop.getProperty("mtopic"));
