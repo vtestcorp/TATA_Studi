@@ -2,6 +2,7 @@ studi\co\testng\SuiteSummary.class
 studi\co\pageObjects\Object_Create_Study_Plan.class
 studi\co\testng\RangeParser.class
 studi\co\Base\TestListener.class
+studi\co\pageObjects\Object_Receive_Subjective_Questions_Revision.class
 studi\co\pageModules\Module_Create_Study_Plan.class
 studi\co\pageModules\Module_Receive_Questions_Practice.class
 studi\co\pageModules\Module_Receive_Questions_Revision.class
@@ -26,7 +27,9 @@ studi\co\pageModules\Model_Receive_MCQ_Questions_Revision.class
 studi\co\testng\ResourceUtils.class
 studi\co\pageObjects\Object_Receive_Questions_Practice.class
 studi\co\pageObjects\Object_Receive_Questions_Revision.class
+studi\co\pageModules\Module_MyLesson_Page.class
 studi\co\pageObjects\Object_ReviewPlan.class
+studi\co\pageModules\Model_Receive_Subjective_Questions_Revision.class
+studi\co\pageObjects\Object_MyLesson_Page.class
 studi\co\pageModules\Module_ReviewPlan.class
 studi\co\Base\DataProviders.class
-studi\co\Base\Keyword.class

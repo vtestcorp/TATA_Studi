@@ -40,6 +40,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Properties;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import javax.swing.JFrame;
@@ -133,76 +134,19 @@ public class BaseClass {
 		return generatedString;
 	}
 
-	public static void main(String[] args) throws Exception {
-		caps = new DesiredCapabilities();
-		caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Appium");
-		caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-		caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9");
-		caps.setCapability("appPackage", "com.example.reminder_app");
-		caps.setCapability("appActivity", "com.example.reminder_app.MainActivity");
-		caps.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, "true");
-
-		// caps.setCapability("app",
-		// "C:\\Users\\Dell\\Downloads\\22-feb-2021app-profile.apk");
-		System.out.println("Required Desired Capabilities Defined");
-		final String appiumserverUrl = "http://127.0.0.1:4723/wd/hub";
-		url = new URL(appiumserverUrl);
-		System.out.println("Appium Server URL is entered ");
-		driver = new AppiumDriver<MobileElement>(url, caps);
-		System.out.println("AndroidDriver Configured with the required Desired Capabilities and URL");
-		applyExplicitWait(20);
-		Thread.sleep(5000);
-		clickOnElement(driver.findElement(MobileBy.AccessibilityId("Get Started")));
-		applyExplicitWait(5);
-		Thread.sleep(3000);
-		clickOnElement(driver.findElement(MobileBy.AccessibilityId("Register Here")));
-		applyExplicitWait(5);
-		String name = RandomString();
-		findElementByText("Full name").click();
-		sendTestUsingRobot(name);
-
-		driver.findElement(
-				MobileBy.AndroidUIAutomator("new UiSelector().className(\"android.widget.EditText\").index(5)"))
-				.click();
-
-		sendTestUsingRobot(name + "@gmail.com");
-
-		clickOnElement(findElementByText("Password"));
-		sendTestUsingRobot(name + "@123");
-		action = new TouchAction(driver);
-		action.tap(PointOption.point(900, 1800)).perform();
-		Thread.sleep(5000);
-		clickOnElement(driver.findElement(
-				MobileBy.AndroidUIAutomator("new UiSelector().className(\"android.view.View\").index(6)")));
-		applyExplicitWait(5);
-
-		MobileElement seekBar = driver.findElement(
-				MobileBy.AndroidUIAutomator("new UiSelector().className(\"android.widget.SeekBar\").index(1)"));
-
-		while (Integer.parseInt(seekBar.getAttribute("content-desc")) >= 2) {
-			// Thread.sleep(300);
-			System.err.println(seekBar.getAttribute("content-desc"));
-			int start = seekBar.getLocation().getY();
-			System.out.println("Startpoint - " + start);
-			// get location of seekbar from top
-			int y = seekBar.getLocation().getX();
-			System.out.println("Yaxis - " + y);
-			// Get total width of seekbar
-			int end = seekBar.getSize().getHeight();
-			System.out.println("End point - " + end);
-			action.press(PointOption.point(y + 100, start + 20))
-					.moveTo(PointOption.point(y + 20, (end / 3) + start - 3)).release().perform();
-		}
-
-	}
-
+	
 	public void selectCorrectAnswer() {
 		action = new TouchAction(driver);
 		action.press(PointOption.point(115, 650)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(400)))
 				.moveTo(PointOption.point(115, 350)).release().perform();
 		correctAnswers = 0;
 		int i = 0;
-		getDriver().context("WEBVIEW_com.tce.studi");
+		
+		Set<String> context = driver.getContextHandles();
+				for (String cont : context) {
+					if (cont.contains("WEBVIEW"))
+						getDriver().context(cont);
+				}
 		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
 		List<MobileElement> as = driver.findElements(By.tagName("tce-option"));
 		for (WebElement s : as) {
@@ -218,7 +162,11 @@ public class BaseClass {
 	}
 
 	public void selectIncorrectAnswer() {
-		getDriver().context("WEBVIEW_com.tce.studi");
+		Set<String> context = driver.getContextHandles();
+		for (String cont : context) {
+			if (cont.contains("WEBVIEW"))
+				getDriver().context(cont);
+		}
 		List<MobileElement> as = driver.findElements(By.tagName("tce-option"));
 
 		for (WebElement s : as) {
@@ -235,7 +183,11 @@ public class BaseClass {
 
 	public String verifySCQorMCQ() {
 		correctAnswers = 0;
-		getDriver().context("WEBVIEW_com.tce.studi");
+		Set<String> context = driver.getContextHandles();
+		for (String cont : context) {
+					if (cont.contains("WEBVIEW"))
+				getDriver().context(cont);
+		}
 		try {
 			Thread.sleep(500);
 		} catch (InterruptedException e) {
@@ -249,7 +201,9 @@ public class BaseClass {
 			return "SCQ";
 		} else if (as.contains("mcq")) {
 			return "MCQ";
-		} else
+		} else if (as.contains("subjective")) {
+			return "subjective";
+		}
 			return "OTHR";
 
 	}
@@ -269,13 +223,13 @@ public class BaseClass {
 			// caps.setCapability(MobileCapabilityType.DEVICE_NAME, "SM M105F");
 			caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Appium");
 			caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9");
+			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "7");
 			// caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9
 			// PPR1.180610.011");
 			// caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9");
 			caps.setCapability("appPackage", "com.tce.studi");
 			caps.setCapability("appActivity", "com.tce.view.ui.activities.SplashScreenActivity");
-			caps.setCapability("app", "C:\\Users\\Dell\\Downloads\\Studi-QA[Feb 08, 2021].apk");
+			caps.setCapability("app", "C:\\Users\\LENOVO\\Downloads\\Studi_QA_v1.1.19mar.apk");
 			caps.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, "true");
 			caps.setCapability(MobileCapabilityType.NO_RESET, true);
 			System.out.println("Required Desired Capabilities Defined");
@@ -585,18 +539,19 @@ public class BaseClass {
 	}
 
 	public void deleteNotesCount() throws InterruptedException {
+		System.err.println("Called");
 		try {
-			applyExplicitWaitsUntilElementVisible(findElementByText("NOTES"));
+			applyExplicitWaitsUntilElementVisible(findElementByText("Notes"));
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		List<MobileElement> notes = (List<MobileElement>) driver.findElementsById("com.tce.studi:id/clScrollableView");
+		List<MobileElement> notes = (List<MobileElement>) driver.findElementsById("com.tce.studi:id/clRootView");
 		System.err.println("Total notes :" + notes.size());
 		for (int i = 0; i < notes.size(); i++) {
 			// applyExplicitWaitsUntilElementClickable(mobileElement);
 			Thread.sleep(5000);
-			driver.findElementById("com.tce.studi:id/clScrollableView").click();
+			driver.findElementById("com.tce.studi:id/clRootView").click();
 			clickOnElement(driver.findElementById("com.tce.studi:id/ivDeleteNote"));
 			clickOnElement(driver.findElementById("com.tce.studi:id/txtPositiveBtn"));
 			System.out.println("deleted");

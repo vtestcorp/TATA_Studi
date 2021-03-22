@@ -234,7 +234,7 @@ public class Module_ReviewPlan extends BaseClass{
 		toVerify_ReviewPlan_Tab();
 		
 		orp.filter.click();
-		
+		applyExplicitWaitsUntilElementVisible(orp.filterFullPlan);
 		Boolean fullStudyPlan=orp.filterFullPlan.isDisplayed();
 		if(fullStudyPlan) {
 			System.out.println("Full Study Plan option displayed after clicking on Filter Option");

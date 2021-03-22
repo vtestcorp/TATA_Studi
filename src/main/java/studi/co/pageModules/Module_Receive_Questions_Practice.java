@@ -47,9 +47,9 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		System.out.println("Opening practice for " + topic);
 		clickOnElement(findElementByText("Practice"));
 		Thread.sleep(5000);
-		applyExplicitWaitsUntilElementClickable(getDriver().findElementById("com.tce.studi:id/tv_primary_action"));
+		applyExplicitWaitsUntilElementClickable(getDriver().findElementById("com.tce.studi:id/tvPrimaryAction"));
 
-		clickOnElement(getDriver().findElementById("com.tce.studi:id/tv_primary_action"));
+		clickOnElement(getDriver().findElementById("com.tce.studi:id/tvPrimaryAction"));
 	}
 
 	public void Module_Receive_SCQ_Questions_Practice(String subject, String topic)

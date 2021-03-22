@@ -71,7 +71,7 @@ public class Object_Receive_Questions_Revision extends BaseClass {
 	public WebElement linearDots;
 
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[3]/android.widget.Button")
-	// @AndroidFindBy(xpath = "//[contains(text(),'Check Answer')]")
+	//@AndroidFindBy(xpath = "//[contains(text(),'Check Answer')]")
 	public WebElement checkAnswer;
 
 	@AndroidFindBy(id = "com.tce.studi:id/ivNext")

@@ -203,7 +203,7 @@ public class AFS_UserStory_1046 extends BaseClass{
 			mrs.toVerify_PortionOption_IsFunctional();
 		}
 	
-	@Test(enabled=false)   
+	@Test(enabled=true)   
 	 public void T29_To_Verify_User_able_to_Modify_the_Portion_added_To_The_Plan() throws IOException, InterruptedException, ParseException{
 			Module_ReviewPlan mrs=new Module_ReviewPlan();
 			mrs.toVerify_toModify_thePortion();
@@ -221,7 +221,7 @@ public class AFS_UserStory_1046 extends BaseClass{
 			mrs.toVerify_UserCan_Discard_TheModifiedPortion();
 		}
 	
-	@Test(enabled=true)
+	@Test(enabled=false)
 	 public void T32_To_Verify_User_Should_Be_Able_To_Activate_Modified_Portion_To_The_Plan() throws IOException, InterruptedException, ParseException{
 			Module_ReviewPlan mrs=new Module_ReviewPlan();
 			mrs.toVerify_Activation_ofModifiedPortion_ToThePlan();

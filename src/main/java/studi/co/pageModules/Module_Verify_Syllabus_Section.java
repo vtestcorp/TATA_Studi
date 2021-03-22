@@ -674,12 +674,12 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		System.out.println("Clicked on Begin Practise button");
 		test.log(Status.INFO, "Clicked on Begin Practise button");
 		applyExplicitWait(30);
-//		Thread.sleep(5000);
-		applyExplicitWaitsUntilElementVisible(getDriver().findElementById("com.tce.studi:id/tv_heading_id"));
-		applyExplicitWaitsUntilElementVisible(osm.begin_Practise_1);
-//		osm.begin_Practise_1.click();
-//		Keyword.clickOnElementUsingText("Practice");
-		clickOnElement(findElementByText("Practice"));
+		Thread.sleep(5000);
+//		applyExplicitWaitsUntilElementVisible(getDriver().findElementById("com.tce.studi:id/tv_heading_id"));
+		applyExplicitWaitsUntilElementVisible(osm.overview);
+
+//		clickOnElement(findElementByText("Practice"));
+		osm.begin_Practise_1.click();
 		System.out.println("Clicked on Begin Practise button");
 		applyExplicitWait(30);
 	}
