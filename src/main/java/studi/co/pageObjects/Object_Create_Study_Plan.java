@@ -129,7 +129,6 @@ public class Object_Create_Study_Plan extends BaseClass {
 	public String lessonStatus = "/android.view.ViewGroup/android.widget.ImageView[2]";
 	public String lessonSubjectName = "/android.widget.TextView";
 	public String lessonDueDate="/android.view.ViewGroup/android.widget.TextView[5]";
-
 	public String upcomingLessonsPanel = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView";
 
 	public void traverse_toward_create_study_plan() throws MalformedURLException {

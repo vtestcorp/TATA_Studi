@@ -71,6 +71,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
+import com.android.uiautomator.core.UiSelector;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
@@ -123,7 +124,7 @@ public class BaseClass {
 	public static int wrongAnswers;
 	public static String appPath = "/Users/shakilhanjgikar/Downloads/Studi_1_3_8.ipa";
 
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/exo_pause\").className(\"android.widget.ImageButton\")")
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/exo_pause\")")
 	public WebElement pauseBtn;
 
 	public BaseClass() {
@@ -166,8 +167,67 @@ public class BaseClass {
 		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
 		List<MobileElement> as = driver.findElements(By.tagName("tce-option"));
 		for (WebElement s : as) {
-			
+
 			if (s.getAttribute("class").equalsIgnoreCase("tick")) {
+				int index = as.indexOf(s);
+				getDriver().context("NATIVE_APP");
+				if (device.equalsIgnoreCase("Android"))
+					clickOnElement(driver.findElementsByClassName("android.widget.CheckBox").get(index));
+				else
+					clickOnElement(driver.findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch")).get(index));
+				context = driver.getContextHandles();
+				for (String cont : context) {
+					if (cont.contains("WEBVIEW"))
+						getDriver().context(cont);
+				}
+				System.err.println((correctAnswers + 1) + "th answer selected");
+				correctAnswers++;
+			}
+			swipeUp();
+		}
+		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		getDriver().context("NATIVE_APP");
+	}
+
+	public void selectPartialCorrectAnswer() {
+		action = new TouchAction(driver);
+		action.press(PointOption.point(115, 650)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(400)))
+				.moveTo(PointOption.point(115, 350)).release().perform();
+		correctAnswers = 0;
+		int corr = 0, incorr = 0;
+		int i = 0;
+		Set<String> context = driver.getContextHandles();
+		for (String cont : context) {
+			if (cont.contains("WEBVIEW"))
+				getDriver().context(cont);
+		}
+		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		List<MobileElement> as = driver.findElements(By.tagName("tce-option"));
+		for (WebElement s : as) {
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if (s.getAttribute("class").equalsIgnoreCase("tick") && corr == 0) {
+				int index = as.indexOf(s);
+				getDriver().context("NATIVE_APP");
+				if (device.equalsIgnoreCase("Android"))
+					clickOnElement(driver.findElementsByClassName("android.widget.CheckBox").get(index));
+				else
+					clickOnElement(driver.findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch")).get(index));
+				context = driver.getContextHandles();
+				for (String cont : context) {
+					if (cont.contains("WEBVIEW"))
+						getDriver().context(cont);
+				}
+				System.err.println((correctAnswers + 1) + "th answer selected");
+				correctAnswers++;
+				swipeUp();
+				corr = 1;
+			}
+			if (s.getAttribute("class").isEmpty() && incorr == 0) {
 				String visibleText = s.findElement(By.xpath("*//p")).getText();
 				getDriver().context("NATIVE_APP");
 				tapOnElement(findElementByText(visibleText));
@@ -178,8 +238,10 @@ public class BaseClass {
 				}
 				System.err.println((correctAnswers + 1) + "th answer selected");
 				correctAnswers++;
+				swipeUp();
+				incorr = 1;
 			}
-			 swipeUp();
+
 		}
 		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
 		getDriver().context("NATIVE_APP");
@@ -199,11 +261,14 @@ public class BaseClass {
 		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
 		List<MobileElement> as = driver.findElements(By.tagName("tce-option"));
 		for (WebElement s : as) {
-			
+
 			if (!s.getAttribute("class").equalsIgnoreCase("tick")) {
-				String visibleText = s.findElement(By.xpath("*//p")).getText();
+				int index = as.indexOf(s);
 				getDriver().context("NATIVE_APP");
-				tapOnElement(findElementByText(visibleText));
+				if (device.equalsIgnoreCase("Android"))
+					clickOnElement(driver.findElementsByClassName("android.widget.CheckBox").get(index));
+				else
+					clickOnElement(driver.findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch")).get(index));
 				context = driver.getContextHandles();
 				for (String cont : context) {
 					if (cont.contains("WEBVIEW"))
@@ -212,7 +277,7 @@ public class BaseClass {
 				System.err.println((wrongAnswers + 1) + "th answer selected");
 				wrongAnswers++;
 			}
-			 swipeUp();
+			swipeUp();
 		}
 		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
 		getDriver().context("NATIVE_APP");
@@ -232,7 +297,13 @@ public class BaseClass {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String as = driver.findElementByXPath("//*[contains(@class, 'theme')]").getTagName();
+		try {
+			Thread.sleep(200);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String as = driver.findElementByXPath("*//*[contains(@class, 'theme')]").getTagName();
 		getDriver().context("NATIVE_APP");
 		System.err.println("as :" + as);
 		if (as.contains("scq")) {
@@ -256,17 +327,12 @@ public class BaseClass {
 		device = new String(type);
 		caps = new DesiredCapabilities();
 		if (s.equalsIgnoreCase("Android")) {
-			// caps.setCapability(MobileCapabilityType.DEVICE_NAME, "ZY223HQBHZ");
-			// caps.setCapability(MobileCapabilityType.DEVICE_NAME, "SM M105F");
 			caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Appium");
 			caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
 			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9");
-			// caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9
-			// PPR1.180610.011");
-			// caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9");
 			caps.setCapability("appPackage", "com.tce.studi");
 			caps.setCapability("appActivity", "com.tce.view.ui.activities.SplashScreenActivity");
-			// caps.setCapability("app","/Users/shakilhanjgikar/Downloads/Studi_QA_v1.1.19mar.apk");
+			caps.setCapability("app", "/Users/shakilhanjgikar/Downloads/Studi_v1.1.2.apk");
 			caps.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, "true");
 			caps.setCapability(MobileCapabilityType.NO_RESET, true);
 			System.out.println("Required Desired Capabilities Defined");
@@ -482,6 +548,7 @@ public class BaseClass {
 	 * @param text
 	 */
 	public static void scrollTo2(String text) {
+		System.out.println("Scrolling to the Element which has the given text property : " + text);
 		if (getDevice().equalsIgnoreCase("ios")) {
 			try {
 				Thread.sleep(2000);
@@ -501,7 +568,7 @@ public class BaseClass {
 						.release().perform();
 			}
 		} else {
-			System.out.println("Scrolling to the Element which has the given text property : " + text);
+
 			getDriver().findElement(MobileBy.AndroidUIAutomator(
 					"new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""
 							+ text + "\").instance(0))"));
@@ -622,9 +689,14 @@ public class BaseClass {
 	}
 
 	public void swipeDown() {
-		action = new TouchAction(driver);
-		action.press(PointOption.point(115, 350)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
-				.moveTo(PointOption.point(115, 650)).release().perform();
+		System.out.println("Swiping top");
+		org.openqa.selenium.Dimension size = driver.manage().window().getSize();
+		int anchor = (int) (size.width * 0.2);
+		int startPoint = (int) (size.height * 0.3);
+		int endPoint = (int) (size.height * 0.8);
+		getTouchAction().press(PointOption.point(anchor, endPoint))
+				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(100)))
+				.moveTo(PointOption.point(anchor, startPoint)).release().perform();
 	}
 
 	public void swipeLeft() {

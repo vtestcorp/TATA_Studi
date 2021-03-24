@@ -18,16 +18,19 @@ public class Object_Receive_Questions_Revision extends BaseClass {
 	@iOSFindBy(id = "WebviewQuiz")
 	@AndroidFindBy(id = "com.tce.studi:id/layoutQuiz")
 	public WebElement question;
-
-	//@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/iv_left_icon\")")
-	//public WebElement backBtn;
+	
+	@iOSFindBy(id = "backWithBackground")
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/iv_left_icon\")")
+	public WebElement backBtn;
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/ib_create_note\")")
 	public WebElement addNotesBtn;
 	
+	@iOSFindBy(xpath = "//XCUIElementTypeButton[@name=\"OK\"]")
 	@AndroidFindBy(id = "com.tce.studi:id/txtPositiveBtn")
 	public WebElement submitTestPopup;
 	
+	@iOSFindBy(id = "ic closs blue")
 	@AndroidFindBy(id = "android:id/content")
 	public WebElement exitPopup;
 
