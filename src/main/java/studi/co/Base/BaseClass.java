@@ -122,7 +122,7 @@ public class BaseClass {
 	public static int correctAnswers;
 	public static int[] correctAnswer = new int[10];
 	public static int wrongAnswers;
-	public static String appPath = "/Users/shakilhanjgikar/Downloads/Studi_1_3_8.ipa";
+	public static String appPath = "/Users/shakilhanjgikar/Downloads/Studi_1_4_1.ipa";
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/exo_pause\")")
 	public WebElement pauseBtn;
@@ -745,29 +745,24 @@ public class BaseClass {
 	public static void forwardVideoTimerToEnd() throws WebDriverException, IOException, InterruptedException {
 		action = new TouchAction(driver);
 		Object_Syllabus_Option oso = new Object_Syllabus_Option();
-		// Thread.sleep(1000);
-
-		// get location of seek bar from left
+		if (device.equalsIgnoreCase("Android")) {
 		int start = oso.seekBar.getLocation().getX();
 		System.out.println("Startpoint - " + start);
-
-		// get location of seekbar from top
 		int y = oso.seekBar.getLocation().getY();
 		y = y + ((oso.seekBar.getSize().getHeight()) / 2);
 		System.out.println("Yaxis - " + y);
-
-		// Get total width of seekbar
 		int end = oso.seekBar.getSize().getWidth();
 		System.out.println("End point - " + end);
-
 		if (device.equalsIgnoreCase("Android"))
 			action.press(PointOption.point(start, y)).moveTo(PointOption.point(end + start, y)).release().perform();
 		else
 			action.press(PointOption.point(start, y)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000)))
 					.moveTo(PointOption.point(end + start, y)).release().perform();
+		oso.playBtn.click();
+		}
+		else
+			clickOnElement(oso.skip);
 		System.err.println("Forwarded");
-		if (device.equalsIgnoreCase("Android"))
-			oso.playBtn.click();
 		applyExplicitWaitsUntilElementVisible(oso.quiz);
 	}
 

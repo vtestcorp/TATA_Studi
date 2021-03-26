@@ -26,6 +26,8 @@ public class Object_Syllabus_Option extends BaseClass {
 		PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);
 	}
 
+	@iOSFindBy(id = "skip")
+	public static WebElement skip;
 	
 	@iOSFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeScrollView/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther")
 	@AndroidFindBy(xpath = "//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]")
@@ -181,7 +183,7 @@ public class Object_Syllabus_Option extends BaseClass {
 
 		Thread.sleep(500);
 		action = new TouchAction(driver);
-		if (device == "Android")
+		if (device.equalsIgnoreCase("Android"))
 			action.press(PointOption.point(115, 650)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(700)))
 					.moveTo(PointOption.point(115, 450)).release().perform();
 		else
@@ -210,10 +212,8 @@ public class Object_Syllabus_Option extends BaseClass {
 		test.log(Status.INFO, "Clicked on Start Revision");
 		System.out.println("Clicked on Start Revision");
 		applyExplicitWait(5);
-		if (device == "Android")
-			status = findElementByText("you").isDisplayed();
-		else
-			status = findElementByText("YOU").isDisplayed();
+					status = findElementByText("you").isDisplayed();
+		
 		if (status) {
 			System.out.println("List of TQ's Displayed");
 			test.log(Status.INFO, "List of TQ's Displayed");
@@ -241,7 +241,7 @@ public class Object_Syllabus_Option extends BaseClass {
 			} catch (Exception e) {
 
 				applyExplicitWait(5);
-				if (device == "Android")
+				if (device.equalsIgnoreCase("Android"))
 					status = findElementByText("Revise again").isDisplayed();
 				else
 					status = driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name=\"Revise again\"]"))
@@ -252,7 +252,7 @@ public class Object_Syllabus_Option extends BaseClass {
 					System.out.println("Revise again button Displayed");
 					test.log(Status.INFO, "Revise again button Displayed");
 
-					if (device == "Android")
+					if (device.equalsIgnoreCase("Android"))
 						clickOnElement(findElementByText("Revise again"));
 					else
 					{

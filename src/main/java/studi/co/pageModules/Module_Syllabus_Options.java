@@ -131,9 +131,9 @@ public class Module_Syllabus_Options extends BaseClass {
 
 					applyExplicitWait(5);
 					if (device.equalsIgnoreCase("Android"))
-						status = findElementByText("Your Confidence").isDisplayed();
+						status = findElementByText("your Confidence").isDisplayed();
 					else
-						status = findElementByText("YOUR COMPLETION").isDisplayed();
+						status = findElementByText("youR COMPLETION").isDisplayed();
 					sAss.assertTrue(status);
 					if (status) {
 						System.out.println("Navigated to next lesson of " + subject);
@@ -335,8 +335,9 @@ public class Module_Syllabus_Options extends BaseClass {
 		System.out.println("Clicked on Create note Button");
 		test.log(Status.INFO, "Clicked on Create note Button");
 
+		swipeDown();
 		status = oso.saveNoteBtn.isDisplayed();
-		sAss.assertTrue(status);
+		sAss.assertTrue(status, "Save Note option not visible");
 		if (status) {
 			System.out.println("Save Note option is visible");
 			test.log(Status.INFO, "Save Note option is visible");
@@ -366,7 +367,7 @@ public class Module_Syllabus_Options extends BaseClass {
 		}
 
 		driver.hideKeyboard();
-		if (device != "Android")
+		if (!device.equalsIgnoreCase("Android"))
 			driver.findElement(By.xpath("//XCUIElementTypeButton[@name=\"Done\"]")).click();
 
 		status = oso.saveNoteBtn.isDisplayed();
@@ -438,7 +439,7 @@ public class Module_Syllabus_Options extends BaseClass {
 		System.out.println("Clicking on Go to Note Location");
 		test.log(Status.INFO, "Clicking on Go to Note Location");
 
-		if (device != "Android")
+		if (!device.equalsIgnoreCase("Android"))
 			clickOnElement(findElementByText("CONTINUE"));
 		pauseVideo();
 
@@ -714,7 +715,7 @@ public class Module_Syllabus_Options extends BaseClass {
 		if (device.equalsIgnoreCase("Android"))
 			status = findElementByText("you").isDisplayed();
 		else
-			status = findElementByText("YOU").isDisplayed();
+			status = findElementByText("you").isDisplayed();
 		if (status) {
 			System.out.println("List of TQ'a Displayed after maximizing");
 			test.log(Status.INFO, "List of TQ'a Displayed after maximizing");
@@ -820,7 +821,7 @@ public class Module_Syllabus_Options extends BaseClass {
 		if (device.equalsIgnoreCase("Android"))
 			status = findElementByText("you").isDisplayed();
 		else
-			status = findElementByText("YOU").isDisplayed();
+			status = findElementByText("you").isDisplayed();
 		sAss.assertTrue(status);
 		if (status) {
 			System.out.println("Landed on same page after lock\\unlock");
@@ -929,7 +930,7 @@ public class Module_Syllabus_Options extends BaseClass {
 		if (device.equalsIgnoreCase("Android"))
 			status = findElementByText("you").isDisplayed();
 		else
-			status = findElementByText("YOU").isDisplayed();
+			status = findElementByText("you").isDisplayed();
 		sAss.assertTrue(status);
 		if (status) {
 			System.out.println("Landed on Bookshelf");
@@ -1170,7 +1171,7 @@ public class Module_Syllabus_Options extends BaseClass {
 		if (device.equalsIgnoreCase("Android"))
 			status = findElementByText("you").isDisplayed();
 		else
-			status = findElementByText("YOU").isDisplayed();
+			status = findElementByText("you").isDisplayed();
 		if (status) {
 			System.out.println("List of TQ's Displayed");
 			test.log(Status.INFO, "List of TQ's Displayed");
@@ -1281,7 +1282,7 @@ public class Module_Syllabus_Options extends BaseClass {
 		if (device.equalsIgnoreCase("Android"))
 			status = findElementByText("you").isDisplayed();
 		else
-			status = findElementByText("YOU").isDisplayed();
+			status = findElementByText("you").isDisplayed();
 		if (status) {
 			System.out.println("All TQ's completed");
 			test.log(Status.INFO, "All TQ's completed");
@@ -1301,7 +1302,7 @@ public class Module_Syllabus_Options extends BaseClass {
 			test.log(Status.INFO, "Revise again button Displayed");
 		}
 
-		if (device == "Andoid") {
+		if (device.equalsIgnoreCase("Android")) {
 			applyExplicitWaitsUntilElementVisible(oso.tertiaryBtnBottom);
 			clickOnElement(oso.tertiaryBtnBottom);
 			status = findElementByText("Return to Subject").isDisplayed();
@@ -1376,7 +1377,7 @@ public class Module_Syllabus_Options extends BaseClass {
 			if (device.equalsIgnoreCase("Android"))
 				status = findElementByText("you").isDisplayed();
 			else
-				status = findElementByText("YOU").isDisplayed();
+				status = findElementByText("you").isDisplayed();
 			sAss.assertFalse(status);
 			if (status) {
 				System.out.println("Same page is visible after visible after sleep");
@@ -1544,7 +1545,7 @@ public class Module_Syllabus_Options extends BaseClass {
 
 		oso.noteTxtArea.sendKeys(temp);
 		driver.hideKeyboard();
-		if (device != "Android")
+		if (!device.equalsIgnoreCase("Android"))
 			driver.findElement(By.xpath("//XCUIElementTypeButton[@name=\"Done\"]")).click();
 		clickOnElement(oso.saveNoteBtn);
 		System.out.println("Clicked on Save note Button");
@@ -1801,6 +1802,7 @@ public class Module_Syllabus_Options extends BaseClass {
 		System.out.println("Entered text: " + prop.getProperty("note") + ", Accepted text by note module: " + temp2);
 		test.log(Status.INFO, "Entered text: " + prop.getProperty("note") + ", Accepted text by note module: " + temp2);
 
+		
 		System.out.println("Clicked on Discard Button");
 		test.log(Status.INFO, "Clicked on Discard Button");
 		clickOnElement(oso.discardNoteBtn);
@@ -1838,7 +1840,7 @@ public class Module_Syllabus_Options extends BaseClass {
 		test.log(Status.INFO, "Accept the discarding process");
 		clickOnElement(oso.discardAcceptBtn);
 
-		if (device == "Andorid")
+		if (device.equalsIgnoreCase("Android"))
 			status = oso.addNotesBtn.isDisplayed();
 		else
 			status = oso.noteTxtArea.getText().isEmpty();
@@ -1977,7 +1979,7 @@ public class Module_Syllabus_Options extends BaseClass {
 		System.out.println("Verifying total notes count");
 		test.log(Status.INFO, "Verifying total notes count");
 		System.out.println(oso.notesCountIndicator.findElement(By.xpath("//*[@type=\"XCUIElementTypeStaticText\"]")).getAttribute("value"));
-		if(device=="Android")
+		if(device.equalsIgnoreCase("Android"))
 		status = Integer.parseInt(oso.notesCountIndicator.getText()) == (notesCount + 1) ? true : false;
 		else
 			status=Integer.parseInt(oso.notesCountIndicator.findElement(By.xpath("//*[@type=\"XCUIElementTypeStaticText\"]")).getAttribute("value"))== (notesCount + 1) ? true : false;
@@ -1986,7 +1988,7 @@ public class Module_Syllabus_Options extends BaseClass {
 			test.log(Status.INFO, "Notes count increased by 1 succefully");
 		}
 
-		if(device=="Android")
+		if(device.equalsIgnoreCase("Android"))
 		clickOnElement(driver.findElementById("com.tce.studi:id/tv_notes"));
 		else 
 			clickOnElement(oso.hamburgerNotes);
