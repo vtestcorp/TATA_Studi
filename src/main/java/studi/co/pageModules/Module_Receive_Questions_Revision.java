@@ -2,27 +2,17 @@ package studi.co.pageModules;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.time.Duration;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
 
 import com.aventstack.extentreports.Status;
 
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.TouchAction;
-import io.appium.java_client.touch.WaitOptions;
-import io.appium.java_client.touch.offset.PointOption;
 import studi.co.Base.BaseClass;
 import studi.co.pageObjects.Object_Receive_Questions_Revision;
 
@@ -113,7 +103,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 				.findElements(By.xpath("//*[contains(@class, 'selectedOtp') and contains(@class, 'incorrect')]"));
 		getDriver().context("NATIVE_APP");
 		System.err.println("as :" + as.size() + " correct ans : " + wrongAnswers);
-		if (as.size() == wrongAnswers)
+		if (as.size() == wrongAnswers || as.size() == 1 )
 			return true;
 		else
 			return false;
@@ -646,11 +636,16 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
+		pauseVideo();
 		forwardVideoTimerToEnd();
-		applyExplicitWait(15);
-
-		int questions = RMQR.get_Total_Number_Of_Questions_InRevision();
+		applyExplicitWaitsUntilElementVisible(RMQR.question);
+		int questions;
+		if (device.equalsIgnoreCase("Android"))
+			questions = getTotalQuestionsInPractice();
+		else
+			questions = RMQR.get_Total_Number_Of_Questions_InRevision();
 		test.log(Status.INFO, "Total questions : " + questions);
+		System.out.println("Total questions : " + questions);
 		int i = 0;
 		SoftAssert sAss = new SoftAssert();
 		int actualcount = 0;
@@ -660,7 +655,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		System.out.println("Selecting correct answers for all SCQ's");
 
 		while (i < questions) {
-			applyExplicitWaitsUntilElementVisible(RMQR.question);
+
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -670,14 +665,19 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 				swipeUp();
 				selectCorrectAnswer();
 			}
+			correctAnswer[i] = correctAnswers;
 			if (i + 1 != questions)
 				clickOnElement(RMQR.nextButton);
 			i++;
 		}
 
+		System.err.print("Correct ans : ");
+		for (int j = 0; j < questions; j++)
+			System.out.print(" " + correctAnswer[j]);
+
 		i = 0;
-		test.log(Status.INFO, "Checking state of selected answers");
-		System.out.println("Checking state of selected answers");
+		test.log(Status.INFO, "Checking state of selected answer");
+		System.out.println("Checking state of selected answer");
 
 		while (i < questions) {
 			applyExplicitWaitsUntilElementVisible(RMQR.question);
@@ -692,14 +692,16 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 				else
 					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
 				for (MobileElement mobileElement : answerCount) {
-					status = Boolean.parseBoolean(mobileElement.getAttribute("checked"));
-					System.err.println(status);
+					if (device.equalsIgnoreCase("Android"))
+						status = Boolean.parseBoolean(mobileElement.getAttribute("checked"));
+					else
+						status = mobileElement.getAttribute("value").equals("1");
+					swipeUp();
 					if (status)
 						checkCnt++;
-					swipeUp();
 				}
 
-				status = checkCnt == 1 ? true : false;
+				status = checkCnt == correctAnswer[questions - i - 1] ? true : false;
 				sAss.assertTrue(status, "Attempted state not maintained in Revision");
 				if (status) {
 					test.log(Status.INFO, "Attempted state maintained in Revision for question " + (questions - i));
@@ -1172,5 +1174,60 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		System.out.println("Total " + actualcount + " MCQ questions are displayed");
 		sAss.assertAll();
 
+	}
+
+	public void Module_Verify_Instant_Feedback_Shown_After_SCQ_Wrong_Answer_Selection_In_Revision(String subject,
+			String topic) throws InterruptedException, WebDriverException, IOException {
+		traverse_To_Begin_Revision(subject, topic);
+		applyExplicitWait(5);
+		test.log(Status.INFO, "Video started");
+		pauseVideo();
+		forwardVideoTimerToEnd();
+		applyExplicitWaitsUntilElementVisible(RMQR.question);
+		int questions;
+		if (device.equalsIgnoreCase("Android"))
+			questions = getTotalQuestionsInPractice();
+		else
+			questions = RMQR.get_Total_Number_Of_Questions_InRevision();
+		test.log(Status.INFO, "Total questions : " + questions);
+		System.out.println("Total questions : " + questions);
+		int i = 0;
+		SoftAssert sAss = new SoftAssert();
+		int actualcount = 0;
+		Boolean status;
+
+		test.log(Status.INFO, "Checking feedback for wrong answer selection");
+		System.out.println("Checking feedback for wrong answer selection");
+
+		while (i < questions) {
+			applyExplicitWaitsUntilElementVisible(RMQR.question);
+			test.log(Status.INFO, "Question " + (i + 1));
+			System.out.println("Question " + (i + 1));
+
+			if (verifySCQorMCQ().equalsIgnoreCase("scq")) {
+				applyExplicitWait(5);
+				actualcount++;
+				swipeUp();
+
+				selectIncorrectAnswer();
+				status = check_Wrong_Answer_Feedback_In_Revision();
+
+				sAss.assertTrue(status, "Incorrect feedback shown for wrong answers selection");
+				if (status) {
+					test.log(Status.INFO, "Correct feedback shown for wrong answers selection");
+					System.out.println("Correct feedback shown for wrong answers selection");
+
+				}
+			}
+			if (i + 1 != questions)
+				clickOnElement(RMQR.nextButton);
+			i++;
+		}
+
+		applyExplicitWait(2);
+		test.log(Status.INFO, "Total " + actualcount + " SCQ questions are displayed");
+		System.out.println("Total " + actualcount + " SCQ questions are displayed");
+		sAss.assertAll();
+		
 	}
 }

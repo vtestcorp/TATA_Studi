@@ -68,6 +68,12 @@ public class Object_Create_Study_Plan extends BaseClass {
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/tvHeading\").textContains(\"Syllabus\")")
 	public WebElement syllabusUnitModule;
 	
+	@AndroidFindBy(id = "com.tce.studi:id/iv_left_icon")
+	@iOSFindBy(id = "White 2")
+	public WebElement backBtnTestUnit;
+	
+	@iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Select another plan\"]")
+	public WebElement selectAnotherPlanBtn;
 	
 	// + button in syllabus module
 	@iOSFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[4]")
@@ -81,21 +87,25 @@ public class Object_Create_Study_Plan extends BaseClass {
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/tvHeading\").textContains(\"Create Study Plan\")")
 	public WebElement studyPlanTab;
 
+	@iOSFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeTable/XCUIElementTypeCell[1]")
 	@AndroidFindBy(id = "com.tce.studi:id/study_layout")
 	public WebElement studyLayout;
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"Paused\").resourceId(\"com.tce.studi:id/tvSubHeading\")")
 	public WebElement testPauselbl;
 
+	@iOSFindBy(id = "Manage & Create Plans")
 	@FindBy(id = "com.tce.studi:id/tv_manage_plans")
 	public WebElement managePlanBtn;
 
-	@FindBy(id = "com.tce.studi:id/tv_create_plan")
+	@iOSFindBy(xpath = "//XCUIElementTypeButton[@name=\"CREATE A STUDY PLAN\"]")
+	@FindBy(id = "com.tce.studi:id/tvCreatePlan")
 	public WebElement createStudyPlanBtn;
 	
 	@FindBy(id = "com.tce.studi:id/fab_edit")
 	public WebElement editPlan;
 	
+	@iOSFindBy(id = "Next Step")
 	@AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.Button\").textContains(\"Next Step\")")
 	public WebElement nextStepBtn;
 
@@ -106,9 +116,11 @@ public class Object_Create_Study_Plan extends BaseClass {
 	public Map<String, String> upcomingLesson = new LinkedHashMap<String, String>();
 	public Map<String, Boolean> subjectFlag = new HashMap<String, Boolean>();
 
+	@iOSFindBy(id = "moreOptionsBlack")
 	@FindBy(id = "com.tce.studi:id/img_overflow")
 	public WebElement topLessonStatus;
 
+	@iOSFindBy(id = "Mark as Completed")
 	@FindBy(id = "com.tce.studi:id/title")
 	public WebElement markAsComplete;
 	

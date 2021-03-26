@@ -33,13 +33,13 @@ public class AFS_UserStory_76 extends BaseClass {
 
 ////////////////////////////////////////////Practice-MCQ////////////////////////////////////////////////////////
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC12_Verify_MCQ_Questions_In_Pratice() throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
 		rqr.Module_Receive_MCQ_Questions_Practice(prop.getProperty("subject76"), prop.getProperty("topic76"));
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC13_To_Verify_MCQ_Answers_Is_In_Default_State_In_Practice()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
@@ -47,7 +47,7 @@ public class AFS_UserStory_76 extends BaseClass {
 				prop.getProperty("topic76"));
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC14_To_Verify_Multiple_Answers_Shown_For_MCQ_In_Practice()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
@@ -55,7 +55,7 @@ public class AFS_UserStory_76 extends BaseClass {
 				prop.getProperty("topic76"));
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC15_To_Verify_MCQ_Answers_Can_Be_Select_In_Practice()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Practice rqt = new Module_Receive_Questions_Practice();
@@ -64,7 +64,7 @@ public class AFS_UserStory_76 extends BaseClass {
 
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC16_To_Verify_Multiple_MSQ_Answer_Can_Be_Select_In_Practice()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Practice rqt = new Module_Receive_Questions_Practice();
@@ -72,7 +72,7 @@ public class AFS_UserStory_76 extends BaseClass {
 				prop.getProperty("topic76"));
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC17_To_Verify_Correct_Feedback_Shown_After_Correct_Answer_Selection_For_MCQ_In_Practice()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Practice rqt = new Module_Receive_Questions_Practice();
@@ -81,7 +81,7 @@ public class AFS_UserStory_76 extends BaseClass {
 
 	}
 
-	@Test(enabled = false) 
+	@Test(enabled = true) 
 	public void TC18_To_Verify_Correct_Feedback_Shown_After_Partial_Answer_Selection_In_Practice()
 			throws Exception {
 		Module_Receive_Questions_Practice rqt = new Module_Receive_Questions_Practice();
@@ -90,7 +90,7 @@ public class AFS_UserStory_76 extends BaseClass {
 
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC19_To_Verify_Attempting_MCQ_Quiz_Is_Mandatory_In_Practice()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Practice rqt = new Module_Receive_Questions_Practice();
@@ -99,7 +99,7 @@ public class AFS_UserStory_76 extends BaseClass {
 
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC20_To_Verify_In_Wrong_Answer_Selection_User_Should_Get_1_More_Attempt_For_MCQ_In_Practice()
 			throws Exception {
 		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
@@ -107,7 +107,7 @@ public class AFS_UserStory_76 extends BaseClass {
 				prop.getProperty("subject76"), prop.getProperty("topic76"));
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC21_To_Verify_User_Can_Abond_MCQ_Quiz_In_Practice()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Practice rqt = new Module_Receive_Questions_Practice();
@@ -115,13 +115,13 @@ public class AFS_UserStory_76 extends BaseClass {
 
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC01_Verify_MCQ_Questions_In_Revision() throws InterruptedException, WebDriverException, IOException {
 		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
 		rqr.Module_Receive_MCQ_Questions_Revision(prop.getProperty("subject76"), prop.getProperty("topic76"));
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC02_To_Verify_MCQ_Answers_Is_In_Default_State_In_Revision()
 			throws InterruptedException, WebDriverException, IOException {
 		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
@@ -129,7 +129,7 @@ public class AFS_UserStory_76 extends BaseClass {
 				prop.getProperty("topic76"));
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC03_To_Verify_Multiple_Answers_Shown_For_MCQ_In_Revision()
 			throws InterruptedException, WebDriverException, IOException {
 		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
@@ -137,7 +137,7 @@ public class AFS_UserStory_76 extends BaseClass {
 				prop.getProperty("topic76"));
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC04_To_Verify_MCQ_Answers_Can_Be_Select_In_Revision()
 			throws InterruptedException, WebDriverException, IOException {
 		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
@@ -145,7 +145,7 @@ public class AFS_UserStory_76 extends BaseClass {
 				prop.getProperty("topic76"));
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC05_To_Verify_Multiple_Answers_Can_Be_Select_For_MCQ_Question_In_Revision()
 			throws InterruptedException, WebDriverException, IOException {
 		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
@@ -153,7 +153,7 @@ public class AFS_UserStory_76 extends BaseClass {
 				prop.getProperty("topic76"));
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC06_To_Verify_Instant_Feedback_Shown_After_MCQ_Correct_Answer_Selection_In_Revision()
 			throws InterruptedException, WebDriverException, IOException {
 		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
@@ -162,7 +162,7 @@ public class AFS_UserStory_76 extends BaseClass {
 
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC07_To_Verify_State_Of_Answer_Should_Be_Maintained_For_MCQ_Answer_In_Revision()
 			throws InterruptedException, WebDriverException, IOException {
 		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
@@ -171,7 +171,7 @@ public class AFS_UserStory_76 extends BaseClass {
 
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC08_To_Verify_Instant_Feedback_Shown_After_MCQ_Wrong_Answer_Selection_In_Revision()
 			throws InterruptedException, WebDriverException, IOException {
 		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
@@ -179,7 +179,7 @@ public class AFS_UserStory_76 extends BaseClass {
 				prop.getProperty("subject76"), prop.getProperty("topic76"));
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC09_To_Verify_Attempting_MCQ_Quiz_Is_Not_Mandatory_In_Revision()
 			throws InterruptedException, WebDriverException, IOException {
 		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
@@ -187,28 +187,28 @@ public class AFS_UserStory_76 extends BaseClass {
 				prop.getProperty("topic76"));
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC11_To_Verify_User_Can_Abandon_MCQ_Quiz_In_Revision()
 			throws InterruptedException, WebDriverException, IOException {
 		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
 		rqr.Module_Verify_User_Can_Abandon_Quiz_In_Revision(prop.getProperty("subject76"), prop.getProperty("topic76"));
 	}
 
-	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////Test////////////////////////////////////////////////////////////////
 
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void TC22_To_Verify_Receive_MCQ_Questions_In_Test() throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
 		createPlan();
-		rqt.Module_Receive_MCQ_Questions_Test(prop.getProperty("msubject"));
+		rqt.Module_Receive_MCQ_Questions_Test(prop.getProperty("subject76"));
 
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC23_Module_Receive_MCQ_Answers_In_Default_State_In_Test()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
-		rqt.Module_Receive_MCQ_Answers_In_Default_State_In_Test(prop.getProperty("Psubject"));
+		rqt.Module_Receive_MCQ_Answers_In_Default_State_In_Test(prop.getProperty("subject76"));
 
 	}
 

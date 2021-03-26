@@ -292,13 +292,7 @@ public class BaseClass {
 				getDriver().context(cont);
 		}
 		try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
-			Thread.sleep(200);
+			Thread.sleep(700);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -559,7 +553,7 @@ public class BaseClass {
 			action = new TouchAction(driver);
 
 			org.openqa.selenium.Dimension size = driver.manage().window().getSize();
-			while (!driver.findElement(By.xpath("//XCUIElementTypeStaticText[contains(@name, '" + text + "')]"))
+			while (!driver.findElement(By.xpath("//*[contains(@name, '" + text + "')]"))
 					.isDisplayed()) {
 				System.out.println("checked2");
 				action.press(PointOption.point(size.width / 3, (int) (size.height * 0.8)))
@@ -781,14 +775,14 @@ public class BaseClass {
 		if (device.equalsIgnoreCase("Android"))
 			return getDriver().findElement(By.xpath("//*[contains(@text, '" + text + "')]"));
 		else
-			return getDriver().findElement(By.xpath("//XCUIElementTypeStaticText[contains(@name, '" + text
+			return getDriver().findElement(By.xpath("//*[contains(@name, '" + text
 					+ "') or contains(@name, '" + text.toUpperCase() + "')]"));
 
 	}
 
 	public static MobileElement findElementByExactText(String text) {
 		if (device.equalsIgnoreCase("Android"))
-			return getDriver().findElement(By.xpath("//*[contains(@text, '" + text + "')]"));
+			return getDriver().findElement(By.xpath("//*[@text='" + text + "']"));
 		else
 			return getDriver().findElement(By
 					.xpath("//XCUIElementTypeStaticText[@name='" + text + "' or @name='" + text.toUpperCase() + "']"));
