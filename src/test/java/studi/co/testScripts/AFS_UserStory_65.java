@@ -52,7 +52,7 @@ public class AFS_UserStory_65 extends BaseClass {
 
 	}
 
-	@Test(enabled =true)
+	@Test(enabled =false)
 	public void T05_To_Verify_User_should_shown_proper_Response_for_correct_option()
 			throws IOException, InterruptedException, AWTException {
 		Module_Verify_Syllabus_Section test = new Module_Verify_Syllabus_Section();
@@ -68,14 +68,14 @@ public class AFS_UserStory_65 extends BaseClass {
 
 	}
 
-	@Test(enabled= false)
+	@Test(enabled=false)
 	public void T07_To_Verify_Warning_Message_On_Clicking_Back_Button()
 			throws IOException, InterruptedException, AWTException {
 		Module_Verify_Syllabus_Section test = new Module_Verify_Syllabus_Section();
 		test.toVerify_Warning_Message();
 	}
 
-	@Test(enabled =false)
+	@Test(enabled =true)
 	public void T08_To_Verify_Confidence_Report_Page() throws IOException, InterruptedException, AWTException {
 		Module_Verify_Syllabus_Section test = new Module_Verify_Syllabus_Section();
 		test.toVerify_Confidence_Report_Page();

@@ -14,7 +14,7 @@ import studi.co.pageObjects.Object_Receive_Subjective_Questions_Revision;
 
 public class Model_Receive_Subjective_Questions_Revision extends BaseClass {
 	Object_Receive_Subjective_Questions_Revision RMSQR = new Object_Receive_Subjective_Questions_Revision();
-	
+
 
 	private void pauseVideo() throws MalformedURLException, InterruptedException {
 		applyExplicitWaitsUntilElementVisible(driver.findElement(By.xpath(
@@ -23,7 +23,7 @@ public class Model_Receive_Subjective_Questions_Revision extends BaseClass {
 		applyExplicitWaitsUntilElementVisible(RMSQR.addNotesBtn);
 		driver.findElement(By.xpath(
 				"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]"))
-				.click();
+		.click();
 		// applyExplicitWait(2);
 		RMSQR.pauseBtn.click();
 	}
@@ -70,8 +70,8 @@ public class Model_Receive_Subjective_Questions_Revision extends BaseClass {
 			clickOnElement(findElementByText("Revise"));
 		}
 	}
-	
-	
+
+
 	@SuppressWarnings("unused")
 	public void Module_Receive_Subjective_Questions_Revision(String subject, String topic)
 			throws WebDriverException, IOException, InterruptedException {
@@ -79,7 +79,7 @@ public class Model_Receive_Subjective_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
-		
+
 		pauseVideo();
 		forwardVideoTimerToEnd();
 		applyExplicitWait(15);
@@ -100,13 +100,13 @@ public class Model_Receive_Subjective_Questions_Revision extends BaseClass {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
-			//Verify that question text along with "show answer" button should be available and functional
+				//Verify that question text along with "show answer" button should be available and functional
 
-							
-				
-				
-				}
-			
+
+
+
+			}
+
 			if (i + 1 != questions)
 				clickOnElement(RMSQR.nextButton);
 			i++;
@@ -117,20 +117,20 @@ public class Model_Receive_Subjective_Questions_Revision extends BaseClass {
 		sAss.assertAll();
 	}
 
-	
+
 
 	//To verify that user should be able to attempt the subjective type question
 
 
 
-	
 
 
 
 
-		
-	}
-	
-	
-	
+
+
+}
+
+
+
 

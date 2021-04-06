@@ -34,7 +34,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		applyExplicitWaitsUntilElementVisible(RMQR.addNotesBtn);
 		driver.findElement(By.xpath(
 				"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]"))
-				.click();
+		.click();
 		// applyExplicitWait(2);
 		RMQR.pauseBtn.click();
 	}
@@ -406,12 +406,13 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		forwardVideoTimerToEnd();
 		applyExplicitWait(15);
 
-		List<MobileElement> questions = RMQR.get_Total_Number_Of_Questions_InRevision();
-		test.log(Status.INFO, "Total questions : " + questions.size());
+		int questions = getTotalQuestionsInPractice();
+		test.log(Status.INFO, "Total questions : " + questions);
 		int actualcount = 0;
 		int i = 0;
 		SoftAssert sAss = new SoftAssert();
-		applyExplicitWaitsUntilElementVisible(RMQR.question); {
+		applyExplicitWaitsUntilElementVisible(RMQR.question);
+		while(i<questions){
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -432,7 +433,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 					t++;
 				}
 			}
-			if (i + 1 != questions.size())
+			if (i + 1 != questions)
 				clickOnElement(RMQR.nextButton);
 			i++;
 		}
@@ -459,7 +460,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		int actualcount = 0;
 		Boolean status;
 		applyExplicitWaitsUntilElementVisible(RMQR.question);
-		
+
 		normal: while (i < questions.size()) {
 
 			test.log(Status.INFO, "Question " + (i + 1));
@@ -556,7 +557,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		applyExplicitWaitsUntilElementVisible(RMQR.question);
 		while (i < questions.size()) {
 
-			
+
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -607,7 +608,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		System.out.println("Selecting correct answers for all SCQ's");
 		applyExplicitWaitsUntilElementVisible(RMQR.question);
 		while (i < questions.size()) {
-			
+
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -679,7 +680,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		SoftAssert sAss = new SoftAssert();
 		int actualcount = 0;
 		applyExplicitWaitsUntilElementVisible(RMQR.question);
-		
+
 		normal: while (i < questions.size()) {
 
 			test.log(Status.INFO, "Question " + (i + 1));
@@ -941,7 +942,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		System.out.println("Checking feedback for wrong answer selection");
 		applyExplicitWaitsUntilElementVisible(RMQR.question);
 		while (i < questions.size()) {
-			
+
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -992,7 +993,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		System.out.println("Selecting correct answers for all MCQ's");
 		applyExplicitWaitsUntilElementVisible(RMQR.question);
 		while (i < questions.size()) {
-			
+
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 

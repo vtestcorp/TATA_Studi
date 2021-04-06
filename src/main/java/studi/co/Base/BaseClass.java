@@ -110,9 +110,9 @@ public class BaseClass {
 	public static int correctAnswers;
 	public static int[] correctAnswer = new int[10];
 	public static int wrongAnswers;
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/exo_pause\").className(\"android.widget.ImageButton\")")
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/exo_pause\")")
 	public WebElement pauseBtn;
-	
+
 	public BaseClass() {
 		try {
 
@@ -134,19 +134,18 @@ public class BaseClass {
 		return generatedString;
 	}
 
-	
 	public void selectCorrectAnswer() {
 		action = new TouchAction(driver);
 		action.press(PointOption.point(115, 650)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(400)))
 				.moveTo(PointOption.point(115, 350)).release().perform();
 		correctAnswers = 0;
 		int i = 0;
-		
+
 		Set<String> context = driver.getContextHandles();
-				for (String cont : context) {
-					if (cont.contains("WEBVIEW"))
-						getDriver().context(cont);
-				}
+		for (String cont : context) {
+			if (cont.contains("WEBVIEW"))
+				getDriver().context(cont);
+		}
 		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
 		List<MobileElement> as = driver.findElements(By.tagName("tce-option"));
 		for (WebElement s : as) {
@@ -185,8 +184,10 @@ public class BaseClass {
 		correctAnswers = 0;
 		Set<String> context = driver.getContextHandles();
 		for (String cont : context) {
-					if (cont.contains("WEBVIEW"))
-				getDriver().context(cont);
+			
+			if (cont.contains("WEBVIEW")) {
+				System.out.println(cont);
+				driver.context(cont);}
 		}
 		try {
 			Thread.sleep(500);
@@ -204,7 +205,7 @@ public class BaseClass {
 		} else if (as.contains("subjective")) {
 			return "subjective";
 		}
-			return "OTHR";
+		return "OTHR";
 
 	}
 
@@ -219,17 +220,14 @@ public class BaseClass {
 		String s = type;
 		caps = new DesiredCapabilities();
 		if (s.equalsIgnoreCase("Android")) {
-			// caps.setCapability(MobileCapabilityType.DEVICE_NAME, "ZY223HQBHZ");
-			// caps.setCapability(MobileCapabilityType.DEVICE_NAME, "SM M105F");
 			caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Appium");
 			caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "7");
-			// caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9
-			// PPR1.180610.011");
-			// caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9");
+			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9");
+			//caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11"); //emulator
 			caps.setCapability("appPackage", "com.tce.studi");
 			caps.setCapability("appActivity", "com.tce.view.ui.activities.SplashScreenActivity");
-			caps.setCapability("app", "C:\\Users\\LENOVO\\Downloads\\Studi_QA_v1.1.19mar.apk");
+			caps.setCapability("app", "C:\\Users\\LENOVO\\Downloads\\Studi_v1.1.2.apk");
+			caps.setCapability("chromedriverExecutable", "C:\\Users\\LENOVO\\Downloads\\chromedriver_win32 (2)\\chromedriver.exe");
 			caps.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, "true");
 			caps.setCapability(MobileCapabilityType.NO_RESET, true);
 			System.out.println("Required Desired Capabilities Defined");

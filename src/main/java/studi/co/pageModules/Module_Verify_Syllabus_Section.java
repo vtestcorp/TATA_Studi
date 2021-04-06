@@ -31,7 +31,7 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 
 		osm = new Object_Syllabus_Section();
 		osm.syllabus.click();
-		
+
 		applyExplicitWait(5);
 		scrollTo2(subject);
 		clickOnElement(findElementByText(subject));
@@ -45,19 +45,19 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		for (MobileElement mobileElement : chapters) {
 			aa.add(mobileElement.getText().replaceAll("\\d", "").trim());
 		}
-		
+
 		System.out.println("Chapters available in given subject are :");
 		test.log(Status.INFO, "Chapters available in given subject are :");
 		List<String> chaptersWD = new ArrayList<>(new HashSet<>(aa));
 		chaptersWD.sort(Comparator.naturalOrder());
-		
+
 		System.out.println(chaptersWD.size());
 		for (String chapter1 : chaptersWD) {
 			test.log(Status.INFO, chapter1);
 			System.out.println(chapter1);
 		}
 		//swipeTop();
-		
+
 		applyExplicitWait(5);
 		scrollTo2(topic1);
 		applyExplicitWait(5);
@@ -73,9 +73,9 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		}
 		clickOnElement(findElementByText(topic1));
 		test.log(Status.INFO, "Clicked on "+topic1);
-		
+
 		applyExplicitWait(5);
-		
+
 		Boolean verify = osm.practise.isDisplayed();
 		if(verify) {
 			System.out.println("Begin Practise link displayed under topic name");
@@ -84,7 +84,7 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		assert1.assertTrue(verify);
 		osm.practise.click();
 		applyExplicitWait(5);
-		
+
 		Boolean topicHeading=osm.comparingNumberHeading.isDisplayed();
 		if(topicHeading) {
 			System.out.println("Begin Practise link is functional");
@@ -96,17 +96,17 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 
 	public void verify_beginPractise_Button() throws Exception {
 		SoftAssert assert1=new SoftAssert();
-//		String subject="Mathematics";
-//		String topic1="Comparing Numbers";
-		
-//		verify_Begin_Practise_Link();	
-		
+		//		String subject="Mathematics";
+		//		String topic1="Comparing Numbers";
+
+		//		verify_Begin_Practise_Link();	
+
 		String subject = "Political Science";
 		String topic1 = "Diversity in India";
 
 		osm = new Object_Syllabus_Section();
 		osm.syllabus.click();
-		
+
 		applyExplicitWait(5);
 		scrollTo2(subject);
 		clickOnElement(findElementByText(subject));
@@ -133,36 +133,37 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		for(MobileElement video: list_videoIcons) {
 			assert1.assertTrue(video.isDisplayed());
 		}
-	System.out.println("Video Icon is displayed after each Questions");
-	test.log(Status.INFO, " Video Icon is displayed after each Questions");
-	assert1.assertAll();
+		System.out.println("Video Icon is displayed after each Questions");
+		test.log(Status.INFO, " Video Icon is displayed after each Questions");
+		assert1.assertAll();
 	}
 
 	public void verify_Practise_Quetions() throws Exception {
-//		verify_beginPractise_Button();
+		//		verify_beginPractise_Button();
 		String subject = "Political Science";
 		String topic1 = "Diversity in India";
 
 		osm = new Object_Syllabus_Section();
-//		scrollTo2("Syllabus");
+		//		scrollTo2("Syllabus");
 		osm.syllabus.click();
-		
+
 		applyExplicitWait(5);
 		scrollTo2(subject);
 		clickOnElement(findElementByText(subject));
-		
+
 		test.log(Status.INFO, "Cilcked on "+subject+" subject");
 		clickOnElement(findElementByText(topic1));
 		test.log(Status.INFO, "Clicked on "+topic1+" Topic");
 		applyExplicitWait(5);
 		Thread.sleep(3000);
-//		osm.practice.click();
+		//	osm.practice.click();
 		clickOnElement(findElementByText("Practice"));
-		applyExplicitWaitsUntilElementVisible(osm.practice1);
-//		osm.practice1.click();
-		applyExplicitWaitsUntilElementVisible(getDriver().findElementById("com.tce.studi:id/tv_heading_id"));
+		//applyExplicitWaitsUntilElementVisible(osm.practice1);
+		//		osm.practice1.click();
+		//applyExplicitWaitsUntilElementVisible(getDriver().findElementById("com.tce.studi:id/tv_heading_id"));
+		//clickOnElement(findElementByText("Practice"));
+		applyExplicitWaitsUntilElementVisible(findElementByText("you"));
 		clickOnElement(findElementByText("Practice"));
-		
 		applyExplicitWait(30);
 		int quetionsCount = verify_Question_Count_In_Test_Module();
 
@@ -170,7 +171,7 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		for (int i = 1; i <= quetionsCount; i++) {
 
 			new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
-					.until(ExpectedConditions.elementToBeClickable(osm.question1_part_Text));
+			.until(ExpectedConditions.elementToBeClickable(osm.question1_part_Text));
 
 			Boolean verify = osm.question1_part_Text.isDisplayed();
 
@@ -186,25 +187,18 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 
 	}
 
-	
+
 
 	public void verify_User_Can_attempt_PractiseQuetions() throws Exception {
-//		verify_Practise_Quetions();
-//		String subject="Mathematics";
-//		String topic1="Comparing Numbers";
 		
-//		String subject="Political Science";
-//		String topic1="Aspects and Influence of Diversity";
-		
+
 		String subject="Political Science";
 		String topic1="Diversity in India";
-		
-//		String subject="Political Science";
-//		String topic1="Unity in Diversity";
 
+	
 		osm = new Object_Syllabus_Section();
 		osm.syllabus.click();
-		
+
 		applyExplicitWait(5);
 		scrollTo2(subject);
 		clickOnElement(findElementByText(subject));
@@ -212,45 +206,48 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		clickOnElement(findElementByText(topic1));
 		test.log(Status.INFO, "Clicked on "+topic1+" Topic");
 		applyExplicitWait(5);
-//		osm.practise.click();
+		//		osm.practise.click();
 		clickOnElement(findElementByText("Practice"));
-		applyExplicitWaitsUntilElementVisible(getDriver().findElementById("com.tce.studi:id/tv_heading_id"));
-//		applyExplicitWaitsUntilElementVisible(osm.practice1);
+		//applyExplicitWaitsUntilElementVisible(getDriver().findElementById("com.tce.studi:id/tv_heading_id"));
+		applyExplicitWaitsUntilElementVisible(findElementByText("you"));
 		clickOnElement(findElementByText("Practice"));
-//		osm.practice1.click();
+		//		osm.practice1.click();
 		int quetionsCount = verify_Question_Count_In_Test_Module();
 
 		SoftAssert assert1 = new SoftAssert();
-		
-	for(int i=0;i<quetionsCount;i++) {
-		Thread.sleep(3000);
-		List<MobileElement> checkbox=getDriver().findElements(By.className("android.widget.CheckBox"));
-		System.out.println(checkbox.size());
-		int j=1;
-		applyExplicitWaitsUntilElementVisible(osm.question1_part_Text);
-		scrollToEnd();
+
+		for(int i=0;i<quetionsCount;i++) {
+			Thread.sleep(3000);
+			List<MobileElement> checkbox=getDriver().findElements(By.className("android.widget.CheckBox"));
+			System.out.println(checkbox.size());
+			int j=1;
+			applyExplicitWaitsUntilElementVisible(osm.question1_part_Text);
+			scrollToEnd();
 			for(MobileElement check : checkbox) {
 				new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
 				.until(ExpectedConditions.elementToBeClickable(check));
-			
-			Boolean verify=	check.isDisplayed();
-			System.out.println("Answer option no-"+j+" is displayed");
-			assert1.assertTrue(verify);
-			j++;
+
+				Boolean verify=	check.isDisplayed();
+				System.out.println("Answer option no-"+j+" is displayed");
+				assert1.assertTrue(verify);
+				j++;
 			}
-			
+
 			Boolean verify_checkAnswer=osm.check_answer.isDisplayed();
 			if(verify_checkAnswer) {
 				System.out.println("Check Answer Button displayed");
-				
+
 			}
 			else {
 				System.out.println("Check answer button is not available");
 			}
 			assert1.assertTrue(verify_checkAnswer);
-			
+
 			applyExplicitWait(10);
+			applyExplicitWaitsUntilElementVisible(findElementByText("later"));
+			//clickOnElement(findElementByText("I'll attempt later."));
 			osm.i_will_attempt_later.click();
+
 			System.out.println("Clicked on attempt later button");
 			applyExplicitWait(10);
 		}
@@ -265,7 +262,7 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		applyExplicitWaitsUntilElementVisible(osm.right_Answer_message);
 		Boolean check_message=osm.right_Answer_message.isDisplayed();
 		if(check_message) {
-	//		test.log(Status.INFO, "Great job! Let's continue.- message displayed after clicking on right answer");
+			//		test.log(Status.INFO, "Great job! Let's continue.- message displayed after clicking on right answer");
 			test.log(Status.INFO, "Answer option converted in green smiley icon if answer is correct");
 
 			System.out.println("Great job! Let's continue.- message displayed");
@@ -274,12 +271,12 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 			System.out.println("Selected answer is wrong");
 		}
 		assert1.assertTrue(check_message);
-		
+
 		osm.continue1.click();
 		applyExplicitWaitsUntilElementVisible(osm.question1_part_Text);
 		scrollToEnd();
 
-		
+
 		scrollToEnd();
 		selectIncorrectAnswer();
 		osm.check_answer.click();
@@ -287,11 +284,11 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		Boolean check_wrong_message=osm.wrong_Answer_message.isDisplayed();
 		if(check_wrong_message) {
 			System.out.println("Wrong answer message is displayed after clicking on wrong answer");
-//			test.log(Status.INFO, "Wrong answer message is displayed after clicking on wrong answer");
+			//			test.log(Status.INFO, "Wrong answer message is displayed after clicking on wrong answer");
 			test.log(Status.INFO, "Answer option converted in Red color smiley if answer is incorrect");
 		}
 		assert1.assertTrue(check_wrong_message);
-		
+
 		Boolean tryAgain=osm.try_Again_Button.isDisplayed();
 		assert1.assertTrue(tryAgain);
 		if(tryAgain) {
@@ -301,12 +298,12 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		assert1.assertAll();
 
 	}
-	
+
 	public void toVerify_ProperFeedBack_forCorrectOption() throws MalformedURLException, AWTException, InterruptedException {
 		SoftAssert assert1=new SoftAssert();
 		to_Launch_Practise_Quetions_Quiz();
 
-		
+
 		applyExplicitWaitsUntilElementVisible(osm.question1_part_Text);
 		scrollToEnd();
 		selectCorrectAnswer();
@@ -318,21 +315,21 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 			String check_message=osm.right_Answer_message.getText();
 			assert1.assertEquals(check_message, "Great job! Let's continue.");
 		}
-		
-		
-	Boolean verify=	osm.continue_Button.isDisplayed();
-	if(verify.equals(true)) {
-		test.log(Status.INFO, "Continue Button is displayed");
-		System.out.println("Continue button is displayed");
+
+
+		Boolean verify=	osm.continue_Button.isDisplayed();
+		if(verify.equals(true)) {
+			test.log(Status.INFO, "Continue Button is displayed");
+			System.out.println("Continue button is displayed");
+		}
+		else {
+			System.out.println("Continue button is not displayed");
+			test.log(Status.INFO, "Continue button is not displayed");
+		}
+		assert1.assertTrue(verify);
+		assert1.assertAll();
 	}
-	else {
-		System.out.println("Continue button is not displayed");
-		test.log(Status.INFO, "Continue button is not displayed");
-	}
-	assert1.assertTrue(verify);
-	assert1.assertAll();
-	}
-	
+
 	public void toVerify_Warning_Message() throws MalformedURLException, InterruptedException{
 		SoftAssert assert1=new SoftAssert();
 		to_Launch_Practise_Quetions_Quiz();
@@ -344,22 +341,22 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		applyExplicitWaitsUntilElementVisible(osm.warning_Message_1);
 		String warning_Message_1=osm.warning_Message_1.getText();
 		String warning_Message_2=osm.warning_Message_2.getText();
-		
+
 		Boolean warning_verify_1=osm.warning_Message_1.isDisplayed();
 		Boolean warning_verify_2=osm.warning_Message_2.isDisplayed();
-		
+
 		assert1.assertTrue(warning_verify_1);
 		assert1.assertTrue(warning_verify_2);
-		
+
 		if(warning_Message_1.equals("Are you sure want to go Away?") && warning_Message_2.equals("Your Progress will be lost.")) {
 			test.log(Status.INFO, "Warning message shown to the User after clicking on Back button");
 			System.out.println("Warning message shown to the User after clicking on Back button");
 		}
-		
-		
+
+
 		Boolean yes_Button=osm.yes_Button.isDisplayed();
 		Boolean no_Button=osm.no_Button.isDisplayed();
-		
+
 		if(yes_Button) {
 			test.log(Status.INFO, "Yes button is displayed");
 			System.out.println("Yes button is displayed");
@@ -368,7 +365,7 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 			test.log(Status.INFO, "Yes button is not displayed");
 			System.out.println("Yes button is not displayed");
 		}
-		
+
 		if(no_Button) {
 			test.log(Status.INFO, "No button is displayed");
 			System.out.println("No button is displayed");
@@ -379,17 +376,17 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		}
 		assert1.assertTrue(yes_Button);
 		assert1.assertTrue(no_Button);
-		
+
 		osm.no_Button.click();
 		applyExplicitWait(5);
 		if(osm.question1_part_Text.isDisplayed()) {
 			test.log(Status.INFO, "User can navigated back to practise quiz after clicking on No button");
 			System.out.println("User can navigated back to practise quiz after clicking on No button");
 		}
-		
+
 		osm.back_Button.click();
 		osm.yes_Button.click();
-		
+
 		applyExplicitWait(5);
 		if(osm.your_Confidence_Report.isDisplayed()) {
 			test.log(Status.INFO, "User can navigated back to Topic Listing Page after clicking on Yes button");
@@ -411,50 +408,50 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 			assert1.assertEquals(check_message, "Uh-oh! Give it another shot!");
 		}
 
-	Boolean try_Button=osm.try_Again_Button.isDisplayed();
-	assert1.assertTrue(try_Button);
-	if(try_Button) {
-	System.out.println("TRY AGAIN button is displayed");
-	test.log(Status.INFO, "TRY AGAIN button is displayed");
+		Boolean try_Button=osm.try_Again_Button.isDisplayed();
+		assert1.assertTrue(try_Button);
+		if(try_Button) {
+			System.out.println("TRY AGAIN button is displayed");
+			test.log(Status.INFO, "TRY AGAIN button is displayed");
 
-	}
-	else {
-		System.out.println("TRY AGAIN button is not displayed");
-		test.log(Status.INFO, "TRY AGAIN button is not displayed");
-	}
-	
-	Boolean I_dont_know=osm.I_dont_know_Button.isDisplayed();
-	assert1.assertTrue(I_dont_know);
-	if(I_dont_know) {
-	System.out.println("I dont know button is displayed");
-	test.log(Status.INFO, "I dont know button is displayed");
-	
-	}
-	else {
-		System.out.println("I dont know button is not displayed");
-		test.log(Status.INFO, "I dont know button is not displayed");
+		}
+		else {
+			System.out.println("TRY AGAIN button is not displayed");
+			test.log(Status.INFO, "TRY AGAIN button is not displayed");
+		}
 
-	}
-	assert1.assertTrue(I_dont_know);
-	
-	applyExplicitWait(5);
-	osm.I_dont_know_Button.click();
-//	Keyword.scrollToEnd();
-//	applyExplicitWait(5);
-	Thread.sleep(5000);
-	scrollTo2("Here you go");
-	Boolean thatsRight=osm.hereYouGo.isDisplayed();
-	if(thatsRight) {
-		System.out.println("Correct answer is displayed after clicking on I dont Know button");
-		test.log(Status.INFO, "Correct answer is displayed after clicking on I dont Know button");
-	}
-	else {
-		System.out.println("Correct answer is not displayed after clicking on I dont Know button");
-		test.log(Status.INFO, "Correct answer is not displayed after clicking on I dont Know button");
+		Boolean I_dont_know=osm.I_dont_know_Button.isDisplayed();
+		assert1.assertTrue(I_dont_know);
+		if(I_dont_know) {
+			System.out.println("I dont know button is displayed");
+			test.log(Status.INFO, "I dont know button is displayed");
 
-	}
+		}
+		else {
+			System.out.println("I dont know button is not displayed");
+			test.log(Status.INFO, "I dont know button is not displayed");
+
+		}
+		assert1.assertTrue(I_dont_know);
+
+		applyExplicitWait(5);
+		osm.I_dont_know_Button.click();
+		//	Keyword.scrollToEnd();
+		//	applyExplicitWait(5);
+		Thread.sleep(5000);
+		scrollTo2("Here you go");
+		Boolean thatsRight=osm.hereYouGo.isDisplayed();
+		if(thatsRight) {
+			System.out.println("Correct answer is displayed after clicking on I dont Know button");
+			test.log(Status.INFO, "Correct answer is displayed after clicking on I dont Know button");
+		}
+		else {
+			System.out.println("Correct answer is not displayed after clicking on I dont Know button");
+			test.log(Status.INFO, "Correct answer is not displayed after clicking on I dont Know button");
+
+		}
 		assert1.assertTrue(thatsRight);
-		
+
 
 		Boolean continue_Button=osm.continue1.isDisplayed();
 		if(continue_Button) {
@@ -466,27 +463,27 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 			test.log(Status.INFO, "Continue Button is not displayed");
 
 		}
-			assert1.assertTrue(continue_Button);
-		
-			applyExplicitWait(5);
+		assert1.assertTrue(continue_Button);
+
+		applyExplicitWait(5);
 		osm.continue1.click();
 		applyExplicitWait(5);
-		
+
 		applyExplicitWaitsUntilElementVisible(osm.question1_part_Text);
-		
+
 		scrollToEnd();
 		selectIncorrectAnswer();
 		osm.check_answer.click();
-		
+
 		osm.try_Again_Button.click();
 		applyExplicitWait(5);
-		
+
 		String errorMessage=osm.you_have_one_attempt_left.getText();
 		if(errorMessage.equals("You have one attempt left")) {
 			test.log(Status.INFO, "You have one attempt left - heading is displayed after clicking on TRY AGAIN Button");
 			System.out.println("You have one attempt left - heading is displayed after clicking on TRY AGAIN Button");
 		}
-		
+
 		Boolean checkAnswer=osm.check_answer.isEnabled();
 		if(checkAnswer) {
 			test.log(Status.INFO, "Check answer button  is enabled");
@@ -496,65 +493,69 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 			test.log(Status.INFO, "Check answer button  is disabled");
 			System.out.println("Check answer button is disabled");
 		}
-		
+
 		applyExplicitWaitsUntilElementVisible(osm.question1_part_Text);
 		scrollToEnd();
 		Thread.sleep(2000);
-//		osm.answerOption1.click();
-//		applyExplicitWait(5);
+		//		osm.answerOption1.click();
+		//		applyExplicitWait(5);
 		selectIncorrectAnswer();
 		osm.check_answer.click();
-		
+
 		String error=osm.Not_quite_Lets_continue.getText();
 		if(error.equals("Not quite. Let's continue.")) {
-	//		test.log(Status.INFO, "Not quite. Let's continue.- Heading is displayed");
+			//		test.log(Status.INFO, "Not quite. Let's continue.- Heading is displayed");
 			System.out.println("Not quite. Let's continue.-this Heading is displayed");
 		}	
-			applyExplicitWait(5);
-			osm.continue1.click();
-			applyExplicitWait(5);
-			
-			Boolean nextPage=osm.question1_part_Text.isDisplayed();
-			if(nextPage) {
-				test.log(Status.INFO, "User Navigated to Next question on clicking continue button ");
-				System.out.println("User Navigated to Next question on clicking continue button ");
-			}
-			
-			assert1.assertTrue(nextPage);
+		applyExplicitWait(5);
+		osm.continue1.click();
+		applyExplicitWait(5);
+
+		Boolean nextPage=osm.question1_part_Text.isDisplayed();
+		if(nextPage) {
+			test.log(Status.INFO, "User Navigated to Next question on clicking continue button ");
+			System.out.println("User Navigated to Next question on clicking continue button ");
+		}
+
+		assert1.assertTrue(nextPage);
 		assert1.assertAll();
 	}
-	
-	
+
+
 	public void toVerify_Confidence_Report_Page() throws MalformedURLException, InterruptedException{
-		
+
 		SoftAssert assert1=new SoftAssert();
 		osm = new Object_Syllabus_Section();
 		String subject="Political Science";
 		String topic1="Diversity in India";
 		osm.syllabus.click();
 		applyExplicitWait(10);
-	//	Keyword.clickOnElementUsingText(subject);
+		//	Keyword.clickOnElementUsingText(subject);
 		clickOnElement(findElementByText(subject));
 		System.out.println("Clicked on "+subject+" subject");
 		test.log(Status.INFO, "Clicked on "+subject+" subject");
 		Thread.sleep(10000);
 
-//		osm.estimationOfNumbers.click();
-//		Keyword.clickOnElementUsingText(topic1);
+		//		osm.estimationOfNumbers.click();
+		//		Keyword.clickOnElementUsingText(topic1);
 		scrollTo2(topic1);
 		clickOnElement(findElementByText(topic1));
 		System.out.println("Clicked on "+topic1);
 		test.log(Status.INFO, "Clicked on "+topic1);
 		applyExplicitWait(10);
+		Thread.sleep(3000);
 		scrollTo2("Practice");
 		clickOnElement(findElementByText("Practice"));
-		applyExplicitWaitsUntilElementVisible(getDriver().findElementById("com.tce.studi:id/tv_heading_id"));
-		applyExplicitWaitsUntilElementClickable(osm.practise_Again1);
+		//applyExplicitWaitsUntilElementVisible(getDriver().findElementById("com.tce.studi:id/tv_heading_id"));
+		//applyExplicitWaitsUntilElementClickable(osm.practise_Again1);
+		//clickOnElement(findElementByText("Practice"));
+		applyExplicitWaitsUntilElementVisible(findElementByText("you"));
 		clickOnElement(findElementByText("Practice"));
+		
 		applyExplicitWait(10);
 		int quetionCount=verify_Question_Count_In_Test_Module();
 		System.out.println(quetionCount);
-		
+
 		for(int i=1;i<=quetionCount;i++) {
 			Thread.sleep(1000);
 			System.out.println(i);
@@ -577,7 +578,7 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 			test.log(Status.INFO, "Confidence Report is not displayed");
 		}
 		assert1.assertTrue(report);
-		
+
 		Boolean score=osm.high_Medium_Low.isDisplayed();
 		if(score) {
 			System.out.println("Score in High,Medium and Low sections are displayed");
@@ -590,7 +591,7 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 
 		}
 		assert1.assertTrue(score);										
-		
+
 		List<MobileElement> list_Topics = getDriver().findElementsById("com.tce.studi:id/tvQuesId");
 
 		System.out.println("Topic displayed are as below :");
@@ -601,7 +602,7 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 			test.log(Status.INFO, topic.getText());
 
 		}
-		
+
 		Boolean continue_Studying_Button=osm.continueStudying.isDisplayed();
 		if(continue_Studying_Button) {
 			System.out.println("Continue Studying Button is available");
@@ -609,29 +610,29 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 
 		}
 		assert1.assertTrue(continue_Studying_Button);
-		
-	//	osm.continueStudying.click();
+
+		//	osm.continueStudying.click();
 		clickOnElement(findElementByText("Continue"));
 		applyExplicitWaitsUntilElementVisible(osm.topic_Name);
-		
+
 		Boolean topic_Name=osm.topic_Name.isDisplayed();
 		if(topic_Name) {
 			System.out.println("User Navigated to next topic after clicking on Continue Studying Buttton");
 			test.log(Status.INFO, "User Navigated to next topic after clicking on Continue Studying Buttton");
 		}
 		assert1.assertTrue(topic_Name);
-//		applyExplicitWait(5);
-//		Thread.sleep(2000);
-//		osm.returnToSubject.click();
+		//		applyExplicitWait(5);
+		//		Thread.sleep(2000);
+		//		osm.returnToSubject.click();
 		clickOnElement(findElementByText("Return"));
-		
+
 		applyExplicitWait(10);
 		clickOnElement(findElementByText("Practice"));
 		applyExplicitWait(5);
-//		Thread.sleep(10000);
-		applyExplicitWaitsUntilElementVisible(osm.practise_Again1);
+		//		Thread.sleep(10000);
+		//applyExplicitWaitsUntilElementVisible(osm.practise_Again1);
 		clickOnElement(findElementByText("Practice"));
-	//	osm.practise_Again1.click();
+		//	osm.practise_Again1.click();
 		applyExplicitWait(20);
 		/*
 		 * Boolean practise_Again=osm.quetionPart.isDisplayed(); if(practise_Again) {
@@ -642,62 +643,62 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		 * ); } assert1.assertTrue(practise_Again);
 		 */
 		assert1.assertAll();
-		
+
 	}
-	
+
 	public void to_Launch_Practise_Quetions_Quiz() throws MalformedURLException, InterruptedException{
-//		String subject="Mathematics";
-//		String topic1="Comparing Numbers";
-		
+		//		String subject="Mathematics";
+		//		String topic1="Comparing Numbers";
+
 		String subject="Political Science";
 		String topic1="Aspects and Influence of Diversity";
-		
+
 		osm = new Object_Syllabus_Section();
 		osm.syllabus.click();
 		applyExplicitWait(10);
-//		Keyword.clickOnElementUsingText(subject);
+		//		Keyword.clickOnElementUsingText(subject);
 		scrollTo1(subject);
 		clickOnElement(findElementByText(subject));
 		System.out.println("Clicked on "+subject+" subject");
 		test.log(Status.INFO, "Clicked on "+subject+" subject");
-//		Keyword.clickOnElementUsingText(topic1);
-	
+		//		Keyword.clickOnElementUsingText(topic1);
+
 		scrollTo2(topic1);
 		clickOnElement(findElementByText(topic1));
 		System.out.println("Clicked on "+ topic1);
 		test.log(Status.INFO, "Clicked on "+ topic1);
 		applyExplicitWait(10);
-	//	osm.practiseButton.click();
-	//	Keyword.clickOnElementUsingText("Practice");
+		//	osm.practiseButton.click();
+		//	Keyword.clickOnElementUsingText("Practice");
 		scrollTo2("Practice");
 		clickOnElement(findElementByText("Practice"));
 		System.out.println("Clicked on Begin Practise button");
 		test.log(Status.INFO, "Clicked on Begin Practise button");
 		applyExplicitWait(30);
 		Thread.sleep(5000);
-//		applyExplicitWaitsUntilElementVisible(getDriver().findElementById("com.tce.studi:id/tv_heading_id"));
+		//		applyExplicitWaitsUntilElementVisible(getDriver().findElementById("com.tce.studi:id/tv_heading_id"));
 		applyExplicitWaitsUntilElementVisible(osm.overview);
 
-//		clickOnElement(findElementByText("Practice"));
+		//		clickOnElement(findElementByText("Practice"));
 		osm.begin_Practise_1.click();
 		System.out.println("Clicked on Begin Practise button");
 		applyExplicitWait(30);
 	}
-	
+
 	public int verify_Question_Count_In_Test_Module() throws MalformedURLException, InterruptedException {
-	
-	//	Thread.sleep(10000);
+
+		//	Thread.sleep(10000);
 		applyExplicitWaitsUntilElementVisible(osm.quetionCount);
 		applyExplicitWaitsUntilElementVisible(osm.question1_part_Text);
 		String questionCount = osm.quetionCount.getText();
 		String[] s = questionCount.split("of");
 		String s1 = s[1].trim();
 		int i = Integer.parseInt(s1);
-//		System.out.println("Total number of questions are : " + i);
+		//		System.out.println("Total number of questions are : " + i);
 
 		return i;
 	}
-	
+
 	public Boolean selectCorrectOption(int queNumber) {
 		switch (queNumber) {
 
@@ -746,7 +747,7 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		case 15:
 			clickOnElement(getDriver().findElement(By.xpath("//*[contains(@text, 'Priya - 450')]")));
 			return true;
-		
+
 		default:
 			return false;
 		}
