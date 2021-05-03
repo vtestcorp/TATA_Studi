@@ -21,15 +21,12 @@ import studi.co.Base.BaseClass;
 import studi.co.pageObjects.Object_Syllabus_Section;
 
 public class Module_Verify_Syllabus_Section extends BaseClass {
-	Object_Syllabus_Section osm;
+	Object_Syllabus_Section osm=new Object_Syllabus_Section();
 
 	public void verify_Begin_Practise_Link() throws Exception {
 		SoftAssert assert1 = new SoftAssert();
-
 		String subject = "Political Science";
 		String topic1 = "Diversity in India";
-
-		osm = new Object_Syllabus_Section();
 		osm.syllabus.click();
 
 		applyExplicitWait(5);
@@ -41,7 +38,7 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		action = new TouchAction(driver);
 		List<MobileElement> chapters = getAllElementsFromPageUsingID("com.tce.studi:id/tvChapter");
 
-		ArrayList<String> aa = new ArrayList<>();
+		ArrayList<String> aa = new ArrayList<>(); 
 		for (MobileElement mobileElement : chapters) {
 			aa.add(mobileElement.getText().replaceAll("\\d", "").trim());
 		}
@@ -150,20 +147,19 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		applyExplicitWait(5);
 		scrollTo2(subject);
 		clickOnElement(findElementByText(subject));
-
 		test.log(Status.INFO, "Cilcked on "+subject+" subject");
 		clickOnElement(findElementByText(topic1));
 		test.log(Status.INFO, "Clicked on "+topic1+" Topic");
 		applyExplicitWait(5);
 		Thread.sleep(3000);
-		//	osm.practice.click();
+		//		osm.practice.click();
 		clickOnElement(findElementByText("Practice"));
-		//applyExplicitWaitsUntilElementVisible(osm.practice1);
+		applyExplicitWaitsUntilElementVisible(osm.practice1);
 		//		osm.practice1.click();
 		//applyExplicitWaitsUntilElementVisible(getDriver().findElementById("com.tce.studi:id/tv_heading_id"));
-		//clickOnElement(findElementByText("Practice"));
-		applyExplicitWaitsUntilElementVisible(findElementByText("you"));
+		applyExplicitWaitsUntilElementVisible(osm.topicHeader);
 		clickOnElement(findElementByText("Practice"));
+
 		applyExplicitWait(30);
 		int quetionsCount = verify_Question_Count_In_Test_Module();
 
@@ -190,12 +186,10 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 
 
 	public void verify_User_Can_attempt_PractiseQuetions() throws Exception {
-		
 
 		String subject="Political Science";
 		String topic1="Diversity in India";
 
-	
 		osm = new Object_Syllabus_Section();
 		osm.syllabus.click();
 
@@ -209,7 +203,7 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		//		osm.practise.click();
 		clickOnElement(findElementByText("Practice"));
 		//applyExplicitWaitsUntilElementVisible(getDriver().findElementById("com.tce.studi:id/tv_heading_id"));
-		applyExplicitWaitsUntilElementVisible(findElementByText("you"));
+		applyExplicitWaitsUntilElementVisible(osm.topicHeader);
 		clickOnElement(findElementByText("Practice"));
 		//		osm.practice1.click();
 		int quetionsCount = verify_Question_Count_In_Test_Module();
@@ -244,10 +238,7 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 			assert1.assertTrue(verify_checkAnswer);
 
 			applyExplicitWait(10);
-			applyExplicitWaitsUntilElementVisible(findElementByText("later"));
-			//clickOnElement(findElementByText("I'll attempt later."));
 			osm.i_will_attempt_later.click();
-
 			System.out.println("Clicked on attempt later button");
 			applyExplicitWait(10);
 		}
@@ -302,10 +293,9 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 	public void toVerify_ProperFeedBack_forCorrectOption() throws MalformedURLException, AWTException, InterruptedException {
 		SoftAssert assert1=new SoftAssert();
 		to_Launch_Practise_Quetions_Quiz();
-
-
 		applyExplicitWaitsUntilElementVisible(osm.question1_part_Text);
-		scrollToEnd();
+		//scrollToEnd();
+		//Thread.sleep(2000);
 		selectCorrectAnswer();
 		osm.check_answer.click();
 		applyExplicitWaitsUntilElementVisible(osm.right_Answer_message);
@@ -398,7 +388,8 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		SoftAssert assert1=new SoftAssert();
 		to_Launch_Practise_Quetions_Quiz();
 		applyExplicitWaitsUntilElementVisible(osm.question1_part_Text);
-		scrollToEnd();
+		//swipeUp();
+		//scrollToEnd();
 		selectIncorrectAnswer();
 		osm.check_answer.click();
 		String check_message=osm.right_Answer_message.getText();
@@ -530,28 +521,21 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		String topic1="Diversity in India";
 		osm.syllabus.click();
 		applyExplicitWait(10);
-		//	Keyword.clickOnElementUsingText(subject);
 		clickOnElement(findElementByText(subject));
 		System.out.println("Clicked on "+subject+" subject");
 		test.log(Status.INFO, "Clicked on "+subject+" subject");
 		Thread.sleep(10000);
 
 		//		osm.estimationOfNumbers.click();
-		//		Keyword.clickOnElementUsingText(topic1);
-		scrollTo2(topic1);
 		clickOnElement(findElementByText(topic1));
 		System.out.println("Clicked on "+topic1);
 		test.log(Status.INFO, "Clicked on "+topic1);
 		applyExplicitWait(10);
-		Thread.sleep(3000);
-		scrollTo2("Practice");
 		clickOnElement(findElementByText("Practice"));
 		//applyExplicitWaitsUntilElementVisible(getDriver().findElementById("com.tce.studi:id/tv_heading_id"));
-		//applyExplicitWaitsUntilElementClickable(osm.practise_Again1);
-		//clickOnElement(findElementByText("Practice"));
-		applyExplicitWaitsUntilElementVisible(findElementByText("you"));
+		applyExplicitWaitsUntilElementVisible(osm.topicHeader);
+		applyExplicitWaitsUntilElementClickable(osm.practise_Again1);
 		clickOnElement(findElementByText("Practice"));
-		
 		applyExplicitWait(10);
 		int quetionCount=verify_Question_Count_In_Test_Module();
 		System.out.println(quetionCount);
@@ -560,14 +544,32 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 			Thread.sleep(1000);
 			System.out.println(i);
 			applyExplicitWaitsUntilElementVisible(osm.question1_part_Text);
-			scrollToEnd();
+			//scrollToEnd();
 			selectCorrectAnswer();
 			osm.check_answer.click();
 			applyExplicitWaitsUntilElementVisible(osm.right_Answer_message);
 			applyExplicitWaitsUntilElementVisible(osm.continue1);
 			osm.continue1.click();
 		}
-
+		//	//		osm.answerOption.click();
+		////			applyExplicitWait(5);
+		////			osm.check_answer.click();
+		////			applyExplicitWait(5);
+		////			Thread.sleep(2000);
+		////			if(osm.right_Answer_message.getText().equals("Great job! Let's continue.")) {
+		////				System.out.println("Right answer");
+		////				applyExplicitWait(5);
+		////				osm.continue1.click();
+		////			}
+		////			
+		////			else if(osm.right_Answer_message.getText().equals("Uh-oh! Give it another shot!")) {
+		////				System.out.println("wrong answer");
+		////				osm.I_dont_know_Button.click();
+		////				applyExplicitWait(5);
+		////				osm.continue1.click();
+		////			}
+		//		
+		////		applyExplicitWait(5);
 		Boolean report=osm.your_Confidence_Report.isDisplayed();
 		if(report) {
 			System.out.println("Confidence Report is displayed");
@@ -624,24 +626,27 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		//		applyExplicitWait(5);
 		//		Thread.sleep(2000);
 		//		osm.returnToSubject.click();
+		//		Keyword.clickOnElementUsingText("Subject");
 		clickOnElement(findElementByText("Return"));
 
 		applyExplicitWait(10);
+		//		applyExplicitWaitsUntilElementClickable(osm.practise3);
+		//		osm.practise3.click();
+		//		Keyword.clickOnElementUsingText("Practice");
 		clickOnElement(findElementByText("Practice"));
 		applyExplicitWait(5);
 		//		Thread.sleep(10000);
-		//applyExplicitWaitsUntilElementVisible(osm.practise_Again1);
+		applyExplicitWaitsUntilElementVisible(osm.practise_Again1);
+		//		Keyword.clickOnElementUsingText("Practice");
 		clickOnElement(findElementByText("Practice"));
 		//	osm.practise_Again1.click();
 		applyExplicitWait(20);
-		/*
-		 * Boolean practise_Again=osm.quetionPart.isDisplayed(); if(practise_Again) {
-		 * System.out.
-		 * println("Practise Again button is displayed to the User and after clicking Practise Again  button User can reattempt the quiz"
-		 * ); test.log(Status.INFO,
-		 * "Practise Again button is displayed to the User and after clicking on Practise Again button User can reattempt the quiz"
-		 * ); } assert1.assertTrue(practise_Again);
-		 */
+		Boolean practise_Again=osm.quetionPart.isDisplayed();
+		if(practise_Again) {
+			System.out.println("Practise Again button is displayed to the User and after clicking Practise Again  button User can reattempt the quiz");
+			test.log(Status.INFO, "Practise Again button is displayed to the User and after clicking on Practise Again button User can reattempt the quiz");
+		}
+		assert1.assertTrue(practise_Again);
 		assert1.assertAll();
 
 	}
@@ -651,38 +656,35 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		//		String topic1="Comparing Numbers";
 
 		String subject="Political Science";
-		String topic1="Aspects and Influence of Diversity";
+		//String topic1="Aspects and Influence of Diversity";
+		String topic1="Diversity in India";
 
 		osm = new Object_Syllabus_Section();
 		osm.syllabus.click();
 		applyExplicitWait(10);
-		//		Keyword.clickOnElementUsingText(subject);
-		scrollTo1(subject);
 		clickOnElement(findElementByText(subject));
 		System.out.println("Clicked on "+subject+" subject");
 		test.log(Status.INFO, "Clicked on "+subject+" subject");
-		//		Keyword.clickOnElementUsingText(topic1);
-
-		scrollTo2(topic1);
 		clickOnElement(findElementByText(topic1));
 		System.out.println("Clicked on "+ topic1);
 		test.log(Status.INFO, "Clicked on "+ topic1);
 		applyExplicitWait(10);
 		//	osm.practiseButton.click();
-		//	Keyword.clickOnElementUsingText("Practice");
-		scrollTo2("Practice");
+
 		clickOnElement(findElementByText("Practice"));
 		System.out.println("Clicked on Begin Practise button");
 		test.log(Status.INFO, "Clicked on Begin Practise button");
 		applyExplicitWait(30);
-		Thread.sleep(5000);
-		//		applyExplicitWaitsUntilElementVisible(getDriver().findElementById("com.tce.studi:id/tv_heading_id"));
-		applyExplicitWaitsUntilElementVisible(osm.overview);
-
-		//		clickOnElement(findElementByText("Practice"));
-		osm.begin_Practise_1.click();
+		//		Thread.sleep(5000);
+		//applyExplicitWaitsUntilElementVisible(getDriver().findElementById("com.tce.studi:id/tv_heading_id"));
+		applyExplicitWaitsUntilElementVisible(osm.topicHeader);
+		applyExplicitWaitsUntilElementVisible(osm.begin_Practise_1);
+			//osm.begin_Practise_1.click();
+		//		Keyword.clickOnElementUsingText("Practice");
+		clickOnElement(findElementByText("Practice"));
 		System.out.println("Clicked on Begin Practise button");
 		applyExplicitWait(30);
+		
 	}
 
 	public int verify_Question_Count_In_Test_Module() throws MalformedURLException, InterruptedException {

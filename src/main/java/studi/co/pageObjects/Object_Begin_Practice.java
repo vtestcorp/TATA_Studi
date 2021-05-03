@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.iOSFindBy;
 import studi.co.Base.BaseClass;
 
 public class Object_Begin_Practice extends BaseClass {
@@ -17,62 +18,70 @@ public class Object_Begin_Practice extends BaseClass {
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ImageView[1]")
 	public WebElement hamburgerBtn;
 	
+	@iOSFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[2]")
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/tvHeading\").textContains(\"Test Unit\")")
 	public WebElement testUnit;
 
+	@iOSFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[3]")
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/tvHeading\").textContains(\"Syllabus\")")
 	public WebElement syllabus;
 	
-	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]")
+	@iOSFindBy(xpath = "//XCUIElementTypeButton[contains(@name, 'Practice')]")
+	@AndroidFindBy(id = "com.tce.studi:id/tvPrimaryAction")
+	public WebElement primaryAction;
+	
+	@iOSFindBy(xpath = "//XCUIElementTypeOther[@name=\"WebviewQuiz\"]")
+	//@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]")
+	
+	@AndroidFindBy(id ="com.tce.studi:id/quizWebView")
 	public WebElement question;
 
+	@iOSFindBy(xpath = "//XCUIElementTypeButton[@name=\"CHECK ANSWER\"]")
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.widget.TextView[2]")
 	public WebElement check_answer;
 
-	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.widget.TextView[3]")
-	public WebElement attempt_later;
+	//@iOSFindBy(xpath = "//XCUIElementTypeButton[@name=\"I'll attempt later\"]")
+	//@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.widget.TextView[3]")
+	//public WebElement attempt_later;
 
+	@iOSFindBy(id = "RETRY")
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.widget.TextView[2]")
 	public WebElement tryAgain;
 
-	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[3]/android.view.View[2]/android.view.View/android.view.View")
-	public WebElement attemptLeft;
 
+	@iOSFindBy(id = "Great job! Let's continue.")
 	@AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"Great job! Let's continue.\")" )
 	public WebElement answerCorrectMsg1;
 	
+	@iOSFindBy(id = "You're close! Try again.")
+	@AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"You're close! Try again.\")" )
+	public WebElement answerPartialCorrectMsg1;
+	
+	@iOSFindBy(id = "Good going")
 	@AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"Good going\")" )
 	public WebElement answerCorrectMsg2;
 	
+	@iOSFindBy(id = "Uh-oh! Give it another shot!")
 	@AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"Uh-oh! Give it another shot!\")")
 	public WebElement answerWrongMsg;
 	
+	@iOSFindBy(xpath = "//XCUIElementTypeButton[@name=\"I'll attempt later\"]")
+	@AndroidFindBy(id = "com.tce.studi:id/tvSecondaryAction")
+	public WebElement attempt_later;
+	
+	@iOSFindBy(id = "You have one attempt left")
 	@AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"attempt left\")")
 	public WebElement attemptLeftsMsg;
 	
-	
+	@iOSFindBy(xpath = "//XCUIElementTypeButton[@name=\"I don't know\"]")
 	@AndroidFindBy(id = "com.tce.studi:id/tvSecondaryAction")
 	public WebElement dontKnowBtn;
 
-
+	@iOSFindBy(xpath = "//XCUIElementTypeButton[@name=\"Continue\"]")
 	@AndroidFindBy(id = "com.tce.studi:id/tvPrimaryAction")
 	public WebElement conti_nue;
 
-	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[3]/android.view.View[2]/android.widget.CheckBox")
-	public WebElement select_1st_Choice;
-
-	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[3]/android.view.View[2]/android.widget.CheckBox")
-	public WebElement select_2nd_Choice;
-
-	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[3]/android.view.View[3]/android.widget.CheckBox")
-	public WebElement select_3rd_Choice;
-
-	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[3]/android.view.View[4]/android.widget.CheckBox")
-	public WebElement select_4th_Choice;
-
-	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[3]/android.view.View[5]/android.widget.CheckBox")
-	public WebElement select_5th_Choice;
-
+	@iOSFindBy(id = "backWithBackground" )
 	@AndroidFindBy(id = "com.tce.studi:id/iv_left_icon")
 	public WebElement backBtn;
 
@@ -85,9 +94,11 @@ public class Object_Begin_Practice extends BaseClass {
 	@AndroidFindBy(id = "com.tce.studi:id/btnSubmitTest")
 	public WebElement submitTestBtn;
 	
+	@iOSFindBy(xpath = "//XCUIElementTypeButton[@name=\"OK\"]")
 	@AndroidFindBy(id = "com.tce.studi:id/txtPositiveBtn")
 	public WebElement submitTestPopup;
 	
+	@iOSFindBy(xpath = "//XCUIElementTypeButton[@name=\"Cancel\"]")
 	@AndroidFindBy(id = "com.tce.studi:id/txtNegativeBtn")
 	public WebElement returnToTestPopup;
 	
@@ -108,6 +119,10 @@ public class Object_Begin_Practice extends BaseClass {
 	
 	@AndroidFindBy(id = "com.tce.studi:id/layoutQuiz")
 	public WebElement queLayout;
+	
+	
+	@AndroidFindBy(id = "com.tce.studi:id/iv_right_action_primary")
+	public WebElement forward;
 
 	public void selectCorrectOption(int queNumber) {
 

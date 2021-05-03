@@ -4,12 +4,14 @@ import java.net.MalformedURLException;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
-import org.aspectj.weaver.patterns.TypePatternQuestions.Question;
+import org.openqa.selenium.By;
 import org.testng.asserts.SoftAssert;
 
 import com.aventstack.extentreports.Status;
 
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.WaitOptions;
@@ -23,33 +25,31 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 
 	public void traverse_To_Begin_Practice(String subject, String topic)
 			throws MalformedURLException, InterruptedException {
-		applyExplicitWaitsUntilElementClickable(obp.testUnit);
+		applyExplicitWaitsUntilElementVisible(obp.testUnit);
 		scrollTo1("Syllabus");
 		clickOnElement(obp.syllabus);
 		test.log(Status.INFO, "Opening Syllabus tab");
-		System.out.println("Opening Syllabus tab"); 
+		System.out.println("Opening Syllabus tab");
 		applyExplicitWait(5);
- 
+
 		scrollTo1(subject);
 		test.log(Status.INFO, "Opening " + subject);
 		System.out.println("Opening " + subject);
 		applyExplicitWaitsUntilElementClickable(findElementByText(subject));
 		clickOnElement(findElementByText(subject));
 
-		scrollTo2(topic);
+		scrollTo1(topic);
 		test.log(Status.INFO, "Selecting " + topic);
 		System.out.println("Selecting " + topic);
 		applyExplicitWaitsUntilElementClickable(findElementByText(topic));
 		clickOnElement(findElementByText(topic));
-		swipeUp();
-		scrollTo2("Practice"); 
+
+		scrollTo2("Practice");
 		test.log(Status.INFO, "Opening practice for " + topic);
 		System.out.println("Opening practice for " + topic);
 		clickOnElement(findElementByText("Practice"));
-		Thread.sleep(5000);
-		applyExplicitWaitsUntilElementClickable(getDriver().findElementById("com.tce.studi:id/tvPrimaryAction"));
-
-		clickOnElement(getDriver().findElementById("com.tce.studi:id/tvPrimaryAction"));
+		Thread.sleep(3000);
+		clickOnElement(obp.primaryAction);
 	}
 
 	public void Module_Receive_SCQ_Questions_Practice(String subject, String topic)
@@ -100,7 +100,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		int i = 0;
 		Boolean status;
 
-		applyExplicitWaitsUntilElementVisible(obp.question); {
+		while (i < questions) {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -123,45 +123,45 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 	public void Module_Verify_Attempting_SCQ_Quiz_Is_Mandatory_In_Practice(String subject, String topic)
 			throws MalformedURLException, InterruptedException {
 		traverse_To_Begin_Practice(subject, topic);
-		SoftAssert sAss = new SoftAssert();
-		applyExplicitWait(5);
 		int questions = getTotalQuestionsInPractice();
+		SoftAssert sAss = new SoftAssert();
 		int i = 0;
-		Boolean status;
+		String firstQuestion = null;
+		String lastQuestion;
 
-		String firstQuestion = " ";
-
-		applyExplicitWaitsUntilElementVisible(obp.question); {
+		applyExplicitWaitsUntilElementVisible(obp.question);
+		while (i < questions) {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
-			if (i == 0)
-				firstQuestion = obp.question.getText();
-			if (verifySCQorMCQ().equalsIgnoreCase("scq")) {
-				actualcount++;
-				swipeUp();
+			if (i == 0) {
+				if (device.equalsIgnoreCase("Android"))
+					firstQuestion = obp.question.getText();
+				else
+					firstQuestion = obp.question.findElement(By.xpath("(//XCUIElementTypeStaticText)[2]")).getText();
+				System.out.println("First question : " + firstQuestion);
 			}
-
-			test.log(Status.INFO, "Skip the question");
-			System.out.println("Skip the question");
-
-			clickOnElement(obp.attempt_later);
+			swipeDown();
 			i++;
+			clickOnElement(obp.attempt_later);
 		}
-		status = firstQuestion.equalsIgnoreCase(obp.question.getText());
-		sAss.assertTrue(status);
-		if (status) {
-			test.log(Status.INFO, "Same question appeared again.(i.e. Practice questions are mandetory)");
-			System.out.println("Same question appeared again.(i.e. Practice questions are mandetory)");
-		} else {
-			test.log(Status.INFO, "Practice ended");
-			System.err.println("Practice ended");
-		}
+
+		if (device.equalsIgnoreCase("Android"))
+			lastQuestion = obp.question.getText();
+		else
+			lastQuestion = obp.question.findElement(By.xpath("(//XCUIElementTypeStaticText)[2]")).getText();
+		System.out.println("Last appeared question : " + lastQuestion);
+
+		sAss.assertEquals(firstQuestion, lastQuestion);
+		if (firstQuestion.equalsIgnoreCase(lastQuestion))
+			test.log(Status.INFO, "Unattempted question appear again. So it's mandetory for practice");
+		System.out.println("Unattempted question appear again. So it's mandetory for practice");
+		
 		sAss.assertAll();
 	}
 
 	public void Module_Verify_In_Wrong_Answer_Selection_User_Should_Get_1_More_Attempt_For_SCQ_In_Practice(
-			String subject, String topic) throws MalformedURLException, InterruptedException {
+			String subject, String topic) throws Exception {
 		traverse_To_Begin_Practice(subject, topic);
 		SoftAssert sAss = new SoftAssert();
 		applyExplicitWait(5);
@@ -169,7 +169,8 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		int i = 0;
 		Boolean status;
 
-		applyExplicitWaitsUntilElementVisible(obp.question); {
+		applyExplicitWaitsUntilElementVisible(obp.question);
+		while (i < questions) {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -178,62 +179,59 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				actualcount++;
 				swipeUp();
 
-				test.log(Status.INFO, "Selecting Wrong answer for question " + (i + 1));
-				System.out.println("Selecting Wrong answer for question " + (i + 1));
+				test.log(Status.INFO, "Selecting Incorrect answer for question " + (i + 1));
+				System.out.println("Selecting Incorrect answer for question " + (i + 1));
 				selectIncorrectAnswer();
 
-				test.log(Status.INFO, "Clicked on Check Answer button");
-				System.out.println("Clicked on Check Answer button");
+				test.log(Status.INFO, "Clicking on Check Answer");
+				System.out.println("Clicking on Check Answer");
 				clickOnElement(obp.check_answer);
 
-				test.log(Status.INFO, "Verifying feedback after answer selection");
-				System.out.println("Verifying feedback after answer selection");
+				test.log(Status.INFO, "Verifying feedback after wrong answer selection");
+				System.out.println("Verifying feedback after wrong answer selection");
+				swipeTop();
+
 				status = obp.answerWrongMsg.isDisplayed();
 
-				sAss.assertTrue(status);
+				sAss.assertTrue(status, "Shown Incorrect feedback for Incorrect answer selection");
 				if (status) {
-					System.err.println("Shown correct feedback for wrong answer selection");
-					test.log(Status.INFO, "Shown correct feedback for wrong answer selection");
+					System.out.println("Shown correct feedback for Incorrect answer selection");
+					test.log(Status.INFO, "Shown correct feedback for Incorrect answer selection");
 				} else {
-					System.err.println("Shown Incorrect feedback for wrong answer selection");
-					test.log(Status.INFO, "Shown Incorrect feedback for wrong answer selection");
+					System.out.println("Shown Incorrect feedback for Incorrect answer selection");
+					test.log(Status.INFO, "Shown Incorrect feedback for Incorrect answer selection");
 				}
-			}
 
-			clickOnElement(obp.tryAgain);
-			System.err.println("Clicked on try again");
-			test.log(Status.INFO, "Clicked on try again");
-			/*
-			 * status = obp.attemptLeftsMsg.isDisplayed(); sAss.assertTrue(status); if
-			 * (status) { System.err.println("Warning message displayed as " +
-			 * obp.attemptLeftsMsg.getText()); test.log(Status.INFO,
-			 * "Warning message displayed as " + obp.attemptLeftsMsg.getText()); }
-			 */
+				test.log(Status.INFO, "Click on Try Again");
+				System.out.println("Click on Try Again");
+				swipeDown();
 
-			test.log(Status.INFO, "Selecting correct answer");
-			System.out.println("Selecting correct answer");
-			selectCorrectAnswer();
+				clickOnElement(obp.tryAgain);
 
-			test.log(Status.INFO, "Clicked on Check Answer button");
-			System.out.println("Clicked on Check Answer button");
-			clickOnElement(obp.check_answer);
+				test.log(Status.INFO, "Verifying Attempts left warning message");
+				System.out.println("Verifying Attempts left warning message");
+				swipeTop();
 
-			test.log(Status.INFO, "Verifying feedback after answer selection");
-			System.out.println("Verifying feedback after answer selection");
-			status = obp.answerCorrectMsg2.isDisplayed();
+				status = obp.attemptLeftsMsg.isDisplayed();
 
-			sAss.assertTrue(status);
-			if (status) {
-				System.err.println("Shown correct feedback for correct answer selection");
-				test.log(Status.INFO, "Shown correct feedback for correct answer selection");
+				sAss.assertTrue(status, "Attempts left warning message not displayed");
+				if (status) {
+					System.out.println("Attempts left warning message displayed");
+					test.log(Status.INFO, "Attempts left warning message displayed");
+				} else {
+					System.out.println("Attempts left warning message not displayed");
+					test.log(Status.INFO, "Attempts left warning message not displayed");
+				}
+
+				swipeDown();
+				if ((i + 1 != questions))
+					clickOnElement(obp.attempt_later);
+				i++;
 			} else {
-				System.err.println("Shown Incorrect feedback for correct answer selection");
-				test.log(Status.INFO, "Shown Incorrect feedback for correct answer selection");
+				i++;
+				clickOnElement(obp.attempt_later);
 			}
 
-			if ((i + 1) != questions)
-				clickOnElement(obp.conti_nue);
-			i++;
 		}
 
 		test.log(Status.INFO, "Total " + actualcount + " SCQ questions are displayed");
@@ -245,48 +243,66 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 			throws MalformedURLException, InterruptedException {
 
 		traverse_To_Begin_Practice(subject, topic);
-		applyExplicitWait(5);
 		SoftAssert sAss = new SoftAssert();
-		String actualQue, expectedQue;
-
-		expectedQue = obp.question.getText();
-		System.out.println("Clicked on BACK button");
-		test.log(Status.INFO, "Clicked on BACK button");
-		clickOnElement(obp.backBtn);
 		applyExplicitWait(5);
+		int questions = getTotalQuestionsInPractice();
+		String temp;
+		test.log(Status.INFO, "Total " + questions + "questions appeared");
+		System.out.println("Total " + questions + "questions appeared");
+		List<MobileElement> answerCount;
+		if (device.equalsIgnoreCase("Android"))
+			answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+		else
+			answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
+		int ansCount = answerCount.size();
+		System.out.println("answerCont = " + ansCount);
 
-		if (getDriver().findElementById("com.tce.studi:id/txtTitle").isEnabled()) {
-			System.out.println("Popup message displayed");
-			test.log(Status.INFO, "Popup message displayed");
+		if (device.equalsIgnoreCase("Android"))
+			temp = obp.question.getText();
+		else
+			temp = obp.question.findElement(By.xpath("(//XCUIElementTypeStaticText)[2]")).getText();
+
+		applyExplicitWait(1);
+		test.log(Status.INFO, "Pressing back button");
+		System.out.println("Pressing back button");
+		if (device.equalsIgnoreCase("Android"))
+			driver.navigate().back();
+		else
+			clickOnElement(obp.backBtn);
+
+		applyExplicitWait(2);
+		clickOnElement(obp.returnToTestPopup);
+		test.log(Status.INFO, "Select NO option of cancel practice");
+		System.out.println("Select NO option of cancel practice");
+
+		applyExplicitWait(1);
+		String temp2;
+		if (device.equalsIgnoreCase("Android"))
+			temp2 = obp.question.getText();
+		else
+			temp2 = obp.question.findElement(By.xpath("(//XCUIElementTypeStaticText)[2]")).getText();
+		sAss.assertEquals(temp, temp2);
+		test.log(Status.INFO, "Same question displayed again");
+		System.out.println("Same question displayed again");
+
+		applyExplicitWait(1);
+		test.log(Status.INFO, "Pressing back button");
+		System.out.println("Pressing back button");
+		if (device.equalsIgnoreCase("Android"))
+			driver.navigate().back();
+		else
+			clickOnElement(obp.backBtn);
+
+		applyExplicitWait(2);
+		clickOnElement(obp.submitTestPopup);
+		test.log(Status.INFO, "Select YES option of cancel practice");
+		System.out.println("Select YES option of cancel practice");
+
+		if (findElementByText("Practice").isDisplayed()) {
+			sAss.assertTrue(true);
+			test.log(Status.INFO, "Practice abonded successfully");
+			System.out.println("Practice abonded successfully");
 		}
-
-		System.out.println("Clicked on NO button");
-		test.log(Status.INFO, "Clicked on NO button");
-		clickOnElement(obp.noBtn);
-
-		actualQue = obp.question.getText();
-		if (actualQue.equalsIgnoreCase(expectedQue)) {
-			sAss.assertTrue(actualQue.equalsIgnoreCase(expectedQue));
-			System.out.println("same question appear again");
-			test.log(Status.INFO, "same question appear again");
-		}
-
-		System.out.println("Clicked on BACK button");
-		test.log(Status.INFO, "Clicked on BACK button");
-		clickOnElement(obp.backBtn);
-		applyExplicitWait(5);
-
-		System.out.println("Clicked on YES button");
-		test.log(Status.INFO, "Clicked on Yes button");
-		clickOnElement(obp.yesBtn);
-		applyExplicitWait(5);
-
-		if (getDriver().findElementById("com.tce.studi:id/tv_primary_action").isDisplayed()) {
-			System.out.println("Returned to begin practice page");
-			test.log(Status.INFO, "Returned to begin practice page");
-		}
-		sAss.assertTrue(getDriver().findElementById("com.tce.studi:id/tv_primary_action").isDisplayed());
-
 		sAss.assertAll();
 	}
 
@@ -297,7 +313,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 
-		applyExplicitWaitsUntilElementVisible(obp.question); {
+		while (i < questions) {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -305,7 +321,11 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				List<MobileElement> answerCount;
+				if (device.equalsIgnoreCase("Android"))
+					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				else
+					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
 				int t = 1;
 				for (MobileElement mobileElement : answerCount) {
 					if (mobileElement.isDisplayed()) {
@@ -338,8 +358,8 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 		Boolean status;
-
-		applyExplicitWaitsUntilElementVisible(obp.question); {
+		applyExplicitWaitsUntilElementVisible(obp.question);
+		while (i < questions) {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -347,23 +367,28 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				List<MobileElement> answerCount;
+				if (device.equalsIgnoreCase("Android"))
+					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				else
+					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
 				int c = 0;
 				for (MobileElement mobileElement : answerCount) {
-
-					status = Boolean.parseBoolean(mobileElement.getAttribute("checked"));
+					if (device.equalsIgnoreCase("Android"))
+						status = Boolean.parseBoolean(mobileElement.getAttribute("checked"));
+					else
+						status = mobileElement.getAttribute("value").equalsIgnoreCase("1");
 					if (!status) {
-						swipeUp();
-						test.log(Status.INFO, "Answer " + c + "  is unchecked as default");
+
+						test.log(Status.INFO, "Answer " + c++ + "  is unchecked as default");
 						System.out.println("Answer " + c + "  is unchecked as default");
 
 					}
 					sAss.assertFalse(status);
-					c++;
+					swipeUp();
 				}
 			}
-			if ((i + 1) != questions)
-				clickOnElement(obp.attempt_later);
+			clickOnElement(obp.attempt_later);
 			i++;
 		}
 
@@ -379,8 +404,8 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 		Boolean status;
-
-		applyExplicitWaitsUntilElementVisible(obp.question); {
+		applyExplicitWaitsUntilElementVisible(obp.question);
+		while (i < questions) {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -388,7 +413,12 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				swipeUp();
+				List<MobileElement> answerCount;
+				if (device.equalsIgnoreCase("Android"))
+					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				else
+					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
 				status = answerCount.size() > 1 ? true : false;
 				sAss.assertTrue(status, "Multiple answers not available for question " + (i + 1));
 				System.out.println("Multiple answers available for question " + (i + 1));
@@ -409,12 +439,11 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 	public SoftAssert SCQ_Answers_Can_Be_Slect() throws InterruptedException, MalformedURLException {
 		SoftAssert sAss = new SoftAssert();
 		applyExplicitWait(5);
-		//applyExplicitWaitsUntilElementVisible(obp.question);
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 		Boolean status;
-
-		applyExplicitWaitsUntilElementVisible(obp.question); {
+		applyExplicitWaitsUntilElementVisible(obp.question);
+		while (i < questions) {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -422,13 +451,21 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				List<MobileElement> answerCount;
+				if (device.equalsIgnoreCase("Android"))
+					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				else
+					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
 				int c = 1;
+				action = new TouchAction(driver);
 				for (MobileElement mobileElement : answerCount) {
 					mobileElement.click();
-					Thread.sleep(100);
-					status = Boolean.parseBoolean(mobileElement.getAttribute("focused"));
-					swipeUp();
+					Thread.sleep(200);
+					if (device.equalsIgnoreCase("Android"))
+						status = Boolean.parseBoolean(mobileElement.getAttribute("focused"));
+					else
+						status = mobileElement.getAttribute("value").equalsIgnoreCase("1");
+
 					sAss.assertTrue(status, "Multiple answers not available for question " + (i + 1));
 					if (status) {
 						System.out.println("Answer " + c + " can be select or unselect");
@@ -437,6 +474,8 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 						System.err.println("Answer " + c + " can't be select or unselect");
 						test.log(Status.INFO, "Answer " + c++ + " can't be select or unselect");
 					}
+					mobileElement.click();
+					swipeUp();
 				}
 
 			}
@@ -447,7 +486,6 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		test.log(Status.INFO, "Total " + actualcount + " SCQ questions are displayed");
 		System.out.println("Total " + actualcount + " SCQ questions are displayed");
 		return sAss;
-
 	}
 
 	public SoftAssert Only_Single_SCQ_Answer_Can_Be_Select() throws InterruptedException, MalformedURLException {
@@ -456,8 +494,8 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 		Boolean status;
-
-		applyExplicitWaitsUntilElementVisible(obp.question); {
+		applyExplicitWaitsUntilElementVisible(obp.question);
+		while (i < questions) {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -465,34 +503,48 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
-				int c = 1;
+				List<MobileElement> answerCount;
+				if (device.equalsIgnoreCase("Android"))
+					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				else
+					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
+
 				for (MobileElement mobileElement : answerCount) {
-					mobileElement.click();
-					Thread.sleep(300);
-
-					int ansFlag = 0;
-
-					for (MobileElement mobileElement2 : answerCount) {
-						if (Boolean.parseBoolean(mobileElement2.getAttribute("focused"))) {
-							ansFlag++;
-						}
-					}
 					swipeUp();
-					status = ansFlag == 1 ? true : false;
-					sAss.assertTrue(status, "Able to select multiple answers for SCQ question " + (i + 1));
+					mobileElement.click();
+
+				}
+				int ansFlag = 0;
+				Thread.sleep(100);
+				try {
+					swipeTop();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				for (MobileElement mobileElement2 : answerCount) {
+					swipeUp();
+					if (device.equalsIgnoreCase("Android"))
+						status = Boolean.parseBoolean(mobileElement2.getAttribute("checked"));
+					else
+						status = mobileElement2.getAttribute("value").equalsIgnoreCase("1");
 					if (status) {
-						System.out.println("Answer " + c + " selected individually");
-						test.log(Status.INFO, "Answer " + c++ + " selected individually");
-					} else {
-						System.err.println("Able to select multiple answers for SCQ question " + (i + 1));
-						test.log(Status.INFO, "Able to select multiple answers for SCQ question " + (i + 1));
-						c++;
+						ansFlag++;
 					}
+				}
+				System.err.println("ansFlag :" + ansFlag);
+				status = ansFlag == 1 ? true : false;
+				sAss.assertTrue(status, "Able to select multiple answers for SCQ question " + (i + 1));
+				if (status) {
+					System.err.println("Able to select single answer only for SCQ question " + (i + 1));
+					test.log(Status.INFO, "Able to select single answer only for SCQ question " + (i + 1));
 				}
 
 			}
-			clickOnElement(obp.attempt_later);
+
+			if ((i + 1) != questions)
+				clickOnElement(obp.attempt_later);
 			i++;
 		}
 
@@ -511,13 +563,14 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 
 	}
 
-	public SoftAssert verify_All_Questions_Are_Visible_MCQ_Practice() throws MalformedURLException, InterruptedException {
+	public SoftAssert verify_All_Questions_Are_Visible_MCQ_Practice()
+			throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
 		applyExplicitWait(5);
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
-
-		applyExplicitWaitsUntilElementVisible(obp.question); {
+		applyExplicitWaitsUntilElementVisible(obp.question);
+		while (i < questions) {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -525,18 +578,22 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				List<MobileElement> answerCount;
+				if (device.equalsIgnoreCase("Android"))
+					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				else
+					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
 				int t = 1;
 				for (MobileElement mobileElement : answerCount) {
 					if (mobileElement.isDisplayed()) {
 						sAss.assertTrue(true);
-						swipeUp();
 						test.log(Status.INFO, "Answer " + t + " Displayed");
 						System.out.println("Answer " + t + " Displayed");
 
 					} else
 						sAss.assertTrue(false);
 					t++;
+					swipeUp();
 				}
 			}
 			if ((i + 1) != questions)
@@ -564,8 +621,8 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 		Boolean status;
-			applyExplicitWaitsUntilElementVisible(obp.question);
-			while (i < questions) {
+		applyExplicitWaitsUntilElementVisible(obp.question);
+		while (i < questions) {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -573,19 +630,25 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				List<MobileElement> answerCount;
+				if (device.equalsIgnoreCase("Android"))
+					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				else
+					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
 				int c = 0;
 				for (MobileElement mobileElement : answerCount) {
-
-					status = Boolean.parseBoolean(mobileElement.getAttribute("checked"));
+					if (device.equalsIgnoreCase("Android"))
+						status = Boolean.parseBoolean(mobileElement.getAttribute("checked"));
+					else
+						status = mobileElement.getAttribute("value").equalsIgnoreCase("1");
 					if (!status) {
-						swipeUp();
+
 						test.log(Status.INFO, "Answer " + c++ + "  is unchecked as default");
-						System.out.println("Answer " + c++ + "  is unchecked as default");
+						System.out.println("Answer " + c + "  is unchecked as default");
 
 					}
 					sAss.assertFalse(status);
-
+					swipeUp();
 				}
 			}
 			clickOnElement(obp.attempt_later);
@@ -613,8 +676,8 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 		Boolean status;
-
-		applyExplicitWaitsUntilElementVisible(obp.question); {
+		applyExplicitWaitsUntilElementVisible(obp.question);
+		while (i < questions) {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -622,7 +685,11 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				List<MobileElement> answerCount;
+				if (device.equalsIgnoreCase("Android"))
+					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				else
+					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
 				status = answerCount.size() > 1 ? true : false;
 				sAss.assertTrue(status, "Multiple answers not available for question " + (i + 1));
 				System.out.println("Multiple answers available for question " + (i + 1));
@@ -657,8 +724,8 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 		Boolean status;
-
-		applyExplicitWaitsUntilElementVisible(obp.question); {
+		applyExplicitWaitsUntilElementVisible(obp.question);
+		while (i < questions) {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -666,13 +733,21 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				List<MobileElement> answerCount;
+				if (device.equalsIgnoreCase("Android"))
+					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				else
+					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
 				int c = 1;
+				action = new TouchAction(driver);
 				for (MobileElement mobileElement : answerCount) {
 					mobileElement.click();
-					Thread.sleep(100);
-					status = Boolean.parseBoolean(mobileElement.getAttribute("focused"));
-					
+					Thread.sleep(200);
+					if (device.equalsIgnoreCase("Android"))
+						status = Boolean.parseBoolean(mobileElement.getAttribute("focused"));
+					else
+						status = mobileElement.getAttribute("value").equalsIgnoreCase("1");
+
 					sAss.assertTrue(status, "Multiple answers not available for question " + (i + 1));
 					if (status) {
 						System.out.println("Answer " + c + " can be select or unselect");
@@ -681,6 +756,8 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 						System.err.println("Answer " + c + " can't be select or unselect");
 						test.log(Status.INFO, "Answer " + c++ + " can't be select or unselect");
 					}
+					mobileElement.click();
+					swipeUp();
 				}
 
 			}
@@ -710,8 +787,8 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 		Boolean status;
-
-		applyExplicitWaitsUntilElementVisible(obp.question); {
+		applyExplicitWaitsUntilElementVisible(obp.question);
+		while (i < questions) {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -719,7 +796,11 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
-				List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				List<MobileElement> answerCount;
+				if (device.equalsIgnoreCase("Android"))
+					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+				else
+					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
 
 				for (MobileElement mobileElement : answerCount) {
 					mobileElement.click();
@@ -729,11 +810,14 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				Thread.sleep(100);
 
 				for (MobileElement mobileElement2 : answerCount) {
-					if (Boolean.parseBoolean(mobileElement2.getAttribute("checked"))) {
+					if (device.equalsIgnoreCase("Android"))
+						status = Boolean.parseBoolean(mobileElement2.getAttribute("checked"));
+					else
+						status = mobileElement2.getAttribute("value").equalsIgnoreCase("1");
+					if (status) {
 						ansFlag++;
 					}
 				}
-				swipeUp();
 				System.err.println("ansFlag :" + ansFlag);
 				status = ansFlag > 1 ? true : false;
 				sAss.assertTrue(status, "Not able to select multiple answers for MCQ question " + (i + 1));
@@ -764,7 +848,8 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		int i = 0;
 		Boolean status;
 
-		applyExplicitWaitsUntilElementVisible(obp.question); {
+		applyExplicitWaitsUntilElementVisible(obp.question);
+		while (i < questions) {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -779,6 +864,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 
 				test.log(Status.INFO, "Clicked on Check Answer button");
 				System.out.println("Clicked on Check Answer button");
+				swipeDown();
 				clickOnElement(obp.check_answer);
 
 				test.log(Status.INFO, "Verifying feedback after answer selection");
@@ -810,17 +896,19 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 
 	}
 
-	public void Module_Verify_Correct_Feedback_Shown_Under_Hamburger_Menu_MCQ_In_Practice(String subject,
-			String topic) throws MalformedURLException, InterruptedException {
-		//Assert.assertTrue(false);
+	public void Module_Verify_Correct_Feedback_Shown_After_Partial_Answer_Selection_In_Practice(String subject,
+			String topic) throws Exception {
+
 		traverse_To_Begin_Practice(subject, topic);
+
 		SoftAssert sAss = new SoftAssert();
 		applyExplicitWait(5);
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 		Boolean status;
 
-		applyExplicitWaitsUntilElementVisible(obp.question); {
+		applyExplicitWaitsUntilElementVisible(obp.question);
+		while (i < questions) {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -829,29 +917,40 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				actualcount++;
 				swipeUp();
 
-				test.log(Status.INFO, "Selecting correct answer for question " + (i + 1));
-				System.out.println("Selecting correct answer for question " + (i + 1));
-				selectCorrectAnswer();
+				test.log(Status.INFO, "Selecting one partially correct answer for question " + (i + 1));
+				System.out.println("Selecting one partially correct answer for question " + (i + 1));
+				selectPartialCorrectAnswer();
 
 				test.log(Status.INFO, "Clicked on Check Answer button");
 				System.out.println("Clicked on Check Answer button");
 				clickOnElement(obp.check_answer);
 
+				swipeTop();
+
 				test.log(Status.INFO, "Verifying feedback after answer selection");
 				System.out.println("Verifying feedback after answer selection");
-				status = obp.answerCorrectMsg1.isDisplayed();
+				status = obp.answerPartialCorrectMsg1.isDisplayed();
 
 				sAss.assertTrue(status);
 				if (status) {
-					System.err.println("Shown correct feedback for correct answer selection");
-					test.log(Status.INFO, "Shown correct feedback for correct answer selection");
+					System.err.println("Shown correct feedback for partial answer selection");
+					test.log(Status.INFO, "Shown correct feedback for partial answer selection");
 				} else {
-					System.err.println("Shown Incorrect feedback for correct answer selection");
-					test.log(Status.INFO, "Shown Incorrect feedback for correct answer selection");
+					System.err.println("Shown Incorrect feedback for partial answer selection");
+					test.log(Status.INFO, "Shown Incorrect feedback for partial answer selection");
 				}
+				swipeDown();
 
-				if ((i + 1) != questions)
-					clickOnElement(obp.conti_nue);
+				clickOnElement(obp.dontKnowBtn);
+				Thread.sleep(1000);
+				swipeDown();
+				Thread.sleep(500);
+				if ((i + 1) != questions) {
+					if (device.equalsIgnoreCase("Android"))
+						clickOnElement(obp.conti_nue);
+					else
+						clickOnElement(findElementByText("Continue"));
+				}
 				i++;
 			} else {
 				i++;
@@ -862,7 +961,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 
 		test.log(Status.INFO, "Total " + actualcount + " MCQ questions are displayed");
 		System.out.println("Total " + actualcount + " MCQ questions are displayed");
-		//sAss.assertAll();
+		sAss.assertAll();
 
 	}
 
@@ -881,74 +980,198 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		applyExplicitWait(5);
 		int questions = getTotalQuestionsInPractice();
 		SoftAssert sAss = new SoftAssert();
-		int flag = 1;
 		int i = 0;
-		int queFlag = 0;
 		String firstQuestion = null;
 		String lastQuestion;
-		// int actualcount = 0;
+
 		applyExplicitWaitsUntilElementVisible(obp.question);
-		normal : while (i < questions) {
-			try {
-				applyExplicitWait(5);
-				queFlag = 0;
+		while (i < questions) {
+			test.log(Status.INFO, "Question " + (i + 1));
+			System.out.println("Question " + (i + 1));
 
-				ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver()
-						.findElementsByClassName("android.widget.CheckBox");
-				int ansCount = answerCount.size();
-				test.log(Status.INFO, "question number " + (i + 1));
-				action = new TouchAction(driver);
-				action.press(PointOption.point(115, 650)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
-						.moveTo(PointOption.point(115, 350)).release().perform();
-				test.log(Status.INFO, "answerCont = " + ansCount);
-				queFlag = 1;
-				if (ansCount != 0 && flag == 1) {
-					if (i == 0)
-						firstQuestion = obp.question.getText();
-
-					ansCount = 0;
-					clickOnElement(obp.attempt_later);
-					i++;
-				} else if (ansCount != 0) {
-					test.log(Status.INFO, "Answer count " + ansCount);
-					flag = 1;
-				} else {
-					clickOnElement(obp.attempt_later);
-					i++;
-					flag = 1;
-				}
-
-			} catch (Exception e) {
-				test.log(Status.INFO, "Exception occured");
-				if (queFlag == 0) {
-					i++;
-					test.log(Status.INFO, "Question " + i + " not displayed");
-					sAss.assertTrue(false);
-					clickOnElement(obp.attempt_later);
-				} else {
-					if (flag == 1) {
-						flag = 0;
-						test.log(Status.INFO, "Flag set to 0");
-						continue normal;
-					} else {
-						flag = 1;
-						test.log(Status.INFO, "Flag set to 1");
-						continue normal;
-					}
-				}
+			if (i == 0) {
+				if (device.equalsIgnoreCase("Android"))
+					firstQuestion = obp.question.getText();
+				else
+					firstQuestion = obp.question.findElement(By.xpath("(//XCUIElementTypeStaticText)[2]")).getText();
+				System.out.println("First question : " + firstQuestion);
 			}
+			swipeDown();
+			i++;
+			clickOnElement(obp.attempt_later);
 		}
-		lastQuestion = obp.question.getText();
+
+		if (device.equalsIgnoreCase("Android"))
+			lastQuestion = obp.question.getText();
+		else
+			lastQuestion = obp.question.findElement(By.xpath("(//XCUIElementTypeStaticText)[2]")).getText();
+		System.out.println("Last appeared question : " + lastQuestion);
+
 		sAss.assertEquals(firstQuestion, lastQuestion);
 		if (firstQuestion.equalsIgnoreCase(lastQuestion))
 			test.log(Status.INFO, "Unattempted question appear again. So it's mandetory for practice");
-
+		System.out.println("Unattempted question appear again. So it's mandetory for practice");
 		return sAss;
 	}
 
 	public void Module_Verify_In_Wrong_Answer_Selection_User_Should_Get_1_More_Attempt_For_MCQ_In_Practice(
-			String subject, String topic) throws MalformedURLException, InterruptedException {
-		//Assert.assertTrue(false);
+			String subject, String topic) throws Exception {
+		traverse_To_Begin_Practice(subject, topic);
+
+		SoftAssert sAss = new SoftAssert();
+		applyExplicitWait(5);
+		int questions = getTotalQuestionsInPractice();
+		int i = 0;
+		Boolean status;
+
+		applyExplicitWaitsUntilElementVisible(obp.question);
+		while (i < questions) {
+			test.log(Status.INFO, "Question " + (i + 1));
+			System.out.println("Question " + (i + 1));
+
+			if (verifySCQorMCQ().equalsIgnoreCase("mcq")) {
+				applyExplicitWait(5);
+				actualcount++;
+				swipeUp();
+
+				test.log(Status.INFO, "Selecting Incorrect answer for question " + (i + 1));
+				System.out.println("Selecting Incorrect answer for question " + (i + 1));
+				selectIncorrectAnswer();
+
+				test.log(Status.INFO, "Clicking on Check Answer");
+				System.out.println("Clicking on Check Answer");
+				clickOnElement(obp.check_answer);
+
+				test.log(Status.INFO, "Verifying feedback after wrong answer selection");
+				System.out.println("Verifying feedback after wrong answer selection");
+				swipeTop();
+
+				status = obp.answerWrongMsg.isDisplayed();
+
+				sAss.assertTrue(status, "Shown Incorrect feedback for Incorrect answer selection");
+				if (status) {
+					System.out.println("Shown correct feedback for Incorrect answer selection");
+					test.log(Status.INFO, "Shown correct feedback for Incorrect answer selection");
+				} else {
+					System.out.println("Shown Incorrect feedback for Incorrect answer selection");
+					test.log(Status.INFO, "Shown Incorrect feedback for Incorrect answer selection");
+				}
+
+				test.log(Status.INFO, "Click on Try Again");
+				System.out.println("Click on Try Again");
+				swipeDown();
+
+				clickOnElement(obp.tryAgain);
+
+				test.log(Status.INFO, "Verifying Attempts left warning message");
+				System.out.println("Verifying Attempts left warning message");
+				swipeTop();
+
+				status = obp.attemptLeftsMsg.isDisplayed();
+
+				sAss.assertTrue(status, "Attempts left warning message not displayed");
+				if (status) {
+					System.out.println("Attempts left warning message displayed");
+					test.log(Status.INFO, "Attempts left warning message displayed");
+				} else {
+					System.out.println("Attempts left warning message not displayed");
+					test.log(Status.INFO, "Attempts left warning message not displayed");
+				}
+
+				swipeDown();
+				if ((i + 1 != questions))
+					clickOnElement(obp.attempt_later);
+				i++;
+			} else {
+				i++;
+				clickOnElement(obp.attempt_later);
+			}
+
+		}
+
+		test.log(Status.INFO, "Total " + actualcount + " MCQ questions are displayed");
+		System.out.println("Total " + actualcount + " MCQ questions are displayed");
+		sAss.assertAll();
+
+	}
+
+	public void Module_Verify_User_Can_Abond_MCQ_Quiz_In_Practice(String subject, String topic)
+			throws MalformedURLException, InterruptedException {
+		traverse_To_Begin_Practice(subject, topic);
+
+		SoftAssert sAss = User_Can_Abond_Quiz();
+
+		sAss.assertAll();
+
+	}
+
+	public SoftAssert User_Can_Abond_Quiz() throws MalformedURLException {
+		SoftAssert sAss = new SoftAssert();
+		applyExplicitWait(5);
+		int questions = getTotalQuestionsInPractice();
+		String temp;
+		test.log(Status.INFO, "Total " + questions + "questions appeared");
+		System.out.println("Total " + questions + "questions appeared");
+		List<MobileElement> answerCount;
+		if (device.equalsIgnoreCase("Android"))
+			answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
+		else
+			answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
+		int ansCount = answerCount.size();
+		System.out.println("answerCont = " + ansCount);
+
+		if (device.equalsIgnoreCase("Android"))
+			temp = obp.question.getText();
+		else
+			temp = obp.question.findElement(By.xpath("(//XCUIElementTypeStaticText)[2]")).getText();
+
+		applyExplicitWait(1);
+		test.log(Status.INFO, "Pressing back button");
+		System.out.println("Pressing back button");
+		if (device.equalsIgnoreCase("Android"))
+			driver.navigate().back();
+		else
+			clickOnElement(obp.backBtn);
+
+		applyExplicitWait(2);
+		clickOnElement(obp.returnToTestPopup);
+		test.log(Status.INFO, "Select NO option of cancel practice");
+		System.out.println("Select NO option of cancel practice");
+
+		applyExplicitWait(1);
+		String temp2;
+		if (device.equalsIgnoreCase("Android"))
+			temp2 = obp.question.getText();
+		else
+			temp2 = obp.question.findElement(By.xpath("(//XCUIElementTypeStaticText)[2]")).getText();
+		sAss.assertEquals(temp, temp2);
+		test.log(Status.INFO, "Same question displayed again");
+		System.out.println("Same question displayed again");
+
+		applyExplicitWait(1);
+		test.log(Status.INFO, "Pressing back button");
+		System.out.println("Pressing back button");
+		if (device.equalsIgnoreCase("Android"))
+			driver.navigate().back();
+		else
+			clickOnElement(obp.backBtn);
+
+		applyExplicitWait(2);
+		clickOnElement(obp.submitTestPopup);
+		test.log(Status.INFO, "Select YES option of cancel practice");
+		System.out.println("Select YES option of cancel practice");
+
+		if (findElementByText("Practice").isDisplayed()) {
+			sAss.assertTrue(true);
+			test.log(Status.INFO, "Practice abonded successfully");
+			System.out.println("Practice abonded successfully");
+		}
+
+		return sAss;
+	}
+
+	public void Module_Verify_Feedback_Shown_For_Correct_Answer_Selection_In_Practice(String subject, String topic)
+			throws MalformedURLException, InterruptedException {
 		traverse_To_Begin_Practice(subject, topic);
 		SoftAssert sAss = new SoftAssert();
 		applyExplicitWait(5);
@@ -956,11 +1179,12 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		int i = 0;
 		Boolean status;
 
-		applyExplicitWaitsUntilElementVisible(obp.question); {
+		applyExplicitWaitsUntilElementVisible(obp.question);
+		while (i < questions) {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
-			if (verifySCQorMCQ().equalsIgnoreCase("mcq")) {
+			if (verifySCQorMCQ().equalsIgnoreCase("scq")) {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
@@ -971,6 +1195,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 
 				test.log(Status.INFO, "Clicked on Check Answer button");
 				System.out.println("Clicked on Check Answer button");
+				swipeDown();
 				clickOnElement(obp.check_answer);
 
 				test.log(Status.INFO, "Verifying feedback after answer selection");
@@ -996,143 +1221,6 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 
 		}
 
-		test.log(Status.INFO, "Total " + actualcount + " MCQ questions are displayed");
-		System.out.println("Total " + actualcount + " MCQ questions are displayed");
-		sAss.assertAll();
-
-
-	}
-
-	public void Module_Verify_User_Can_Abond_MCQ_Quiz_In_Practice(String subject, String topic)
-			throws MalformedURLException, InterruptedException {
-		traverse_To_Begin_Practice(subject, topic); 
-
-		SoftAssert sAss = User_Can_Abond_Quiz();
-
-		sAss.assertAll();
-
-	}
-
-	public SoftAssert User_Can_Abond_Quiz() throws MalformedURLException {
-		SoftAssert sAss = new SoftAssert();
-		applyExplicitWait(5);
-		int questions = getTotalQuestionsInPractice();
-		int flag = 1;
-		int i = 1;
-		int queFlag = 0;
-		String temp;
-		test.log(Status.INFO, "Total " + questions + " appeared");
-		// int actualcount = 0;
-		try {
-			List<MobileElement> answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
-			int ansCount = answerCount.size();
-			System.out.println("answerCont = " + ansCount);
-			queFlag = 1;
-
-			if (ansCount != 0 && flag == 1) {
-				temp = obp.question.getText();
-
-				applyExplicitWait(1);
-				clickOnElement(obp.backBtn);
-				test.log(Status.INFO, "Pressing back button");
-
-				applyExplicitWait(2);
-				clickOnElement(obp.returnToTestPopup);
-				test.log(Status.INFO, "Select NO option of cancel practice");
-
-				applyExplicitWait(1);
-				sAss.assertEquals(temp, obp.question.getText());
-				test.log(Status.INFO, "Same question available");
-
-				applyExplicitWait(1);
-				clickOnElement(obp.backBtn);
-				test.log(Status.INFO, "Pressing back button");
-
-				applyExplicitWait(2);
-				clickOnElement(obp.submitTestPopup);
-				test.log(Status.INFO, "Select YES option of cancel practice");
-				if (findElementByText("Begin Test").isDisplayed())
-					sAss.assertTrue(true);
-
-				ansCount = 0;
-
-			} else if (ansCount != 0) {
-				test.log(Status.INFO, "Answer count " + ansCount);
-				flag = 1;
-			} else {
-				clickOnElement(obp.attempt_later);
-				i++;
-				flag = 1;
-			}
-
-		} catch (Exception e) {
-			System.out.println("Exception occured");
-			if (queFlag == 0) {
-				i++;
-				test.log(Status.INFO, "Question " + i + " not displayed");
-				sAss.assertTrue(false);
-				clickOnElement(obp.attempt_later);
-			} else {
-				if (flag == 1) {
-					flag = 0;
-					System.out.println("Flag set to 0");
-
-				} else {
-					flag = 1;
-					System.out.println("Flag set to 1");
-
-				}
-			}
-		}
-
-		return sAss;
-	}
-
-	public void Module_Verify_Feedback_Shown_For_Correct_Answer_Selection_In_Practice(String subject, String topic)
-			throws MalformedURLException, InterruptedException {
-		traverse_To_Begin_Practice(subject, topic);
-		SoftAssert sAss = new SoftAssert();
-		applyExplicitWait(5);
-		int questions = getTotalQuestionsInPractice();
-		int i = 0;
-		Boolean status;
-
-		applyExplicitWaitsUntilElementVisible(obp.question); {
-			test.log(Status.INFO, "Question " + (i + 1));
-			System.out.println("Question " + (i + 1));
-
-			if (verifySCQorMCQ().equalsIgnoreCase("scq")) {
-				applyExplicitWait(5);
-				actualcount++;
-				swipeUp();
-
-				test.log(Status.INFO, "Selecting correct answer for question " + (i + 1));
-				System.out.println("Selecting correct answer for question " + (i + 1));
-				selectCorrectAnswer();
-
-				test.log(Status.INFO, "Clicked on Check Answer button");
-				System.out.println("Clicked on Check Answer button");
-				clickOnElement(obp.check_answer);
-
-				test.log(Status.INFO, "Verifying feedback after answer selection");
-				System.out.println("Verifying feedback after answer selection");
-				status = obp.answerCorrectMsg1.isDisplayed();
-
-				sAss.assertTrue(status);
-				if (status) {
-					System.err.println("Shown correct feedback for correct answer selection");
-					test.log(Status.INFO, "Shown correct feedback for correct answer selection");
-				} else {
-					System.err.println("Shown Incorrect feedback for correct answer selection");
-					test.log(Status.INFO, "Shown Incorrect feedback for correct answer selection");
-				}
-
-			}
-			if ((i + 1) != questions)
-				clickOnElement(obp.conti_nue);
-			i++;
-		}
-
 		test.log(Status.INFO, "Total " + actualcount + " SCQ questions are displayed");
 		System.out.println("Total " + actualcount + " SCQ questions are displayed");
 		sAss.assertAll();
@@ -1140,7 +1228,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 	}
 
 	public void Module_Verify_Feedback_Shown_For_Incorrect_Answer_Selection_In_Practice(String subject, String topic)
-			throws MalformedURLException, InterruptedException {
+			throws Exception {
 		traverse_To_Begin_Practice(subject, topic);
 		SoftAssert sAss = new SoftAssert();
 		applyExplicitWait(5);
@@ -1148,7 +1236,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		int i = 0;
 		Boolean status;
 
-		applyExplicitWaitsUntilElementVisible(obp.question); {
+		while (i < questions) {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
@@ -1163,10 +1251,12 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 
 				test.log(Status.INFO, "Clicked on Check Answer button");
 				System.out.println("Clicked on Check Answer button");
+				swipeDown();
 				clickOnElement(obp.check_answer);
 
 				test.log(Status.INFO, "Verifying feedback after answer selection");
 				System.out.println("Verifying feedback after answer selection");
+				swipeTop();
 				status = obp.answerWrongMsg.isDisplayed();
 
 				sAss.assertTrue(status);
@@ -1178,10 +1268,15 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 					test.log(Status.INFO, "Shown Incorrect feedback for wrong answer selection");
 				}
 			}
-
+			swipeDown();
 			clickOnElement(obp.dontKnowBtn);
-			if ((i + 1) != questions)
+			swipeDown();
+			Thread.sleep(500);
+			if ((i + 1) != questions) {
+				if(device.equalsIgnoreCase("Android"))
 				clickOnElement(obp.conti_nue);
+				else
+					clickOnElement(findElementByText("Continue"));}
 			i++;
 		}
 

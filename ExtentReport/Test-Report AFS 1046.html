@@ -1,0 +1,3312 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='UTF-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>E-Learning</title>
+
+	<style type='text/css'>
+			
+            
+                
+            
+		
+	</style>
+</head>
+
+	<body class='extent dark default hide-overflow '>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>Tata Studi Automation Report</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Apr 16, 2021 02:04:25 PM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>3.1.5</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Tests</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='97.561%'><span class='strong'>40</span> test(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='2.439%'>1</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='24.465%'><span class='strong'>80</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='1.223%'>4</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='74.312%'>243</span> others
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Tests</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='2'>
+					<div class='test-heading'>
+						<span class='test-name'>T01_To_Verify_User_Navigate_To_ReviewPlan</span>
+						<span class='test-time'>Apr 16, 2021 02:04:44 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:04:44 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:05:17 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 33s+585ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:04:44 PM</td>
+					<td class='step-details'>On Test Start : T01_To_Verify_User_Navigate_To_ReviewPlan</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:04:57 PM</td>
+					<td class='step-details'>User can be navigated to the landing page after login</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:05:05 PM</td>
+					<td class='step-details'>User able to navigate to MyLessons Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:05:15 PM</td>
+					<td class='step-details'>At the bottom Review Plan button is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:05:16 PM</td>
+					<td class='step-details'>On Test Success : T01_To_Verify_User_Navigate_To_ReviewPlan</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:05:16 PM</td>
+					<td class='step-details'><span class='label white-text green'>T01_To_Verify_User_Navigate_To_ReviewPlan</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:05:17 PM</td>
+					<td class='step-details'>T01_To_Verify_User_Navigate_To_ReviewPlan Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T01_To_Verify_User_Navigate_To_ReviewPlan ExtendReport 16-04-21 02-05-16.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T01_To_Verify_User_Navigate_To_ReviewPlan ExtendReport 16-04-21 02-05-16.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T01_To_Verify_User_Navigate_To_ReviewPlan ExtendReport 16-04-21 02-05-16.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='3'>
+					<div class='test-heading'>
+						<span class='test-name'>T02_To_Verify_Review_Plan_tab</span>
+						<span class='test-time'>Apr 16, 2021 02:05:23 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:05:23 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:06:03 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 39s+426ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:05:23 PM</td>
+					<td class='step-details'>On Test Start : T02_To_Verify_Review_Plan_tab</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:05:37 PM</td>
+					<td class='step-details'>User can be navigated to the landing page after login</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:05:45 PM</td>
+					<td class='step-details'>User able to navigate to MyLessons Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:05:55 PM</td>
+					<td class='step-details'>At the bottom Review Plan button is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:06:02 PM</td>
+					<td class='step-details'>User can click on Review Plan button and can navigate to Review Plan Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:06:02 PM</td>
+					<td class='step-details'>On Test Success : T02_To_Verify_Review_Plan_tab</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:06:02 PM</td>
+					<td class='step-details'><span class='label white-text green'>T02_To_Verify_Review_Plan_tab</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:06:03 PM</td>
+					<td class='step-details'>T02_To_Verify_Review_Plan_tab Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T02_To_Verify_Review_Plan_tab ExtendReport 16-04-21 02-06-02.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T02_To_Verify_Review_Plan_tab ExtendReport 16-04-21 02-06-02.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T02_To_Verify_Review_Plan_tab ExtendReport 16-04-21 02-06-02.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='4'>
+					<div class='test-heading'>
+						<span class='test-name'>T03_To_Verify_Contents_on_Review_Plan_Page</span>
+						<span class='test-time'>Apr 16, 2021 02:06:09 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:06:09 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:06:50 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 41s+171ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:06:09 PM</td>
+					<td class='step-details'>On Test Start : T03_To_Verify_Contents_on_Review_Plan_Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:06:21 PM</td>
+					<td class='step-details'>User can be navigated to the landing page after login</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:06:30 PM</td>
+					<td class='step-details'>User able to navigate to MyLessons Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:06:41 PM</td>
+					<td class='step-details'>At the bottom Review Plan button is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:06:47 PM</td>
+					<td class='step-details'>User can click on Review Plan button and can navigate to Review Plan Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:06:48 PM</td>
+					<td class='step-details'>Graphical Representation is displayed to user</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:06:48 PM</td>
+					<td class='step-details'>Portion Progress Bar is displayed to user</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:06:49 PM</td>
+					<td class='step-details'>Modify Portion Tab is displayed to user</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:06:49 PM</td>
+					<td class='step-details'>Pause Button is displayed to user at bottom</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:06:49 PM</td>
+					<td class='step-details'>On Test Success : T03_To_Verify_Contents_on_Review_Plan_Page</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:06:49 PM</td>
+					<td class='step-details'><span class='label white-text green'>T03_To_Verify_Contents_on_Review_Plan_Page</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:06:50 PM</td>
+					<td class='step-details'>T03_To_Verify_Contents_on_Review_Plan_Page Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T03_To_Verify_Contents_on_Review_Plan_Page ExtendReport 16-04-21 02-06-49.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T03_To_Verify_Contents_on_Review_Plan_Page ExtendReport 16-04-21 02-06-49.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T03_To_Verify_Contents_on_Review_Plan_Page ExtendReport 16-04-21 02-06-49.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='5'>
+					<div class='test-heading'>
+						<span class='test-name'>T04_To_Verify_Contents_of_Graph</span>
+						<span class='test-time'>Apr 16, 2021 02:06:57 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:06:57 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:07:38 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 41s+160ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:06:57 PM</td>
+					<td class='step-details'>On Test Start : T04_To_Verify_Contents_of_Graph</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:07:10 PM</td>
+					<td class='step-details'>User can be navigated to the landing page after login</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:07:18 PM</td>
+					<td class='step-details'>User able to navigate to MyLessons Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:07:28 PM</td>
+					<td class='step-details'>At the bottom Review Plan button is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:07:34 PM</td>
+					<td class='step-details'>User can click on Review Plan button and can navigate to Review Plan Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:07:34 PM</td>
+					<td class='step-details'>Graphical Representation is displayed to user</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:07:34 PM</td>
+					<td class='step-details'>User able to see the status of the active plan in Planned Task</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:07:35 PM</td>
+					<td class='step-details'>User able to see the status of the active plan in Current Task</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:07:35 PM</td>
+					<td class='step-details'>User able to see the status of the active plan in Required Task</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:07:36 PM</td>
+					<td class='step-details'>Filter option displayed at the top of the Graph</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:07:36 PM</td>
+					<td class='step-details'>You are almost there! this information text is displayed to keep user in sync with the progress in active plan</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:07:36 PM</td>
+					<td class='step-details'>On Test Success : T04_To_Verify_Contents_of_Graph</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:07:36 PM</td>
+					<td class='step-details'><span class='label white-text green'>T04_To_Verify_Contents_of_Graph</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:07:38 PM</td>
+					<td class='step-details'>T04_To_Verify_Contents_of_Graph Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T04_To_Verify_Contents_of_Graph ExtendReport 16-04-21 02-07-36.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T04_To_Verify_Contents_of_Graph ExtendReport 16-04-21 02-07-36.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T04_To_Verify_Contents_of_Graph ExtendReport 16-04-21 02-07-36.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='6'>
+					<div class='test-heading'>
+						<span class='test-name'>T05_To_Verify_Progress_of_Active_Plan_Datewise</span>
+						<span class='test-time'>Apr 16, 2021 02:07:46 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:07:46 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:07:47 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+234ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:07:46 PM</td>
+					<td class='step-details'>On Test Start : T05_To_Verify_Progress_of_Active_Plan_Datewise</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:07:46 PM</td>
+					<td class='step-details'>On Test Success : T05_To_Verify_Progress_of_Active_Plan_Datewise</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:07:46 PM</td>
+					<td class='step-details'><span class='label white-text green'>T05_To_Verify_Progress_of_Active_Plan_Datewise</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:07:47 PM</td>
+					<td class='step-details'>T05_To_Verify_Progress_of_Active_Plan_Datewise Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T05_To_Verify_Progress_of_Active_Plan_Datewise ExtendReport 16-04-21 02-07-46.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T05_To_Verify_Progress_of_Active_Plan_Datewise ExtendReport 16-04-21 02-07-46.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T05_To_Verify_Progress_of_Active_Plan_Datewise ExtendReport 16-04-21 02-07-46.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='7'>
+					<div class='test-heading'>
+						<span class='test-name'>T06_To_Verify_Filter_Option</span>
+						<span class='test-time'>Apr 16, 2021 02:07:53 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:07:53 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:07:55 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+276ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:07:53 PM</td>
+					<td class='step-details'>On Test Start : T06_To_Verify_Filter_Option</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:07:53 PM</td>
+					<td class='step-details'>On Test Success : T06_To_Verify_Filter_Option</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:07:53 PM</td>
+					<td class='step-details'><span class='label white-text green'>T06_To_Verify_Filter_Option</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:07:55 PM</td>
+					<td class='step-details'>T06_To_Verify_Filter_Option Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T06_To_Verify_Filter_Option ExtendReport 16-04-21 02-07-53.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T06_To_Verify_Filter_Option ExtendReport 16-04-21 02-07-53.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T06_To_Verify_Filter_Option ExtendReport 16-04-21 02-07-53.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='8'>
+					<div class='test-heading'>
+						<span class='test-name'>T07_To_Verify_Full_Plan_in_Graph</span>
+						<span class='test-time'>Apr 16, 2021 02:08:02 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:08:02 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:08:03 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+445ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:08:02 PM</td>
+					<td class='step-details'>On Test Start : T07_To_Verify_Full_Plan_in_Graph</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:08:02 PM</td>
+					<td class='step-details'>On Test Success : T07_To_Verify_Full_Plan_in_Graph</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:08:02 PM</td>
+					<td class='step-details'><span class='label white-text green'>T07_To_Verify_Full_Plan_in_Graph</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:08:03 PM</td>
+					<td class='step-details'>T07_To_Verify_Full_Plan_in_Graph Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T07_To_Verify_Full_Plan_in_Graph ExtendReport 16-04-21 02-08-02.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T07_To_Verify_Full_Plan_in_Graph ExtendReport 16-04-21 02-08-02.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T07_To_Verify_Full_Plan_in_Graph ExtendReport 16-04-21 02-08-02.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='9'>
+					<div class='test-heading'>
+						<span class='test-name'>T08_To_Verify_Monthly_Option_in_Filter</span>
+						<span class='test-time'>Apr 16, 2021 02:08:10 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:08:10 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:08:12 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+394ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:08:10 PM</td>
+					<td class='step-details'>On Test Start : T08_To_Verify_Monthly_Option_in_Filter</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:08:10 PM</td>
+					<td class='step-details'>On Test Success : T08_To_Verify_Monthly_Option_in_Filter</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:08:10 PM</td>
+					<td class='step-details'><span class='label white-text green'>T08_To_Verify_Monthly_Option_in_Filter</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:08:12 PM</td>
+					<td class='step-details'>T08_To_Verify_Monthly_Option_in_Filter Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T08_To_Verify_Monthly_Option_in_Filter ExtendReport 16-04-21 02-08-10.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T08_To_Verify_Monthly_Option_in_Filter ExtendReport 16-04-21 02-08-10.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T08_To_Verify_Monthly_Option_in_Filter ExtendReport 16-04-21 02-08-10.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='10'>
+					<div class='test-heading'>
+						<span class='test-name'>T09_To_Verify_Weekly_Option_in_Filter</span>
+						<span class='test-time'>Apr 16, 2021 02:08:19 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:08:19 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:08:20 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+382ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:08:19 PM</td>
+					<td class='step-details'>On Test Start : T09_To_Verify_Weekly_Option_in_Filter</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:08:19 PM</td>
+					<td class='step-details'>On Test Success : T09_To_Verify_Weekly_Option_in_Filter</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:08:19 PM</td>
+					<td class='step-details'><span class='label white-text green'>T09_To_Verify_Weekly_Option_in_Filter</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:08:20 PM</td>
+					<td class='step-details'>T09_To_Verify_Weekly_Option_in_Filter Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T09_To_Verify_Weekly_Option_in_Filter ExtendReport 16-04-21 02-08-19.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T09_To_Verify_Weekly_Option_in_Filter ExtendReport 16-04-21 02-08-19.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T09_To_Verify_Weekly_Option_in_Filter ExtendReport 16-04-21 02-08-19.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='11'>
+					<div class='test-heading'>
+						<span class='test-name'>T10_To_Verify_ProgressBar_In_Review_Plan_Page</span>
+						<span class='test-time'>Apr 16, 2021 02:08:27 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:08:27 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:09:09 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 42s+96ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:08:27 PM</td>
+					<td class='step-details'>On Test Start : T10_To_Verify_ProgressBar_In_Review_Plan_Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:08:41 PM</td>
+					<td class='step-details'>User can be navigated to the landing page after login</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:08:50 PM</td>
+					<td class='step-details'>User able to navigate to MyLessons Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:09:01 PM</td>
+					<td class='step-details'>At the bottom Review Plan button is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:09:07 PM</td>
+					<td class='step-details'>User can click on Review Plan button and can navigate to Review Plan Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:09:08 PM</td>
+					<td class='step-details'>Progress Bar Displayed under the Heading Portion</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:09:08 PM</td>
+					<td class='step-details'>On Test Success : T10_To_Verify_ProgressBar_In_Review_Plan_Page</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:09:08 PM</td>
+					<td class='step-details'><span class='label white-text green'>T10_To_Verify_ProgressBar_In_Review_Plan_Page</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:09:09 PM</td>
+					<td class='step-details'>T10_To_Verify_ProgressBar_In_Review_Plan_Page Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T10_To_Verify_ProgressBar_In_Review_Plan_Page ExtendReport 16-04-21 02-09-08.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T10_To_Verify_ProgressBar_In_Review_Plan_Page ExtendReport 16-04-21 02-09-08.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T10_To_Verify_ProgressBar_In_Review_Plan_Page ExtendReport 16-04-21 02-09-08.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='12'>
+					<div class='test-heading'>
+						<span class='test-name'>T11_To_Verify_ProgressBar_of_Each_Subject_In_Review_Plan_Page</span>
+						<span class='test-time'>Apr 16, 2021 02:09:16 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:09:16 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:11:08 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 52s+456ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:09:16 PM</td>
+					<td class='step-details'>On Test Start : T11_To_Verify_ProgressBar_of_Each_Subject_In_Review_Plan_Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:09:30 PM</td>
+					<td class='step-details'>User can be navigated to the landing page after login</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:09:40 PM</td>
+					<td class='step-details'>User able to navigate to MyLessons Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:09:51 PM</td>
+					<td class='step-details'>At the bottom Review Plan button is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:11:07 PM</td>
+					<td class='step-details'>On Test Success : T11_To_Verify_ProgressBar_of_Each_Subject_In_Review_Plan_Page</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:11:07 PM</td>
+					<td class='step-details'><span class='label white-text green'>T11_To_Verify_ProgressBar_of_Each_Subject_In_Review_Plan_Page</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:11:08 PM</td>
+					<td class='step-details'>T11_To_Verify_ProgressBar_of_Each_Subject_In_Review_Plan_Page Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T11_To_Verify_ProgressBar_of_Each_Subject_In_Review_Plan_Page ExtendReport 16-04-21 02-11-07.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T11_To_Verify_ProgressBar_of_Each_Subject_In_Review_Plan_Page ExtendReport 16-04-21 02-11-07.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T11_To_Verify_ProgressBar_of_Each_Subject_In_Review_Plan_Page ExtendReport 16-04-21 02-11-07.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='13'>
+					<div class='test-heading'>
+						<span class='test-name'>T12_To_Verify_By_Using_ProgressBar_How_Much_User_Has_Moved_Further_In_Review_Plan_Page</span>
+						<span class='test-time'>Apr 16, 2021 02:11:16 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:11:16 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:11:57 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 41s+102ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:11:16 PM</td>
+					<td class='step-details'>On Test Start : T12_To_Verify_By_Using_ProgressBar_How_Much_User_Has_Moved_Further_In_Review_Plan_Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:11:30 PM</td>
+					<td class='step-details'>User can be navigated to the landing page after login</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:11:39 PM</td>
+					<td class='step-details'>User able to navigate to MyLessons Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:11:49 PM</td>
+					<td class='step-details'>At the bottom Review Plan button is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:11:55 PM</td>
+					<td class='step-details'>User can click on Review Plan button and can navigate to Review Plan Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:11:55 PM</td>
+					<td class='step-details'>Seek Bar Displayed under the Heading Portion</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:11:55 PM</td>
+					<td class='step-details'>In this Subject,User is lacking behind the schedule</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:11:55 PM</td>
+					<td class='step-details'>On Test Success : T12_To_Verify_By_Using_ProgressBar_How_Much_User_Has_Moved_Further_In_Review_Plan_Page</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:11:55 PM</td>
+					<td class='step-details'><span class='label white-text green'>T12_To_Verify_By_Using_ProgressBar_How_Much_User_Has_Moved_Further_In_Review_Plan_Page</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:11:57 PM</td>
+					<td class='step-details'>T12_To_Verify_By_Using_ProgressBar_How_Much_User_Has_Moved_Further_In_Review_Plan_Page Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T12_To_Verify_By_Using_ProgressBar_How_Much_User_Has_Moved_Further_In_Review_Plan_Page ExtendReport 16-04-21 02-11-55.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T12_To_Verify_By_Using_ProgressBar_How_Much_User_Has_Moved_Further_In_Review_Plan_Page ExtendReport 16-04-21 02-11-55.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T12_To_Verify_By_Using_ProgressBar_How_Much_User_Has_Moved_Further_In_Review_Plan_Page ExtendReport 16-04-21 02-11-55.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='14'>
+					<div class='test-heading'>
+						<span class='test-name'>T13_To_Verify_Turtle_Icon_On_Slow_Progress_of_Subject_In_Review_Plan_Page</span>
+						<span class='test-time'>Apr 16, 2021 02:12:04 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:12:04 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:12:46 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 42s+606ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:12:04 PM</td>
+					<td class='step-details'>On Test Start : T13_To_Verify_Turtle_Icon_On_Slow_Progress_of_Subject_In_Review_Plan_Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:12:18 PM</td>
+					<td class='step-details'>User can be navigated to the landing page after login</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:12:27 PM</td>
+					<td class='step-details'>User able to navigate to MyLessons Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:12:36 PM</td>
+					<td class='step-details'>At the bottom Review Plan button is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:12:45 PM</td>
+					<td class='step-details'>Turtle icon is displayed,if progress on the plan is slow for any subject</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:12:45 PM</td>
+					<td class='step-details'>On Test Success : T13_To_Verify_Turtle_Icon_On_Slow_Progress_of_Subject_In_Review_Plan_Page</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:12:45 PM</td>
+					<td class='step-details'><span class='label white-text green'>T13_To_Verify_Turtle_Icon_On_Slow_Progress_of_Subject_In_Review_Plan_Page</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:12:46 PM</td>
+					<td class='step-details'>T13_To_Verify_Turtle_Icon_On_Slow_Progress_of_Subject_In_Review_Plan_Page Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T13_To_Verify_Turtle_Icon_On_Slow_Progress_of_Subject_In_Review_Plan_Page ExtendReport 16-04-21 02-12-45.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T13_To_Verify_Turtle_Icon_On_Slow_Progress_of_Subject_In_Review_Plan_Page ExtendReport 16-04-21 02-12-45.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T13_To_Verify_Turtle_Icon_On_Slow_Progress_of_Subject_In_Review_Plan_Page ExtendReport 16-04-21 02-12-45.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='15'>
+					<div class='test-heading'>
+						<span class='test-name'>T14_To_Verify_Rabbit_Icon_On_Fast_Progress_of_Subject_In_Review_Plan_Page</span>
+						<span class='test-time'>Apr 16, 2021 02:12:53 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:12:53 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:13:32 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 39s+298ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:12:53 PM</td>
+					<td class='step-details'>On Test Start : T14_To_Verify_Rabbit_Icon_On_Fast_Progress_of_Subject_In_Review_Plan_Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:13:07 PM</td>
+					<td class='step-details'>User can be navigated to the landing page after login</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:13:15 PM</td>
+					<td class='step-details'>User able to navigate to MyLessons Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:13:26 PM</td>
+					<td class='step-details'>At the bottom Review Plan button is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:13:31 PM</td>
+					<td class='step-details'>On Test Success : T14_To_Verify_Rabbit_Icon_On_Fast_Progress_of_Subject_In_Review_Plan_Page</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:13:31 PM</td>
+					<td class='step-details'><span class='label white-text green'>T14_To_Verify_Rabbit_Icon_On_Fast_Progress_of_Subject_In_Review_Plan_Page</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:13:32 PM</td>
+					<td class='step-details'>T14_To_Verify_Rabbit_Icon_On_Fast_Progress_of_Subject_In_Review_Plan_Page Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T14_To_Verify_Rabbit_Icon_On_Fast_Progress_of_Subject_In_Review_Plan_Page ExtendReport 16-04-21 02-13-31.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T14_To_Verify_Rabbit_Icon_On_Fast_Progress_of_Subject_In_Review_Plan_Page ExtendReport 16-04-21 02-13-31.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T14_To_Verify_Rabbit_Icon_On_Fast_Progress_of_Subject_In_Review_Plan_Page ExtendReport 16-04-21 02-13-31.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='16'>
+					<div class='test-heading'>
+						<span class='test-name'>T15_To_Verify_Subject_Shown_In_Review_Page_Is_Tappable</span>
+						<span class='test-time'>Apr 16, 2021 02:13:39 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:13:39 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:14:25 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 46s+160ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:13:39 PM</td>
+					<td class='step-details'>On Test Start : T15_To_Verify_Subject_Shown_In_Review_Page_Is_Tappable</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:13:53 PM</td>
+					<td class='step-details'>User can be navigated to the landing page after login</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:14:02 PM</td>
+					<td class='step-details'>User able to navigate to MyLessons Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:14:12 PM</td>
+					<td class='step-details'>At the bottom Review Plan button is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:14:18 PM</td>
+					<td class='step-details'>User can click on Review Plan button and can navigate to Review Plan Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:14:24 PM</td>
+					<td class='step-details'>Subject shown under portion with a progress bar is tappable</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:14:24 PM</td>
+					<td class='step-details'>On Test Success : T15_To_Verify_Subject_Shown_In_Review_Page_Is_Tappable</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:14:24 PM</td>
+					<td class='step-details'><span class='label white-text green'>T15_To_Verify_Subject_Shown_In_Review_Page_Is_Tappable</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:14:25 PM</td>
+					<td class='step-details'>T15_To_Verify_Subject_Shown_In_Review_Page_Is_Tappable Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T15_To_Verify_Subject_Shown_In_Review_Page_Is_Tappable ExtendReport 16-04-21 02-14-24.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T15_To_Verify_Subject_Shown_In_Review_Page_Is_Tappable ExtendReport 16-04-21 02-14-24.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T15_To_Verify_Subject_Shown_In_Review_Page_Is_Tappable ExtendReport 16-04-21 02-14-24.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='17'>
+					<div class='test-heading'>
+						<span class='test-name'>T16_To_Verify_Portions_Added_To_The_Subject_In_Active_Plan</span>
+						<span class='test-time'>Apr 16, 2021 02:14:32 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:14:32 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:15:24 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 51s+656ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:14:32 PM</td>
+					<td class='step-details'>On Test Start : T16_To_Verify_Portions_Added_To_The_Subject_In_Active_Plan</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:14:46 PM</td>
+					<td class='step-details'>User can be navigated to the landing page after login</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:14:55 PM</td>
+					<td class='step-details'>User able to navigate to MyLessons Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:15:04 PM</td>
+					<td class='step-details'>At the bottom Review Plan button is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:15:11 PM</td>
+					<td class='step-details'>User can click on Review Plan button and can navigate to Review Plan Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:15:17 PM</td>
+					<td class='step-details'>Subject shown under portion with a progress bar is tappable</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:15:22 PM</td>
+					<td class='step-details'>Chapters are shown in active plan</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:15:22 PM</td>
+					<td class='step-details'>Total topics shown in chapter are  : 2</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:15:22 PM</td>
+					<td class='step-details'>The Universe</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:15:22 PM</td>
+					<td class='step-details'>The Solar System</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:15:22 PM</td>
+					<td class='step-details'>On Test Success : T16_To_Verify_Portions_Added_To_The_Subject_In_Active_Plan</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:15:22 PM</td>
+					<td class='step-details'><span class='label white-text green'>T16_To_Verify_Portions_Added_To_The_Subject_In_Active_Plan</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:15:24 PM</td>
+					<td class='step-details'>T16_To_Verify_Portions_Added_To_The_Subject_In_Active_Plan Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T16_To_Verify_Portions_Added_To_The_Subject_In_Active_Plan ExtendReport 16-04-21 02-15-22.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T16_To_Verify_Portions_Added_To_The_Subject_In_Active_Plan ExtendReport 16-04-21 02-15-22.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T16_To_Verify_Portions_Added_To_The_Subject_In_Active_Plan ExtendReport 16-04-21 02-15-22.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='18'>
+					<div class='test-heading'>
+						<span class='test-name'>T17_To_Verify_Total_No_Of_Topics_And_Chapters_In_Review_Plan_Page</span>
+						<span class='test-time'>Apr 16, 2021 02:15:31 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:15:31 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:16:11 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 40s+911ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:15:31 PM</td>
+					<td class='step-details'>On Test Start : T17_To_Verify_Total_No_Of_Topics_And_Chapters_In_Review_Plan_Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:15:43 PM</td>
+					<td class='step-details'>User can be navigated to the landing page after login</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:15:53 PM</td>
+					<td class='step-details'>User able to navigate to MyLessons Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:16:04 PM</td>
+					<td class='step-details'>At the bottom Review Plan button is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:16:10 PM</td>
+					<td class='step-details'>User can click on Review Plan button and can navigate to Review Plan Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:16:10 PM</td>
+					<td class='step-details'>Progress Bar Displayed under the Heading Portion</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:16:10 PM</td>
+					<td class='step-details'>Total number of chapters and topics added to the subject are shown to the user.</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:16:10 PM</td>
+					<td class='step-details'>On Test Success : T17_To_Verify_Total_No_Of_Topics_And_Chapters_In_Review_Plan_Page</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:16:10 PM</td>
+					<td class='step-details'><span class='label white-text green'>T17_To_Verify_Total_No_Of_Topics_And_Chapters_In_Review_Plan_Page</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:16:11 PM</td>
+					<td class='step-details'>T17_To_Verify_Total_No_Of_Topics_And_Chapters_In_Review_Plan_Page Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T17_To_Verify_Total_No_Of_Topics_And_Chapters_In_Review_Plan_Page ExtendReport 16-04-21 02-16-10.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T17_To_Verify_Total_No_Of_Topics_And_Chapters_In_Review_Plan_Page ExtendReport 16-04-21 02-16-10.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T17_To_Verify_Total_No_Of_Topics_And_Chapters_In_Review_Plan_Page ExtendReport 16-04-21 02-16-10.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='19'>
+					<div class='test-heading'>
+						<span class='test-name'>T18_To_Verify_Plan_Detail_Tab_In_Review_Plan_Page</span>
+						<span class='test-time'>Apr 16, 2021 02:16:18 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:16:18 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:17:01 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 42s+349ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:16:18 PM</td>
+					<td class='step-details'>On Test Start : T18_To_Verify_Plan_Detail_Tab_In_Review_Plan_Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:16:32 PM</td>
+					<td class='step-details'>User can be navigated to the landing page after login</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:16:41 PM</td>
+					<td class='step-details'>User able to navigate to MyLessons Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:16:53 PM</td>
+					<td class='step-details'>At the bottom Review Plan button is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:16:59 PM</td>
+					<td class='step-details'>User can click on Review Plan button and can navigate to Review Plan Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:16:59 PM</td>
+					<td class='step-details'>The Plan Detail tab is shown to the user</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:16:59 PM</td>
+					<td class='step-details'>On Test Success : T18_To_Verify_Plan_Detail_Tab_In_Review_Plan_Page</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:16:59 PM</td>
+					<td class='step-details'><span class='label white-text green'>T18_To_Verify_Plan_Detail_Tab_In_Review_Plan_Page</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:17:01 PM</td>
+					<td class='step-details'>T18_To_Verify_Plan_Detail_Tab_In_Review_Plan_Page Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T18_To_Verify_Plan_Detail_Tab_In_Review_Plan_Page ExtendReport 16-04-21 02-16-59.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T18_To_Verify_Plan_Detail_Tab_In_Review_Plan_Page ExtendReport 16-04-21 02-16-59.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T18_To_Verify_Plan_Detail_Tab_In_Review_Plan_Page ExtendReport 16-04-21 02-16-59.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='20'>
+					<div class='test-heading'>
+						<span class='test-name'>T19_To_Verify_Details_In_Plan_Detail_Tab_In_Review_Plan_Page</span>
+						<span class='test-time'>Apr 16, 2021 02:17:07 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:17:07 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:17:51 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 43s+457ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:17:07 PM</td>
+					<td class='step-details'>On Test Start : T19_To_Verify_Details_In_Plan_Detail_Tab_In_Review_Plan_Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:17:21 PM</td>
+					<td class='step-details'>User can be navigated to the landing page after login</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:17:31 PM</td>
+					<td class='step-details'>User able to navigate to MyLessons Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:17:42 PM</td>
+					<td class='step-details'>At the bottom Review Plan button is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:17:49 PM</td>
+					<td class='step-details'>User can click on Review Plan button and can navigate to Review Plan Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:17:49 PM</td>
+					<td class='step-details'>The Plan Detail tab is shown to the user</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:17:49 PM</td>
+					<td class='step-details'>The current week, user is presently in is shown to user</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:17:49 PM</td>
+					<td class='step-details'>Daily Study Goal is shown to the user</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:17:49 PM</td>
+					<td class='step-details'>Plan End Date is shown to user</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:17:49 PM</td>
+					<td class='step-details'>On Test Success : T19_To_Verify_Details_In_Plan_Detail_Tab_In_Review_Plan_Page</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:17:49 PM</td>
+					<td class='step-details'><span class='label white-text green'>T19_To_Verify_Details_In_Plan_Detail_Tab_In_Review_Plan_Page</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:17:51 PM</td>
+					<td class='step-details'>T19_To_Verify_Details_In_Plan_Detail_Tab_In_Review_Plan_Page Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T19_To_Verify_Details_In_Plan_Detail_Tab_In_Review_Plan_Page ExtendReport 16-04-21 02-17-49.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T19_To_Verify_Details_In_Plan_Detail_Tab_In_Review_Plan_Page ExtendReport 16-04-21 02-17-49.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T19_To_Verify_Details_In_Plan_Detail_Tab_In_Review_Plan_Page ExtendReport 16-04-21 02-17-49.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='21'>
+					<div class='test-heading'>
+						<span class='test-name'>T20_To_Verify_Modify_Tab_In_Review_Plan_Page</span>
+						<span class='test-time'>Apr 16, 2021 02:17:58 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:17:58 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:18:39 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 40s+649ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:17:58 PM</td>
+					<td class='step-details'>On Test Start : T20_To_Verify_Modify_Tab_In_Review_Plan_Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:18:11 PM</td>
+					<td class='step-details'>User can be navigated to the landing page after login</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:18:21 PM</td>
+					<td class='step-details'>User able to navigate to MyLessons Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:18:32 PM</td>
+					<td class='step-details'>At the bottom Review Plan button is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:18:37 PM</td>
+					<td class='step-details'>User can click on Review Plan button and can navigate to Review Plan Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:18:37 PM</td>
+					<td class='step-details'>The Modify tab is shown to the user</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:18:37 PM</td>
+					<td class='step-details'>On Test Success : T20_To_Verify_Modify_Tab_In_Review_Plan_Page</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:18:37 PM</td>
+					<td class='step-details'><span class='label white-text green'>T20_To_Verify_Modify_Tab_In_Review_Plan_Page</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:18:39 PM</td>
+					<td class='step-details'>T20_To_Verify_Modify_Tab_In_Review_Plan_Page Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T20_To_Verify_Modify_Tab_In_Review_Plan_Page ExtendReport 16-04-21 02-18-37.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T20_To_Verify_Modify_Tab_In_Review_Plan_Page ExtendReport 16-04-21 02-18-37.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T20_To_Verify_Modify_Tab_In_Review_Plan_Page ExtendReport 16-04-21 02-18-37.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='22'>
+					<div class='test-heading'>
+						<span class='test-name'>T21_To_Verify_DeadLine_Tab_Under_Modify_Tab_In_Review_Plan_Page</span>
+						<span class='test-time'>Apr 16, 2021 02:18:45 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:18:45 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:19:26 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 41s+84ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:18:45 PM</td>
+					<td class='step-details'>On Test Start : T21_To_Verify_DeadLine_Tab_Under_Modify_Tab_In_Review_Plan_Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:18:58 PM</td>
+					<td class='step-details'>User can be navigated to the landing page after login</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:19:07 PM</td>
+					<td class='step-details'>User able to navigate to MyLessons Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:19:17 PM</td>
+					<td class='step-details'>At the bottom Review Plan button is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:19:24 PM</td>
+					<td class='step-details'>User can click on Review Plan button and can navigate to Review Plan Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:19:24 PM</td>
+					<td class='step-details'>The Modify tab is shown to the user</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:19:25 PM</td>
+					<td class='step-details'>Under Modify tab, Deadline  option is shown to the user</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:19:25 PM</td>
+					<td class='step-details'>On Test Success : T21_To_Verify_DeadLine_Tab_Under_Modify_Tab_In_Review_Plan_Page</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:19:25 PM</td>
+					<td class='step-details'><span class='label white-text green'>T21_To_Verify_DeadLine_Tab_Under_Modify_Tab_In_Review_Plan_Page</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:19:26 PM</td>
+					<td class='step-details'>T21_To_Verify_DeadLine_Tab_Under_Modify_Tab_In_Review_Plan_Page Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T21_To_Verify_DeadLine_Tab_Under_Modify_Tab_In_Review_Plan_Page ExtendReport 16-04-21 02-19-25.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T21_To_Verify_DeadLine_Tab_Under_Modify_Tab_In_Review_Plan_Page ExtendReport 16-04-21 02-19-25.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T21_To_Verify_DeadLine_Tab_Under_Modify_Tab_In_Review_Plan_Page ExtendReport 16-04-21 02-19-25.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='23'>
+					<div class='test-heading'>
+						<span class='test-name'>T22_To_Verify_DeadLine_Tab_Under_Modify_Tab_Is_Functional</span>
+						<span class='test-time'>Apr 16, 2021 02:19:33 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:19:33 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:20:50 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 16s+840ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:19:33 PM</td>
+					<td class='step-details'>On Test Start : T22_To_Verify_DeadLine_Tab_Under_Modify_Tab_Is_Functional</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:19:45 PM</td>
+					<td class='step-details'>User can be navigated to the landing page after login</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:19:54 PM</td>
+					<td class='step-details'>User able to navigate to MyLessons Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:20:05 PM</td>
+					<td class='step-details'>At the bottom Review Plan button is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:20:11 PM</td>
+					<td class='step-details'>User can click on Review Plan button and can navigate to Review Plan Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:20:11 PM</td>
+					<td class='step-details'>The Modify tab is shown to the user</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:20:12 PM</td>
+					<td class='step-details'>Under Modify tab, Deadline  option is shown to the user</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>2:20:49 PM</td>
+					<td class='step-details'>On Test Failure : T22_To_Verify_DeadLine_Tab_Under_Modify_Tab_Is_Functional</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>2:20:49 PM</td>
+					<td class='step-details'><span class='label white-text red'>T22_To_Verify_DeadLine_Tab_Under_Modify_Tab_Is_Functional</span></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:20:49 PM</td>
+					<td class='step-details'>Fails Test</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>2:20:49 PM</td>
+					<td class='step-details'><textarea>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Located by By.chained({By.xpath: /hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View/android.view.View[1]}) (tried for 20 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at studi.co.Base.BaseClass.applyExplicitWaitsUntilElementVisible(BaseClass.java:453)
+	at studi.co.pageModules.Module_ReviewPlan.toVerify_DeadLineTab_UnderModifyTab(Module_ReviewPlan.java:662)
+	at studi.co.testScripts.AFS_UserStory_1046.T22_To_Verify_DeadLine_Tab_Under_Modify_Tab_Is_Functional(AFS_UserStory_1046.java:192)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.chained({By.xpath: /hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View/android.view.View[1]})
+	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:126)
+	at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.intercept(InterceptorOfASingleElement.java:59)
+	at io.appium.java_client.android.AndroidElement$$EnhancerByCGLIB$$b598166c.isDisplayed(<generated>)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	... 28 more
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@15fb4566 (tried for 1 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:304)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:99)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:119)
+	... 35 more
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.chained({By.xpath: /hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View/android.view.View[1]})
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-TMI6UL6', ip: '192.168.29.241', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: driver.version: AndroidDriver
+	at io.appium.java_client.pagefactory.bys.builder.ByChained.findElement(ByChained.java:74)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at io.appium.java_client.pagefactory.bys.ContentMappedBy.findElement(ContentMappedBy.java:50)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.lambda$0(AppiumElementLocator.java:120)
+	at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:172)
+	at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:1)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	... 37 more
+</textarea></td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>2:20:50 PM</td>
+					<td class='step-details'>Expected condition failed: waiting for visibility of Located by By.chained({By.xpath: /hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View/android.view.View[1]}) (tried for 20 second(s) with 500 milliseconds interval)<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T22_To_Verify_DeadLine_Tab_Under_Modify_Tab_Is_Functional ExtendReport 16-04-21 02-20-49.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T22_To_Verify_DeadLine_Tab_Under_Modify_Tab_Is_Functional ExtendReport 16-04-21 02-20-49.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T22_To_Verify_DeadLine_Tab_Under_Modify_Tab_Is_Functional ExtendReport 16-04-21 02-20-49.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='24'>
+					<div class='test-heading'>
+						<span class='test-name'>T23_To_Verify_User_Should_Be_Able_To_Modify_The_Plans_DeadLine</span>
+						<span class='test-time'>Apr 16, 2021 02:20:56 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:20:56 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:20:57 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+938ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:20:56 PM</td>
+					<td class='step-details'>On Test Start : T23_To_Verify_User_Should_Be_Able_To_Modify_The_Plans_DeadLine</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:20:56 PM</td>
+					<td class='step-details'>On Test Success : T23_To_Verify_User_Should_Be_Able_To_Modify_The_Plans_DeadLine</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:20:56 PM</td>
+					<td class='step-details'><span class='label white-text green'>T23_To_Verify_User_Should_Be_Able_To_Modify_The_Plans_DeadLine</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:20:57 PM</td>
+					<td class='step-details'>T23_To_Verify_User_Should_Be_Able_To_Modify_The_Plans_DeadLine Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T23_To_Verify_User_Should_Be_Able_To_Modify_The_Plans_DeadLine ExtendReport 16-04-21 02-20-56.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T23_To_Verify_User_Should_Be_Able_To_Modify_The_Plans_DeadLine ExtendReport 16-04-21 02-20-56.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T23_To_Verify_User_Should_Be_Able_To_Modify_The_Plans_DeadLine ExtendReport 16-04-21 02-20-56.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='25'>
+					<div class='test-heading'>
+						<span class='test-name'>T24_To_Verify_Plan_Activation_with_Modified_Deadline</span>
+						<span class='test-time'>Apr 16, 2021 02:21:04 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:21:04 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:21:05 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+61ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:21:04 PM</td>
+					<td class='step-details'>On Test Start : T24_To_Verify_Plan_Activation_with_Modified_Deadline</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:21:04 PM</td>
+					<td class='step-details'>On Test Success : T24_To_Verify_Plan_Activation_with_Modified_Deadline</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:21:04 PM</td>
+					<td class='step-details'><span class='label white-text green'>T24_To_Verify_Plan_Activation_with_Modified_Deadline</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:21:05 PM</td>
+					<td class='step-details'>T24_To_Verify_Plan_Activation_with_Modified_Deadline Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T24_To_Verify_Plan_Activation_with_Modified_Deadline ExtendReport 16-04-21 02-21-04.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T24_To_Verify_Plan_Activation_with_Modified_Deadline ExtendReport 16-04-21 02-21-04.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T24_To_Verify_Plan_Activation_with_Modified_Deadline ExtendReport 16-04-21 02-21-04.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='26'>
+					<div class='test-heading'>
+						<span class='test-name'>T25_To_Verify_Activation_Of_Plan_With_Unfeasible_Deadline</span>
+						<span class='test-time'>Apr 16, 2021 02:21:12 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:21:12 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:21:13 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+59ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:21:12 PM</td>
+					<td class='step-details'>On Test Start : T25_To_Verify_Activation_Of_Plan_With_Unfeasible_Deadline</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:21:12 PM</td>
+					<td class='step-details'>On Test Success : T25_To_Verify_Activation_Of_Plan_With_Unfeasible_Deadline</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:21:12 PM</td>
+					<td class='step-details'><span class='label white-text green'>T25_To_Verify_Activation_Of_Plan_With_Unfeasible_Deadline</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:21:13 PM</td>
+					<td class='step-details'>T25_To_Verify_Activation_Of_Plan_With_Unfeasible_Deadline Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T25_To_Verify_Activation_Of_Plan_With_Unfeasible_Deadline ExtendReport 16-04-21 02-21-12.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T25_To_Verify_Activation_Of_Plan_With_Unfeasible_Deadline ExtendReport 16-04-21 02-21-12.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T25_To_Verify_Activation_Of_Plan_With_Unfeasible_Deadline ExtendReport 16-04-21 02-21-12.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='27'>
+					<div class='test-heading'>
+						<span class='test-name'>T26_To_Verify_User_Able_To_View_Modified_DeadLine_of_The_Plan</span>
+						<span class='test-time'>Apr 16, 2021 02:21:20 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:21:20 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:21:21 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+298ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:21:20 PM</td>
+					<td class='step-details'>On Test Start : T26_To_Verify_User_Able_To_View_Modified_DeadLine_of_The_Plan</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:21:20 PM</td>
+					<td class='step-details'>On Test Success : T26_To_Verify_User_Able_To_View_Modified_DeadLine_of_The_Plan</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:21:20 PM</td>
+					<td class='step-details'><span class='label white-text green'>T26_To_Verify_User_Able_To_View_Modified_DeadLine_of_The_Plan</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:21:21 PM</td>
+					<td class='step-details'>T26_To_Verify_User_Able_To_View_Modified_DeadLine_of_The_Plan Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T26_To_Verify_User_Able_To_View_Modified_DeadLine_of_The_Plan ExtendReport 16-04-21 02-21-20.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T26_To_Verify_User_Able_To_View_Modified_DeadLine_of_The_Plan ExtendReport 16-04-21 02-21-20.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T26_To_Verify_User_Able_To_View_Modified_DeadLine_of_The_Plan ExtendReport 16-04-21 02-21-20.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='28'>
+					<div class='test-heading'>
+						<span class='test-name'>T27_To_Verify_Portion_Option_Under_Modify_Tab</span>
+						<span class='test-time'>Apr 16, 2021 02:21:29 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:21:29 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:22:14 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 44s+688ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:21:29 PM</td>
+					<td class='step-details'>On Test Start : T27_To_Verify_Portion_Option_Under_Modify_Tab</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:21:45 PM</td>
+					<td class='step-details'>User can be navigated to the landing page after login</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:21:55 PM</td>
+					<td class='step-details'>User able to navigate to MyLessons Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:22:06 PM</td>
+					<td class='step-details'>At the bottom Review Plan button is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:22:11 PM</td>
+					<td class='step-details'>User can click on Review Plan button and can navigate to Review Plan Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:22:12 PM</td>
+					<td class='step-details'>Portion option is displayed under Modify Tab</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:22:12 PM</td>
+					<td class='step-details'>On Test Success : T27_To_Verify_Portion_Option_Under_Modify_Tab</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:22:12 PM</td>
+					<td class='step-details'><span class='label white-text green'>T27_To_Verify_Portion_Option_Under_Modify_Tab</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:22:14 PM</td>
+					<td class='step-details'>T27_To_Verify_Portion_Option_Under_Modify_Tab Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T27_To_Verify_Portion_Option_Under_Modify_Tab ExtendReport 16-04-21 02-22-12.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T27_To_Verify_Portion_Option_Under_Modify_Tab ExtendReport 16-04-21 02-22-12.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T27_To_Verify_Portion_Option_Under_Modify_Tab ExtendReport 16-04-21 02-22-12.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='29'>
+					<div class='test-heading'>
+						<span class='test-name'>T28_To_Verify_Portion_Option_Under_Modify_Tab_Is_Functional</span>
+						<span class='test-time'>Apr 16, 2021 02:22:20 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:22:20 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:23:01 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 40s+621ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:22:20 PM</td>
+					<td class='step-details'>On Test Start : T28_To_Verify_Portion_Option_Under_Modify_Tab_Is_Functional</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:22:33 PM</td>
+					<td class='step-details'>User can be navigated to the landing page after login</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:22:41 PM</td>
+					<td class='step-details'>User able to navigate to MyLessons Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:22:51 PM</td>
+					<td class='step-details'>At the bottom Review Plan button is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:22:57 PM</td>
+					<td class='step-details'>User can click on Review Plan button and can navigate to Review Plan Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:22:58 PM</td>
+					<td class='step-details'>Portion option is displayed under Modify Tab</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:23:00 PM</td>
+					<td class='step-details'>On tapping Portion, user navigated to the Edit study Plan page with the bookshelf view</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:23:00 PM</td>
+					<td class='step-details'>On Test Success : T28_To_Verify_Portion_Option_Under_Modify_Tab_Is_Functional</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:23:00 PM</td>
+					<td class='step-details'><span class='label white-text green'>T28_To_Verify_Portion_Option_Under_Modify_Tab_Is_Functional</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:23:01 PM</td>
+					<td class='step-details'>T28_To_Verify_Portion_Option_Under_Modify_Tab_Is_Functional Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T28_To_Verify_Portion_Option_Under_Modify_Tab_Is_Functional ExtendReport 16-04-21 02-23-00.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T28_To_Verify_Portion_Option_Under_Modify_Tab_Is_Functional ExtendReport 16-04-21 02-23-00.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T28_To_Verify_Portion_Option_Under_Modify_Tab_Is_Functional ExtendReport 16-04-21 02-23-00.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='30'>
+					<div class='test-heading'>
+						<span class='test-name'>T29_To_Verify_User_able_to_Modify_the_Portion_added_To_The_Plan</span>
+						<span class='test-time'>Apr 16, 2021 02:23:07 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:23:07 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:23:08 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+50ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:23:07 PM</td>
+					<td class='step-details'>On Test Start : T29_To_Verify_User_able_to_Modify_the_Portion_added_To_The_Plan</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:23:07 PM</td>
+					<td class='step-details'>On Test Success : T29_To_Verify_User_able_to_Modify_the_Portion_added_To_The_Plan</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:23:07 PM</td>
+					<td class='step-details'><span class='label white-text green'>T29_To_Verify_User_able_to_Modify_the_Portion_added_To_The_Plan</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:23:08 PM</td>
+					<td class='step-details'>T29_To_Verify_User_able_to_Modify_the_Portion_added_To_The_Plan Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T29_To_Verify_User_able_to_Modify_the_Portion_added_To_The_Plan ExtendReport 16-04-21 02-23-07.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T29_To_Verify_User_able_to_Modify_the_Portion_added_To_The_Plan ExtendReport 16-04-21 02-23-07.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T29_To_Verify_User_able_to_Modify_the_Portion_added_To_The_Plan ExtendReport 16-04-21 02-23-07.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='31'>
+					<div class='test-heading'>
+						<span class='test-name'>T30_To_Verify_Count_Of_Chapters_Edited_After_Modifying_The_Portion</span>
+						<span class='test-time'>Apr 16, 2021 02:23:15 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:23:15 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:23:16 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+85ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:23:15 PM</td>
+					<td class='step-details'>On Test Start : T30_To_Verify_Count_Of_Chapters_Edited_After_Modifying_The_Portion</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:23:15 PM</td>
+					<td class='step-details'>On Test Success : T30_To_Verify_Count_Of_Chapters_Edited_After_Modifying_The_Portion</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:23:15 PM</td>
+					<td class='step-details'><span class='label white-text green'>T30_To_Verify_Count_Of_Chapters_Edited_After_Modifying_The_Portion</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:23:16 PM</td>
+					<td class='step-details'>T30_To_Verify_Count_Of_Chapters_Edited_After_Modifying_The_Portion Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T30_To_Verify_Count_Of_Chapters_Edited_After_Modifying_The_Portion ExtendReport 16-04-21 02-23-15.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T30_To_Verify_Count_Of_Chapters_Edited_After_Modifying_The_Portion ExtendReport 16-04-21 02-23-15.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T30_To_Verify_Count_Of_Chapters_Edited_After_Modifying_The_Portion ExtendReport 16-04-21 02-23-15.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='32'>
+					<div class='test-heading'>
+						<span class='test-name'>T31_To_Verify_User_Can_Discard_The_Modified_Portion_During_Editing</span>
+						<span class='test-time'>Apr 16, 2021 02:23:22 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:23:22 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:23:24 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+767ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:23:22 PM</td>
+					<td class='step-details'>On Test Start : T31_To_Verify_User_Can_Discard_The_Modified_Portion_During_Editing</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:23:22 PM</td>
+					<td class='step-details'>On Test Success : T31_To_Verify_User_Can_Discard_The_Modified_Portion_During_Editing</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:23:22 PM</td>
+					<td class='step-details'><span class='label white-text green'>T31_To_Verify_User_Can_Discard_The_Modified_Portion_During_Editing</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:23:24 PM</td>
+					<td class='step-details'>T31_To_Verify_User_Can_Discard_The_Modified_Portion_During_Editing Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T31_To_Verify_User_Can_Discard_The_Modified_Portion_During_Editing ExtendReport 16-04-21 02-23-22.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T31_To_Verify_User_Can_Discard_The_Modified_Portion_During_Editing ExtendReport 16-04-21 02-23-22.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T31_To_Verify_User_Can_Discard_The_Modified_Portion_During_Editing ExtendReport 16-04-21 02-23-22.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='33'>
+					<div class='test-heading'>
+						<span class='test-name'>T32_To_Verify_User_Should_Be_Able_To_Activate_Modified_Portion_To_The_Plan</span>
+						<span class='test-time'>Apr 16, 2021 02:23:31 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:23:31 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:23:32 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+65ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:23:31 PM</td>
+					<td class='step-details'>On Test Start : T32_To_Verify_User_Should_Be_Able_To_Activate_Modified_Portion_To_The_Plan</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:23:31 PM</td>
+					<td class='step-details'>On Test Success : T32_To_Verify_User_Should_Be_Able_To_Activate_Modified_Portion_To_The_Plan</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:23:31 PM</td>
+					<td class='step-details'><span class='label white-text green'>T32_To_Verify_User_Should_Be_Able_To_Activate_Modified_Portion_To_The_Plan</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:23:32 PM</td>
+					<td class='step-details'>T32_To_Verify_User_Should_Be_Able_To_Activate_Modified_Portion_To_The_Plan Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T32_To_Verify_User_Should_Be_Able_To_Activate_Modified_Portion_To_The_Plan ExtendReport 16-04-21 02-23-31.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T32_To_Verify_User_Should_Be_Able_To_Activate_Modified_Portion_To_The_Plan ExtendReport 16-04-21 02-23-31.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T32_To_Verify_User_Should_Be_Able_To_Activate_Modified_Portion_To_The_Plan ExtendReport 16-04-21 02-23-31.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='34'>
+					<div class='test-heading'>
+						<span class='test-name'>T33_To_Verify_User_Should_Be_Able_To_View_The_Modified_Portion_Added_To_The_Plan</span>
+						<span class='test-time'>Apr 16, 2021 02:23:38 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:23:38 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:23:39 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+195ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:23:38 PM</td>
+					<td class='step-details'>On Test Start : T33_To_Verify_User_Should_Be_Able_To_View_The_Modified_Portion_Added_To_The_Plan</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:23:38 PM</td>
+					<td class='step-details'>On Test Success : T33_To_Verify_User_Should_Be_Able_To_View_The_Modified_Portion_Added_To_The_Plan</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:23:38 PM</td>
+					<td class='step-details'><span class='label white-text green'>T33_To_Verify_User_Should_Be_Able_To_View_The_Modified_Portion_Added_To_The_Plan</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:23:39 PM</td>
+					<td class='step-details'>T33_To_Verify_User_Should_Be_Able_To_View_The_Modified_Portion_Added_To_The_Plan Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T33_To_Verify_User_Should_Be_Able_To_View_The_Modified_Portion_Added_To_The_Plan ExtendReport 16-04-21 02-23-38.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T33_To_Verify_User_Should_Be_Able_To_View_The_Modified_Portion_Added_To_The_Plan ExtendReport 16-04-21 02-23-38.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T33_To_Verify_User_Should_Be_Able_To_View_The_Modified_Portion_Added_To_The_Plan ExtendReport 16-04-21 02-23-38.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='35'>
+					<div class='test-heading'>
+						<span class='test-name'>T34_To_Verify_Pause_Tab_In_Review_Page</span>
+						<span class='test-time'>Apr 16, 2021 02:23:46 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:23:46 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:24:26 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 40s+235ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:23:46 PM</td>
+					<td class='step-details'>On Test Start : T34_To_Verify_Pause_Tab_In_Review_Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:23:59 PM</td>
+					<td class='step-details'>User can be navigated to the landing page after login</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:24:08 PM</td>
+					<td class='step-details'>User able to navigate to MyLessons Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:24:18 PM</td>
+					<td class='step-details'>At the bottom Review Plan button is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:24:24 PM</td>
+					<td class='step-details'>User can click on Review Plan button and can navigate to Review Plan Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:24:24 PM</td>
+					<td class='step-details'>The Modify tab is shown to the user</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:24:25 PM</td>
+					<td class='step-details'>Pause Button is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:24:25 PM</td>
+					<td class='step-details'>On Test Success : T34_To_Verify_Pause_Tab_In_Review_Page</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:24:25 PM</td>
+					<td class='step-details'><span class='label white-text green'>T34_To_Verify_Pause_Tab_In_Review_Page</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:24:26 PM</td>
+					<td class='step-details'>T34_To_Verify_Pause_Tab_In_Review_Page Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T34_To_Verify_Pause_Tab_In_Review_Page ExtendReport 16-04-21 02-24-25.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T34_To_Verify_Pause_Tab_In_Review_Page ExtendReport 16-04-21 02-24-25.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T34_To_Verify_Pause_Tab_In_Review_Page ExtendReport 16-04-21 02-24-25.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='36'>
+					<div class='test-heading'>
+						<span class='test-name'>T35_To_Verify_Pause_Tab_Is_Functional</span>
+						<span class='test-time'>Apr 16, 2021 02:24:33 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:24:33 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:25:11 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 38s+725ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:24:33 PM</td>
+					<td class='step-details'>On Test Start : T35_To_Verify_Pause_Tab_Is_Functional</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:24:45 PM</td>
+					<td class='step-details'>User can be navigated to the landing page after login</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:24:53 PM</td>
+					<td class='step-details'>User able to navigate to MyLessons Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:25:02 PM</td>
+					<td class='step-details'>At the bottom Review Plan button is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:25:08 PM</td>
+					<td class='step-details'>User can click on Review Plan button and can navigate to Review Plan Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:25:08 PM</td>
+					<td class='step-details'>The Modify tab is shown to the user</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:25:09 PM</td>
+					<td class='step-details'>Pause Button is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:25:10 PM</td>
+					<td class='step-details'>Pause Tab is Tappable</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:25:10 PM</td>
+					<td class='step-details'>On Test Success : T35_To_Verify_Pause_Tab_Is_Functional</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:25:10 PM</td>
+					<td class='step-details'><span class='label white-text green'>T35_To_Verify_Pause_Tab_Is_Functional</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:25:11 PM</td>
+					<td class='step-details'>T35_To_Verify_Pause_Tab_Is_Functional Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T35_To_Verify_Pause_Tab_Is_Functional ExtendReport 16-04-21 02-25-10.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T35_To_Verify_Pause_Tab_Is_Functional ExtendReport 16-04-21 02-25-10.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T35_To_Verify_Pause_Tab_Is_Functional ExtendReport 16-04-21 02-25-10.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='37'>
+					<div class='test-heading'>
+						<span class='test-name'>T36_To_Verify_User_Able_To_Pause_Plan</span>
+						<span class='test-time'>Apr 16, 2021 02:25:18 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:25:18 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:25:58 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 40s+133ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:25:18 PM</td>
+					<td class='step-details'>On Test Start : T36_To_Verify_User_Able_To_Pause_Plan</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:25:30 PM</td>
+					<td class='step-details'>User can be navigated to the landing page after login</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:25:38 PM</td>
+					<td class='step-details'>User able to navigate to MyLessons Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:25:47 PM</td>
+					<td class='step-details'>At the bottom Review Plan button is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:25:53 PM</td>
+					<td class='step-details'>User can click on Review Plan button and can navigate to Review Plan Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:25:53 PM</td>
+					<td class='step-details'>The Modify tab is shown to the user</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:25:54 PM</td>
+					<td class='step-details'>Pause Button is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:25:55 PM</td>
+					<td class='step-details'>Pause Tab is Tappable</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:25:55 PM</td>
+					<td class='step-details'>User able to navigate to the pause plan page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:25:57 PM</td>
+					<td class='step-details'>User can successfully pause the plan</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:25:57 PM</td>
+					<td class='step-details'>On Test Success : T36_To_Verify_User_Able_To_Pause_Plan</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:25:57 PM</td>
+					<td class='step-details'><span class='label white-text green'>T36_To_Verify_User_Able_To_Pause_Plan</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:25:58 PM</td>
+					<td class='step-details'>T36_To_Verify_User_Able_To_Pause_Plan Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T36_To_Verify_User_Able_To_Pause_Plan ExtendReport 16-04-21 02-25-57.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T36_To_Verify_User_Able_To_Pause_Plan ExtendReport 16-04-21 02-25-57.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T36_To_Verify_User_Able_To_Pause_Plan ExtendReport 16-04-21 02-25-57.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='38'>
+					<div class='test-heading'>
+						<span class='test-name'>T37_To_Verify_User_Able_To_Activate_Pause_Plan</span>
+						<span class='test-time'>Apr 16, 2021 02:26:04 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:26:04 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:26:49 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 45s+176ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:26:04 PM</td>
+					<td class='step-details'>On Test Start : T37_To_Verify_User_Able_To_Activate_Pause_Plan</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:26:17 PM</td>
+					<td class='step-details'>User can be navigated to the landing page after login</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:26:26 PM</td>
+					<td class='step-details'>User able to navigate to MyLessons Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:26:35 PM</td>
+					<td class='step-details'>At the bottom Review Plan button is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:26:41 PM</td>
+					<td class='step-details'>User can click on Review Plan button and can navigate to Review Plan Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:26:41 PM</td>
+					<td class='step-details'>The Modify tab is shown to the user</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:26:42 PM</td>
+					<td class='step-details'>Pause Button is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:26:43 PM</td>
+					<td class='step-details'>Pause Tab is Tappable</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:26:43 PM</td>
+					<td class='step-details'>User able to navigate to the pause plan page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:26:45 PM</td>
+					<td class='step-details'>User can successfully pause the plan</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:26:48 PM</td>
+					<td class='step-details'>On tapping Activate Plan, user able to Reactivate the same paused plan successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:26:48 PM</td>
+					<td class='step-details'>On Test Success : T37_To_Verify_User_Able_To_Activate_Pause_Plan</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:26:48 PM</td>
+					<td class='step-details'><span class='label white-text green'>T37_To_Verify_User_Able_To_Activate_Pause_Plan</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:26:49 PM</td>
+					<td class='step-details'>T37_To_Verify_User_Able_To_Activate_Pause_Plan Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T37_To_Verify_User_Able_To_Activate_Pause_Plan ExtendReport 16-04-21 02-26-48.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T37_To_Verify_User_Able_To_Activate_Pause_Plan ExtendReport 16-04-21 02-26-48.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T37_To_Verify_User_Able_To_Activate_Pause_Plan ExtendReport 16-04-21 02-26-48.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='39'>
+					<div class='test-heading'>
+						<span class='test-name'>T38_To_Verify_User_Able_To_Activate_Any_Other_Plan</span>
+						<span class='test-time'>Apr 16, 2021 02:26:56 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:26:56 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:28:38 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 41s+854ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:26:56 PM</td>
+					<td class='step-details'>On Test Start : T38_To_Verify_User_Able_To_Activate_Any_Other_Plan</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:27:08 PM</td>
+					<td class='step-details'>User can be navigated to the landing page after login</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:27:16 PM</td>
+					<td class='step-details'>User able to navigate to MyLessons Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:27:25 PM</td>
+					<td class='step-details'>At the bottom Review Plan button is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:27:30 PM</td>
+					<td class='step-details'>User can click on Review Plan button and can navigate to Review Plan Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:27:30 PM</td>
+					<td class='step-details'>The Modify tab is shown to the user</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:27:32 PM</td>
+					<td class='step-details'>Pause Button is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:27:33 PM</td>
+					<td class='step-details'>Pause Tab is Tappable</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:27:33 PM</td>
+					<td class='step-details'>User able to navigate to the pause plan page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:27:34 PM</td>
+					<td class='step-details'>User can successfully pause the plan</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:27:34 PM</td>
+					<td class='step-details'>Navigate to other Plans option is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:28:37 PM</td>
+					<td class='step-details'>User able to select any plan from the list and able to activate the plan</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:28:37 PM</td>
+					<td class='step-details'>On Test Success : T38_To_Verify_User_Able_To_Activate_Any_Other_Plan</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:28:37 PM</td>
+					<td class='step-details'><span class='label white-text green'>T38_To_Verify_User_Able_To_Activate_Any_Other_Plan</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:28:38 PM</td>
+					<td class='step-details'>T38_To_Verify_User_Able_To_Activate_Any_Other_Plan Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T38_To_Verify_User_Able_To_Activate_Any_Other_Plan ExtendReport 16-04-21 02-28-37.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T38_To_Verify_User_Able_To_Activate_Any_Other_Plan ExtendReport 16-04-21 02-28-37.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T38_To_Verify_User_Able_To_Activate_Any_Other_Plan ExtendReport 16-04-21 02-28-37.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='40'>
+					<div class='test-heading'>
+						<span class='test-name'>T39_Verify_On_Tapping_Paused_Plan_User_Should_Not_be_shown_MyLessons_Page</span>
+						<span class='test-time'>Apr 16, 2021 02:28:44 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:28:44 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:29:30 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 46s+585ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:28:44 PM</td>
+					<td class='step-details'>On Test Start : T39_Verify_On_Tapping_Paused_Plan_User_Should_Not_be_shown_MyLessons_Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:28:56 PM</td>
+					<td class='step-details'>User can be navigated to the landing page after login</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:28:56 PM</td>
+					<td class='step-details'>Paused StudyPlan Tab is displayed on landing Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:29:29 PM</td>
+					<td class='step-details'>On Test Success : T39_Verify_On_Tapping_Paused_Plan_User_Should_Not_be_shown_MyLessons_Page</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:29:29 PM</td>
+					<td class='step-details'><span class='label white-text green'>T39_Verify_On_Tapping_Paused_Plan_User_Should_Not_be_shown_MyLessons_Page</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:29:30 PM</td>
+					<td class='step-details'>T39_Verify_On_Tapping_Paused_Plan_User_Should_Not_be_shown_MyLessons_Page Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T39_Verify_On_Tapping_Paused_Plan_User_Should_Not_be_shown_MyLessons_Page ExtendReport 16-04-21 02-29-29.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T39_Verify_On_Tapping_Paused_Plan_User_Should_Not_be_shown_MyLessons_Page ExtendReport 16-04-21 02-29-29.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T39_Verify_On_Tapping_Paused_Plan_User_Should_Not_be_shown_MyLessons_Page ExtendReport 16-04-21 02-29-29.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='41'>
+					<div class='test-heading'>
+						<span class='test-name'>T40_Verify_On_Tapping_Paused_Plan_User_Should_Not_be_shown_StudyRing</span>
+						<span class='test-time'>Apr 16, 2021 02:29:36 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:29:36 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:30:23 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 46s+453ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:29:36 PM</td>
+					<td class='step-details'>On Test Start : T40_Verify_On_Tapping_Paused_Plan_User_Should_Not_be_shown_StudyRing</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:29:48 PM</td>
+					<td class='step-details'>User can be navigated to the landing page after login</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:29:49 PM</td>
+					<td class='step-details'>Paused StudyPlan Tab is displayed on landing Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:30:21 PM</td>
+					<td class='step-details'>On Test Success : T40_Verify_On_Tapping_Paused_Plan_User_Should_Not_be_shown_StudyRing</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:30:21 PM</td>
+					<td class='step-details'><span class='label white-text green'>T40_Verify_On_Tapping_Paused_Plan_User_Should_Not_be_shown_StudyRing</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:30:23 PM</td>
+					<td class='step-details'>T40_Verify_On_Tapping_Paused_Plan_User_Should_Not_be_shown_StudyRing Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T40_Verify_On_Tapping_Paused_Plan_User_Should_Not_be_shown_StudyRing ExtendReport 16-04-21 02-30-21.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T40_Verify_On_Tapping_Paused_Plan_User_Should_Not_be_shown_StudyRing ExtendReport 16-04-21 02-30-21.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T40_Verify_On_Tapping_Paused_Plan_User_Should_Not_be_shown_StudyRing ExtendReport 16-04-21 02-30-21.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='42'>
+					<div class='test-heading'>
+						<span class='test-name'>T41_Verify_Once_Active_Plan_isPaused_User_Can_Reactivate_It_Or_Can_Activate_Any_Other_Plan</span>
+						<span class='test-time'>Apr 16, 2021 02:30:29 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 16, 2021 02:30:29 PM</span>
+	<span class='label end-time'>Apr 16, 2021 02:31:06 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 37s+482ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:30:29 PM</td>
+					<td class='step-details'>On Test Start : T41_Verify_Once_Active_Plan_isPaused_User_Can_Reactivate_It_Or_Can_Activate_Any_Other_Plan</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:30:41 PM</td>
+					<td class='step-details'>User can be navigated to the landing page after login</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:30:41 PM</td>
+					<td class='step-details'>Paused StudyPlan Tab is displayed on landing Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:30:43 PM</td>
+					<td class='step-details'>user can navigated to the paused plan page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:30:43 PM</td>
+					<td class='step-details'>Navigate to other Plan option is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:30:44 PM</td>
+					<td class='step-details'>Resume Plan option is displayed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:30:49 PM</td>
+					<td class='step-details'>On tapping Activate Plan, user able to Reactivate the same paused plan successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:31:05 PM</td>
+					<td class='step-details'>User able to select any plan from the list and able to activate the plan</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>2:31:05 PM</td>
+					<td class='step-details'>On Test Success : T41_Verify_Once_Active_Plan_isPaused_User_Can_Reactivate_It_Or_Can_Activate_Any_Other_Plan</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:31:05 PM</td>
+					<td class='step-details'><span class='label white-text green'>T41_Verify_Once_Active_Plan_isPaused_User_Can_Reactivate_It_Or_Can_Activate_Any_Other_Plan</span></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:31:06 PM</td>
+					<td class='step-details'>T41_Verify_Once_Active_Plan_isPaused_User_Can_Reactivate_It_Or_Can_Activate_Any_Other_Plan Passed<img data-featherlight='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T41_Verify_Once_Active_Plan_isPaused_User_Can_Reactivate_It_Or_Can_Activate_Any_Other_Plan ExtendReport 16-04-21 02-31-05.png' width='10%' src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T41_Verify_Once_Active_Plan_isPaused_User_Can_Reactivate_It_Or_Can_Activate_Any_Other_Plan ExtendReport 16-04-21 02-31-05.png' data-src='C:\Users\LENOVO\git\TATA_Studi\Screenshots\T41_Verify_Once_Active_Plan_isPaused_User_Can_Reactivate_It_Or_Can_Activate_Any_Other_Plan ExtendReport 16-04-21 02-31-05.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<!-- category view -->
+<div id='exception-view' class='view hide'>
+
+    <section id='controls'>
+        <div class='controls grey lighten-4'>
+            <!-- search -->
+            <div class='chip transparent' alt='Search Tests' title='Search Tests'>
+                <a href="#" class='search-div'>
+                    <i class='material-icons'>search</i> Search
+                </a>
+
+                <div class='input-field left hide'>
+                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+                </div>
+
+            </div>
+            <!-- search -->
+        </div>
+    </section>
+
+    <div class='subview-left left'>
+
+        <div class='view-summary'>
+            <h5>Exceptions</h3>
+                <ul id='exception-collection' class='exception-collection'>
+
+                        <li class='exception displayed active'>
+                            <div class='exception-heading'>
+                                <span class='exception-name'>org.openqa.selenium.TimeoutException</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+                            </div>
+                            <div class='exception-content hide'>
+                                <div class='exception-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                    <tr>
+                                                        <td>Apr 16, 2021 02:19:33 PM</td>
+                                                        <td class='linked' test-id='23'>T22_To_Verify_DeadLine_Tab_Under_Modify_Tab_Is_Functional</td>
+                                                        <td><pre><textarea>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Located by By.chained({By.xpath: /hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View/android.view.View[1]}) (tried for 20 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at studi.co.Base.BaseClass.applyExplicitWaitsUntilElementVisible(BaseClass.java:453)
+	at studi.co.pageModules.Module_ReviewPlan.toVerify_DeadLineTab_UnderModifyTab(Module_ReviewPlan.java:662)
+	at studi.co.testScripts.AFS_UserStory_1046.T22_To_Verify_DeadLine_Tab_Under_Modify_Tab_Is_Functional(AFS_UserStory_1046.java:192)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.chained({By.xpath: /hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View/android.view.View[1]})
+	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:126)
+	at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.intercept(InterceptorOfASingleElement.java:59)
+	at io.appium.java_client.android.AndroidElement$$EnhancerByCGLIB$$b598166c.isDisplayed(<generated>)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	... 28 more
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@15fb4566 (tried for 1 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:304)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:99)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:119)
+	... 35 more
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.chained({By.xpath: /hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View/android.view.View[1]})
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-TMI6UL6', ip: '192.168.29.241', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: driver.version: AndroidDriver
+	at io.appium.java_client.pagefactory.bys.builder.ByChained.findElement(ByChained.java:74)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at io.appium.java_client.pagefactory.bys.ContentMappedBy.findElement(ContentMappedBy.java:50)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.lambda$0(AppiumElementLocator.java:120)
+	at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:172)
+	at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:1)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	... 37 more
+</textarea></pre></td>
+                                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                </ul>
+        </div>
+    </div>
+
+    <div class='subview-right left'>
+        <div class='view-summary'>
+            <h5 class='exception-name'></h5>
+        </div>
+    </div>
+</div>
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Tests
+					<div class='panel-lead'>41</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>327</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Apr 16, 2021 02:04:25 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Apr 16, 2021 02:31:13 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>0h 26m 47s+486ms</div>
+				</div>
+			</div>
+			<div class='col s4'>
+				<div class='card-panel dashboard-environment'>
+					<span class='right label cyan white-text'>Environment</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Value</th>
+						</tr>
+							<tr>
+								<td>Tester</td>
+								<td>Author</td>
+							</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 40,
+				failParent: 1,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 1,
+				
+				passChild: 80,
+				failChild: 4,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 243,
+				exceptionsChild: 4,
+				
+				passGrandChild: 0,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 0,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+ 		<script type='text/javascript'>
+ 			
+            
+                $(document).ready(function() {
+                    
+                });
+            
+		
+ 		</script>
+	</body>
+	
+</html>

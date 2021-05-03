@@ -29,19 +29,19 @@ public class Object_MyLesson_Page extends BaseClass{
 	@AndroidFindBy(id="com.tce.studi:id/iv_left_icon")
 	public WebElement menuIcon;
 
-	@AndroidFindBy(id="com.tce.studi:id/outer_ring")	
+	@AndroidFindBy(id="com.tce.studi:id/outerRing")	
 	public WebElement studyRing;
 
-	@AndroidFindBy(id="com.tce.studi:id/inner_ring")
+	@AndroidFindBy(id="com.tce.studi:id/innerRing")
 	public WebElement innerRing;  //Reward(Stars)
 
-	@AndroidFindBy(id="com.tce.studi:id/middle_ring")
+	@AndroidFindBy(id="com.tce.studi:id/middleRing")
 	public WebElement middleRing;  //Lesson
 
-	@AndroidFindBy(id="com.tce.studi:id/outer_ring") 
+	@AndroidFindBy(id="com.tce.studi:id/outerRing")
 	public WebElement outerRing;  //Time
 
-	@AndroidFindBy(id="com.tce.studi:id/tv_almost_here_desc")
+	@AndroidFindBy(id="com.tce.studi:id/tvAlmostHereDesc")
 	public WebElement taskToBeCompletedToday;
 
 	@AndroidFindBy(id="com.tce.studi:id/imgOverflow") 
@@ -52,25 +52,25 @@ public class Object_MyLesson_Page extends BaseClass{
 	@AndroidFindBy(id="com.tce.studi:id/title")
 	public WebElement markAsComplete;
 
-	@AndroidFindBy(id="com.tce.studi:id/tv_due_today")
+	@AndroidFindBy(id="com.tce.studi:id/tvDueToday")
 	public WebElement taskCompleted;
 
 	@AndroidFindBy(id="com.tce.studi:id/tick")
 	public WebElement tick;
 
-	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ImageView[2]")
+	@AndroidFindBy(id="com.tce.studi:id/iv_left_icon")
 	public WebElement backicon;
 
-	@AndroidFindBy(id="com.tce.studi:id/tv_header_today")
+	@AndroidFindBy(id="com.tce.studi:id/tvHeaderToday")
 	public WebElement todayTab;
 
-	@AndroidFindBy(id="com.tce.studi:id/tv_due_today")
+	@AndroidFindBy(id="com.tce.studi:id/tvDueToday")
 	public WebElement todaysCount;
 
 	@AndroidFindBy(id="com.tce.studi:id/completed")
 	public WebElement completedLessons;
 
-	@AndroidFindBy(id="com.tce.studi:id/tv_upcoming")
+	@AndroidFindBy(id="com.tce.studi:id/tvUpcoming")
 	public WebElement upcomingTab;
 
 	@ AndroidFindBy(id="com.tce.studi:id/upcoming_main_view")
@@ -81,8 +81,10 @@ public class Object_MyLesson_Page extends BaseClass{
 
 	//@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView[1]")
 	//@AndroidFindBy(xpath="com.tce.studi:id/tvTopic")
-	
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/tvTopic\").textContains(\"Aspects and Influence of Diversity\")")
+
+	//@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/tvTopic\").textContains(\"Aspects and Influence of Diversity\")")
+	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View[2]/android.view.View[2]/android.widget.TabWidget[1]/android.view.View[2]")
+	//@AndroidFindBy(id="com.tce.studi:id/tvTopic")
 	public WebElement topic;
 
 	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.TextView[3]")
@@ -112,13 +114,14 @@ public class Object_MyLesson_Page extends BaseClass{
 	//	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.TextView")
 	//	public WebElement topicPageHeading2;
 
-
+	@AndroidFindBy(id="com.tce.studi:id/tvTopic")
+	public WebElement topicBefore;
 
 
 	@AndroidFindBy(id="com.tce.studi:id/iv_left_icon")
 	public WebElement backIcon;
 
-	@AndroidFindBy(id="com.tce.studi:id/view_schedule")
+	@AndroidFindBy(id="com.tce.studi:id/viewSchedule")
 	public WebElement viewFullSchedule;
 
 	@AndroidFindBy(id="com.tce.studi:id/locked")
@@ -133,7 +136,7 @@ public class Object_MyLesson_Page extends BaseClass{
 	@AndroidFindBy(	xpath="//android.widget.TextView[@text='Aspects and Influence of Diversity']")
 	public WebElement aspectsAndInfluence;
 
-	@AndroidFindBy(id="com.tce.studi:id/tv_create_plan")
+	@AndroidFindBy(id="com.tce.studi:id/tvCreatePlan")
 	public WebElement createStudyplan;
 
 	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.widget.TextView")
@@ -145,7 +148,8 @@ public class Object_MyLesson_Page extends BaseClass{
 	@AndroidFindBy(id="com.tce.studi:id/tv_days")
 	public WebElement datesTab;
 
-	@AndroidFindBy(id="com.tce.studi:id/img_next")
+	//@AndroidFindBy(id="com.tce.studi:id/img_next")
+	@AndroidFindBy(id="com.tce.studi:id/imgNext")
 	public WebElement nextWeek;
 
 	@AndroidFindBy(id="com.tce.studi:id/tvWeek") 	
@@ -171,31 +175,34 @@ public class Object_MyLesson_Page extends BaseClass{
 
 	//@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.view.ViewGroup")
 
-	@AndroidFindBy(id="com.tce.studi:id/cl_data")
+	@AndroidFindBy(id="com.tce.studi:id/clData")
 	public WebElement highLightedLesson;
 
 	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup")
 	public WebElement highLightedLesson1;
 
-	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView[2]/android.view.ViewGroup[2]/android.widget.ImageView[2]")
+	//@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView[2]/android.view.ViewGroup[2]/android.widget.ImageView[2]")
+	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[2]/android.view.ViewGroup/android.widget.TextView")
 	public WebElement subject36;
 
 	@AndroidFindBy(id="com.tce.studi:id/imgFilter") 
 	public WebElement filter;
 
-	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView")
+	//@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView")
+	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.TextView[1]")
 	public WebElement filterHeading;
 
-	@AndroidFindBy(id="com.tce.studi:id/tv_subjects")
+	//@AndroidFindBy(id="com.tce.studi:id/tv_subjects")
+	@AndroidFindBy(id="com.tce.studi:id/tvSubjects")
 	public WebElement filterSubject;
 
-	@AndroidFindBy(id="com.tce.studi:id/tv_lesson_type")
+	@AndroidFindBy(id="com.tce.studi:id/tvLessonType")
 	public WebElement filterLessonType;
 
-	@AndroidFindBy(id="com.tce.studi:id/tv_lesson_status")
+	@AndroidFindBy(id="com.tce.studi:id/tvLessonStatus")
 	public WebElement filterLessonStatus;
 
-	@AndroidFindBy(id="com.tce.studi:id/tv_manage_plans")
+	@AndroidFindBy(id="com.tce.studi:id/tvManagePlans")
 	public WebElement manageAndCreatePlan;
 
 	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView")
@@ -256,7 +263,8 @@ public class Object_MyLesson_Page extends BaseClass{
 	@AndroidFindBy(id="com.tce.studi:id/tvOthersPlan")
 	public WebElement otherPlans;
 
-	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView[2]/android.view.ViewGroup[2]/android.widget.ImageView[2]")
+	//@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView[2]/android.view.ViewGroup[2]/android.widget.ImageView[2]")
+	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView[2]/android.view.ViewGroup[2]/android.view.ViewGroup")
 	public WebElement revise;
 
 	//@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup")
@@ -269,7 +277,7 @@ public class Object_MyLesson_Page extends BaseClass{
 	@AndroidFindBy(id="com.tce.studi:id/tvCreatePlan")
 	public WebElement createAStudyPlan;
 
-	@AndroidFindBy(id="com.tce.studi:id/tv_apply")
+	@AndroidFindBy(id="com.tce.studi:id/tvApply")
 	public WebElement applyButton;
 
 	//@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView[1]")
@@ -295,17 +303,22 @@ public class Object_MyLesson_Page extends BaseClass{
 	@AndroidFindBy(id= "com.tce.studi:id/tv_intent_title")
 	public WebElement activatePlanButton;
 
-	//@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View/android.view.View[2]/android.view.View[2]/android.view.View[1]")
-	@AndroidFindBy(id="com.tce.studi:id/quiz_web_view")
+	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View/android.view.View[2]/android.view.View[2]")
+	//@AndroidFindBy(id="com.tce.studi:id/quiz_web_view")
+	//@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tv_book_name\").textContains(\"Political Science\")")
 	public WebElement subjectAtCreatePlan;
-	
-	
+
+
 	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView")
 	public WebElement testUnitHeading;
 
 
 	@AndroidBy(xpath="tce.studi:id/tvPrimaryAction")
 	public WebElement Begin_Practice;
+	
+	//@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tv_book_name\").textContains(\"Political Science\")")
+	//public WebElement subjectAtCreatePlan;
+
 
 
 }

@@ -1,16 +1,16 @@
 /*
  * Project Name : demo Demo Framework
-* Author : vTESTcorp
-* Version : V1.0.demo
-* Reviewed By : Manjeet
-* Date of Creation : Feb 7, 2019
-* Modification History :
-* Date of change : Feb 15, 2019
-* Version : V1.1.demo
-* changed function : 
-* change description :
-* Modified By : Manjeet
-*/
+ * Author : vTESTcorp
+ * Version : V1.0.demo
+ * Reviewed By : Manjeet
+ * Date of Creation : Feb 7, 2019
+ * Modification History :
+ * Date of change : Feb 15, 2019
+ * Version : V1.1.demo
+ * changed function : 
+ * change description :
+ * Modified By : Manjeet
+ */
 
 package studi.co.Base;
 
@@ -27,7 +27,6 @@ import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -42,11 +41,9 @@ import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.Timer;
-
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
@@ -58,24 +55,26 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
-
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.FindsByAndroidUIAutomator;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
@@ -86,6 +85,7 @@ import studi.co.pageObjects.Object_Syllabus_Option;
 
 public class BaseClass {
 
+	public static String device;
 	public static Boolean notesFlag = false;
 	public static ExtentTest test, temptest;
 	public static Properties prop; // Property file initialization
@@ -110,6 +110,8 @@ public class BaseClass {
 	public static int correctAnswers;
 	public static int[] correctAnswer = new int[10];
 	public static int wrongAnswers;
+	public static String appPath = "/Users/shakilhanjgikar/Downloads/Studi_1_4_1.ipa";
+
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/exo_pause\")")
 	public WebElement pauseBtn;
 
@@ -118,11 +120,12 @@ public class BaseClass {
 
 			prop = new Properties();
 			FileInputStream ip = new FileInputStream(
-					System.getProperty("user.dir") + "\\src\\main\\java\\studi\\co\\Config\\config.properties");
+					System.getProperty("user.dir") + "/src/main/java/studi/co/Config/config.properties");
 			prop.load(ip);
 		} catch (Exception ex) {
 			System.out.println(ex.getStackTrace());
 		}
+		PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);
 	}
 
 	public static String RandomString() {
@@ -134,13 +137,16 @@ public class BaseClass {
 		return generatedString;
 	}
 
+	public static String getDevice() {
+		return Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getParameter("type");
+	}
+
 	public void selectCorrectAnswer() {
 		action = new TouchAction(driver);
 		action.press(PointOption.point(115, 650)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(400)))
-				.moveTo(PointOption.point(115, 350)).release().perform();
+		.moveTo(PointOption.point(115, 350)).release().perform();
 		correctAnswers = 0;
 		int i = 0;
-
 		Set<String> context = driver.getContextHandles();
 		for (String cont : context) {
 			if (cont.contains("WEBVIEW"))
@@ -149,8 +155,19 @@ public class BaseClass {
 		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
 		List<MobileElement> as = driver.findElements(By.tagName("tce-option"));
 		for (WebElement s : as) {
+
 			if (s.getAttribute("class").equalsIgnoreCase("tick")) {
-				s.click();
+				int index = as.indexOf(s);
+				getDriver().context("NATIVE_APP");
+				if (device.equalsIgnoreCase("Android"))
+					clickOnElement(driver.findElementsByClassName("android.widget.CheckBox").get(index));
+				else
+					clickOnElement(driver.findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch")).get(index));
+				context = driver.getContextHandles();
+				for (String cont : context) {
+					if (cont.contains("WEBVIEW"))
+						getDriver().context(cont);
+				}
 				System.err.println((correctAnswers + 1) + "th answer selected");
 				correctAnswers++;
 			}
@@ -160,35 +177,102 @@ public class BaseClass {
 		getDriver().context("NATIVE_APP");
 	}
 
-	public void selectIncorrectAnswer() {
+	public void selectPartialCorrectAnswer() {
+		action = new TouchAction(driver);
+		action.press(PointOption.point(115, 650)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(400)))
+		.moveTo(PointOption.point(115, 350)).release().perform();
+		correctAnswers = 0;
+		int corr = 0, incorr = 0;
+		int i = 0;
 		Set<String> context = driver.getContextHandles();
 		for (String cont : context) {
 			if (cont.contains("WEBVIEW"))
 				getDriver().context(cont);
 		}
+		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
 		List<MobileElement> as = driver.findElements(By.tagName("tce-option"));
-
 		for (WebElement s : as) {
-			System.err.println("checking");
-			if (s.getAttribute("class").equalsIgnoreCase("tick")) {
-			} else {
-				wrongAnswers = 1;
-				s.click();
-				break;
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
+			if (s.getAttribute("class").equalsIgnoreCase("tick") && corr == 0) {
+				int index = as.indexOf(s);
+				getDriver().context("NATIVE_APP");
+				if (device.equalsIgnoreCase("Android"))
+					clickOnElement(driver.findElementsByClassName("android.widget.CheckBox").get(index));
+				else
+					clickOnElement(driver.findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch")).get(index));
+				context = driver.getContextHandles();
+				for (String cont : context) {
+					if (cont.contains("WEBVIEW"))
+						getDriver().context(cont);
+				}
+				System.err.println((correctAnswers + 1) + "th answer selected");
+				correctAnswers++;
+				swipeUp();
+				corr = 1;
+			}
+			if (s.getAttribute("class").isEmpty() && incorr == 0) {
+				String visibleText = s.findElement(By.xpath("*//p")).getText();
+				getDriver().context("NATIVE_APP");
+				tapOnElement(findElementByText(visibleText));
+				context = driver.getContextHandles();
+				for (String cont : context) {
+					if (cont.contains("WEBVIEW"))
+						getDriver().context(cont);
+				}
+				System.err.println((correctAnswers + 1) + "th answer selected");
+				correctAnswers++;
+				swipeUp();
+				incorr = 1;
+			}
+
 		}
+		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
 		getDriver().context("NATIVE_APP");
 	}
 
-	public String verifySCQorMCQ() {
-		correctAnswers = 0;
+	public void selectIncorrectAnswer() {
+		action = new TouchAction(driver);
+		action.press(PointOption.point(115, 650)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(400)))
+		.moveTo(PointOption.point(115, 350)).release().perform();
+		wrongAnswers = 0;
+		int i = 0;
 		Set<String> context = driver.getContextHandles();
 		for (String cont : context) {
-			
-			if (cont.contains("WEBVIEW")) {
-				System.out.println(cont);
-				driver.context(cont);}
+			if (cont.contains("WEBVIEW"))
+				getDriver().context(cont);
 		}
+		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		List<MobileElement> as = driver.findElements(By.tagName("tce-option"));
+		for (WebElement s : as) {
+
+			if (!s.getAttribute("class").equalsIgnoreCase("tick")) {
+				int index = as.indexOf(s);
+				getDriver().context("NATIVE_APP");
+				if (device.equalsIgnoreCase("Android"))
+					clickOnElement(driver.findElementsByClassName("android.widget.CheckBox").get(index));
+				else
+					clickOnElement(driver.findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch")).get(index));
+				context = driver.getContextHandles();
+				for (String cont : context) {
+					if (cont.contains("WEBVIEW"))
+						getDriver().context(cont);
+				}
+				System.err.println((wrongAnswers + 1) + "th answer selected");
+				wrongAnswers++;
+			}
+			swipeUp();
+		}
+		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		getDriver().context("NATIVE_APP");
+	}
+	public String verifySCQorMCQ() {
+		correctAnswers = 0;
+		getDriver().context("WEBVIEW_com.tce.studi");
 		try {
 			Thread.sleep(500);
 		} catch (InterruptedException e) {
@@ -202,40 +286,38 @@ public class BaseClass {
 			return "SCQ";
 		} else if (as.contains("mcq")) {
 			return "MCQ";
-		} else if (as.contains("subjective")) {
-			return "subjective";
-		}
-		return "OTHR";
+		} else
+			return "OTHR";
 
 	}
+
 
 	/*
 	 * Initializing pre-requisite capabilities necessary for invoking corresponding
 	 * device.
 	 */
-
 	@BeforeTest
 	@Parameters({ "type" })
 	public static void beforeTest(String type) throws Exception {
 		String s = type;
+		device = new String(type);
 		caps = new DesiredCapabilities();
 		if (s.equalsIgnoreCase("Android")) {
 			caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Appium");
 			caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
 			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9");
-			//caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11"); //emulator
 			caps.setCapability("appPackage", "com.tce.studi");
 			caps.setCapability("appActivity", "com.tce.view.ui.activities.SplashScreenActivity");
-			caps.setCapability("app", "C:\\Users\\LENOVO\\Downloads\\Studi_v1.1.2.apk");
-			caps.setCapability("chromedriverExecutable", "C:\\Users\\LENOVO\\Downloads\\chromedriver_win32 (2)\\chromedriver.exe");
+			caps.setCapability("app", "C:\\Users\\LENOVO\\Downloads\\Studi_v1.1.3(7).apk");
+			caps.setCapability("chromedriverExecutable", "C:\\Users\\LENOVO\\Downloads\\chromedriver_win32\\chromedriver.exe");
 			caps.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, "true");
 			caps.setCapability(MobileCapabilityType.NO_RESET, true);
 			System.out.println("Required Desired Capabilities Defined");
-			final String appiumserverUrl = "http://127.0.0.1:4723/wd/hub";
+			final String appiumserverUrl = "http://localhost:4723/wd/hub";
 			url = new URL(appiumserverUrl);
 
 			System.out.println("Appium Server URL is entered ");
-			driver = new AndroidDriver<MobileElement>(url, caps);
+			driver = new AppiumDriver<MobileElement>(url, caps);
 
 			System.out.println("AndroidDriver Configured with the required Desired Capabilities and URL");
 			applyExplicitWait(20);
@@ -243,19 +325,20 @@ public class BaseClass {
 			// login.Login_to_app();
 
 		} else if (s.equalsIgnoreCase("IOS")) {
+
 			caps = new DesiredCapabilities();
-			caps.setCapability("automationName", prop.getProperty("automationName"));
+			caps.setCapability("automationName", "XCUITest");
 			caps.setCapability("deviceName", "iPhone 6s");
-			// platform_version=deviceName;
-			caps.setCapability("udid", "d179cb05cdb31945cc0ec2e6ba0d3044ff2fd41a");
+			caps.setCapability("udid", "dd587b26e65a1100a6ba7b2026478c1967bb4422");
 			caps.setCapability("platformName", "iOS");
-			caps.setCapability("platformVersion", "13.3.1");
-			caps.setCapability("bundleId", "com.google.Chrome");
-			caps.setCapability("appActivity", "com.demo.liveplaces.view.activity.SplashActivity");
-			caps.setCapability("noReset", "true");
-			// caps.setCapability("wdaLocalPort", wdaLocalPort);
+			caps.setCapability("app", appPath);
+			caps.setCapability("platformVersion", "13");
+			caps.setCapability("appActivity", "com.tce.view.ui.activities.SplashScreenActivity");
+			caps.setCapability(MobileCapabilityType.NO_RESET, true);
+			caps.setCapability("simpleIsVisibleCheck", true);
+			caps.setCapability("webviewConnectTimeout", "60000");
 			caps.setCapability("newCommandTimeout", "120");
-			AppiumDriver<MobileElement> driver = new IOSDriver<>(new URL("http://localhost:4723/wd/hub"), caps);
+			driver = new IOSDriver<>(new URL("http://localhost:4723/wd/hub"), caps);
 
 			System.out.println("iOSDriver Configured with the required Desired Capabilities and URL");
 
@@ -271,6 +354,7 @@ public class BaseClass {
 			caps.setCapability("app", "bs://ebe9e4d351887da685fd245723d9bc981cf04df1");
 			caps.setCapability("os_version", "13");
 			caps.setCapability("device", "iPhone 11 Pro");
+
 			caps.setCapability("real_mobile", "true");
 			caps.setCapability("autoAcceptAlerts", true);
 
@@ -285,7 +369,6 @@ public class BaseClass {
 				TimeUnit.SECONDS);
 
 	}
-
 	public static AppiumDriver<MobileElement> getDriver() {
 
 		return (AppiumDriver<MobileElement>) driver;
@@ -342,8 +425,28 @@ public class BaseClass {
 	 * an argument
 	 * 
 	 * @param element
-	 * @throws MalformedURLException
 	 */
+	//	public static void clickOnElement(WebElement element) {
+	//		System.out.println("Clicking on element " + element.getText());
+	//		// test.log(Status.INFO,"Clicking on element " + element.getText());
+	//
+	//		try {
+	//			if (device.equalsIgnoreCase("Android"))
+	//				applyExplicitWaitsUntilElementVisible(element);
+	//			else
+	//				try {
+	//					Thread.sleep(2000);
+	//				} catch (InterruptedException e) {
+	//					// TODO Auto-generated catch block
+	//					e.printStackTrace();
+	//				}
+	//		} catch (MalformedURLException e) {
+	//			// TODO Auto-generated catch block
+	//			e.printStackTrace();
+	//		}
+	//		element.click();
+	//	}
+
 	public static void clickOnElement(WebElement element) {
 		System.out.println("Clicking on element " + element.getText());
 		// test.log(Status.INFO,"Clicking on element " + element.getText());
@@ -356,19 +459,7 @@ public class BaseClass {
 		element.click();
 	}
 
-	public static String getBetweenStrings(String text, String textFrom, String textTo) {
 
-		String result = "";
-
-		// Cut the beginning of the text to not occasionally meet a
-		// 'textTo' value in it:
-		result = text.substring(text.indexOf(textFrom) + textFrom.length(), text.length());
-
-		// Cut the excessive ending of the text:
-		result = result.substring(0, result.indexOf(textTo));
-
-		return result;
-	}
 
 	/**
 	 * This method will send the text at the location for which we have specified
@@ -416,10 +507,29 @@ public class BaseClass {
 	 */
 	public static void scrollTo1(String text) {
 		System.out.println("Scrolling to the Element which has the given text property : " + text);
-		// test.log(Status.INFO,"Scrolling to the Element which has the given text
-		// property : " + text);
-		getDriver().findElement(MobileBy
-				.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + text + "\"));"));
+
+		if (getDevice().contentEquals("Android")) {
+			getDriver().findElement(MobileBy.AndroidUIAutomator(
+					"new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(text(\"" + text + "\"));"));
+
+		} else {
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			action = new TouchAction(driver);
+
+			org.openqa.selenium.Dimension size = driver.manage().window().getSize();
+			while (!driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='" + text + "']")).isDisplayed()) {
+				System.out.println("checked1");
+				action.press(PointOption.point(size.width / 3, (int) (size.height * 0.8)))
+				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(700)))
+				.moveTo(PointOption.point(size.width / 3, (int) (size.height * 0.8) - size.height / 3))
+				.release().perform();
+			}
+		}
 	}
 
 	/**
@@ -427,6 +537,34 @@ public class BaseClass {
 	 * 
 	 * @param text
 	 */
+	//	public static void scrollTo2(String text) {
+	//		System.out.println("Scrolling to the Element which has the given text property : " + text);
+	//		if (getDevice().equalsIgnoreCase("ios")) {
+	//			try {
+	//				Thread.sleep(2000);
+	//			} catch (InterruptedException e) {
+	//				// TODO Auto-generated catch block
+	//				e.printStackTrace();
+	//			}
+	//			action = new TouchAction(driver);
+	//
+	//			org.openqa.selenium.Dimension size = driver.manage().window().getSize();
+	//			while (!driver.findElement(By.xpath("//*[contains(@name, '" + text + "')]"))
+	//					.isDisplayed()) {
+	//				System.out.println("checked2");
+	//				action.press(PointOption.point(size.width / 3, (int) (size.height * 0.8)))
+	//				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(700)))
+	//				.moveTo(PointOption.point(size.width / 3, (int) (size.height * 0.8) - size.height / 3))
+	//				.release().perform();
+	//			}
+	//		} else {
+	//
+	//			getDriver().findElement(MobileBy.AndroidUIAutomator(
+	//					"new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""
+	//							+ text + "\").instance(0))"));
+	//		}
+	//	}
+
 	public static void scrollTo2(String text) {
 		System.out.println("Scrolling to the Element which has the given text property : " + text);
 		getDriver().findElement(MobileBy.AndroidUIAutomator(
@@ -452,6 +590,11 @@ public class BaseClass {
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		wait.until(ExpectedConditions.visibilityOf(element));
 
+	}
+	public static void scrollToEnd() {
+		action = new TouchAction(driver);
+		action.press(PointOption.point(115, 750)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(100)))
+		.moveTo(PointOption.point(115, 50)).release().perform();
 	}
 
 	/**
@@ -492,6 +635,24 @@ public class BaseClass {
 		getDriver().manage().timeouts().implicitlyWait(timeInSeconds, TimeUnit.SECONDS);
 	}
 
+	public static void clickOnCoordinate(int x, int y) {
+		TouchAction touchAction = new TouchAction(driver);
+		touchAction.tap(new PointOption().withCoordinates(x, y)).perform();
+
+	}
+	public static String getBetweenStrings(String text, String textFrom, String textTo) {
+
+		String result = "";
+
+		// Cut the beginning of the text to not occasionally meet a
+		// 'textTo' value in it:
+		result = text.substring(text.indexOf(textFrom) + textFrom.length(), text.length());
+
+		// Cut the excessive ending of the text:
+		result = result.substring(0, result.indexOf(textTo));
+
+		return result;
+	}
 	/**
 	 * This method will give us the attribute or property value for the element of
 	 * our interest and it needs that WebElement as well as the attribute key
@@ -515,7 +676,11 @@ public class BaseClass {
 	}
 
 	public int getTotalQuestionsInPractice() {
-		MobileElement ele = getDriver().findElement(By.xpath("//*[contains(@text, '1 of')]"));
+		MobileElement ele;
+		if (device.equalsIgnoreCase("Android"))
+			ele = getDriver().findElement(By.xpath("//*[contains(@text, '1 of')]"));
+		else
+			ele = getDriver().findElement(By.xpath("//*[contains(@name, '1 of')]"));
 		String temp[] = ele.getText().split(" ");
 		return Integer.parseInt(temp[temp.length - 1]);
 	}
@@ -526,47 +691,32 @@ public class BaseClass {
 		return Integer.parseInt(temp[0]);
 	}
 
-	public static int getBetweenString(WebElement ele, String firstString, String secondString) {
-		String text = ele.getText();
-		System.out.println(text);
-		String betweenString = getBetweenStrings(text, firstString, secondString).trim();
-		System.out.println(betweenString);
-		int betweenValue = Integer.parseInt(betweenString);
-		return betweenValue;
+	public int getNotesCount() throws InterruptedException {
+		Thread.sleep(500);
+		MobileElement ele = ((FindsByAndroidUIAutomator<MobileElement>) getDriver()).findElementByAndroidUIAutomator(
+				"new UiSelector().className(\"android.widget.TextView\").resourceId(\"com.tce.studi:id/tvLessonDescription\").textContains(\"Note\")");
+		System.out.println("notecount string " + ele.getText());
+		String temp = ele.getText().replaceAll("[A-Za-z\\s]+", "");
+		System.err.println("temp : " + temp);
+		return Integer.parseInt(temp.trim());
 
-	}
-
-	public void deleteNotesCount() throws InterruptedException {
-		System.err.println("Called");
-		try {
-			applyExplicitWaitsUntilElementVisible(findElementByText("Notes"));
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		List<MobileElement> notes = (List<MobileElement>) driver.findElementsById("com.tce.studi:id/clRootView");
-		System.err.println("Total notes :" + notes.size());
-		for (int i = 0; i < notes.size(); i++) {
-			// applyExplicitWaitsUntilElementClickable(mobileElement);
-			Thread.sleep(5000);
-			driver.findElementById("com.tce.studi:id/clRootView").click();
-			clickOnElement(driver.findElementById("com.tce.studi:id/ivDeleteNote"));
-			clickOnElement(driver.findElementById("com.tce.studi:id/txtPositiveBtn"));
-			System.out.println("deleted");
-		}
-		clickOnElement(driver.findElementById("com.tce.studi:id/ivCross"));
 	}
 
 	public void swipeUp() {
 		action = new TouchAction(driver);
 		action.press(PointOption.point(115, 650)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
-				.moveTo(PointOption.point(115, 350)).release().perform();
+		.moveTo(PointOption.point(115, 350)).release().perform();
 	}
 
 	public void swipeDown() {
-		action = new TouchAction(driver);
-		action.press(PointOption.point(115, 350)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
-				.moveTo(PointOption.point(115, 650)).release().perform();
+		System.out.println("Swiping top");
+		org.openqa.selenium.Dimension size = driver.manage().window().getSize();
+		int anchor = (int) (size.width * 0.2);
+		int startPoint = (int) (size.height * 0.3);
+		int endPoint = (int) (size.height * 0.8);
+		getTouchAction().press(PointOption.point(anchor, endPoint))
+		.waitAction(WaitOptions.waitOptions(Duration.ofMillis(100)))
+		.moveTo(PointOption.point(anchor, startPoint)).release().perform();
 	}
 
 	public void swipeLeft() {
@@ -582,8 +732,8 @@ public class BaseClass {
 		TouchAction ts = new TouchAction(driver);
 		// for(int i=0;i<=3;i++) {
 		ts.press(PointOption.point(startPoint, ScreenPlace))
-				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000)))
-				.moveTo(PointOption.point(endPoint, ScreenPlace)).release().perform();
+		.waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000)))
+		.moveTo(PointOption.point(endPoint, ScreenPlace)).release().perform();
 
 	}
 
@@ -619,28 +769,57 @@ public class BaseClass {
 	 * @throws MalformedURLException
 	 */
 	public static void forwardVideoTimerToEnd() throws WebDriverException, IOException, InterruptedException {
-		action = new TouchAction(getDriver());
-		WebElement seekBar = (MobileElement) driver.findElementByClassName("android.widget.SeekBar");
-		// get location of seek bar from left
-		int start = seekBar.getLocation().getX();
-		System.out.println("Startpoint - " + start);
-
-		// get location of seekbar from top
-		int y = seekBar.getLocation().getY();
-		System.out.println("Yaxis - " + y);
-
-		// Get total width of seekbar
-		int end = seekBar.getSize().getWidth();
-		System.out.println("End point - " + end);
-
-		action.press(PointOption.point(start, y)).moveTo(PointOption.point(end + start - 3, y)).release().perform();
-		getDriver().findElementByAccessibilityId("Play").click();
-
-		applyExplicitWaitsUntilElementVisible(driver.findElementById("com.tce.studi:id/layoutQuiz"));
+		action = new TouchAction(driver);
+		Object_Syllabus_Option oso = new Object_Syllabus_Option();
+		if (device.equalsIgnoreCase("Android")) {
+			int start = oso.seekBar.getLocation().getX();
+			System.out.println("Startpoint - " + start);
+			int y = oso.seekBar.getLocation().getY();
+			y = y + ((oso.seekBar.getSize().getHeight()) / 2);
+			System.out.println("Yaxis - " + y);
+			int end = oso.seekBar.getSize().getWidth();
+			System.out.println("End point - " + end);
+			if (device.equalsIgnoreCase("Android"))
+				action.press(PointOption.point(start, y)).moveTo(PointOption.point(end + start, y)).release().perform();
+			else
+				action.press(PointOption.point(start, y)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000)))
+				.moveTo(PointOption.point(end + start, y)).release().perform();
+			oso.playBtn.click();
+		}
+		else
+			clickOnElement(oso.skip);
+		System.err.println("Forwarded");
+		applyExplicitWaitsUntilElementVisible(oso.quiz);
 	}
 
+
+	//	public static MobileElement findElementByText(String text) {
+	//		if (device.equalsIgnoreCase("Android"))
+	//			return getDriver().findElement(By.xpath("//*[contains(@text, '" + text + "')]"));
+	//		else
+	//			return getDriver().findElement(By.xpath("//*[contains(@name, '" + text
+	//					+ "') or contains(@name, '" + text.toUpperCase() + "')]"));
+	//
+	//	}
+
+
 	public static MobileElement findElementByText(String text) {
-		return getDriver().findElement(By.xpath("//*[contains(@text, '" + text + "')]"));
+		if (device.equalsIgnoreCase("Android"))
+			return getDriver().findElement(By.xpath("//*[contains(@text, '" + text + "')]"));
+		else
+			return getDriver().findElement(By.xpath("//*[contains(@name, '" + text
+					+ "') or contains(@name, '" + text.toUpperCase() + "')]"));
+
+	}
+
+
+	public static MobileElement findElementByExactText(String text) {
+		if (device.equalsIgnoreCase("Android"))
+			return getDriver().findElement(By.xpath("//*[@text='" + text + "']"));
+		else
+			return getDriver().findElement(By
+					.xpath("//XCUIElementTypeStaticText[@name='" + text + "' or @name='" + text.toUpperCase() + "']"));
+
 	}
 
 	public List<MobileElement> getAllElementsFromPageUsingID(String id) throws Exception {
@@ -673,8 +852,8 @@ public class BaseClass {
 		int startPoint = (int) (size.height * startPercentage);
 		int endPoint = (int) (size.height * finalPercentage);
 		getTouchAction().press(PointOption.point(anchor, startPoint))
-				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(duration)))
-				.moveTo(PointOption.point(anchor, endPoint)).release().perform();
+		.waitAction(WaitOptions.waitOptions(Duration.ofMillis(duration)))
+		.moveTo(PointOption.point(anchor, endPoint)).release().perform();
 	}
 
 	public static void swipeTop() throws Exception {
@@ -684,8 +863,8 @@ public class BaseClass {
 		int startPoint = (int) (size.height * 0.3);
 		int endPoint = (int) (size.height * 0.8);
 		getTouchAction().press(PointOption.point(anchor, startPoint))
-				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(100))).moveTo(PointOption.point(anchor, endPoint))
-				.release().perform();
+		.waitAction(WaitOptions.waitOptions(Duration.ofMillis(100))).moveTo(PointOption.point(anchor, endPoint))
+		.release().perform();
 	}
 
 	public static TouchAction getTouchAction() {
@@ -747,23 +926,15 @@ public class BaseClass {
 	}
 
 	public String verify_TQ_Resource() throws MalformedURLException {
+		Object_Syllabus_Option oso = new Object_Syllabus_Option();
+		applyExplicitWait(10);
 		try {
-			Thread.sleep(4000);
-		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		try {
-			if (getDriver().findElement(By.xpath(
-					"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]"))
-					.isDisplayed())
+			if (oso.videoPlayer.isDisplayed())
 				return "Video";
 		} catch (Exception e) {
 		}
 		try {
-			if (getDriver().findElementByXPath(
-					"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.widget.LinearLayout")
-					.isDisplayed())
+			if (oso.quiz.isDisplayed())
 				return "Quiz";
 		} catch (Exception e) {
 		}
@@ -796,8 +967,18 @@ public class BaseClass {
 
 	public void closePopup() {
 		try {
-			while (getDriver().findElementById("com.tce.studi:id/tutorialDoNotShow").isDisplayed()) {
-				clickOnElement(getDriver().findElementById("com.tce.studi:id/tutorialDoNotShow"));
+			if (device.equalsIgnoreCase("Android")) {
+				while (getDriver().findElementById("com.tce.studi:id/tutorialDoNotShow").isDisplayed()) {
+					clickOnElement(getDriver().findElementById("com.tce.studi:id/tutorialDoNotShow"));
+				}
+			} else {
+				while (driver.findElement(By.xpath(
+						"//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeButton"))
+						.isDisplayed()) {
+					driver.findElement(By.xpath(
+							"//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeButton"))
+					.click();
+				}
 			}
 		} catch (Exception e) {
 			test.log(Status.INFO, "Popup closed");
@@ -830,29 +1011,78 @@ public class BaseClass {
 		}
 	}
 
+	public void deleteNotesCount() throws InterruptedException {
+		try {
+			applyExplicitWaitsUntilElementVisible(findElementByText("Notes"));
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		List<MobileElement> notes;
+
+		if (device.equalsIgnoreCase("Android"))
+			notes = (List<MobileElement>) driver.findElementsById("com.tce.studi:id/clRootView");
+		else
+			notes = (List<MobileElement>) driver.findElementsByXPath(
+					"//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell/XCUIElementTypeButton");
+
+		System.err.println("Total notes :" + notes.size());
+
+		for (int i = 0; i < notes.size(); i++) {
+			// applyExplicitWaitsUntilElementClickable(mobileElement);
+			Thread.sleep(3000);
+
+			if (device.equalsIgnoreCase("Android")) {
+				driver.findElementById("com.tce.studi:id/clScrollableView").click();
+				clickOnElement(driver.findElementById("com.tce.studi:id/ivDeleteNote"));
+				clickOnElement(driver.findElementById("com.tce.studi:id/txtPositiveBtn"));
+			} else {
+				driver.findElementByXPath(
+						"//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell/XCUIElementTypeButton")
+				.click();
+				clickOnElement(driver.findElementByXPath("//XCUIElementTypeButton[@name=\"Delete\"]"));
+				clickOnElement(driver.findElement(By.xpath("//XCUIElementTypeButton[@name=\"Delete Note\"]")));
+			}
+			System.out.println("deleted");
+		}
+		if (device.equalsIgnoreCase("Android"))
+			clickOnElement(driver.findElementById("com.tce.studi:id/ivCross"));
+		else
+			clickOnElement(driver.findElement(By.xpath("//XCUIElementTypeButton[@name=\"cross\"]")));
+	}
+
 	public void createNoteInVideo(String note) throws MalformedURLException, AWTException {
 		Object_Syllabus_Option oso = new Object_Syllabus_Option();
 		applyExplicitWait(5);
 		clickOnElement(oso.addNotesBtn);
-		applyExplicitWait(5);
-		clickOnElement(oso.playBtn);
+		applyExplicitWaitsUntilElementVisible(oso.saveNoteBtn);
 
-		sendTestUsingRobot(note);
+		clickOnElement(oso.noteTxtArea);
+		oso.noteTxtArea.sendKeys(note);
 		driver.hideKeyboard();
 
 		applyExplicitWait(5);
-		clickOnElement(findElementByText("Save Note"));
+		oso.saveNoteBtn.click();
 		System.out.println("Note " + prop.getProperty("note") + " Saved");
 		test.log(Status.INFO, "Note " + prop.getProperty("note") + " Saved");
 
-		applyExplicitWait(2);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		closePopup();
 
-		getDriver().findElement(By.xpath(
-				"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]"))
-				.click();
+		if (device.equalsIgnoreCase("Android"))
+			getDriver().findElement(By.xpath(
+					"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]")).click();
+		else {
+			clickOnElement(findElementByText("Continue"));
+		}
 		applyExplicitWait(2);
-		getDriver().findElementByAccessibilityId("Pause").click();
+
+		oso.pauseBtn.click();
 		System.out.println("Clicked on Pause Button");
 		test.log(Status.INFO, "Clicked on Pause Button");
 
@@ -895,16 +1125,10 @@ public class BaseClass {
 		frame.requestFocus();
 	}
 
-	public static void scrollToEnd() {
+	public void tapOnElement(WebElement element) {
 		action = new TouchAction(driver);
-		action.press(PointOption.point(115, 750)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(100)))
-				.moveTo(PointOption.point(115, 50)).release().perform();
-	}
-
-	public static void clickOnCoordinate(int x, int y) {
-		TouchAction touchAction = new TouchAction(driver);
-		touchAction.tap(new PointOption().withCoordinates(x, y)).perform();
-
+		action.tap(PointOption.point(element.getLocation().x + (element.getSize().width / 2),
+				element.getLocation().y + (element.getSize().height / 2))).perform();
 	}
 
 	@AfterTest

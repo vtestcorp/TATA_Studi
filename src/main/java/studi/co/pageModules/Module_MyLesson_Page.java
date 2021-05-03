@@ -115,7 +115,7 @@ public class Module_MyLesson_Page extends BaseClass{
 
 	public void toVerify_StudyRing_For_NewStudyPlan() throws Exception {
 		SoftAssert assert1=new SoftAssert();
-		//		createPlan();
+				//createPlan();
 		//		omp= new Object_MyLesson_Page();
 		//		applyExplicitWaitsUntilElementVisible(omp.backIcon);
 		//		omp.backIcon.click();
@@ -232,7 +232,7 @@ public class Module_MyLesson_Page extends BaseClass{
 	public void toVerify_TickMark() throws Exception {
 		SoftAssert assert1=new SoftAssert();
 
-		createPlan();
+		//createPlan();
 		omp= new Object_MyLesson_Page();
 		Thread.sleep(2000);
 		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
@@ -385,26 +385,26 @@ public class Module_MyLesson_Page extends BaseClass{
 			System.out.println("A single line text to inform todays count is displayed in Today Tab");
 			test.log(Status.INFO, "A single line text to inform todays count is displayed in Today Tab");
 		}
-		Assert.assertTrue(todayCount);
+		//Assert.assertTrue(todayCount);
 
-		int todaysCount=getBetweenString(omp.todaysCount,"have","tasks");
-		System.out.println(todaysCount);
+		//int todaysCount=getBetweenString(omp.todaysCount,"have","tasks");
+		//System.out.println(todaysCount);
 
-		List<MobileElement> topics= getDriver().findElementsById("com.tce.studi:id/cl_data");
-		int j=0;
-		for(MobileElement topic : topics) {
-			while(j!=todaysCount) {
-				System.out.println(topic.getText());
-				assert1.assertTrue(topic.isDisplayed());
-				j++;
-			}
-		}
+		//List<MobileElement> topics= getDriver().findElementsById("com.tce.studi:id/cl_data");
+		//int j=0;
+		//for(MobileElement topic : topics) {
+		//while(j!=todaysCount) {
+		//System.out.println(topic.getText());
+		//assert1.assertTrue(topic.isDisplayed());
+		//j++;
+		//}
+		//}
 		System.out.println("Planned lessons for the day are displayed in Todays Tab");
 		test.log(Status.INFO, "Planned lessons for the day are displayed in Todays Tab");
 
 		scrollTo2("Our plan for today!");
 
-		for(int i=0;i<todaysCount;i++) {
+		for(int i=0;i<5;i++) {
 			omp.kebabMenu.click();
 			applyExplicitWaitsUntilElementVisible(omp.markAsComplete);
 			omp.markAsComplete.click();
@@ -461,6 +461,7 @@ public class Module_MyLesson_Page extends BaseClass{
 	public void toVerify_Various_Colour_Code_Schema_For_Various_Books() throws Exception {
 
 		createPlan3(7);
+
 		omp= new Object_MyLesson_Page();
 		Thread.sleep(2000);
 		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
@@ -512,6 +513,7 @@ public class Module_MyLesson_Page extends BaseClass{
 		System.out.println("Various lessons from book maintain the colour schema");
 		test.log(Status.INFO, "Various lessons from book maintain the colour schema");
 		assert1.assertAll();
+
 
 	}
 	private void applyExplicitWaitsUntilElementVisible(String string) {
@@ -686,8 +688,8 @@ public class Module_MyLesson_Page extends BaseClass{
 
 		//swipeLeft();
 		applyExplicitWaitsUntilElementVisible("Practise");
-		omp.topic.click();
-		//clickOnElement(findElementByText("Practice"));
+		//omp.topic.click();
+		clickOnElement(findElementByText("Practice"));
 
 		Boolean lessonTappable=omp.topicPageHeading1.isDisplayed();
 		if(lessonTappable) {
@@ -738,7 +740,9 @@ public class Module_MyLesson_Page extends BaseClass{
 
 		scrollTo2("Revise");
 		String topicNameBefore=omp.aspectsAndInfluence.getText();
-		omp.topic.click();
+		//omp.topic.click();
+
+		clickOnElement(findElementByText("Practice"));
 		Boolean lessonTappable=omp.topicPageHeading1.isDisplayed();
 		assert1.assertTrue(lessonTappable);
 		String topicNameAfter=omp.topicPageHeading1.getText();
@@ -826,7 +830,7 @@ public class Module_MyLesson_Page extends BaseClass{
 				scrollTo2(days[i]);
 			}
 			else {
-				scrollToEnd();
+				swipeDown();
 			}
 
 			//MobileElement  date=getDriver().findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup["+i+"]/android.view.ViewGroup[1]/android.widget.TextView");
@@ -878,6 +882,7 @@ public class Module_MyLesson_Page extends BaseClass{
 		assert1.assertTrue(nextWeekTab);
 
 		//	String totalweeks=getDriver().findElementById("com.tce.studi:id/tv_week").getText();
+		swipeUp();
 		String[] weeks=omp.weeks.getText().split(" ");
 		int size=weeks.length;
 		int totalWeeks =Integer.parseInt(weeks[size-1]);
@@ -964,7 +969,7 @@ public class Module_MyLesson_Page extends BaseClass{
 		System.out.println("List of various Subjects with their individual check boxes are shown to the user");
 		test.log(Status.INFO, "List of various Subjects with their individual check boxes are shown to the user");
 
-		scrollTo2("LESSON STATUS");
+		scrollTo2("Lessons Status");
 
 		Boolean filterLessonStatus=omp.filterLessonStatus.isDisplayed();
 		assert1.assertTrue(filterLessonStatus);
@@ -977,10 +982,13 @@ public class Module_MyLesson_Page extends BaseClass{
 		System.out.println(omp.subjects.size());
 		for(int j=4;j<7;j++) {
 
-			MobileElement subject=getDriver().findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup["+j+"]/android.widget.TextView");
+			//MobileElement subject=getDriver().findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup["+j+"]/android.widget.TextView");
+			//MobileElement subject=getDriver().findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[2]/android.view.ViewGroup/android.widget.TextView"+j+"]/android.widget.TextView");
+			MobileElement subject=getDriver().findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[2]/android.view.ViewGroup/android.widget.TextView");
 			assert1.assertTrue(subject.isDisplayed()); 
 			System.out.println(subject.getText());
-			MobileElement subjectCheckBox=getDriver().findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup["+j+"]/android.widget.ImageView[2]");
+			//MobileElement subjectCheckBox=getDriver().findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup["+j+"]/android.widget.ImageView[2]");
+			MobileElement subjectCheckBox=getDriver().findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[2]/android.view.ViewGroup/android.widget.ImageView[2]");
 			assert1.assertTrue(subjectCheckBox.isDisplayed());
 			if(!subjectCheckBox.isSelected()) {
 				subjectCheckBox.click();
@@ -1000,7 +1008,8 @@ public class Module_MyLesson_Page extends BaseClass{
 			assert1.assertTrue(status.isDisplayed());
 			System.out.println(status.getText());
 			//MobileElement lessonStatusCheckBox=getDriver().findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView[2]/android.view.ViewGroup["+j+"]/android.widget.ImageView[2]");
-			MobileElement lessonStatusCheckBox=getDriver().findElementById("com.tce.studi:id/img_check_id");
+			//MobileElement lessonStatusCheckBox=getDriver().findElementById("com.tce.studi:id/img_check_id");
+			MobileElement lessonStatusCheckBox=getDriver().findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView[2]/android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.ImageView[2]");
 			assert1.assertTrue(lessonStatusCheckBox.isDisplayed());
 			Boolean ver=lessonStatusCheckBox.isSelected();
 			System.out.println(ver);
@@ -1044,7 +1053,7 @@ public class Module_MyLesson_Page extends BaseClass{
 			}
 		}
 		System.out.println("Done 1");
-		scrollTo2("LESSON STATUS");
+		scrollTo2("Lessons Status");
 
 		List<MobileElement> lessonStatus1= getDriver().findElementsByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup");
 		System.out.println(omp.subjects.size());
@@ -1065,6 +1074,7 @@ public class Module_MyLesson_Page extends BaseClass{
 		for(int j=1;j<=omp.lessonStatus2.size();j++) {
 
 			MobileElement lessonStatusCheckBox=getDriver().findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView[2]/android.view.ViewGroup["+j+"]/android.widget.ImageView[2]");
+
 			assert1.assertTrue(lessonStatusCheckBox.isDisplayed());
 			Boolean ver=lessonStatusCheckBox.isSelected();
 			System.out.println(ver);
@@ -1080,6 +1090,8 @@ public class Module_MyLesson_Page extends BaseClass{
 		for(int i=1;i<=2;i++) {
 
 			List<MobileElement> subjects= getDriver().findElementsByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView["+i+"]/android.view.ViewGroup");
+			
+		                                                                 // 	/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.TextView")
 			System.out.println(subjects.size());
 			for(int j=1;j<=subjects.size();j++) {
 
@@ -1091,7 +1103,7 @@ public class Module_MyLesson_Page extends BaseClass{
 			}
 		}
 		System.out.println("Done 1");
-		scrollTo2("LESSON STATUS");
+		scrollTo2("Lessons Status");
 
 		//	List<MobileElement> lessonStatus12= getDriver().findElementsByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup");
 		System.out.println(omp.subjects.size());
@@ -1258,7 +1270,7 @@ public class Module_MyLesson_Page extends BaseClass{
 				assert1.assertTrue(highLightedCard);
 
 				//	String lessonType1=highLightedLesson.findElement(By.xpath("//android.view.ViewGroup/android.widget.TextView[1]")).getText();
-				String lessonType1=omp.highLightedLesson.findElement(By.id("com.tce.studi:id/tv_chapter_type")).getText();
+				String lessonType1=omp.highLightedLesson.findElement(By.id("com.tce.studi:id/tvChapterType")).getText();
 				System.out.println(lessonType1+" Lesson Type is Highlighted");
 				test.log(Status.INFO, lessonType1+" Lesson Type is Highlighted");
 			}
@@ -1313,8 +1325,8 @@ public class Module_MyLesson_Page extends BaseClass{
 			orp.nextMonthButton.click();
 			Thread.sleep(2000);
 			//	 MobileElement date1=getDriver().findElement(By.xpath("//*[contains(@text, '1, 2021')]"));
-			new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
-			.until(ExpectedConditions.elementToBeClickable(orp.date1));
+			//new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
+			//.until(ExpectedConditions.elementToBeClickable(orp.date1));
 
 			System.out.println(orp.date1.getText());
 			orp.date1.click();
@@ -1486,13 +1498,13 @@ public class Module_MyLesson_Page extends BaseClass{
 		omp.testUnit.click();
 		omp.editButton.click();
 
-		applyExplicitWaitsUntilElementVisible(omp.activatePlanButton);
-		omp.activatePlanButton.click();
-		applyExplicitWaitsUntilElementVisible(omp.subjectAtCreatePlan);
-		omp.subjectAtCreatePlan.click();
-		applyExplicitWaitsUntilElementVisible(orp.chapterCheckBox);
-		orp.chapterCheckBox.click();
-		orp.addToPortion.click();
+		//applyExplicitWaitsUntilElementVisible(omp.activatePlanButton);
+		//omp.activatePlanButton.click();
+		//applyExplicitWaitsUntilElementVisible(omp.subjectAtCreatePlan);
+		//omp.subjectAtCreatePlan.click();
+		//applyExplicitWaitsUntilElementVisible(orp.chapterCheckBox);
+		//orp.chapterCheckBox.click();
+		//orp.addToPortion.click();
 
 		clickOnElement(findElementByText("Next Step"));
 		applyExplicitWait(5);
@@ -1557,7 +1569,7 @@ public class Module_MyLesson_Page extends BaseClass{
 
 		omp.createAStudyPlan.click();
 
-		applyExplicitWaitsUntilElementVisible(omp.subjectAtCreatePlan);
+		//applyExplicitWaitsUntilElementVisible(omp.subjectAtCreatePlan);
 		omp.subjectAtCreatePlan.click();
 		applyExplicitWaitsUntilElementVisible(orp.chapterCheckBox);
 		orp.chapterCheckBox.click();
@@ -1720,17 +1732,18 @@ public class Module_MyLesson_Page extends BaseClass{
 		orp.topicCheckBoxAtCreateStudyPlan1.click();
 
 		orp.addToPortion.click();
-		applyExplicitWaitsUntilElementVisible(orp.subjectGeographyAtCreatePlan);
 
-		orp.subjectGeographyAtCreatePlan.click();
-		applyExplicitWaitsUntilElementVisible(orp.topicCheckBoxAtCreateStudyPlan);
-		orp.topicCheckBoxAtCreateStudyPlan.click();
-		applyExplicitWaitsUntilElementVisible(orp.topicCheckBoxAtCreateStudyPlan1);
-		orp.topicCheckBoxAtCreateStudyPlan1.click();
+		//applyExplicitWaitsUntilElementVisible(orp.subjectGeographyAtCreatePlan);
+
+		//orp.subjectGeographyAtCreatePlan.click();
+		//applyExplicitWaitsUntilElementVisible(orp.topicCheckBoxAtCreateStudyPlan);
+		//orp.topicCheckBoxAtCreateStudyPlan.click();
+		//applyExplicitWaitsUntilElementVisible(orp.topicCheckBoxAtCreateStudyPlan1);
+		//orp.topicCheckBoxAtCreateStudyPlan1.click();
 
 
 
-		orp.addToPortion.click();
+		//orp.addToPortion.click();
 
 		clickOnElement(findElementByText("Next Step"));
 		applyExplicitWait(5);

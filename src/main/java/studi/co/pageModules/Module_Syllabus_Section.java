@@ -25,8 +25,6 @@ public class Module_Syllabus_Section extends BaseClass{
 
 		Boolean status;
 		SoftAssert assert1 = new SoftAssert();
-
-
 		status = oso.userName.isDisplayed();
 		if(status) {
 			System.out.println("User can be navigated to the Home page after login");
@@ -50,8 +48,6 @@ public class Module_Syllabus_Section extends BaseClass{
 		Boolean status;
 		oso=new Object_Syllabus();
 		SoftAssert assert1 = new SoftAssert();
-
-
 		status=oso.userName.isDisplayed();
 		if(status) {
 			System.out.println("User can be navigated to the Home page after login");
@@ -96,20 +92,31 @@ public class Module_Syllabus_Section extends BaseClass{
 
 	public void toVerify_Grade_School_Details_And_Education_Board_Details() throws Exception {
 
-		toVerify_Syllabus_Options_Should_Be_Tappable();
+
+		SoftAssert assert1=new SoftAssert();
 		Boolean status;
-		SoftAssert assert1 = new SoftAssert();
-
-		scrollTo2("Your");
-
+		status = oso.profilePic.isDisplayed();
+		assert1.assertTrue(status);
+		if (status) {
+			System.out.println("Logged in successfully");
+			test.log(Status.INFO, "Logged in successfully");
+		}
+		status = findElementByText("Syllabus").isDisplayed();
+		assert1.assertTrue(status);
+		if (status) {
+			System.out.println("Syllabus tab displayed");
+			test.log(Status.INFO, "Syllabus tab displayed");
+		}
+		//scrollTo2("Assignments");
+		oso.syllabus.click();
+		scrollTo2("Class");
+		Thread.sleep(2000);
 		status=oso.grade.isDisplayed();
-
 		assert1.assertTrue(status);
 		if (status) {
 			System.out.println("Grade is displayed");
 			test.log(Status.INFO, "Grade is displayed");
 		}
-
 		status=oso.editButton.isDisplayed();
 
 		assert1.assertTrue(status);
@@ -660,7 +667,8 @@ public class Module_Syllabus_Section extends BaseClass{
 		for(int j=0;j<question;j++) {
 
 			applyExplicitWaitsUntilElementVisible(oso.question1_part_Text);
-			scrollToEnd();
+			//swipeDown();
+			//scrollToEnd();
 			selectIncorrectAnswer();
 			clickOnElement(findElementByText("Check"));
 			clickOnElement(findElementByText("Try"));
@@ -677,8 +685,8 @@ public class Module_Syllabus_Section extends BaseClass{
 
 		applyExplicitWaitsUntilElementVisible(oso.completedInSchool);
 		swipeDown();
-		MobileElement status1=getDriver().findElementByXPath("//*[contains(@text, '"+topic+"')]/preceding-sibling::android.widget.ImageView");
-		
+		//MobileElement status1=getDriver().findElementByXPath("//*[contains(@text, '"+topic+"')]/preceding-sibling::android.widget.ImageView");
+		MobileElement status1=getDriver().findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[4]/android.view.ViewGroup/android.widget.ImageView[1]");
 
 		status =status1.isDisplayed();
 		if(status) {
@@ -757,7 +765,7 @@ public class Module_Syllabus_Section extends BaseClass{
 
 			applyExplicitWaitsUntilElementVisible(oso.question1_part_Text);
 			applyExplicitWaitsUntilElementVisible(oso.quetionCount);
-			scrollToEnd();
+
 			selectCorrectAnswer();
 			clickOnElement(findElementByText("Check"));
 			//new WebDriverWait(driver, 30).ignoring(StaleElementReferenceException.class)
@@ -771,9 +779,9 @@ public class Module_Syllabus_Section extends BaseClass{
 		oso.returnTitle.click();
 
 		applyExplicitWaitsUntilElementVisible(oso.completedInSchool);
-        swipeDown();
-		MobileElement status1=getDriver().findElementByXPath("//*[contains(@text, '"+topic+"')]/preceding-sibling::android.widget.ImageView");
-
+		swipeDown();
+		//MobileElement status1=getDriver().findElementByXPath("//*[contains(@text, '"+topic+"')]/preceding-sibling::android.widget.ImageView");
+		MobileElement status1=getDriver().findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[4]/android.view.ViewGroup/android.widget.ImageView[1]");
 		status =status1.isDisplayed();
 		if(status) {
 
@@ -863,8 +871,8 @@ public class Module_Syllabus_Section extends BaseClass{
 
 		applyExplicitWaitsUntilElementVisible(oso.completedInSchool);
 
-		MobileElement status1=getDriver().findElementByXPath("//*[contains(@text, '"+topic+"')]/preceding-sibling::android.widget.ImageView");
-
+		//MobileElement status1=getDriver().findElementByXPath("//*[contains(@text, '"+topic+"')]/preceding-sibling::android.widget.ImageView");
+		MobileElement status1=getDriver().findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[4]/android.view.ViewGroup/android.widget.ImageView[1]");
 		status =status1.isDisplayed();
 		if(status) {
 

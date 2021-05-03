@@ -4,8 +4,10 @@ import java.net.MalformedURLException;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -29,101 +31,234 @@ public class Object_Create_Study_Plan extends BaseClass {
 		// "Summary", "Test"};
 
 		expectedLessonOrder.put("Big Idea",
-				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.view.ViewGroup");
+				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout");
 		expectedLessonOrder.put("Revise",
-				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup");
+				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]");
 		expectedLessonOrder.put("Practice",
-				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.view.ViewGroup");
+				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]");
 		expectedLessonOrder.put("Summary",
-				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]/android.view.ViewGroup");
+				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]");
 		expectedLessonOrder.put("Test",
-				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[4]/android.view.ViewGroup");
+				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[4]");
 
 		upcomingLesson.put("Big Idea",
-				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]");
+				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]");
 		upcomingLesson.put("Revise",
-				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]");
+				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]");
 		upcomingLesson.put("Practice",
-				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]");
+				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]");
 		upcomingLesson.put("Summary",
-				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[4]");
+				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]");
 		upcomingLesson.put("Test",
-				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[5]");
+				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]");
 
 		subjectFlag.put("", false);
-		
+
 	}
 
-	@AndroidFindBy(id = "com.tce.studi:id/profilePic")
+	@AndroidFindBy(id = "com.tce.studi:id/ivProfile")
 	public WebElement profilePic;
 
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/tvHeading\").index(1)")
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/tvHeading\").textContains(\"Test Unit\")")
 	public WebElement testUnitModule;
-	
-	
+
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/tvHeading\").textContains(\"Syllabus\")")
 	public WebElement syllabusUnitModule;
-	
+
 	// + button in syllabus module
 	@FindBy(id = "com.tce.studi:id/fab_assignment")
 	public WebElement assignBtn;
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/tv_intent_title\").textContains(\"Study Plan\")")
 	public WebElement studyPlanSyl;
-	
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/tvHeading\").textContains(\"Create Study Plan\")")
+
+	//	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/tvHeading\").textContains(\"Create Study Plan\")")
+	//	public WebElement studyPlanTab;
+
+	@AndroidFindBy(id = "com.tce.studi:id/tvHeading")
 	public WebElement studyPlanTab;
 
-	@AndroidFindBy(id = "com.tce.studi:id/study_layout")
+	//@AndroidFindBy(id = "com.tce.studi:id/study_layout")
+	@AndroidFindBy(id = "com.tce.studi:id/studyLayout")
 	public WebElement studyLayout;
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"Paused\").resourceId(\"com.tce.studi:id/tvSubHeading\")")
+	//@AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"Paused Plan\").resourceId(\"com.tce.studi:id/txtTitle\")")
 	public WebElement testPauselbl;
 
-	@FindBy(id = "com.tce.studi:id/tv_manage_plans")
+	//@FindBy(id = "com.tce.studi:id/tv_manage_plans")		
+	@FindBy(id = "com.tce.studi:id/tvManagePlans")
 	public WebElement managePlanBtn;
 
-	@FindBy(id = "com.tce.studi:id/tv_create_plan")
+	@FindBy(id = "com.tce.studi:id/tvCreatePlan")
 	public WebElement createStudyPlanBtn;
 	
+
 	@FindBy(id = "com.tce.studi:id/fab_edit")
 	public WebElement editPlan;
-	
+
+	@FindBy(className  = "android.widget.Image")
+	public WebElement image;
+
+	@FindBy(xpath = "com.tce.studi:id/fab_edit")
+	public WebElement actualLesson28;
+
 	@AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.Button\").textContains(\"Next Step\")")
 	public WebElement nextStepBtn;
 
 	@FindBy(id = "com.tce.studi:id/tv_coming_soon")
 	public WebElement taskCountInUpcoming;
-	
+
 	public Map<String, String> expectedLessonOrder = new LinkedHashMap<String, String>();
 	public Map<String, String> upcomingLesson = new LinkedHashMap<String, String>();
 	public Map<String, Boolean> subjectFlag = new HashMap<String, Boolean>();
 
-	@FindBy(id = "com.tce.studi:id/img_overflow")
+	//@FindBy(id = "com.tce.studi:id/img_overflow")
+	@FindBy(id = "com.tce.studi:id/imgOverflow")
 	public WebElement topLessonStatus;
 
+	
 	@FindBy(id = "com.tce.studi:id/title")
 	public WebElement markAsComplete;
-	
+
 	@FindBy(id = "com.tce.studi:id/recycler_today")
 	public WebElement todaysLessonPanel;
-	
+
 	@FindBy(id = "com.tce.studi:id/view_schedule")
 	public WebElement viewFullScheduleBtn;
-	
+
 	@FindBy(id = "com.tce.studi:id/search_id")
 	public WebElement fullScheduleLbl;
-	
+
 	@AndroidFindBy(id = "com.tce.studi:id/recycler_full_schedule")
 	public MobileElement fullscedulerecyclere;
 
-	// 1.Big Idea, 2.Revise, 3.Practice, 4.Summary, 5.Test
-	public String lessonType = "/android.view.ViewGroup/android.widget.TextView[1]";
-	public String lessonStatus = "/android.view.ViewGroup/android.widget.ImageView[2]";
-	public String lessonSubjectName = "/android.widget.TextView";
-	public String lessonDueDate="/android.view.ViewGroup/android.widget.TextView[5]";
+	@AndroidFindBy(id="com.tce.studi:id/tv_almost_here_desc")
+	public WebElement taskToBeCompletedToday;
 
-	public String upcomingLessonsPanel = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView";
+	@AndroidFindBy(id="com.tce.studi:id/img_overflow")
+	public WebElement kebabMenu;
+
+	//public String topicName1="com.tce.studi:id/tv_date";
+
+	@AndroidFindBy(id="com.tce.studi:id/tv_due_today")
+	public WebElement taskCompleted;
+
+	@AndroidFindBy(id="com.tce.studi:id/tick")
+	public WebElement tick;
+
+	@AndroidFindBy(id="com.tce.studi:id/iv_left_icon")
+	public WebElement backButton;
+
+	@AndroidFindBy(id="com.tce.studi:id/txtPositiveBtn")
+	public WebElement positiveButton;
+
+	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View[1]/android.view.View")
+	public WebElement question1_part_Text;
+
+	@AndroidFindBy(id = "com.tce.studi:id/tvQuestionPosition")
+	public WebElement quetionCount;
+
+	@AndroidFindBy(id="com.tce.studi:id/tv_primary_action")
+	public WebElement practise_Again1;
+
+	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[3]/android.view.View[1]/android.view.View")
+	public WebElement right_Answer_message;
+
+	@AndroidFindBy(id="com.tce.studi:id/tv_target")
+	public WebElement target;
+
+	@AndroidFindBy(id="com.tce.studi:id/tv_day_name")
+	public WebElement today;
+
+	@AndroidFindBy(id="com.tce.studi:id/tv_due")
+	public WebElement pastLessons;
+
+	public String box="com.tce.studi:id/row_lesson_main_view";
+
+	public String status="//android.widget.ImageView[@resource-id='com.tce.studi:id/completed' or @resource-id='com.tce.studi:id/img_overflow' or @resource-id='com.tce.studi:id/locked']";
+
+	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[5]")
+	public MobileElement todayMainView;
+
+
+	@AndroidFindBy(xpath="//*[contains(@text, 'overdue')]/preceding-sibling::android.widget.TextView[3]")
+	public WebElement inputLesson;
+
+	@AndroidFindBy(xpath="//*[contains(@text, 'Today')]/parent::*/ancestor::androidx.recyclerview.widget.RecyclerView")
+	public MobileElement lessonPanel1;
+
+	@AndroidFindBy(xpath="//*[contains(@text, 'Today')]/following-sibling::androidx.recyclerview.widget.RecyclerView")
+	public MobileElement lessonPanel;
+
+	@AndroidFindBy(xpath="//*[contains(@text, 'Today')]/parent::*/following-sibling::*")
+	public MobileElement lessonPanel53;
+	//*[contains(@text, 'Today')]/parent::*/following-sibling::androidx.recyclerview.widget.RecyclerView
+
+	@AndroidFindBy(xpath="//*[contains(@text, 'Today')]/parent::*/following-sibling::androidx.recyclerview.widget.RecyclerView")
+	public MobileElement lessonPanel38;
+
+	@AndroidFindBy(id="com.tce.studi:id/plan_right_view")
+	public WebElement element44;
+
+	@AndroidFindBy(id="com.tce.studi:id/cl_intent")
+	public WebElement object44;
+
+	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[5]/android.view.ViewGroup")
+	public WebElement element52;
+
+	@AndroidFindBy(xpath="//*[contains(@text, '1, 2021')]")
+	public WebElement date1;
+
+	@AndroidFindBy(id="com.tce.studi:id/header_bar_container")
+	public WebElement bigIdeaHeading;
+
+	@AndroidFindBy(id="com.tce.studi:id/tv_due")
+	public List<MobileElement> pastLessons1;
+
+	@AndroidFindBy(id="com.tce.studi:id/tv_date")
+	public List<MobileElement> topicName;
+	
+	@AndroidFindBy(id="com.tce.studi:id/upcomingMainView")
+	public List<MobileElement> mainView;
+	
+	@AndroidFindBy(id = "com.tce.studi:id/iv_left_icon")
+	//@iOSFindBy(id = "White 2")
+	public WebElement backBtnTestUnit;
+
+	//	@AndroidFindBy(id="com.tce.studi:id/tv_due")
+	//	public List<MobileElement> pastLesson;
+
+
+	// 1.Big Idea, 2.Revise, 3.Practice, 4.Summary, 5.Test
+	public String lessonType ="/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView[1]";
+
+	public String lessonStatus ="/android.view.ViewGroup/android.widget.ImageView[2]";
+	
+
+	public String lessonSubjectName = "android.view.ViewGroup/android.widget.TextView[3]";;
+
+	public String lessonDueDate="android.view.ViewGroup/android.widget.TextView[4]";
+
+	//public String upcomingLessonsPanel = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView";
+	public String upcomingLessonsPanel = "com.tce.studi:id/upcomingLayout";
+
+	@AndroidFindBy(id="com.tce.studi:id/pausePlan")
+	public WebElement pausePlan;
+
+	@AndroidFindBy(id="com.tce.studi:id/txtPositiveBtn")
+	public WebElement proceedButton;
+	
+	
+	@AndroidFindBy(id="com.tce.studi:id/txtTopButto")
+	public WebElement resumePlan;
+	
+	//@iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Select another plan\"]")
+	@AndroidFindBy(id = "com.tce.studi:id/txtBottomButton")
+	public WebElement selectAnotherPlanBtn;
+
+	//	@AndroidFindBy(id="com.tce.studi:id/iv_left_icon")
+	//	public WebElement backButton;
 
 	public void traverse_toward_create_study_plan() throws MalformedURLException {
 		SoftAssert sAss = new SoftAssert();
@@ -136,7 +271,7 @@ public class Object_Create_Study_Plan extends BaseClass {
 			test.log(Status.INFO, "Logged in successfully");
 		}
 
-		scrollTo1("Report an issue");
+		//scrollTo1("Report an issue");
 		status = testUnitModule.isDisplayed();
 		sAss.assertTrue(status);
 		if (status) {
@@ -289,7 +424,6 @@ public class Object_Create_Study_Plan extends BaseClass {
 
 		System.out.println("New plan created");
 		test.log(Status.INFO, "New plan created");
-
 	}
 
 	// one subject-->one topic list
@@ -339,7 +473,7 @@ public class Object_Create_Study_Plan extends BaseClass {
 				subjectFlag.put(subjects[i], false);
 			}
 			action.press(PointOption.point(115, 650)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(100)))
-					.moveTo(PointOption.point(115, 550)).release().perform();
+			.moveTo(PointOption.point(115, 550)).release().perform();
 		}
 		applyExplicitWaitsUntilElementClickable(nextStepBtn);
 		clickOnElement(nextStepBtn);
@@ -418,22 +552,25 @@ public class Object_Create_Study_Plan extends BaseClass {
 
 		System.out.println("New plan created");
 		test.log(Status.INFO, "New plan created");
-
-		
 	}
-	
+
 	public WebElement getFlagIcon() {
 		return driver.findElementByXPath(
 				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View/android.view.View["
 						+ 1 + "]/android.view.View[2]/android.view.View/android.view.View[1]/android.widget.Button");
 
 	}
-	
-	
+
+
 	public int getTaskCountForUpcomingPlan() {
 		String msg=taskCountInUpcoming.getText();
 		String[] sep=msg.split(" ");
 		int count=Integer.parseInt(sep[0]);
 		return count;
+	}
+
+	public MobileElement getDate(int days) {
+		MobileElement date1=getDriver().findElement(By.xpath("//*[contains(@text, '"+days+", 2021')]"));
+		return date1;
 	}
 }

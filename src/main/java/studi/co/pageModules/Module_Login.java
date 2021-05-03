@@ -58,7 +58,8 @@ public class Module_Login extends BaseClass {
 		clickOnElement(ol.getRegisteredUserName());
 		applyExplicitWait(2);
 		applyExplicitWaitsUntilElementVisible(ol.signOut);
-		scrollTo1("Report an issue");
+		//scrollTo1("Report an issue");
+		scrollToEnd();
 		System.out.println("Scrolled across the entire viewport on the LandingPage successfully");
 		System.out.println("Login is Successful");
 	}
