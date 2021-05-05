@@ -61,7 +61,7 @@ public class AFS_UserStory_65 extends BaseClass {
 
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = true,priority=-1)
 	public void T06_To_Verify_User_should_shown_proper_Response_for_incorrect_option()
 			throws IOException, InterruptedException, AWTException {
 		Module_Verify_Syllabus_Section test = new Module_Verify_Syllabus_Section();

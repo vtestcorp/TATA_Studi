@@ -295,7 +295,7 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		to_Launch_Practise_Quetions_Quiz();
 		applyExplicitWaitsUntilElementVisible(osm.question1_part_Text);
 		//scrollToEnd();
-		//Thread.sleep(2000);
+		Thread.sleep(2000);
 		selectCorrectAnswer();
 		osm.check_answer.click();
 		applyExplicitWaitsUntilElementVisible(osm.right_Answer_message);
@@ -392,8 +392,8 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		//scrollToEnd();
 		selectIncorrectAnswer();
 		osm.check_answer.click();
-		String check_message=osm.right_Answer_message.getText();
-		if(osm.right_Answer_message.getText().equals("Uh-oh! Give it another shot!")) {
+		String check_message=osm.wrong_Answer_message.getText();
+		if(osm.wrong_Answer_message.getText().equals("Uh-oh! Give it another shot!")) {
 			test.log(Status.INFO, "Text changed to red color with a red color smiley on answering the question incorrectly with proper explanation below the incorrect option");
 			applyExplicitWait(5);
 			assert1.assertEquals(check_message, "Uh-oh! Give it another shot!");
@@ -614,19 +614,20 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		assert1.assertTrue(continue_Studying_Button);
 
 		//	osm.continueStudying.click();
-		clickOnElement(findElementByText("Continue"));
-		applyExplicitWaitsUntilElementVisible(osm.topic_Name);
+		//clickOnElement(findElementByText("Continue"));
+		//applyExplicitWaitsUntilElementVisible(osm.topic_Name);
 
-		Boolean topic_Name=osm.topic_Name.isDisplayed();
-		if(topic_Name) {
-			System.out.println("User Navigated to next topic after clicking on Continue Studying Buttton");
-			test.log(Status.INFO, "User Navigated to next topic after clicking on Continue Studying Buttton");
-		}
-		assert1.assertTrue(topic_Name);
+//		Boolean topic_Name=osm.topic_Name.isDisplayed();
+//		if(topic_Name) {
+//			System.out.println("User Navigated to next topic after clicking on Continue Studying Buttton");
+//			test.log(Status.INFO, "User Navigated to next topic after clicking on Continue Studying Buttton");
+//		}
+//		assert1.assertTrue(topic_Name);
 		//		applyExplicitWait(5);
 		//		Thread.sleep(2000);
 		//		osm.returnToSubject.click();
 		//		Keyword.clickOnElementUsingText("Subject");
+		driver.findElement(By.id("com.tce.studi:id/ivTertiaryAction")).click();
 		clickOnElement(findElementByText("Return"));
 
 		applyExplicitWait(10);
@@ -641,7 +642,7 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		clickOnElement(findElementByText("Practice"));
 		//	osm.practise_Again1.click();
 		applyExplicitWait(20);
-		Boolean practise_Again=osm.quetionPart.isDisplayed();
+		Boolean practise_Again=osm.question1_part_Text.isDisplayed();
 		if(practise_Again) {
 			System.out.println("Practise Again button is displayed to the User and after clicking Practise Again  button User can reattempt the quiz");
 			test.log(Status.INFO, "Practise Again button is displayed to the User and after clicking on Practise Again button User can reattempt the quiz");
