@@ -36,19 +36,19 @@ public class AFS_UserStory_1045 extends BaseClass{
 	//		login.Login_to_app();
 	//	}
 
-	@Test(enabled=true)  //passed
+	@Test(enabled=true)  
 	public void	T01_To_Verify_User_Can_Navigate_To_MyLessons_Page() throws IOException, InterruptedException{
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_User_Navigate_to_MyLessonsPage();
 	}
 
-	@Test(enabled=true) //passed
+	@Test(enabled=true)
 	public void	T02_To_Verify_Various_Contents_On_MyLessons_Page() throws IOException, InterruptedException{
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_VariousContentsOn_MyLessonsPage();
 	}
 
-	@Test(enabled=true)     //passed
+	@Test(enabled=true)  
 	public void	T03_ToVerify_User_Can_Navigate_Back_To_The_Landing_Page() throws IOException, InterruptedException{
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_UserCanNavigate_BackTo_TheLandingPage();
@@ -60,43 +60,40 @@ public class AFS_UserStory_1045 extends BaseClass{
 		mmp.toVerify_StudyRing_For_NewStudyPlan();
 	}
 
-	@Test(enabled=true)   //passed
+	@Test(enabled=true)   
 	public void	T05_To_Verify_StudyRing_For_Existing_StudyPlan() throws IOException, InterruptedException{
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_StudyRing_For_Existing_StudyPlan();
 	}
 
-	@Test(enabled=true)   //passed  
+	@Test(enabled=true)    
 	public void	T06_To_Verify_In_StudyRing_User_Should_Be_Shown_3_Rings() throws Exception{
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_3_Rings_In_StudyRing();
 	}
 
-	@Test(enabled=true)   //passed  
+	@Test(enabled=true)   
 	public void	T07_To_Verify_Information_OfTask_ToBe_Completed_Today() throws Exception{
-		Assert.assertTrue(true);
-		//Module_MyLesson_Page mmp=new Module_MyLesson_Page();
-		//mmp.toVerify_Information_OfTask();
+		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
+		mmp.toVerify_Information_OfTask();
 	}
 
-	@Test(enabled=true) //passed
+	@Test(enabled=true)
 	public void T11_To_Verify_TickMark_On_Completing_Todays_Planned_Lesson_Count() throws Exception {
-		Assert.assertTrue(true);
-		//Module_MyLesson_Page mmp=new Module_MyLesson_Page();
-		//mmp.toVerify_TickMark();
+		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
+		mmp.toVerify_TickMark();
 	}
 
-	@Test(enabled=true) //passed
+	@Test(enabled=true) 
 	public void T13_To_Verify_Todays_Tab_In_My_Lessons_Page() throws Exception {
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_Todays_Tab();
 	}
 
-	@Test(enabled=true)//passed
+	@Test(enabled=true)
 	public void T14_To_Verify_Lessons_Listed_In_Todays_Tab() throws Exception {
-		Assert.assertTrue(true);
-		//Module_MyLesson_Page mmp=new Module_MyLesson_Page();
-		//mmp.toVerify_Lessons_In_Todays_Tab();
+		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
+		mmp.toVerify_Lessons_In_Todays_Tab();
 	}
 
 	@Test(enabled=true)//passed T
@@ -113,59 +110,57 @@ public class AFS_UserStory_1045 extends BaseClass{
 
 	//@Test(enabled=true)
 	public void T17_To_Verify_Various_Colour_Code_Schema_For_Various_Books() throws Exception {
-		Assert.assertTrue(true);
-		//Module_MyLesson_Page mmp=new Module_MyLesson_Page();
-		//mmp.toVerify_Various_Colour_Code_Schema_For_Various_Books();
+		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
+		mmp.toVerify_Various_Colour_Code_Schema_For_Various_Books();
 	}
 
 
 	@Test(enabled=true)//passes T
 	public void T19_To_Verify_User_Should_Be_Shown_HighLighted_Lesson() throws Exception {
-		Assert.assertTrue(true);
-		//Module_MyLesson_Page mmp=new Module_MyLesson_Page();
-		//mmp.toVerify_HighLighted_Lesson();
+		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
+		mmp.toVerify_HighLighted_Lesson();
 	}
 
 	@Test(enabled=true)//passed T
 	public void T20_To_Verify_the_Highlighted_lessons_gets_changed_when_user_complete_the_previous_highlighted_lesson() throws Exception {
-		Assert.assertTrue(true);
-		//Module_MyLesson_Page mmp=new Module_MyLesson_Page();
-		//mmp.toVerify_the_Highlighted_lessons_gets_changed();
+
+		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
+		mmp.toVerify_the_Highlighted_lessons_gets_changed();
 	}
 
 	@Test(enabled=true) // Passed T
 	public void T21_To_Verify_Lesson_Card_Content() throws Exception {
-		Assert.assertTrue(true);
-		//Module_MyLesson_Page mmp=new Module_MyLesson_Page();
-		//mmp.toVerify_Lesson_Card_Content();
+
+		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
+		mmp.toVerify_Lesson_Card_Content();
 	}
 
 	@Test(enabled=true)//passed T
 	public void T22_To_Verify_TickMark_On_Lesson_Completion() throws Exception {
-		Assert.assertTrue(true);
-		//Module_MyLesson_Page mmp=new Module_MyLesson_Page();
-		//mmp.toVerify_Tick_Mark_On_Lesson_Completion();
+
+		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
+		mmp.toVerify_Tick_Mark_On_Lesson_Completion();
 	}
 
 	@Test(enabled=true)//Passed
 	public void T23_To_Verify_Unlock_Lessons_Are_Tappable() throws Exception {
-		Assert.assertTrue(true);
-		//Module_MyLesson_Page mmp=new Module_MyLesson_Page();
-		//mmp.toVerify_Unlock_Lessons();
+
+		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
+		mmp.toVerify_Unlock_Lessons();
 	}
 
 	@Test(enabled=true)//passed
 	public void T24_To_Verify_Unlock_Lessons_Are_Functional() throws Exception {
-		Assert.assertTrue(true);
-		//Module_MyLesson_Page mmp=new Module_MyLesson_Page();
-		//mmp.toVerify_Unlock_Lessons_Functionality();
+	
+		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
+		mmp.toVerify_Unlock_Lessons_Functionality();
 	}
 
 	@Test(enabled=true)//passed T
 	public void T25_To_Verify_Locked_Lessons_Are_Un_Tappable_And_Non_Functional() throws Exception {
-		Assert.assertTrue(true);
-		//Module_MyLesson_Page mmp=new Module_MyLesson_Page();
-		//mmp.toVerify_Locked_Lessons_Functionality();
+	
+		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
+		mmp.toVerify_Locked_Lessons_Functionality();
 	}
 
 
@@ -202,9 +197,9 @@ public class AFS_UserStory_1045 extends BaseClass{
 
 	@Test(enabled=true)
 	public void T31_To_Verify_Full_Schedule_List_Of_Plan_For_Other_Weeks() throws Exception {
-		Assert.assertTrue(true);
-		//Module_MyLesson_Page mmp=new Module_MyLesson_Page();
-		//mmp.toVerify_Schedule_List_Of_Plan_For_Other_Weeks();
+	
+		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
+		mmp.toVerify_Schedule_List_Of_Plan_For_Other_Weeks();
 	}
 
 	@Test(enabled=true)//Passed T1
@@ -230,9 +225,9 @@ public class AFS_UserStory_1045 extends BaseClass{
 
 	@Test(enabled=true)
 	public void T35_To_Verify_Various_Filter_Options_On_Schedule_List_Should_Be_Functional() throws Exception {
-		Assert.assertTrue(true);
-		//Module_MyLesson_Page mmp=new Module_MyLesson_Page();
-		//mmp.toVerify_Various_Filter_Options_On_Schedule_List_Should_Be_Functional();
+		
+		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
+		mmp.toVerify_Various_Filter_Options_On_Schedule_List_Should_Be_Functional();
 	}
 
 	@Test(enabled=true) 
@@ -268,9 +263,9 @@ public class AFS_UserStory_1045 extends BaseClass{
 
 	@Test(enabled=true)
 	public void T41_To_Verify_User_Should_Be_Able_To_Reactivate_The_older_Plans_From_Manage_And_Create_Button() throws Exception {
-		Assert.assertTrue(true);
-		//Module_MyLesson_Page mmp=new Module_MyLesson_Page();
-		//mmp.toVerify_User_Should_Be_Able_To_Reactivate_The_Older_Plans();
+	
+		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
+		mmp.toVerify_User_Should_Be_Able_To_Reactivate_The_Older_Plans();
 	}
 
 	@Test(enabled=true)

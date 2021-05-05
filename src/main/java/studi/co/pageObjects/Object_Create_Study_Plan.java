@@ -38,6 +38,7 @@ public class Object_Create_Study_Plan extends BaseClass {
 				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]");
 		expectedLessonOrder.put("Summary",
 				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]");
+
 		expectedLessonOrder.put("Test",
 				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[4]");
 
@@ -92,9 +93,9 @@ public class Object_Create_Study_Plan extends BaseClass {
 
 	@FindBy(id = "com.tce.studi:id/tvCreatePlan")
 	public WebElement createStudyPlanBtn;
-	
 
-	@FindBy(id = "com.tce.studi:id/fab_edit")
+
+	@FindBy(id ="com.tce.studi:id/fabEditStudyPlan")
 	public WebElement editPlan;
 
 	@FindBy(className  = "android.widget.Image")
@@ -113,18 +114,19 @@ public class Object_Create_Study_Plan extends BaseClass {
 	public Map<String, String> upcomingLesson = new LinkedHashMap<String, String>();
 	public Map<String, Boolean> subjectFlag = new HashMap<String, Boolean>();
 
-	//@FindBy(id = "com.tce.studi:id/img_overflow")
+
 	@FindBy(id = "com.tce.studi:id/imgOverflow")
+	//@FindBy(id = "com.tce.studi:id/completed")
 	public WebElement topLessonStatus;
 
-	
-	@FindBy(id = "com.tce.studi:id/title")
+
+	@FindBy(id ="com.tce.studi:id/imgOverflow")
 	public WebElement markAsComplete;
 
 	@FindBy(id = "com.tce.studi:id/recycler_today")
 	public WebElement todaysLessonPanel;
 
-	@FindBy(id = "com.tce.studi:id/view_schedule")
+	@FindBy(id ="com.tce.studi:id/viewSchedule")
 	public WebElement viewFullScheduleBtn;
 
 	@FindBy(id = "com.tce.studi:id/search_id")
@@ -133,10 +135,10 @@ public class Object_Create_Study_Plan extends BaseClass {
 	@AndroidFindBy(id = "com.tce.studi:id/recycler_full_schedule")
 	public MobileElement fullscedulerecyclere;
 
-	@AndroidFindBy(id="com.tce.studi:id/tv_almost_here_desc")
+	@AndroidFindBy(id="com.tce.studi:id/tvAlmostHereDesc")
 	public WebElement taskToBeCompletedToday;
 
-	@AndroidFindBy(id="com.tce.studi:id/img_overflow")
+	@AndroidFindBy(id="com.tce.studi:id/imgOverflow")
 	public WebElement kebabMenu;
 
 	//public String topicName1="com.tce.studi:id/tv_date";
@@ -147,28 +149,33 @@ public class Object_Create_Study_Plan extends BaseClass {
 	@AndroidFindBy(id="com.tce.studi:id/tick")
 	public WebElement tick;
 
+
 	@AndroidFindBy(id="com.tce.studi:id/iv_left_icon")
 	public WebElement backButton;
 
 	@AndroidFindBy(id="com.tce.studi:id/txtPositiveBtn")
+	public WebElement yesBtn;
+
+	@AndroidFindBy(id="com.tce.studi:id/txtPositiveBtn")
 	public WebElement positiveButton;
 
-	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View[1]/android.view.View")
+	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View/android.view.View")
 	public WebElement question1_part_Text;
 
-	@AndroidFindBy(id = "com.tce.studi:id/tvQuestionPosition")
+	@AndroidFindBy(id = "com.tce.studi:id/tvQuestionNumber")
 	public WebElement quetionCount;
 
 	@AndroidFindBy(id="com.tce.studi:id/tv_primary_action")
 	public WebElement practise_Again1;
 
-	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[3]/android.view.View[1]/android.view.View")
+	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[3]/android.view.View[4]/android.widget.CheckBox")
 	public WebElement right_Answer_message;
 
-	@AndroidFindBy(id="com.tce.studi:id/tv_target")
+	@AndroidFindBy(id="com.tce.studi:id/tvTarget")
 	public WebElement target;
 
-	@AndroidFindBy(id="com.tce.studi:id/tv_day_name")
+	//@AndroidFindBy(id="com.tce.studi:id/tv_day_name")
+	@AndroidFindBy(id="com.tce.studi:id/txtWeekDayName")
 	public WebElement today;
 
 	@AndroidFindBy(id="com.tce.studi:id/tv_due")
@@ -188,7 +195,8 @@ public class Object_Create_Study_Plan extends BaseClass {
 	@AndroidFindBy(xpath="//*[contains(@text, 'Today')]/parent::*/ancestor::androidx.recyclerview.widget.RecyclerView")
 	public MobileElement lessonPanel1;
 
-	@AndroidFindBy(xpath="//*[contains(@text, 'Today')]/following-sibling::androidx.recyclerview.widget.RecyclerView")
+	//@AndroidFindBy(xpath="//*[contains(@text, 'Today')]/following-sibling::androidx.recyclerview.widget.RecyclerView")
+	@AndroidFindBy(id="com.tce.studi:id/todayViewId")
 	public MobileElement lessonPanel;
 
 	@AndroidFindBy(xpath="//*[contains(@text, 'Today')]/parent::*/following-sibling::*")
@@ -198,7 +206,8 @@ public class Object_Create_Study_Plan extends BaseClass {
 	@AndroidFindBy(xpath="//*[contains(@text, 'Today')]/parent::*/following-sibling::androidx.recyclerview.widget.RecyclerView")
 	public MobileElement lessonPanel38;
 
-	@AndroidFindBy(id="com.tce.studi:id/plan_right_view")
+	//@AndroidFindBy(id="com.tce.studi:id/plan_right_view")
+	@AndroidFindBy(id="com.tce.studi:id/clActivePlan")
 	public WebElement element44;
 
 	@AndroidFindBy(id="com.tce.studi:id/cl_intent")
@@ -218,10 +227,10 @@ public class Object_Create_Study_Plan extends BaseClass {
 
 	@AndroidFindBy(id="com.tce.studi:id/tv_date")
 	public List<MobileElement> topicName;
-	
+
 	@AndroidFindBy(id="com.tce.studi:id/upcomingMainView")
 	public List<MobileElement> mainView;
-	
+
 	@AndroidFindBy(id = "com.tce.studi:id/iv_left_icon")
 	//@iOSFindBy(id = "White 2")
 	public WebElement backBtnTestUnit;
@@ -231,12 +240,15 @@ public class Object_Create_Study_Plan extends BaseClass {
 
 
 	// 1.Big Idea, 2.Revise, 3.Practice, 4.Summary, 5.Test
-	public String lessonType ="/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView[1]";
+	public String lessonType ="/android.widget.ImageView[2]";
 
 	public String lessonStatus ="/android.view.ViewGroup/android.widget.ImageView[2]";
-	
 
-	public String lessonSubjectName = "android.view.ViewGroup/android.widget.TextView[3]";;
+
+	public String lessonSubjectName = "android.view.ViewGroup/android.widget.TextView[3]";
+	//@AndroidFindBy(id="com.tce.studi:id/tvSubjectName")
+	//public WebElement lessonSubjectName;
+
 
 	public String lessonDueDate="android.view.ViewGroup/android.widget.TextView[4]";
 
@@ -248,11 +260,11 @@ public class Object_Create_Study_Plan extends BaseClass {
 
 	@AndroidFindBy(id="com.tce.studi:id/txtPositiveBtn")
 	public WebElement proceedButton;
-	
-	
+
+
 	@AndroidFindBy(id="com.tce.studi:id/txtTopButto")
 	public WebElement resumePlan;
-	
+
 	//@iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Select another plan\"]")
 	@AndroidFindBy(id = "com.tce.studi:id/txtBottomButton")
 	public WebElement selectAnotherPlanBtn;
@@ -523,11 +535,11 @@ public class Object_Create_Study_Plan extends BaseClass {
 		applyExplicitWait(5);
 
 		action = new TouchAction(driver);
-		
+
 		driver.findElementByXPath(
 				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View/android.view.View["
 						+ 1 + "]/android.view.View[2]/android.view.View/android.view.View[1]/android.widget.Button").click();
-		
+
 		applyExplicitWait(5);
 
 		Boolean status = Boolean.parseBoolean(driver.findElementByXPath(

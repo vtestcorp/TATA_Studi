@@ -18,7 +18,7 @@ public class AFS_UserStory_65 extends BaseClass {
 	public AFS_UserStory_65() {
 		super(); 
 	}
- 
+
 	//@BeforeMethod 
 	public void Validate_Login() throws Exception {
 		Module_Login login = new Module_Login();
@@ -48,44 +48,39 @@ public class AFS_UserStory_65 extends BaseClass {
 
 	@Test(enabled = true)
 	public void T04_To_Verify_User_Can_Attempt_Practise_Quetions() throws Exception {
-		Assert.assertTrue(true);
-		//Module_Verify_Syllabus_Section test = new Module_Verify_Syllabus_Section();
-		//test.verify_User_Can_attempt_PractiseQuetions();
+		Module_Verify_Syllabus_Section test = new Module_Verify_Syllabus_Section();
+		test.verify_User_Can_attempt_PractiseQuetions();
 
 	}
 
 	@Test(enabled = true)
 	public void T05_To_Verify_User_should_shown_proper_Response_for_correct_option()
 			throws IOException, InterruptedException, AWTException {
-		Assert.assertTrue(true);
-		//Module_Verify_Syllabus_Section test = new Module_Verify_Syllabus_Section();
-		//test.toVerify_ProperFeedBack_forCorrectOption();
+		Module_Verify_Syllabus_Section test = new Module_Verify_Syllabus_Section();
+		test.toVerify_ProperFeedBack_forCorrectOption();
 
 	}
 
 	@Test(enabled = true)
 	public void T06_To_Verify_User_should_shown_proper_Response_for_incorrect_option()
 			throws IOException, InterruptedException, AWTException {
-		Assert.assertTrue(true);
-		//Module_Verify_Syllabus_Section test = new Module_Verify_Syllabus_Section();
-		//test.toVerify_ProperFeedBack_forInCorrectOption();
+		Module_Verify_Syllabus_Section test = new Module_Verify_Syllabus_Section();
+		test.toVerify_ProperFeedBack_forInCorrectOption();
 
 	}
 
 	@Test(enabled = true)
 	public void T07_To_Verify_Warning_Message_On_Clicking_Back_Button()
 			throws IOException, InterruptedException, AWTException {
-		Assert.assertTrue(true);
-		//Module_Verify_Syllabus_Section test = new Module_Verify_Syllabus_Section();
-		//test.toVerify_Warning_Message();
+		Module_Verify_Syllabus_Section test = new Module_Verify_Syllabus_Section();
+		test.toVerify_Warning_Message();
 	}
 
 	@Test(enabled = true)
 	public void T08_To_Verify_Confidence_Report_Page() throws IOException, InterruptedException, AWTException {
-		Assert.assertTrue(true);
-		//Module_Verify_Syllabus_Section test = new Module_Verify_Syllabus_Section();
-		//test.toVerify_Confidence_Report_Page();
-		
+		Module_Verify_Syllabus_Section test = new Module_Verify_Syllabus_Section();
+		test.toVerify_Confidence_Report_Page();
+
 	}
 
 	@AfterMethod
