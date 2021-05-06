@@ -26,7 +26,7 @@ public class AFS_UserStory_77 extends BaseClass {
 
 	}
 
-	@Test(enabled = true)//int questions = getTotalQuestionsInPractice();
+	//@Test(enabled = true)//int questions = getTotalQuestionsInPractice();
 
 	public void TC12_To_Verify_Receive_SCQ_Questions_In_Practice()
 			throws WebDriverException, IOException, InterruptedException {
@@ -34,7 +34,7 @@ public class AFS_UserStory_77 extends BaseClass {
 		rqr.Module_Receive_SCQ_Questions_Practice(prop.getProperty("subject77"), prop.getProperty("topic77"));
 	}
 
-	@Test(enabled = true)//	int questions = getTotalQuestionsInPractice();
+	//@Test(enabled = true)//	int questions = getTotalQuestionsInPractice();
 
 	public void TC13_To_Verify_SCQ_Answers_Is_In_Default_State_In_Practice()
 			throws MalformedURLException, InterruptedException {
@@ -43,7 +43,7 @@ public class AFS_UserStory_77 extends BaseClass {
 				prop.getProperty("topic77"));
 	}
 
-	@Test(enabled = true)//	int questions = getTotalQuestionsInPractice();
+	//@Test(enabled = true)//	int questions = getTotalQuestionsInPractice();
 
 	public void TC14_To_Verify_Multiple_Answers_Shown_For_SCQ_In_Practice()
 			throws MalformedURLException, InterruptedException {
@@ -52,7 +52,8 @@ public class AFS_UserStory_77 extends BaseClass {
 				prop.getProperty("topic77"));
 	}
 
-	@Test(enabled = true)
+	//@Test(enabled = true)//		int questions = getTotalQuestionsInPractice();
+
 	public void TC15_To_Verify_SCQ_Answer_Can_Be_Select_In_Practice()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
@@ -60,7 +61,7 @@ public class AFS_UserStory_77 extends BaseClass {
 				prop.getProperty("topic77"));
 	}
 
-	@Test(enabled = true)
+	//@Test(enabled = true)
 	public void TC16_To_Verify_Only_Single_SCQ_Answer_Can_Be_Select_In_Practice()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
@@ -68,7 +69,7 @@ public class AFS_UserStory_77 extends BaseClass {
 				prop.getProperty("topic77"));
 	}
 
-	@Test(enabled = true)
+	//@Test(enabled = true)
 	public void TC17_To_Verify_Feedback_Shown_For_Correct_Answer_Selection_In_SCQ_Practice()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
@@ -77,14 +78,14 @@ public class AFS_UserStory_77 extends BaseClass {
 
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = true)//	int questions = getTotalQuestionsInPractice();
 	public void TC18_To_Verify_Feedback_Shown_For_Incorrect_Answer_Selection_In_SCQ_Practice() throws Exception {
 		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
 		rqr.Module_Verify_Feedback_Shown_For_Incorrect_Answer_Selection_In_Practice(prop.getProperty("subject77"),
 				prop.getProperty("topic77"));
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = true)//	int questions = getTotalQuestionsInPractice();
 	public void TC19_To_Verify_Attempting_SCQ_Quiz_Is_Mandatory_In_Practice()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
@@ -92,7 +93,7 @@ public class AFS_UserStory_77 extends BaseClass {
 				prop.getProperty("topic77"));
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = true)//	int questions = getTotalQuestionsInPractice();
 	public void TC20_To_Verify_In_Wrong_Answer_Selection_User_Should_Get_1_More_Attempt_For_SCQ_In_Practice()
 			throws Exception {
 		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
@@ -100,7 +101,8 @@ public class AFS_UserStory_77 extends BaseClass {
 				prop.getProperty("subject77"), prop.getProperty("topic77"));
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = true)//		int questions = getTotalQuestionsInPractice();
+
 	public void TC21_To_Verify_User_Should_Be_Able_To_Abandon_The_SCQ_In_Practice()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
@@ -163,7 +165,7 @@ public class AFS_UserStory_77 extends BaseClass {
 				prop.getProperty("topic77"));
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = true)//pass
 	public void TC08_To_Verify_Instant_Feedback_Shown_After_SCQ_Wrong_Answer_Selection_In_Revision()
 			throws InterruptedException, WebDriverException, IOException {
 		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
@@ -171,7 +173,7 @@ public class AFS_UserStory_77 extends BaseClass {
 				prop.getProperty("subject76"), prop.getProperty("topic76"));
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = true)//pass
 	public void TC09_To_Verify_Attempting_SCQ_Quiz_Is_Not_Mandatory_In_Revision()
 			throws InterruptedException, WebDriverException, IOException {
 		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
@@ -179,14 +181,15 @@ public class AFS_UserStory_77 extends BaseClass {
 				prop.getProperty("topic77"));
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = true)//pass
 	public void TC11_To_Verify_User_Can_Abandon_SCQ_Quiz_In_Revision()
 			throws InterruptedException, WebDriverException, IOException {
 		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
 		rqr.Module_Verify_User_Can_Abandon_Quiz_In_Revision(prop.getProperty("subject77"), prop.getProperty("topic77"));
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = true)//	applyExplicitWaitsUntilElementClickable(temp.nextStepBtn);
+
 	public void TC22_To_Verify_Receive_SCQ_Questions_In_Test() throws MalformedURLException, InterruptedException {
 		createPlan();
 		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
@@ -194,7 +197,8 @@ public class AFS_UserStory_77 extends BaseClass {
 
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = true)//			clickOnElement(getDriver().findElementById("com.tce.studi:id/tvPrimaryAction"));
+
 	public void TC23_Module_Receive_SCQ_Answers_In_Default_State_In_Test()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
@@ -239,7 +243,8 @@ public class AFS_UserStory_77 extends BaseClass {
 
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = true)//	clickOnElement(getDriver().findElementById("com.tce.studi:id/tvPrimaryAction"));
+
 	public void TC29_To_Verify_Attempting_SCQ_Quiz_Is_Not_Mandatory_In_Test()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
