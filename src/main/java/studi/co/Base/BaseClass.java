@@ -308,7 +308,7 @@ public class BaseClass {
 			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9");
 			caps.setCapability("appPackage", "com.tce.studi");
 			caps.setCapability("appActivity", "com.tce.view.ui.activities.SplashScreenActivity");
-			caps.setCapability("app", "C:\\Users\\LENOVO\\Downloads\\Studi_v1.1.3(7).apk");
+			caps.setCapability("app", "C:\\Users\\admin\\Downloads\\android-automation\\Studi_v1.1.3(7).apk");
 			caps.setCapability("chromedriverExecutable", "C:\\Users\\LENOVO\\Downloads\\chromedriver_win32\\chromedriver.exe");
 			caps.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, "true");
 			caps.setCapability(MobileCapabilityType.NO_RESET, true);
