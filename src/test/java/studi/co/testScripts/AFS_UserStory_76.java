@@ -119,7 +119,7 @@ public class AFS_UserStory_76 extends BaseClass {
 		rqr.Module_Receive_MCQ_Questions_Revision(prop.getProperty("subject76"), prop.getProperty("topic76"));
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = true)//failed
 	public void TC02_To_Verify_MCQ_Answers_Is_In_Default_State_In_Revision()
 			throws InterruptedException, WebDriverException, IOException {
 		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();

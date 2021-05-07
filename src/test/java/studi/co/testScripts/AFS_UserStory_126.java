@@ -92,7 +92,7 @@ public class AFS_UserStory_126 extends BaseClass {
 		mss.toVerify_User_Should_Be_Shown_Medium_Confidence_Status_For_The_Tp_In_Which_User_Has_Scored_Low_Confidence(prop.getProperty("subject2"),prop.getProperty("topic2"));
 	}
 
-	@Test(enabled=true)   
+	@Test(enabled=true,priority=-1)   
 	public void	T22_To_Verify_User_Should_Be_Shown_High_Confidence_Status_For_The_Tp_In_Which_User_Has_Scored_Low_Confidence() throws Exception{
 		Module_Syllabus_Section mss=new Module_Syllabus_Section();
 		mss.toVerify_User_Should_Be_Shown_High_Confidence_Status_For_The_Tp_In_Which_User_Has_Scored_Low_Confidence(prop.getProperty("subject2"),prop.getProperty("topic2"));

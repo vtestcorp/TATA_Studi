@@ -54,7 +54,7 @@ public class AFS_UserStory_1045 extends BaseClass{
 		mmp.toVerify_UserCanNavigate_BackTo_TheLandingPage();
 	}
 
-	@Test(enabled=true)     //passed
+	@Test(enabled=true)     
 	public void	T04_To_Verify_StudyRing_In_Default_State_For_New_StudyPlan() throws Exception{
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_StudyRing_For_NewStudyPlan();
@@ -92,71 +92,72 @@ public class AFS_UserStory_1045 extends BaseClass{
 
 	@Test(enabled=true)
 	public void T14_To_Verify_Lessons_Listed_In_Todays_Tab() throws Exception {
+
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_Lessons_In_Todays_Tab();
 	}
 
-	@Test(enabled=true)//passed T
+	@Test(enabled=true)
 	public void T15_To_Verify_Upcoming_Tab_In_My_Lessons_Page() throws Exception {
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_Upcoming_Tab();
 	}
 
-	@Test(enabled=true)//passed
+	@Test(enabled=true)
 	public void T16_To_Verify_Lessons_Listed_In_Upcoming_Tab() throws Exception {
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_Lessons_In_Upcoming_Tab();
 	}
 
-	//@Test(enabled=true)
+	@Test(enabled=true)
 	public void T17_To_Verify_Various_Colour_Code_Schema_For_Various_Books() throws Exception {
-		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
+			Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_Various_Colour_Code_Schema_For_Various_Books();
 	}
 
 
-	@Test(enabled=true)//passes T
+	@Test(enabled=true)
 	public void T19_To_Verify_User_Should_Be_Shown_HighLighted_Lesson() throws Exception {
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_HighLighted_Lesson();
 	}
 
-	@Test(enabled=true)//passed T
+	@Test(enabled=true)
 	public void T20_To_Verify_the_Highlighted_lessons_gets_changed_when_user_complete_the_previous_highlighted_lesson() throws Exception {
 
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_the_Highlighted_lessons_gets_changed();
 	}
 
-	@Test(enabled=true) // Passed T
+	@Test(enabled=true) 
 	public void T21_To_Verify_Lesson_Card_Content() throws Exception {
 
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_Lesson_Card_Content();
 	}
 
-	@Test(enabled=true)//passed T
+	@Test(enabled=true)
 	public void T22_To_Verify_TickMark_On_Lesson_Completion() throws Exception {
 
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_Tick_Mark_On_Lesson_Completion();
 	}
 
-	@Test(enabled=true)//Passed
+	@Test(enabled=true)
 	public void T23_To_Verify_Unlock_Lessons_Are_Tappable() throws Exception {
 
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_Unlock_Lessons();
 	}
 
-	@Test(enabled=true)//passed
+	@Test(enabled=true)
 	public void T24_To_Verify_Unlock_Lessons_Are_Functional() throws Exception {
 	
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_Unlock_Lessons_Functionality();
 	}
 
-	@Test(enabled=true)//passed T
+	@Test(enabled=true)
 	public void T25_To_Verify_Locked_Lessons_Are_Un_Tappable_And_Non_Functional() throws Exception {
 	
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
@@ -164,25 +165,25 @@ public class AFS_UserStory_1045 extends BaseClass{
 	}
 
 
-	@Test(enabled=true)//passed T
+	@Test(enabled=true)
 	public void T26_To_Verify_View_Full_Schedule_Button() throws Exception {
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_View_Full_Schedule();
 	}
 
-	@Test(enabled=true)//passed T
+	@Test(enabled=true)
 	public void T27_To_Verify_View_Full_Schedule_Are_Functional() throws Exception {
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_View_Full_Schedule();
 	}
 
-	@Test(enabled=true)// Passed T1
+	@Test(enabled=true)
 	public void T28_To_Verify_User_Should_Be_Able_To_Navigate_Schedule_List_Page() throws Exception {
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_Schedule_List_Page();
 	}
 
-	@Test(enabled=true)//passed T1
+	@Test(enabled=true)
 	public void T29_To_Verify_Full_Schedule_List_Of_Plan() throws Exception {
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_Schedule_List_Of_Plan();
@@ -202,21 +203,21 @@ public class AFS_UserStory_1045 extends BaseClass{
 		mmp.toVerify_Schedule_List_Of_Plan_For_Other_Weeks();
 	}
 
-	@Test(enabled=true)//Passed T1
+	@Test(enabled=true)
 	public void T32_To_Verify_Filter_Option_On_Schedule_List() throws Exception {
 
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_Filter_Option();
 	}
 
-	@Test(enabled=true)//passed T1
+	@Test(enabled=true)
 	public void T33_To_Verify_Filter_Icon_On_Schedule_List_Should_Be_Tappable() throws Exception {
 
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_Filter_Icon_On_Schedule_List_Should_Be_Tappable();
 	}
 
-	@Test(enabled=true)//Passed T
+	@Test(enabled=true)
 	public void T34_To_Verify_Various_Filter_Options_On_Schedule_List() throws Exception {
 
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
@@ -237,25 +238,25 @@ public class AFS_UserStory_1045 extends BaseClass{
 		mmp.toVerify_Various_Filter_Options_On_Schedule_List_Should_Be_Functional_For_All_The_Weeks();
 	}
 
-	@Test(enabled=true)//Passed T
+	@Test(enabled=true)
 	public void T37_To_Verify_Various_Manage_And_Create_Plan() throws Exception {
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_Manage_And_Create_Plan();
 	}
 
-	@Test(enabled=true)//Passed T
+	@Test(enabled=true)
 	public void T38_To_Verify_Various_Manage_And_Create_Plan_Is_Tappable() throws Exception {
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_Manage_And_Create_Plan_Is_Tappable();
 	}
 
-	@Test(enabled=true)//Passed 
+	@Test(enabled=true)
 	public void T39_To_Verify_Various_Manage_And_Create_Plan_Is_Functional() throws Exception {
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_Manage_And_Create_Plan_Is_Functional();
 	}
 
-	@Test(enabled=true)//Passed
+	@Test(enabled=true)
 	public void T40_To_Verify_User_Should_Be_Able_To_Review_The_Active_Plan_From_Manage_And_Create_Button() throws Exception {
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_User_Should_Be_Able_To_Review_The_Active_Plan();

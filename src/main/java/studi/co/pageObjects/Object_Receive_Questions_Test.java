@@ -24,6 +24,9 @@ public class Object_Receive_Questions_Test extends BaseClass {
 	@AndroidFindBy(id = "com.tce.studi:id/ivNext")
 	public WebElement nextBtn;
 
+	@AndroidFindBy(id ="com.tce.studi:id/tvPrimaryAction")
+	public WebElement checkAns;
+
 	@AndroidFindBy(id = "com.tce.studi:id/ivPrevious")
 	public WebElement previousBtn;
 
@@ -33,25 +36,27 @@ public class Object_Receive_Questions_Test extends BaseClass {
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]")
 	public WebElement question;
 
-	@AndroidFindBy(id = "com.tce.studi:id/btnSubmitTest")
+	@AndroidFindBy(id ="com.tce.studi:id/tvSubmitTest")
 	public WebElement submitTestBtn;
 
-	@AndroidFindBy(id = "com.tce.studi:id/txtPositiveBtn")
+	@AndroidFindBy(id ="com.tce.studi:id/txtPositiveBtn")
 	public WebElement submitTestPopup;
 
-	@AndroidFindBy(id = "com.tce.studi:id/txtNegativeBtn")
+	@AndroidFindBy(id ="com.tce.studi:id/txtNegativeBtn")
 	public WebElement returnToTestPopup;
 
-	@AndroidFindBy(id = "com.tce.studi:id/txtSubtitle")
+	@AndroidFindBy(id ="com.tce.studi:id/txtSubtitle")
 	public WebElement unattemtQueTxt;
 
-	@AndroidFindBy(id = "com.tce.studi:id/tv_review_id")
+	//@AndroidFindBy(id = "com.tce.studi:id/tv_review_id")
+	@AndroidFindBy(id ="com.tce.studi:id/tvPrimaryAction")
 	public WebElement reviewAttemt;
 
-	@AndroidFindBy(id = "com.tce.studi:id/ibFlag")
+	@AndroidFindBy(id = "com.tce.studi:id/ivFlag")
 	public WebElement queFlag; 
 
-	@AndroidFindBy(id = "com.tce.studi:id/imgFlagId")
+	//@AndroidFindBy(id = "com.tce.studi:id/imgFlagId")
+	@AndroidFindBy(id = "com.tce.studi:id/ivFlag")
 	public WebElement hamFlag;
 
 	@AndroidFindBy(id = "com.tce.studi:id/tvQuestionMarks")
@@ -63,7 +68,8 @@ public class Object_Receive_Questions_Test extends BaseClass {
 	@AndroidFindBy(id = "com.tce.studi:id/vp_lesson_cards")
 	public WebElement objectiveCard;
 
-	@AndroidFindBy(id = "com.tce.studi:id/cl_confidence_container")
+	//@AndroidFindBy(id = "com.tce.studi:id/cl_confidence_container")
+	@AndroidFindBy(id = "com.tce.studi:id/ivConfidence")
 	public WebElement confidenceCtnr;
 
 	@AndroidFindBy(id = "com.tce.studi:id/txtPositiveBtn")
@@ -74,6 +80,10 @@ public class Object_Receive_Questions_Test extends BaseClass {
 
 	@AndroidFindBy(id ="com.tce.studi:id/tvChapter")
 	public WebElement openTest;
+
+
+	@AndroidFindBy(id ="com.tce.studi:id/tvCheckAnswer")
+	public WebElement checkAnswers;
 
 	public Boolean selectCorrectOption(int queNumber) {
 		switch (queNumber) {

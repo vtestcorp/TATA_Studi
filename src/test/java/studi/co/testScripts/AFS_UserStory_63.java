@@ -52,7 +52,7 @@ public class AFS_UserStory_63 extends BaseClass {
 		so.Verify_User_Is_Unable_To_Add_Empty_Note(prop.getProperty("subject"), prop.getProperty("topic"));
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = true,priority=-1)
 	public void TC07_Verify_User_Is_Able_To_Enter_Special_Characters_In_Note()
 			throws MalformedURLException, InterruptedException, AWTException {
 		Module_Syllabus_Options so = new Module_Syllabus_Options();

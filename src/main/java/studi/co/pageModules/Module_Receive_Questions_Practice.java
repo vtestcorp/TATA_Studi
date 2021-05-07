@@ -49,7 +49,8 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		System.out.println("Opening practice for " + topic);
 		clickOnElement(findElementByText("Practice"));
 		Thread.sleep(3000);
-		clickOnElement(obp.primaryAction);
+		//clickOnElement(obp.primaryAction);
+		clickOnElement(findElementByText("Practice"));
 	}
 
 	public void Module_Receive_SCQ_Questions_Practice(String subject, String topic)
@@ -95,7 +96,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 	public void Module_Verify_Correct_Incorrect_Feedback_Shown_After_SCQ_Answer_Selection_In_Practice(String subject,
 			String topic) throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
-		applyExplicitWait(5);
+		applyExplicitWaitsUntilElementVisible(obp.question);
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 		Boolean status;
@@ -123,6 +124,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 	public void Module_Verify_Attempting_SCQ_Quiz_Is_Mandatory_In_Practice(String subject, String topic)
 			throws MalformedURLException, InterruptedException {
 		traverse_To_Begin_Practice(subject, topic);
+		applyExplicitWaitsUntilElementVisible(obp.question);
 		int questions = getTotalQuestionsInPractice();
 		SoftAssert sAss = new SoftAssert();
 		int i = 0;
@@ -141,7 +143,8 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 					firstQuestion = obp.question.findElement(By.xpath("(//XCUIElementTypeStaticText)[2]")).getText();
 				System.out.println("First question : " + firstQuestion);
 			}
-			swipeDown();
+			//swipeDown();
+			scrollTo2("attempt");
 			i++;
 			clickOnElement(obp.attempt_later);
 		}
@@ -164,7 +167,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 			String subject, String topic) throws Exception {
 		traverse_To_Begin_Practice(subject, topic);
 		SoftAssert sAss = new SoftAssert();
-		applyExplicitWait(5);
+		applyExplicitWaitsUntilElementVisible(obp.question);
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 		Boolean status;
@@ -185,11 +188,12 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 
 				test.log(Status.INFO, "Clicking on Check Answer");
 				System.out.println("Clicking on Check Answer");
-				clickOnElement(obp.check_answer);
+				clickOnElement(findElementByText("Check"));
+				//clickOnElement(obp.check_answer);
 
 				test.log(Status.INFO, "Verifying feedback after wrong answer selection");
 				System.out.println("Verifying feedback after wrong answer selection");
-				swipeTop();
+				//swipeTop();
 
 				status = obp.answerWrongMsg.isDisplayed();
 
@@ -206,7 +210,8 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				System.out.println("Click on Try Again");
 				swipeDown();
 
-				clickOnElement(obp.tryAgain);
+				//clickOnElement(obp.tryAgain);
+				clickOnElement(findElementByText("Try Again"));
 
 				test.log(Status.INFO, "Verifying Attempts left warning message");
 				System.out.println("Verifying Attempts left warning message");
@@ -244,7 +249,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 
 		traverse_To_Begin_Practice(subject, topic);
 		SoftAssert sAss = new SoftAssert();
-		applyExplicitWait(5);
+		applyExplicitWaitsUntilElementVisible(obp.question);
 		int questions = getTotalQuestionsInPractice();
 		String temp;
 		test.log(Status.INFO, "Total " + questions + "questions appeared");
@@ -309,7 +314,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 	public SoftAssert verify_All_Questions_Are_Visible() throws MalformedURLException, InterruptedException {
 
 		SoftAssert sAss = new SoftAssert();
-		applyExplicitWait(5);
+		applyExplicitWaitsUntilElementVisible(obp.question);
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 
@@ -354,7 +359,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 	public SoftAssert verify_All_SCQ_Answer_In_Default_State() throws InterruptedException, MalformedURLException {
 
 		SoftAssert sAss = new SoftAssert();
-		applyExplicitWait(5);
+		applyExplicitWaitsUntilElementVisible(obp.question);
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 		Boolean status;
@@ -400,7 +405,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 
 	public SoftAssert verify_Multiple_Answers_Shown_For_SCQ() throws InterruptedException, MalformedURLException {
 		SoftAssert sAss = new SoftAssert();
-		applyExplicitWait(5);
+		applyExplicitWaitsUntilElementVisible(obp.question);
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 		Boolean status;
@@ -438,7 +443,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 
 	public SoftAssert SCQ_Answers_Can_Be_Slect() throws InterruptedException, MalformedURLException {
 		SoftAssert sAss = new SoftAssert();
-		applyExplicitWait(5);
+		applyExplicitWaitsUntilElementVisible(obp.question);
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 		Boolean status;
@@ -490,7 +495,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 
 	public SoftAssert Only_Single_SCQ_Answer_Can_Be_Select() throws InterruptedException, MalformedURLException {
 		SoftAssert sAss = new SoftAssert();
-		applyExplicitWait(5);
+		applyExplicitWaitsUntilElementVisible(obp.question);
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 		Boolean status;
@@ -566,7 +571,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 	public SoftAssert verify_All_Questions_Are_Visible_MCQ_Practice()
 			throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
-		applyExplicitWait(5);
+		applyExplicitWaitsUntilElementVisible(obp.question);
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 		applyExplicitWaitsUntilElementVisible(obp.question);
@@ -617,7 +622,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 
 	public SoftAssert verify_All_MCQ_Answer_In_Default_State() throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
-		applyExplicitWait(5);
+		applyExplicitWaitsUntilElementVisible(obp.question);
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 		Boolean status;
@@ -672,7 +677,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 
 	public SoftAssert verify_Multiple_Answers_Shown_For_MCQ() throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
-		applyExplicitWait(5);
+		applyExplicitWaitsUntilElementVisible(obp.question);
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 		Boolean status;
@@ -720,7 +725,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 
 	public SoftAssert MCQ_Answers_Can_Be_Slect() throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
-		applyExplicitWait(5);
+		applyExplicitWaitsUntilElementVisible(obp.question);
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 		Boolean status;
@@ -783,7 +788,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 	public SoftAssert Able_to_Select_Multiple_MSQ_Answer_Can_Be_Select()
 			throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
-		applyExplicitWait(5);
+		applyExplicitWaitsUntilElementVisible(obp.question);
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 		Boolean status;
@@ -843,7 +848,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 			String topic) throws MalformedURLException, InterruptedException {
 		traverse_To_Begin_Practice(subject, topic);
 		SoftAssert sAss = new SoftAssert();
-		applyExplicitWait(5);
+		applyExplicitWaitsUntilElementVisible(obp.question);
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 		Boolean status;
@@ -902,7 +907,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		traverse_To_Begin_Practice(subject, topic);
 
 		SoftAssert sAss = new SoftAssert();
-		applyExplicitWait(5);
+		applyExplicitWaitsUntilElementVisible(obp.question);
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 		Boolean status;
@@ -977,7 +982,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 	}
 
 	public SoftAssert verify_Quiz_Is_Mandatory() throws MalformedURLException {
-		applyExplicitWait(5);
+		applyExplicitWaitsUntilElementVisible(obp.question);
 		int questions = getTotalQuestionsInPractice();
 		SoftAssert sAss = new SoftAssert();
 		int i = 0;
@@ -1019,7 +1024,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		traverse_To_Begin_Practice(subject, topic);
 
 		SoftAssert sAss = new SoftAssert();
-		applyExplicitWait(5);
+		applyExplicitWaitsUntilElementVisible(obp.question);
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 		Boolean status;
@@ -1107,7 +1112,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 
 	public SoftAssert User_Can_Abond_Quiz() throws MalformedURLException {
 		SoftAssert sAss = new SoftAssert();
-		applyExplicitWait(5);
+		applyExplicitWaitsUntilElementVisible(obp.question);
 		int questions = getTotalQuestionsInPractice();
 		String temp;
 		test.log(Status.INFO, "Total " + questions + "questions appeared");
@@ -1174,7 +1179,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 			throws MalformedURLException, InterruptedException {
 		traverse_To_Begin_Practice(subject, topic);
 		SoftAssert sAss = new SoftAssert();
-		applyExplicitWait(5);
+		applyExplicitWaitsUntilElementVisible(obp.question);
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 		Boolean status;
@@ -1195,9 +1200,9 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 
 				test.log(Status.INFO, "Clicked on Check Answer button");
 				System.out.println("Clicked on Check Answer button");
-				swipeDown();
-				clickOnElement(obp.check_answer);
-
+				//swipeDown();
+				//clickOnElement(obp.check_answer);
+				clickOnElement(findElementByText("Check"));
 				test.log(Status.INFO, "Verifying feedback after answer selection");
 				System.out.println("Verifying feedback after answer selection");
 				status = obp.answerCorrectMsg1.isDisplayed();
@@ -1231,7 +1236,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 			throws Exception {
 		traverse_To_Begin_Practice(subject, topic);
 		SoftAssert sAss = new SoftAssert();
-		applyExplicitWait(5);
+		applyExplicitWaitsUntilElementVisible(obp.question);
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 		Boolean status;
@@ -1251,9 +1256,9 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 
 				test.log(Status.INFO, "Clicked on Check Answer button");
 				System.out.println("Clicked on Check Answer button");
-				swipeDown();
-				clickOnElement(obp.check_answer);
-
+				//swipeDown();
+				//clickOnElement(obp.check_answer);
+				clickOnElement(findElementByText("Check"));
 				test.log(Status.INFO, "Verifying feedback after answer selection");
 				System.out.println("Verifying feedback after answer selection");
 				swipeTop();

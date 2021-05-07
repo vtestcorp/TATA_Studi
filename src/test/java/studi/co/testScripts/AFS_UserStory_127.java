@@ -49,7 +49,7 @@ public class AFS_UserStory_127 extends BaseClass {
 		mbcl.to_verify_use_must_be_able_to_navigate_to_practice_from_topic(prop.getProperty("subject"),prop.getProperty("topic"));
 
 	}
-	@Test(enabled = true)
+	@Test(enabled = true,priority=-1)
 	public void TC16_To_Verify_the_user_should_be_able_to_Navigate_to_Notes_listing_page()
 			throws MalformedURLException, InterruptedException {
 		Module_Browsebook_Chapter_Listing mbcl=new Module_Browsebook_Chapter_Listing();

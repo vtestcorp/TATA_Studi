@@ -115,10 +115,10 @@ public class Module_MyLesson_Page extends BaseClass{
 
 	public void toVerify_StudyRing_For_NewStudyPlan() throws Exception {
 		SoftAssert assert1=new SoftAssert();
-				//createPlan();
-		//		omp= new Object_MyLesson_Page();
-		//		applyExplicitWaitsUntilElementVisible(omp.backIcon);
-		//		omp.backIcon.click();
+		//createPlan();
+		//omp= new Object_MyLesson_Page();
+		//applyExplicitWaitsUntilElementVisible(omp.backIcon);
+		//omp.backIcon.click();
 		toVerify_User_Navigate_to_MyLessonsPage();
 
 		Boolean studyRing=omp.studyRing.isDisplayed();
@@ -232,7 +232,7 @@ public class Module_MyLesson_Page extends BaseClass{
 	public void toVerify_TickMark() throws Exception {
 		SoftAssert assert1=new SoftAssert();
 
-		//createPlan();
+		createPlan();
 		omp= new Object_MyLesson_Page();
 		Thread.sleep(2000);
 		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
@@ -386,8 +386,8 @@ public class Module_MyLesson_Page extends BaseClass{
 			test.log(Status.INFO, "A single line text to inform todays count is displayed in Today Tab");
 		}
 		//Assert.assertTrue(todayCount);
-
-		//int todaysCount=getBetweenString(omp.todaysCount,"have","tasks");
+	//String todaysTasks=omp.taskToBeCompletedToday.getText();
+		//int todaysCount=getBetweenStrings(omp.todaysCount,"have","tasks");
 		//System.out.println(todaysCount);
 
 		//List<MobileElement> topics= getDriver().findElementsById("com.tce.studi:id/cl_data");
@@ -405,6 +405,7 @@ public class Module_MyLesson_Page extends BaseClass{
 		scrollTo2("Our plan for today!");
 
 		for(int i=0;i<5;i++) {
+
 			omp.kebabMenu.click();
 			applyExplicitWaitsUntilElementVisible(omp.markAsComplete);
 			omp.markAsComplete.click();
@@ -1090,8 +1091,8 @@ public class Module_MyLesson_Page extends BaseClass{
 		for(int i=1;i<=2;i++) {
 
 			List<MobileElement> subjects= getDriver().findElementsByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView["+i+"]/android.view.ViewGroup");
-			
-		                                                                 // 	/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.TextView")
+
+			// 	/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.TextView")
 			System.out.println(subjects.size());
 			for(int j=1;j<=subjects.size();j++) {
 
