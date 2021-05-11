@@ -386,7 +386,7 @@ public class Module_MyLesson_Page extends BaseClass{
 			test.log(Status.INFO, "A single line text to inform todays count is displayed in Today Tab");
 		}
 		//Assert.assertTrue(todayCount);
-	//String todaysTasks=omp.taskToBeCompletedToday.getText();
+		//String todaysTasks=omp.taskToBeCompletedToday.getText();
 		//int todaysCount=getBetweenStrings(omp.todaysCount,"have","tasks");
 		//System.out.println(todaysCount);
 
@@ -1498,18 +1498,21 @@ public class Module_MyLesson_Page extends BaseClass{
 
 		omp.testUnit.click();
 		omp.editButton.click();
+		omp.editPortion.click();
 
-		//applyExplicitWaitsUntilElementVisible(omp.activatePlanButton);
-		//omp.activatePlanButton.click();
-		//applyExplicitWaitsUntilElementVisible(omp.subjectAtCreatePlan);
-		//omp.subjectAtCreatePlan.click();
-		//applyExplicitWaitsUntilElementVisible(orp.chapterCheckBox);
-		//orp.chapterCheckBox.click();
-		//orp.addToPortion.click();
+
+//		applyExplicitWaitsUntilElementVisible(omp.activatePlanButton);
+//		omp.activatePlanButton.click();
+//		applyExplicitWaitsUntilElementVisible(omp.subjectAtCreatePlan);
+//		omp.subjectAtCreatePlan.click();
+//		applyExplicitWaitsUntilElementVisible(orp.chapterCheckBox);
+//		orp.chapterCheckBox.click();
+//		orp.addToPortion.click();
 
 		clickOnElement(findElementByText("Next Step"));
 		applyExplicitWait(5);
-		clickOnElement(findElementByText("Next Step"));
+		clickOnElement(findElementByText("Activate Plan"));
+		//clickOnElement(findElementByText("Next Step"));
 		applyExplicitWait(5);
 
 		String date=orp.selectDate.getText();

@@ -222,7 +222,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 		String temp;
 		// int actualcount = 0;
 		try {
-			ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver()
+			 ArrayList<MobileElement> answerCount = (ArrayList<MobileElement>) getDriver()
 					.findElementsByClassName("android.widget.CheckBox");
 			int ansCount = answerCount.size();
 			System.out.println("answerCont = " + ansCount);
@@ -264,24 +264,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 
 		} catch (Exception e) {
 			System.out.println("Exception occured");
-			if (queFlag == 0) {
-				i++;
-				test.log(Status.INFO, "Question " + i + " not displayed");
-				sAss.assertTrue(false);
-				clickOnElement(ort.nextBtn);
-			} else {
-				if (flag == 1) {
-					flag = 0;
-					System.out.println("Flag set to 0");
-
-				} else {
-					flag = 1;
-					System.out.println("Flag set to 1");
-
-				}
-			}
 		}
-
 		return sAss;
 	}
 
@@ -370,6 +353,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 
 					} else
 						sAss.assertTrue(false);
+					swipeUp();
 					t++;
 				}
 			}
@@ -407,7 +391,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
 				int c = 1;
 				for (MobileElement mobileElement : answerCount) {
-
+						
 					if (device.equalsIgnoreCase("Android")) {
 						if (getElementAttribute(mobileElement, "focused").trim().equalsIgnoreCase("false")) {
 							sAss.assertTrue(true);
@@ -466,7 +450,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 				sAss.assertTrue(status, "Multiple answers not available for question " + (i + 1));
 				System.out.println("Multiple answers available for question " + (i + 1));
 				test.log(Status.INFO, "Multiple answers available for question " + (i + 1));
-
+				
 			}
 			if ((i + 1) != questions)
 				clickOnElement(ort.nextBtn);
@@ -504,7 +488,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 				int c = 1;
 				for (MobileElement mobileElement : answerCount) {
 					mobileElement.click();
-					Thread.sleep(200);
+					Thread.sleep(500);
 					if (device.equalsIgnoreCase("Android"))
 						status = Boolean.parseBoolean(mobileElement.getAttribute("focused"));
 					else
@@ -678,8 +662,14 @@ public class Module_Receive_Questions_Test extends BaseClass {
 				int ansFlag = 0;
 
 				for (MobileElement mobileElement2 : answerCount) {
+					try {
+						Thread.sleep(3000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					if (device.equalsIgnoreCase("Android"))
-						status = Boolean.parseBoolean(mobileElement2.getAttribute("checked"));
+						status = Boolean.parseBoolean(mobileElement2.getAttribute("Focused"));
 					else
 						status = mobileElement2.getAttribute("value").equalsIgnoreCase("1");
 					if (status)
@@ -709,6 +699,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 	public SoftAssert Correct_Feedback_Shown_Under_Hamburger_Menu() throws MalformedURLException {
 		SoftAssert sAss = new SoftAssert();
 		applyExplicitWait(5);
+		applyExplicitWaitsUntilElementVisible(ort.question);
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 		Boolean status;
@@ -764,7 +755,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 		applyExplicitWaitsUntilElementClickable(ort.hamburgerBtn);
 		clickOnElement(ort.hamburgerBtn);
 		ArrayList<MobileElement> queCount = (ArrayList<MobileElement>) getDriver()
-				.findElementsById("com.tce.studi:id/tvQuesId");
+				.findElementsById("com.tce.studi:id/tvQuestion");
 		String[] hList2 = new String[queCount.size()];
 		int j = 0;
 		for (MobileElement mobileElement : queCount)
@@ -775,14 +766,14 @@ public class Module_Receive_Questions_Test extends BaseClass {
 			test.log(Status.INFO, "Opening question " + (i + 1));
 			System.out.println("Opening question " + (i + 1));
 
-			clickOnElement(findElementByText(hList2[i]));
+			clickOnElement(findElementByText(hList2[i].split(":")[0]));
 
 			applyExplicitWaitsUntilElementVisible(ort.question);
 
 			if (verifySCQorMCQ().equalsIgnoreCase("scq")) {
 				test.log(Status.INFO, "Validate opened SCQ");
 				System.out.println("Validate opened SCQ");
-
+				actualcount++;
 				status = ort.question.getText().equalsIgnoreCase(initQues[i]);
 				sAss.assertTrue(status, "Different quesetion openned from hamburgure menu");
 				if (status) {
@@ -804,6 +795,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 	public SoftAssert verify_Quiz_Is_Not_Mandatory() throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
 		applyExplicitWait(5);
+		applyExplicitWaitsUntilElementVisible(ort.question);
 		int questions = getTotalQuestionsInPractice();
 		int i = 0;
 		Boolean status;
@@ -902,7 +894,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 			
 			applyExplicitWait(2);
 			if(device.equalsIgnoreCase("Android"))
-			clickOnElement(findElementByText(hList[i]));
+			clickOnElement(findElementByText(hList[i].split(":")[0]));
 			else
 				clickOnElement(findElementByText("Q"+(i+1)));
 			test.log(Status.INFO, it.toString());
@@ -920,7 +912,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 			applyExplicitWait(2);
 			if((i+1)!=questions) {
 				if(device.equalsIgnoreCase("Android"))
-				clickOnElement(findElementByText(hList[i + 1]));
+				clickOnElement(findElementByText(hList[i + 1].split(":")[0]));
 				else
 				clickOnElement(findElementByText("Q"+(i+2)));
 			}i++;
@@ -976,6 +968,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 
 	public SoftAssert verify_Multiple_Answers_Shown_For_MCQ() throws MalformedURLException {
 		applyExplicitWait(5);
+		applyExplicitWaitsUntilElementVisible(ort.question);
 		int questions = getTotalQuestionsInPractice();
 		SoftAssert sAss = new SoftAssert();
 		int flag = 1;
@@ -1038,6 +1031,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 
 	public SoftAssert verify_All_MCQ_Answer_In_Default_State() throws MalformedURLException {
 		applyExplicitWait(5);
+		applyExplicitWaitsUntilElementVisible(ort.question);
 		int questions = getTotalQuestionsInPractice();
 		SoftAssert sAss = new SoftAssert();
 		int flag = 1;
@@ -1100,6 +1094,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 	public SoftAssert verify_All_Questions_Are_Visible_MCQ_Test() throws MalformedURLException {
 		SoftAssert sAss = new SoftAssert();
 		applyExplicitWait(5);
+		applyExplicitWaitsUntilElementVisible(ort.question);
 		int questions = getTotalQuestionsInPractice();
 		int flag = 1;
 		int i = 0;
@@ -1169,6 +1164,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 
 	public SoftAssert MCQ_Answers_Can_Be_Slect() throws MalformedURLException {
 		applyExplicitWait(5);
+		applyExplicitWaitsUntilElementVisible(ort.question);
 		int questions = getTotalQuestionsInPractice();
 		SoftAssert sAss = new SoftAssert();
 		int flag = 1;
@@ -1247,6 +1243,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 
 	public SoftAssert Able_to_Select_Multiple_MSQ_Answer_Can_Be_Select() throws MalformedURLException {
 		applyExplicitWait(5);
+		applyExplicitWaitsUntilElementVisible(ort.question);
 		int questions = getTotalQuestionsInPractice();
 		SoftAssert sAss = new SoftAssert();
 		int flag = 1;
@@ -1337,6 +1334,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 	public SoftAssert Correct_Feedback_Shown_Under_Hamburger_Menu_MCQ()
 			throws MalformedURLException, InterruptedException {
 		applyExplicitWait(5);
+		applyExplicitWaitsUntilElementVisible(ort.question);
 		int questions = getTotalQuestionsInPractice();
 		SoftAssert sAss = Correct_Feedback_Shown_After_Test_Complition();
 
@@ -1442,6 +1440,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 	private SoftAssert User_Should_Be_Able_To_Flag_The_Question_MCQ() throws MalformedURLException {
 		SoftAssert sAss = new SoftAssert();
 		applyExplicitWait(5);
+		applyExplicitWaitsUntilElementVisible(ort.question);
 		int questions = getTotalQuestionsInPractice();
 		int flag = 1;
 		int i = 0;

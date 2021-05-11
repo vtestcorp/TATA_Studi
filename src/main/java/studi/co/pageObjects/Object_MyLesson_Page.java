@@ -271,6 +271,10 @@ public class Object_MyLesson_Page extends BaseClass{
 	@AndroidFindBy(id="com.tce.studi:id/clActivePlan")
 	public WebElement detailsOfActivePlan;
 
+	//@AndroidFindBy(id="com.tce.studi:id/tv_intent_title")
+	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tv_intent_title\").textContains(\"Deadline\")")
+	public WebElement editPortion;
+
 	@AndroidFindBy(id="com.tce.studi:id/tv_plan_name")
 	public List<MobileElement> otherPlan;
 
@@ -315,7 +319,7 @@ public class Object_MyLesson_Page extends BaseClass{
 
 	@AndroidBy(xpath="tce.studi:id/tvPrimaryAction")
 	public WebElement Begin_Practice;
-	
+
 	//@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tv_book_name\").textContains(\"Political Science\")")
 	//public WebElement subjectAtCreatePlan;
 

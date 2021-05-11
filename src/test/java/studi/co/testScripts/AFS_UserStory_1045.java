@@ -72,7 +72,7 @@ public class AFS_UserStory_1045 extends BaseClass{
 		mmp.toVerify_3_Rings_In_StudyRing();
 	}
 
-	@Test(enabled=true)   
+	@Test(enabled=true)  
 	public void	T07_To_Verify_Information_OfTask_ToBe_Completed_Today() throws Exception{
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_Information_OfTask();
@@ -92,7 +92,6 @@ public class AFS_UserStory_1045 extends BaseClass{
 
 	@Test(enabled=true)
 	public void T14_To_Verify_Lessons_Listed_In_Todays_Tab() throws Exception {
-
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_Lessons_In_Todays_Tab();
 	}
@@ -110,8 +109,8 @@ public class AFS_UserStory_1045 extends BaseClass{
 	}
 
 	@Test(enabled=true)
-	public void T17_To_Verify_Various_Colour_Code_Schema_For_Various_Books() throws Exception {
-			Module_MyLesson_Page mmp=new Module_MyLesson_Page();
+	public void T17_To_Verify_Various_Colour_Code_Schema_For_Various_Books() throws Exception {	
+		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_Various_Colour_Code_Schema_For_Various_Books();
 	}
 
@@ -124,14 +123,12 @@ public class AFS_UserStory_1045 extends BaseClass{
 
 	@Test(enabled=true)
 	public void T20_To_Verify_the_Highlighted_lessons_gets_changed_when_user_complete_the_previous_highlighted_lesson() throws Exception {
-
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_the_Highlighted_lessons_gets_changed();
 	}
 
 	@Test(enabled=true) 
 	public void T21_To_Verify_Lesson_Card_Content() throws Exception {
-
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_Lesson_Card_Content();
 	}
@@ -152,14 +149,13 @@ public class AFS_UserStory_1045 extends BaseClass{
 
 	@Test(enabled=true)
 	public void T24_To_Verify_Unlock_Lessons_Are_Functional() throws Exception {
-	
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_Unlock_Lessons_Functionality();
 	}
 
 	@Test(enabled=true)
 	public void T25_To_Verify_Locked_Lessons_Are_Un_Tappable_And_Non_Functional() throws Exception {
-	
+
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_Locked_Lessons_Functionality();
 	}
@@ -198,7 +194,7 @@ public class AFS_UserStory_1045 extends BaseClass{
 
 	@Test(enabled=true)
 	public void T31_To_Verify_Full_Schedule_List_Of_Plan_For_Other_Weeks() throws Exception {
-	
+
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_Schedule_List_Of_Plan_For_Other_Weeks();
 	}
@@ -226,7 +222,7 @@ public class AFS_UserStory_1045 extends BaseClass{
 
 	@Test(enabled=true)
 	public void T35_To_Verify_Various_Filter_Options_On_Schedule_List_Should_Be_Functional() throws Exception {
-		
+
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_Various_Filter_Options_On_Schedule_List_Should_Be_Functional();
 	}
@@ -264,7 +260,6 @@ public class AFS_UserStory_1045 extends BaseClass{
 
 	@Test(enabled=true)
 	public void T41_To_Verify_User_Should_Be_Able_To_Reactivate_The_older_Plans_From_Manage_And_Create_Button() throws Exception {
-	
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_User_Should_Be_Able_To_Reactivate_The_Older_Plans();
 	}

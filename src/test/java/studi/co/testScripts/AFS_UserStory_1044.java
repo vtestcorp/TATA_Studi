@@ -133,7 +133,7 @@ public class AFS_UserStory_1044 extends BaseClass {
 		csp.Verify_Lesson_Order_In_Test_Unit(prop.getProperty("subject"), prop.getProperty("topic"));
 	}
 
-	@Test(enabled = true, groups = "ExistingUser")
+	@Test(enabled = true, groups = "ExistingUser",priority=-1)
 	public void TC29_Verify_Lesson_Order_After_Complting_Lessons_In_Test_Unit()
 			throws MalformedURLException, InterruptedException {
 		Module_Create_Study_Plan csp = new Module_Create_Study_Plan();
@@ -360,7 +360,7 @@ public class AFS_UserStory_1044 extends BaseClass {
 	}
 
 	// only for one subject---> one or two topics
-	@Test(enabled = true, groups = "ExistingUser",priority=-1)
+	@Test(enabled = true, groups = "ExistingUser")
 	public void TC60_Verify_User_Should_Be_Able_To_Create_Study_Plan_Via_Syllabus_Module() throws Exception {
 
 		Module_Create_Study_Plan csp = new Module_Create_Study_Plan();

@@ -128,7 +128,7 @@ public class AFS_UserStory_1046 extends BaseClass{
 		mrs.toVerify_Turtle_Icon();
 	}
 
-	@Test(enabled  = true) 
+	@Test(enabled  = true,priority=-1) 
 	public void	T14_To_Verify_Rabbit_Icon_On_Fast_Progress_of_Subject_In_Review_Plan_Page() throws IOException, InterruptedException{
 
 		Module_ReviewPlan mrs=new Module_ReviewPlan();
@@ -192,8 +192,7 @@ public class AFS_UserStory_1046 extends BaseClass{
 		mrs.toVerify_DeadLineTab_UnderModifyTab();
 	}
 
-	@Test(enabled  = true)//failed:at org.testng.Assert.assertNotEquals(Assert.java:1157) both values r same 30 -30 
-
+	@Test(enabled  = true)
 	public void	T23_To_Verify_User_Should_Be_Able_To_Modify_The_Plans_DeadLine() throws Exception{
 		Module_ReviewPlan mrs=new Module_ReviewPlan();
 		mrs.toVerify_ToModify_ThePlansDeadLine();
@@ -207,7 +206,7 @@ public class AFS_UserStory_1046 extends BaseClass{
 
 	@Test(enabled  = true) 
 	public void T25_To_Verify_Activation_Of_Plan_With_Unfeasible_Deadline() throws IOException, InterruptedException, ParseException{
-		
+
 		Module_ReviewPlan mrs=new Module_ReviewPlan();
 		mrs.toVerify_UnfeasibleDeadline();
 	}
@@ -234,9 +233,8 @@ public class AFS_UserStory_1046 extends BaseClass{
 		mrs.toVerify_PortionOption_IsFunctional();
 	}
 
-	@Test(enabled  = true)   // Delete option is not visible
+	@Test(enabled  = true)   
 	public void T29_To_Verify_User_able_to_Modify_the_Portion_added_To_The_Plan() throws IOException, InterruptedException, ParseException{
-
 		Module_ReviewPlan mrs=new Module_ReviewPlan();
 		mrs.toVerify_toModify_thePortion();
 	}

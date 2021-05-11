@@ -142,9 +142,7 @@ public class BaseClass {
 	}
 
 	public void selectCorrectAnswer() {
-		action = new TouchAction(driver);
-		action.press(PointOption.point(115, 650)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(400)))
-		.moveTo(PointOption.point(115, 350)).release().perform();
+		swipeUp();
 		correctAnswers = 0;
 		int i = 0;
 		Set<String> context = driver.getContextHandles();
@@ -178,9 +176,7 @@ public class BaseClass {
 	}
 
 	public void selectPartialCorrectAnswer() {
-		action = new TouchAction(driver);
-		action.press(PointOption.point(115, 650)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(400)))
-		.moveTo(PointOption.point(115, 350)).release().perform();
+		swipeUp();
 		correctAnswers = 0;
 		int corr = 0, incorr = 0;
 		int i = 0;
@@ -236,9 +232,7 @@ public class BaseClass {
 	}
 
 	public void selectIncorrectAnswer() {
-		action = new TouchAction(driver);
-		action.press(PointOption.point(115, 650)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(400)))
-		.moveTo(PointOption.point(115, 350)).release().perform();
+		swipeUp();
 		wrongAnswers = 0;
 		int i = 0;
 		Set<String> context = driver.getContextHandles();
@@ -270,6 +264,7 @@ public class BaseClass {
 		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
 		getDriver().context("NATIVE_APP");
 	}
+
 	public String verifySCQorMCQ() {
 		correctAnswers = 0;
 		getDriver().context("WEBVIEW_com.tce.studi");
@@ -291,7 +286,6 @@ public class BaseClass {
 
 	}
 
-
 	/*
 	 * Initializing pre-requisite capabilities necessary for invoking corresponding
 	 * device.
@@ -308,8 +302,7 @@ public class BaseClass {
 			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9");
 			caps.setCapability("appPackage", "com.tce.studi");
 			caps.setCapability("appActivity", "com.tce.view.ui.activities.SplashScreenActivity");
-			//caps.setCapability("app", "C:\\Users\\admin\\Downloads\\android-automation\\Studi_v1.1.3(7).apk");
-			caps.setCapability("chromedriverExecutable", "C:\\Users\\LENOVO\\Downloads\\chromedriver_win32\\chromedriver.exe");
+			caps.setCapability("app", "C:\\Users\\Dell\\Downloads\\Studi_v1.1.3(7).apk");
 			caps.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, "true");
 			caps.setCapability(MobileCapabilityType.NO_RESET, true);
 			System.out.println("Required Desired Capabilities Defined");
@@ -369,6 +362,7 @@ public class BaseClass {
 				TimeUnit.SECONDS);
 
 	}
+
 	public static AppiumDriver<MobileElement> getDriver() {
 
 		return (AppiumDriver<MobileElement>) driver;
@@ -426,26 +420,26 @@ public class BaseClass {
 	 * 
 	 * @param element
 	 */
-	//	public static void clickOnElement(WebElement element) {
-	//		System.out.println("Clicking on element " + element.getText());
-	//		// test.log(Status.INFO,"Clicking on element " + element.getText());
+	// public static void clickOnElement(WebElement element) {
+	// System.out.println("Clicking on element " + element.getText());
+	// // test.log(Status.INFO,"Clicking on element " + element.getText());
 	//
-	//		try {
-	//			if (device.equalsIgnoreCase("Android"))
-	//				applyExplicitWaitsUntilElementVisible(element);
-	//			else
-	//				try {
-	//					Thread.sleep(2000);
-	//				} catch (InterruptedException e) {
-	//					// TODO Auto-generated catch block
-	//					e.printStackTrace();
-	//				}
-	//		} catch (MalformedURLException e) {
-	//			// TODO Auto-generated catch block
-	//			e.printStackTrace();
-	//		}
-	//		element.click();
-	//	}
+	// try {
+	// if (device.equalsIgnoreCase("Android"))
+	// applyExplicitWaitsUntilElementVisible(element);
+	// else
+	// try {
+	// Thread.sleep(2000);
+	// } catch (InterruptedException e) {
+	// // TODO Auto-generated catch block
+	// e.printStackTrace();
+	// }
+	// } catch (MalformedURLException e) {
+	// // TODO Auto-generated catch block
+	// e.printStackTrace();
+	// }
+	// element.click();
+	// }
 
 	public static void clickOnElement(WebElement element) {
 		System.out.println("Clicking on element " + element.getText());
@@ -458,8 +452,6 @@ public class BaseClass {
 		}
 		element.click();
 	}
-
-
 
 	/**
 	 * This method will send the text at the location for which we have specified
@@ -525,9 +517,9 @@ public class BaseClass {
 			while (!driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='" + text + "']")).isDisplayed()) {
 				System.out.println("checked1");
 				action.press(PointOption.point(size.width / 3, (int) (size.height * 0.8)))
-				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(700)))
-				.moveTo(PointOption.point(size.width / 3, (int) (size.height * 0.8) - size.height / 3))
-				.release().perform();
+						.waitAction(WaitOptions.waitOptions(Duration.ofMillis(700)))
+						.moveTo(PointOption.point(size.width / 3, (int) (size.height * 0.8) - size.height / 3))
+						.release().perform();
 			}
 		}
 	}
@@ -537,33 +529,37 @@ public class BaseClass {
 	 * 
 	 * @param text
 	 */
-	//	public static void scrollTo2(String text) {
-	//		System.out.println("Scrolling to the Element which has the given text property : " + text);
-	//		if (getDevice().equalsIgnoreCase("ios")) {
-	//			try {
-	//				Thread.sleep(2000);
-	//			} catch (InterruptedException e) {
-	//				// TODO Auto-generated catch block
-	//				e.printStackTrace();
-	//			}
-	//			action = new TouchAction(driver);
+	// public static void scrollTo2(String text) {
+	// System.out.println("Scrolling to the Element which has the given text
+	// property : " + text);
+	// if (getDevice().equalsIgnoreCase("ios")) {
+	// try {
+	// Thread.sleep(2000);
+	// } catch (InterruptedException e) {
+	// // TODO Auto-generated catch block
+	// e.printStackTrace();
+	// }
+	// action = new TouchAction(driver);
 	//
-	//			org.openqa.selenium.Dimension size = driver.manage().window().getSize();
-	//			while (!driver.findElement(By.xpath("//*[contains(@name, '" + text + "')]"))
-	//					.isDisplayed()) {
-	//				System.out.println("checked2");
-	//				action.press(PointOption.point(size.width / 3, (int) (size.height * 0.8)))
-	//				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(700)))
-	//				.moveTo(PointOption.point(size.width / 3, (int) (size.height * 0.8) - size.height / 3))
-	//				.release().perform();
-	//			}
-	//		} else {
+	// org.openqa.selenium.Dimension size = driver.manage().window().getSize();
+	// while (!driver.findElement(By.xpath("//*[contains(@name, '" + text + "')]"))
+	// .isDisplayed()) {
+	// System.out.println("checked2");
+	// action.press(PointOption.point(size.width / 3, (int) (size.height * 0.8)))
+	// .waitAction(WaitOptions.waitOptions(Duration.ofMillis(700)))
+	// .moveTo(PointOption.point(size.width / 3, (int) (size.height * 0.8) -
+	// size.height / 3))
+	// .release().perform();
+	// }
+	// } else {
 	//
-	//			getDriver().findElement(MobileBy.AndroidUIAutomator(
-	//					"new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""
-	//							+ text + "\").instance(0))"));
-	//		}
-	//	}
+	// getDriver().findElement(MobileBy.AndroidUIAutomator(
+	// "new UiScrollable(new
+	// UiSelector().scrollable(true).instance(0)).scrollIntoView(new
+	// UiSelector().textContains(\""
+	// + text + "\").instance(0))"));
+	// }
+	// }
 
 	public static void scrollTo2(String text) {
 		System.out.println("Scrolling to the Element which has the given text property : " + text);
@@ -591,10 +587,11 @@ public class BaseClass {
 		wait.until(ExpectedConditions.visibilityOf(element));
 
 	}
+
 	public static void scrollToEnd() {
 		action = new TouchAction(driver);
 		action.press(PointOption.point(115, 750)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(100)))
-		.moveTo(PointOption.point(115, 50)).release().perform();
+				.moveTo(PointOption.point(115, 50)).release().perform();
 	}
 
 	/**
@@ -640,6 +637,7 @@ public class BaseClass {
 		touchAction.tap(new PointOption().withCoordinates(x, y)).perform();
 
 	}
+
 	public static String getBetweenStrings(String text, String textFrom, String textTo) {
 
 		String result = "";
@@ -653,6 +651,7 @@ public class BaseClass {
 
 		return result;
 	}
+
 	/**
 	 * This method will give us the attribute or property value for the element of
 	 * our interest and it needs that WebElement as well as the attribute key
@@ -704,8 +703,11 @@ public class BaseClass {
 
 	public void swipeUp() {
 		action = new TouchAction(driver);
-		action.press(PointOption.point(115, 650)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
-		.moveTo(PointOption.point(115, 350)).release().perform();
+		org.openqa.selenium.Dimension size = driver.manage().window().getSize();
+		action.press(PointOption.point(size.width / 3, (int) (size.height * 0.8)))
+				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(700)))
+				.moveTo(PointOption.point(size.width / 3, (int) (size.height * 0.8) - size.height / 3)).release()
+				.perform();
 	}
 
 	public void swipeDown() {
@@ -715,8 +717,8 @@ public class BaseClass {
 		int startPoint = (int) (size.height * 0.3);
 		int endPoint = (int) (size.height * 0.8);
 		getTouchAction().press(PointOption.point(anchor, endPoint))
-		.waitAction(WaitOptions.waitOptions(Duration.ofMillis(100)))
-		.moveTo(PointOption.point(anchor, startPoint)).release().perform();
+				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(100)))
+				.moveTo(PointOption.point(anchor, startPoint)).release().perform();
 	}
 
 	public void swipeLeft() {
@@ -732,8 +734,8 @@ public class BaseClass {
 		TouchAction ts = new TouchAction(driver);
 		// for(int i=0;i<=3;i++) {
 		ts.press(PointOption.point(startPoint, ScreenPlace))
-		.waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000)))
-		.moveTo(PointOption.point(endPoint, ScreenPlace)).release().perform();
+				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000)))
+				.moveTo(PointOption.point(endPoint, ScreenPlace)).release().perform();
 
 	}
 
@@ -783,35 +785,32 @@ public class BaseClass {
 				action.press(PointOption.point(start, y)).moveTo(PointOption.point(end + start, y)).release().perform();
 			else
 				action.press(PointOption.point(start, y)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000)))
-				.moveTo(PointOption.point(end + start, y)).release().perform();
+						.moveTo(PointOption.point(end + start, y)).release().perform();
 			oso.playBtn.click();
-		}
-		else
+		} else
 			clickOnElement(oso.skip);
 		System.err.println("Forwarded");
 		applyExplicitWaitsUntilElementVisible(oso.quiz);
 	}
 
-
-	//	public static MobileElement findElementByText(String text) {
-	//		if (device.equalsIgnoreCase("Android"))
-	//			return getDriver().findElement(By.xpath("//*[contains(@text, '" + text + "')]"));
-	//		else
-	//			return getDriver().findElement(By.xpath("//*[contains(@name, '" + text
-	//					+ "') or contains(@name, '" + text.toUpperCase() + "')]"));
+	// public static MobileElement findElementByText(String text) {
+	// if (device.equalsIgnoreCase("Android"))
+	// return getDriver().findElement(By.xpath("//*[contains(@text, '" + text +
+	// "')]"));
+	// else
+	// return getDriver().findElement(By.xpath("//*[contains(@name, '" + text
+	// + "') or contains(@name, '" + text.toUpperCase() + "')]"));
 	//
-	//	}
-
+	// }
 
 	public static MobileElement findElementByText(String text) {
 		if (device.equalsIgnoreCase("Android"))
 			return getDriver().findElement(By.xpath("//*[contains(@text, '" + text + "')]"));
 		else
-			return getDriver().findElement(By.xpath("//*[contains(@name, '" + text
-					+ "') or contains(@name, '" + text.toUpperCase() + "')]"));
+			return getDriver().findElement(
+					By.xpath("//*[contains(@name, '" + text + "') or contains(@name, '" + text.toUpperCase() + "')]"));
 
 	}
-
 
 	public static MobileElement findElementByExactText(String text) {
 		if (device.equalsIgnoreCase("Android"))
@@ -852,8 +851,8 @@ public class BaseClass {
 		int startPoint = (int) (size.height * startPercentage);
 		int endPoint = (int) (size.height * finalPercentage);
 		getTouchAction().press(PointOption.point(anchor, startPoint))
-		.waitAction(WaitOptions.waitOptions(Duration.ofMillis(duration)))
-		.moveTo(PointOption.point(anchor, endPoint)).release().perform();
+				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(duration)))
+				.moveTo(PointOption.point(anchor, endPoint)).release().perform();
 	}
 
 	public static void swipeTop() throws Exception {
@@ -863,8 +862,8 @@ public class BaseClass {
 		int startPoint = (int) (size.height * 0.3);
 		int endPoint = (int) (size.height * 0.8);
 		getTouchAction().press(PointOption.point(anchor, startPoint))
-		.waitAction(WaitOptions.waitOptions(Duration.ofMillis(100))).moveTo(PointOption.point(anchor, endPoint))
-		.release().perform();
+				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(100))).moveTo(PointOption.point(anchor, endPoint))
+				.release().perform();
 	}
 
 	public static TouchAction getTouchAction() {
@@ -977,7 +976,7 @@ public class BaseClass {
 						.isDisplayed()) {
 					driver.findElement(By.xpath(
 							"//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeButton"))
-					.click();
+							.click();
 				}
 			}
 		} catch (Exception e) {
@@ -1039,7 +1038,7 @@ public class BaseClass {
 			} else {
 				driver.findElementByXPath(
 						"//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell/XCUIElementTypeButton")
-				.click();
+						.click();
 				clickOnElement(driver.findElementByXPath("//XCUIElementTypeButton[@name=\"Delete\"]"));
 				clickOnElement(driver.findElement(By.xpath("//XCUIElementTypeButton[@name=\"Delete Note\"]")));
 			}
@@ -1076,7 +1075,8 @@ public class BaseClass {
 
 		if (device.equalsIgnoreCase("Android"))
 			getDriver().findElement(By.xpath(
-					"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]")).click();
+					"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]"))
+					.click();
 		else {
 			clickOnElement(findElementByText("Continue"));
 		}
