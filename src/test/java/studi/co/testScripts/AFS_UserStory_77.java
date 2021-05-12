@@ -143,10 +143,10 @@ public class AFS_UserStory_77 extends BaseClass {
 
 	@Test(enabled = true)//faile org.openqa.selenium.StaleElementReferenceException: Cached elements 'By.clazz: android.widget.CheckBox' do not exist in DOM anymore
 	public void TC05_To_Verify_Only_Single_Answer_Can_Be_Select_For_SCQ_Question_In_Revision() throws Exception {
-		Assert.assertTrue(true);
-		//Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
-		//rqr.Verify_Only_Single_Answer_Can_Be_Select_For_SCQ_Question_In_Revision(prop.getProperty("subject77"),
-		//	prop.getProperty("topic77"));
+		
+		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
+		rqr.Verify_Only_Single_Answer_Can_Be_Select_For_SCQ_Question_In_Revision(prop.getProperty("subject77"),
+		prop.getProperty("topic77"));
 	}
 
 	@Test(enabled = true)//pass
@@ -191,10 +191,10 @@ public class AFS_UserStory_77 extends BaseClass {
 
 	@Test(enabled = true)//	failed clickOnElement(temp.markAsComplete);
 	public void TC22_To_Verify_Receive_SCQ_Questions_In_Test() throws MalformedURLException, InterruptedException {
-		Assert.assertTrue(true);
-		//createPlan();
-		//Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
-		//rqt.Module_Receive_SCQ_Questions_Test(prop.getProperty("subject"));
+
+		createPlan();
+		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
+		rqt.Module_Receive_SCQ_Questions_Test(prop.getProperty("subject"));
 
 	}
 
@@ -230,18 +230,18 @@ public class AFS_UserStory_77 extends BaseClass {
 	@Test(enabled = true)//assertion false
 	public void TC27_To_Verify_Correct_Feedback_Shown_After_SCQ_Answer_Selection_In_Test()
 			throws MalformedURLException, InterruptedException {
-		Assert.assertTrue(true);
-		//Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
-		//rqt.Module_Verify_Correct_Feedback_Shown_After_SCQ_Answer_Selection_In_Test(prop.getProperty("Psubject"));
+
+		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
+		rqt.Module_Verify_Correct_Feedback_Shown_After_SCQ_Answer_Selection_In_Test(prop.getProperty("Psubject"));
 
 	}
 
 	@Test(enabled = true) // f needs questions data
 	public void TC28_To_Verify_Correct_Feedback_Shown_Under_Hamburger_Menu_In_Test()
 			throws MalformedURLException, InterruptedException {
-		Assert.assertTrue(true);
-		//Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
-		//rqt.Module_Verify_Correct_Feedback_Shown_Under_Hamburger_Menu_In_Test(prop.getProperty("Psubject"));
+
+		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
+		rqt.Module_Verify_Correct_Feedback_Shown_Under_Hamburger_Menu_In_Test(prop.getProperty("Psubject"));
 
 	}
 
@@ -257,9 +257,9 @@ public class AFS_UserStory_77 extends BaseClass {
 	@Test(enabled = true)//f 4t question 
 	public void TC30_To_Verify_User_Should_Be_Able_To_Flag_The_SCQ_Question_In_Test()
 			throws MalformedURLException, InterruptedException {
-		Assert.assertTrue(true);
-		//Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
-		//rqt.Module_Verify_User_Should_Be_Able_To_Flag_The_Question_In_Test(prop.getProperty("Psubject"));
+
+		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
+		rqt.Module_Verify_User_Should_Be_Able_To_Flag_The_Question_In_Test(prop.getProperty("Psubject"));
 
 	}
 

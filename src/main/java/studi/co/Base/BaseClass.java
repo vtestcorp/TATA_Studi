@@ -15,6 +15,8 @@
 package studi.co.Base;
 
 import org.openqa.selenium.JavascriptExecutor;
+import java.util.Iterator;
+import org.apache.poi.ss.usermodel.Cell;
 
 import java.awt.AWTException;
 import java.awt.CardLayout;
@@ -47,6 +49,15 @@ import javax.swing.Timer;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.FormulaEvaluator;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Point;
@@ -302,7 +313,8 @@ public class BaseClass {
 			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9");
 			caps.setCapability("appPackage", "com.tce.studi");
 			caps.setCapability("appActivity", "com.tce.view.ui.activities.SplashScreenActivity");
-			caps.setCapability("app", "C:\\Users\\Dell\\Downloads\\Studi_v1.1.3(7).apk");
+			caps.setCapability("chromedriverExecutable", "C:\\Users\\LENOVO\\Downloads\\chromedriver_win32\\chromedriver.exe");
+			//caps.setCapability("app", "C:\\Users\\Dell\\Downloads\\Studi_v1.1.3(7).apk");
 			caps.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, "true");
 			caps.setCapability(MobileCapabilityType.NO_RESET, true);
 			System.out.println("Required Desired Capabilities Defined");
@@ -517,9 +529,9 @@ public class BaseClass {
 			while (!driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='" + text + "']")).isDisplayed()) {
 				System.out.println("checked1");
 				action.press(PointOption.point(size.width / 3, (int) (size.height * 0.8)))
-						.waitAction(WaitOptions.waitOptions(Duration.ofMillis(700)))
-						.moveTo(PointOption.point(size.width / 3, (int) (size.height * 0.8) - size.height / 3))
-						.release().perform();
+				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(700)))
+				.moveTo(PointOption.point(size.width / 3, (int) (size.height * 0.8) - size.height / 3))
+				.release().perform();
 			}
 		}
 	}
@@ -591,7 +603,7 @@ public class BaseClass {
 	public static void scrollToEnd() {
 		action = new TouchAction(driver);
 		action.press(PointOption.point(115, 750)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(100)))
-				.moveTo(PointOption.point(115, 50)).release().perform();
+		.moveTo(PointOption.point(115, 50)).release().perform();
 	}
 
 	/**
@@ -705,9 +717,9 @@ public class BaseClass {
 		action = new TouchAction(driver);
 		org.openqa.selenium.Dimension size = driver.manage().window().getSize();
 		action.press(PointOption.point(size.width / 3, (int) (size.height * 0.8)))
-				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(700)))
-				.moveTo(PointOption.point(size.width / 3, (int) (size.height * 0.8) - size.height / 3)).release()
-				.perform();
+		.waitAction(WaitOptions.waitOptions(Duration.ofMillis(700)))
+		.moveTo(PointOption.point(size.width / 3, (int) (size.height * 0.8) - size.height / 3)).release()
+		.perform();
 	}
 
 	public void swipeDown() {
@@ -717,8 +729,8 @@ public class BaseClass {
 		int startPoint = (int) (size.height * 0.3);
 		int endPoint = (int) (size.height * 0.8);
 		getTouchAction().press(PointOption.point(anchor, endPoint))
-				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(100)))
-				.moveTo(PointOption.point(anchor, startPoint)).release().perform();
+		.waitAction(WaitOptions.waitOptions(Duration.ofMillis(100)))
+		.moveTo(PointOption.point(anchor, startPoint)).release().perform();
 	}
 
 	public void swipeLeft() {
@@ -734,8 +746,8 @@ public class BaseClass {
 		TouchAction ts = new TouchAction(driver);
 		// for(int i=0;i<=3;i++) {
 		ts.press(PointOption.point(startPoint, ScreenPlace))
-				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000)))
-				.moveTo(PointOption.point(endPoint, ScreenPlace)).release().perform();
+		.waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000)))
+		.moveTo(PointOption.point(endPoint, ScreenPlace)).release().perform();
 
 	}
 
@@ -785,7 +797,7 @@ public class BaseClass {
 				action.press(PointOption.point(start, y)).moveTo(PointOption.point(end + start, y)).release().perform();
 			else
 				action.press(PointOption.point(start, y)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000)))
-						.moveTo(PointOption.point(end + start, y)).release().perform();
+				.moveTo(PointOption.point(end + start, y)).release().perform();
 			oso.playBtn.click();
 		} else
 			clickOnElement(oso.skip);
@@ -851,8 +863,8 @@ public class BaseClass {
 		int startPoint = (int) (size.height * startPercentage);
 		int endPoint = (int) (size.height * finalPercentage);
 		getTouchAction().press(PointOption.point(anchor, startPoint))
-				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(duration)))
-				.moveTo(PointOption.point(anchor, endPoint)).release().perform();
+		.waitAction(WaitOptions.waitOptions(Duration.ofMillis(duration)))
+		.moveTo(PointOption.point(anchor, endPoint)).release().perform();
 	}
 
 	public static void swipeTop() throws Exception {
@@ -862,8 +874,8 @@ public class BaseClass {
 		int startPoint = (int) (size.height * 0.3);
 		int endPoint = (int) (size.height * 0.8);
 		getTouchAction().press(PointOption.point(anchor, startPoint))
-				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(100))).moveTo(PointOption.point(anchor, endPoint))
-				.release().perform();
+		.waitAction(WaitOptions.waitOptions(Duration.ofMillis(100))).moveTo(PointOption.point(anchor, endPoint))
+		.release().perform();
 	}
 
 	public static TouchAction getTouchAction() {
@@ -976,7 +988,7 @@ public class BaseClass {
 						.isDisplayed()) {
 					driver.findElement(By.xpath(
 							"//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeButton"))
-							.click();
+					.click();
 				}
 			}
 		} catch (Exception e) {
@@ -1038,7 +1050,7 @@ public class BaseClass {
 			} else {
 				driver.findElementByXPath(
 						"//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell/XCUIElementTypeButton")
-						.click();
+				.click();
 				clickOnElement(driver.findElementByXPath("//XCUIElementTypeButton[@name=\"Delete\"]"));
 				clickOnElement(driver.findElement(By.xpath("//XCUIElementTypeButton[@name=\"Delete Note\"]")));
 			}
@@ -1076,7 +1088,7 @@ public class BaseClass {
 		if (device.equalsIgnoreCase("Android"))
 			getDriver().findElement(By.xpath(
 					"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]"))
-					.click();
+			.click();
 		else {
 			clickOnElement(findElementByText("Continue"));
 		}
@@ -1129,6 +1141,52 @@ public class BaseClass {
 		action = new TouchAction(driver);
 		action.tap(PointOption.point(element.getLocation().x + (element.getSize().width / 2),
 				element.getLocation().y + (element.getSize().height / 2))).perform();
+	}
+
+
+	public static String getLocator(String element) throws IOException {
+
+		String uname;
+		String locator="";
+
+		try  
+		{  
+			File file = new File("C:\\Users\\LENOVO\\Downloads\\TATA Studi Locators.xlsx");   //creating a new file instance  
+			FileInputStream fis = new FileInputStream(file);   //obtaining bytes from the file  
+			//creating Workbook instance that refers to .xlsx file  
+			XSSFWorkbook wb = new XSSFWorkbook(fis);   
+			XSSFSheet sheet = wb.getSheetAt(0);     //creating a Sheet object to retrieve object  
+			Iterator<Row> itr = sheet.iterator();    //iterating over excel file  
+			while (itr.hasNext())                 
+			{  
+				Row row = itr.next();  
+				Iterator<Cell> cellIterator = row.cellIterator();   //iterating over each column  
+				while (cellIterator.hasNext())   
+				{  
+					Cell cell = cellIterator.next();  
+
+					switch (cell.getCellType())               
+					{  
+					case Cell.CELL_TYPE_STRING:    //field that represents string cell type  
+
+						uname=cell.getStringCellValue();
+						if(uname.equalsIgnoreCase(element))
+						{
+							cell = cellIterator.next();
+							locator=cell.getStringCellValue();
+						}
+						break;  
+
+					default:  
+					}  			}  
+				System.out.println("");  
+			}  
+		}  
+		catch(Exception e)  
+		{  
+			e.printStackTrace();  
+		}  
+		return locator;
 	}
 
 	@AfterTest

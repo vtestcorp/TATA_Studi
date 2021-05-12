@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.asserts.SoftAssert;
 import com.aventstack.extentreports.Status;
 import io.appium.java_client.MobileElement;
@@ -21,8 +22,10 @@ public class Module_Browsebook_Chapter_Listing extends BaseClass{
 	public void to_verify_use_must_be_able_to_view_the_content_of_the_Chapter_Listing_page(String subject, String topic) throws Exception
 	{
 		SoftAssert assert1 = new SoftAssert();
-		obcl = new Object_Browsebook_Chapter_Listing();
+		obcl = new Object_Browsebook_Chapter_Listing();	
+		//getLocator("syllabus");
 		clickOnElement(obcl.syllabus);
+		
 
 		scrollTo1(subject);
 		test.log(Status.INFO, "Opening " + subject);

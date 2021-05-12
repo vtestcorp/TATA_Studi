@@ -20,7 +20,7 @@ public class AFS_UserStory_127 extends BaseClass {
 		Module_Login login = new Module_Login();
 		login.Login_to_app();
 	}
-	@Test(enabled = true)
+	@Test(enabled = true,priority=-1)
 	public void TC05_To_Verify_Use_Must_be_Able_To_View_The_Content_of_the_Chapter_Listing_Pages()
 			throws Exception {
 		Module_Browsebook_Chapter_Listing mbcl=new Module_Browsebook_Chapter_Listing();

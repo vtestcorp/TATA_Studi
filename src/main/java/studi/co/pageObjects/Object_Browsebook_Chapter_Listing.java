@@ -13,9 +13,7 @@ import studi.co.Base.BaseClass;
 public class Object_Browsebook_Chapter_Listing extends BaseClass {
 	public Object_Browsebook_Chapter_Listing() {
 		PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);
-
 	}
-
 	@AndroidFindBy(id="com.tce.studi:id/ivProfile")
 	public WebElement profilePic;
 
@@ -33,6 +31,9 @@ public class Object_Browsebook_Chapter_Listing extends BaseClass {
 
 	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tvHeading\").textContains(\"Syllabus\")")
 	public WebElement syllabus;
+	
+	//@AndroidFindBy(xpath = getLocator("syllabus"))
+	//WebElement syllabus;
 	
 	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tvCS\").textContains(\"Completed in School\")")
 	public WebElement completedInSchool;

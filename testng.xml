@@ -16,9 +16,9 @@
 			<!--<class name="studi.co.testScripts.AFS_UserStory_63" /> -->
 			<!--<class name="studi.co.testScripts.AFS_UserStory_1046" /> -->
 			<!--<class name="studi.co.testScripts.AFS_UserStory_1045" /> -->
-			<class name="studi.co.testScripts.AFS_UserStory_1044" />
+			<!--<class name="studi.co.testScripts.AFS_UserStory_1044" /> -->
 			<!--<class name="studi.co.testScripts.AFS_UserStory_126" /> -->
-			<!--<class name="studi.co.testScripts.AFS_UserStory_127" /> -->
+			<class name="studi.co.testScripts.AFS_UserStory_127" />
 
 
 		</classes>

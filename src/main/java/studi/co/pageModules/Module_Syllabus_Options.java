@@ -961,7 +961,6 @@ public class Module_Syllabus_Options extends BaseClass {
 			throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
 		Boolean status;
-
 		status = oso.profilePic.isDisplayed();
 		sAss.assertTrue(status);
 		if (status) {
