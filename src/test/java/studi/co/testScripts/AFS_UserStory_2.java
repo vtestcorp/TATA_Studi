@@ -54,7 +54,7 @@ public class AFS_UserStory_2 extends BaseClass {
 		so.Verify_User_Should_Be_Able_To_Begin_Revision(prop.getProperty("Isubject"), prop.getProperty("Itopic"));
 	}
 
-	@Test(enabled = true)
+	@Test(enabled=true)
 	public void TC05_Verify_User_Should_Be_Able_To_View_Video_In_Revision_From_Syllabus()
 			throws WebDriverException, IOException, InterruptedException, AWTException {
 		Module_Syllabus_Options so = new Module_Syllabus_Options();

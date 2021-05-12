@@ -8,7 +8,7 @@
 	<test thread-count="5" name="IOS_Test">
 		<parameter name="type" value="IOS"></parameter>
 		<classes>
-		<class name="studi.co.testScripts.AFS_UserStory_2" />
+		<class name="studi.co.testScripts.AFS_UserStory_77" />
 		</classes>
 	</test> 
 </suite> <!-- Suite -->

@@ -67,10 +67,11 @@ public class Module_Login extends BaseClass {
 		clickOnElement(ol.getVerifypasswordButton());
 		Keyword.applyExplicitWait(2);
 		System.out.println("Credentials verified");
-		Keyword.clickOnElement(ol.getRegisteredUserName());
-		Keyword.applyExplicitWait(2);
+		clickOnElement(ol.getRegisteredUserName());
+		applyExplicitWait(2);
+		clickOnElement(findElementByText("Hide Message"));
 		applyExplicitWaitsUntilElementVisible(ol.signOut);
-		Keyword.scrollTo1("Report an issue");
+		scrollTo1("Report an issue");
 		System.out.println("Scrolled across the entire viewport on the LandingPage successfully");
 		System.out.println("Login is Successful");
 	}

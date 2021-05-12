@@ -25,8 +25,8 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 
 	public void traverse_To_Begin_Practice(String subject, String topic)
 			throws MalformedURLException, InterruptedException {
-		applyExplicitWaitsUntilElementClickable(obp.testUnit);
-		scrollTo2("Syllabus");
+		applyExplicitWaitsUntilElementVisible(obp.testUnit);
+		scrollTo1("Syllabus");
 		clickOnElement(obp.syllabus);
 		test.log(Status.INFO, "Opening Syllabus tab");
 		System.out.println("Opening Syllabus tab");
@@ -330,6 +330,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				for (MobileElement mobileElement : answerCount) {
 					if (mobileElement.isDisplayed()) {
 						sAss.assertTrue(true);
+						swipeUp();
 						test.log(Status.INFO, "Answer " + t + " Displayed");
 						System.out.println("Answer " + t + " Displayed");
 
@@ -411,6 +412,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 			if (verifySCQorMCQ().equalsIgnoreCase("scq")) {
 				applyExplicitWait(5);
 				actualcount++;
+				swipeUp();
 				swipeUp();
 				List<MobileElement> answerCount;
 				if (device.equalsIgnoreCase("Android"))
@@ -508,13 +510,21 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
 
 				for (MobileElement mobileElement : answerCount) {
+					swipeUp();
 					mobileElement.click();
 
 				}
 				int ansFlag = 0;
 				Thread.sleep(100);
-
+				try {
+					swipeTop();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 				for (MobileElement mobileElement2 : answerCount) {
+					swipeUp();
 					if (device.equalsIgnoreCase("Android"))
 						status = Boolean.parseBoolean(mobileElement2.getAttribute("checked"));
 					else

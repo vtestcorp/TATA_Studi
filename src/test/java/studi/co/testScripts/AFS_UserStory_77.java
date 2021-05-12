@@ -125,7 +125,7 @@ public class AFS_UserStory_77 extends BaseClass {
 			throws WebDriverException, InterruptedException, IOException {
 		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
 		rqr.Module_Verify_Various_SCQ_Answers_Available_In_Revision(prop.getProperty("subject77"),
-				prop.getProperty("subject77"));
+				prop.getProperty("topic77"));
 
 	}
 
@@ -219,7 +219,7 @@ public class AFS_UserStory_77 extends BaseClass {
 		rqt.Module_Verify_Only_Single_SCQ_Answer_Can_Be_Select_In_Test(prop.getProperty("subject77"));
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC27_To_Verify_Correct_Feedback_Shown_After_SCQ_Answer_Selection_In_Test()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
@@ -227,7 +227,7 @@ public class AFS_UserStory_77 extends BaseClass {
 
 	}
 
-	@Test(enabled = false) // needs questions data
+	@Test(enabled = true) // needs questions data
 	public void TC28_To_Verify_Correct_Feedback_Shown_Under_Hamburger_Menu_In_Test()
 			throws MalformedURLException, InterruptedException {
 
@@ -244,7 +244,7 @@ public class AFS_UserStory_77 extends BaseClass {
 
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC30_To_Verify_User_Should_Be_Able_To_Flag_The_SCQ_Question_In_Test()
 			throws MalformedURLException, InterruptedException {
 		
@@ -253,21 +253,21 @@ public class AFS_UserStory_77 extends BaseClass {
 
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC32_To_Verify_Marks_Shown_With_SCQ_In_Test() throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
 		rqt.Module_Verify_Marks_Shown_With_SCQ_In_Test(prop.getProperty("Psubject"));
 
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC33_To_Verify_User_Can_Abond_SCQ_Quiz_In_Test() throws MalformedURLException, InterruptedException {
 
 		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
 		rqt.Module_Verify_User_Can_Abond_SCQ_Quiz_In_Test(prop.getProperty("Psubject"));
 	}
 
-	// @AfterMethod
+	@AfterMethod
 	public void restApp() throws MalformedURLException {
 		applyExplicitWait(5);
 		getDriver().launchApp();

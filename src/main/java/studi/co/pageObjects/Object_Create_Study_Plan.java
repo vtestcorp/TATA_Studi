@@ -53,9 +53,9 @@ public class Object_Create_Study_Plan extends BaseClass {
 				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[5]");
 
 		subjectFlag.put("", false);
-		
+
 	}
-	
+
 	@iOSFindBy(xpath = "//XCUIElementTypeImage[@name=\"user\"]")
 	@AndroidFindBy(id = "com.tce.studi:id/profilePic")
 	public WebElement profilePic;
@@ -63,18 +63,19 @@ public class Object_Create_Study_Plan extends BaseClass {
 	@iOSFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[2]")
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/tvHeading\").textContains(\"Test Unit\")")
 	public WebElement testUnitModule;
-	
+
 	@iOSFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[3]")
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/tvHeading\").textContains(\"Syllabus\")")
 	public WebElement syllabusUnitModule;
-	
+
 	@AndroidFindBy(id = "com.tce.studi:id/iv_left_icon")
 	@iOSFindBy(id = "White 2")
 	public WebElement backBtnTestUnit;
-	
+
 	@iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Select another plan\"]")
+	@AndroidFindBy(id = "com.tce.studi:id/txtBottomButton")
 	public WebElement selectAnotherPlanBtn;
-	
+
 	// + button in syllabus module
 	@iOSFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[4]")
 	@AndroidFindBy(id = "com.tce.studi:id/fab_assignment")
@@ -82,8 +83,7 @@ public class Object_Create_Study_Plan extends BaseClass {
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/tv_intent_title\").textContains(\"Study Plan\")")
 	public WebElement studyPlanSyl;
-	
-	
+
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/tvHeading\").textContains(\"Create Study Plan\")")
 	public WebElement studyPlanTab;
 
@@ -94,24 +94,24 @@ public class Object_Create_Study_Plan extends BaseClass {
 	@AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"Paused\").resourceId(\"com.tce.studi:id/tvSubHeading\")")
 	public WebElement testPauselbl;
 
-	@iOSFindBy(id = "Manage & Create Plans")
+	//@iOSFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeTable/XCUIElementTypeCell[10]/XCUIElementTypeButton[3]")
 	@FindBy(id = "com.tce.studi:id/tv_manage_plans")
 	public WebElement managePlanBtn;
 
-	@iOSFindBy(xpath = "//XCUIElementTypeButton[@name=\"CREATE A STUDY PLAN\"]")
+	@iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Create a study plan\"]")
 	@FindBy(id = "com.tce.studi:id/tvCreatePlan")
 	public WebElement createStudyPlanBtn;
-	
+
 	@FindBy(id = "com.tce.studi:id/fab_edit")
 	public WebElement editPlan;
-	
+
 	@iOSFindBy(id = "Next Step")
 	@AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.Button\").textContains(\"Next Step\")")
 	public WebElement nextStepBtn;
 
 	@FindBy(id = "com.tce.studi:id/tv_coming_soon")
 	public WebElement taskCountInUpcoming;
-	
+
 	public Map<String, String> expectedLessonOrder = new LinkedHashMap<String, String>();
 	public Map<String, String> upcomingLesson = new LinkedHashMap<String, String>();
 	public Map<String, Boolean> subjectFlag = new HashMap<String, Boolean>();
@@ -123,16 +123,16 @@ public class Object_Create_Study_Plan extends BaseClass {
 	@iOSFindBy(id = "Mark as Completed")
 	@FindBy(id = "com.tce.studi:id/title")
 	public WebElement markAsComplete;
-	
+
 	@FindBy(id = "com.tce.studi:id/recycler_today")
 	public WebElement todaysLessonPanel;
-	
+
 	@FindBy(id = "com.tce.studi:id/view_schedule")
 	public WebElement viewFullScheduleBtn;
-	
+
 	@FindBy(id = "com.tce.studi:id/search_id")
 	public WebElement fullScheduleLbl;
-	
+
 	@AndroidFindBy(id = "com.tce.studi:id/recycler_full_schedule")
 	public MobileElement fullscedulerecyclere;
 
@@ -140,7 +140,7 @@ public class Object_Create_Study_Plan extends BaseClass {
 	public String lessonType = "/android.view.ViewGroup/android.widget.TextView[1]";
 	public String lessonStatus = "/android.view.ViewGroup/android.widget.ImageView[2]";
 	public String lessonSubjectName = "/android.widget.TextView";
-	public String lessonDueDate="/android.view.ViewGroup/android.widget.TextView[5]";
+	public String lessonDueDate = "/android.view.ViewGroup/android.widget.TextView[5]";
 	public String upcomingLessonsPanel = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView";
 
 	public void traverse_toward_create_study_plan() throws MalformedURLException {
@@ -375,10 +375,11 @@ public class Object_Create_Study_Plan extends BaseClass {
 	}
 
 	public String getUpcommingLesson(int i) {
-		return "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup["+(i+1)+"]";
+		return "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup["
+				+ (i + 1) + "]";
 	}
 
-	//Flag the Subject
+	// Flag the Subject
 	public void createPlan(String subject, String topic, boolean flag) throws MalformedURLException {
 		scrollTo1("Manage and Create Plans");
 
@@ -407,11 +408,12 @@ public class Object_Create_Study_Plan extends BaseClass {
 		applyExplicitWait(5);
 
 		action = new TouchAction(driver);
-		
+
 		driver.findElementByXPath(
 				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View/android.view.View["
-						+ 1 + "]/android.view.View[2]/android.view.View/android.view.View[1]/android.widget.Button").click();
-		
+						+ 1 + "]/android.view.View[2]/android.view.View/android.view.View[1]/android.widget.Button")
+				.click();
+
 		applyExplicitWait(5);
 
 		Boolean status = Boolean.parseBoolean(driver.findElementByXPath(
@@ -437,21 +439,19 @@ public class Object_Create_Study_Plan extends BaseClass {
 		System.out.println("New plan created");
 		test.log(Status.INFO, "New plan created");
 
-		
 	}
-	
+
 	public WebElement getFlagIcon() {
 		return driver.findElementByXPath(
 				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View/android.view.View["
 						+ 1 + "]/android.view.View[2]/android.view.View/android.view.View[1]/android.widget.Button");
 
 	}
-	
-	
+
 	public int getTaskCountForUpcomingPlan() {
-		String msg=taskCountInUpcoming.getText();
-		String[] sep=msg.split(" ");
-		int count=Integer.parseInt(sep[0]);
+		String msg = taskCountInUpcoming.getText();
+		String[] sep = msg.split(" ");
+		int count = Integer.parseInt(sep[0]);
 		return count;
 	}
 }

@@ -51,11 +51,11 @@ public class Object_Syllabus_Option extends BaseClass {
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView")
 	public WebElement allSubjectLbl;
 
-	@iOSFindBy(xpath = "//XCUIElementTypeButton[@name=\"playIcon\"]")
+	@iOSFindBy(xpath = "//XCUIElementTypeButton[@name=\"videoPlay\"]")
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/exo_play\").className(\"android.widget.ImageButton\")")
 	public WebElement playBtn;
 
-	@iOSFindBy(xpath = "//XCUIElementTypeButton[@name=\"pause\"]")
+	@iOSFindBy(xpath = "//XCUIElementTypeButton[@name=\"videoPause\"]")
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/exo_pause\").className(\"android.widget.ImageButton\")")
 	public WebElement pauseBtn;
 
@@ -63,7 +63,7 @@ public class Object_Syllabus_Option extends BaseClass {
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/exo_ffwd\").className(\"android.widget.ImageButton\")")
 	public WebElement fwdBtn;
 
-	@iOSFindBy(xpath = "//XCUIElementTypeButton[@name=\"FastForward 2\"]")
+	@iOSFindBy(xpath = "//XCUIElementTypeButton[@name=\"Rewind 2\"]")
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/exo_rew\").className(\"android.widget.ImageButton\")")
 	public WebElement bkwdBtn;
 
@@ -191,7 +191,7 @@ public class Object_Syllabus_Option extends BaseClass {
 					.moveTo(PointOption.point(115, 550)).release().perform();
 
 		try {
-			if (findElementByText("Notes").isDisplayed()) {
+			if (findElementByText("Notes").isDisplayed()||findElementByText("Notes").isEnabled()) {
 				notesFlag = true;
 				System.out.println("Notes available");
 				clickOnElement(findElementByText("Notes"));

@@ -10,8 +10,10 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.WebElement;
 import org.testng.asserts.SoftAssert;
 
 import com.aventstack.extentreports.Status;
@@ -74,9 +76,8 @@ public class Module_Syllabus_Options extends BaseClass {
 					if (device.equalsIgnoreCase("Android"))
 						status = findElementByText("Return to Subject").isDisplayed();
 					else
-						status = driver.findElementByXPath(
-								"//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeScrollView/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeButton")
-								.isDisplayed();
+						status = Boolean.parseBoolean(findElementByText("Return to Subject").getAttribute("accessible"));
+					
 					System.out.println("Clicking on Return to Subject");
 					sAss.assertTrue(status);
 					if (status) {
@@ -151,9 +152,6 @@ public class Module_Syllabus_Options extends BaseClass {
 	public void Verify_User_Should_Be_Able_To_Begin_Revision(String subject, String topic)
 			throws WebDriverException, IOException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
-		int flag = 0;
-		Boolean status;
-
 		System.out.println("Traverse towards " + subject + " -> " + topic);
 		oso.traverse_toward_topic(subject, topic);
 		test.log(Status.INFO, "Traverse towards " + subject + " -> " + topic);
@@ -191,7 +189,6 @@ public class Module_Syllabus_Options extends BaseClass {
 	public void Verify_User_Should_Be_Able_To_View_Video(String subject, String topic)
 			throws MalformedURLException, AWTException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
-		int flag = 0;
 		Boolean status;
 
 		System.out.println("Traverse towards " + subject + " -> " + topic);
@@ -294,7 +291,6 @@ public class Module_Syllabus_Options extends BaseClass {
 	public void Verify_User_Should_Be_Able_To_Create_Note_During_Video(String subject, String topic)
 			throws MalformedURLException, InterruptedException, AWTException, ParseException {
 		SoftAssert sAss = new SoftAssert();
-		int flag = 0;
 		Boolean status;
 
 		System.out.println("Traverse towards " + subject + " -> " + topic);
@@ -417,7 +413,8 @@ public class Module_Syllabus_Options extends BaseClass {
 			test.log(Status.INFO, "Guidance model not displayed after saving note");
 		}
 
-		clickOnElement(findElementByText("CONTINUE"));
+		try{clickOnElement(findElementByText("CONTINUE"));}
+		catch(Exception e) {}
 
 		System.out.println("Verifyind added Bookmark of note");
 		test.log(Status.INFO, "Verifyind added Bookmark of note");
@@ -953,7 +950,7 @@ public class Module_Syllabus_Options extends BaseClass {
 			test.log(Status.INFO, "Logged in successfully");
 		}
 
-		scrollTo1("Report an issue");
+		scrollTo2("Test Unit");
 		status = findElementByText("Test Unit").isDisplayed();
 		sAss.assertTrue(status);
 		if (status) {
@@ -961,12 +958,14 @@ public class Module_Syllabus_Options extends BaseClass {
 			test.log(Status.INFO, "Test Unit tab displayed");
 		}
 
+		scrollTo2("Syllabus");
 		status = findElementByText("Syllabus").isDisplayed();
 		sAss.assertTrue(status);
 		if (status) {
 			System.out.println("Syllabus tab displayed");
 			test.log(Status.INFO, "Syllabus tab displayed");
 		}
+		
 		status = findElementByText("Assignments").isDisplayed();
 		sAss.assertTrue(status);
 		if (status) {
@@ -1045,22 +1044,29 @@ public class Module_Syllabus_Options extends BaseClass {
 		System.out.println("Opening book for :" + subject);
 		test.log(Status.INFO, "Opening book for :" + subject);
 
-		scrollTo1(topic);
+		
+		Thread.sleep(3000);
+		
+		WebElement element = findElementByText(topic);// Your element
+		System.err.println(element.getText());
+			
+		scrollTo2(topic);
 		System.out.println("Opening Topic :" + topic);
 		test.log(Status.INFO, "Opening Topic :" + topic);
 		clickOnElement(findElementByText(topic));
+		
+		scrollTo2("Revis");
 
 		Boolean status1 = false;
-		Boolean status2 = false;
+	
 		applyExplicitWait(5);
 		try {
-			status1 = findElementByText("Revis").isDisplayed();
+				if(device.equalsIgnoreCase("Android"))
+				status1 = findElementByText("Revis").isDisplayed();
+				else
+				status1 = Boolean.parseBoolean(findElementByText("Revis").getAttribute("accessible"));
 		} catch (Exception e) {
-			try {
-				status2 = findElementByText("Revise Again").isDisplayed();
-			} catch (Exception e1) {
-			}
-
+			
 		}
 
 		if (status1) {
@@ -1068,7 +1074,7 @@ public class Module_Syllabus_Options extends BaseClass {
 			test.log(Status.INFO, "Begin Revision tab displayed");
 			System.out.println("Begin Revision tab displayed");
 		} else {
-			sAss.assertTrue(status2);
+			sAss.assertTrue(status1);
 			test.log(Status.INFO, "Revise Again tab displayed");
 			System.out.println("Revise Again tab displayed");
 
@@ -1090,7 +1096,7 @@ public class Module_Syllabus_Options extends BaseClass {
 			test.log(Status.INFO, "Logged in successfully");
 		}
 
-		scrollTo1("Report an issue");
+		scrollTo2("Test Unit");
 		status = findElementByText("Test Unit").isDisplayed();
 		sAss.assertTrue(status);
 		if (status) {
@@ -1098,6 +1104,7 @@ public class Module_Syllabus_Options extends BaseClass {
 			test.log(Status.INFO, "Test Unit tab displayed");
 		}
 
+		scrollTo2("Syllabus");
 		status = findElementByText("Syllabus").isDisplayed();
 		sAss.assertTrue(status);
 		if (status) {
@@ -1120,23 +1127,22 @@ public class Module_Syllabus_Options extends BaseClass {
 		System.out.println("Opening book for :" + subject);
 		test.log(Status.INFO, "Opening book for :" + subject);
 
-		scrollTo1(topic);
+		scrollTo2(topic);
 		System.out.println("Opening Topic :" + topic);
 		test.log(Status.INFO, "Opening Topic :" + topic);
 		clickOnElement(findElementByText(topic));
 
 		scrollTo2("Practice");
 		Boolean status1 = false;
-		Boolean status2 = false;
+		
 		applyExplicitWait(5);
 		try {
-			status1 = findElementByText("Revis").isDisplayed();
+				if(device.equalsIgnoreCase("Android"))
+				status1 = findElementByText("Revis").isDisplayed();
+				else
+				status1 = Boolean.parseBoolean(findElementByText("Revis").getAttribute("accessible"));
 		} catch (Exception e) {
-			try {
-				status2 = findElementByText("Revise Again").isDisplayed();
-			} catch (Exception e1) {
-			}
-
+			
 		}
 
 		if (status1) {
@@ -1144,13 +1150,13 @@ public class Module_Syllabus_Options extends BaseClass {
 			test.log(Status.INFO, "Begin Revision tab displayed");
 			System.out.println("Begin Revision tab displayed");
 			findElementByText("Revis").click();
-
 		} else {
-			sAss.assertTrue(status2);
+			sAss.assertTrue(status1);
 			test.log(Status.INFO, "Revise Again tab displayed");
 			System.out.println("Revise Again tab displayed");
 			findElementByText("Revis").click();
 		}
+
 
 		applyExplicitWait(5);
 		/*
@@ -1395,7 +1401,6 @@ public class Module_Syllabus_Options extends BaseClass {
 	public void Verify_Create_Note_Icon_Should_Be_Visible_In_Video(String subject, String topic)
 			throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
-		int flag = 0;
 		Boolean status;
 
 		System.out.println("Traverse towards " + subject + " -> " + topic);
@@ -1436,7 +1441,6 @@ public class Module_Syllabus_Options extends BaseClass {
 	public void Verify_User_Should_Be_Able_To_Write_Upto_3000_Charcters_In_Note(String subject, String topic)
 			throws MalformedURLException, InterruptedException, AWTException {
 		SoftAssert sAss = new SoftAssert();
-		int flag = 0;
 		Boolean status;
 
 		System.out.println("Traverse towards " + subject + " -> " + topic);
@@ -1487,7 +1491,6 @@ public class Module_Syllabus_Options extends BaseClass {
 	public void Verify_User_Is_Unable_To_Add_Empty_Note(String subject, String topic)
 			throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
-		int flag = 0;
 		Boolean status;
 
 		System.out.println("Traverse towards " + subject + " -> " + topic);
@@ -1570,7 +1573,6 @@ public class Module_Syllabus_Options extends BaseClass {
 	public void Verify_Create_Note_Icon_Should_Be_Clickable_In_Video(String subject, String topic)
 			throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
-		int flag = 0;
 		Boolean status;
 
 		System.out.println("Traverse towards " + subject + " -> " + topic);
@@ -1636,7 +1638,6 @@ public class Module_Syllabus_Options extends BaseClass {
 	public void Verify_User_Is_Able_To_Enter_Special_Characters_In_Note(String subject, String topic)
 			throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
-		int flag = 0;
 		Boolean status;
 
 		System.out.println("Traverse towards " + subject + " -> " + topic);
@@ -1687,7 +1688,6 @@ public class Module_Syllabus_Options extends BaseClass {
 	public void Verify_Note_Module_Will_Cosed_Without_Warning(String subject, String topic)
 			throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
-		int flag = 0;
 		Boolean status;
 
 		System.out.println("Traverse towards " + subject + " -> " + topic);
@@ -1730,7 +1730,6 @@ public class Module_Syllabus_Options extends BaseClass {
 	public void Verify_Warning_Message_Shown_After_Clicking_Discard_In_Notes(String subject, String topic)
 			throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
-		int flag = 0;
 		Boolean status;
 
 		System.out.println("Traverse towards " + subject + " -> " + topic);
@@ -1855,7 +1854,6 @@ public class Module_Syllabus_Options extends BaseClass {
 	public void Verify_Notes_Will_Be_Saved_Using_Save_Note_Option(String subject, String topic)
 			throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
-		int flag = 0;
 		Boolean status;
 
 		System.out.println("Traverse towards " + subject + " -> " + topic);
@@ -2009,7 +2007,6 @@ public class Module_Syllabus_Options extends BaseClass {
 	public void Verify_Save_Note_Button_Should_Be_Disable_Initially(String subject, String topic)
 			throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
-		int flag = 0;
 		Boolean status;
 
 		System.out.println("Traverse towards " + subject + " -> " + topic);
@@ -2064,7 +2061,6 @@ public class Module_Syllabus_Options extends BaseClass {
 	public void Verify_Save_Note_Button_Enable_After_User_Entering_Note(String subject, String topic)
 			throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
-		int flag = 0;
 		Boolean status;
 
 		System.out.println("Traverse towards " + subject + " -> " + topic);
@@ -2140,7 +2136,6 @@ public class Module_Syllabus_Options extends BaseClass {
 	public void Verify_Save_Note_And_Discard_Button_Should_Be_Disable_Initially(String subject, String topic)
 			throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
-		int flag = 0;
 		Boolean status;
 
 		System.out.println("Traverse towards " + subject + " -> " + topic);
@@ -2213,7 +2208,6 @@ public class Module_Syllabus_Options extends BaseClass {
 	public void Verify_Save_Note_And_Discard_Button_Enable_After_User_Entering_Note(String subject, String topic)
 			throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
-		int flag = 0;
 		Boolean status;
 
 		System.out.println("Traverse towards " + subject + " -> " + topic);
@@ -2322,7 +2316,6 @@ public class Module_Syllabus_Options extends BaseClass {
 	public void Verify_Note_Area_Have_Initial_Message_For_Entering_Text(String subject, String topic)
 			throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
-		int flag = 0;
 		Boolean status;
 
 		System.out.println("Traverse towards " + subject + " -> " + topic);

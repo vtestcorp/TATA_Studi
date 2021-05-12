@@ -122,7 +122,7 @@ public class BaseClass {
 	public static int correctAnswers;
 	public static int[] correctAnswer = new int[10];
 	public static int wrongAnswers;
-	public static String appPath = "/Users/shakilhanjgikar/Downloads/Studi_1_4_1.ipa";
+	public static String appPath = "/Users/shakilhanjgikar/Downloads/Studi QA-4.app";
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/exo_pause\")")
 	public WebElement pauseBtn;
@@ -326,7 +326,9 @@ public class BaseClass {
 			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9");
 			caps.setCapability("appPackage", "com.tce.studi");
 			caps.setCapability("appActivity", "com.tce.view.ui.activities.SplashScreenActivity");
-			caps.setCapability("app", "/Users/shakilhanjgikar/Downloads/Studi_v1.1.2.apk");
+			// caps.setCapability("app",
+			// "/Users/shakilhanjgikar/Downloads/Studi_v1.1.3(5).apk");
+			caps.setCapability("chromedriverExecutable", "/Users/shakilhanjgikar/Downloads/chromedriver");
 			caps.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, "true");
 			caps.setCapability(MobileCapabilityType.NO_RESET, true);
 			System.out.println("Required Desired Capabilities Defined");
@@ -345,11 +347,11 @@ public class BaseClass {
 
 			caps = new DesiredCapabilities();
 			caps.setCapability("automationName", "XCUITest");
-			caps.setCapability("deviceName", "iPhone 6s");
-			caps.setCapability("udid", "dd587b26e65a1100a6ba7b2026478c1967bb4422");
+			caps.setCapability("deviceName", "iPhone 12 Pro Max");
+			caps.setCapability("udid", "B0B3BEFF-30EA-4182-B072-E7101BF44600");
 			caps.setCapability("platformName", "iOS");
 			caps.setCapability("app", appPath);
-			caps.setCapability("platformVersion", "13");
+			caps.setCapability("platformVersion", "14.4");
 			caps.setCapability("appActivity", "com.tce.view.ui.activities.SplashScreenActivity");
 			caps.setCapability(MobileCapabilityType.NO_RESET, true);
 			caps.setCapability("simpleIsVisibleCheck", true);
@@ -453,7 +455,7 @@ public class BaseClass {
 				applyExplicitWaitsUntilElementVisible(element);
 			else
 				try {
-					Thread.sleep(2000);
+					Thread.sleep(1000);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -526,7 +528,8 @@ public class BaseClass {
 			action = new TouchAction(driver);
 
 			org.openqa.selenium.Dimension size = driver.manage().window().getSize();
-			while (!driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='" + text + "']")).isDisplayed()) {
+			while (!Boolean.parseBoolean(
+					driver.findElement(By.xpath("//*[@name='" + text + "']")).getAttribute("accessible"))) {
 				System.out.println("checked1");
 				action.press(PointOption.point(size.width / 3, (int) (size.height * 0.8)))
 						.waitAction(WaitOptions.waitOptions(Duration.ofMillis(700)))
@@ -543,7 +546,7 @@ public class BaseClass {
 	 */
 	public static void scrollTo2(String text) {
 		System.out.println("Scrolling to the Element which has the given text property : " + text);
-		if (getDevice().equalsIgnoreCase("ios")) {
+		if (getDevice().equalsIgnoreCase("IOS")) {
 			try {
 				Thread.sleep(2000);
 			} catch (InterruptedException e) {
@@ -551,10 +554,9 @@ public class BaseClass {
 				e.printStackTrace();
 			}
 			action = new TouchAction(driver);
-
 			org.openqa.selenium.Dimension size = driver.manage().window().getSize();
-			while (!driver.findElement(By.xpath("//*[contains(@name, '" + text + "')]"))
-					.isDisplayed()) {
+			while (!Boolean.parseBoolean(
+					driver.findElement(By.xpath("//*[contains(@name, '" + text + "')]")).getAttribute("accessible"))) {
 				System.out.println("checked2");
 				action.press(PointOption.point(size.width / 3, (int) (size.height * 0.8)))
 						.waitAction(WaitOptions.waitOptions(Duration.ofMillis(700)))
@@ -746,32 +748,31 @@ public class BaseClass {
 		action = new TouchAction(driver);
 		Object_Syllabus_Option oso = new Object_Syllabus_Option();
 		if (device.equalsIgnoreCase("Android")) {
-		int start = oso.seekBar.getLocation().getX();
-		System.out.println("Startpoint - " + start);
-		int y = oso.seekBar.getLocation().getY();
-		y = y + ((oso.seekBar.getSize().getHeight()) / 2);
-		System.out.println("Yaxis - " + y);
-		int end = oso.seekBar.getSize().getWidth();
-		System.out.println("End point - " + end);
-		if (device.equalsIgnoreCase("Android"))
-			action.press(PointOption.point(start, y)).moveTo(PointOption.point(end + start, y)).release().perform();
-		else
-			action.press(PointOption.point(start, y)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000)))
-					.moveTo(PointOption.point(end + start, y)).release().perform();
-		oso.playBtn.click();
-		}
-		else
+			int start = oso.seekBar.getLocation().getX();
+			System.out.println("Startpoint - " + start);
+			int y = oso.seekBar.getLocation().getY();
+			y = y + ((oso.seekBar.getSize().getHeight()) / 2);
+			System.out.println("Yaxis - " + y);
+			int end = oso.seekBar.getSize().getWidth();
+			System.out.println("End point - " + end);
+			if (device.equalsIgnoreCase("Android"))
+				action.press(PointOption.point(start, y)).moveTo(PointOption.point(end + start, y)).release().perform();
+			else
+				action.press(PointOption.point(start, y)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000)))
+						.moveTo(PointOption.point(end + start, y)).release().perform();
+			oso.playBtn.click();
+		} else
 			clickOnElement(oso.skip);
 		System.err.println("Forwarded");
 		applyExplicitWaitsUntilElementVisible(oso.quiz);
 	}
 
-	public static MobileElement findElementByText(String text) {
+	public static WebElement findElementByText(String text) {
 		if (device.equalsIgnoreCase("Android"))
 			return getDriver().findElement(By.xpath("//*[contains(@text, '" + text + "')]"));
 		else
-			return getDriver().findElement(By.xpath("//*[contains(@name, '" + text
-					+ "') or contains(@name, '" + text.toUpperCase() + "')]"));
+			return getDriver().findElement(
+					By.xpath("//*[contains(@name, '" + text + "') or contains(@name, '" + text.toUpperCase() + "')]"));
 
 	}
 
@@ -805,6 +806,20 @@ public class BaseClass {
 		List<MobileElement> listWithoutDuplicates = new ArrayList<>(new HashSet<>(topics1));
 		return listWithoutDuplicates;
 
+	}
+
+	public static String getBetweenStrings(String text, String textFrom, String textTo) {
+
+		String result = "";
+
+		// Cut the beginning of the text to not occasionally meet a
+		// 'textTo' value in it:
+		result = text.substring(text.indexOf(textFrom) + textFrom.length(), text.length());
+
+		// Cut the excessive ending of the text:
+		result = result.substring(0, result.indexOf(textTo));
+
+		return result;
 	}
 
 	public static void swipeVertical(double startPercentage, double finalPercentage, double anchorPercentage,
@@ -983,16 +998,16 @@ public class BaseClass {
 		List<MobileElement> notes;
 
 		if (device.equalsIgnoreCase("Android"))
-			notes = (List<MobileElement>) driver.findElementsById("com.tce.studi:id/clScrollableView");
+			notes = (List<MobileElement>) driver.findElementsById("com.tce.studi:id/clRootView");
 		else
 			notes = (List<MobileElement>) driver.findElementsByXPath(
-					"//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell/XCUIElementTypeButton");
+					"//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell");
 
 		System.err.println("Total notes :" + notes.size());
 
 		for (int i = 0; i < notes.size(); i++) {
 			// applyExplicitWaitsUntilElementClickable(mobileElement);
-			Thread.sleep(3000);
+			Thread.sleep(2000);
 
 			if (device.equalsIgnoreCase("Android")) {
 				driver.findElementById("com.tce.studi:id/clScrollableView").click();
@@ -1000,7 +1015,7 @@ public class BaseClass {
 				clickOnElement(driver.findElementById("com.tce.studi:id/txtPositiveBtn"));
 			} else {
 				driver.findElementByXPath(
-						"//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell/XCUIElementTypeButton")
+						"//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell")
 						.click();
 				clickOnElement(driver.findElementByXPath("//XCUIElementTypeButton[@name=\"Delete\"]"));
 				clickOnElement(driver.findElement(By.xpath("//XCUIElementTypeButton[@name=\"Delete Note\"]")));
@@ -1019,7 +1034,7 @@ public class BaseClass {
 		clickOnElement(oso.addNotesBtn);
 		applyExplicitWaitsUntilElementVisible(oso.saveNoteBtn);
 
-		clickOnElement(oso.noteTxtArea);
+		// clickOnElement(oso.noteTxtArea);
 		oso.noteTxtArea.sendKeys(note);
 		driver.hideKeyboard();
 
@@ -1028,12 +1043,14 @@ public class BaseClass {
 		System.out.println("Note " + prop.getProperty("note") + " Saved");
 		test.log(Status.INFO, "Note " + prop.getProperty("note") + " Saved");
 
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
 		closePopup();
 
 		if (device.equalsIgnoreCase("Android"))
@@ -1041,9 +1058,10 @@ public class BaseClass {
 					"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]"))
 					.click();
 		else {
-			clickOnElement(findElementByText("CONTINUE"));
+			try{clickOnElement(findElementByText("CONTINUE"));}
+			catch(Exception e){}
 		}
-		applyExplicitWait(2);
+		// applyExplicitWait(2);
 
 		oso.pauseBtn.click();
 		System.out.println("Clicked on Pause Button");

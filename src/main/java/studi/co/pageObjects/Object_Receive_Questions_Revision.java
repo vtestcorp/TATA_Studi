@@ -34,11 +34,11 @@ public class Object_Receive_Questions_Revision extends BaseClass {
 	@AndroidFindBy(id = "android:id/content")
 	public WebElement exitPopup;
 
-	@iOSFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[2]")
+	@iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Plan: Test Unit\"]")
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/tvHeading\").textContains(\"Test Unit\")")
 	public WebElement testUnit;
 
-	@iOSFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[3]")
+	@iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Syllabus\"]")
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/tvHeading\").textContains(\"Syllabus\")")
 	public WebElement syllabus;
 
@@ -66,6 +66,8 @@ public class Object_Receive_Questions_Revision extends BaseClass {
 	@AndroidFindBy(id = "com.tce.studi:id/tv_lets_summarise")
 	public WebElement letsSummriseTxt;
 
+	@AndroidFindBy(id = "com.tce.studi:id/iv_right_action_primary")
+	public WebElement skip;
 	
 
 

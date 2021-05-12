@@ -42,7 +42,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 		applyExplicitWait(5);
 		if (device.equalsIgnoreCase("Android")) {
 			ArrayList<MobileElement> mobileElement = (ArrayList<MobileElement>) getDriver()
-					.findElementsById("com.tce.studi:id/tv_chapter_type");
+					.findElementsById("com.tce.studi:id/tvChapterType");
 			for (MobileElement mobileElement2 : mobileElement) {
 				if (mobileElement2.getText().trim().equalsIgnoreCase("Test")) {
 					clickOnElement(mobileElement2);
