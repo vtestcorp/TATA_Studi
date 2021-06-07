@@ -1,26 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Tata Studi QA">
+<suite name="Tata Studi QA" parallel="tests" thread-count="5">
 	<listeners>
 		<listener class-name="studi.co.Base.TestListener" />
 		<listener
 			class-name="studi.co.testng.EmailableReportListener" />
 	</listeners>
-	<test thread-count="5" name="Test">
-		<parameter name="type" value="Android"></parameter>
+	<test name="Test1">
+		<parameter name="type" value="Android-Jenkins"></parameter>
 		<classes>
+			<!-- <class name="studi.co.testScripts.Syllabus_ViewNotes" /> -->
 			<!--<class name="studi.co.testScripts.AFS_UserStory_77" /> -->
-			<!--<class name="studi.co.testScripts.AFS_UserStory_76" /> -->
-			<!--<class name="studi.co.testScripts.AFS_UserStory_65" /> -->
-			<!--<class name="studi.co.testScripts.AFS_UserStory_2" /> -->
+			<!-- <class name="studi.co.testScripts.AFS_UserStory_76" /> -->
+			<class name="studi.co.testScripts.AFS_UserStory_65" />
+			<!-- <class name="studi.co.testScripts.AFS_UserStory_2" /> -->
 			<!--<class name="studi.co.testScripts.AFS_UserStory_63" /> -->
 			<!--<class name="studi.co.testScripts.AFS_UserStory_1046" /> -->
 			<!--<class name="studi.co.testScripts.AFS_UserStory_1045" /> -->
-			<!--<class name="studi.co.testScripts.AFS_UserStory_1044" /> -->
+			<!-- <class name="studi.co.testScripts.AFS_UserStory_1044" /> -->
 			<!--<class name="studi.co.testScripts.AFS_UserStory_126" /> -->
-			<class name="studi.co.testScripts.AFS_UserStory_127" />
-
-
+			<!-- <class name="studi.co.testScripts.AFS_UserStory_127" /> -->
 		</classes>
 	</test> <!-- Test -->
+	<!-- <test name="Test2"> <parameter name="type" value="IOS-Jenkins"></parameter> 
+		<classes> <class name="studi.co.testScripts.Syllabus_ViewNotes" /> <class 
+		name="studi.co.testScripts.AFS_UserStory_77" /> <class name="studi.co.testScripts.AFS_UserStory_76" 
+		/> <class name="studi.co.testScripts.AFS_UserStory_65" /> <class name="studi.co.testScripts.AFS_UserStory_2" 
+		/> <class name="studi.co.testScripts.AFS_UserStory_63" /> <class name="studi.co.testScripts.AFS_UserStory_1046" 
+		/> <class name="studi.co.testScripts.AFS_UserStory_1045" /> <class name="studi.co.testScripts.AFS_UserStory_1044" 
+		/> <class name="studi.co.testScripts.AFS_UserStory_126" /> <class name="studi.co.testScripts.AFS_UserStory_127" 
+		/> </classes> </test> Test -->
+
 </suite> <!-- Suite -->

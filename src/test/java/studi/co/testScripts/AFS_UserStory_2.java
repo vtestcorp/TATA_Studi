@@ -41,7 +41,7 @@ public class AFS_UserStory_2 extends BaseClass {
 				prop.getProperty("topic"));
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = true,priority=-1)
 	public void TC03_Verify_Revision_Overview_() throws MalformedURLException, InterruptedException {
 		Module_Syllabus_Options so = new Module_Syllabus_Options();
 		so.Verify_Revision_Overview(prop.getProperty("subject"), prop.getProperty("topic"));

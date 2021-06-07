@@ -120,7 +120,7 @@ public class AFS_UserStory_77 extends BaseClass {
 	public void TC02_To_Verify_SCQ_Answers_In_Default_State_In_Revision()
 			throws WebDriverException, InterruptedException, IOException {
 		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
-		rqr.Module_Receive_SCQ_Questions_Default_State_In_Revision(prop.getProperty("subject77"),
+		rqr.Module_Receive_SCQ_Questions_Default_State_In_Revision(prop.getProperty("subject77"),	
 				prop.getProperty("topic77"));
 	}
 

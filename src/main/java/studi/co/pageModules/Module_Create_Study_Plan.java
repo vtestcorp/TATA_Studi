@@ -634,7 +634,7 @@ public class Module_Create_Study_Plan extends BaseClass {
 				test.log(Status.INFO, "Checking for single spaced practice");
 				//@
 				status = driver.findElementByXPath(oso.getUpcommingLesson(i) + "" + oso.lessonType).getText()
-						.equalsIgnoreCase("Practice 1");
+						.contains("Practice 1");
 				if (status) {
 					System.out.println("Spaced practice1 available for " + subject);
 					test.log(Status.INFO, "Spaced practice1 available for " + subject);
@@ -699,7 +699,7 @@ public class Module_Create_Study_Plan extends BaseClass {
 				test.log(Status.INFO, "Checking for single spaced practice");
 				//@
 				status = driver.findElementByXPath(oso.getUpcommingLesson(i) + "" + oso.lessonType).getText()
-						.equalsIgnoreCase("Practice 1");
+						.contains("Practice 1");
 				if (status) {
 					System.out.println("Spaced practice1 available for " + subject);
 					test.log(Status.INFO, "Spaced practice1 available for " + subject);
@@ -712,7 +712,7 @@ public class Module_Create_Study_Plan extends BaseClass {
 				test.log(Status.INFO, "Checking for spaced Practice1");
 				scrollTo2("Practice");
 				status = driver.findElementByXPath(oso.getUpcommingLesson(i) + "" + oso.lessonType).getText()
-						.equalsIgnoreCase("Practice 1");
+						.contains("Practice 1");
 				if (status) {
 					System.out.println("Spaced practice1 available for " + subject);
 					test.log(Status.INFO, "Spaced practice1 available for " + subject);
@@ -725,7 +725,7 @@ public class Module_Create_Study_Plan extends BaseClass {
 				test.log(Status.INFO, "Checking for spaced Practice2");
 				//@
 				status = driver.findElementByXPath(oso.getUpcommingLesson(i + 1) + "" + oso.lessonType).getText()
-						.equalsIgnoreCase("Practice 2");
+						.contains("Practice 2");
 				if (status) {
 					System.out.println("Spaced practice2 available for " + subject);
 					test.log(Status.INFO, "Spaced practice2 available for " + subject);
@@ -820,7 +820,7 @@ public class Module_Create_Study_Plan extends BaseClass {
 								+ (i + 1) + "]/android.view.View[" + (j + 1) + "]"));
 				for (MobileElement date : dates) {
 					System.out.println(date.getText() + " " + date.getAttribute("focused"));
-					if (date.getAttribute("focused").equalsIgnoreCase("true")) {
+					if (date.getAttribute("focused").contains("true")) {
 						date.click();
 					}
 				}
@@ -856,7 +856,7 @@ public class Module_Create_Study_Plan extends BaseClass {
 				test.log(Status.INFO, "Checking for single spaced practice");
 				//@
 				status = driver.findElementByXPath(oso.getUpcommingLesson(i) + "" + oso.lessonType).getText()
-						.equalsIgnoreCase("Practice 1");
+						.contains("Practice 1");
 				if (status) {
 					System.out.println("Spaced practice1 available for " + subject);
 					test.log(Status.INFO, "Spaced practice1 available for " + subject);
@@ -869,7 +869,7 @@ public class Module_Create_Study_Plan extends BaseClass {
 				test.log(Status.INFO, "Checking for spaced Practice1");
 				//@
 				status = driver.findElementByXPath(oso.getUpcommingLesson(i) + "" + oso.lessonType).getText()
-						.equalsIgnoreCase("Practice 1");
+						.contains("Practice 1");
 				if (status) {
 					System.out.println("Spaced practice1 available for " + subject);
 					test.log(Status.INFO, "Spaced practice1 available for " + subject);
@@ -882,7 +882,7 @@ public class Module_Create_Study_Plan extends BaseClass {
 				test.log(Status.INFO, "Checking for spaced Practice2");
 				//@
 				status = driver.findElementByXPath(oso.getUpcommingLesson(i + 1) + "" + oso.lessonType).getText()
-						.equalsIgnoreCase("Practice 2");
+						.contains("Practice 2");
 				if (status) {
 					System.out.println("Spaced practice2 available for " + subject);
 					test.log(Status.INFO, "Spaced practice2 available for " + subject);
@@ -1014,7 +1014,7 @@ public class Module_Create_Study_Plan extends BaseClass {
 		test.log(Status.INFO, "Checking Due Date for spaced Practice1");
 		//@
 		status = driver.findElementByXPath(oso.getUpcommingLesson(0) + "" + oso.lessonType).getText()
-				.equalsIgnoreCase("Practice 1");
+				.contains("Practice 1");
 		String practice1Due = driver.findElementByXPath(oso.getUpcommingLesson(0) + "" + oso.lessonDueDate).getText();
 		if (status) {
 			System.out.println("Spaced practice1 available for " + subject);
@@ -1028,7 +1028,7 @@ public class Module_Create_Study_Plan extends BaseClass {
 		test.log(Status.INFO, "Checking for spaced Practice2");
 		//@
 		status = driver.findElementByXPath(oso.getUpcommingLesson(1) + "" + oso.lessonType).getText()
-				.equalsIgnoreCase("Practice 2");
+				.contains("Practice 2");
 		String practice2Due = driver.findElementByXPath(oso.getUpcommingLesson(1) + "" + oso.lessonDueDate).getText();
 		if (status) {
 			System.out.println("Spaced practice2 available for " + subject);
@@ -1101,7 +1101,7 @@ public class Module_Create_Study_Plan extends BaseClass {
 		test.log(Status.INFO, "Checking Due Date for spaced Practice1");
 		//@
 		status = driver.findElementByXPath(oso.getUpcommingLesson(0) + "" + oso.lessonType).getText()
-				.equalsIgnoreCase("Practice 1");
+				.contains("Practice 1");
 		String practice1Due = driver.findElementByXPath(oso.getUpcommingLesson(0) + "" + oso.lessonDueDate).getText();
 		if (status) {
 			System.out.println("Spaced practice1 available for " + subject);
@@ -1115,7 +1115,7 @@ public class Module_Create_Study_Plan extends BaseClass {
 		test.log(Status.INFO, "Checking for spaced Practice2");
 		//@
 		status = driver.findElementByXPath(oso.getUpcommingLesson(1) + "" + oso.lessonType).getText()
-				.equalsIgnoreCase("Practice 2");
+				.contains("Practice 2");
 		String practice2Due = driver.findElementByXPath(oso.getUpcommingLesson(1) + "" + oso.lessonDueDate).getText();
 		if (status) {
 			System.out.println("Spaced practice2 available for " + subject);
@@ -1741,7 +1741,7 @@ public class Module_Create_Study_Plan extends BaseClass {
 			System.err.println(lesson.getKey());
 
 			if (getDriver().findElementByXPath(lesson.getValue() + "" + oso.lessonStatus).getAttribute("resource-id")
-					.equalsIgnoreCase("img")) {
+					.contains("img")) {
 				System.out.println(lesson.getKey() + " Unlocked initially");
 				test.log(Status.INFO, lesson.getKey() + " Unlocked initially");
 			} else if (getDriver().findElementByXPath(lesson.getValue() + "" + oso.lessonStatus)

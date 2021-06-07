@@ -25,14 +25,14 @@ public class AFS_UserStory_65 extends BaseClass {
 		login.Login_to_app();
 	}
 
-	@Test(enabled = true)//passed
+	@Test(enabled = true)
 	public void T01_To_Verify_BeginPractise_Link() throws Exception {
 		Module_Verify_Syllabus_Section test = new Module_Verify_Syllabus_Section();
 		test.verify_Begin_Practise_Link();
 
 	}
 
-	@Test(enabled = true)//passed
+	@Test(enabled = true)
 	public void T02_To_Verify_BeginPractise_Button() throws Exception {
 		Module_Verify_Syllabus_Section test = new Module_Verify_Syllabus_Section();
 		test.verify_beginPractise_Button();

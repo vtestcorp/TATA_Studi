@@ -308,7 +308,28 @@ public class Module_ReviewPlan extends BaseClass{
 	}
 
 
-	public void toVerify_Weekly_Option() {
+	public void toVerify_Weekly_Option() throws MalformedURLException, InterruptedException {
+		toVerify_Filter_Option();
+		SoftAssert assert1=new SoftAssert();
+		applyExplicitWaitsUntilElementVisible(orp.filterThisWeek);
+		Boolean week=orp.filterThisWeek.isDisplayed();
+		assert1.assertTrue(week);
+		orp.filterThisWeek.click();
+
+		Boolean weekClick=orp.filterThisWeek.isSelected();
+		if(week && weekClick) {
+			System.out.println("User can click on Filter Option");
+			test.log(Status.INFO, "User can click on filter Option");
+		}
+		else {
+			System.out.println("User can't click on Filter Option");
+			test.log(Status.INFO, "User can't click on filter Option");
+		}
+		assert1.assertTrue(weekClick);
+
+		orp.apply.click();
+
+
 
 
 	}

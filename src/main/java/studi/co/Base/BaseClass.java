@@ -38,6 +38,7 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Properties;
@@ -71,6 +72,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import com.aventstack.extentreports.ExtentReports;
@@ -89,6 +91,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
+import studi.co.pageModules.Module_Login;
 import studi.co.pageObjects.Object_Syllabus_Option;
 
 //Handling Config file operations and Extent report initialization
@@ -168,7 +171,7 @@ public class BaseClass {
 			if (s.getAttribute("class").equalsIgnoreCase("tick")) {
 				int index = as.indexOf(s);
 				getDriver().context("NATIVE_APP");
-				if (device.equalsIgnoreCase("Android"))
+				if (device.contains("Android")||device.contains("Android-Jenkins"))
 					clickOnElement(driver.findElementsByClassName("android.widget.CheckBox").get(index));
 				else
 					clickOnElement(driver.findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch")).get(index));
@@ -208,7 +211,7 @@ public class BaseClass {
 			if (s.getAttribute("class").equalsIgnoreCase("tick") && corr == 0) {
 				int index = as.indexOf(s);
 				getDriver().context("NATIVE_APP");
-				if (device.equalsIgnoreCase("Android"))
+				if (device.contains("Android")||device.contains("Android-Jenkins"))
 					clickOnElement(driver.findElementsByClassName("android.widget.CheckBox").get(index));
 				else
 					clickOnElement(driver.findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch")).get(index));
@@ -258,7 +261,7 @@ public class BaseClass {
 			if (!s.getAttribute("class").equalsIgnoreCase("tick")) {
 				int index = as.indexOf(s);
 				getDriver().context("NATIVE_APP");
-				if (device.equalsIgnoreCase("Android"))
+				if (device.contains("Android")||device.contains("Android-Jenkins"))
 					clickOnElement(driver.findElementsByClassName("android.widget.CheckBox").get(index));
 				else
 					clickOnElement(driver.findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch")).get(index));
@@ -310,11 +313,12 @@ public class BaseClass {
 		if (s.equalsIgnoreCase("Android")) {
 			caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Appium");
 			caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9");
+			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "");
 			caps.setCapability("appPackage", "com.tce.studi");
 			caps.setCapability("appActivity", "com.tce.view.ui.activities.SplashScreenActivity");
-			caps.setCapability("chromedriverExecutable", "C:\\Users\\LENOVO\\Downloads\\chromedriver_win32\\chromedriver.exe");
-			//caps.setCapability("app", "C:\\Users\\Dell\\Downloads\\Studi_v1.1.3(7).apk");
+			caps.setCapability("chromedriverExecutable","C:\\Users\\LENOVO\\Downloads\\chromedriver_win32_89\\chromedriver.exe");
+			//caps.setCapability("chromedriverExecutable","C:\\Users\\LENOVO\\Downloads\\chromedriver_win32 _83\\chromedriver.exe");
+			caps.setCapability("app", "C:\\Users\\LENOVO\\Downloads\\Studi_v1.1.6(2).apk");
 			caps.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, "true");
 			caps.setCapability(MobileCapabilityType.NO_RESET, true);
 			System.out.println("Required Desired Capabilities Defined");
@@ -326,8 +330,6 @@ public class BaseClass {
 
 			System.out.println("AndroidDriver Configured with the required Desired Capabilities and URL");
 			applyExplicitWait(20);
-			// Module_Login login = new Module_Login();
-			// login.Login_to_app();
 
 		} else if (s.equalsIgnoreCase("IOS")) {
 
@@ -347,32 +349,77 @@ public class BaseClass {
 
 			System.out.println("iOSDriver Configured with the required Desired Capabilities and URL");
 
-		} else if (s.equalsIgnoreCase("Jenkins")) {
+		} else if (s.equalsIgnoreCase("Android-Jenkins")) {
 			caps = new DesiredCapabilities();
+			caps.setCapability("browserstack.user", "imran_O3Z2m1");
+			caps.setCapability("browserstack.key", "deH6qfn4rkytKBtiXAmF");
+			//caps.setCapability("app", "bs://6faafdc5991986eaf7461bdf2a5811e232f5b316");
+			caps.setCapability("app", "bs://203c5e3b15c60f974d55710abce3b9540a3453bb");
 
-			// Set your access credentials
-			caps.setCapability("browserstack.user", "bhushans5");
-			caps.setCapability("browserstack.key", "CV55rv5TWx9wRXus2oqr");
+			caps.setCapability("device", "OnePlus 8");
+			caps.setCapability("os_version", "10.0");
 
-			caps.setCapability("bundleId", "com.google.Chrome");
-			caps.setCapability("appActivity", "com.demo.liveplaces.view.activity.SplashActivity");
-			caps.setCapability("app", "bs://ebe9e4d351887da685fd245723d9bc981cf04df1");
-			caps.setCapability("os_version", "13");
-			caps.setCapability("device", "iPhone 11 Pro");
 
-			caps.setCapability("real_mobile", "true");
-			caps.setCapability("autoAcceptAlerts", true);
+			//caps.setCapability("device","Xiaomi Redmi Note 8");
+			//caps.setCapability("os_version","9");
+
+
+			caps.setCapability(MobileCapabilityType.NO_RESET, true);
+			HashMap<String, Boolean> networkLogsOptions = new HashMap<>();
+			networkLogsOptions.put("captureContent", true);
+			caps.setCapability("browserstack.networkLogs", true);
+			caps.setCapability("browserstack.networkLogsOptions", networkLogsOptions);
+			//caps.setCapability("bundleId", "com.google.Chrome");
+			//caps.setCapability("appActivity", "com.demo.liveplaces.view.activity.SplashActivity");
+			caps.setCapability("project", "First Java Project");
+			caps.setCapability("build", "Java Android");
+			caps.setCapability("name", "Tata Studi");
+
+			// Initialise the remote Webdriver using BrowserStack remote URL
+			// and desired capabilities defined above
+			//caps.setCapability("real_mobile", "true");
+			//caps.setCapability("autoAcceptAlerts", true);
 
 			// caps.setCapability("browserstack.appium_version", "1.7.1");
-			caps.setCapability("browserstack.local", "false");
-			driver = new AppiumDriver<MobileElement>(new URL("http://hub-cloud.browserstack.com/wd/hub"), caps);
+			//caps.setCapability("browserstack.local", "false");
+
+			driver = new AppiumDriver<MobileElement>(new URL("http://hub.browserstack.com/wd/hub"), caps);
+			System.out.println("Launched");
+
+		}else if (s.equalsIgnoreCase("IOS-Jenkins")) {
+			caps = new DesiredCapabilities();
+			caps.setCapability("browserstack.user", "vtestsoftware_kQGEst");
+			caps.setCapability("browserstack.key", "BwjqEyXMTkp5kHjioqzp");
+			caps.setCapability("app", "bs://06a1b6b1f5d95c2364a170e262d595fc872f419b");
+			//caps.setCapability("app", "bs://203c5e3b15c60f974d55710abce3b9540a3453bb");
+			caps.setCapability("device", "iPad 5th");
+			caps.setCapability("os_version", "11");
+			caps.setCapability(MobileCapabilityType.NO_RESET, true);
+
+			//caps.setCapability("bundleId", "com.google.Chrome");
+			//caps.setCapability("appActivity", "com.demo.liveplaces.view.activity.SplashActivity");
+			caps.setCapability("project", "First Java Project");
+			caps.setCapability("build", "Java Android");
+			caps.setCapability("name", "Tata Studi IOS");
+
+			// Initialise the remote Webdriver using BrowserStack remote URL
+			// and desired capabilities defined above
+			//caps.setCapability("real_mobile", "true");
+			//caps.setCapability("autoAcceptAlerts", true);
+
+			// caps.setCapability("browserstack.appium_version", "1.7.1");
+			//caps.setCapability("browserstack.local", "false");
+
+			driver = new AppiumDriver<MobileElement>(new URL("http://hub.browserstack.com/wd/hub"), caps);
 			System.out.println("Launched");
 
 		}
 
+
 		driver.manage().timeouts().implicitlyWait(Integer.parseInt(prop.getProperty("object_wait_timeout")),
 				TimeUnit.SECONDS);
-
+		Module_Login login = new Module_Login();
+		login.Login_to_app();
 	}
 
 	public static AppiumDriver<MobileElement> getDriver() {
@@ -437,7 +484,7 @@ public class BaseClass {
 	// // test.log(Status.INFO,"Clicking on element " + element.getText());
 	//
 	// try {
-	// if (device.equalsIgnoreCase("Android"))
+	// if (device.contains("Android")||device.contains("Android-Jenkins"))
 	// applyExplicitWaitsUntilElementVisible(element);
 	// else
 	// try {
@@ -512,7 +559,7 @@ public class BaseClass {
 	public static void scrollTo1(String text) {
 		System.out.println("Scrolling to the Element which has the given text property : " + text);
 
-		if (getDevice().contentEquals("Android")) {
+		if (device.contains("Android")||device.contentEquals("Android-Jenkins")) {
 			getDriver().findElement(MobileBy.AndroidUIAutomator(
 					"new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(text(\"" + text + "\"));"));
 
@@ -688,7 +735,7 @@ public class BaseClass {
 
 	public int getTotalQuestionsInPractice() {
 		MobileElement ele;
-		if (device.equalsIgnoreCase("Android"))
+		if (device.contains("Android")||device.contains("Android-Jenkins"))
 			ele = getDriver().findElement(By.xpath("//*[contains(@text, '1 of')]"));
 		else
 			ele = getDriver().findElement(By.xpath("//*[contains(@name, '1 of')]"));
@@ -785,7 +832,7 @@ public class BaseClass {
 	public static void forwardVideoTimerToEnd() throws WebDriverException, IOException, InterruptedException {
 		action = new TouchAction(driver);
 		Object_Syllabus_Option oso = new Object_Syllabus_Option();
-		if (device.equalsIgnoreCase("Android")) {
+		if (device.contains("Android")||device.contains("Android-Jenkins")) {
 			int start = oso.seekBar.getLocation().getX();
 			System.out.println("Startpoint - " + start);
 			int y = oso.seekBar.getLocation().getY();
@@ -793,7 +840,7 @@ public class BaseClass {
 			System.out.println("Yaxis - " + y);
 			int end = oso.seekBar.getSize().getWidth();
 			System.out.println("End point - " + end);
-			if (device.equalsIgnoreCase("Android"))
+			if (device.contains("Android")||device.contains("Android-Jenkins"))
 				action.press(PointOption.point(start, y)).moveTo(PointOption.point(end + start, y)).release().perform();
 			else
 				action.press(PointOption.point(start, y)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000)))
@@ -806,7 +853,7 @@ public class BaseClass {
 	}
 
 	// public static MobileElement findElementByText(String text) {
-	// if (device.equalsIgnoreCase("Android"))
+	// if (device.contains("Android")||device.contains("Android-Jenkins"))
 	// return getDriver().findElement(By.xpath("//*[contains(@text, '" + text +
 	// "')]"));
 	// else
@@ -816,7 +863,7 @@ public class BaseClass {
 	// }
 
 	public static MobileElement findElementByText(String text) {
-		if (device.equalsIgnoreCase("Android"))
+		if (device.contains("Android")||device.contains("Android-Jenkins"))
 			return getDriver().findElement(By.xpath("//*[contains(@text, '" + text + "')]"));
 		else
 			return getDriver().findElement(
@@ -825,7 +872,7 @@ public class BaseClass {
 	}
 
 	public static MobileElement findElementByExactText(String text) {
-		if (device.equalsIgnoreCase("Android"))
+		if (device.contains("Android")||device.contains("Android-Jenkins"))
 			return getDriver().findElement(By.xpath("//*[@text='" + text + "']"));
 		else
 			return getDriver().findElement(By
@@ -978,7 +1025,7 @@ public class BaseClass {
 
 	public void closePopup() {
 		try {
-			if (device.equalsIgnoreCase("Android")) {
+			if (device.contains("Android")||device.contains("Android-Jenkins")) {
 				while (getDriver().findElementById("com.tce.studi:id/tutorialDoNotShow").isDisplayed()) {
 					clickOnElement(getDriver().findElementById("com.tce.studi:id/tutorialDoNotShow"));
 				}
@@ -992,6 +1039,7 @@ public class BaseClass {
 				}
 			}
 		} catch (Exception e) {
+			System.out.println("Popup closed");
 			test.log(Status.INFO, "Popup closed");
 		}
 	}
@@ -1031,7 +1079,7 @@ public class BaseClass {
 		}
 		List<MobileElement> notes;
 
-		if (device.equalsIgnoreCase("Android"))
+		if (device.contains("Android")||device.contains("Android-Jenkins"))
 			notes = (List<MobileElement>) driver.findElementsById("com.tce.studi:id/clRootView");
 		else
 			notes = (List<MobileElement>) driver.findElementsByXPath(
@@ -1043,7 +1091,7 @@ public class BaseClass {
 			// applyExplicitWaitsUntilElementClickable(mobileElement);
 			Thread.sleep(3000);
 
-			if (device.equalsIgnoreCase("Android")) {
+			if (device.contains("Android")||device.contains("Android-Jenkins")) {
 				driver.findElementById("com.tce.studi:id/clScrollableView").click();
 				clickOnElement(driver.findElementById("com.tce.studi:id/ivDeleteNote"));
 				clickOnElement(driver.findElementById("com.tce.studi:id/txtPositiveBtn"));
@@ -1056,7 +1104,7 @@ public class BaseClass {
 			}
 			System.out.println("deleted");
 		}
-		if (device.equalsIgnoreCase("Android"))
+		if (device.contains("Android")||device.contains("Android-Jenkins"))
 			clickOnElement(driver.findElementById("com.tce.studi:id/ivCross"));
 		else
 			clickOnElement(driver.findElement(By.xpath("//XCUIElementTypeButton[@name=\"cross\"]")));
@@ -1066,9 +1114,11 @@ public class BaseClass {
 		Object_Syllabus_Option oso = new Object_Syllabus_Option();
 		applyExplicitWait(5);
 		clickOnElement(oso.addNotesBtn);
+		System.out.println("Create note button visible");
+		test.log(Status.INFO, "Create note button visible");
 		applyExplicitWaitsUntilElementVisible(oso.saveNoteBtn);
 
-		clickOnElement(oso.noteTxtArea);
+		// clickOnElement(oso.noteTxtArea);
 		oso.noteTxtArea.sendKeys(note);
 		driver.hideKeyboard();
 
@@ -1085,18 +1135,18 @@ public class BaseClass {
 		}
 		closePopup();
 
-		if (device.equalsIgnoreCase("Android"))
-			getDriver().findElement(By.xpath(
-					"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]"))
-			.click();
+		if (device.contains("Android")||device.contains("Android-Jenkins")) {
+		}
+		/// getDriver().findElement(By.xpath("//android.widget.FrameLayout[@content-desc=\"Show
+		/// player controls\"]")).click();
 		else {
 			clickOnElement(findElementByText("Continue"));
 		}
 		applyExplicitWait(2);
 
-		oso.pauseBtn.click();
-		System.out.println("Clicked on Pause Button");
-		test.log(Status.INFO, "Clicked on Pause Button");
+		// oso.pauseBtn.click();
+		// System.out.println("Clicked on Pause Button");
+		// test.log(Status.INFO, "Clicked on Pause Button");
 
 	}
 
@@ -1143,49 +1193,43 @@ public class BaseClass {
 				element.getLocation().y + (element.getSize().height / 2))).perform();
 	}
 
-
 	public static String getLocator(String element) throws IOException {
 
 		String uname;
-		String locator="";
+		String locator = "";
 
-		try  
-		{  
-			File file = new File("C:\\Users\\LENOVO\\Downloads\\TATA Studi Locators.xlsx");   //creating a new file instance  
-			FileInputStream fis = new FileInputStream(file);   //obtaining bytes from the file  
-			//creating Workbook instance that refers to .xlsx file  
-			XSSFWorkbook wb = new XSSFWorkbook(fis);   
-			XSSFSheet sheet = wb.getSheetAt(0);     //creating a Sheet object to retrieve object  
-			Iterator<Row> itr = sheet.iterator();    //iterating over excel file  
-			while (itr.hasNext())                 
-			{  
-				Row row = itr.next();  
-				Iterator<Cell> cellIterator = row.cellIterator();   //iterating over each column  
-				while (cellIterator.hasNext())   
-				{  
-					Cell cell = cellIterator.next();  
+		try {
+			File file = new File("C:\\Users\\Dell\\Downloads\\TATA Studi Locators (1).xlsx"); // creating a new file
+			// instance
+			FileInputStream fis = new FileInputStream(file); // obtaining bytes from the file
+			// creating Workbook instance that refers to .xlsx file
+			XSSFWorkbook wb = new XSSFWorkbook(fis);
+			XSSFSheet sheet = wb.getSheetAt(0); // creating a Sheet object to retrieve object
+			Iterator<Row> itr = sheet.iterator(); // iterating over excel file
+			while (itr.hasNext()) {
+				Row row = itr.next();
+				Iterator<Cell> cellIterator = row.cellIterator(); // iterating over each column
+				while (cellIterator.hasNext()) {
+					Cell cell = cellIterator.next();
 
-					switch (cell.getCellType())               
-					{  
-					case Cell.CELL_TYPE_STRING:    //field that represents string cell type  
+					switch (cell.getCellType()) {
+					case Cell.CELL_TYPE_STRING: // field that represents string cell type
 
-						uname=cell.getStringCellValue();
-						if(uname.equalsIgnoreCase(element))
-						{
+						uname = cell.getStringCellValue();
+						if (uname.equalsIgnoreCase(element)) {
 							cell = cellIterator.next();
-							locator=cell.getStringCellValue();
+							locator = cell.getStringCellValue();
 						}
-						break;  
+						break;
 
-					default:  
-					}  			}  
-				System.out.println("");  
-			}  
-		}  
-		catch(Exception e)  
-		{  
-			e.printStackTrace();  
-		}  
+					default:
+					}
+				}
+				System.out.println("");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return locator;
 	}
 

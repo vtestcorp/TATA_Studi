@@ -128,7 +128,7 @@ public class AFS_UserStory_1046 extends BaseClass{
 		mrs.toVerify_Turtle_Icon();
 	}
 
-	@Test(enabled  = true,priority=-1) 
+	@Test(enabled  = true) 
 	public void	T14_To_Verify_Rabbit_Icon_On_Fast_Progress_of_Subject_In_Review_Plan_Page() throws IOException, InterruptedException{
 
 		Module_ReviewPlan mrs=new Module_ReviewPlan();

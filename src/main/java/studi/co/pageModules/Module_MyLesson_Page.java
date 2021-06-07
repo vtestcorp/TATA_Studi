@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
@@ -25,6 +26,7 @@ import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import studi.co.Base.BaseClass;
+import studi.co.pageObjects.Object_Create_Study_Plan;
 import studi.co.pageObjects.Object_MyLesson_Page;
 import studi.co.pageObjects.Object_ReviewPlan;
 
@@ -54,7 +56,7 @@ public class Module_MyLesson_Page extends BaseClass{
 			test.log(Status.INFO, "In the landing page,Active StudyPlan tab is displayed");
 		}
 		assert1.assertTrue(testUnit);
-
+		//createPlan();
 		omp.test_unit.click();
 		applyExplicitWait(5);
 		Boolean myLessonPage=omp.planTestUnit.isDisplayed();
@@ -235,10 +237,10 @@ public class Module_MyLesson_Page extends BaseClass{
 		createPlan();
 		omp= new Object_MyLesson_Page();
 		Thread.sleep(2000);
-		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
-		.until(ExpectedConditions.elementToBeClickable(omp.backIcon));
-		applyExplicitWaitsUntilElementVisible(omp.backicon);
-		omp.backicon.click();
+//		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
+//		.until(ExpectedConditions.elementToBeClickable(omp.backIcon));
+//		applyExplicitWaitsUntilElementVisible(omp.backicon);
+//		omp.backicon.click();
 
 
 		toVerify_User_Navigate_to_MyLessonsPage();
@@ -277,79 +279,110 @@ public class Module_MyLesson_Page extends BaseClass{
 	}
 
 
-	public void createPlan() throws Exception {
-		orp=new Object_ReviewPlan();
-		if(orp.subHeading.getText().contains("Paused")){
-			orp.test_unit.click();
-			applyExplicitWait(5);
-			orp.resumePlan.click();
-			applyExplicitWait(5);
+	public void createPlan() throws MalformedURLException {
+
+		Object_Create_Study_Plan temp = new Object_Create_Study_Plan();
+		clickOnElement(temp.testUnitModule);
+		try {
+			clickOnElement(temp.selectAnotherPlanBtn);
+		} catch (Exception e) {
+			if (device.contains("Android")) {
+				scrollTo1("Manage and Create Plans");
+				applyExplicitWait(5);
+			} else
+				swipeDown();
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			System.out.println("Clicking on Manage and Create Plans");
+			clickOnElement(temp.managePlanBtn);
 		}
-		else {
-			applyExplicitWait(5);
-			orp.test_unit.click();
-		}
+
 		applyExplicitWait(5);
-		Boolean myLessonPage=orp.planTestUnit.isDisplayed();
-		if(myLessonPage) {
-			System.out.println("User able to navigate to MyLessons Page");
-			//			test.log(Status.INFO, "User able to navigate to MyLessons Page");
-		}
-		else {
-			System.out.println("User unable to navigate to MyLessons Page");
-			//			test.log(Status.INFO, "User unable to navigate to MyLessons Page");
-		}
+		System.out.println("Clicking on Create Study Plans");
+		applyExplicitWaitsUntilElementClickable(temp.createStudyPlanBtn);
+		clickOnElement(temp.createStudyPlanBtn);
 
-		scrollTo2("Manage and Create Plans");		
+		System.err.println("Clicked on " + prop.getProperty("msubject"));
+		scrollTo2(prop.getProperty("msubject"));
+		applyExplicitWaitsUntilElementVisible(findElementByText(prop.getProperty("msubject")));
+		clickOnElement(findElementByText(prop.getProperty("msubject")));
+
+		System.err.println("Clicked on " + prop.getProperty("topic2"));
+		scrollTo2(prop.getProperty("topic2"));
+		applyExplicitWaitsUntilElementVisible(findElementByText(prop.getProperty("topic2")));
+		clickOnElement(findElementByText(prop.getProperty("topic2")));
+
 		applyExplicitWait(5);
-		orp.manageAndCreatePlan.click();
-		//	applyExplicitWaitsUntilElementVisible(orp.);
+		clickOnElement(findElementByText("Add to portion"));
 
-		clickOnElement(findElementByText("Create"));
-		applyExplicitWaitsUntilElementVisible(orp.subjectAtCreatePlan);
-		orp.subjectAtCreatePlan.click();
-		applyExplicitWaitsUntilElementVisible(orp.topicCheckBoxAtCreateStudyPlan);
-		orp.topicCheckBoxAtCreateStudyPlan.click();
-		orp.addToPortion.click();
-
-		clickOnElement(findElementByText("Next Step"));
+		applyExplicitWaitsUntilElementClickable(temp.nextStepBtn);
+		clickOnElement(temp.nextStepBtn);
 		applyExplicitWait(5);
-		clickOnElement(findElementByText("Next Step"));
 
-
-		String date=orp.selectDate.getText();
-		System.out.println(date);
-		String[] s = date.split(", ");
-		String[] s1 = s[1].split(" ");
-		String actualDate = s1[1].trim();
-		System.out.println(actualDate);
-		int i = Integer.parseInt(actualDate);
-		int date2=i+4;
-
-		if(i>=23) {
-			orp.nextMonthButton.click();
-			Thread.sleep(2000);
-			//		 MobileElement date1=getDriver().findElement(By.xpath("//*[contains(@text, '1, 2021')]"));
-			new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
-			.until(ExpectedConditions.elementToBeClickable(orp.date1));
-			orp.date1.click();
+		action = new TouchAction(driver);
+		Set<String> context = driver.getContextHandles();
+		for (String cont : context) {
+			if (cont.contains("WEBVIEW"))
+				getDriver().context(cont);
 		}
-		else {
-			MobileElement date1=getDriver().findElement(By.xpath("//*[contains(@text, '"+date2+", 2021')]"));
-			new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
-			.until(ExpectedConditions.elementToBeClickable(date1));
-			date1.click();
+		Boolean status = getDriver().findElement(By.xpath("//*[contains(@class, 'icon-flag-svg')]"))
+				.getAttribute("class").contains("active");
+		getDriver().context("NATIVE_APP");
+		if (status) {
+			temp.subjectFlag.put(prop.getProperty("msubject"), true);
+		} else {
+			temp.subjectFlag.put(prop.getProperty("msubject"), false);
 		}
 
+		applyExplicitWaitsUntilElementClickable(temp.nextStepBtn);
+		clickOnElement(temp.nextStepBtn);
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		applyExplicitWaitsUntilElementClickable(temp.nextStepBtn);
+		clickOnElement(temp.nextStepBtn);
 
-		clickOnElement(findElementByText("Next Step"));
+		applyExplicitWaitsUntilElementClickable(findElementByText("Activate Plan"));
 		applyExplicitWait(5);
 		clickOnElement(findElementByText("Activate Plan"));
-		applyExplicitWait(5);
-		Thread.sleep(2000);
 		clickOnElement(findElementByText("Begin Studying"));
 
+		System.out.println("New plan created");
+
+		int j = 0;
+		for (int i = 0; i < 3; i++) {
+			try {
+				Thread.sleep(1500);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			applyExplicitWaitsUntilElementClickable(temp.topLessonStatus);
+			clickOnElement(temp.topLessonStatus);
+			applyExplicitWait(5);
+			//clickOnElement(temp.markAsComplete);
+			clickOnElement(findElementByText("Mark"));
+			//if (j == 1)
+			//scrollTo2("due");
+			j++;
+		}
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		clickOnElement(temp.backBtnTestUnit);
+
 	}
+
 
 	// 1045_13
 	public void toVerify_Todays_Tab() throws Exception {
@@ -372,10 +405,10 @@ public class Module_MyLesson_Page extends BaseClass{
 		createPlan();
 		omp= new Object_MyLesson_Page();
 		Thread.sleep(2000);
-		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
-		.until(ExpectedConditions.elementToBeClickable(omp.backIcon));
-		applyExplicitWaitsUntilElementVisible(omp.backicon);
-		omp.backicon.click();
+//		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
+//		.until(ExpectedConditions.elementToBeClickable(omp.backIcon));
+//		applyExplicitWaitsUntilElementVisible(omp.backicon);
+//		omp.backicon.click();
 
 		toVerify_Todays_Tab();
 		scrollTo2("Upcoming");
@@ -552,10 +585,10 @@ public class Module_MyLesson_Page extends BaseClass{
 		createPlan();
 		omp= new Object_MyLesson_Page();
 		Thread.sleep(2000);
-		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
-		.until(ExpectedConditions.elementToBeClickable(omp.backIcon));
-		applyExplicitWaitsUntilElementVisible(omp.backIcon);
-		omp.backIcon.click();
+//		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
+//		.until(ExpectedConditions.elementToBeClickable(omp.backIcon));
+//		applyExplicitWaitsUntilElementVisible(omp.backIcon);
+//		omp.backIcon.click();
 
 
 		SoftAssert assert1=new SoftAssert();
@@ -637,11 +670,11 @@ public class Module_MyLesson_Page extends BaseClass{
 		createPlan();
 		omp= new Object_MyLesson_Page();
 		Thread.sleep(2000);
-		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
-		.until(ExpectedConditions.elementToBeClickable(omp.backIcon));
-		applyExplicitWaitsUntilElementVisible(omp.backIcon);
+//		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
+//		.until(ExpectedConditions.elementToBeClickable(omp.backIcon));
+//		applyExplicitWaitsUntilElementVisible(omp.backIcon);
 
-		omp.backicon.click();
+//	omp.backicon.click();
 
 		toVerify_User_Navigate_to_MyLessonsPage();
 		SoftAssert assert1=new SoftAssert();
@@ -669,10 +702,10 @@ public class Module_MyLesson_Page extends BaseClass{
 		createPlan();
 		omp= new Object_MyLesson_Page();
 		Thread.sleep(2000);
-		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
-		.until(ExpectedConditions.elementToBeClickable(omp.backIcon));
-		applyExplicitWaitsUntilElementVisible(omp.backIcon);
-		omp.backicon.click();
+//		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
+//		.until(ExpectedConditions.elementToBeClickable(omp.backIcon));
+//		applyExplicitWaitsUntilElementVisible(omp.backIcon);
+//		omp.backicon.click();
 
 		toVerify_User_Navigate_to_MyLessonsPage();
 		SoftAssert assert1=new SoftAssert();
@@ -1501,13 +1534,13 @@ public class Module_MyLesson_Page extends BaseClass{
 		omp.editPortion.click();
 
 
-//		applyExplicitWaitsUntilElementVisible(omp.activatePlanButton);
-//		omp.activatePlanButton.click();
-//		applyExplicitWaitsUntilElementVisible(omp.subjectAtCreatePlan);
-//		omp.subjectAtCreatePlan.click();
-//		applyExplicitWaitsUntilElementVisible(orp.chapterCheckBox);
-//		orp.chapterCheckBox.click();
-//		orp.addToPortion.click();
+		//		applyExplicitWaitsUntilElementVisible(omp.activatePlanButton);
+		//		omp.activatePlanButton.click();
+		//		applyExplicitWaitsUntilElementVisible(omp.subjectAtCreatePlan);
+		//		omp.subjectAtCreatePlan.click();
+		//		applyExplicitWaitsUntilElementVisible(orp.chapterCheckBox);
+		//		orp.chapterCheckBox.click();
+		//		orp.addToPortion.click();
 
 		clickOnElement(findElementByText("Next Step"));
 		applyExplicitWait(5);

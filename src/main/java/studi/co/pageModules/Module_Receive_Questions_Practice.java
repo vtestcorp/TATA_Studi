@@ -105,7 +105,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
-			if (verifySCQorMCQ().equalsIgnoreCase("scq")) {
+			if (verifySCQorMCQ().contains("scq")) {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
@@ -137,7 +137,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 			System.out.println("Question " + (i + 1));
 
 			if (i == 0) {
-				if (device.equalsIgnoreCase("Android"))
+				if (device.contains("Android"))
 					firstQuestion = obp.question.getText();
 				else
 					firstQuestion = obp.question.findElement(By.xpath("(//XCUIElementTypeStaticText)[2]")).getText();
@@ -149,14 +149,14 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 			clickOnElement(obp.attempt_later);
 		}
 
-		if (device.equalsIgnoreCase("Android"))
+		if (device.contains("Android"))
 			lastQuestion = obp.question.getText();
 		else
 			lastQuestion = obp.question.findElement(By.xpath("(//XCUIElementTypeStaticText)[2]")).getText();
 		System.out.println("Last appeared question : " + lastQuestion);
 
 		sAss.assertEquals(firstQuestion, lastQuestion);
-		if (firstQuestion.equalsIgnoreCase(lastQuestion))
+		if (firstQuestion.contains(lastQuestion))
 			test.log(Status.INFO, "Unattempted question appear again. So it's mandetory for practice");
 		System.out.println("Unattempted question appear again. So it's mandetory for practice");
 		
@@ -177,7 +177,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
-			if (verifySCQorMCQ().equalsIgnoreCase("scq")) {
+			if (verifySCQorMCQ().contains("scq")) {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
@@ -255,14 +255,14 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		test.log(Status.INFO, "Total " + questions + "questions appeared");
 		System.out.println("Total " + questions + "questions appeared");
 		List<MobileElement> answerCount;
-		if (device.equalsIgnoreCase("Android"))
+		if (device.contains("Android"))
 			answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
 		else
 			answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
 		int ansCount = answerCount.size();
 		System.out.println("answerCont = " + ansCount);
 
-		if (device.equalsIgnoreCase("Android"))
+		if (device.contains("Android"))
 			temp = obp.question.getText();
 		else
 			temp = obp.question.findElement(By.xpath("(//XCUIElementTypeStaticText)[2]")).getText();
@@ -270,7 +270,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		applyExplicitWait(1);
 		test.log(Status.INFO, "Pressing back button");
 		System.out.println("Pressing back button");
-		if (device.equalsIgnoreCase("Android"))
+		if (device.contains("Android"))
 			driver.navigate().back();
 		else
 			clickOnElement(obp.backBtn);
@@ -282,7 +282,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 
 		applyExplicitWait(1);
 		String temp2;
-		if (device.equalsIgnoreCase("Android"))
+		if (device.contains("Android"))
 			temp2 = obp.question.getText();
 		else
 			temp2 = obp.question.findElement(By.xpath("(//XCUIElementTypeStaticText)[2]")).getText();
@@ -293,7 +293,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		applyExplicitWait(1);
 		test.log(Status.INFO, "Pressing back button");
 		System.out.println("Pressing back button");
-		if (device.equalsIgnoreCase("Android"))
+		if (device.contains("Android"))
 			driver.navigate().back();
 		else
 			clickOnElement(obp.backBtn);
@@ -322,12 +322,12 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
-			if (verifySCQorMCQ().equalsIgnoreCase("scq")) {
+			if (verifySCQorMCQ().contains("scq")) {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
 				List<MobileElement> answerCount;
-				if (device.equalsIgnoreCase("Android"))
+				if (device.contains("Android"))
 					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
 				else
 					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
@@ -368,21 +368,21 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
-			if (verifySCQorMCQ().equalsIgnoreCase("scq")) {
+			if (verifySCQorMCQ().contains("scq")) {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
 				List<MobileElement> answerCount;
-				if (device.equalsIgnoreCase("Android"))
+				if (device.contains("Android"))
 					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
 				else
 					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
 				int c = 0;
 				for (MobileElement mobileElement : answerCount) {
-					if (device.equalsIgnoreCase("Android"))
+					if (device.contains("Android"))
 						status = Boolean.parseBoolean(mobileElement.getAttribute("checked"));
 					else
-						status = mobileElement.getAttribute("value").equalsIgnoreCase("1");
+						status = mobileElement.getAttribute("value").contains("1");
 					if (!status) {
 
 						test.log(Status.INFO, "Answer " + c++ + "  is unchecked as default");
@@ -414,13 +414,13 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
-			if (verifySCQorMCQ().equalsIgnoreCase("scq")) {
+			if (verifySCQorMCQ().contains("scq")) {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
 				swipeUp();
 				List<MobileElement> answerCount;
-				if (device.equalsIgnoreCase("Android"))
+				if (device.contains("Android"))
 					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
 				else
 					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
@@ -452,12 +452,12 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
-			if (verifySCQorMCQ().equalsIgnoreCase("scq")) {
+			if (verifySCQorMCQ().contains("scq")) {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
 				List<MobileElement> answerCount;
-				if (device.equalsIgnoreCase("Android"))
+				if (device.contains("Android"))
 					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
 				else
 					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
@@ -466,10 +466,10 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				for (MobileElement mobileElement : answerCount) {
 					mobileElement.click();
 					Thread.sleep(200);
-					if (device.equalsIgnoreCase("Android"))
+					if (device.contains("Android"))
 						status = Boolean.parseBoolean(mobileElement.getAttribute("focused"));
 					else
-						status = mobileElement.getAttribute("value").equalsIgnoreCase("1");
+						status = mobileElement.getAttribute("value").contains("1");
 
 					sAss.assertTrue(status, "Multiple answers not available for question " + (i + 1));
 					if (status) {
@@ -504,12 +504,12 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
-			if (verifySCQorMCQ().equalsIgnoreCase("scq")) {
+			if (verifySCQorMCQ().contains("scq")) {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
 				List<MobileElement> answerCount;
-				if (device.equalsIgnoreCase("Android"))
+				if (device.contains("Android"))
 					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
 				else
 					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
@@ -530,10 +530,10 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				
 				for (MobileElement mobileElement2 : answerCount) {
 					swipeUp();
-					if (device.equalsIgnoreCase("Android"))
+					if (device.contains("Android"))
 						status = Boolean.parseBoolean(mobileElement2.getAttribute("checked"));
 					else
-						status = mobileElement2.getAttribute("value").equalsIgnoreCase("1");
+						status = mobileElement2.getAttribute("value").contains("1");
 					if (status) {
 						ansFlag++;
 					}
@@ -579,12 +579,12 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
-			if (verifySCQorMCQ().equalsIgnoreCase("mcq")) {
+			if (verifySCQorMCQ().contains("mcq")) {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
 				List<MobileElement> answerCount;
-				if (device.equalsIgnoreCase("Android"))
+				if (device.contains("Android"))
 					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
 				else
 					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
@@ -631,21 +631,21 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
-			if (verifySCQorMCQ().equalsIgnoreCase("mcq")) {
+			if (verifySCQorMCQ().contains("mcq")) {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
 				List<MobileElement> answerCount;
-				if (device.equalsIgnoreCase("Android"))
+				if (device.contains("Android"))
 					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
 				else
 					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
 				int c = 0;
 				for (MobileElement mobileElement : answerCount) {
-					if (device.equalsIgnoreCase("Android"))
+					if (device.contains("Android"))
 						status = Boolean.parseBoolean(mobileElement.getAttribute("checked"));
 					else
-						status = mobileElement.getAttribute("value").equalsIgnoreCase("1");
+						status = mobileElement.getAttribute("value").contains("1");
 					if (!status) {
 
 						test.log(Status.INFO, "Answer " + c++ + "  is unchecked as default");
@@ -686,12 +686,12 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
-			if (verifySCQorMCQ().equalsIgnoreCase("mcq")) {
+			if (verifySCQorMCQ().contains("mcq")) {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
 				List<MobileElement> answerCount;
-				if (device.equalsIgnoreCase("Android"))
+				if (device.contains("Android"))
 					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
 				else
 					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
@@ -734,12 +734,12 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
-			if (verifySCQorMCQ().equalsIgnoreCase("mcq")) {
+			if (verifySCQorMCQ().contains("mcq")) {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
 				List<MobileElement> answerCount;
-				if (device.equalsIgnoreCase("Android"))
+				if (device.contains("Android"))
 					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
 				else
 					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
@@ -748,10 +748,10 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				for (MobileElement mobileElement : answerCount) {
 					mobileElement.click();
 					Thread.sleep(200);
-					if (device.equalsIgnoreCase("Android"))
+					if (device.contains("Android"))
 						status = Boolean.parseBoolean(mobileElement.getAttribute("focused"));
 					else
-						status = mobileElement.getAttribute("value").equalsIgnoreCase("1");
+						status = mobileElement.getAttribute("value").contains("1");
 
 					sAss.assertTrue(status, "Multiple answers not available for question " + (i + 1));
 					if (status) {
@@ -797,12 +797,12 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
-			if (verifySCQorMCQ().equalsIgnoreCase("mcq")) {
+			if (verifySCQorMCQ().contains("mcq")) {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
 				List<MobileElement> answerCount;
-				if (device.equalsIgnoreCase("Android"))
+				if (device.contains("Android"))
 					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
 				else
 					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
@@ -815,10 +815,10 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				Thread.sleep(100);
 
 				for (MobileElement mobileElement2 : answerCount) {
-					if (device.equalsIgnoreCase("Android"))
+					if (device.contains("Android"))
 						status = Boolean.parseBoolean(mobileElement2.getAttribute("checked"));
 					else
-						status = mobileElement2.getAttribute("value").equalsIgnoreCase("1");
+						status = mobileElement2.getAttribute("value").contains("1");
 					if (status) {
 						ansFlag++;
 					}
@@ -858,7 +858,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
-			if (verifySCQorMCQ().equalsIgnoreCase("mcq")) {
+			if (verifySCQorMCQ().contains("mcq")) {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
@@ -917,7 +917,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
-			if (verifySCQorMCQ().equalsIgnoreCase("mcq")) {
+			if (verifySCQorMCQ().contains("mcq")) {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
@@ -951,7 +951,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				swipeDown();
 				Thread.sleep(500);
 				if ((i + 1) != questions) {
-					if (device.equalsIgnoreCase("Android"))
+					if (device.contains("Android"))
 						clickOnElement(obp.conti_nue);
 					else
 						clickOnElement(findElementByText("Continue"));
@@ -995,7 +995,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 			System.out.println("Question " + (i + 1));
 
 			if (i == 0) {
-				if (device.equalsIgnoreCase("Android"))
+				if (device.contains("Android"))
 					firstQuestion = obp.question.getText();
 				else
 					firstQuestion = obp.question.findElement(By.xpath("(//XCUIElementTypeStaticText)[2]")).getText();
@@ -1006,14 +1006,14 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 			clickOnElement(obp.attempt_later);
 		}
 
-		if (device.equalsIgnoreCase("Android"))
+		if (device.contains("Android"))
 			lastQuestion = obp.question.getText();
 		else
 			lastQuestion = obp.question.findElement(By.xpath("(//XCUIElementTypeStaticText)[2]")).getText();
 		System.out.println("Last appeared question : " + lastQuestion);
 
 		sAss.assertEquals(firstQuestion, lastQuestion);
-		if (firstQuestion.equalsIgnoreCase(lastQuestion))
+		if (firstQuestion.contains(lastQuestion))
 			test.log(Status.INFO, "Unattempted question appear again. So it's mandetory for practice");
 		System.out.println("Unattempted question appear again. So it's mandetory for practice");
 		return sAss;
@@ -1034,7 +1034,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
-			if (verifySCQorMCQ().equalsIgnoreCase("mcq")) {
+			if (verifySCQorMCQ().contains("mcq")) {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
@@ -1118,14 +1118,14 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		test.log(Status.INFO, "Total " + questions + "questions appeared");
 		System.out.println("Total " + questions + "questions appeared");
 		List<MobileElement> answerCount;
-		if (device.equalsIgnoreCase("Android"))
+		if (device.contains("Android"))
 			answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
 		else
 			answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
 		int ansCount = answerCount.size();
 		System.out.println("answerCont = " + ansCount);
 
-		if (device.equalsIgnoreCase("Android"))
+		if (device.contains("Android"))
 			temp = obp.question.getText();
 		else
 			temp = obp.question.findElement(By.xpath("(//XCUIElementTypeStaticText)[2]")).getText();
@@ -1133,7 +1133,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		applyExplicitWait(1);
 		test.log(Status.INFO, "Pressing back button");
 		System.out.println("Pressing back button");
-		if (device.equalsIgnoreCase("Android"))
+		if (device.contains("Android"))
 			driver.navigate().back();
 		else
 			clickOnElement(obp.backBtn);
@@ -1145,7 +1145,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 
 		applyExplicitWait(1);
 		String temp2;
-		if (device.equalsIgnoreCase("Android"))
+		if (device.contains("Android"))
 			temp2 = obp.question.getText();
 		else
 			temp2 = obp.question.findElement(By.xpath("(//XCUIElementTypeStaticText)[2]")).getText();
@@ -1156,7 +1156,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		applyExplicitWait(1);
 		test.log(Status.INFO, "Pressing back button");
 		System.out.println("Pressing back button");
-		if (device.equalsIgnoreCase("Android"))
+		if (device.contains("Android"))
 			driver.navigate().back();
 		else
 			clickOnElement(obp.backBtn);
@@ -1189,7 +1189,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
-			if (verifySCQorMCQ().equalsIgnoreCase("scq")) {
+			if (verifySCQorMCQ().contains("scq")) {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
@@ -1245,7 +1245,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
-			if (verifySCQorMCQ().equalsIgnoreCase("scq")) {
+			if (verifySCQorMCQ().contains("scq")) {
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
@@ -1278,7 +1278,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 			swipeDown();
 			Thread.sleep(500);
 			if ((i + 1) != questions) {
-				if(device.equalsIgnoreCase("Android"))
+				if(device.contains("Android"))
 				clickOnElement(obp.conti_nue);
 				else
 					clickOnElement(findElementByText("Continue"));}

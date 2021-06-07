@@ -193,7 +193,7 @@ public class Object_Syllabus_Option extends BaseClass {
 
 		Thread.sleep(500);
 		action = new TouchAction(driver);
-		if (device.equalsIgnoreCase("Android"))
+		if (device.contains("Android"))
 			action.press(PointOption.point(115, 650)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(700)))
 					.moveTo(PointOption.point(115, 450)).release().perform();
 		else
@@ -251,7 +251,7 @@ public class Object_Syllabus_Option extends BaseClass {
 			} catch (Exception e) {
 
 				applyExplicitWait(5);
-				if (device.equalsIgnoreCase("Android"))
+				if (device.contains("Android"))
 					status = findElementByText("Revise again").isDisplayed();
 				else
 					status = driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name=\"Revise again\"]"))
@@ -262,7 +262,7 @@ public class Object_Syllabus_Option extends BaseClass {
 					System.out.println("Revise again button Displayed");
 					test.log(Status.INFO, "Revise again button Displayed");
 
-					if (device.equalsIgnoreCase("Android"))
+					if (device.contains("Android"))
 						clickOnElement(findElementByText("Revise again"));
 					else
 					{

@@ -5,6 +5,8 @@ import java.net.MalformedURLException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.sun.mail.imap.Utility.Condition;
@@ -17,30 +19,15 @@ public class Module_Login extends BaseClass {
 
 	public static String homepage_title;
 
+
 	public void Login_to_app() throws InterruptedException, IOException {
-
 		getDriver().resetApp();
-//		login.username.clear();
-//		login.username.sendKeys(prop.getProperty("username_password"));
-//		login.password.clear();
-//		login.password.sendKeys(prop.getProperty("username_password"));
-//		login.login_button.click();
-//		
-//		Thread.sleep(5000);
-//		
-//		homepage_title = login.homepage_title.getText();
-//		
-//		if(homepage_title.equals("What would\n" + "you like to do next?"))
-//			System.out.println("Login successfull");
-//		else 
-//			System.out.println("Login Failed");
 		Object_Login ol = new Object_Login();
-		//applyImplicitWait(20);
-		applyExplicitWaitsUntilElementVisible(ol.getAlreadyAUser());
-		clickOnElement(ol.getAlreadyAUser());
-
-		applyExplicitWait(2);
-
+		applyExplicitWaitsUntilElementVisible(ol.logo);
+		/*
+		 * try { clickOnElement(ol.getAlreadyAUser()); } catch(Exception e) {
+		 * System.err.println("Continue to login"); } applyExplicitWait(2);
+		 */
 		clearText(ol.getMobileNumberTextBox());
 		sendText(ol.mobileNumberTextBox, prop.getProperty("mobileNumber"));
 		System.out.println("Entered Mobile Number");
@@ -55,12 +42,32 @@ public class Module_Login extends BaseClass {
 		clickOnElement(ol.getVerifypasswordButton());
 		applyExplicitWait(2);
 		System.out.println("Credentials verified");
+		//try{clickOnElement(findElementByText("Refresh"));}
+		//catch(Exception e) {}
+
+
 		clickOnElement(ol.getRegisteredUserName());
 		applyExplicitWait(2);
-		applyExplicitWaitsUntilElementVisible(ol.signOut);
+		try {
+			clickOnElement(findElementByText("Start new session"));			
+		}
+		catch(Exception e)
+		{
+			System.out.println("Duplicate login - started new session");
+		}
+
+		try {
+
+			applyExplicitWaitsUntilElementVisible(ol.hideMessage);
+			clickOnElement(ol.hideMessage);
+		}
+		catch(Exception e)
+		{
+			System.err.println("Pop-up not appear");
+		}
 		//scrollTo1("Report an issue");
-		scrollToEnd();
-		System.out.println("Scrolled across the entire viewport on the LandingPage successfully");
 		System.out.println("Login is Successful");
+
+
 	}
 }

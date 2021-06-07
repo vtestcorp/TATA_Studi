@@ -55,29 +55,35 @@ public class Object_Login extends BaseClass {
 	@FindBy(id = "com.tce.studi:id/tvSignOut")
 	public WebElement signOut;
 	
+	@AndroidFindBy(id = "com.tce.studi:id/txtNegativeBtn")
+	public WebElement hideMessage;
+	
 	// Page 2
 
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView[2]")
 	public WebElement welcomeBackText;
 
-	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.EditText")
+	@AndroidFindBy(id = "com.tce.studi:id/edtMobileNumber")
 	public WebElement mobileNumberTextBox;
 
-	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.TextView")
+	@AndroidFindBy(id = "com.tce.studi:id/btnLogin")
 	public WebElement loginButton;
 
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView[1]")
 	public WebElement dontHaveAnAccount;
 
 	// Page 3
-	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.EditText\n")
+	@AndroidFindBy(id = "com.tce.studi:id/edtPassword")
 	public WebElement passwordTextBox;
 
-	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.TextView")
+	@AndroidFindBy(id = "com.tce.studi:id/btnVerify")
 	public WebElement verifypasswordButton;
 
 	@FindBy(id = "com.tce.studi:id/txtChildName")
 	public WebElement registeredUserName;
+
+	@AndroidFindBy(id = "com.tce.studi:id/logo")
+	public WebElement logo;
 
 	public WebElement getAlreadyAUser() {
 		System.out.println("Performing operation on alreadyUser");

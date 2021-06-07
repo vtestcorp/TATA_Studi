@@ -23,7 +23,8 @@ public class Module_Browsebook_Chapter_Listing extends BaseClass{
 	{
 		SoftAssert assert1 = new SoftAssert();
 		obcl = new Object_Browsebook_Chapter_Listing();	
-		//getLocator("syllabus");
+		
+		//System.out.println(getLocator("syllabus"));
 		clickOnElement(obcl.syllabus);
 		
 
