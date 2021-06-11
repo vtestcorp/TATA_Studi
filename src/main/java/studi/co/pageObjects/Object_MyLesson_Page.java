@@ -132,7 +132,8 @@ public class Object_MyLesson_Page extends BaseClass{
 	@AndroidFindBy(id="com.tce.studi:id/imgFilter")
 	public WebElement imagefilterScheduldePage;
 
-	@AndroidFindBy(	xpath="//android.widget.TextView[@text='Aspects and Influence of Diversity']")
+	@AndroidFindBy(	xpath="//android.widget.TextView[@text='Unity in Diversity']")
+	//@AndroidFindBy(	xpath="//android.widget.TextView[@text='Aspects and Influence of Diversity']")
 	public WebElement aspectsAndInfluence;
 
 	@AndroidFindBy(id="com.tce.studi:id/tvCreatePlan")
@@ -210,7 +211,7 @@ public class Object_MyLesson_Page extends BaseClass{
 	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView[1]")
 	public WebElement practice;
 
-	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[3]")
+	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]")
 	//@AndroidFindBy(id="com.tce.studi:id/layoutQuiz")
 	public WebElement quetionText;
 
@@ -226,13 +227,14 @@ public class Object_MyLesson_Page extends BaseClass{
 	@AndroidFindBy(id="com.tce.studi:id/tv_objective")
 	public MobileElement objective;
 
-	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[4]/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView[1]")
+	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]/android.view.ViewGroup")
 	public WebElement practicePoliticalScience;
 
 	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.view.ViewGroup/android.widget.TextView[1]")
 	public WebElement practiceUpcoming;
 
 	@AndroidFindBy(xpath="//tce-scq")
+	//@AndroidFindBy(id="com.tce.studi:id/iv_background_theme")
 	public WebElement colour;
 
 	@AndroidFindBy(id="com.tce.studi:id/tv_subject_name")

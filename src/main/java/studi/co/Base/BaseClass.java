@@ -79,6 +79,8 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.google.common.collect.ImmutableMap;
+
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.FindsByAndroidUIAutomator;
 import io.appium.java_client.MobileBy;
@@ -281,7 +283,18 @@ public class BaseClass {
 
 	public String verifySCQorMCQ() {
 		correctAnswers = 0;
-		getDriver().context("WEBVIEW_com.tce.studi");
+		Set<String> context = driver.getContextHandles();
+		for (String cont : context) {
+
+			if (cont.contains("WEBVIEW"))
+				getDriver().context(cont);
+		}
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		try {
 			Thread.sleep(500);
 		} catch (InterruptedException e) {
@@ -313,14 +326,16 @@ public class BaseClass {
 		if (s.equalsIgnoreCase("Android")) {
 			caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Appium");
 			caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "");
+			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11");
 			caps.setCapability("appPackage", "com.tce.studi");
 			caps.setCapability("appActivity", "com.tce.view.ui.activities.SplashScreenActivity");
-			caps.setCapability("chromedriverExecutable","C:\\Users\\LENOVO\\Downloads\\chromedriver_win32_89\\chromedriver.exe");
+			//caps.setCapability("chromedriverExecutable","C:\\Users\\LENOVO\\Downloads\\chromedriver_win32_89\\chromedriver.exe");
 			//caps.setCapability("chromedriverExecutable","C:\\Users\\LENOVO\\Downloads\\chromedriver_win32 _83\\chromedriver.exe");
-			caps.setCapability("app", "C:\\Users\\LENOVO\\Downloads\\Studi_v1.1.6(2).apk");
+			caps.setCapability("chromedriverExecutable","C:\\Users\\LENOVO\\Downloads\\chromedriver_win32_91\\chromedriver.exe");
+			caps.setCapability("app", "C:\\Users\\LENOVO\\Downloads\\Studi_v1.1.8(1).apk");
 			caps.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, "true");
 			caps.setCapability(MobileCapabilityType.NO_RESET, true);
+			caps.setCapability("appium:chromeOptions", ImmutableMap.of("w3c", false));
 			System.out.println("Required Desired Capabilities Defined");
 			final String appiumserverUrl = "http://localhost:4723/wd/hub";
 			url = new URL(appiumserverUrl);
@@ -395,7 +410,7 @@ public class BaseClass {
 			caps.setCapability("device", "iPad 5th");
 			caps.setCapability("os_version", "11");
 			caps.setCapability(MobileCapabilityType.NO_RESET, true);
-
+			caps.setCapability("chromedriverExecutable","C:\\Users\\LENOVO\\Downloads\\chromedriver_win32_89\\chromedriver.exe");
 			//caps.setCapability("bundleId", "com.google.Chrome");
 			//caps.setCapability("appActivity", "com.demo.liveplaces.view.activity.SplashActivity");
 			caps.setCapability("project", "First Java Project");

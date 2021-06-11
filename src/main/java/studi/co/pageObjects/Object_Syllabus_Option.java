@@ -72,12 +72,19 @@ public class Object_Syllabus_Option extends BaseClass {
 	public WebElement addNotesBtn;
 
 	@iOSFindBy(xpath = "//XCUIElementTypeButton[@name=\"humBurger\"]")
-	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ImageView[1]")
+	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.ImageView[1]")
 	public WebElement hamburgerBtn;
 
 	@AndroidFindBy(id = "com.tce.studi:id/tv_disruptive_continue")
 	public WebElement continueOnVdoBtn;
-
+	
+	@AndroidFindBy(id = "com.tce.studi:id/tvPrimaryAction")
+	public WebElement continue_Studying;
+	
+	@AndroidFindBy(id = "com.tce.studi:id/tvSecondaryAction")
+	public WebElement return_to_Subject;
+	
+	
 	@iOSFindBy(xpath = "//XCUIElementTypeImage[@name=\"user\"]")
 	@AndroidFindBy(id = "com.tce.studi:id/ivProfile")
 	public WebElement profilePic;
@@ -100,8 +107,11 @@ public class Object_Syllabus_Option extends BaseClass {
 	@AndroidFindBy(id ="com.tce.studi:id/txtNegativeBtn")
 	public WebElement noBtn;
 
+	@AndroidFindBy(id ="com.tce.studi:id/txtNegativeBtn")
+	public WebElement next_topic;
+	
 	@iOSFindBy(id = "tertiaryBtn")
-	@AndroidFindBy(id = "com.tce.studi:id/iv_tertiary_action")
+	@AndroidFindBy(id = "com.tce.studi:id/ivTertiaryAction")
 	public WebElement tertiaryBtnBottom;
 
 	public int notesLimit = 3000;
@@ -111,7 +121,7 @@ public class Object_Syllabus_Option extends BaseClass {
 	public WebElement noteTxtArea;
 
 	@iOSFindBy(xpath = "//XCUIElementTypeButton[@name=\"Save Note\"]")
-	@AndroidFindBy(id = "com.tce.studi:id/tvSaveNote")
+	@AndroidFindBy(id ="com.tce.studi:id/tvSaveNote")
 	public WebElement saveNoteBtn;
 
 	@iOSFindBy(xpath = "//XCUIElementTypeButton[@name=\"Discard\"]")

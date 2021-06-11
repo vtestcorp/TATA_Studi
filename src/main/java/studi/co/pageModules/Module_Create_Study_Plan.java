@@ -13,6 +13,7 @@ import java.util.Set;
 
 import javax.swing.Scrollable;
 
+import org.apache.tools.ant.taskdefs.Sleep;
 import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
@@ -326,9 +327,9 @@ public class Module_Create_Study_Plan extends BaseClass {
 		for (Map.Entry<String, String> lesson : oso.expectedLessonOrder.entrySet()) {
 			scrollTo1(lesson.getKey().toString());
 
-			scrollTo2("Summary");
+			//scrollTo2("Summary");
 
-			String actualLesson = getDriver().findElementByXPath(lesson.getValue().toString() + "" + oso.lessonType)
+			String actualLesson = getDriver().findElementByXPath(lesson.getValue().toString() + "/" + oso.lessonType)
 					.getText();
 
 			System.err.println(actualLesson);
@@ -364,6 +365,7 @@ public class Module_Create_Study_Plan extends BaseClass {
 
 		System.out.println("Creating new Plan");
 		test.log(Status.INFO, "Creating new Plan");
+		
 		oso.createPlan(subject, topic);
 
 		System.out.println("Marking All lessons as complete");
@@ -918,7 +920,7 @@ public class Module_Create_Study_Plan extends BaseClass {
 		test.log(Status.INFO, "Opening Syllabus Module");
 		clickOnElement(oso.syllabusUnitModule);
 
-	//	System.out.println("Clicking on assign button");
+		//	System.out.println("Clicking on assign button");
 		//test.log(Status.INFO, "Clicking on assign button");
 		//clickOnElement(oso.assignBtn);
 
@@ -1490,7 +1492,7 @@ public class Module_Create_Study_Plan extends BaseClass {
 	}
 
 	public void Verify_Each_Topic_Have_5Lessons_With_One_Spaced_Practice(String subject, String topic)
-			throws MalformedURLException {
+			throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
 		Boolean status;
 
@@ -1522,12 +1524,16 @@ public class Module_Create_Study_Plan extends BaseClass {
 			test.log(Status.INFO, "Active plan of Test Unit displayed");
 		}
 		//@
-		scrollTo2("Revise");
+		scrollTo1("Revise");
 		action = new TouchAction(driver);
 		for (Map.Entry<String, String> lesson : oso.expectedLessonOrder.entrySet()) {
 			scrollTo1(lesson.getKey());
-			String actualLesson = getDriver().findElementByXPath(lesson.getValue().toString() + "" + oso.lessonType)
+			applyExplicitWait(5);
+			//System.out.println(lesson.getValue().toString() + "" + oso.lessonType);
+			String actualLesson = getDriver().findElementByXPath(lesson.getValue().toString() + "/" + oso.lessonType)
 					.getText();
+
+			//String actualLesson = getDriver().findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView[1]").getText();
 			System.err.println(actualLesson);
 			test.log(Status.INFO, actualLesson);
 			sAss.assertEquals(actualLesson, lesson.getKey().toString(),
@@ -1595,7 +1601,8 @@ public class Module_Create_Study_Plan extends BaseClass {
 		action = new TouchAction(driver);
 		for (Map.Entry<String, String> lesson : oso.expectedLessonOrder.entrySet()) {
 			scrollTo1(lesson.getKey());
-			String actualLesson = getDriver().findElementByXPath(lesson.getValue().toString() + "" + oso.lessonType)
+			
+			String actualLesson = getDriver().findElementByXPath(lesson.getValue().toString() + "/" + oso.lessonType)
 					.getText();
 			System.err.println(actualLesson);
 			test.log(Status.INFO, actualLesson);
@@ -2023,7 +2030,7 @@ public class Module_Create_Study_Plan extends BaseClass {
 		omp= new Object_MyLesson_Page();
 		applyExplicitWaitsUntilElementVisible(omp.backicon);
 		omp.backicon.click();
-			 
+
 		SoftAssert sAss = new SoftAssert();
 		Boolean status;
 
@@ -2392,6 +2399,8 @@ public class Module_Create_Study_Plan extends BaseClass {
 		Thread.sleep(2000);
 		clickOnElement(findElementByText("Begin Studying"));
 
+
+
 	}
 
 	//TS-51
@@ -2562,9 +2571,9 @@ public class Module_Create_Study_Plan extends BaseClass {
 		for (Map.Entry<String, String> lesson : oso.expectedLessonOrder.entrySet()) {
 			scrollTo2(lesson.getKey().toString());
 			String actualStatus = getDriver().findElementByXPath(
-			 	//	"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup["
-			        "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.LinearLayout[1]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup["	
-						+ (i + 1) + "]/android.view.ViewGroup" + "" + oso.lessonStatus)
+					//	"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup["
+					"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.LinearLayout[1]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup["	
+					+ (i + 1) + "]/android.view.ViewGroup" + "" + oso.lessonStatus)
 					.getAttribute("resource-id");
 			System.err.println(actualStatus);
 			status = actualStatus.contains("complete");

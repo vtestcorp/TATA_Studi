@@ -79,10 +79,13 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 			test.log(Status.INFO, "Begin Practise link displayed under topic name");
 		}
 		assert1.assertTrue(verify);
+		//clickOnElement(findElementByText("Practice"));
 		osm.practise.click();
+		osm.practice_again.click();
+
 		applyExplicitWait(5);
 
-		Boolean topicHeading=osm.comparingNumberHeading.isDisplayed();
+		Boolean topicHeading=osm.topic_Heading.isDisplayed();
 		if(topicHeading) {
 			System.out.println("Begin Practise link is functional");
 			test.log(Status.INFO, "Begin Practise link is functional");
@@ -113,9 +116,9 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		applyExplicitWait(5);
 		osm.practise.click();
 		applyExplicitWait(5);
-		Boolean verify = osm.topicHeading.isDisplayed();
-		test.log(Status.INFO, "Heading is displayed as :" + osm.topicHeading.getText());
-		System.out.println("Heading is displayed as : " + osm.topicHeading.getText());
+		Boolean verify = osm.topic_Heading.isDisplayed();
+		test.log(Status.INFO, "Heading is displayed as :" + osm.topic_Heading.getText());
+		System.out.println("Heading is displayed as : " + osm.topic_Heading.getText());
 		assert1.assertTrue(verify);
 		List<MobileElement> list_Topics = getDriver().findElementsById("com.tce.studi:id/tvQuesId");
 
@@ -533,9 +536,10 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		applyExplicitWait(10);
 		clickOnElement(findElementByText("Practice"));
 		//applyExplicitWaitsUntilElementVisible(getDriver().findElementById("com.tce.studi:id/tv_heading_id"));
-		applyExplicitWaitsUntilElementVisible(osm.topicHeader);
-		applyExplicitWaitsUntilElementClickable(osm.practise_Again1);
-		clickOnElement(findElementByText("Practice"));
+		applyExplicitWaitsUntilElementVisible(osm.topic_Heading);
+		//applyExplicitWaitsUntilElementClickable(osm.practise_Again);
+		osm.practice_again.click();
+		//clickOnElement(findElementByText("Practice"));
 		applyExplicitWait(10);
 		int quetionCount=verify_Question_Count_In_Test_Module();
 		System.out.println(quetionCount);
@@ -617,12 +621,12 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		//clickOnElement(findElementByText("Continue"));
 		//applyExplicitWaitsUntilElementVisible(osm.topic_Name);
 
-//		Boolean topic_Name=osm.topic_Name.isDisplayed();
-//		if(topic_Name) {
-//			System.out.println("User Navigated to next topic after clicking on Continue Studying Buttton");
-//			test.log(Status.INFO, "User Navigated to next topic after clicking on Continue Studying Buttton");
-//		}
-//		assert1.assertTrue(topic_Name);
+		//		Boolean topic_Name=osm.topic_Name.isDisplayed();
+		//		if(topic_Name) {
+		//			System.out.println("User Navigated to next topic after clicking on Continue Studying Buttton");
+		//			test.log(Status.INFO, "User Navigated to next topic after clicking on Continue Studying Buttton");
+		//		}
+		//		assert1.assertTrue(topic_Name);
 		//		applyExplicitWait(5);
 		//		Thread.sleep(2000);
 		//		osm.returnToSubject.click();
@@ -637,7 +641,7 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		clickOnElement(findElementByText("Practice"));
 		applyExplicitWait(5);
 		//		Thread.sleep(10000);
-		applyExplicitWaitsUntilElementVisible(osm.practise_Again1);
+		applyExplicitWaitsUntilElementVisible(osm.practice_again);
 		//		Keyword.clickOnElementUsingText("Practice");
 		clickOnElement(findElementByText("Practice"));
 		//	osm.practise_Again1.click();
@@ -678,14 +682,14 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		applyExplicitWait(30);
 		//		Thread.sleep(5000);
 		//applyExplicitWaitsUntilElementVisible(getDriver().findElementById("com.tce.studi:id/tv_heading_id"));
-		applyExplicitWaitsUntilElementVisible(osm.topicHeader);
-		applyExplicitWaitsUntilElementVisible(osm.begin_Practise_1);
-			//osm.begin_Practise_1.click();
+		applyExplicitWaitsUntilElementVisible(osm.topic_Heading);
+		//applyExplicitWaitsUntilElementVisible(osm.begin_Practise);
+		//osm.begin_Practise_1.click();
 		//		Keyword.clickOnElementUsingText("Practice");
 		clickOnElement(findElementByText("Practice"));
 		System.out.println("Clicked on Begin Practise button");
 		applyExplicitWait(30);
-		
+
 	}
 
 	public int verify_Question_Count_In_Test_Module() throws MalformedURLException, InterruptedException {

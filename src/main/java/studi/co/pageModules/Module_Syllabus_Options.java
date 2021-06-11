@@ -130,14 +130,18 @@ public class Module_Syllabus_Options extends BaseClass {
 					}
 
 					
-					//					applyExplicitWait(2);
-					//					clickOnElement(findElementByText("Continue Studying"));
-					//					System.out.println("Clicking on Continue Studying");
-					//					test.log(Status.INFO, "Clicking on Continue Studying");
+									applyExplicitWait(2);
+									clickOnElement(findElementByText("Continue Studying"));
+									System.out.println("Clicking on Continue Studying");
+									
+									
+										test.log(Status.INFO, "Clicking on Continue Studying");
+										oso.return_to_Subject.click();
 
 					applyExplicitWait(5);
 					if (device.contains("Android"))
-						status = findElementByText("your Confidence").isDisplayed();
+						//status = findElementByText("your confidence").isDisplayed();
+						status = oso.next_topic.isDisplayed();
 					else
 						status = findElementByText("youR COMPLETION").isDisplayed();
 					sAss.assertTrue(status);
@@ -884,7 +888,7 @@ public class Module_Syllabus_Options extends BaseClass {
 
 		test.log(Status.INFO, "Tapping on Continue revise");
 		System.out.println("Tapping on Continue revise");
-
+wait(5);
 		if (device.contains("Android"))
 			clickOnElement(oso.noBtn);
 		else
@@ -1228,7 +1232,7 @@ public class Module_Syllabus_Options extends BaseClass {
 
 			System.out.println("Skipping the Quiz");
 			test.log(Status.INFO, "Skipping the Quiz");
-			applyExplicitWaitsUntilElementVisible(oso.question);
+			//applyExplicitWaitsUntilElementVisible(oso.question);
 			Thread.sleep(3000);
 			clickOnElement(oso.forward);
 			Thread.sleep(3000);
@@ -1251,7 +1255,7 @@ public class Module_Syllabus_Options extends BaseClass {
 		if (device.contains("Android"))
 			status = findElementByText("you").isDisplayed();
 		else
-			status = findElementByText("you").isDisplayed();
+			status = findElementByText("you").isDisplayed(); 
 		if (status) {
 			System.out.println("All TQ's completed");
 			test.log(Status.INFO, "All TQ's completed");
@@ -1357,7 +1361,7 @@ public class Module_Syllabus_Options extends BaseClass {
 
 		}
 		sAss.assertAll();
-
+	
 	}
 
 	public void Verify_Create_Note_Icon_Should_Be_Visible_In_Video(String subject, String topic)

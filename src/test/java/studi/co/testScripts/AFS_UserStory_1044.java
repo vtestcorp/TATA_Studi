@@ -115,7 +115,7 @@ public class AFS_UserStory_1044 extends BaseClass {
 
 
 
-	@Test(enabled = true, groups = "ExistingUser")
+	@Test(enabled = true, groups = "ExistingUser")//pass
 	public void TC26_Verify_Each_Topic_Have_5Lessons_With_One_Spaced_Practice() throws MalformedURLException, InterruptedException {
 		Module_Create_Study_Plan csp = new Module_Create_Study_Plan();
 		csp.Verify_Each_Topic_Have_5Lessons_With_One_Spaced_Practice(prop.getProperty("subject"), prop.getProperty("topic"));
@@ -133,7 +133,7 @@ public class AFS_UserStory_1044 extends BaseClass {
 		csp.Verify_Lesson_Order_In_Test_Unit(prop.getProperty("subject"), prop.getProperty("topic"));
 	}
 
-	@Test(enabled = true, groups = "ExistingUser",priority=-1)
+	@Test(enabled = true, groups = "ExistingUser",priority=-1)//	clickOnElement(oso.topLessonStatus);
 	public void TC29_Verify_Lesson_Order_After_Complting_Lessons_In_Test_Unit()
 			throws MalformedURLException, InterruptedException {
 		Module_Create_Study_Plan csp = new Module_Create_Study_Plan();
@@ -141,7 +141,7 @@ public class AFS_UserStory_1044 extends BaseClass {
 				prop.getProperty("topic"));
 	}
 
-	@Test(enabled = true, groups = "ExistingUser")
+	@Test(enabled = true, groups = "ExistingUser")//assersion failed
 	public void TC30_Verify_BigIdea_Revise_And_Practice_Unlocked_Together_In_Test_Unit()
 			throws MalformedURLException, InterruptedException {
 		Module_Create_Study_Plan csp = new Module_Create_Study_Plan();
@@ -150,7 +150,7 @@ public class AFS_UserStory_1044 extends BaseClass {
 	}
 
 	// need 2 topics with same chapter
-	@Test(enabled = true, groups = "ExistingUser")
+	@Test(enabled = true, groups = "ExistingUser")//clickOnElement(oso.topLessonStatus);
 	public void TC31_Verify_After_First_Topic_Completion_Second_Topic_Will_Unlocked_In_Test_Unit() throws Exception {
 		Module_Create_Study_Plan csp = new Module_Create_Study_Plan();
 		csp.Verify_After_First_Topic_Completion_Second_Topic_Will_Unlocked_In_Test_Unit(prop.getProperty("subject"),

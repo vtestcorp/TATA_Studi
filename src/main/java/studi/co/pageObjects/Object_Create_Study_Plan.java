@@ -31,16 +31,17 @@ public class Object_Create_Study_Plan extends BaseClass {
 		// "Summary", "Test"};
 
 		expectedLessonOrder.put("Big Idea",
-				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout");
+				//"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout");
+				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup");
 		expectedLessonOrder.put("Revise",
-				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]");
+				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup");
 		expectedLessonOrder.put("Practice",
-				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]");
+				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]/android.view.ViewGroup/android.view.ViewGroup");
 		expectedLessonOrder.put("Summary",
-				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]");
+				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[4]/android.view.ViewGroup/android.view.ViewGroup");
 
 		expectedLessonOrder.put("Test",
-				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[4]");
+				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup");
 
 		upcomingLesson.put("Big Idea",
 				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]");
@@ -113,7 +114,6 @@ public class Object_Create_Study_Plan extends BaseClass {
 	public Map<String, String> expectedLessonOrder = new LinkedHashMap<String, String>();
 	public Map<String, String> upcomingLesson = new LinkedHashMap<String, String>();
 	public Map<String, Boolean> subjectFlag = new HashMap<String, Boolean>();
-
 
 	@FindBy(id = "com.tce.studi:id/imgOverflow")
 	//@FindBy(id = "com.tce.studi:id/completed")
@@ -240,7 +240,8 @@ public class Object_Create_Study_Plan extends BaseClass {
 
 
 	// 1.Big Idea, 2.Revise, 3.Practice, 4.Summary, 5.Test
-	public String lessonType ="/android.widget.ImageView[2]";
+	//public String lessonType ="/android.widget.ImageView[2]";
+	public String lessonType ="/android.widget.TextView[1]";	
 
 	public String lessonStatus ="/android.view.ViewGroup/android.widget.ImageView[2]";
 
@@ -371,6 +372,28 @@ public class Object_Create_Study_Plan extends BaseClass {
 
 		System.out.println("New plan created");
 		test.log(Status.INFO, "New plan created");
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		Object_Create_Study_Plan temp = new Object_Create_Study_Plan();
+		int j = 0;
+		for (int k = 0; k < 4; k++) {
+			try {
+				Thread.sleep(1500);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			applyExplicitWaitsUntilElementClickable(temp.topLessonStatus);
+			clickOnElement(temp.topLessonStatus);
+			applyExplicitWait(5);
+			//clickOnElement(temp.markAsComplete);
+			clickOnElement(findElementByText("Mark"));
+
+		}
 
 	}
 
@@ -564,6 +587,26 @@ public class Object_Create_Study_Plan extends BaseClass {
 
 		System.out.println("New plan created");
 		test.log(Status.INFO, "New plan created");
+
+
+		Object_Create_Study_Plan temp = new Object_Create_Study_Plan();
+		int j = 0;
+		for (int k = 0; k < 4; k++) {
+			try {
+				Thread.sleep(1500);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			applyExplicitWaitsUntilElementClickable(temp.topLessonStatus);
+			clickOnElement(temp.topLessonStatus);
+			applyExplicitWait(5);
+			//clickOnElement(temp.markAsComplete);
+			clickOnElement(findElementByText("Mark"));
+
+		}
+
+
 	}
 
 	public WebElement getFlagIcon() {

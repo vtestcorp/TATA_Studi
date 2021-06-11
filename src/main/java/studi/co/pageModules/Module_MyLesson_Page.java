@@ -237,10 +237,10 @@ public class Module_MyLesson_Page extends BaseClass{
 		createPlan();
 		omp= new Object_MyLesson_Page();
 		Thread.sleep(2000);
-//		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
-//		.until(ExpectedConditions.elementToBeClickable(omp.backIcon));
-//		applyExplicitWaitsUntilElementVisible(omp.backicon);
-//		omp.backicon.click();
+		//		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
+		//		.until(ExpectedConditions.elementToBeClickable(omp.backIcon));
+		//		applyExplicitWaitsUntilElementVisible(omp.backicon);
+		//		omp.backicon.click();
 
 
 		toVerify_User_Navigate_to_MyLessonsPage();
@@ -405,10 +405,10 @@ public class Module_MyLesson_Page extends BaseClass{
 		createPlan();
 		omp= new Object_MyLesson_Page();
 		Thread.sleep(2000);
-//		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
-//		.until(ExpectedConditions.elementToBeClickable(omp.backIcon));
-//		applyExplicitWaitsUntilElementVisible(omp.backicon);
-//		omp.backicon.click();
+		//		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
+		//		.until(ExpectedConditions.elementToBeClickable(omp.backIcon));
+		//		applyExplicitWaitsUntilElementVisible(omp.backicon);
+		//		omp.backicon.click();
 
 		toVerify_Todays_Tab();
 		scrollTo2("Upcoming");
@@ -437,12 +437,12 @@ public class Module_MyLesson_Page extends BaseClass{
 
 		scrollTo2("Our plan for today!");
 
-		for(int i=0;i<5;i++) {
+		//for(int i=0;i<4;i++) {
 
-			omp.kebabMenu.click();
-			applyExplicitWaitsUntilElementVisible(omp.markAsComplete);
-			omp.markAsComplete.click();
-		}
+		omp.kebabMenu.click();
+		applyExplicitWaitsUntilElementVisible(omp.markAsComplete);
+		omp.markAsComplete.click();
+		//}
 
 		scrollTo2("Today");
 		applyExplicitWaitsUntilElementVisible(omp.completedLessons);
@@ -498,12 +498,12 @@ public class Module_MyLesson_Page extends BaseClass{
 
 		omp= new Object_MyLesson_Page();
 		Thread.sleep(2000);
-		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
-		.until(ExpectedConditions.elementToBeClickable(omp.backIcon));
-		applyExplicitWaitsUntilElementVisible(omp.backIcon);
-		omp.backicon.click();
-
-		toVerify_User_Navigate_to_MyLessonsPage();
+//		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
+//		.until(ExpectedConditions.elementToBeClickable(omp.backIcon));
+//		applyExplicitWaitsUntilElementVisible(omp.backIcon);
+		//omp.backicon.click();
+		//omp.test_unit.click();
+		//toVerify_User_Navigate_to_MyLessonsPage();
 		SoftAssert assert1=new SoftAssert();
 
 		scrollTo2("Practice");
@@ -513,14 +513,26 @@ public class Module_MyLesson_Page extends BaseClass{
 		//swipeLeft();
 		//applyExplicitWaitsUntilElementVisible("practise");
 		applyExplicitWaitsUntilElementVisible("you");
-		swipeLeft();
+
 		clickOnElement(findElementByText("Practice"));
 		applyExplicitWaitsUntilElementVisible("Select");
 		applyExplicitWaitsUntilElementVisible(omp.quetionText);
-		getDriver().context("WEBVIEW_com.tce.studi");
+		Set<String> context = driver.getContextHandles();
+		for (String cont : context) {
+
+			if (cont.contains("WEBVIEW"))
+				getDriver().context(cont);
+		}
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		applyExplicitWait(5);
 		//	WebElement colour=getDriver().findElementByXPath("//tce-scq");
-		String colour1=omp.colour.getAttribute("class");
-		System.out.println(colour1);
+		String colour1=driver.findElementByXPath("//*[contains(@class, 'theme')]").getAttribute("class");
+		System.err.println(colour1);
 		String colourOfSubject1=colour1.split("-")[1];
 		System.out.println(colourOfSubject1);
 		getDriver().context("NATIVE_APP");
@@ -529,16 +541,30 @@ public class Module_MyLesson_Page extends BaseClass{
 		applyExplicitWaitsUntilElementVisible(omp.yesButton);
 		omp.yesButton.click();
 		omp.backButton.click();
-		scrollTo2("GEOG");
-		applyExplicitWaitsUntilElementVisible(omp.practiceGeography);
-		omp.practiceGeography.click();
+		scrollTo2("POLSC");
+		applyExplicitWaitsUntilElementVisible(omp.practicePoliticalScience);
+		omp.practicePoliticalScience.click();
 		//		applyExplicitWaitsUntilElementVisible(getDriver().findElementById("com.tce.studi:id/tv_objective"));
-		applyExplicitWaitsUntilElementVisible(omp.objective);
+		//applyExplicitWaitsUntilElementVisible(omp.objective);
+		omp.markAsComplete.click();
+		omp.markAsComplete.click();
 		clickOnElement(findElementByText("Practice"));
-		applyExplicitWaitsUntilElementVisible(omp.quetionText);
-		getDriver().context("WEBVIEW_com.tce.studi");
+		applyExplicitWaitsUntilElementVisible(omp.quetionText);//locked
+		Set<String> context1 = driver.getContextHandles();
+		for (String cont : context1) {
+
+			if (cont.contains("WEBVIEW"))
+				getDriver().context(cont);
+		}
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		//		WebElement colour2=getDriver().findElementByXPath("//tce-scq");
-		String colour3=omp.colour.getAttribute("class");
+		String colour3=driver.findElementByXPath("//*[contains(@class, 'theme')]").getAttribute("class");
+		//String colour3=omp.colour.getAttribute("class");
 		System.out.println(colour3);
 		String colourOfSubject2=colour3.split("-")[1];
 		System.out.println(colourOfSubject2);
@@ -569,7 +595,18 @@ public class Module_MyLesson_Page extends BaseClass{
 		applyExplicitWaitsUntilElementVisible(omp.objective);
 		clickOnElement(findElementByText("Practice"));
 		applyExplicitWaitsUntilElementVisible(omp.quetionText);
-		getDriver().context("WEBVIEW_com.tce.studi");
+		Set<String> context = driver.getContextHandles();
+		for (String cont : context) {
+
+			if (cont.contains("WEBVIEW"))
+				getDriver().context(cont);
+		}
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		//		WebElement colour=getDriver().findElementByXPath("//tce-scq");
 		String colour1=omp.colour.getAttribute("class");
 		System.out.println(colour1);
@@ -585,10 +622,10 @@ public class Module_MyLesson_Page extends BaseClass{
 		createPlan();
 		omp= new Object_MyLesson_Page();
 		Thread.sleep(2000);
-//		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
-//		.until(ExpectedConditions.elementToBeClickable(omp.backIcon));
-//		applyExplicitWaitsUntilElementVisible(omp.backIcon);
-//		omp.backIcon.click();
+		//		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
+		//		.until(ExpectedConditions.elementToBeClickable(omp.backIcon));
+		//		applyExplicitWaitsUntilElementVisible(omp.backIcon);
+		//		omp.backIcon.click();
 
 
 		SoftAssert assert1=new SoftAssert();
@@ -670,11 +707,11 @@ public class Module_MyLesson_Page extends BaseClass{
 		createPlan();
 		omp= new Object_MyLesson_Page();
 		Thread.sleep(2000);
-//		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
-//		.until(ExpectedConditions.elementToBeClickable(omp.backIcon));
-//		applyExplicitWaitsUntilElementVisible(omp.backIcon);
+		//		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
+		//		.until(ExpectedConditions.elementToBeClickable(omp.backIcon));
+		//		applyExplicitWaitsUntilElementVisible(omp.backIcon);
 
-//	omp.backicon.click();
+		//	omp.backicon.click();
 
 		toVerify_User_Navigate_to_MyLessonsPage();
 		SoftAssert assert1=new SoftAssert();
@@ -702,10 +739,10 @@ public class Module_MyLesson_Page extends BaseClass{
 		createPlan();
 		omp= new Object_MyLesson_Page();
 		Thread.sleep(2000);
-//		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
-//		.until(ExpectedConditions.elementToBeClickable(omp.backIcon));
-//		applyExplicitWaitsUntilElementVisible(omp.backIcon);
-//		omp.backicon.click();
+		//		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
+		//		.until(ExpectedConditions.elementToBeClickable(omp.backIcon));
+		//		applyExplicitWaitsUntilElementVisible(omp.backIcon);
+		//		omp.backicon.click();
 
 		toVerify_User_Navigate_to_MyLessonsPage();
 		SoftAssert assert1=new SoftAssert();
@@ -1544,8 +1581,10 @@ public class Module_MyLesson_Page extends BaseClass{
 
 		clickOnElement(findElementByText("Next Step"));
 		applyExplicitWait(5);
+		//	clickOnElement(findElementByText("Next Step"));
+
 		clickOnElement(findElementByText("Activate Plan"));
-		//clickOnElement(findElementByText("Next Step"));
+
 		applyExplicitWait(5);
 
 		String date=orp.selectDate.getText();
@@ -1761,26 +1800,23 @@ public class Module_MyLesson_Page extends BaseClass{
 		//	applyExplicitWaitsUntilElementVisible(orp.);
 
 		clickOnElement(findElementByText("Create"));
-		applyExplicitWaitsUntilElementVisible(orp.subjectAtCreatePlan);
-		orp.subjectAtCreatePlan.click();
+		applyExplicitWaitsUntilElementVisible(orp.subject_Political_AtCreatePlan);
+		orp.subject_Political_AtCreatePlan.click();
 		applyExplicitWaitsUntilElementVisible(orp.topicCheckBoxAtCreateStudyPlan);
 		orp.topicCheckBoxAtCreateStudyPlan.click();
-		applyExplicitWaitsUntilElementVisible(orp.topicCheckBoxAtCreateStudyPlan1);
-		orp.topicCheckBoxAtCreateStudyPlan1.click();
+//		applyExplicitWaitsUntilElementVisible(orp.topicCheckBoxAtCreateStudyPlan1);
+//		orp.topicCheckBoxAtCreateStudyPlan1.click();
 
 		orp.addToPortion.click();
 
-		//applyExplicitWaitsUntilElementVisible(orp.subjectGeographyAtCreatePlan);
-
-		//orp.subjectGeographyAtCreatePlan.click();
-		//applyExplicitWaitsUntilElementVisible(orp.topicCheckBoxAtCreateStudyPlan);
-		//orp.topicCheckBoxAtCreateStudyPlan.click();
-		//applyExplicitWaitsUntilElementVisible(orp.topicCheckBoxAtCreateStudyPlan1);
-		//orp.topicCheckBoxAtCreateStudyPlan1.click();
-
-
-
-		//orp.addToPortion.click();
+//		applyExplicitWaitsUntilElementVisible(orp.subject_GeographyAtCreatePlan);
+//
+//		orp.subject_GeographyAtCreatePlan.click();
+//		applyExplicitWaitsUntilElementVisible(orp.topicCheckBoxAtCreateStudyPlan);
+//		orp.topicCheckBoxAtCreateStudyPlan.click();
+//		applyExplicitWaitsUntilElementVisible(orp.topicCheckBoxAtCreateStudyPlan1);
+//		orp.topicCheckBoxAtCreateStudyPlan1.click();
+//		orp.addToPortion.click();
 
 		clickOnElement(findElementByText("Next Step"));
 		applyExplicitWait(5);
