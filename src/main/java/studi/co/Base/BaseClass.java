@@ -368,8 +368,8 @@ public class BaseClass {
 			caps = new DesiredCapabilities();
 			caps.setCapability("browserstack.user", "imran_O3Z2m1");
 			caps.setCapability("browserstack.key", "deH6qfn4rkytKBtiXAmF");
-			//caps.setCapability("app", "bs://6faafdc5991986eaf7461bdf2a5811e232f5b316");
-			caps.setCapability("app", "bs://203c5e3b15c60f974d55710abce3b9540a3453bb");
+			caps.setCapability("app", "bs://def5dbb27341742391e9a7a90f8a0cf2d5cf6eb8 ");
+			//caps.setCapability("app", "bs://203c5e3b15c60f974d55710abce3b9540a3453bb");
 
 			caps.setCapability("device", "OnePlus 8");
 			caps.setCapability("os_version", "10.0");

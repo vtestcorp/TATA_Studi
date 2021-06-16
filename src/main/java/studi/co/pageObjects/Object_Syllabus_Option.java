@@ -6,6 +6,7 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.touch.TouchActions;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.asserts.SoftAssert;
 
@@ -30,7 +31,7 @@ public class Object_Syllabus_Option extends BaseClass {
 	public static WebElement skip;
 	
 	@iOSFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeScrollView/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther")
-	@AndroidFindBy(xpath = "//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]")
+	@AndroidFindBy(xpath = "//android.widget.FrameLayout[@content-desc=\"Show player controls\"]")
 	public static MobileElement videoPlayer;
 
 	@AndroidFindBy(id = "com.tce.studi:id/layoutQuiz")
@@ -72,26 +73,20 @@ public class Object_Syllabus_Option extends BaseClass {
 	public WebElement addNotesBtn;
 
 	@iOSFindBy(xpath = "//XCUIElementTypeButton[@name=\"humBurger\"]")
-	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.ImageView[1]")
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/iv_left_icon\").index(0)")
 	public WebElement hamburgerBtn;
 
 	@AndroidFindBy(id = "com.tce.studi:id/tv_disruptive_continue")
 	public WebElement continueOnVdoBtn;
-	
-	@AndroidFindBy(id = "com.tce.studi:id/tvPrimaryAction")
-	public WebElement continue_Studying;
-	
-	@AndroidFindBy(id = "com.tce.studi:id/tvSecondaryAction")
-	public WebElement return_to_Subject;
-	
-	
+
 	@iOSFindBy(xpath = "//XCUIElementTypeImage[@name=\"user\"]")
 	@AndroidFindBy(id = "com.tce.studi:id/ivProfile")
 	public WebElement profilePic;
 
 	@iOSFindBy(xpath = "//XCUIElementTypeOther[@name=\"WebviewQuiz\"]/XCUIElementTypeOther[2]")
 	
-	@AndroidFindBy(id ="com.tce.studi:id/quizWebView")
+	@FindBy(id ="com.tce.studi:id/quizWebView")
+	@AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.CheckBox\")")
 	public WebElement question;
 
 	@iOSFindBy(xpath = "//XCUIElementTypeButton[@name=\"backWithBackground\"]")
@@ -99,17 +94,14 @@ public class Object_Syllabus_Option extends BaseClass {
 	public WebElement backBtn;
 	
 
-	@AndroidFindBy(xpath = "//XCUIElementTypeButton[@name=\"OK\"]")
+	@iOSFindBy(xpath = "//XCUIElementTypeButton[@name=\"OK\"]")
 	@AndroidFindBy(id = "com.tce.studi:id/txtPositiveBtn")
 	public WebElement yesBtn;
 
-	@AndroidFindBy(xpath = "//XCUIElementTypeButton[@name=\"Cancel\"]")
+	@iOSFindBy(xpath = "//XCUIElementTypeButton[@name=\"Cancel\"]")
 	@AndroidFindBy(id ="com.tce.studi:id/txtNegativeBtn")
 	public WebElement noBtn;
 
-	@AndroidFindBy(id ="com.tce.studi:id/txtNegativeBtn")
-	public WebElement next_topic;
-	
 	@iOSFindBy(id = "tertiaryBtn")
 	@AndroidFindBy(id = "com.tce.studi:id/ivTertiaryAction")
 	public WebElement tertiaryBtnBottom;
@@ -121,7 +113,7 @@ public class Object_Syllabus_Option extends BaseClass {
 	public WebElement noteTxtArea;
 
 	@iOSFindBy(xpath = "//XCUIElementTypeButton[@name=\"Save Note\"]")
-	@AndroidFindBy(id ="com.tce.studi:id/tvSaveNote")
+	@AndroidFindBy(id = "com.tce.studi:id/tvSaveNote")
 	public WebElement saveNoteBtn;
 
 	@iOSFindBy(xpath = "//XCUIElementTypeButton[@name=\"Discard\"]")
@@ -133,7 +125,6 @@ public class Object_Syllabus_Option extends BaseClass {
 	public WebElement closeNotesBtn;
 
 	@iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Are you sure you would like to discard the changes? \"]")
-	//@AndroidFindBy(id = "com.tce.studi:id/tv_discard_confirmation")
 	@AndroidFindBy(id = "com.tce.studi:id/tvDiscardConfirmation")
 	public WebElement discardWarnMsg;
 
@@ -153,10 +144,14 @@ public class Object_Syllabus_Option extends BaseClass {
 	public WebElement notesCountIndicator;
 	
 	@iOSFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeButton")
+	@AndroidFindBy(id = "com.tce.studi:id/tvNotes")
 	public WebElement hamburgerNotes;
 	
 	@AndroidFindBy(id="com.tce.studi:id/iv_right_action_primary")
 	public WebElement forward;
+	
+	@AndroidFindBy(id = "com.tce.studi:id/vp_lesson_cards")
+	public WebElement tqList;
 	
 
 
@@ -204,8 +199,7 @@ public class Object_Syllabus_Option extends BaseClass {
 		Thread.sleep(500);
 		action = new TouchAction(driver);
 		if (device.contains("Android"))
-			action.press(PointOption.point(115, 650)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(700)))
-					.moveTo(PointOption.point(115, 450)).release().perform();
+			swipeUp();
 		else
 			action.press(PointOption.point(115, 650)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(700)))
 					.moveTo(PointOption.point(115, 550)).release().perform();
@@ -250,19 +244,19 @@ public class Object_Syllabus_Option extends BaseClass {
 		while (flag == 0) {
 			try {
 				applyExplicitWait(5);
-				status = findElementByText("Begin Revis").isDisplayed();
+				status = findElementByText("Revis").isDisplayed();
 				sAss.assertTrue(status);
 				if (status) {
 					System.out.println("Begin Revision button Displayed");
 					test.log(Status.INFO, "Begin Revision button Displayed");
-					clickOnElement(findElementByText("Begin Revision"));
+					clickOnElement(findElementByText("Revis"));
 					flag = 1;
 				}
 			} catch (Exception e) {
 
 				applyExplicitWait(5);
 				if (device.contains("Android"))
-					status = findElementByText("Revise again").isDisplayed();
+					status = findElementByText("Revis").isDisplayed();
 				else
 					status = driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name=\"Revise again\"]"))
 							.isEnabled();
@@ -273,7 +267,7 @@ public class Object_Syllabus_Option extends BaseClass {
 					test.log(Status.INFO, "Revise again button Displayed");
 
 					if (device.contains("Android"))
-						clickOnElement(findElementByText("Revise again"));
+						clickOnElement(findElementByText("Revis"));
 					else
 					{
 						MobileElement btn=driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name=\"Revise again\"]"));

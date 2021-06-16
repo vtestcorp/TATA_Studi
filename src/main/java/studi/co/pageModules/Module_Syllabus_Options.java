@@ -40,15 +40,9 @@ public class Module_Syllabus_Options extends BaseClass {
 
 		applyExplicitWaitsUntilElementVisible(oso.addNotesBtn);
 		if (device.contains("Android")) {
-			clickOnElement(driver.findElement(By.xpath(
-					"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]")));
-
-
-		}
-
-		// applyExplicitWait(2);
-		oso.pauseBtn.click();
-
+			driver.findElement(By.id("com.tce.studi:id/player_view")).click();;
+		}			
+		driver.findElement(By.id("com.tce.studi:id/exo_pause")).click();
 	}
 
 	public void Verify_Revision_Overview(String subject, String topic)
@@ -81,7 +75,6 @@ public class Module_Syllabus_Options extends BaseClass {
 								"//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeScrollView/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeButton")
 						.isDisplayed();
 					System.out.println("Clicking on Return to Subject");
-					
 					sAss.assertTrue(status);
 					if (status) {
 						System.out.println("Return to Subject button Displayed");
@@ -120,30 +113,24 @@ public class Module_Syllabus_Options extends BaseClass {
 					System.out.println("Continue Studying button Displayed");
 					test.log(Status.INFO, "Continue Studying button Displayed");
 
-					
-					applyExplicitWait(2);
-					status = findElementByText("Revise").isDisplayed();
-					sAss.assertTrue(status);
-					if (status) {
-						System.out.println("Revise again button Displayed");
-						test.log(Status.INFO, "Revise again button Displayed");
-					}
+					//					applyExplicitWait(2);
+					//					status = findElementByText("Revise").isDisplayed();
+					//					sAss.assertTrue(status);
+					//					if (status) {
+					//						System.out.println("Revise again button Displayed");
+					//						test.log(Status.INFO, "Revise again button Displayed");
+					//					}
 
-					
-									applyExplicitWait(2);
-									clickOnElement(findElementByText("Continue Studying"));
-									System.out.println("Clicking on Continue Studying");
-									
-									
-										test.log(Status.INFO, "Clicking on Continue Studying");
-										oso.return_to_Subject.click();
+					applyExplicitWait(2);
+					clickOnElement(findElementByText("Continue Studying"));
+					System.out.println("Clicking on Continue Studying");
+					test.log(Status.INFO, "Clicking on Continue Studying");
 
 					applyExplicitWait(5);
 					if (device.contains("Android"))
-						//status = findElementByText("your confidence").isDisplayed();
-						status = oso.next_topic.isDisplayed();
+						status = findElementByText("you").isDisplayed();
 					else
-						status = findElementByText("youR COMPLETION").isDisplayed();
+						status = findElementByText("you").isDisplayed();
 					sAss.assertTrue(status);
 					if (status) {
 						System.out.println("Navigated to next lesson of " + subject);
@@ -254,8 +241,8 @@ public class Module_Syllabus_Options extends BaseClass {
 			ArrayList<MobileElement> quePointsArrayList;
 			if (device.contains("Android")) {
 				quePointsArrayList = (ArrayList<MobileElement>) driver.findElements(
-						MobileBy.AndroidUIAutomator("new UiSelector().resourceId(\"com.tce.studi:id/tv_overview\")"));
-				status = (quePointsArrayList.size() > 1) ? true : false;
+						MobileBy.AndroidUIAutomator("new UiSelector().resourceId(\"com.tce.studi:id/tvOverview\")"));
+				status = (quePointsArrayList.size() >= 1) ? true : false;
 			} else {
 				quePointsArrayList = (ArrayList<MobileElement>) driver
 						.findElements(By.xpath("//*[@type=\"XCUIElementTypeTextView\"]"));
@@ -268,7 +255,7 @@ public class Module_Syllabus_Options extends BaseClass {
 			}
 
 			////////////////////////////////////////////Note Creation///////////////////////////////
-			createNoteInVideo(prop.getProperty("Note"));
+			createNoteInVideo(prop.getProperty("note"));
 
 			System.out.println("Verifying added note");
 			test.log(Status.INFO, "Verifying added note");
@@ -279,10 +266,7 @@ public class Module_Syllabus_Options extends BaseClass {
 			test.log(Status.INFO, "Opening hamburger menu");
 
 			applyExplicitWait(5);
-			if (device.contains("Android"))
-				clickOnElement(findElementByText("NOTES"));
-			else
-				clickOnElement(oso.hamburgerNotes);
+			clickOnElement(oso.hamburgerNotes);
 			System.out.println("Opening notes");
 			test.log(Status.INFO, "Opening notes");
 
@@ -371,7 +355,7 @@ public class Module_Syllabus_Options extends BaseClass {
 		oso.noteTxtArea.sendKeys(prop.getProperty("note"));
 		applyExplicitWait(5);
 
-		status = oso.noteTxtArea.getText().contains(prop.getProperty("note"));
+		status = oso.noteTxtArea.getText().equalsIgnoreCase(prop.getProperty("note"));
 		sAss.assertTrue(status);
 		if (status) {
 			System.out.println("Note entered correctly");
@@ -531,7 +515,7 @@ public class Module_Syllabus_Options extends BaseClass {
 
 		Thread.sleep(3000);
 
-		driver.executeScript("mobile:alert", ImmutableMap.of("action", "accept"));
+		//driver.executeScript("mobile:alert", ImmutableMap.of("action", "accept"));
 
 		System.out.println("Try to login with valid credintials");
 		test.log(Status.INFO, "Try to login with valid credintials");
@@ -732,7 +716,7 @@ public class Module_Syllabus_Options extends BaseClass {
 		}
 		applyExplicitWait(5);
 		if (device.contains("Android"))
-			status = findElementByText("you").isDisplayed();
+			status = oso.tqList.isDisplayed();
 		else
 			status = findElementByText("you").isDisplayed();
 		if (status) {
@@ -839,7 +823,7 @@ public class Module_Syllabus_Options extends BaseClass {
 		((LocksDevice) driver).unlockDevice();
 
 		if (device.contains("Android"))
-			status = findElementByText("you").isDisplayed();
+			status = oso.tqList.isDisplayed();
 		else
 			status = findElementByText("you").isDisplayed();
 		sAss.assertTrue(status);
@@ -888,7 +872,7 @@ public class Module_Syllabus_Options extends BaseClass {
 
 		test.log(Status.INFO, "Tapping on Continue revise");
 		System.out.println("Tapping on Continue revise");
-wait(5);
+
 		if (device.contains("Android"))
 			clickOnElement(oso.noBtn);
 		else
@@ -930,8 +914,8 @@ wait(5);
 		applyExplicitWait(5);
 
 		actualQue = oso.question.getText();
-		if (actualQue.contains(expectedQue)) {
-			sAss.assertTrue(actualQue.contains(expectedQue));
+		if (actualQue.equalsIgnoreCase(expectedQue)) {
+			sAss.assertTrue(actualQue.equalsIgnoreCase(expectedQue));
 			test.log(Status.INFO, "same question appear again");
 			System.out.println("same question appear again");
 		}
@@ -944,14 +928,21 @@ wait(5);
 		test.log(Status.INFO, "Tapping on End revise");
 		System.out.println("Tapping on End revise");
 		if (device.contains("Android"))
-			clickOnElement(oso.noBtn);
+			clickOnElement(oso.yesBtn);
+		else
+			clickOnElement(findElementByExactText("OK"));
+		applyExplicitWait(5);
+
+		clickOnElement(oso.backBtn);
+		if (device.contains("Android"))
+			clickOnElement(oso.yesBtn);
 		else
 			clickOnElement(findElementByExactText("OK"));
 		applyExplicitWait(5);
 
 		// status = findElementByText("What you will revise:").isDisplayed();
 		if (device.contains("Android"))
-			status = findElementByText("you").isDisplayed();
+			status = oso.tqList.isDisplayed();
 		else
 			status = findElementByText("you").isDisplayed();
 		sAss.assertTrue(status);
@@ -981,6 +972,7 @@ wait(5);
 		if (status) {
 			System.out.println("Test Unit tab displayed");
 			test.log(Status.INFO, "Test Unit tab displayed");
+			swipeUp();
 		}
 
 		status = findElementByText("Syllabus").isDisplayed();
@@ -988,6 +980,7 @@ wait(5);
 		if (status) {
 			System.out.println("Syllabus tab displayed");
 			test.log(Status.INFO, "Syllabus tab displayed");
+			swipeUp();
 		}
 		status = findElementByText("Assignments").isDisplayed();
 		sAss.assertTrue(status);
@@ -998,6 +991,7 @@ wait(5);
 
 		System.out.println("Selecting Syllabus option");
 		test.log(Status.INFO, "Selecting Syllabus option");
+		scrollTo2("Syllabus");
 		clickOnElement(findElementByText("Syllabus"));
 
 		status = oso.allSubjectLbl.isDisplayed();
@@ -1021,6 +1015,7 @@ wait(5);
 		Boolean status1 = false;
 		Boolean status2 = false;
 		applyExplicitWait(5);
+		scrollTo2("Revis");
 		try {
 			status1 = findElementByText("Revis").isDisplayed();
 		} catch (Exception e) {
@@ -1062,6 +1057,7 @@ wait(5);
 		status = findElementByText("Test Unit").isDisplayed();
 		sAss.assertTrue(status);
 		if (status) {
+			swipeUp();
 			System.out.println("Test Unit tab displayed");
 			test.log(Status.INFO, "Test Unit tab displayed");
 		}
@@ -1069,6 +1065,7 @@ wait(5);
 		status = findElementByText("Syllabus").isDisplayed();
 		sAss.assertTrue(status);
 		if (status) {
+			swipeUp();
 			System.out.println("Syllabus tab displayed");
 			test.log(Status.INFO, "Syllabus tab displayed");
 		}
@@ -1081,6 +1078,7 @@ wait(5);
 
 		System.out.println("Selecting Syllabus option");
 		test.log(Status.INFO, "Selecting Syllabus option");
+		scrollTo2("Syllabus");
 		clickOnElement(findElementByText("Syllabus"));
 
 		scrollTo1(subject);
@@ -1093,7 +1091,7 @@ wait(5);
 		test.log(Status.INFO, "Opening Topic :" + topic);
 		clickOnElement(findElementByText(topic));
 
-		scrollTo2("Practice");
+		scrollTo2("Revis");
 		Boolean status1 = false;
 		Boolean status2 = false;
 		applyExplicitWait(5);
@@ -1136,10 +1134,10 @@ wait(5);
 		 */
 
 		applyExplicitWait(5);
-		//if (device.contains("Android"))
+		if (device.contains("Android"))
+		status = oso.tqList.isDisplayed();
+		else
 		status = findElementByText("you").isDisplayed();
-		//else
-		//status = findElementByText("you").isDisplayed();
 		if (status) {
 			System.out.println("List of TQ's Displayed");
 			test.log(Status.INFO, "List of TQ's Displayed");
@@ -1210,7 +1208,6 @@ wait(5);
 
 		if (device.contains("Android"))
 			TQ_count=driver.findElements(By.id("com.tce.studi:id/ivOverview")).size();
-
 		else
 			TQ_count = driver.findElements(By.xpath("//*[@type=\"XCUIElementTypeCell\"]")).size();
 		System.out.println(TQ_count);
@@ -1222,20 +1219,19 @@ wait(5);
 			test.log(Status.INFO, "Video Started");
 			System.out.println("Forwarding Video");
 			test.log(Status.INFO, "Forwarding Video");
-			//forwardVideoTimerToEnd();
+			applyExplicitWaitsUntilElementVisible(oso.addNotesBtn);
 			clickOnElement(oso.forward);
-
-			Thread.sleep(3000);
-
+			applyExplicitWaitsUntilElementVisible(oso.question);
 			System.out.println("Quiz Started");
 			test.log(Status.INFO, "Quiz Started");
 
 			System.out.println("Skipping the Quiz");
 			test.log(Status.INFO, "Skipping the Quiz");
-			//applyExplicitWaitsUntilElementVisible(oso.question);
-			Thread.sleep(3000);
+			applyExplicitWaitsUntilElementVisible(oso.question);
+			//Thread.sleep(3000);
 			clickOnElement(oso.forward);
-			Thread.sleep(3000);
+		
+			applyExplicitWaitsUntilElementVisible(driver.findElement(By.id("com.tce.studi:id/tvSummaryNumber")));
 			clickOnElement(oso.forward);
 
 			//status = oso.letsSummriseTxt.isDisplayed();
@@ -1253,9 +1249,9 @@ wait(5);
 
 		applyExplicitWait(5);
 		if (device.contains("Android"))
-			status = findElementByText("you").isDisplayed();
+			status = oso.tqList.isDisplayed();
 		else
-			status = findElementByText("you").isDisplayed(); 
+			status = findElementByText("you").isDisplayed();
 		if (status) {
 			System.out.println("All TQ's completed");
 			test.log(Status.INFO, "All TQ's completed");
@@ -1346,11 +1342,8 @@ wait(5);
 				Thread.sleep(1000);
 				frame.dispose();
 			}
-			if (device.contains("Android"))
-				status = findElementByText("you").isDisplayed();
-			else
-				status = findElementByText("you").isDisplayed();
-			sAss.assertFalse(status);
+			status = findElementByText("you").isDisplayed();
+			sAss.assertTrue(status);
 			if (status) {
 				System.out.println("Same page is visible after visible after sleep");
 				test.log(Status.INFO, "Same page is visible after visible after sleep");
@@ -1361,7 +1354,7 @@ wait(5);
 
 		}
 		sAss.assertAll();
-	
+
 	}
 
 	public void Verify_Create_Note_Icon_Should_Be_Visible_In_Video(String subject, String topic)
@@ -1584,7 +1577,7 @@ wait(5);
 		}
 
 		if (device.contains("Android"))
-			status = oso.addNotesBtn.getAttribute("clickable").trim().contains("true");
+			status = oso.addNotesBtn.getAttribute("clickable").trim().equalsIgnoreCase("true");
 		else
 			status = oso.addNotesBtn.isEnabled();
 		sAss.assertTrue(status);
@@ -1651,7 +1644,7 @@ wait(5);
 		System.out.println("Entered text: " + temp + ", Accepted text by note module: " + temp2);
 		test.log(Status.INFO, "Entered text: " + temp + ", Accepted text by note module: " + temp2);
 
-		status = temp.contains(temp2) ? true : false;
+		status = temp.equalsIgnoreCase(temp2) ? true : false;
 		sAss.assertTrue(status, "User can't enter special characters in note");
 		if (status) {
 			System.out.println("User can enter special characters in note");
@@ -2345,7 +2338,7 @@ wait(5);
 		System.out.println("Checking for Initial message available in text area");
 		test.log(Status.INFO, "Checking for Initial message available in text area");
 
-		status = oso.noteTxtArea.getText().contains("Insert text here");
+		status = oso.noteTxtArea.getText().equalsIgnoreCase("Insert text here");
 		sAss.assertTrue(status, "Guidance message not available in Note Text area");
 		if (status) {
 			System.out.println("Guidance message available in Note Text area as : " + oso.noteTxtArea.getText());

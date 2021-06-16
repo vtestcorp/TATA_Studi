@@ -61,7 +61,7 @@ public class Object_Create_Study_Plan extends BaseClass {
 	@AndroidFindBy(id = "com.tce.studi:id/ivProfile")
 	public WebElement profilePic;
 
-	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/tvHeading\").textContains(\"Test Unit\")")
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/tvHeading\").textContains(\"Plan : Test Unit\")")
 	public WebElement testUnitModule;
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/tvHeading\").textContains(\"Syllabus\")")
@@ -108,6 +108,9 @@ public class Object_Create_Study_Plan extends BaseClass {
 	@AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.Button\").textContains(\"Next Step\")")
 	public WebElement nextStepBtn;
 
+	@AndroidFindBy(uiAutomator = "new UiSelector().className(\"com.tce.studi:id/tv_intent_title\").textContains(\"Portionp\")")
+	public WebElement portion;
+	
 	@FindBy(id = "com.tce.studi:id/tv_coming_soon")
 	public WebElement taskCountInUpcoming;
 
@@ -126,9 +129,12 @@ public class Object_Create_Study_Plan extends BaseClass {
 	@FindBy(id = "com.tce.studi:id/recycler_today")
 	public WebElement todaysLessonPanel;
 
-	@FindBy(id ="com.tce.studi:id/viewSchedule")
+	@FindBy(id = "com.tce.studi:id/viewSchedule")
 	public WebElement viewFullScheduleBtn;
 
+	@FindBy(id = "com.tce.studi:id/imgFilter")
+	public WebElement fullSchedule_filter;
+	
 	@FindBy(id = "com.tce.studi:id/search_id")
 	public WebElement fullScheduleLbl;
 
@@ -155,6 +161,9 @@ public class Object_Create_Study_Plan extends BaseClass {
 
 	@AndroidFindBy(id="com.tce.studi:id/txtPositiveBtn")
 	public WebElement yesBtn;
+	
+	@AndroidFindBy(id="com.tce.studi:id/imgOverflowNormal")
+	public WebElement lessonStatus1;
 
 	@AndroidFindBy(id="com.tce.studi:id/txtPositiveBtn")
 	public WebElement positiveButton;
@@ -210,7 +219,8 @@ public class Object_Create_Study_Plan extends BaseClass {
 	@AndroidFindBy(id="com.tce.studi:id/clActivePlan")
 	public WebElement element44;
 
-	@AndroidFindBy(id="com.tce.studi:id/cl_intent")
+	//@AndroidFindBy(id="com.tce.studi:id/cl_intent")
+	@AndroidFindBy(id="com.tce.studi:id/tv_intent_title")
 	public WebElement object44;
 
 	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[5]/android.view.ViewGroup")
@@ -397,7 +407,7 @@ public class Object_Create_Study_Plan extends BaseClass {
 
 	}
 
-	public void createPlan(String subject, String topic1, String topic2) throws Exception {
+	public void createPlan(String subject, String topic_1, String topic_2) throws Exception {
 		scrollTo1("Manage and Create Plans");
 
 		System.out.println("Clicking on Manage and Create Plans");
@@ -413,9 +423,9 @@ public class Object_Create_Study_Plan extends BaseClass {
 		scrollTo2(subject);
 		clickOnElement(findElementByText(subject));
 
-		System.err.println("Clicked on " + topic1);
-		scrollTo2(topic1);
-		clickOnElement(findElementByText(topic1));
+		System.err.println("Clicked on " + topic_1);
+		scrollTo2(topic_1);
+		clickOnElement(findElementByText(topic_1));
 
 		applyExplicitWait(5);
 		clickOnElement(findElementByText("Add to portion"));
@@ -424,9 +434,9 @@ public class Object_Create_Study_Plan extends BaseClass {
 		scrollTo1(subject);
 		clickOnElement(findElementByText(subject));
 
-		System.err.println("Clicked on " + topic2);
-		scrollTo2(topic2);
-		clickOnElement(findElementByText(topic2));
+		System.err.println("Clicked on " + topic_2);
+		scrollTo2(topic_2);
+		clickOnElement(findElementByText(topic_2));
 
 		applyExplicitWait(5);
 		clickOnElement(findElementByText("Update portion"));
@@ -436,16 +446,17 @@ public class Object_Create_Study_Plan extends BaseClass {
 		applyExplicitWait(5);
 
 		action = new TouchAction(driver);
-
-		Boolean status = Boolean.parseBoolean(driver.findElementByXPath(
-				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View/android.view.View["
-						+ 1 + "]/android.view.View[2]/android.view.View/android.view.View[1]/android.widget.Button")
-				.getAttribute("focused"));
-		if (status) {
-			subjectFlag.put(subject, true);
-		} else {
-			subjectFlag.put(subject, false);
-		}
+//
+//		Boolean status = Boolean.parseBoolean(driver.findElementByXPath(
+//				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View/android.view.View["
+//						+ 1 + "]/android.view.View[2]/android.view.View/android.view.View[1]/android.widget.Button")
+//				.getAttribute("focused"));
+//		
+//		if (status) {
+//			subjectFlag.put(subject, true);
+//		} else {
+//			subjectFlag.put(subject, false);
+//		}
 
 		applyExplicitWaitsUntilElementClickable(nextStepBtn);
 		clickOnElement(nextStepBtn);

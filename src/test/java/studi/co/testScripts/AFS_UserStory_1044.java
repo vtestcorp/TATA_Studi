@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
+import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 
@@ -133,7 +134,7 @@ public class AFS_UserStory_1044 extends BaseClass {
 		csp.Verify_Lesson_Order_In_Test_Unit(prop.getProperty("subject"), prop.getProperty("topic"));
 	}
 
-	@Test(enabled = true, groups = "ExistingUser",priority=-1)//	clickOnElement(oso.topLessonStatus);
+	@Test(enabled = true, groups = "ExistingUser")//	invalid selector
 	public void TC29_Verify_Lesson_Order_After_Complting_Lessons_In_Test_Unit()
 			throws MalformedURLException, InterruptedException {
 		Module_Create_Study_Plan csp = new Module_Create_Study_Plan();
@@ -150,7 +151,7 @@ public class AFS_UserStory_1044 extends BaseClass {
 	}
 
 	// need 2 topics with same chapter
-	@Test(enabled = true, groups = "ExistingUser")//clickOnElement(oso.topLessonStatus);
+	@Test(enabled = true, groups = "ExistingUser")//assertion failed
 	public void TC31_Verify_After_First_Topic_Completion_Second_Topic_Will_Unlocked_In_Test_Unit() throws Exception {
 		Module_Create_Study_Plan csp = new Module_Create_Study_Plan();
 		csp.Verify_After_First_Topic_Completion_Second_Topic_Will_Unlocked_In_Test_Unit(prop.getProperty("subject"),
@@ -158,37 +159,37 @@ public class AFS_UserStory_1044 extends BaseClass {
 	}
 
 	// need 2 topics with same chapter
-	@Test(enabled = true, groups = "ExistingUser")
+	@Test(enabled = true, groups = "ExistingUser")//pass
 	public void TC32_Verify_BigIdea_Revise_And_Practice_Unlocked_Together_For_Upcoming_Topic_In_Test_Unit()
 			throws Exception {
 		Module_Create_Study_Plan csp = new Module_Create_Study_Plan();
 		csp.Verify_BigIdea_Revise_And_Practice_Unlocked_Together_For_Upcoming_Topic_In_Test_Unit(
-				prop.getProperty("subject"), prop.getProperty("topic"), prop.getProperty("topic8_w"));
+				prop.getProperty("subject"), prop.getProperty("topic_1"), prop.getProperty("topic_2"));
 	}
 
-	@Test(enabled = true, groups = "ExistingUser")
+	@Test(enabled = true, groups = "ExistingUser")//pass
 	public void TC33_Verify_Order_Of_Release_As_BigIdea_Revise_And_Practice()
 			throws MalformedURLException, InterruptedException {
 		Module_Create_Study_Plan csp = new Module_Create_Study_Plan();
-		csp.Verify_Order_Of_Release_As_BigIdea_Revise_And_Practice(prop.getProperty("subject"),
-				prop.getProperty("topic"));
+		csp.Verify_Order_Of_Release_As_BigIdea_Revise_And_Practice(
+				prop.getProperty("subject"), prop.getProperty("topic_1"), prop.getProperty("topic_2"));
 	}
 
-	@Test(enabled = true, groups = "ExistingUser")
+	@Test(enabled = true, groups = "ExistingUser" )// failed
 	public void TC34_Verify_After_Chapter_Complition_Summary_And_Test_Will_Released()
 			throws MalformedURLException, InterruptedException {
 		Module_Create_Study_Plan csp = new Module_Create_Study_Plan();
 		csp.Verify_After_Chapter_Complition_Summary_And_Test_Will_Released(prop.getProperty("subject"),
-				prop.getProperty("topic8_w"));
+				prop.getProperty("topic_1"), prop.getProperty("topic_2"));
 	}
 
 	//Failed as Build behaviour not as expected
-	@Test(enabled = true, groups = "ExistingUser")
+	@Test(enabled = true, groups = "ExistingUser")//ok
 	public void TC35_Verify_After_Completing_Only_Practice_Lessons_Of_Upcoming_Topic_Unlocked()
 			throws Exception {
 		Module_Create_Study_Plan csp = new Module_Create_Study_Plan();
 		csp.Verify_After_Completing_Only_Practice_Lessons_Of_Upcoming_Topic_Unlocked(prop.getProperty("subject"),
-				prop.getProperty("topic"),prop.getProperty("topic8_w"));
+				prop.getProperty("topic_1"),prop.getProperty("topic_2"));
 	}
 
 	@Test(enabled = true, groups = "ExistingUser")
@@ -196,20 +197,21 @@ public class AFS_UserStory_1044 extends BaseClass {
 			throws Exception {
 		Module_Create_Study_Plan csp = new Module_Create_Study_Plan();
 		csp.Verify_After_Completing_Test_Lessons_Of_Upcoming_Topic_Unlocked(prop.getProperty("subject"),
-				prop.getProperty("topic"),prop.getProperty("topic8_w"));
+				prop.getProperty("topic_1"),prop.getProperty("topic_2"));
 	}
 
-	@Test(enabled = true, groups = "ExistingUser")
+	@Test(enabled = true, groups = "ExistingUser")//pass
 	public void TC37_Verify_Listing_Of_Scheduled_Lessons()
 			throws Exception {
 		Module_Create_Study_Plan csp = new Module_Create_Study_Plan();
 		csp.Verify_Listing_Of_Scheduled_Lessons(prop.getProperty("subject"),
-				prop.getProperty("topic"));
+				prop.getProperty("topic_1"),prop.getProperty("topic_2"));
 	}
 
 
 	@Test(enabled = true, groups = "ExistingUser")
-	public void TC38_Verify_Lessons_Planned_For_Future()
+	public void TC38_Verify_Lessons_Planned_For_Future()//List <MobileElement> todaysLesson=oso.lessonPanel38.findElementsById("com.tce.studi:id/row_lesson_main_view");
+
 			throws Exception {
 		Module_Create_Study_Plan csp = new Module_Create_Study_Plan();
 		csp.Verify_Lessons_Planned_For_Future(prop.getProperty("subject"),
@@ -242,7 +244,7 @@ public class AFS_UserStory_1044 extends BaseClass {
 
 
 	// only for one subject---> one or two topics
-	@Test(enabled = true, groups = "ExistingUser")
+	@Test(enabled = true, groups = "ExistingUser")//pass
 	public void TC42_Verify_One_Spaced_Practice_For_All_ParentLesson_In_Test_Unit() throws Exception {
 		Module_Create_Study_Plan csp = new Module_Create_Study_Plan();
 		csp.Verify_One_Spaced_Practice_For_All_ParentLesson_In_Test_Unit(prop.getProperty("subject"),
@@ -250,7 +252,7 @@ public class AFS_UserStory_1044 extends BaseClass {
 	}
 
 	// only for one subject---> one or two topics
-	@Test(enabled = true, groups = "ExistingUser")
+	@Test(enabled = true, groups = "ExistingUser")//pass
 	public void TC43_Verify_Two_Spaced_Practice_For_All_Flaged_ParentLesson_In_Test_Unit() throws Exception {
 		Module_Create_Study_Plan csp = new Module_Create_Study_Plan();
 		csp.Verify_Two_Spaced_Practice_For_All_Flaged_ParentLesson_In_Test_Unit(prop.getProperty("subject"),
@@ -258,7 +260,7 @@ public class AFS_UserStory_1044 extends BaseClass {
 	}
 
 	// only for one subject---> one or two topics
-	@Test(enabled = true, groups = "ExistingUser")
+	@Test(enabled = true, groups = "ExistingUser")//pass
 	public void TC44_Verify_Spaced2_Practice_Only_Added_If_Parent_Practice_Is_Incomplete_In_Test_Unit()
 			throws Exception {
 		Module_Create_Study_Plan csp = new Module_Create_Study_Plan();
@@ -267,7 +269,7 @@ public class AFS_UserStory_1044 extends BaseClass {
 	}
 
 	// only for one subject---> one or two topics
-	@Test(enabled = true, groups = "ExistingUser")
+	@Test(enabled = true, groups = "ExistingUser")//passed
 	public void TC45_Verify_Spaced_Practice1_And_Prctice2_Not_Come_In_Same_Day() throws Exception {
 		Module_Create_Study_Plan csp = new Module_Create_Study_Plan();
 		csp.Verify_Spaced_Practice1_And_Prctice2_Not_Come_In_Same_Day(prop.getProperty("subject"),
@@ -275,13 +277,13 @@ public class AFS_UserStory_1044 extends BaseClass {
 	}
 
 	// only for one subject---> one or two topics
-	@Test(enabled = true, groups = "ExistingUser")
+	@Test(enabled = true, groups = "ExistingUser")//passed
 	public void TC46_Verify_Spaced_Practice_And_Parent_Prctice_Not_Come_In_Same_Day() throws Exception {
 		Module_Create_Study_Plan csp = new Module_Create_Study_Plan();
 		csp.Verify_Spaced_Practice_And_Parent_Prctice_Not_Come_In_Same_Day(prop.getProperty("subject"),
 				prop.getProperty("topic"));
 	}
-	@Test(enabled = true, groups = "ExistingUser")
+	@Test(enabled = true, groups = "ExistingUser",priority=-1)
 	public void TC49_Verify_Lesson_Status_Will_Reflects_In_Lessons_Today_Tab()
 			throws MalformedURLException, InterruptedException {
 		Module_Create_Study_Plan csp = new Module_Create_Study_Plan();
@@ -347,16 +349,16 @@ public class AFS_UserStory_1044 extends BaseClass {
 
 		Module_Create_Study_Plan csp = new Module_Create_Study_Plan();
 		csp.Verify_Past_Completed_Lessons_Will_Not_Influence_Unlocking_Or_Locking_When_Its_Attempted_Again(prop.getProperty("subject"),
-				prop.getProperty("topic"));
+				prop.getProperty("topic_1"), prop.getProperty("topic_2"));
 	}
 
 
-	@Test(enabled = true, groups = "ExistingUser")//passed
+	@Test(enabled = true, groups = "ExistingUser")//AndroidUIAutomator: new UiSelector().resourceId("com.tce.studi:id/tvHeading").textContains("Plan : Test Unit")
+
 	public void TC58_To_Verify_Tick_Mark_Appears_In_Study_Ring() throws Exception {
 
 		Module_Create_Study_Plan csp = new Module_Create_Study_Plan();
-		csp.Verify_Tick_Mark_Appears_In_Study_Ring(prop.getProperty("subject"),
-				prop.getProperty("topic"));
+		csp.Verify_Tick_Mark_Appears_In_Study_Ring(prop.getProperty("subject"), prop.getProperty("topic_1"), prop.getProperty("topic_2"));
 	}
 
 	// only for one subject---> one or two topics
