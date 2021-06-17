@@ -126,7 +126,7 @@ public class Object_Create_Study_Plan extends BaseClass {
 	@FindBy(id ="com.tce.studi:id/imgOverflow")
 	public WebElement markAsComplete;
 
-	@FindBy(id = "com.tce.studi:id/recycler_today")
+	@FindBy(id = "com.tce.studi:id/recyclerToday")
 	public WebElement todaysLessonPanel;
 
 	@FindBy(id = "com.tce.studi:id/viewSchedule")

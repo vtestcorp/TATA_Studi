@@ -283,7 +283,7 @@ public class AFS_UserStory_1044 extends BaseClass {
 		csp.Verify_Spaced_Practice_And_Parent_Prctice_Not_Come_In_Same_Day(prop.getProperty("subject"),
 				prop.getProperty("topic"));
 	}
-	@Test(enabled = true, groups = "ExistingUser",priority=-1)
+	@Test(enabled = true, groups = "ExistingUser")//assertion failed -passed
 	public void TC49_Verify_Lesson_Status_Will_Reflects_In_Lessons_Today_Tab()
 			throws MalformedURLException, InterruptedException {
 		Module_Create_Study_Plan csp = new Module_Create_Study_Plan();
@@ -291,7 +291,7 @@ public class AFS_UserStory_1044 extends BaseClass {
 				prop.getProperty("topic"));
 	}
 
-	@Test(enabled = true, groups = "ExistingUser")
+	@Test(enabled = true, groups = "ExistingUser",priority=-1)
 	public void TC50_Verify_After_Completing_Lesson_Not_Reflects_In_Upcoming_Today_Tab() throws Exception {
 		Module_Create_Study_Plan csp = new Module_Create_Study_Plan();
 		csp.Verify_After_Completing_Lesson_Not_Reflects_In_Upcoming_Today_Tab(prop.getProperty("subject"),

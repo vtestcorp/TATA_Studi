@@ -3,7 +3,6 @@ package studi.co.pageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-
 import com.aventstack.extentreports.Status;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -30,10 +29,13 @@ public class Object_Receive_Questions_Test extends BaseClass {
 	@AndroidFindBy(id = "com.tce.studi:id/ivPrevious")
 	public WebElement previousBtn;
 
-	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ImageView[1]")
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/iv_left_icon\").index(0)")
 	public WebElement hamburgerBtn;
 
-	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]")
+	
+	
+	//@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]")
+	@AndroidFindBy(id = "com.tce.studi:id/layoutQuiz")
 	public WebElement question;
 
 	@AndroidFindBy(id ="com.tce.studi:id/tvSubmitTest")
@@ -49,7 +51,7 @@ public class Object_Receive_Questions_Test extends BaseClass {
 	public WebElement unattemtQueTxt;
 
 	//@AndroidFindBy(id = "com.tce.studi:id/tv_review_id")
-	@AndroidFindBy(id ="com.tce.studi:id/tvPrimaryAction")
+	@AndroidFindBy(id ="com.tce.studi:id/tvCheckAnswer")
 	public WebElement reviewAttemt;
 
 	@AndroidFindBy(id = "com.tce.studi:id/ivFlag")
@@ -89,7 +91,7 @@ public class Object_Receive_Questions_Test extends BaseClass {
 		switch (queNumber) {
 
 		case 1:
-
+				
 			clickOnElement(getDriver().findElement(By.xpath("//*[contains(@text, '4')]")));
 			test.log(Status.INFO, "Selecting option 4");
 			return true;

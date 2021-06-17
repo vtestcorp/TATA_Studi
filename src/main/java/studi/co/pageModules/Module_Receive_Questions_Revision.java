@@ -36,7 +36,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		test.log(Status.INFO, "Opening " + subject);
 		System.out.println("Opening " + subject);
 		clickOnElement(findElementByExactText(subject));
-		
+
 		scrollTo2(topic);
 		test.log(Status.INFO, "Selecting " + topic);
 		System.out.println("Selecting " + topic);
@@ -45,12 +45,12 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		scrollTo2("Practice");
 		test.log(Status.INFO, "Opening revision for " + topic);
 		System.out.println("Opening revision for " + topic);
-		
+
 		try {
-			//applyExplicitWaitsUntilElementClickable(findElementByText("Revis"));
+			// applyExplicitWaitsUntilElementClickable(findElementByText("Revis"));
 			clickOnElement(findElementByText("Revis"));
 		} catch (Exception e) {
-			//applyExplicitWaitsUntilElementClickable(findElementByText("Revise"));
+			// applyExplicitWaitsUntilElementClickable(findElementByText("Revise"));
 			clickOnElement(findElementByText("Revise"));
 		}
 
@@ -59,10 +59,10 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		try {
 			clickOnElement(findElementByText("Revis"));
 		} catch (Exception e) {
-			if(device.contains("Android"))
-				clickOnElement(findElementByText("Revise"));
+			if (device.contains("Android"))
+				clickOnElement(findElementByText("Revis"));
 			else
-			clickOnElement(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name=\"Revise again\"]")));
+				clickOnElement(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name=\"Revise again\"]")));
 		}
 	}
 
@@ -102,7 +102,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 				.findElements(By.xpath("//*[contains(@class, 'selectedOtp') and contains(@class, 'incorrect')]"));
 		getDriver().context("NATIVE_APP");
 		System.err.println("as :" + as.size() + " correct ans : " + wrongAnswers);
-		if (as.size() == wrongAnswers || as.size() == 1 )
+		if (as.size() == wrongAnswers || as.size() == 1)
 			return true;
 		else
 			return false;
@@ -114,6 +114,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
 		System.out.println("Video Started");
+		applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 
 		int questions;
@@ -146,7 +147,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 						sAss.assertTrue(true);
 						test.log(Status.INFO, "Answer " + t + " Displayed");
 						System.out.println("Answer " + t + " Displayed");
-						
+
 					} else
 						sAss.assertTrue(false);
 					t++;
@@ -168,6 +169,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
 
+		applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 		applyExplicitWaitsUntilElementVisible(RMQR.question);
 		int questions;
@@ -231,6 +233,8 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
+		System.out.println("Video started");
+		applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 		applyExplicitWait(15);
 
@@ -263,7 +267,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 				for (MobileElement mobileElement : answerCount) {
 					swipeUp();
 					mobileElement.click();
-					Thread.sleep(300);
+					Thread.sleep(700);
 					if (device.contains("Android"))
 						status = Boolean.parseBoolean(mobileElement.getAttribute("checked"));
 					else
@@ -298,7 +302,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
-
+		applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 		applyExplicitWait(15);
 
@@ -318,7 +322,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		while (i < questions) {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
-			
+
 			if (verifySCQorMCQ().contains("scq")) {
 				applyExplicitWait(5);
 				actualcount++;
@@ -346,13 +350,13 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 						c++;
 					swipeUp();
 				}
-				System.err.println("C = "+c);
+				System.err.println("C = " + c);
 				if (c == 1) {
 					sAss.assertTrue(true, "Only single answer can be select");
 					test.log(Status.INFO, "Only single answer can be select");
 					System.out.println("Only single answer can be select");
 				} else {
-					sAss.assertTrue(false,"Multiple answers can be select for SCQ");
+					sAss.assertTrue(false, "Multiple answers can be select for SCQ");
 					test.log(Status.INFO, "Multiple answers can be select for SCQ");
 					System.out.println("Multiple answers can be select for SCQ");
 
@@ -375,6 +379,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		test.log(Status.INFO, "Video started");
 
+		applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 		applyExplicitWaitsUntilElementVisible(RMQR.question);
 		int questions;
@@ -420,6 +425,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 			throws InterruptedException, WebDriverException, IOException {
 		traverse_To_Begin_Revision(subject, topic);
 		test.log(Status.INFO, "Video started");
+		applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 		applyExplicitWaitsUntilElementVisible(RMQR.question);
 		int questions;
@@ -451,7 +457,15 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		clickOnElement(RMQR.submitTestPopup);
 		System.out.println("Ending Test");
 		test.log(Status.INFO, "Ending Test");
-
+		
+		Thread.sleep(4000);
+		if (device.contains("Android"))
+			driver.navigate().back();
+		else
+			clickOnElement(RMQR.backBtn);
+		clickOnElement(RMQR.submitTestPopup);
+		
+		
 		applyExplicitWait(5);
 		if (device.contains("Android"))
 			status = findElementByText("you").isDisplayed();
@@ -472,7 +486,8 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
 		System.out.println("Video Started");
-		
+
+		applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 		applyExplicitWaitsUntilElementVisible(RMQR.question);
 		int questions;
@@ -484,7 +499,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		int actualcount = 0;
 		int i = 0;
 		SoftAssert sAss = new SoftAssert();
-		
+
 		while (i < questions) {
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
@@ -526,8 +541,10 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
-		//pauseVideo();
-		//forwardVideoTimerToEnd();
+		// pauseVideo();
+		// forwardVideoTimerToEnd();
+		Thread.sleep(1000);
+		applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 		applyExplicitWait(15);
 		applyExplicitWaitsUntilElementVisible(RMQR.question);
@@ -573,7 +590,6 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		System.out.println("Total " + actualcount + " SCQ questions are displayed");
 		sAss.assertAll();
 
-
 	}
 
 	public void Verify_Student_Should_Get_Instant_Feedback_For_SCQ_Question(String subject, String topic)
@@ -581,10 +597,11 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
-		//pauseVideo();
-		//forwardVideoTimerToEnd();
+		System.out.println("Video started");
+
+		Thread.sleep(500);
+		applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
-		applyExplicitWait(15);
 		applyExplicitWaitsUntilElementVisible(RMQR.question);
 		int questions;
 		if (device.contains("Android"))
@@ -641,6 +658,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
 
+		applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 		Thread.sleep(2000);
 		applyExplicitWaitsUntilElementVisible(RMQR.question);
@@ -732,6 +750,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
+		applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 		applyExplicitWait(15);
 		int questions;
@@ -796,6 +815,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
+		applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 		applyExplicitWait(15);
 		int questions;
@@ -848,6 +868,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
+		applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 
 		int questions;
@@ -888,7 +909,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 						sAss.assertTrue(true);
 						test.log(Status.INFO, "Answer " + t + " can be select");
 						System.out.println("Answer " + t + " can be select");
-						
+
 					} else
 						sAss.assertTrue(false);
 					swipeUp();
@@ -912,6 +933,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
+		applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 		applyExplicitWait(15);
 
@@ -985,7 +1007,8 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
-		
+
+		applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 		applyExplicitWait(15);
 
@@ -1042,6 +1065,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
+		applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 		applyExplicitWaitsUntilElementVisible(RMQR.question);
 		int questions;
@@ -1097,7 +1121,8 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
-			clickOnElement(RMQR.skip);
+		applyExplicitWaitsUntilElementClickable(RMQR.skip);
+		clickOnElement(RMQR.skip);
 		applyExplicitWaitsUntilElementVisible(RMQR.question);
 		int questions;
 		if (device.contains("Android"))
@@ -1187,6 +1212,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
+		applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 		applyExplicitWaitsUntilElementVisible(RMQR.question);
 		int questions;
@@ -1233,6 +1259,6 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		test.log(Status.INFO, "Total " + actualcount + " SCQ questions are displayed");
 		System.out.println("Total " + actualcount + " SCQ questions are displayed");
 		sAss.assertAll();
-		
+
 	}
 }

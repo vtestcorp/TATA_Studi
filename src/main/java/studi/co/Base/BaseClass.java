@@ -79,8 +79,6 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-import com.google.common.collect.ImmutableMap;
-
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.FindsByAndroidUIAutomator;
 import io.appium.java_client.MobileBy;
@@ -283,31 +281,21 @@ public class BaseClass {
 
 	public String verifySCQorMCQ() {
 		correctAnswers = 0;
-		Set<String> context = driver.getContextHandles();
-		for (String cont : context) {
-
-			if (cont.contains("WEBVIEW"))
-				getDriver().context(cont);
-		}
+		getDriver().context("WEBVIEW_com.tce.studi");
 		try {
 			Thread.sleep(500);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 		String as = driver.findElementByXPath("//*[contains(@class, 'theme')]").getTagName();
 		getDriver().context("NATIVE_APP");
 		System.err.println("as :" + as);
 		if (as.contains("scq")) {
-			return "SCQ";
+			return "scq";
 		} else if (as.contains("mcq")) {
-			return "MCQ";
+			return "mcq";
 		} else
 			return "OTHR";
 
@@ -325,23 +313,19 @@ public class BaseClass {
 		caps = new DesiredCapabilities();
 		if (s.equalsIgnoreCase("Android")) {
 			caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Appium");
-			caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11");
+			caps.setCapability("platformName", "Android");
+			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9");
 			caps.setCapability("appPackage", "com.tce.studi");
 			caps.setCapability("appActivity", "com.tce.view.ui.activities.SplashScreenActivity");
-			//caps.setCapability("chromedriverExecutable","C:\\Users\\LENOVO\\Downloads\\chromedriver_win32_89\\chromedriver.exe");
-			//caps.setCapability("chromedriverExecutable","C:\\Users\\LENOVO\\Downloads\\chromedriver_win32 _83\\chromedriver.exe");
-			caps.setCapability("chromedriverExecutable","C:\\Users\\LENOVO\\Downloads\\chromedriver_win32_91\\chromedriver.exe");
-			caps.setCapability("app", "C:\\Users\\LENOVO\\Downloads\\Studi_v1.1.8(1).apk");
+			caps.setCapability("app", "C:\\Users\\Dell\\Downloads\\Studi_v1.1.8(1).apk");
 			caps.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, "true");
 			caps.setCapability(MobileCapabilityType.NO_RESET, true);
-			caps.setCapability("appium:chromeOptions", ImmutableMap.of("w3c", false));
 			System.out.println("Required Desired Capabilities Defined");
 			final String appiumserverUrl = "http://localhost:4723/wd/hub";
 			url = new URL(appiumserverUrl);
 
 			System.out.println("Appium Server URL is entered ");
-			driver = new AppiumDriver<MobileElement>(url, caps);
+			driver = new AndroidDriver<MobileElement>(url, caps);
 
 			System.out.println("AndroidDriver Configured with the required Desired Capabilities and URL");
 			applyExplicitWait(20);
@@ -368,12 +352,12 @@ public class BaseClass {
 			caps = new DesiredCapabilities();
 			caps.setCapability("browserstack.user", "imran_O3Z2m1");
 			caps.setCapability("browserstack.key", "deH6qfn4rkytKBtiXAmF");
-			caps.setCapability("app", "bs://def5dbb27341742391e9a7a90f8a0cf2d5cf6eb8 ");
-			//caps.setCapability("app", "bs://203c5e3b15c60f974d55710abce3b9540a3453bb");
+			//caps.setCapability("app", "bs://6faafdc5991986eaf7461bdf2a5811e232f5b316");
+			caps.setCapability("app", "bs://def5dbb27341742391e9a7a90f8a0cf2d5cf6eb8");
 
 			caps.setCapability("device", "OnePlus 8");
 			caps.setCapability("os_version", "10.0");
-
+			caps.setCapability("chromedriverExecutable", "C:\\Users\\Dell\\Downloads\\chromedriver_linux64\\chromedriver");
 
 			//caps.setCapability("device","Xiaomi Redmi Note 8");
 			//caps.setCapability("os_version","9");
@@ -384,11 +368,9 @@ public class BaseClass {
 			networkLogsOptions.put("captureContent", true);
 			caps.setCapability("browserstack.networkLogs", true);
 			caps.setCapability("browserstack.networkLogsOptions", networkLogsOptions);
-			//caps.setCapability("bundleId", "com.google.Chrome");
-			//caps.setCapability("appActivity", "com.demo.liveplaces.view.activity.SplashActivity");
 			caps.setCapability("project", "First Java Project");
 			caps.setCapability("build", "Java Android");
-			caps.setCapability("name", "Tata Studi");
+			caps.setCapability("name", "Tata Studi Bhushan");
 
 			// Initialise the remote Webdriver using BrowserStack remote URL
 			// and desired capabilities defined above
@@ -398,7 +380,7 @@ public class BaseClass {
 			// caps.setCapability("browserstack.appium_version", "1.7.1");
 			//caps.setCapability("browserstack.local", "false");
 
-			driver = new AppiumDriver<MobileElement>(new URL("http://hub.browserstack.com/wd/hub"), caps);
+			driver = new AndroidDriver<MobileElement>(new URL("http://hub.browserstack.com/wd/hub"), caps);
 			System.out.println("Launched");
 
 		}else if (s.equalsIgnoreCase("IOS-Jenkins")) {
@@ -410,7 +392,7 @@ public class BaseClass {
 			caps.setCapability("device", "iPad 5th");
 			caps.setCapability("os_version", "11");
 			caps.setCapability(MobileCapabilityType.NO_RESET, true);
-			caps.setCapability("chromedriverExecutable","C:\\Users\\LENOVO\\Downloads\\chromedriver_win32_89\\chromedriver.exe");
+
 			//caps.setCapability("bundleId", "com.google.Chrome");
 			//caps.setCapability("appActivity", "com.demo.liveplaces.view.activity.SplashActivity");
 			caps.setCapability("project", "First Java Project");
@@ -659,7 +641,6 @@ public class BaseClass {
 		System.out.println("Applying Explicit wait until the given element is visible");
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		wait.until(ExpectedConditions.visibilityOf(element));
-
 	}
 
 	public static void scrollToEnd() {

@@ -1291,24 +1291,26 @@ public class Module_Create_Study_Plan extends BaseClass {
 			System.out.println("Active plan of Test Unit displayed");
 			test.log(Status.INFO, "Active plan of Test Unit displayed");
 		}
-
-		scrollTo2("Revise");
-		for (Map.Entry<String, String> lesson : oso.expectedLessonOrder.entrySet()) {
-			applyExplicitWait(5);
-			scrollTo1(lesson.getKey().toString());
-			applyExplicitWaitsUntilElementClickable(oso.topLessonStatus);
-			if (oso.topLessonStatus.getAttribute("resource-id").contains("img")) {
-				clickOnElement(oso.topLessonStatus);
-				applyExplicitWait(5);
-				applyExplicitWaitsUntilElementClickable(oso.markAsComplete);
-				clickOnElement(oso.markAsComplete);
-
-				System.out.println(topic1 + " : " + lesson.getKey() + " marked as complete");
-				test.log(Status.INFO, topic1 + " : " + lesson.getKey() + " marked as complete");
-
-			}
-			System.err.println("Next");
-		}
+//
+//		scrollTo2("Revise");
+//		for (Map.Entry<String, String> lesson : oso.expectedLessonOrder.entrySet()) {
+//			applyExplicitWait(5);
+//			scrollTo1(lesson.getKey().toString());
+//			applyExplicitWaitsUntilElementClickable(oso.topLessonStatus);
+//			if (oso.topLessonStatus.getAttribute("resource-id").contains("img")) {
+//				clickOnElement(oso.topLessonStatus);
+//				applyExplicitWait(5);
+//				applyExplicitWaitsUntilElementClickable(oso.markAsComplete);
+//				clickOnElement(oso.markAsComplete);
+//
+//				System.out.println(topic1 + " : " + lesson.getKey() + " marked as complete");
+//				test.log(Status.INFO, topic1 + " : " + lesson.getKey() + " marked as complete");
+//
+//			}
+//			System.err.println("Next");
+//		}
+		
+		
 		System.out.println("All lessons from " + topic1 + " marked as complete");
 		test.log(Status.INFO, "All lessons from " + topic1 + " marked as complete");
 
