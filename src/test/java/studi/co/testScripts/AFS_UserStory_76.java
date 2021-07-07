@@ -2,7 +2,9 @@ package studi.co.testScripts;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.Set;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriverException;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -48,19 +50,19 @@ public class AFS_UserStory_76 extends BaseClass {
 	@Test(enabled = true)
 	public void TC14_To_Verify_Multiple_Answers_Shown_For_MCQ_In_Practice()
 			throws MalformedURLException, InterruptedException {
-		Assert.assertTrue(true);
-		//Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
-		//rqr.Module_Verify_Multiple_Answers_Shown_For_MCQ_In_Practice(prop.getProperty("subject76"),
-		//prop.getProperty("topic76"));
+	
+		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
+		rqr.Module_Verify_Multiple_Answers_Shown_For_MCQ_In_Practice(prop.getProperty("subject76"),
+		prop.getProperty("topic76"));
 	}
 
 	@Test(enabled = true)
 	public void TC15_To_Verify_MCQ_Answers_Can_Be_Select_In_Practice()
 			throws MalformedURLException, InterruptedException {
-		Assert.assertTrue(true);
-		//Module_Receive_Questions_Practice rqt = new Module_Receive_Questions_Practice();
-		//rqt.Module_Verify_MCQ_Answer_Can_Be_Slect_In_Practice(prop.getProperty("subject76"),
-		//prop.getProperty("topic76"));
+		
+		Module_Receive_Questions_Practice rqt = new Module_Receive_Questions_Practice();
+		rqt.Module_Verify_MCQ_Answer_Can_Be_Slect_In_Practice(prop.getProperty("subject76"),
+		prop.getProperty("topic76"));
 
 	}
 
@@ -84,30 +86,30 @@ public class AFS_UserStory_76 extends BaseClass {
 	@Test(enabled = true) 
 	public void TC18_To_Verify_Correct_Feedback_Shown_After_Partial_Answer_Selection_In_Practice()
 			throws Exception {
-		Assert.assertTrue(true);
-		//Module_Receive_Questions_Practice rqt = new Module_Receive_Questions_Practice();
-		//rqt.Module_Verify_Correct_Feedback_Shown_After_Partial_Answer_Selection_In_Practice(prop.getProperty("subject76"),
-				//prop.getProperty("topic76"));
+	
+		Module_Receive_Questions_Practice rqt = new Module_Receive_Questions_Practice();
+		rqt.Module_Verify_Correct_Feedback_Shown_After_Partial_Answer_Selection_In_Practice(prop.getProperty("subject76"),
+			prop.getProperty("topic76"));
 
 	}
 
 	@Test(enabled = true)
 	public void TC19_To_Verify_Attempting_MCQ_Quiz_Is_Mandatory_In_Practice()
 			throws MalformedURLException, InterruptedException {
-		Assert.assertTrue(true);
-		//Module_Receive_Questions_Practice rqt = new Module_Receive_Questions_Practice();
-		//rqt.Module_Verify_Attempting_MCQ_Quiz_Is_Mandatory_In_Practice(prop.getProperty("subject76"),
-				//prop.getProperty("topic76"));
+		
+		Module_Receive_Questions_Practice rqt = new Module_Receive_Questions_Practice();
+		rqt.Module_Verify_Attempting_MCQ_Quiz_Is_Mandatory_In_Practice(prop.getProperty("subject76"),
+				prop.getProperty("topic76"));
 
 	}
 
 	@Test(enabled = true)
 	public void TC20_To_Verify_In_Wrong_Answer_Selection_User_Should_Get_1_More_Attempt_For_MCQ_In_Practice()
 			throws Exception {
-		Assert.assertTrue(true);
-		//Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
-		//rqr.Module_Verify_In_Wrong_Answer_Selection_User_Should_Get_1_More_Attempt_For_MCQ_In_Practice(
-				//prop.getProperty("subject76"), prop.getProperty("topic76"));
+
+		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
+		rqr.Module_Verify_In_Wrong_Answer_Selection_User_Should_Get_1_More_Attempt_For_MCQ_In_Practice(
+			prop.getProperty("subject76"), prop.getProperty("topic76"));
 	}
 
 	@Test(enabled = true)
@@ -124,7 +126,7 @@ public class AFS_UserStory_76 extends BaseClass {
 		rqr.Module_Receive_MCQ_Questions_Revision(prop.getProperty("subject76"), prop.getProperty("topic76"));
 	}
 
-	@Test(enabled = true)//failed
+	@Test(enabled = true)
 	public void TC02_To_Verify_MCQ_Answers_Is_In_Default_State_In_Revision()
 			throws InterruptedException, WebDriverException, IOException {
 		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
@@ -143,10 +145,10 @@ public class AFS_UserStory_76 extends BaseClass {
 	@Test(enabled = true)
 	public void TC04_To_Verify_MCQ_Answers_Can_Be_Select_In_Revision()
 			throws InterruptedException, WebDriverException, IOException {
-		Assert.assertTrue(true);
-		//Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
-		//rqr.Module_Verify_MCQ_Answers_Can_Be_Select_In_Revision(prop.getProperty("subject76"),
-		//			prop.getProperty("topic76"));
+	
+		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
+		rqr.Module_Verify_MCQ_Answers_Can_Be_Select_In_Revision(prop.getProperty("subject76"),
+				prop.getProperty("topic76"));
 	}
 
 	@Test(enabled = true)
@@ -160,10 +162,10 @@ public class AFS_UserStory_76 extends BaseClass {
 	@Test(enabled = true)
 	public void TC06_To_Verify_Instant_Feedback_Shown_After_MCQ_Correct_Answer_Selection_In_Revision()
 			throws InterruptedException, WebDriverException, IOException {
-		Assert.assertTrue(true);
-		//Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
-		//rqr.Module_Verify_Instant_Feedback_Shown_After_MCQ_Answer_Selection_In_Revision(prop.getProperty("subject76"),
-		//prop.getProperty("topic76"));
+		
+		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
+		rqr.Module_Verify_Instant_Feedback_Shown_After_MCQ_Answer_Selection_In_Revision(prop.getProperty("subject76"),
+		prop.getProperty("topic76"));
 
 	}
 
@@ -204,10 +206,10 @@ public class AFS_UserStory_76 extends BaseClass {
 
 	@Test(enabled = true)
 	public void TC22_To_Verify_Receive_MCQ_Questions_In_Test() throws MalformedURLException, InterruptedException {
-		Assert.assertTrue(true);
-		//Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
-		//createPlan();
-		//rqt.Module_Receive_MCQ_Questions_Test(prop.getProperty("subject76"));
+	
+		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
+		createPlan();
+		rqt.Module_Receive_MCQ_Questions_Test(prop.getProperty("subject76"));
 
 	}
 
@@ -242,7 +244,7 @@ public class AFS_UserStory_76 extends BaseClass {
 	@Test(enabled = true) // needs questions data // Failed for now
 	public void TC27_To_Verify_Correct_Feedback_Shown_After_MCQ_Answer_Selection_In_Test()
 			throws MalformedURLException, InterruptedException {
-		Assert.assertTrue(false);
+		Assert.assertTrue(true);
 		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
 		rqt.Module_Verify_Correct_Feedback_Shown_After_MCQ_Answer_Selection_In_Test(prop.getProperty("Psubject"));
 
@@ -251,7 +253,7 @@ public class AFS_UserStory_76 extends BaseClass {
 	@Test(enabled = true) // needs questions data // Failed for now
 	public void TC28_To_Verify_Correct_Feedback_Shown_Under_Hamburger_Menu_In_Test()
 			throws MalformedURLException, InterruptedException {
-		Assert.assertTrue(false);
+		Assert.assertTrue(true);
 		Module_Receive_Questions_Test rqt = new Module_Receive_Questions_Test();
 		rqt.Module_Verify_Correct_Feedback_Shown_Under_Hamburger_Menu_MCQ_In_Test(prop.getProperty("Psubject"));
 
@@ -301,30 +303,51 @@ public class AFS_UserStory_76 extends BaseClass {
 		getDriver().launchApp();
 	}
 
-	private void createPlan() throws MalformedURLException {
+	public void createPlan() throws MalformedURLException {
 
 		Object_Create_Study_Plan temp = new Object_Create_Study_Plan();
 		clickOnElement(temp.testUnitModule);
-		scrollTo1("Manage and Create Plans");
-		applyExplicitWait(5);
-		System.out.println("Clicking on Manage and Create Plans");
-		clickOnElement(temp.managePlanBtn);
-
+		try {
+			clickOnElement(temp.selectAnotherPlanBtn);
+		} catch (Exception e) {
+			if (device.equalsIgnoreCase("Android")) {
+				scrollTo1("Manage and Create Plans");
+				applyExplicitWait(5);
+			} else
+				swipeDown();
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			System.out.println("Clicking on Manage and Create Plans");
+			clickOnElement(temp.managePlanBtn);
+		}
+		
+		
 
 		applyExplicitWait(5);
 		System.out.println("Clicking on Create Study Plans");
 		applyExplicitWaitsUntilElementClickable(temp.createStudyPlanBtn);
 		clickOnElement(temp.createStudyPlanBtn);
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
 
-		System.err.println("Clicked on " + prop.getProperty("subject76"));
-		scrollTo2(prop.getProperty("subject76"));
-		applyExplicitWaitsUntilElementVisible(findElementByText(prop.getProperty("subject76")));
-		clickOnElement(findElementByText(prop.getProperty("subject76")));
+		System.err.println("Clicked on " + prop.getProperty("subject77"));
+		scrollTo1(prop.getProperty("subject77"));
+		applyExplicitWaitsUntilElementVisible(findElementByText(prop.getProperty("subject77")));
+		clickOnElement(findElementByText(prop.getProperty("subject77")));
 
-		System.err.println("Clicked on " + prop.getProperty("topic76"));
-		scrollTo2(prop.getProperty("topic76"));
-		applyExplicitWaitsUntilElementVisible(findElementByText(prop.getProperty("topic76")));
-		clickOnElement(findElementByText(prop.getProperty("topic76")));
+		System.err.println("Clicked on " + prop.getProperty("topic77"));
+		scrollTo2(prop.getProperty("topic77"));
+		applyExplicitWaitsUntilElementVisible(findElementByText(prop.getProperty("topic77")));
+		clickOnElement(findElementByText(prop.getProperty("topic77")));
 
 		applyExplicitWait(5);
 		clickOnElement(findElementByText("Add to portion"));
@@ -334,19 +357,40 @@ public class AFS_UserStory_76 extends BaseClass {
 		applyExplicitWait(5);
 
 		action = new TouchAction(driver);
-
-		Boolean status = Boolean.parseBoolean(driver.findElementByXPath(
-				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View/android.view.View["
-						+ 1 + "]/android.view.View[2]/android.view.View/android.view.View[1]/android.widget.Button")
-				.getAttribute("focused"));
+		Set<String> context = driver.getContextHandles();
+		for (String cont : context) {
+			if (cont.contains("WEBVIEW"))
+				getDriver().context(cont);
+		}
+		Boolean status = getDriver().findElement(By.xpath("//*[contains(@class, 'icon-flag-svg')]"))
+				.getAttribute("class").contains("active");
+		getDriver().context("NATIVE_APP");
 		if (status) {
-			temp.subjectFlag.put(prop.getProperty("subject76"), true);
+			temp.subjectFlag.put(prop.getProperty("subject77"), true);
 		} else {
-			temp.subjectFlag.put(prop.getProperty("subject76"), false);
+			temp.subjectFlag.put(prop.getProperty("subject77"), false);
 		}
 
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		applyExplicitWaitsUntilElementClickable(temp.nextStepBtn);
 		clickOnElement(temp.nextStepBtn);
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		applyExplicitWaitsUntilElementClickable(temp.nextStepBtn);
 		clickOnElement(temp.nextStepBtn);
 
@@ -356,17 +400,31 @@ public class AFS_UserStory_76 extends BaseClass {
 		clickOnElement(findElementByText("Begin Studying"));
 
 		System.out.println("New plan created");
-		for (int i = 0; i < 3; i++) {
+
+		int j = 0;
+		for (int i = 0; i < 4; i++) {
+			try {
+				Thread.sleep(1500);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			applyExplicitWaitsUntilElementClickable(temp.topLessonStatus);
 			clickOnElement(temp.topLessonStatus);
 			applyExplicitWait(5);
-			clickOnElement(temp.markAsComplete);
-
+			//clickOnElement(temp.markAsComplete);
+			clickOnElement(findElementByText("Mark"));
 		}
-		applyExplicitWait(5);
-		clickOnElement(getDriver().findElementById("com.tce.studi:id/iv_left_icon"));
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		clickOnElement(temp.backBtnTestUnit);
 
 	}
+
 	/*
 	 * @Test(enabled = true) public void
 	 * TC04_Verify_MCQ_Answers_Can_Be_Select_or_Unselect_In_Revision() throws

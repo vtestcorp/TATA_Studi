@@ -3,6 +3,7 @@ package studi.co.pageObjects;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import studi.co.Base.BaseClass;
@@ -148,5 +149,25 @@ public class Object_Assignment_Digital_Task  extends BaseClass {
 
 	@AndroidFindBy(id="com.tce.studi:id/iv_right_action_primary")
 	public WebElement closeTest2;
+
+	public int get_Total_Number_Of_Questions_In_Oral_Test() {
+		if (device.equalsIgnoreCase("Android"))
+			return getDriver().findElementsByXPath(
+					"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.TextView").size();
+			//return getDriver().findElementsById(
+				//	"com.tce.studi:id/tvQuestionNumber").size();	
+
+		else {
+			MobileElement ele=driver.findElementByXPath("//*[@type=\"XCUIElementTypePageIndicator\"]");
+
+			String temp[] = ele.getAttribute("value").split(" ");
+			int temp1=Integer.parseInt(temp[temp.length-1]);
+			System.err.println("que1 :"+ele.getAttribute("value"));
+			return temp1;
+		}
+	}
+
+	
+	
 
 }

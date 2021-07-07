@@ -63,6 +63,10 @@ public class Object_Assignment_Listing extends BaseClass {
 
 	@AndroidFindBy(id ="com.tce.studi:id/tvNew")
 	public WebElement new_icon;
+	
+	@AndroidFindBy(id ="com.tce.studi:id/showMore")
+	public WebElement show_more;
+
 
 	@AndroidFindBy(id ="com.tce.studi:id/iv_left_icon")
 	public WebElement back_btn;

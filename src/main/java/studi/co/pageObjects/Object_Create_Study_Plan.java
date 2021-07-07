@@ -108,10 +108,10 @@ public class Object_Create_Study_Plan extends BaseClass {
 	@AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.Button\").textContains(\"Next Step\")")
 	public WebElement nextStepBtn;
 
-	@AndroidFindBy(uiAutomator = "new UiSelector().className(\"com.tce.studi:id/tv_intent_title\").textContains(\"Portionp\")")
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/tv_intent_title\").textContains(\"Portion\")")
 	public WebElement portion;
 	
-	@FindBy(id = "com.tce.studi:id/tv_coming_soon")
+	@FindBy(id = "com.tce.studi:id/tvComingSoon")
 	public WebElement taskCountInUpcoming;
 
 	public Map<String, String> expectedLessonOrder = new LinkedHashMap<String, String>();
@@ -223,7 +223,8 @@ public class Object_Create_Study_Plan extends BaseClass {
 	@AndroidFindBy(id="com.tce.studi:id/tv_intent_title")
 	public WebElement object44;
 
-	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[5]/android.view.ViewGroup")
+	//@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[5]/android.view.ViewGroup")
+	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup")
 	public WebElement element52;
 
 	@AndroidFindBy(xpath="//*[contains(@text, '1, 2021')]")
@@ -263,8 +264,8 @@ public class Object_Create_Study_Plan extends BaseClass {
 
 	public String lessonDueDate="android.view.ViewGroup/android.widget.TextView[4]";
 
-	//public String upcomingLessonsPanel = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView";
-	public String upcomingLessonsPanel = "com.tce.studi:id/upcomingLayout";
+	public String upcomingLessonsPanel = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView";
+	//public String upcomingLessonsPanel = "com.tce.studi:id/upcomingLayout";
 
 	@AndroidFindBy(id="com.tce.studi:id/pausePlan")
 	public WebElement pausePlan;
@@ -538,6 +539,7 @@ public class Object_Create_Study_Plan extends BaseClass {
 
 	public String getUpcommingLesson(int i) {
 		return "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup["+(i+1)+"]";
+		
 	}
 
 	//Flag the Subject
@@ -631,7 +633,7 @@ public class Object_Create_Study_Plan extends BaseClass {
 	public int getTaskCountForUpcomingPlan() {
 		String msg=taskCountInUpcoming.getText();
 		String[] sep=msg.split(" ");
-		int count=Integer.parseInt(sep[0]);
+		int count=Integer.parseInt(sep[2]);
 		return count;
 	}
 

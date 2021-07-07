@@ -54,7 +54,7 @@ public class AFS_UserStory_1045 extends BaseClass{
 		mmp.toVerify_UserCanNavigate_BackTo_TheLandingPage();
 	}
 
-	@Test(enabled=true)     
+@Test(enabled=true)     
 	public void	T04_To_Verify_StudyRing_In_Default_State_For_New_StudyPlan() throws Exception{
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_StudyRing_For_NewStudyPlan();
@@ -213,14 +213,14 @@ public class AFS_UserStory_1045 extends BaseClass{
 		mmp.toVerify_Filter_Icon_On_Schedule_List_Should_Be_Tappable();
 	}
 
-	@Test(enabled=true)
+	@Test(enabled=true,priority=-2)
 	public void T34_To_Verify_Various_Filter_Options_On_Schedule_List() throws Exception {
 
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_Various_Filter_Options();
 	}
 
-	@Test(enabled=true)
+	@Test(enabled=true,priority=-1)
 	public void T35_To_Verify_Various_Filter_Options_On_Schedule_List_Should_Be_Functional() throws Exception {
 
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();

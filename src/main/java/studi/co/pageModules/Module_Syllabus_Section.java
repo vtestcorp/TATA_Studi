@@ -626,7 +626,7 @@ public class Module_Syllabus_Section extends BaseClass{
 
 
 	public void toVerify_User_Should_Be_Shown_Low_Confidence_Status_For_The_Tp_In_Which_User_Has_Scored_Low_Confidence(
-			String subject, String topic) throws Exception {
+			String subject, String topic_1) throws Exception {
 
 		toVerify_The_Available_Resource_Of_The_BookShelf();
 		Boolean status;
@@ -650,8 +650,8 @@ public class Module_Syllabus_Section extends BaseClass{
 		}
 		assert1.assertTrue(status);
 
-		scrollTo2(topic);
-		clickOnElement(findElementByText(topic));
+		scrollTo2(topic_1);
+		clickOnElement(findElementByText(topic_1));
 
 		scrollTo2("Practice");
 		clickOnElement(findElementByText("Practice"));

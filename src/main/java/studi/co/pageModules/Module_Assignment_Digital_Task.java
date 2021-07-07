@@ -53,7 +53,7 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 		applyExplicitWaitsUntilElementVisible(oadt.questionView);
 		swipeDown();
 		status =oadt.testTimer.isDisplayed();
-		
+
 		if (status) {
 			System.out.println("Test Duration is displayed");
 			test.log(Status.INFO, "Test Duration is displayed");
@@ -63,8 +63,6 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 		assert1.assertAll();
 
 	}
-
-
 
 	public void to_verify_that_after_test_begin_timer_should_get_start(String subject, String topic) throws MalformedURLException {
 		create_Assignment_Digital_Test(subject, topic);
@@ -243,12 +241,12 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 
 
 	public void to_verify_add_flag_for_review_before_submission(String subject, String topic) throws MalformedURLException {
-		//		create_Assignment_Digital_Test(subject, topic);
-		//		clickOnElement(oadt.viewAssignmenBtn);
-		//
-		//		test.log(Status.INFO, "Traversing to Begin Test" );
-		//		System.out.println("Traversing to Begin Test");
-		//
+		create_Assignment_Digital_Test(subject, topic);
+		clickOnElement(oadt.viewAssignmenBtn);
+
+		test.log(Status.INFO, "Traversing to Begin Test" );
+		System.out.println("Traversing to Begin Test");
+
 		clickOnElement(oadt.beginTest);
 
 		test.log(Status.INFO, "Attempting the test " );
@@ -258,7 +256,7 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 
 		test.log(Status.INFO, "Set the flag for First question " );
 		System.out.println("Set the flag for First question ");
-		int questions = getTotalQuestionsInPractice();
+		int questions = oadt.get_Total_Number_Of_Questions_In_Oral_Test();
 		int i = 0;
 		Boolean status;
 		applyExplicitWaitsUntilElementVisible(oadt.questionView);
@@ -317,7 +315,7 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 
 		test.log(Status.INFO, "Set the flag for First question " );
 		System.out.println("Set the flag for First question ");
-		int questions = getTotalQuestionsInPractice();
+		int questions = oadt.get_Total_Number_Of_Questions_In_Oral_Test();
 		int i = 0;
 		Boolean status;
 		applyExplicitWaitsUntilElementVisible(oadt.questionView);
@@ -374,19 +372,19 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 
 
 	public void to_verify_the_review_of_digital_test(String subject, String topic) throws MalformedURLException {
-		//	 	create_Assignment_Digital_Test(subject, topic);
-		//		clickOnElement(oadt.viewAssignmenBtn);
-		//
-		//		test.log(Status.INFO, "Traversing to Begin Test" );
-		//		System.out.println("Traversing to Begin Test");
-		//
+		create_Assignment_Digital_Test(subject, topic);
+		clickOnElement(oadt.viewAssignmenBtn);
+
+		test.log(Status.INFO, "Traversing to Begin Test" );
+		System.out.println("Traversing to Begin Test");
+
 		clickOnElement(oadt.beginTest);
 
 		test.log(Status.INFO, "Attempting the test " );
 		System.out.println("Attempting the test");
 		oadt.flag.click();
 		applyExplicitWait(5);
-		int questions = getTotalQuestionsInPractice();
+		int questions =oadt.get_Total_Number_Of_Questions_In_Oral_Test();
 		int i = 0;
 		Boolean status;
 		applyExplicitWaitsUntilElementVisible(oadt.questionView);
@@ -431,19 +429,19 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 
 
 	public void to_verify_the_the_flag_reflection_on_Review(String subject, String topic) throws MalformedURLException {
-		//	 	create_Assignment_Digital_Test(subject, topic);
-		//		clickOnElement(oadt.viewAssignmenBtn);
-		//
-		//		test.log(Status.INFO, "Traversing to Begin Test" );
-		//		System.out.println("Traversing to Begin Test");
-		//
+		create_Assignment_Digital_Test(subject, topic);
+		clickOnElement(oadt.viewAssignmenBtn);
+
+		test.log(Status.INFO, "Traversing to Begin Test" );
+		System.out.println("Traversing to Begin Test");
+
 		clickOnElement(oadt.beginTest);
 
 		test.log(Status.INFO, "Attempting the test " );
 		System.out.println("Attempting the test");
 		oadt.flag.click();
 		applyExplicitWait(5);
-		int questions = getTotalQuestionsInPractice();
+		int questions = oadt.get_Total_Number_Of_Questions_In_Oral_Test();
 		int i = 0;
 		Boolean status;
 		applyExplicitWaitsUntilElementVisible(oadt.questionView);
@@ -475,7 +473,7 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 		clickOnElement(oadt.next_questin_Arrow);
 
 		clickOnElement(oadt.check_Answer);
-		//now chk flag reflection here
+		// flag reflection 
 
 
 	}
@@ -497,7 +495,7 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 		System.out.println("Attempting the test");
 		oadt.flag.click();
 		applyExplicitWait(5);
-		int questions = getTotalQuestionsInPractice();
+		int questions = oadt.get_Total_Number_Of_Questions_In_Oral_Test();
 		int i = 0;
 		Boolean status;
 		applyExplicitWaitsUntilElementVisible(oadt.questionView);
@@ -552,7 +550,7 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 		System.out.println("Attempting the test");
 		oadt.flag.click();
 		applyExplicitWait(5);
-		int questions = getTotalQuestionsInPractice();
+		int questions = oadt.get_Total_Number_Of_Questions_In_Oral_Test();
 		int i = 0;
 		Boolean status;
 		applyExplicitWaitsUntilElementVisible(oadt.questionView);
@@ -604,7 +602,7 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 		System.out.println("Attempting the test");
 		oadt.flag.click();
 		applyExplicitWait(5);
-		int questions = getTotalQuestionsInPractice();
+		int questions =oadt.get_Total_Number_Of_Questions_In_Oral_Test();
 		int i = 0;
 		Boolean status;
 		applyExplicitWaitsUntilElementVisible(oadt.questionView);
@@ -673,7 +671,7 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 		System.out.println("Attempting the test");
 		oadt.flag.click();
 		applyExplicitWait(5);
-		int questions = getTotalQuestionsInPractice();
+		int questions = oadt.get_Total_Number_Of_Questions_In_Oral_Test();
 		int i = 0;
 		Boolean status;
 		applyExplicitWaitsUntilElementVisible(oadt.questionView);
@@ -709,7 +707,7 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 		clickOnElement(oadt.submitTest);
 
 		clickOnElement(oadt.check_Answer);
-		//now chk exit review functinality here
+		//exit review functinality here
 
 		clickOnElement(oadt.exit_Review);
 		status = oadt.check_Answer.isDisplayed();
@@ -733,7 +731,7 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 		System.out.println("Attempting the test");
 		oadt.flag.click();
 		applyExplicitWait(5);
-		int questions = getTotalQuestionsInPractice();
+		int questions = oadt.get_Total_Number_Of_Questions_In_Oral_Test();
 		int i = 0;
 		Boolean status;
 		applyExplicitWaitsUntilElementVisible(oadt.questionView);
@@ -806,7 +804,7 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 		//		System.out.println("Attempting the test");
 
 		applyExplicitWait(5);
-		int questions = getTotalQuestionsInPractice();
+		int questions = oadt.get_Total_Number_Of_Questions_In_Oral_Test();
 		int i = 0;
 		Boolean status;
 		applyExplicitWaitsUntilElementVisible(oadt.questionView);
@@ -859,7 +857,7 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 		//		System.out.println("Attempting the test");
 
 		applyExplicitWait(5);
-		int questions = getTotalQuestionsInPractice();
+		int questions =oadt.get_Total_Number_Of_Questions_In_Oral_Test();
 		int i = 0;
 		Boolean status;
 		applyExplicitWaitsUntilElementVisible(oadt.questionView);
@@ -923,7 +921,7 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 		System.out.println("Attempting the test");
 		oadt.flag.click();
 		applyExplicitWait(5);
-		int questions = getTotalQuestionsInPractice();
+		int questions = oadt.get_Total_Number_Of_Questions_In_Oral_Test();
 		int i = 0;
 		Boolean status;
 		applyExplicitWaitsUntilElementVisible(oadt.questionView);

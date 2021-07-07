@@ -40,7 +40,7 @@ public class Module_Syllabus_Options extends BaseClass {
 
 		applyExplicitWaitsUntilElementVisible(oso.addNotesBtn);
 		if (device.contains("Android")) {
-			driver.findElement(By.id("com.tce.studi:id/player_view")).click();;
+			driver.findElement(By.id("com.tce.studi:id/player_view")).click();
 		}			
 		driver.findElement(By.id("com.tce.studi:id/exo_pause")).click();
 	}

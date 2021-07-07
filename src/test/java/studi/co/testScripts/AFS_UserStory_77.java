@@ -34,7 +34,7 @@ public class AFS_UserStory_77 extends BaseClass {
 		rqr.Module_Receive_SCQ_Questions_Practice(prop.getProperty("subject77"), prop.getProperty("topic77"));
 	}
 
-	@Test(enabled =true)//pass
+	@Test(enabled = true)//pass
 	public void TC13_To_Verify_SCQ_Answers_Is_In_Default_State_In_Practice()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
@@ -68,7 +68,7 @@ public class AFS_UserStory_77 extends BaseClass {
 				prop.getProperty("topic77"));
 	}
 
-	@Test(enabled= true)//pass
+	@Test(enabled = true)//pass
 	public void TC17_To_Verify_Feedback_Shown_For_Correct_Answer_Selection_In_SCQ_Practice()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
@@ -92,7 +92,7 @@ public class AFS_UserStory_77 extends BaseClass {
 				prop.getProperty("topic77"));
 	}
 
-	@Test(enabled =true)//pass
+	@Test(enabled = true)//pass
 	public void TC20_To_Verify_In_Wrong_Answer_Selection_User_Should_Get_1_More_Attempt_For_SCQ_In_Practice()
 			throws Exception {
 		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
@@ -109,7 +109,7 @@ public class AFS_UserStory_77 extends BaseClass {
 				prop.getProperty("topic77"));
 	}
 
-	@Test(enabled =true)//passed
+	@Test(enabled = true)//passed
 	public void TC01_To_Verify_Receive_SCQ_Questions_In_Revision()
 			throws WebDriverException, IOException, InterruptedException {
 		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
@@ -304,21 +304,30 @@ public class AFS_UserStory_77 extends BaseClass {
 			System.out.println("Clicking on Manage and Create Plans");
 			clickOnElement(temp.managePlanBtn);
 		}
+		
+		
 
 		applyExplicitWait(5);
 		System.out.println("Clicking on Create Study Plans");
 		applyExplicitWaitsUntilElementClickable(temp.createStudyPlanBtn);
 		clickOnElement(temp.createStudyPlanBtn);
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
 
-		System.err.println("Clicked on " + prop.getProperty("msubject"));
-		scrollTo2(prop.getProperty("msubject"));
-		applyExplicitWaitsUntilElementVisible(findElementByText(prop.getProperty("msubject")));
-		clickOnElement(findElementByText(prop.getProperty("msubject")));
+		System.err.println("Clicked on " + prop.getProperty("subject77"));
+		scrollTo1(prop.getProperty("subject77"));
+		applyExplicitWaitsUntilElementVisible(findElementByText(prop.getProperty("subject77")));
+		clickOnElement(findElementByText(prop.getProperty("subject77")));
 
-		System.err.println("Clicked on " + prop.getProperty("topic2"));
-		scrollTo2(prop.getProperty("topic2"));
-		applyExplicitWaitsUntilElementVisible(findElementByText(prop.getProperty("topic2")));
-		clickOnElement(findElementByText(prop.getProperty("topic2")));
+		System.err.println("Clicked on " + prop.getProperty("topic77"));
+		scrollTo2(prop.getProperty("topic77"));
+		applyExplicitWaitsUntilElementVisible(findElementByText(prop.getProperty("topic77")));
+		clickOnElement(findElementByText(prop.getProperty("topic77")));
 
 		applyExplicitWait(5);
 		clickOnElement(findElementByText("Add to portion"));
@@ -337,15 +346,27 @@ public class AFS_UserStory_77 extends BaseClass {
 				.getAttribute("class").contains("active");
 		getDriver().context("NATIVE_APP");
 		if (status) {
-			temp.subjectFlag.put(prop.getProperty("msubject"), true);
+			temp.subjectFlag.put(prop.getProperty("subject77"), true);
 		} else {
-			temp.subjectFlag.put(prop.getProperty("msubject"), false);
+			temp.subjectFlag.put(prop.getProperty("subject77"), false);
 		}
 
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		applyExplicitWaitsUntilElementClickable(temp.nextStepBtn);
 		clickOnElement(temp.nextStepBtn);
 		try {
 			Thread.sleep(500);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			Thread.sleep(2000);
 		} catch (InterruptedException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -361,7 +382,7 @@ public class AFS_UserStory_77 extends BaseClass {
 		System.out.println("New plan created");
 
 		int j = 0;
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 4; i++) {
 			try {
 				Thread.sleep(1500);
 			} catch (InterruptedException e) {
@@ -373,9 +394,6 @@ public class AFS_UserStory_77 extends BaseClass {
 			applyExplicitWait(5);
 			//clickOnElement(temp.markAsComplete);
 			clickOnElement(findElementByText("Mark"));
-			if (j == 1)
-				scrollTo2("due");
-			j++;
 		}
 		try {
 			Thread.sleep(500);

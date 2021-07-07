@@ -1,0 +1,171 @@
+package studi.co.pageObjects;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import studi.co.Base.BaseClass;
+
+public class Object_Assignment_Oral_Test extends BaseClass {
+	public Object_Assignment_Oral_Test() {
+		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+	}
+
+
+	@AndroidFindBy(id = "com.tce.studi:id/ivProfile")
+	public WebElement profilePic;
+
+	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tvHeading\").textContains(\"Assignment\")")
+	public WebElement assignment;
+
+	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tvHeading\").textContains(\"Syllabus\")")
+	public WebElement syllabus;
+
+	@AndroidFindBy(id ="com.tce.studi:id/fab_assignment")
+	public WebElement add_Symbol;
+
+	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tv_intent_title\").textContains(\"Oral Test\")")
+	public WebElement oral_Test;
+
+	@AndroidFindBy(uiAutomator="new UiSelector().className(\"android.widget.TextView\").textContains(\"Create an oral test\")")
+	//@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView")
+	public WebElement oral_Test_Heading;
+
+	@AndroidFindBy(id ="com.tce.studi:id/tvNextStep")
+	public WebElement next1 ;
+	
+	@AndroidFindBy(id ="com.tce.studi:id/tvPrevious")
+    public WebElement previous_btn ;
+
+	@AndroidFindBy(id ="com.tce.studi:id/tvNextStep")
+	public WebElement start_Test ;
+
+	@AndroidFindBy(id ="com.tce.studi:id/tvPrimaryAction")
+	public WebElement begin_Test ;
+
+	@AndroidFindBy(id ="com.tce.studi:id/imgDeleteSheet")
+	public WebElement delete_note ;
+	
+	@AndroidFindBy(id ="com.tce.studi:id/txtPositiveBtn")
+	public WebElement please_Discard ;
+	
+	@AndroidFindBy(id ="com.tce.studi:id/txtNegativeBtn")
+    public WebElement take_me_Back ;
+	
+	//@AndroidFindBy(uiAutomator = "new UiSelector().className(\"com.tce.studi:id/tvAssignDigitalTest\").textContains(\"All Subjects\")")
+	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView")
+	public WebElement all_Sub;
+	
+	@AndroidFindBy(id ="com.tce.studi:id/tvAssignDigitalTest")
+    public WebElement test_Details ;
+	
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/helpSwitch\").textContains(\"ON\")")
+	public WebElement help_ON;
+	
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/helpSwitch\").textContains(\"OFF\")")
+	public WebElement help_OFF;
+	
+	@AndroidFindBy(id ="com.tce.studi:id/tvTitleInstructionTest")
+    public WebElement title_Instruction ;
+	
+	@AndroidFindBy(id ="com.tce.studi:id/tvDifficultyInstruction")
+    public WebElement difficulty_level_Instruction ;
+	
+	@AndroidFindBy(id ="com.tce.studi:id/tvTentativeDurationInstructionTest")
+    public WebElement duration_instruction ;
+
+	@AndroidFindBy(id ="com.tce.studi:id/iv_left_icon")
+    public WebElement back_btn ;
+	
+	@AndroidFindBy(id ="com.tce.studi:id/etTitleTest")
+    public WebElement title_field;
+	
+	@AndroidFindBy(id ="com.tce.studi:id/difLow")
+    public WebElement low;
+	
+	@AndroidFindBy(id ="com.tce.studi:id/difMedium")
+    public WebElement medium;
+	
+	@AndroidFindBy(id ="com.tce.studi:id/difHigh")
+    public WebElement high;
+		
+	@AndroidFindBy(id ="com.tce.studi:id/btnFive")
+    public WebElement five;
+	
+	@AndroidFindBy(id ="com.tce.studi:id/btnTen")
+    public WebElement ten;
+	
+	@AndroidFindBy(id ="com.tce.studi:id/btnFifteen")
+    public WebElement fifteen;
+	
+	@AndroidFindBy(id ="com.tce.studi:id/btnThirty")
+    public WebElement thirty;
+	
+	@AndroidFindBy(id ="com.tce.studi:id/ivPlayVideo")
+    public WebElement video_icon;
+
+	@AndroidFindBy(id ="com.tce.studi:id/ib_close_video")
+    public WebElement video_close;
+	
+	@AndroidFindBy(id ="com.tce.studi:id/tvQuestionNumber")
+    public WebElement question_count;
+	
+	@AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.TextView\").textContains(\"Oral Test: Natural Vegetation\")")
+	public WebElement topic_name;
+	
+	@AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.view.View\").textContains(\"The correct answer is\")")
+	public WebElement question_Text;
+	
+	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View/android.view.View")
+	public WebElement question_1;
+	
+	@AndroidFindBy(id ="com.tce.studi:id/ivNext")
+    public WebElement next_arrow;
+	
+	@AndroidFindBy(id ="com.tce.studi:id/tvCorrect")
+    public WebElement correct_option;
+	
+	@AndroidFindBy(id ="com.tce.studi:id/tvPartiallyCorrect")
+    public WebElement partially_correct;
+	
+	@AndroidFindBy(id ="com.tce.studi:id/tvIncorrect")
+    public WebElement incorrect_option;
+	
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/tvShowHide\").textContains(\"Hide Answer\")")
+    public WebElement hide_Ans;
+	
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/tvShowHide\").textContains(\"Show Answer\")")
+    public WebElement show_Ans;
+	
+	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[3]/android.view.View[3]/android.widget.CheckBox")
+    public WebElement correct_ans;
+	
+	
+	public int get_Total_Number_Of_Questions_In_Oral_Test() {
+		if (device.equalsIgnoreCase("Android"))
+			return getDriver().findElementsByXPath(
+					"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.TextView").size();
+			//return getDriver().findElementsById(
+				//	"com.tce.studi:id/tvQuestionNumber").size();	
+
+		else {
+			MobileElement ele=driver.findElementByXPath("//*[@type=\"XCUIElementTypePageIndicator\"]");
+
+			String temp[] = ele.getAttribute("value").split(" ");
+			int temp1=Integer.parseInt(temp[temp.length-1]);
+			System.err.println("que1 :"+ele.getAttribute("value"));
+			return temp1;
+		}
+	}
+
+	
+	
+	
+}
+	
+	
+	
+	
+

@@ -14,117 +14,113 @@ import studi.co.pageModules.Module_Assignment_Digital_Task;
 
 public class Assignment_Digital_Task extends BaseClass{
 
-	//Total=17
-	//TC,TC,TC=Pending. Functions not yet implimented
-	//  Pass,  Fail	
 
 	public  Assignment_Digital_Task() {
 		super();
 	}
 
-	@Test(enabled = true)//tested for 10 min. How to validate for 15 -20-30 minutes
+	@Test(enabled = false)//for 10 min
 	public void TC01_To_Verify_Test_Duration_should_be_display_as_per_selection_in_the_test_Settings() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Digital_Task  mas=new Module_Assignment_Digital_Task();
 		mas.to_verify_display_of_test_duration(prop.getProperty("subject"),prop.getProperty("topic"));
 	}
 
-	@Test(enabled = true)//pass
+	@Test(enabled = false)//pass
 	public void TC02_To_Verify_That_After_Test_Begin_Timer_Should_Get_Start() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Digital_Task  mas=new Module_Assignment_Digital_Task();
 		mas.to_verify_that_after_test_begin_timer_should_get_start(prop.getProperty("subject"),prop.getProperty("topic"));
 	}
-
-	@Test(enabled = true)//pass--Update after Help validation
+	@Test(enabled = false)//pending OFF help switch
 	public void TC03_To_Verify_while_Entering_Test_Setting_Details_User_Able_To_ON_Help_Toggle() throws MalformedURLException, InterruptedException {
-		Assert.assertTrue(true);
-		//Module_Assignment_Digital_Task  mas=new Module_Assignment_Digital_Task();
-		//mas.to_verify_that_User_able_to_ON_Help_toggle(prop.getProperty("subject"),prop.getProperty("topic"));
+	
+		Module_Assignment_Digital_Task  mas=new Module_Assignment_Digital_Task();
+		mas.to_verify_that_User_able_to_ON_Help_toggle(prop.getProperty("subject"),prop.getProperty("topic"));
 	}
 
-	@Test(enabled = true)//pending OFF help switch
+	@Test(enabled = false)//pending OFF help switch
 	public void TC04_To_Verify_while_Entering_Test_Setting_Details_User_Able_To_OFF_Help_Toggle() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Digital_Task  mas=new Module_Assignment_Digital_Task();
 		mas.to_verify_that_User_able_to_OFF_Help_toggle(prop.getProperty("subject"),prop.getProperty("topic"));
 	}
 
 
-	@Test(enabled = true)//pass
+	@Test(enabled = false)//pass
 	public void TC05_To_Verify_Assign_Digital_Test_and_success_message() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Digital_Task  mas=new Module_Assignment_Digital_Task();
 		mas.to_verify_assign_digital_test_and_success_message(prop.getProperty("subject"),prop.getProperty("topic"));
 	}
 
-	@Test(enabled = true)//failed
+	@Test(enabled = false)//Up
 	public void TC06_To_Verify_Add_Flag_For_Review_Before_Submission() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Digital_Task  mas=new Module_Assignment_Digital_Task();
 		mas.to_verify_add_flag_for_review_before_submission(prop.getProperty("subject"),prop.getProperty("topic"));
 	}
 
-	@Test(enabled = true)//pass _Not able to click only press next question arrow
+	@Test(enabled = false)//pass _Not able to click only press next question arrow
 	public void TC07_To_verify_that_at_time_of_test_submission_Count_of_attempted_Pending_Flagged_questions_should_be_display() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Digital_Task  mas=new Module_Assignment_Digital_Task();
 		mas.to_verify_Count_of_attempted_Pending_Flagged_questions_should_be_display();
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = false)//up
 	public void TC08_To_Verify_the_review_of_Digital_test() throws MalformedURLException, InterruptedException {
-		Assert.assertTrue(true);
-		//Module_Assignment_Digital_Task  mas=new Module_Assignment_Digital_Task();
-		//mas.to_verify_the_review_of_digital_test(prop.getProperty("subject"),prop.getProperty("topic"));
+	
+		Module_Assignment_Digital_Task  mas=new Module_Assignment_Digital_Task();
+		mas.to_verify_the_review_of_digital_test(prop.getProperty("subject"),prop.getProperty("topic"));
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = false)//flag
 	public void TC09_To_Verify_The_Flag_Reflection_On_Review() throws MalformedURLException, InterruptedException {
-		Assert.assertTrue(true);
-		//Module_Assignment_Digital_Task  mas=new Module_Assignment_Digital_Task();
-		//mas.to_verify_the_the_flag_reflection_on_Review(prop.getProperty("subject"),prop.getProperty("topic"));
+	
+		Module_Assignment_Digital_Task  mas=new Module_Assignment_Digital_Task();
+		mas.to_verify_the_the_flag_reflection_on_Review(prop.getProperty("subject"),prop.getProperty("topic"));
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void TC10_To_Verify_the_Correct_Incorrect_answers_on_review_page() throws MalformedURLException, InterruptedException {
-		Assert.assertTrue(true);
-		//Module_Assignment_Digital_Task  mas=new Module_Assignment_Digital_Task();
-		//mas.to_verify_the_Correct_Incorrect_answers_on_review_page();
+	
+		Module_Assignment_Digital_Task  mas=new Module_Assignment_Digital_Task();
+		mas.to_verify_the_Correct_Incorrect_answers_on_review_page();
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void TC11_To_Verify_the_review_Scrolling() throws MalformedURLException, InterruptedException {
-		Assert.assertTrue(true);
-		//Module_Assignment_Digital_Task  mas=new Module_Assignment_Digital_Task();
-		//mas.to_verify_the_review_Scrolling(prop.getProperty("subject"),prop.getProperty("topic"));
+	
+		Module_Assignment_Digital_Task  mas=new Module_Assignment_Digital_Task();
+		mas.to_verify_the_review_Scrolling(prop.getProperty("subject"),prop.getProperty("topic"));
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void TC12_To_Verify_the_Close_Review() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Digital_Task  mas=new Module_Assignment_Digital_Task();
 		mas.to_verify_the_close_review(prop.getProperty("subject"),prop.getProperty("topic"));
 	}
-	@Test(enabled = true)//pass
+	@Test(enabled = false)//pass
 	public void TC13_To_Verify_The_Exit_Review() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Digital_Task  mas=new Module_Assignment_Digital_Task();
 		mas.to_verify_the_exit_review(prop.getProperty("subject"),prop.getProperty("topic"));
 	}
 
-	@Test(enabled =false)//pass
+	@Test(enabled = false)//pass
 	public void TC14_To_Verify_From_Review_User_Should_be_Able_To_Redirect_The_Test_Summary_and_Redo_Test() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Digital_Task  mas=new Module_Assignment_Digital_Task();
 		mas.to_verify_from_review_user_should_be_able_to_redirect_the_Test_Summary_and_redo_test(prop.getProperty("subject"),prop.getProperty("topic"));
 	}
 
-	@Test(enabled = true)//pass
+	@Test(enabled = false)//pass
 	public void TC15_To_verify_for_the_Abondon_Test() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Digital_Task  mas=new Module_Assignment_Digital_Task();
 		mas.to_verify_for_the_Abondon_Test();
 	}
 
-	@Test(enabled = true)//pass
+	@Test(enabled = false)//pass
 	public void TC16_To_verify_the_message_After_abandon_the_test() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Digital_Task  mas=new Module_Assignment_Digital_Task();
 		mas.to_verify_the_message_After_abandon_the_test(prop.getProperty("subject"),prop.getProperty("topic"));
 	}
 
 
-	@Test(enabled = true)//User should be able to check anwers of all questions attempted with the submitted  answers
+	@Test(enabled = false)//User should be able to check anwers of all questions attempted with the submitted  answers
 	public void TC17_To_verify_after_submitting_the_test_user_should_be_able_to_Check_Answers() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Digital_Task  mas=new Module_Assignment_Digital_Task();
 		mas.to_verify_after_submitting_the_test_user_should_be_able_to_Check_Answers(prop.getProperty("subject"),prop.getProperty("topic"));

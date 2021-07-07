@@ -835,12 +835,15 @@ public class Module_Create_Study_Plan extends BaseClass {
 		applyExplicitWaitsUntilElementClickable(oso.editPlan);
 		System.out.println("Clicking on Edit Plan Button");
 		test.log(Status.INFO, "Clicking on Edit Plan Button");
-
+		applyExplicitWaitsUntilElementClickable(oso.editPlan);
 		clickOnElement(oso.editPlan);
 		applyExplicitWait(5);
 
-		applyExplicitWaitsUntilElementClickable(oso.object44);
-		clickOnElement(findElementByText("Portion"));
+		//applyExplicitWaitsUntilElementClickable(oso.object44);
+		
+		applyExplicitWaitsUntilElementClickable(oso.portion);
+		clickOnElement(oso.portion);
+		//clickOnElement(findElementByText("Portion"));
 
 		//applyExplicitWaitsUntilElementClickable(oso.portion);
 		//clickOnElement(oso.portion);
@@ -1174,6 +1177,7 @@ public class Module_Create_Study_Plan extends BaseClass {
 		System.out.println("Checking for spaced Practice2");
 		test.log(Status.INFO, "Checking for spaced Practice2");
 		//@
+		scrollTo2("Practice 2");
 		status = driver.findElementByXPath(oso.getUpcommingLesson(1) + "" + oso.lessonType).getText()
 				.contains("Practice 2");
 		//String practice2Due = driver.findElementByXPath(oso.getUpcommingLesson(1) + "" + oso.lessonDueDate).getText();
@@ -1257,8 +1261,8 @@ public class Module_Create_Study_Plan extends BaseClass {
 
 	}
 
-	public void Verify_After_Completing_Lesson_Not_Reflects_In_Upcoming_Today_Tab(String subject, String topic1,
-			String topic2) throws Exception {
+	public void Verify_After_Completing_Lesson_Not_Reflects_In_Upcoming_Today_Tab(String subject, String topic_1,
+			String topic_2) throws Exception {
 		SoftAssert sAss = new SoftAssert();
 		Boolean status;
 
@@ -1283,7 +1287,7 @@ public class Module_Create_Study_Plan extends BaseClass {
 
 		System.out.println("Creating Plan");
 		test.log(Status.INFO, "Creating Plan");
-		oso.createPlan(subject, topic1);
+		oso.createPlan(subject, topic_1,topic_2);
 
 		status = oso.studyLayout.isDisplayed();
 		sAss.assertTrue(status);
@@ -1311,8 +1315,8 @@ public class Module_Create_Study_Plan extends BaseClass {
 //		}
 		
 		
-		System.out.println("All lessons from " + topic1 + " marked as complete");
-		test.log(Status.INFO, "All lessons from " + topic1 + " marked as complete");
+		System.out.println("All lessons from " + topic_1 + " marked as complete");
+		test.log(Status.INFO, "All lessons from " + topic_1 + " marked as complete");
 
 		scrollTo1("Upcoming");
 
@@ -1332,13 +1336,13 @@ public class Module_Create_Study_Plan extends BaseClass {
 							oso.upcomingLessonsPanel + "/android.view.ViewGroup[" + panel + "]" + oso.lessonStatus)
 					.getAttribute("resource-id").contains("img")) {
 
-				System.out.println(topic2 + " : "
+				System.out.println(topic_2 + " : "
 						+ driver.findElementByXPath(
 								oso.upcomingLessonsPanel + "/android.view.ViewGroup[" + panel + "]" + oso.lessonType)
 						.getText()
 						+ " marked as complete");
 				test.log(Status.INFO,
-						topic2 + " : " + driver.findElementByXPath(
+						topic_2 + " : " + driver.findElementByXPath(
 								oso.upcomingLessonsPanel + "/android.view.ViewGroup[" + panel + "]" + oso.lessonType)
 						.getText() + " marked as complete");
 
@@ -1395,7 +1399,7 @@ public class Module_Create_Study_Plan extends BaseClass {
 
 	}
 
-	public void Verify_Past_Completed_Lessons_Can_Be_Attempted_Again(String subject, String topic)
+	public void Verify_Past_Completed_Lessons_Can_Be_Attempted_Again(String subject, String topic_1,String topic_2)
 			throws MalformedURLException, InterruptedException {
 		SoftAssert sAss = new SoftAssert();
 		Boolean status;
@@ -1421,7 +1425,30 @@ public class Module_Create_Study_Plan extends BaseClass {
 
 		System.out.println("Creating Plan");
 		test.log(Status.INFO, "Creating Plan");
-		oso.createPlan(subject, topic);
+	
+			try {
+				oso.createPlan(subject, topic_1,topic_2);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			Object_Create_Study_Plan temp = new Object_Create_Study_Plan();
+			int j = 0;
+			for (int k = 0; k < 4; k++) {
+				try {
+					Thread.sleep(1500);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				applyExplicitWaitsUntilElementClickable(temp.topLessonStatus);
+				clickOnElement(temp.topLessonStatus);
+				applyExplicitWait(5);
+				//clickOnElement(temp.markAsComplete);
+				clickOnElement(findElementByText("Mark"));
+
+			}
+
 
 		status = oso.studyLayout.isDisplayed();
 		sAss.assertTrue(status);
@@ -1430,22 +1457,23 @@ public class Module_Create_Study_Plan extends BaseClass {
 			test.log(Status.INFO, "Active plan of Test Unit displayed");
 		}
 
-		for (Map.Entry<String, String> lesson : oso.expectedLessonOrder.entrySet()) {
-			clickOnElement(oso.topLessonStatus);
-			applyExplicitWait(5);
-			clickOnElement(oso.markAsComplete);
-		}
+//		for (Map.Entry<String, String> lesson : oso.expectedLessonOrder.entrySet()) {
+//			clickOnElement(oso.topLessonStatus);
+//			applyExplicitWait(5);
+//			clickOnElement(oso.markAsComplete);
+//		}
 
-		System.out.println("Marking All lessons as complete");
-		test.log(Status.INFO, "Marking All lessons as complete");
+//		System.out.println("Marking All lessons as complete");
+//		test.log(Status.INFO, "Marking All lessons as complete");
 		//@
 		int i = 0;
 		for (Map.Entry<String, String> lesson : oso.expectedLessonOrder.entrySet()) {
 			scrollTo2(lesson.getKey().toString());
 			String actualStatus = getDriver().findElementByXPath(
-					"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup["
-							+ (i + 1) + "]/android.view.ViewGroup" + "" + oso.lessonStatus)
-					.getAttribute("resource-id");
+//					"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup["
+//							+ (i + 1) + "]/android.view.ViewGroup" + "" + oso.lessonStatus).getAttribute("resource-id");
+					
+					"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.widget.ImageView[2]").getAttribute("resource-id");
 			System.err.println(actualStatus);
 			status = actualStatus.contains("complete");
 			sAss.assertTrue(status, "Incorrect Status");
@@ -1516,11 +1544,28 @@ public class Module_Create_Study_Plan extends BaseClass {
 				applyExplicitWait(5);
 
 				break;
+				
+				
+				
+//			case "Summary":
+//				System.err.println("Summary tab not yet Developed");
+//				test.log(Status.ERROR, "Summary tab not yet Developed");
+//				break;
+//				//@			
+				
 			case "Summary":
-				System.err.println("Summary tab not yet Developed");
-				test.log(Status.ERROR, "Summary tab not yet Developed");
+				status = findElementByText("Return to Study Plan").isDisplayed();
+				sAss.assertTrue(status);
+				if (status) {
+					System.out.println("Summary Can be attempt either it's done previously");
+					test.log(Status.INFO, "Summary Can be attempt either it's done previously");
+				}
+
+				driver.navigate().back();
+				applyExplicitWait(5);
+
 				break;
-				//@				
+				
 			case "Test":
 				//				getDriver().findElementByXPath(
 				//						"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[5]/android.view.ViewGroup")
@@ -2328,7 +2373,7 @@ public class Module_Create_Study_Plan extends BaseClass {
 	public void Verify_Lesson_Completed_In_Past_And_Then_Completed_Again_Lesson_Will_Appear_Under_Recent_Completed_Date(
 			String property, String property2, String property3) throws Exception, InterruptedException {
 
-		Verify_Past_Completed_Lessons_Can_Be_Attempted_Again(prop.getProperty("subject"),prop.getProperty("topic"));
+		Verify_Past_Completed_Lessons_Can_Be_Attempted_Again(prop.getProperty("subject"),prop.getProperty("topic_1"),prop.getProperty("topic_2"));
 		Boolean status;
 		SoftAssert sAss = new SoftAssert();
 
@@ -2545,7 +2590,7 @@ public class Module_Create_Study_Plan extends BaseClass {
 			omp.kebabMenu.click();
 			applyExplicitWaitsUntilElementVisible(omp.markAsComplete);
 			omp.markAsComplete.click();
-			scrollTo2("Practice");
+			//scrollTo2("Practice");
 		}
 		System.out.println("Lesson Attempted");
 		test.log(Status.INFO, "Lesson Attempted");
@@ -2577,10 +2622,10 @@ public class Module_Create_Study_Plan extends BaseClass {
 		sAss.assertAll();
 	}
 
-	public void Verify_Past_Lesson_Attempted_Today_Will_Reflect_In_Today_Tab(String property, String property2) throws Exception {
+	public void Verify_Past_Lesson_Attempted_Today_Will_Reflect_In_Today_Tab(String subject,String topic_1, String topic_2) throws Exception {
 
 		Verify_Past_Completed_Lessons_Can_Be_Attempted_Again(prop.getProperty("subject"),
-				prop.getProperty("topic"));
+				prop.getProperty("topic_1"), prop.getProperty("topic_2"));
 		Boolean status;
 		SoftAssert sAss = new SoftAssert();
 

@@ -82,6 +82,7 @@ public class Module_ReviewPlan extends BaseClass{
 
 		}
 		String dailyGoals=orp.dailyGoals.getText();
+		System.out.println(dailyGoals);
 		dailyStudyHoursBefore=getBetweenStrings(dailyGoals, "study", "every").trim();
 
 		assert1.assertTrue(reviewPlanTab);
@@ -233,8 +234,6 @@ public class Module_ReviewPlan extends BaseClass{
 	public void toVerify_Filter_Option() throws MalformedURLException, InterruptedException {
 		SoftAssert assert1=new SoftAssert();
 		toVerify_ReviewPlan_Tab();
-
-		orp.filter.click();
 		Thread.sleep(10000);
 		applyExplicitWaitsUntilElementVisible(orp.filterFullPlan);
 		Boolean fullStudyPlan=orp.filterFullPlan.isDisplayed();
@@ -862,23 +861,66 @@ public class Module_ReviewPlan extends BaseClass{
 	}
 
 
+//	public void toVerify_toModify_thePortion() throws MalformedURLException, InterruptedException {
+//		//	String subject="Political Science";
+//		String subject="Geography";
+//		toVerify_PortionOption_IsFunctional();
+//		SoftAssert assert1=new SoftAssert();
+//		applyExplicitWait(5);
+//		clickOnElement(findElementByText(subject));
+//		applyExplicitWait(5);
+//
+//		orp.checkBox1.click();
+//		//		orp.checkBox2.click();
+//		//		orp.checkBox4.click();
+//
+//		orp.addToPortion.click();
+//		applyExplicitWait(5);
+//
+//		//MobileElement topicsAndChapters=getDriver().findElementByXPath("//*[contains(@text, '"+subject+"')]/following-sibling::android.widget.TextView");
+//		
+//		MobileElement topicsAndChapters=getDriver().findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View[2]/android.view.View[2]/android.widget.TabWidget[1]/android.view.View[1]/android.view.View/android.view.View/android.view.View");
+//		String topicChaptersAfterAdd=topicsAndChapters.getText();
+//		System.out.println(topicChaptersAfterAdd);
+//		Boolean verify=topicsAndChapters.isDisplayed();
+//		if(verify) {
+//			System.out.println("Topics and Chapters displayed under subject name");
+//		}
+//		assert1.assertTrue(verify);
+//
+//		clickOnElement(findElementByText(subject));
+//		applyExplicitWait(5);
+//		orp.checkBox2.click();
+//		//		orp.checkBox4.click();
+//		orp.addToPortion.click();
+//		applyExplicitWait(5);
+//
+//		//MobileElement topicsAndChaptersAfter=getDriver().findElementByXPath("//*[contains(@text, '"+subject+"')]/following-sibling::android.widget.TextView");
+//		MobileElement topicsAndChaptersAfter=getDriver().findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View[2]/android.view.View[2]/android.widget.TabWidget[1]/android.view.View[1]/android.view.View/android.view.View/android.view.View");
+//		String topicChaptersAfterUpdate=topicsAndChapters.getText();
+//		System.out.println(topicChaptersAfterUpdate);
+//
+//		assert1.assertNotEquals(topicChaptersAfterAdd, topicChaptersAfterUpdate);
+//		assert1.assertAll();
+//
+//	}
+
+
 	public void toVerify_toModify_thePortion() throws MalformedURLException, InterruptedException {
-		//	String subject="Political Science";
+		//String subject="Political Science";
 		String subject="Geography";
 		toVerify_PortionOption_IsFunctional();
 		SoftAssert assert1=new SoftAssert();
 		applyExplicitWait(5);
 		clickOnElement(findElementByText(subject));
 		applyExplicitWait(5);
-
 		orp.checkBox1.click();
-		//		orp.checkBox2.click();
-		//		orp.checkBox4.click();
-
 		orp.addToPortion.click();
 		applyExplicitWait(5);
 
 		MobileElement topicsAndChapters=getDriver().findElementByXPath("//*[contains(@text, '"+subject+"')]/following-sibling::android.widget.TextView");
+		
+		//MobileElement topicsAndChapters=getDriver().findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View[2]/android.view.View[2]/android.widget.TabWidget[1]/android.view.View[1]/android.view.View/android.view.View/android.view.View");
 		String topicChaptersAfterAdd=topicsAndChapters.getText();
 		System.out.println(topicChaptersAfterAdd);
 		Boolean verify=topicsAndChapters.isDisplayed();
@@ -890,11 +932,12 @@ public class Module_ReviewPlan extends BaseClass{
 		clickOnElement(findElementByText(subject));
 		applyExplicitWait(5);
 		orp.checkBox2.click();
-		//		orp.checkBox4.click();
+		
 		orp.addToPortion.click();
 		applyExplicitWait(5);
-
+		//clickOnElement(findElementByText(subject));
 		MobileElement topicsAndChaptersAfter=getDriver().findElementByXPath("//*[contains(@text, '"+subject+"')]/following-sibling::android.widget.TextView");
+		//MobileElement topicsAndChaptersAfter=getDriver().findElementByXPath("MobileElement topicsAndChaptersAfter=getDriver().findElementByXPath(\"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View[2]/android.view.View[2]/android.widget.TabWidget[1]/android.view.View[1]/android.view.View/android.view.View/android.view.View\");");
 		String topicChaptersAfterUpdate=topicsAndChapters.getText();
 		System.out.println(topicChaptersAfterUpdate);
 
@@ -902,8 +945,8 @@ public class Module_ReviewPlan extends BaseClass{
 		assert1.assertAll();
 
 	}
-
-
+	
+	
 	public void toVerify_toModify_CountOfChapters() throws MalformedURLException, InterruptedException {
 		String subject="Political Science";
 		toVerify_PortionOption_IsFunctional();
@@ -917,8 +960,8 @@ public class Module_ReviewPlan extends BaseClass{
 		//orp.subjectOnEditPage.click();
 		clickOnElement(findElementByText(subject));
 		applyExplicitWait(5);
-		//	orp.checkBox2.click();
-		orp.checkBox3.click();
+			orp.checkBox2.click();
+	//	orp.checkBox3.click();
 		orp.checkBox1.click();
 		orp.addToPortion.click();
 		applyExplicitWait(5);

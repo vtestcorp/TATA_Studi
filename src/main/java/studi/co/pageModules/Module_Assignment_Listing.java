@@ -189,6 +189,14 @@ public class Module_Assignment_Listing extends BaseClass {
 		Object_Assignment_Listing oas=new Object_Assignment_Listing();
 		SoftAssert assert1=new SoftAssert();
 		create_new_assignment(subject77, topicmaths);
+		scrollTo2("Show more");
+		clickOnElement(oas.show_more);
+		scrollTo2("Show more");
+		clickOnElement(oas.show_more);
+		scrollTo2("Show more");
+		clickOnElement(oas.show_more);
+		scrollTo2("NEW");
+		clickOnElement(oas.show_more);
 		scrollTo2("NEW");
 		Boolean new_assignment=oas.new_icon.isDisplayed();
 		if(new_assignment) {
@@ -260,12 +268,12 @@ public class Module_Assignment_Listing extends BaseClass {
 		clickOnElement(oas.assignment);
 		applyExplicitWait(5);
 
-		//		Boolean due_date=oas.due_date.isDisplayed();
-		//		if(due_date) {
-		//			System.out.println("Due date of assignments is shown to user");
-		//			test.log(Status.INFO, "Due date of assignments is shown to user");
-		//		}
-		//		assert1.assertTrue(due_date);
+				Boolean due_date=oas.due_date.isDisplayed();
+				if(due_date) {
+					System.out.println("Due date of assignments is shown to user");
+					test.log(Status.INFO, "Due date of assignments is shown to user");
+				}
+				assert1.assertTrue(due_date);
 
 		//scrollTo1("Upcoming");
 

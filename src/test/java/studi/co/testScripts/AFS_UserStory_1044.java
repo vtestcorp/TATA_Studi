@@ -260,7 +260,7 @@ public class AFS_UserStory_1044 extends BaseClass {
 	}
 
 	// only for one subject---> one or two topics
-	@Test(enabled = true, groups = "ExistingUser")//pass
+	@Test(enabled = true, groups = "ExistingUser")//f
 	public void TC44_Verify_Spaced2_Practice_Only_Added_If_Parent_Practice_Is_Incomplete_In_Test_Unit()
 			throws Exception {
 		Module_Create_Study_Plan csp = new Module_Create_Study_Plan();
@@ -269,7 +269,7 @@ public class AFS_UserStory_1044 extends BaseClass {
 	}
 
 	// only for one subject---> one or two topics
-	@Test(enabled = true, groups = "ExistingUser")//passed
+	@Test(enabled = true, groups = "ExistingUser",priority = -1)//passed
 	public void TC45_Verify_Spaced_Practice1_And_Prctice2_Not_Come_In_Same_Day() throws Exception {
 		Module_Create_Study_Plan csp = new Module_Create_Study_Plan();
 		csp.Verify_Spaced_Practice1_And_Prctice2_Not_Come_In_Same_Day(prop.getProperty("subject"),
@@ -291,11 +291,11 @@ public class AFS_UserStory_1044 extends BaseClass {
 				prop.getProperty("topic"));
 	}
 
-	@Test(enabled = true, groups = "ExistingUser",priority=-1)
+	@Test(enabled = true, groups = "ExistingUser")
 	public void TC50_Verify_After_Completing_Lesson_Not_Reflects_In_Upcoming_Today_Tab() throws Exception {
 		Module_Create_Study_Plan csp = new Module_Create_Study_Plan();
 		csp.Verify_After_Completing_Lesson_Not_Reflects_In_Upcoming_Today_Tab(prop.getProperty("subject"),
-				prop.getProperty("topic"), prop.getProperty("topic2"));
+				prop.getProperty("topic_1"), prop.getProperty("topic_2"));
 	}
 
 
@@ -307,12 +307,12 @@ public class AFS_UserStory_1044 extends BaseClass {
 	}
 
 
-	@Test(enabled = true, groups = "ExistingUser")//failed clickOnElement(oso.topLessonStatus);
+	@Test(enabled = true, groups = "ExistingUser",priority=-1)//failed clickOnElement(oso.topLessonStatus);
 	public void TC52_Verify_Past_Completed_Lessons_Can_Be_Attempted_Again() throws Exception {
 
 		Module_Create_Study_Plan csp = new Module_Create_Study_Plan();
 		csp.Verify_Past_Completed_Lessons_Can_Be_Attempted_Again(prop.getProperty("subject"),
-				prop.getProperty("topic"));
+				prop.getProperty("topic_1"), prop.getProperty("topic_2"));
 	}
 
 	@Test(enabled = true, groups = "ExistingUser")//NP
@@ -328,7 +328,7 @@ public class AFS_UserStory_1044 extends BaseClass {
 
 		Module_Create_Study_Plan csp = new Module_Create_Study_Plan();
 		csp.Verify_Past_Lesson_Attempted_Today_Will_Reflect_In_Today_Tab(prop.getProperty("subject"),
-				prop.getProperty("topic"));
+				prop.getProperty("topic_1"),prop.getProperty("topic_2"));
 	}
 
 	//	Required lessons which are planned in past

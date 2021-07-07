@@ -870,8 +870,8 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 				test.log(Status.INFO, "Clicked on Check Answer button");
 				System.out.println("Clicked on Check Answer button");
 				swipeDown();
-				clickOnElement(obp.check_answer);
-
+				//clickOnElement(obp.check_answer);
+				clickOnElement(findElementByText("Check"));
 				test.log(Status.INFO, "Verifying feedback after answer selection");
 				System.out.println("Verifying feedback after answer selection");
 				status = obp.answerCorrectMsg1.isDisplayed();

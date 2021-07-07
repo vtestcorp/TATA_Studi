@@ -59,17 +59,17 @@ public class Assignment_Task extends BaseClass{
 		mas.to_verify_the_help_toggle_button_OFF_functionality_at_time_of_task_creation();
 	}
 
-	@Test(enabled =true)//pass
+	@Test(enabled = false)//pass
 	public void TC08_To_verify_Delete_Btn_Functinality_at_the_time_of_task_creation() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Task  mas=new Module_Assignment_Task();
 		mas.to_verify_delete_btn_functinality_at_the_time_of_task_creation();
 	}
-	@Test(enabled = true)//pass
+	@Test(enabled = false)//pass
 	public void TC09_To_verify_Delete_Btn_Functinality_at_the_time_of_task_creaetion() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Task  mas=new Module_Assignment_Task();
 		mas.to_verify_delete_btn_functinality_with_discard_at_task_creation();
 	}
-	@Test(enabled = true)//pass
+	@Test(enabled = false)//pass
 	public void TC10_To_verify_Delete_Btn_Functinality_at_the_time_of_task_creation() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Task  mas=new Module_Assignment_Task();
 		mas.to_verify_delete_btn_functinality_with_take_back_btn_at_task_creation();

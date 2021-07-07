@@ -9,11 +9,11 @@
 	<test thread-count="5" name="Test">
 		<parameter name="type" value="Android"></parameter>
 		<classes>
-			<!--<class name="studi.co.testScripts.Assignment_Listing" /> -->
-			<!--<class name="studi.co.testScripts.Assignment_Task" /> -->
-			<!--<class name="studi.co.testScripts.Syllabus_BrowseBook" /> -->
-			<!--<class name="studi.co.testScripts.Assignment_Digital_Task" /> -->
-			<class name="studi.co.testScripts.Assignment_Oral_Task" />
+			<class name="studi.co.testScripts.Assignment_Listing" /> 
+			<class name="studi.co.testScripts.Assignment_Task" /> 
+			<class name="studi.co.testScripts.Syllabus_BrowseBook" /> 
+			<class name="studi.co.testScripts.Assignment_Digital_Task" /> 
+			<class name="studi.co.testScripts.Assignment_Oral_Test" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

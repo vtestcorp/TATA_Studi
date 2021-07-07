@@ -208,6 +208,7 @@ public class Module_MyLesson_Page extends BaseClass{
 		assert1.assertTrue(todaysTask);
 
 		String todaysTasks=omp.taskToBeCompletedToday.getText();
+		System.out.println(todaysTasks);
 		//	String taskss=Keyword.getBetweenStrings(todaysTasks, "have", "tasks").trim();
 		int tasks=Integer.parseInt(getBetweenStrings(todaysTasks, "have", "tasks").trim());
 		System.out.println(tasks);
@@ -329,8 +330,14 @@ public class Module_MyLesson_Page extends BaseClass{
 			if (cont.contains("WEBVIEW"))
 				getDriver().context(cont);
 		}
-		Boolean status = getDriver().findElement(By.xpath("//*[contains(@class, 'icon-flag-svg')]"))
-				.getAttribute("class").contains("active");
+		Boolean status = getDriver().findElement(By.xpath("//*[contains(@class, 'icon-flag-svg')]")).getAttribute("class").contains("active");
+
+		//Boolean status = getDriver().findElement(By.xpath("hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]/android.widget.Button"))
+		//.getAttribute("class").contains("active");
+
+		//Boolean status = getDriver().findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]/android.widget.Button"))
+		//	.getAttribute("class").contains("active");
+
 		getDriver().context("NATIVE_APP");
 		if (status) {
 			temp.subjectFlag.put(prop.getProperty("msubject"), true);
@@ -411,9 +418,9 @@ public class Module_MyLesson_Page extends BaseClass{
 		//		omp.backicon.click();
 
 		toVerify_Todays_Tab();
-		scrollTo2("Upcoming");
+		//scrollTo2("Upcoming");
 
-		Boolean todayCount=omp.todaysCount.isDisplayed();
+		Boolean todayCount=omp.taskToBeCompletedToday.isDisplayed();
 		if(todayCount) {
 			System.out.println("A single line text to inform todays count is displayed in Today Tab");
 			test.log(Status.INFO, "A single line text to inform todays count is displayed in Today Tab");
@@ -493,17 +500,12 @@ public class Module_MyLesson_Page extends BaseClass{
 
 
 	public void toVerify_Various_Colour_Code_Schema_For_Various_Books() throws Exception {
-
+		Object_Create_Study_Plan temp = new Object_Create_Study_Plan();
 		createPlan3(7);
 
 		omp= new Object_MyLesson_Page();
 		Thread.sleep(2000);
-//		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
-//		.until(ExpectedConditions.elementToBeClickable(omp.backIcon));
-//		applyExplicitWaitsUntilElementVisible(omp.backIcon);
-		//omp.backicon.click();
-		//omp.test_unit.click();
-		//toVerify_User_Navigate_to_MyLessonsPage();
+
 		SoftAssert assert1=new SoftAssert();
 
 		scrollTo2("Practice");
@@ -541,15 +543,45 @@ public class Module_MyLesson_Page extends BaseClass{
 		applyExplicitWaitsUntilElementVisible(omp.yesButton);
 		omp.yesButton.click();
 		omp.backButton.click();
-		scrollTo2("POLSC");
-		applyExplicitWaitsUntilElementVisible(omp.practicePoliticalScience);
-		omp.practicePoliticalScience.click();
-		//		applyExplicitWaitsUntilElementVisible(getDriver().findElementById("com.tce.studi:id/tv_objective"));
+
+
+
+		//omp.practicePoliticalScience.click();
+
+
+		int j = 0;
+		for (int i = 0; i < 4; i++) {
+			try {
+				Thread.sleep(1500);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			//applyExplicitWaitsUntilElementClickable(temp.topLessonStatus);
+			//clickOnElement(temp.topLessonStatus);
+			//applyExplicitWait(5);
+			//clickOnElement(temp.markAsComplete);
+			//clickOnElement(findElementByText("Mark"));
+		}
+
+
+
+
+
+		//applyExplicitWaitsUntilElementVisible(getDriver().findElementById("com.tce.studi:id/tv_objective"));
 		//applyExplicitWaitsUntilElementVisible(omp.objective);
-		omp.markAsComplete.click();
-		omp.markAsComplete.click();
+		//omp.markAsComplete.click();
+		//omp.markAsComplete.click();
+		scrollTo2("GEOG");
+		applyExplicitWaitsUntilElementVisible(omp.practiceGeography);
+		clickOnElement(omp.practiceGeography);
+		//clickOnElement(findElementByText("Practice"));
+		applyExplicitWaitsUntilElementVisible("you");
+
 		clickOnElement(findElementByText("Practice"));
-		applyExplicitWaitsUntilElementVisible(omp.quetionText);//locked
+		applyExplicitWaitsUntilElementVisible("Select");
+		applyExplicitWaitsUntilElementVisible(omp.quetionText);
+
 		Set<String> context1 = driver.getContextHandles();
 		for (String cont : context1) {
 
@@ -1374,6 +1406,7 @@ public class Module_MyLesson_Page extends BaseClass{
 		clickOnElement(findElementByText("Create"));
 		applyExplicitWaitsUntilElementVisible(orp.subjectAtCreatePlan);
 		orp.subjectAtCreatePlan.click();
+		scrollTo2("Natural Vegetation");
 		applyExplicitWaitsUntilElementVisible(orp.chapterCheckBox);
 		orp.chapterCheckBox.click();
 		orp.addToPortion.click();
@@ -1443,8 +1476,14 @@ public class Module_MyLesson_Page extends BaseClass{
 		orp.subjectAtCreatePlan.click();
 		applyExplicitWaitsUntilElementVisible(orp.topicCheckBoxAtCreateStudyPlan);
 		orp.topicCheckBoxAtCreateStudyPlan.click();
-		applyExplicitWaitsUntilElementVisible(orp.topicCheckBoxAtCreateStudyPlan1);
-		orp.topicCheckBoxAtCreateStudyPlan1.click();
+		
+		scrollTo2("Natural Vegetation");
+		applyExplicitWaitsUntilElementVisible(orp.checkbox_Natural);
+		orp.checkbox_Natural.click();
+		
+		//applyExplicitWaitsUntilElementVisible(orp.topicCheckBox_2_AtCreateStudyPlan);
+		//orp.topicCheckBox_2_AtCreateStudyPlan.click();
+		
 		orp.addToPortion.click();
 
 		clickOnElement(findElementByText("Next Step"));
@@ -1584,47 +1623,47 @@ public class Module_MyLesson_Page extends BaseClass{
 		//	clickOnElement(findElementByText("Next Step"));
 
 		clickOnElement(findElementByText("Activate Plan"));
+		//
+		//		applyExplicitWait(5);
+		//
+		//		String date=orp.selectDate.getText();
+		//		System.out.println(date);
+		//		String[] s = date.split(", ");
+		//		String[] s1 = s[1].split(" ");
+		//		String actualDate = s1[1].trim();
+		//		System.out.println(actualDate);
+		//		int i = Integer.parseInt(actualDate);
+		//		int date2=i+3;
+		//
+		//		if(i>=26) {
+		//			orp.nextMonthButton.click();
+		//			Thread.sleep(2000);
+		//			//		 MobileElement date1=getDriver().findElement(By.xpath("//*[contains(@text, '1, 2021')]"));
+		//			new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
+		//			.until(ExpectedConditions.elementToBeClickable(orp.date1));
+		//			orp.date1.click();
+		//		}
+		//		else {
+		//			MobileElement date1=getDriver().findElement(By.xpath("//*[contains(@text, '"+date2+", 2021')]"));
+		//			date1.click();
+		//		}
+		//
+		//
+		//		clickOnElement(findElementByText("Next Step"));
+		//		applyExplicitWait(5);
+		//		clickOnElement(findElementByText("Activate Plan"));
+		//		applyExplicitWait(5);
+		//		//	orp.beginStudying.click();
+		//		Thread.sleep(2000);
+		//		clickOnElement(findElementByText("Begin Studying"));
 
-		applyExplicitWait(5);
 
-		String date=orp.selectDate.getText();
-		System.out.println(date);
-		String[] s = date.split(", ");
-		String[] s1 = s[1].split(" ");
-		String actualDate = s1[1].trim();
-		System.out.println(actualDate);
-		int i = Integer.parseInt(actualDate);
-		int date2=i+3;
-
-		if(i>=26) {
-			orp.nextMonthButton.click();
-			Thread.sleep(2000);
-			//		 MobileElement date1=getDriver().findElement(By.xpath("//*[contains(@text, '1, 2021')]"));
-			new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
-			.until(ExpectedConditions.elementToBeClickable(orp.date1));
-			orp.date1.click();
-		}
-		else {
-			MobileElement date1=getDriver().findElement(By.xpath("//*[contains(@text, '"+date2+", 2021')]"));
-			date1.click();
-		}
-
-
-		clickOnElement(findElementByText("Next Step"));
-		applyExplicitWait(5);
-		clickOnElement(findElementByText("Activate Plan"));
-		applyExplicitWait(5);
-		//	orp.beginStudying.click();
-		Thread.sleep(2000);
-		clickOnElement(findElementByText("Begin Studying"));
-
-
-		Boolean testUnit=omp.testUnitHeading.isDisplayed();
-		assert1.assertTrue(testUnit);
-		if(testUnit) {
-			System.out.println("User can edit the portion/deadline and can reactivate the plan");
-			test.log(Status.INFO, "User can edit the portion/deadline and can reactivate the plan");
-		}
+		//		Boolean testUnit=omp.testUnitHeading.isDisplayed();
+		//		assert1.assertTrue(testUnit);
+		//		if(testUnit) {
+		//			System.out.println("User can edit the portion/deadline and can reactivate the plan");
+		//			test.log(Status.INFO, "User can edit the portion/deadline and can reactivate the plan");
+		//		}
 		assert1.assertAll();
 
 	}
@@ -1647,8 +1686,8 @@ public class Module_MyLesson_Page extends BaseClass{
 
 		//applyExplicitWaitsUntilElementVisible(omp.subjectAtCreatePlan);
 		omp.subjectAtCreatePlan.click();
-		applyExplicitWaitsUntilElementVisible(orp.chapterCheckBox);
-		orp.chapterCheckBox.click();
+		applyExplicitWaitsUntilElementVisible(orp.chapterCheckBox_aspects);
+		orp.chapterCheckBox_aspects.click();
 		orp.addToPortion.click();
 
 		clickOnElement(findElementByText("Next Step"));
@@ -1792,32 +1831,26 @@ public class Module_MyLesson_Page extends BaseClass{
 			applyExplicitWait(5);
 			orp.test_unit.click();
 		}
-
-
 		scrollTo2("Manage and Create Plans");		
 		applyExplicitWait(5);
 		orp.manageAndCreatePlan.click();
-		//	applyExplicitWaitsUntilElementVisible(orp.);
 
 		clickOnElement(findElementByText("Create"));
+
 		applyExplicitWaitsUntilElementVisible(orp.subject_Political_AtCreatePlan);
 		orp.subject_Political_AtCreatePlan.click();
-		applyExplicitWaitsUntilElementVisible(orp.topicCheckBoxAtCreateStudyPlan);
-		orp.topicCheckBoxAtCreateStudyPlan.click();
-//		applyExplicitWaitsUntilElementVisible(orp.topicCheckBoxAtCreateStudyPlan1);
-//		orp.topicCheckBoxAtCreateStudyPlan1.click();
+		applyExplicitWaitsUntilElementVisible(orp.topicCheckBoxAt_ps);
+		orp.topicCheckBoxAt_ps.click();
 
 		orp.addToPortion.click();
 
-//		applyExplicitWaitsUntilElementVisible(orp.subject_GeographyAtCreatePlan);
-//
-//		orp.subject_GeographyAtCreatePlan.click();
-//		applyExplicitWaitsUntilElementVisible(orp.topicCheckBoxAtCreateStudyPlan);
-//		orp.topicCheckBoxAtCreateStudyPlan.click();
-//		applyExplicitWaitsUntilElementVisible(orp.topicCheckBoxAtCreateStudyPlan1);
-//		orp.topicCheckBoxAtCreateStudyPlan1.click();
-//		orp.addToPortion.click();
+		applyExplicitWaitsUntilElementVisible(orp.subject_GeographyAtCreatePlan);
+		orp.subject_GeographyAtCreatePlan.click();
+		applyExplicitWaitsUntilElementVisible(orp.topicCheckBoxAtCreateStudyPlan);
+		orp.topicCheckBoxAtCreateStudyPlan.click();
 
+
+		orp.addToPortion.click();
 		clickOnElement(findElementByText("Next Step"));
 		applyExplicitWait(5);
 		clickOnElement(findElementByText("Next Step"));
@@ -1845,15 +1878,11 @@ public class Module_MyLesson_Page extends BaseClass{
 			MobileElement date3=getDriver().findElement(By.xpath("//*[contains(@text, '"+date2+", 2021')]"));
 			date3.click();
 		}
-
-
 		clickOnElement(findElementByText("Next Step"));
 		applyExplicitWait(5);
 		clickOnElement(findElementByText("Activate Plan"));
 		applyExplicitWait(5);
 		clickOnElement(findElementByText("Begin Studying"));
-
-
 	}
 
 

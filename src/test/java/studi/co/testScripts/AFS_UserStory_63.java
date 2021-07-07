@@ -60,14 +60,14 @@ public class AFS_UserStory_63 extends BaseClass {
 				prop.getProperty("topic"));
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = true)//assertion failed
 	public void TC08_Verify_Save_Note_Button_Should_Be_Disable_Initially()
 			throws MalformedURLException, InterruptedException, AWTException {
 		Module_Syllabus_Options so = new Module_Syllabus_Options();
 		so.Verify_Save_Note_Button_Should_Be_Disable_Initially(prop.getProperty("subject"), prop.getProperty("topic"));
 	}
 	
-	@Test(enabled = true)
+	@Test(enabled = true)//assertion failed
 	public void TC09_Verify_Save_Note_Button_Enable_After_User_Entering_Note()
 			throws MalformedURLException, InterruptedException, AWTException {
 		Module_Syllabus_Options so = new Module_Syllabus_Options();

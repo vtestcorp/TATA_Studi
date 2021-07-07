@@ -237,6 +237,7 @@ public class Module_Browsebook_Chapter_Listing extends BaseClass{
 		System.out.println("Selecting " + topic);
 		applyExplicitWaitsUntilElementClickable(findElementByText(topic));
 		clickOnElement(findElementByText(topic));
+		
 		scrollTo2("Notes");
 
 		applyExplicitWait(5);
