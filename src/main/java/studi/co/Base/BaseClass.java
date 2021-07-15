@@ -163,14 +163,14 @@ public class BaseClass {
 		int i = 0;
 		Set<String> context = driver.getContextHandles();
 		for (String cont : context) {
-			if (cont.contains("WEBVIEW"))
+			if (cont.contains("WEBVIEW_com"))
 				getDriver().context(cont);
 		}
 		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
 		List<MobileElement> as = driver.findElements(By.tagName("tce-option"));
 		for (WebElement s : as) {
 
-			if (s.getAttribute("class").equalsIgnoreCase("tick")) {
+			if (s.getAttribute("class")!=null && s.getAttribute("class").equalsIgnoreCase("tick") ) {
 				int index = as.indexOf(s);
 				getDriver().context("NATIVE_APP");
 				if (device.contains("Android")||device.contains("Android-Jenkins"))
@@ -179,7 +179,7 @@ public class BaseClass {
 					clickOnElement(driver.findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch")).get(index));
 				context = driver.getContextHandles();
 				for (String cont : context) {
-					if (cont.contains("WEBVIEW"))
+					if (cont.contains("WEBVIEW_com"))
 						getDriver().context(cont);
 				}
 				System.err.println((correctAnswers + 1) + "th answer selected");
@@ -319,7 +319,7 @@ public class BaseClass {
 			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11");
 			caps.setCapability("appPackage", "com.tce.studi");
 			caps.setCapability("appActivity", "com.tce.view.ui.activities.SplashScreenActivity");
-			caps.setCapability("app", "C:\\Users\\LENOVO\\Downloads\\Studi_v1.1.8(6).apk");
+			caps.setCapability("app", "C:\\Users\\LENOVO\\Downloads\\Studi_v1.1.9(6).apk");
 			caps.setCapability("chromedriverExecutable", "C:\\Users\\LENOVO\\Downloads\\chromedriver_win32_91\\chromedriver.exe");
 			caps.setCapability("appium:chromeOptions", ImmutableMap.of("w3c", false));
 			caps.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, "true");
@@ -356,16 +356,16 @@ public class BaseClass {
 			caps = new DesiredCapabilities();
 			caps.setCapability("browserstack.user", "imran_O3Z2m1");
 			caps.setCapability("browserstack.key", "deH6qfn4rkytKBtiXAmF");
-			caps.setCapability("app", "bs://60bf76a1e2d0a0bb6a43dcfc2262573d81f3932c");
-			//caps.setCapability("app", "bs://def5dbb27341742391e9a7a90f8a0cf2d5cf6eb8");
+			//caps.setCapability("app", "bs://60bf76a1e2d0a0bb6a43dcfc2262573d81f3932c");
+			caps.setCapability("app", "bs://45d22759c08eed2904e93fd3fe4d252dc87c7a18");
 
 			caps.setCapability("device", "OnePlus 8");
 			caps.setCapability("os_version", "10.0");
-			
+
 			caps.setCapability("chromedriverExecutable", "C:\\Users\\LENOVO\\Downloads\\chromedriver_win32_91\\chromedriver.exe");
 
-//			caps.setCapability("device","Xiaomi Redmi Note 8");
-//			caps.setCapability("os_version","9");
+			//			caps.setCapability("device","Xiaomi Redmi Note 8");
+			//			caps.setCapability("os_version","9");
 
 
 			caps.setCapability(MobileCapabilityType.NO_RESET, true);
@@ -394,7 +394,7 @@ public class BaseClass {
 			caps.setCapability("browserstack.key", "BwjqEyXMTkp5kHjioqzp");
 			//caps.setCapability("app", "bs://06a1b6b1f5d95c2364a170e262d595fc872f419b");
 			caps.setCapability("app", "bs://203c5e3b15c60f974d55710abce3b9540a3453bb");
-			
+
 			caps.setCapability("device", "iPad 5th");
 			caps.setCapability("os_version", "11");
 			caps.setCapability(MobileCapabilityType.NO_RESET, true);
@@ -422,7 +422,7 @@ public class BaseClass {
 		driver.manage().timeouts().implicitlyWait(Integer.parseInt(prop.getProperty("object_wait_timeout")),
 				TimeUnit.SECONDS);
 		Module_Login login = new Module_Login();
-		//login.Login_to_app();
+		login.Login_to_app();
 	}
 
 	public static AppiumDriver<MobileElement> getDriver() {

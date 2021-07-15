@@ -141,7 +141,7 @@ public class AFS_UserStory_77 extends BaseClass {
 				prop.getProperty("topic77"));
 	}
 
-	@Test(enabled = true)//faile org.openqa.selenium.StaleElementReferenceException: Cached elements 'By.clazz: android.widget.CheckBox' do not exist in DOM anymore
+	@Test(enabled = true)
 	public void TC05_To_Verify_Only_Single_Answer_Can_Be_Select_For_SCQ_Question_In_Revision() throws Exception {
 		
 		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
@@ -189,7 +189,7 @@ public class AFS_UserStory_77 extends BaseClass {
 		rqr.Module_Verify_User_Can_Abandon_Quiz_In_Revision(prop.getProperty("subject77"), prop.getProperty("topic77"));
 	}
 
-	@Test(enabled = true)//	failed clickOnElement(temp.markAsComplete);
+	@Test(enabled = true)
 	public void TC22_To_Verify_Receive_SCQ_Questions_In_Test() throws MalformedURLException, InterruptedException {
 
 		createPlan();
@@ -236,7 +236,7 @@ public class AFS_UserStory_77 extends BaseClass {
 
 	}
 
-	@Test(enabled = true) // f needs questions data
+	@Test(enabled = true)
 	public void TC28_To_Verify_Correct_Feedback_Shown_Under_Hamburger_Menu_In_Test()
 			throws MalformedURLException, InterruptedException {
 

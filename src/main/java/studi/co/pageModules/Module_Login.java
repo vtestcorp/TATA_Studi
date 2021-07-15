@@ -28,7 +28,8 @@ public class Module_Login extends BaseClass {
 		 * try { clickOnElement(ol.getAlreadyAUser()); } catch(Exception e) {
 		 * System.err.println("Continue to login"); } applyExplicitWait(2);
 		 */
-		clearText(ol.getMobileNumberTextBox());
+		//clearText(ol.getMobileNumberTextBox());
+		clickOnElement(ol.getAlreadyAUser());
 		sendText(ol.mobileNumberTextBox, prop.getProperty("mobileNumber"));
 		System.out.println("Entered Mobile Number");
 		applyExplicitWait(2);

@@ -75,21 +75,22 @@ public class Module_Assignment_Oral_Test extends BaseClass{
 	}
 
 
-	public void to_verify_that_user_should_be_able_to_add_the_Content_even_if_striked_off_for_creating_oral_test(String subject, String topic_1) throws MalformedURLException {
+	public void to_verify_that_user_should_be_able_to_add_the_Content_even_if_striked_off_for_creating_oral_test(String subject, String topic1) throws MalformedURLException {
 		test.log(Status.INFO,"Creating the oral test for striked off topic: Geography-The Universe " );
 		System.out.println("Creating the oral test for striked off topic: Geography-The Universe ");
-		traverse_to_Begin_Oral_Test(subject, topic_1);
-		oadt.next1.click();
-		applyExplicitWait(5);
-		oadt.start_Test.click();
-		applyExplicitWait(5);
-		Boolean begin_Test = oadt.begin_Test.isDisplayed();
-		assert1.assertTrue(begin_Test);
-		if (begin_Test) {
+		traverse_to_Begin_Oral_Test(subject, topic1);
+		//oadt.next1.click();
+		//applyExplicitWait(5);
+		//clickOnElement(findElementByText("Start"));
+		//oadt.start_Test.click();
+		//applyExplicitWait(5);
+		Boolean status = oadt.begin_Test.isDisplayed();
+		//assert1.assertTrue(begin_Test);
+		if (status) {
 			System.out.println("Begin Oral Test shown");
 			test.log(Status.INFO, "Begin Oral Test shown");
 		}
-		assert1.assertTrue(begin_Test);
+
 		assert1.assertAll();
 	}
 
@@ -97,15 +98,16 @@ public class Module_Assignment_Oral_Test extends BaseClass{
 	public void to_verify_that_user_is_able_to_select_the_chapters_from_subject(String subject, String topic_1) throws MalformedURLException {
 		traverse_to_Begin_Oral_Test(subject, topic_1);
 		applyExplicitWait(5);
-		oadt.next1.click();
+		//oadt.next1.click();
 		System.out.println("Clicked On Start Button to bigin the Test");
-		Boolean begin_Test = oadt.begin_Test.isDisplayed();
+		Boolean begin = oadt.begin_Test.isDisplayed();
 
-		if (begin_Test) {
+		//status=findElementByText("Add a title that is easy to scan").isDisplayed();
+		if (begin) {
 			System.out.println("Begin Oral Test shown");
 			test.log(Status.INFO, "Begin Oral Test shown");
 		}
-		assert1.assertTrue(begin_Test);
+		assert1.assertTrue(begin);
 		assert1.assertAll();
 
 
@@ -456,8 +458,9 @@ public class Module_Assignment_Oral_Test extends BaseClass{
 
 
 
-	public void to_verify__with_blank_Title(String subject, String topic_1) throws MalformedURLException {	
-		creation_of_Oral_Test(subject, topic_1);
+	public void to_verify__with_blank_Title(String subject, String topic1) throws MalformedURLException {	
+
+		creation_of_Oral_Test(subject, topic1);
 		clickOnElement(oadt.next1);;
 		Boolean status = oadt.title_field.isDisplayed();
 		if ( status) {
@@ -598,7 +601,7 @@ public class Module_Assignment_Oral_Test extends BaseClass{
 		creation_of_Oral_Test(subject, topic_1);
 		test.log(Status.INFO, "Clicking on Start Oral Test " );
 		System.out.println("Clicking on Start Oral Test ");
-		swipeUp();
+		//swipeUp();
 		clickOnElement(oadt.start_Test);
 		System.out.println("Clicked On Start Test");
 		applyExplicitWait(5);
@@ -616,9 +619,8 @@ public class Module_Assignment_Oral_Test extends BaseClass{
 		creation_of_Oral_Test(subject, topic_1);
 		test.log(Status.INFO, "Clicking on Start Oral Test " );
 		System.out.println("Clicking on Start Oral Test ");
-		//scrollTo2("Start");
 		applyExplicitWait(5);
-		clickOnElement(oadt.start_Test);
+		clickOnElement(findElementByText("Start Test"));
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Oral Test successfully Created");
 		System.out.println("Oral Test successfully Created");
@@ -647,6 +649,8 @@ public class Module_Assignment_Oral_Test extends BaseClass{
 		clickOnElement(findElementByText(topic_1));
 		applyExplicitWait(5);
 
+		clickOnElement(findElementByText("Next"));
+
 	}
 
 
@@ -654,17 +658,9 @@ public class Module_Assignment_Oral_Test extends BaseClass{
 	public void to_verify_the_Start_Test_UI(String subject, String topic_1) throws MalformedURLException {
 
 		creation_of_Oral_Test(subject, topic_1);
-		test.log(Status.INFO, "Clicking on Start Oral Test " );
-		System.out.println("Clicking on Start Oral Test ");
-		swipeUp();
-		clickOnElement(oadt.start_Test);
-		System.out.println("Clicked On Start Test");
-
-		Boolean status1 = oadt.begin_Test.isDisplayed();
-		if ( status1) {
-			System.out.println("The Begin Test page is showm");
-			test.log(Status.INFO, "The Begin Test page is showm");
-		}
+		String chapter= oadt.title_field.getText();
+		System.out.println("Chapter Name displayed with Oral Test");
+		System.out.println(chapter);
 
 		Boolean status2 = oadt.topic_name.isDisplayed();
 		if ( status2) {
@@ -674,8 +670,8 @@ public class Module_Assignment_Oral_Test extends BaseClass{
 
 		Boolean status3 = oadt.video_icon.isDisplayed();
 		if ( status3) {
-			System.out.println("On page layout contents: Displayed videos related to selected Topics  ");
-			test.log(Status.INFO, "On page layout contents: Displayed videos related to selected Topics  ");
+			System.out.println("Displayed videos related to selected Topics  ");
+			test.log(Status.INFO, " Displayed videos related to selected Topics  ");
 		}
 
 
@@ -714,14 +710,14 @@ public class Module_Assignment_Oral_Test extends BaseClass{
 			test.log(Status.INFO, "User able to play the video before starting the Test");
 		}
 		assert1.assertTrue( status);
-		System.out.println("Closing the Video");
-		clickOnElement(oadt.video_close);
+		//System.out.println("Closing the Video");
+		//clickOnElement(oadt.video_close);
 		assert1.assertAll();
 	}
 
 
 
-	public void to_verify_he_begin_test(String subject, String topic_1) throws MalformedURLException {
+	public void to_verify_the_begin_test(String subject, String topic_1) throws MalformedURLException {
 		traverse_to_Begin_Oral_Test(subject, topic_1);
 
 		applyExplicitWaitsUntilElementVisible(oadt.begin_Test);
@@ -734,54 +730,47 @@ public class Module_Assignment_Oral_Test extends BaseClass{
 		}
 		assert1.assertTrue( status);
 		assert1.assertAll();
-
-
-
-
-
-
 	}
-
-
-
 	public void to_verify_the_question_with__Answer_appears(String subject_History, String topic_H) throws MalformedURLException {
 		traverse_to_Begin_Oral_Test(subject_History, topic_H);
-
 		clickOnElement(oadt.begin_Test);
 		applyExplicitWait(3);
 		applyExplicitWaitsUntilElementVisible(findElementByText("Correct"));
-
-		SoftAssert sAss = new SoftAssert();
 		applyExplicitWait(5);
-		int questions = getTotalQuestionsInPractice();
+
+		int questions = oadt.get_Total_Number_Of_Questions_In_oral_Test();
+		System.out.println(questions);
 		int i = 0;
 		Boolean status;
-		applyExplicitWaitsUntilElementVisible(oadt.question_1);
-		test.log(Status.INFO, "Total questions : " + questions);
-		System.out.println("Total questions : " + questions);
+
 		while (i < questions) {
+
+			int[] qArray = new int[questions];
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
-			if (verifySCQorMCQ().equalsIgnoreCase("scq")) {
+			if (verifySCQorMCQ().contains("mcq")) {
+				qArray[i] = 1;
 				applyExplicitWait(5);
 				actualcount++;
 				swipeUp();
-				List<MobileElement> answerCount;
-				if (device.contains("Android"))
-					answerCount = getDriver().findElementsByClassName("android.widget.CheckBox");
-				else
-					answerCount = getDriver().findElements(MobileBy.iOSClassChain("**/XCUIElementTypeSwitch"));
-				status = answerCount.size() > 1 ? true : false;
-				sAss.assertTrue(status, "Multiple answers not available for question " + (i + 1));
-				System.out.println("Multiple answers available for question " + (i + 1));
-				test.log(Status.INFO, "Multiple answers available for question " + (i + 1));
+				test.log(Status.INFO, "Selecting correct answer for question " + (i + 1));
+				System.out.println("Selecting correct answer for question " + (i + 1));
 
-			}
+				selectCorrectAnswer();
+
+			} else
+				qArray[i] = 0;
 			if ((i + 1) != questions)
 				clickOnElement(oadt.next_arrow);
 			i++;
 		}
+		Boolean end = oadt.end_Test_Title.isDisplayed();
+		if ( end) {
+			System.out.println("Test get begin after clicking on Begin Test Button");
+			test.log(Status.INFO, "Test get begin after clicking on Begin Test Button");
+		}
+		assert1.assertTrue(end);
 
 		assert1.assertAll();
 
@@ -794,15 +783,11 @@ public class Module_Assignment_Oral_Test extends BaseClass{
 
 		clickOnElement(oadt.begin_Test);
 		applyExplicitWait(3);
-		applyExplicitWaitsUntilElementVisible(findElementByText("Correct"));
-
-		//SoftAssert sAss = new SoftAssert();
+		applyExplicitWaitsUntilElementVisible(findElementByText("correct"));
 		applyExplicitWait(5);
-		int questions = getTotalQuestionsInPractice();
+		int questions = oadt.get_Total_Number_Of_Questions_In_oral_Test();
 		System.out.println(questions);
-
 		int i = 0;
-		Boolean status;
 
 		while (i < questions) {
 			test.log(Status.INFO, "Question " + (i + 1));
@@ -863,7 +848,7 @@ public class Module_Assignment_Oral_Test extends BaseClass{
 		applyExplicitWaitsUntilElementVisible(findElementByText("Correct"));
 		applyExplicitWait(5);
 		System.out.println("Getting total Count of Questions in Oral Test...> ");
-		int questions = oadt.get_Total_Number_Of_Questions_In_Oral_Test();
+		int questions = oadt.get_Total_Number_Of_Questions_In_oral_Test();
 		System.out.println( questions );
 		assert1.assertTrue(Boolean.parseBoolean(getElementAttribute(oadt.correct_ans, "checked")));
 		System.out.println("Answer is shown ");
@@ -888,10 +873,8 @@ public class Module_Assignment_Oral_Test extends BaseClass{
 		applyExplicitWait(3);
 		applyExplicitWaitsUntilElementVisible(findElementByText("Correct"));
 		applyExplicitWait(5);
-	
 		Thread.sleep(3000);
-		scrollTo2("Incorrect");
-		//applyExplicitWaitsUntilElementVisible(oadt.correct_option);
+		swipeUp();
 		clickOnElement(oadt.correct_option);
 		status = Boolean.parseBoolean(oadt.correct_option.getAttribute("clickable"));
 		if (status) {
@@ -914,15 +897,8 @@ public class Module_Assignment_Oral_Test extends BaseClass{
 			assert1.assertTrue(status, "Did you get it right?-->InCorrect option is clickable");
 			System.out.println("Did you get it right?-->InCorrect option is clickable");
 		}
-
 		assert1.assertAll();
-
-
-
-
 	}
-
-
 
 	public void to_verify_after_hiding_Answer_user_should_be_able_to_view_Answer_Again(String subject_History,String topic_H) throws MalformedURLException, InterruptedException {
 		traverse_to_Begin_Oral_Test(subject_History, topic_H);
@@ -931,9 +907,6 @@ public class Module_Assignment_Oral_Test extends BaseClass{
 		applyExplicitWait(3);
 		applyExplicitWaitsUntilElementVisible(findElementByText("Correct"));
 		applyExplicitWait(5);
-		//System.out.println("Getting total Count of Questions in Oral Test...> ");
-		//int questions = oadt.get_Total_Number_Of_Questions_In_Oral_Test();
-		//System.out.println( questions );
 		assert1.assertTrue(Boolean.parseBoolean(getElementAttribute(oadt.correct_ans, "checked")));
 		System.out.println("Answer is shown ");
 		scrollTo2("Hide");
@@ -961,70 +934,366 @@ public class Module_Assignment_Oral_Test extends BaseClass{
 
 
 
-	public void to_verify_with_correct_Answer(String property, String property2) {
-		// TODO Auto-generated method stub
-		
+	public void to_verify_with_correct_Answer(String subject_History, String topic_H) throws MalformedURLException, InterruptedException {
+		traverse_to_Begin_Oral_Test(subject_History, topic_H);
+
+		clickOnElement(oadt.begin_Test);
+		applyExplicitWait(3);
+		applyExplicitWaitsUntilElementVisible(findElementByText("Correct"));
+		applyExplicitWait(5);
+
+		Thread.sleep(3000);
+		scrollTo2("Hide");
+		//applyExplicitWaitsUntilElementVisible(oadt.correct_option);
+		swipeUp();
+		clickOnElement(oadt.correct_option);
+		status = Boolean.parseBoolean(oadt.correct_option.getAttribute("clickable"));
+		if (status) {
+			assert1.assertTrue( status, "Did you get it right? -->Correct option is clickable");
+			System.out.println("Did you get it correct-->Correct option is clickable");
+		} 
+
+
 	}
 
 
 
-	public void to_verify_with_partialy_correct_Answer(String property, String property2) {
+	public void to_verify_with_partialy_correct_Answer(String subject_History, String topic_H) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 
 
 
-	public void to_verify__with_Incorrect_Answer(String property, String property2) {
+	public void to_verify__with_Incorrect_Answer(String subject_History, String topic_H) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 
 
-	public void to_verify_the_user_should_be_able_to_end_test_without_checking_the_Answer(String property,
-			String property2) {
-		// TODO Auto-generated method stub
-		
+	public void to_verify_the_user_should_be_able_to_end_test_without_checking_the_Answer(String subject_History, String topic_H) throws MalformedURLException {
+		to_verify_the_begin_test(subject_History,topic_H);
+		int questions = oadt.get_Total_Number_Of_Questions_In_oral_Test();
+		System.out.println(questions);
+		int i = 0;
+		Boolean status;
+
+		while (i < questions) {
+
+			int[] qArray = new int[questions];
+			test.log(Status.INFO, "Question " + (i + 1));
+			System.out.println("Question " + (i + 1));
+			qArray[i] = 0;
+			if ((i + 1) != questions)
+				clickOnElement(oadt.next_arrow);
+			i++;
+		}
+		clickOnElement(oadt.next_arrow);
+		Boolean status1 = oadt.end_Test_Title.isDisplayed();
+		if ( status1) {
+			System.out.println("User can Submit Oral Test without checking the answers");
+			test.log(Status.INFO, "User can Submit Oral Test without checking the answers");
+		}
+		assert1.assertTrue( status1);
+		assert1.assertAll();
+	}
+
+
+	public void to_verify_that_submit_test_successfully(String subject_History, String topic_H) throws MalformedURLException {
+		to_verify_the_begin_test(subject_History,topic_H);
+		int questions = oadt.get_Total_Number_Of_Questions_In_oral_Test();
+		System.out.println(questions);
+		int i = 0;
+		Boolean status;
+
+		while (i < questions) {
+
+			int[] qArray = new int[questions];
+			test.log(Status.INFO, "Question " + (i + 1));
+			System.out.println("Question " + (i + 1));
+
+			if (verifySCQorMCQ().contains("mcq")) {
+				qArray[i] = 1;
+				applyExplicitWait(5);
+				actualcount++;
+				swipeUp();
+				test.log(Status.INFO, "Selecting correct answer for question " + (i + 1));
+				System.out.println("Selecting correct answer for question " + (i + 1));
+
+				selectCorrectAnswer();
+
+			} else
+				qArray[i] = 0;
+			if ((i + 1) != questions)
+				clickOnElement(oadt.next_arrow);
+			i++;
+		}
+		clickOnElement(oadt.next_arrow);
+		Boolean status1 = oadt.end_Test_Title.isDisplayed();
+		if ( status1) {
+			System.out.println("End Test window shown to the user");
+			test.log(Status.INFO, "End Test window shown to the user");
+		}
+		assert1.assertTrue( status1);
+		System.out.println("Submitting the Oral Test");
+		test.log(Status.INFO, "Submitting the Oral Test");
+		clickOnElement(oadt.submit_Test);
+		Boolean redo = oadt.redo_Test.isDisplayed();
+		if ( redo) {
+			System.out.println("Test sumbitted Successfully");
+			test.log(Status.INFO, "Test sumbitted Successfully");
+		}
+		assert1.assertTrue(redo);
+
+		assert1.assertAll();
+
 	}
 
 
 
-	public void to_verify_the_Verify_user_should_be_able_to_end_test_without_checking_the_Answer(String property,
-			String property2) {
-		// TODO Auto-generated method stub
-		
+	public void to_verify_after_submi_oral_test_there_should_not_be_any_scoring_critria(String subject_History, String topic_H) {
+
+
+	}
+
+	public void to_verify_the_actions_on_last_question_of_the_Oral_test(String subject_History, String topic_H) throws MalformedURLException {
+
+		to_verify_the_begin_test(subject_History,topic_H);
+		int questions = oadt.get_Total_Number_Of_Questions_In_oral_Test();
+		System.out.println(questions);
+		int i = 0;
+		Boolean status;
+
+		while (i < questions) {
+
+			int[] qArray = new int[questions];
+			test.log(Status.INFO, "Question " + (i + 1));
+			System.out.println("Question " + (i + 1));
+
+			if (verifySCQorMCQ().contains("mcq")) {
+				qArray[i] = 1;
+				applyExplicitWait(5);
+				actualcount++;
+				swipeUp();
+				test.log(Status.INFO, "Selecting correct answer for question " + (i + 1));
+				System.out.println("Selecting correct answer for question " + (i + 1));
+
+				selectCorrectAnswer();
+
+			} else
+				qArray[i] = 0;
+			if ((i + 1) != questions)
+				clickOnElement(oadt.next_arrow);
+			i++;
+		}
+		clickOnElement(oadt.next_arrow);
+
+		System.out.println("After selecting last question's answer pop up get displayed with-->");
+		test.log(Status.INFO, "After selecting last question's answer pop up get displayed with-->");
+
+		Boolean title = oadt.end_Test_Title.isDisplayed();
+		if ( title) {
+			System.out.println("End of Test On Pop_up is Shown");
+			test.log(Status.INFO, "End of Test On Pop_up is Shown");
+		}
+		assert1.assertTrue( title);
+
+		Boolean sub_title = oadt.end_subtitle.isDisplayed();
+		if ( title) {
+			System.out.println("You have reached the end of test shown");
+			test.log(Status.INFO, "You have reached the end of test Shown");
+		}
+		assert1.assertTrue( title);
+
+		Boolean submit_btn = oadt.submit_Test.isDisplayed();
+		if ( submit_btn) {
+			System.out.println("Submit Test button is Shown ");
+			test.log(Status.INFO, "Submit Test button is Shown ");
+		}
+		assert1.assertTrue(submit_btn);
+
+		Boolean return_btn = oadt.Return_To_Test.isDisplayed();
+		if ( return_btn) {
+			System.out.println("Return to Test Button is Shown");
+			test.log(Status.INFO, "Return to Test Button is Shown");
+		}
+		assert1.assertTrue(return_btn);
+		assert1.assertAll();
+
 	}
 
 
 
-	public void to_verify_the_Verify_that_submit_test_successfully(String property, String property2) {
-		// TODO Auto-generated method stub
-		
+	public void to_verify_Reurn_to_test_functionality_after_submission_of_test(String subject_History, String topic_H) throws MalformedURLException {
+		to_verify_the_begin_test(subject_History,topic_H);
+		int questions = oadt.get_Total_Number_Of_Questions_In_oral_Test();
+		System.out.println(questions);
+		int i = 0;
+		Boolean status;
+
+		while (i < questions) {
+
+			int[] qArray = new int[questions];
+			test.log(Status.INFO, "Question " + (i + 1));
+			System.out.println("Question " + (i + 1));
+
+			if (verifySCQorMCQ().contains("mcq")) {
+				qArray[i] = 1;
+				applyExplicitWait(5);
+				actualcount++;
+				swipeUp();
+				test.log(Status.INFO, "Selecting correct answer for question " + (i + 1));
+				System.out.println("Selecting correct answer for question " + (i + 1));
+
+				selectCorrectAnswer();
+
+			} else
+				qArray[i] = 0;
+			if ((i + 1) != questions)
+				clickOnElement(oadt.next_arrow);
+			i++;
+		}
+		clickOnElement(oadt.next_arrow);
+
+		System.out.println("After selecting last question's answer pop up get displayed with-->");
+		test.log(Status.INFO, "After selecting last question's answer pop up get displayed with-->");
+
+		Boolean title = oadt.end_Test_Title.isDisplayed();
+		if ( title) {
+			System.out.println("End of Test On Pop_up is Shown");
+			test.log(Status.INFO, "End of Test On Pop_up is Shown");
+		}
+		assert1.assertTrue( title);
+
+		Boolean return_btn = oadt.Return_To_Test.isDisplayed();
+		if ( return_btn) {
+			System.out.println("Return to Test Button is Shown");
+			test.log(Status.INFO, "Return to Test Button is Shown");
+		}
+		assert1.assertTrue(return_btn);
+		clickOnElement(oadt.Return_To_Test);
+
+		Boolean hide = oadt.hide_Ans.isDisplayed();
+		if ( hide) {
+			System.out.println("On Return to Test button click it directed to the last question of the oral test to review");
+			test.log(Status.INFO, "On Return to Test button click it directed to the last question of the oral test to review");
+		}
+		assert1.assertTrue(hide);
+		assert1.assertAll();
+	}
+
+	public void to_check_for_the_confirmation_Message_for_redo_test_after_submiting_test(String subject_History, String topic_H) throws MalformedURLException {
+		to_verify_the_begin_test(subject_History,topic_H);
+		int questions = oadt.get_Total_Number_Of_Questions_In_oral_Test();
+		System.out.println(questions);
+		int i = 0;
+		Boolean status;
+
+		while (i < questions) {
+
+			int[] qArray = new int[questions];
+			test.log(Status.INFO, "Question " + (i + 1));
+			System.out.println("Question " + (i + 1));
+
+			if (verifySCQorMCQ().contains("mcq")) {
+				qArray[i] = 1;
+				applyExplicitWait(5);
+				actualcount++;
+				swipeUp();
+				test.log(Status.INFO, "Selecting correct answer for question " + (i + 1));
+				System.out.println("Selecting correct answer for question " + (i + 1));
+
+				selectCorrectAnswer();
+
+			} else
+				qArray[i] = 0;
+			if ((i + 1) != questions)
+				clickOnElement(oadt.next_arrow);
+			i++;
+		}
+		clickOnElement(oadt.next_arrow);
+		clickOnElement(oadt.submit_Test);
+		applyExplicitWaitsUntilElementVisible(findElementByText("Redo"));
+		clickOnElement(findElementByText("Redo Test"));
+
+		Boolean title = oadt.redo_Test_popup_Title.isDisplayed();
+		if ( title) {
+			System.out.println("Message displayed--> Redo test for a better score");
+			test.log(Status.INFO, "Message displayed--> Redo test for a better score");
+		}
+		assert1.assertTrue(title);
+
+
+		Boolean subtitle = oadt.redo_Test_popup_SubTitle.isDisplayed();
+		if ( subtitle) {
+			System.out.println("All previous scores will be lost");
+			test.log(Status.INFO, "All previous scores will be lost");
+		}
+		assert1.assertTrue(subtitle);
+		assert1.assertAll();
+
+
 	}
 
 
 
-	public void to_verify_after_submi_oral_test_there_should_not_be_any_scoring_critria(String property,
-			String property2) {
-		// TODO Auto-generated method stub
-		
+	public void to_verify_the_functionality_of_redo_test(String subject_History, String topic_H) throws MalformedURLException {
+		to_verify_the_begin_test(subject_History,topic_H);
+		int questions = oadt.get_Total_Number_Of_Questions_In_oral_Test();
+		System.out.println(questions);
+		int i = 0;
+		Boolean status;
+
+		while (i < questions) {
+
+			int[] qArray = new int[questions];
+			test.log(Status.INFO, "Question " + (i + 1));
+			System.out.println("Question " + (i + 1));
+
+			if (verifySCQorMCQ().contains("mcq")) {
+				qArray[i] = 1;
+				applyExplicitWait(5);
+				actualcount++;
+				swipeUp();
+				test.log(Status.INFO, "Selecting correct answer for question " + (i + 1));
+				System.out.println("Selecting correct answer for question " + (i + 1));
+
+				selectCorrectAnswer();
+
+			} else
+				qArray[i] = 0;
+			if ((i + 1) != questions)
+				clickOnElement(oadt.next_arrow);
+			i++;
+		}
+		clickOnElement(oadt.next_arrow);
+		clickOnElement(oadt.submit_Test);
+		applyExplicitWaitsUntilElementVisible(findElementByText("Redo"));
+		clickOnElement(findElementByText("Redo Test"));
+
+		Boolean title = oadt.redo_Test_popup_Title.isDisplayed();
+		if ( title) {
+			System.out.println("Message displayed--> Redo test for a better score");
+			test.log(Status.INFO, "Message displayed--> Redo test for a better score");
+		}
+		assert1.assertTrue(title);
+
+
+		clickOnElement(oadt.redo_Test_popup_SubTitle);
+		applyExplicitWaitsUntilElementVisible(findElementByText("correct"));
+
+		Boolean hide = oadt.hide_Ans.isDisplayed();
+		if (hide) {
+			System.out.println("All previous scores will be lost");
+			test.log(Status.INFO, "All previous scores will be lost");
+		}
+		assert1.assertTrue(hide);
+		assert1.assertAll();
+
 	}
 
-
-
-	public void to_verify_the_Preview_functionality(String property, String property2) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
-	public void to_verify_user_should_be_able_to_preview_of_the_Oral_Test(String property, String property2) {
-		// TODO Auto-generated method stub
-		
-	}
 
 
 

@@ -358,9 +358,11 @@ public class Module_Assignment_Listing extends BaseClass {
 		clickOnElement(oas.cameraAttachment);
 		clickOnElement(oas.attachmentDone);
 		applyExplicitWaitsUntilElementClickable(oas.assign);
-
-
 	}
+
+
+
+	
 
 
 	public void to_verify_completed_assignments_marked_as_striked() throws MalformedURLException {

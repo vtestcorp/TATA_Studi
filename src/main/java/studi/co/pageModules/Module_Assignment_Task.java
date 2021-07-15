@@ -43,6 +43,8 @@ public class Module_Assignment_Task extends BaseClass {
 		test.log(Status.INFO,"Task created successfully");
 		System.out.println("Task created successfully");
 
+		assert1.assertAll();
+
 	}
 	public void to_verify_successful_creation_of_task() {
 		scrollTo2("Assignments");
@@ -54,9 +56,12 @@ public class Module_Assignment_Task extends BaseClass {
 		test.log(Status.INFO, "Setting Task  Title" );
 		System.out.println("Setting Task  Title");
 		oas.taskTitle.sendKeys("Task Test");
+
 		test.log(Status.INFO, "Setting Task Instruction " );
 		System.out.println("Setting Task Instruction");
+
 		oas.taskInstruction.sendKeys("TATA Studi Test for Task and Digital Test");
+
 		scrollTo2("Assign");
 		clickOnElement(oas.assignmentViewed);
 		test.log(Status.INFO, "Clicked on Assignment Viewd" );
@@ -65,9 +70,7 @@ public class Module_Assignment_Task extends BaseClass {
 		clickOnElement(oas.taskDuration);
 		test.log(Status.INFO, "Selected the Task Duration");
 		System.out.println("Selected the Task Duration");
-
-		scrollToEnd();		
-		clickOnElement(oas.assignTask);
+		clickOnElement(findElementByText("Assign"));
 		status = oas.createdTask.isDisplayed();
 		assert1.assertTrue(status);
 		if (status) {
@@ -182,7 +185,6 @@ public class Module_Assignment_Task extends BaseClass {
 	{
 		scrollTo2("Assignments");
 		clickOnElement(oas.assignment);
-
 		test.log(Status.INFO, "Clicked Assignments" );
 		System.out.println("Clicked on Assignments");
 
@@ -197,26 +199,144 @@ public class Module_Assignment_Task extends BaseClass {
 			test.log(Status.INFO, "Assignment Details are displayed after clicking on Task");
 		}
 		oas.markAsCompleted.click();
-
 		System.out.println("Clicked on Mark as Completed");
 		test.log(Status.INFO,"Clicked on Mark as Completed");
 
-		//check task is striked through or not..now on Hold
 	}
 
-	public void to_verify_the_help_toggle_button_ON_functionality_at_time_of_task_creation() {
-		//com.tce.studi:id/helpSwitch- help switch OFF
-		//com.tce.studi:id/helpSwitch -help Switch ON
-		//Need different values/attribute to validate
+	public void to_verify_the_help_toggle_button_ON_functionality_at_time_of_task_creation() throws MalformedURLException {
+		scrollTo2("Assignments");
+		clickOnElement(oas.assignment);
+		test.log(Status.INFO, "Clicked Assignments" );
+		System.out.println("Clicked on Assignments");
+		clickOnElement(oas.add_assignment);
+		oas.task.click();
+		System.out.println("Clicked on Task to cteate Assignment Task");
+
+		//		test.log(Status.INFO, "Clicking on Help Switch--> ON" );
+		//		System.out.println("Clicking on Help Switch--> ON");
+
+		if (oas.help_ON.isDisplayed()) {
+			test.log(Status.INFO, "When the Help switch in ON --> It shows guidelines: ");
+			System.out.println("When the Help switch in ON --> It shows guidelines: ");
+
+			status =oas.title_gudeline.isDisplayed();
+			assert1.assertTrue(status);
+			if (status) {
+				System.out.println("Guidline for Title is shown");
+				test.log(Status.INFO, "Guidline for Title is shown");
+			}
+			status =oas.instruction_guidline.isDisplayed();
+			assert1.assertTrue(status);
+			if (status) {
+				System.out.println("Guideline for Instruction is shown");
+				test.log(Status.INFO,"Guideline for Instruction is shown");
+			}
+			status =oas.attachment_guidline.isDisplayed();
+			assert1.assertTrue(status);
+			if (status) {
+				System.out.println("Attachment Guidline is Shown");
+				test.log(Status.INFO, "Attachment Guidline is Shown");
+			}
+			scrollTo2("Assign");
+			status =oas.completion_criteria_guidline.isDisplayed();
+			assert1.assertTrue(status);
+			if (status) {
+				System.out.println("Completion Criteria Guidline shown");
+				test.log(Status.INFO, "Completion Criteria Guidline shown");
+			}
+			status =oas.duration_guidine.isDisplayed();
+			assert1.assertTrue(status);
+			if (status) {
+				System.out.println("Duration Guidline shown");
+				test.log(Status.INFO, "Duration Guidline shown");
+			}
+			status =oas.due_date_guidline.isDisplayed();
+			assert1.assertTrue(status);
+			if (status) {
+				System.out.println("Duration Guidline shown");
+				test.log(Status.INFO, "Duration Guidline shown");
+			}
+		}
+		assert1.assertAll();
 
 	}
 
-	public void to_verify_the_help_toggle_button_OFF_functionality_at_time_of_task_creation() {
-		//com.tce.studi:id/helpSwitch- help switch OFF
-		//com.tce.studi:id/helpSwitch -help Switch ON
-		//Need different values/attribute to validate
+	public void to_verify_the_help_toggle_button_OFF_functionality_at_time_of_task_creation() throws MalformedURLException {
+		scrollTo2("Assignments");
+		clickOnElement(oas.assignment);
+		test.log(Status.INFO, "Clicked Assignments" );
+		System.out.println("Clicked on Assignments");
+		clickOnElement(oas.add_assignment);
+		oas.task.click();
+		System.out.println("Clicked on Task to Create assignment Task");
+		test.log(Status.INFO, "Clicking on Help Switch--> OFF" );
+		System.out.println("Clicking on Help Switch--> OFF");
+
+		clickOnElement(oas.help);
+
+		status=findElementByText("Add a title that is easy to scan").isDisplayed();
+		assert1.assertFalse(status, "No guideline for Title shown to the user");
+		if (!status) {
+			System.out.println("User is able to see the guidelines for Title");
+			test.log(Status.INFO, "User is able to see the guidelines for Title");
+		}
+		status=findElementByText("").isDisplayed();
+		assert1.assertFalse(status, "No guideline for Difficulty level shown to the user");
+		if (!status) {
+			System.out.println("User is able to see the guidelines");
+			test.log(Status.INFO, "User is able to see the guidelines");
+		}
+
+		status=findElementByText("Add a title that is easy to scan").isDisplayed();
+		assert1.assertFalse(status, "No guideline shown to the user");
+		if (!status) {
+			System.out.println("User is able to see the guidelines");
+			test.log(Status.INFO, "User is able to see the guidelines");
+		}
+		status=findElementByText("Add a title that is easy to scan").isDisplayed();
+		assert1.assertFalse(status, "No guideline shown to the user");
+		if (!status) {
+			System.out.println("User is able to see the guidelines");
+			test.log(Status.INFO, "User is able to see the guidelines");
+		}
+
+
+		if(oas.help_OFF.isDisplayed())
+		{
+			status =oas.titleHelp.isDisplayed();
+			assert1.assertFalse(status);
+			if (status) {
+				System.out.println("Title guideline is not there");
+				test.log(Status.INFO, "Title guideline is not there");
+			}
+
+		}
+		//				status =oadt.difficultyLevelHelp.isDisplayed();
+		//				assert1.assertFalse(status);
+		//				if (status) {
+		//					System.out.println("Difficulty level Guideline is not there");
+		//					test.log(Status.INFO,"Difficulty level Guideline is not there");
+		//				}
+		//
+		//				status =oadt.durationHelp.isDisplayed();
+		//				assert1.assertFalse(status);
+		//				if (status) {
+		//					System.out.println("Tentative Duration Guideline is not there");
+		//					test.log(Status.INFO, "Tentative Duration Guideline is not there");
+		//				}
+		//
+		//				status =oadt.dueDateHelp.isDisplayed();
+		//				assert1.assertFalse(status);
+		//				if (status) {
+		//					System.out.println("Due Date Guidline is not there");
+		//					test.log(Status.INFO, "Due Date Guidline is not there");
+		//				}
+		//			
+
 
 	}
+
 
 	public void to_verify_delete_btn_functinality_at_the_time_of_task_creation() {
 		scrollTo2("Assignments");
@@ -246,7 +366,7 @@ public class Module_Assignment_Task extends BaseClass {
 	}
 
 
-	public void to_verify_delete_btn_functinality_with_discard_at_task_creation() {
+	public void to_verify_delete_btn_functinality_with_discard_at_task_creation() throws MalformedURLException {
 		scrollTo2("Assignments");
 		clickOnElement(oas.assignment);
 		test.log(Status.INFO, "Clicked Assignments" );
@@ -270,16 +390,22 @@ public class Module_Assignment_Task extends BaseClass {
 			test.log(Status.INFO,"Pop up is shown with message :  Are you sure you want to discard?");
 
 		}
-
 		status = oas.discardBtn.isDisplayed();
-		assert1.assertTrue(status);
 		if (status) {
 			System.out.println("Yes ,Please discard button is diplayed");
 			test.log(Status.INFO,"Yes ,Please discard button is diplayed");
-			clickOnElement(oas.discardBtn);
-			System.out.println("The task is deleted using Delete button");
-			test.log(Status.INFO,"The task is deleted using Delete button");
-		}
+
+			//applyExplicitWaitsUntilElementVisible(findElementByText("Yes, Please discard"));
+			clickOnElement(findElementByText("Yes, Please discard"));
+			status = oas.add_assignment.isDisplayed();
+			if (status) {
+
+				System.out.println("The task is deleted using Delete button");
+				test.log(Status.INFO,"The task is deleted using Delete button");
+
+			}
+
+		}assert1.assertTrue(status);
 		assert1.assertAll();
 	}
 
@@ -365,7 +491,7 @@ public class Module_Assignment_Task extends BaseClass {
 			test.log(Status.INFO, "Back to Today's Assignments - takes user back to My Assignments screen");
 		}
 
-}
+	}
 
 
 

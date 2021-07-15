@@ -33,14 +33,14 @@ public class Object_Assignment_Task extends BaseClass {
 
 	@AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.TextView[1]")
 	public WebElement enterTaskDetails;
-	
+
 	@AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView")
 	public WebElement myAssignments;
-	
+
 	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/txtTitle\").textContains(\"Are you sure you want to discard?\")")
 	public WebElement deletePopup;
 
-	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/txtPositiveBtn\").textContains(\"Yes,Please discard\")")
+	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/txtPositiveBtn\").textContains(\"Yes, Please discard\")")
 	public WebElement discardBtn;
 
 	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/txtNegativeBtn\").textContains(\"Take me back\")")
@@ -103,8 +103,8 @@ public class Object_Assignment_Task extends BaseClass {
 	@AndroidFindBy(id ="com.tce.studi:id/iv_left_icon")
 	public WebElement back_btn;
 
-	@AndroidFindBy(id="com.tce.studi:id/dueDate")
-	public WebElement due_date;
+	//@AndroidFindBy(id="com.tce.studi:id/dueDate")
+	//public WebElement due_date;
 
 	@AndroidFindBy(id="com.tce.studi:id/overdue")
 	public WebElement over_due;
@@ -121,7 +121,7 @@ public class Object_Assignment_Task extends BaseClass {
 	@AndroidFindBy(id="com.tce.studi:id/txtNegativeBtn")
 	public WebElement hideReport;
 
-	@AndroidFindBy(id="com.tce.studi:id/listAttachment")
+	@AndroidFindBy(id="com.tce.studi:id/imgGallery")
 	public WebElement attachmentIcon;
 
 	@AndroidFindBy(id="com.tce.studi:id/listTitle")
@@ -137,22 +137,67 @@ public class Object_Assignment_Task extends BaseClass {
 	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tvNextStep\").textContains(\"Assign\")")
 	public WebElement assign;
 
-	@AndroidFindBy(id="com.tce.studi:id/listTime")
-	public WebElement duration;
+	//@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"android:id/text1\").textContains(\"Camera\")")
+	//public WebElement cameraAttachment;
 
-	@AndroidFindBy(id="	com.tce.studi:id/imgGallery")
-	public WebElement imgGallery;
-
-	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"android:id/text1\").textContains(\"Camera\")")
-	public WebElement cameraAttachment;
-
-	@AndroidFindBy(id="com.android.camera2:id/shutter_button")
-	public WebElement clickCamera;
-
+	//@AndroidFindBy(id="com.android.camera2:id/shutter_button")
+	//public WebElement clickCamera;
+	
 	@AndroidFindBy(id="com.android.camera2:id/done_button")
 	public WebElement attachmentDone;
 
 	@AndroidFindBy(id="com.tce.studi:id/iv_left_icon")
 	public WebElement backBtn;
+	
+	@AndroidFindBy(id="com.tce.studi:id/helpSwitch")
+	public WebElement help;
+	
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/helpSwitch\").textContains(\"ON\")")
+	public WebElement help_ON;
 
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/helpSwitch\").textContains(\"OFF\")")
+	public WebElement help_OFF;
+
+	@AndroidFindBy(id="com.tce.studi:id/tvTitle")
+	public WebElement title;
+
+	@AndroidFindBy(id="com.tce.studi:id/tvTitleInstruction")
+	public WebElement title_gudeline;
+
+	@AndroidFindBy(id="com.tce.studi:id/tvInstructions")
+	public WebElement instruction;
+
+	@AndroidFindBy(id="com.tce.studi:id/tvInstructionsInstruct")
+	public WebElement instruction_guidline;
+
+	@AndroidFindBy(id="com.tce.studi:id/tvAttachments")
+	public WebElement attachment ;
+
+	@AndroidFindBy(id="com.tce.studi:id/tvAttachmentsInstruction")
+	public WebElement attachment_guidline ;
+
+	@AndroidFindBy(id="com.tce.studi:id/tvConsider")
+	public WebElement completion_criteria;
+
+	@AndroidFindBy(id="com.tce.studi:id/tvConsiderInstruction")
+	public WebElement completion_criteria_guidline;
+
+	@AndroidFindBy(id="com.tce.studi:id/tvTentativeDuration")
+	public WebElement duration;
+
+
+	@AndroidFindBy(id="com.tce.studi:id/tvTentativeDurationInstruction")
+	public WebElement duration_guidine;
+
+	@AndroidFindBy(id="com.tce.studi:id/tvTitleInstructionTest")
+	public WebElement titleHelp;
+
+	@AndroidFindBy(id="com.tce.studi:id/tvDueDate")
+	public WebElement due_date;;
+
+	@AndroidFindBy(id="com.tce.studi:id/tvDueDateInstruction")
+	public WebElement due_date_guidline;
+	
+	@AndroidFindBy(id="com.tce.studi:id/tvDueDateCalendar")
+	public WebElement calendar;
 }

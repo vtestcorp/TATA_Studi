@@ -1,15 +1,17 @@
 package studi.co.pageModules;
 
 import java.net.MalformedURLException;
+import java.util.ArrayList;
 
 import org.testng.asserts.SoftAssert;
 
 import com.aventstack.extentreports.Status;
 
+import io.appium.java_client.MobileElement;
 import studi.co.Base.BaseClass;
-import studi.co.pageObjects.Object_Assignment_Digital_Task;
-public class Module_Assignment_Digital_Task  extends BaseClass{
-	Object_Assignment_Digital_Task oadt = new Object_Assignment_Digital_Task();
+import studi.co.pageObjects.Object_Assignment_Digital_Test;
+public class Module_Assignment_Digital_Test  extends BaseClass{
+	Object_Assignment_Digital_Test oadt = new Object_Assignment_Digital_Test();
 	SoftAssert assert1=new SoftAssert();
 	Boolean status;
 	public void create_Assignment_Digital_Test(String subject, String topic) throws MalformedURLException {
@@ -73,12 +75,12 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 		applyExplicitWaitsUntilElementVisible(oadt.questionView);
 		swipeDown();
 		status =oadt.testTimer.isDisplayed();
-		assert1.assertTrue(status);
+		
 		if (status) {
 			System.out.println("Test Duration is displayed");
 			test.log(Status.INFO, "Test Duration is displayed");
 		}
-
+		assert1.assertTrue(status);
 		assert1.assertAll();
 
 	}
@@ -111,40 +113,40 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 		clickOnElement(oadt.next1);
 		applyExplicitWait(5);
 
-		test.log(Status.INFO, "Clicking on Help Switch--> ON" );
-		System.out.println("Clicking on Help Switch--> ON");
+		//		test.log(Status.INFO, "Clicking on Help Switch--> ON" );
+		//		System.out.println("Clicking on Help Switch--> ON");
 
-		clickOnElement(oadt.help);
+		if (oadt.help_ON.isDisplayed()) {
+			test.log(Status.INFO, "Clicked on Help Switch--> It shows guidelines as: " );
+			System.out.println("Clicked on Help Switch--> It shows guidelines as: ");
 
-		test.log(Status.INFO, "Clicked on Help Switch--> It shows guidelines as:\n" );
-		System.out.println("Clicked on Help Switch--> It shows guidelines as:\\n");
+			status =oadt.titleHelp.isDisplayed();
+			assert1.assertTrue(status);
+			if (status) {
+				System.out.println("Add a title that is easy to scan");
+				test.log(Status.INFO, "Add a title that is easy to scan");
+			}
 
-		status =oadt.titleHelp.isDisplayed();
-		assert1.assertTrue(status);
-		if (status) {
-			System.out.println("Add a title that is easy to scan");
-			test.log(Status.INFO, "Add a title that is easy to scan");
-		}
+			status =oadt.difficultyLevelHelp.isDisplayed();
+			assert1.assertTrue(status);
+			if (status) {
+				System.out.println("Set a difficulty level for the test");
+				test.log(Status.INFO,"Set a difficulty level for the test");
+			}
 
-		status =oadt.difficultyLevelHelp.isDisplayed();
-		assert1.assertTrue(status);
-		if (status) {
-			System.out.println("Set a difficulty level for the test");
-			test.log(Status.INFO,"Set a difficulty level for the test");
-		}
+			status =oadt.durationHelp.isDisplayed();
+			assert1.assertTrue(status);
+			if (status) {
+				System.out.println("Define time required to complete this task");
+				test.log(Status.INFO, "Define time required to complete this task");
+			}
 
-		status =oadt.durationHelp.isDisplayed();
-		assert1.assertTrue(status);
-		if (status) {
-			System.out.println("Define time required to complete this task");
-			test.log(Status.INFO, "Define time required to complete this task");
-		}
-
-		status =oadt.dueDateHelp.isDisplayed();
-		assert1.assertTrue(status);
-		if (status) {
-			System.out.println("Set a date for completing the task");
-			test.log(Status.INFO, "Set a date for completing the task");
+			status =oadt.dueDateHelp.isDisplayed();
+			assert1.assertTrue(status);
+			if (status) {
+				System.out.println("Set a date for completing the task");
+				test.log(Status.INFO, "Set a date for completing the task");
+			}
 		}
 		assert1.assertAll();
 
@@ -178,20 +180,69 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 		test.log(Status.INFO, "Clicking on Help Switch--> OFF" );
 		System.out.println("Clicking on Help Switch--> OFF");
 
-		clickOnElement(oadt.help);
+		clickOnElement(oadt.help);//OFF help btn
 
-		test.log(Status.INFO, "Clicked on Help Switch--> It shows guidelines as:\n" );
-		System.out.println("Clicked on Help Switch--> It shows guidelines as:\\n");
+		status=findElementByText("Add a title that is easy to scan").isDisplayed();
+		assert1.assertFalse(status, "No guideline for Title shown to the user");
+		if (!status) {
+			System.out.println("User is able to see the guidelines for Title");
+			test.log(Status.INFO, "User is able to see the guidelines for Title");
+		}
+		status=findElementByText("").isDisplayed();
+		assert1.assertFalse(status, "No guideline for Difficulty level shown to the user");
+		if (!status) {
+			System.out.println("User is able to see the guidelines");
+			test.log(Status.INFO, "User is able to see the guidelines");
+		}
 
-		//If OFF is selected for Help then User guidline should  not be display for Title ,Difficulty,Duration,Due By fields
-		//User should be able to  set ON/OFF toggle for Help
+		status=findElementByText("Add a title that is easy to scan").isDisplayed();
+		assert1.assertFalse(status, "No guideline shown to the user");
+		if (!status) {
+			System.out.println("User is able to see the guidelines");
+			test.log(Status.INFO, "User is able to see the guidelines");
+		}
+		status=findElementByText("Add a title that is easy to scan").isDisplayed();
+		assert1.assertFalse(status, "No guideline shown to the user");
+		if (!status) {
+			System.out.println("User is able to see the guidelines");
+			test.log(Status.INFO, "User is able to see the guidelines");
+		}
 
-		assert1.assertAll();
+
+		if(oadt.help_OFF.isDisplayed())
+		{
+			status =oadt.titleHelp.isDisplayed();
+			assert1.assertFalse(status);
+			if (status) {
+				System.out.println("Title guideline is not there");
+				test.log(Status.INFO, "Title guideline is not there");
+			}
+
+		}
+		//				status =oadt.difficultyLevelHelp.isDisplayed();
+		//				assert1.assertFalse(status);
+		//				if (status) {
+		//					System.out.println("Difficulty level Guideline is not there");
+		//					test.log(Status.INFO,"Difficulty level Guideline is not there");
+		//				}
+		//
+		//				status =oadt.durationHelp.isDisplayed();
+		//				assert1.assertFalse(status);
+		//				if (status) {
+		//					System.out.println("Tentative Duration Guideline is not there");
+		//					test.log(Status.INFO, "Tentative Duration Guideline is not there");
+		//				}
+		//
+		//				status =oadt.dueDateHelp.isDisplayed();
+		//				assert1.assertFalse(status);
+		//				if (status) {
+		//					System.out.println("Due Date Guidline is not there");
+		//					test.log(Status.INFO, "Due Date Guidline is not there");
+		//				}
+		//			
 
 
 	}
-
-
 
 	public void to_verify_assign_digital_test_and_success_message(String subject, String topic) throws MalformedURLException {
 		scrollTo2("Assignments");
@@ -256,7 +307,7 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 
 		test.log(Status.INFO, "Set the flag for First question " );
 		System.out.println("Set the flag for First question ");
-		int questions = oadt.get_Total_Number_Of_Questions_In_Oral_Test();
+		int questions = oadt.get_Total_Number_Of_Questions_In_digital_Test();
 		int i = 0;
 		Boolean status;
 		applyExplicitWaitsUntilElementVisible(oadt.questionView);
@@ -283,42 +334,48 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 			i++;
 		}
 
-
 		test.log(Status.INFO, "Submitting Test");
 		System.out.println("Submitting Test");
 		clickOnElement(oadt.next_questin_Arrow);
 		status = oadt.flagged.isDisplayed();
-		assert1.assertTrue(status);
+
 		if (status) {
-			System.out.println("The flagged question is displayed for review before the test submission");
-			test.log(Status.INFO, "The flagged question is displayed for review before the test submission");
+			System.out.println("The Count of flagged question is displayed for review before the test submission");
+			test.log(Status.INFO, "The Count of flagged question is displayed for review before the test submission");
 		}
+		assert1.assertTrue(status);
+		String attempted=oadt.attempted_count.getText();
+		System.out.println("Count of Flagged questions: -" +attempted);
+
 		assert1.assertAll();
 	}
 
 
 
 
-	public void to_verify_Count_of_attempted_Pending_Flagged_questions_should_be_display() throws MalformedURLException {
-		// 	create_Assignment_Digital_Test(subject, topic);
-		//		clickOnElement(oadt.viewAssignmenBtn);
-		//
-		//		test.log(Status.INFO, "Traversing to Begin Test" );
-		//		System.out.println("Traversing to Begin Test");
-		//
+	public void to_verify_Count_of_attempted_Pending_Flagged_questions_should_be_display(String subject, String topic) throws MalformedURLException {
+		create_Assignment_Digital_Test(subject, topic);
+		clickOnElement(oadt.viewAssignmenBtn);
+
+		test.log(Status.INFO, "Traversing to Begin Test" );
+		System.out.println("Traversing to Begin Test");
+
 		clickOnElement(oadt.beginTest);
 
 		test.log(Status.INFO, "Attempting the test " );
 		System.out.println("Attempting the test");
 		oadt.flag.click();
 		applyExplicitWait(5);
-
 		test.log(Status.INFO, "Set the flag for First question " );
 		System.out.println("Set the flag for First question ");
-		int questions = oadt.get_Total_Number_Of_Questions_In_Oral_Test();
+		oadt.closePopup();
+		//applyExplicitWait(3);
+		applyExplicitWaitsUntilElementVisible(findElementByText("correct"));
+		int questions = oadt.get_Total_Number_Of_Questions_In_digital_Test();
+		System.out.println(questions);
 		int i = 0;
 		Boolean status;
-		applyExplicitWaitsUntilElementVisible(oadt.questionView);
+
 		while (i < questions) {
 
 			int[] qArray = new int[questions];
@@ -346,24 +403,29 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 		System.out.println("Submitting Test");
 		clickOnElement(oadt.next_questin_Arrow);
 
+		String attempted=oadt.attempted_count.getText();
+		String flagged=oadt.flagged_count.getText();
+		String pending=oadt.pending_count.getText();
+
 		status = oadt.attempted.isDisplayed();
 		assert1.assertTrue(status);
 		if (status) {
-			System.out.println("At End of Test--> 1. Attempted  count of Questions displayed for review before the test submission");
-			test.log(Status.INFO, "At End of Test--> 1. Attempted  count of Questions displayed for review before the test submission");
+			System.out.println("Attempted  count of Questions displayed  --  :" + attempted);
+			test.log(Status.INFO, "Attempted  count of Questions displayed --  :"+ attempted );
 		}
+
 		status = oadt.pending.isDisplayed();
 		assert1.assertTrue(status);
 		if (status) {
-			System.out.println("\n 2. Pendig count of Questions displayed for review before the test submission");
-			test.log(Status.INFO, "\n 2. Pendig count of Questions displayed for review before the test submission");
+			System.out.println("Pendig count of Questions displayed --  :"+ pending );
+			test.log(Status.INFO, "Pendig count of Questions displayed --  :"+ pending);
 		}
 
 		status = oadt.flagged.isDisplayed();
 		assert1.assertTrue(status);
 		if (status) {
-			System.out.println("The flagged Count of questions is displayed for review before the test submission");
-			test.log(Status.INFO, "The flagged Count of questions is displayed for review before the test submission");
+			System.out.println("The flagged Count of questions is displayed  -- : " + flagged);
+			test.log(Status.INFO, "The flagged Count of questions is displayed --  : " +flagged);
 		}
 		assert1.assertAll();
 
@@ -382,12 +444,18 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 
 		test.log(Status.INFO, "Attempting the test " );
 		System.out.println("Attempting the test");
-		oadt.flag.click();
-		applyExplicitWait(5);
-		int questions =oadt.get_Total_Number_Of_Questions_In_Oral_Test();
+		//		oadt.flag.click();
+		//		applyExplicitWait(5);
+		//		test.log(Status.INFO, "Set the flag for First question " );
+		//		System.out.println("Set the flag for First question ");
+		oadt.closePopup();
+		//applyExplicitWait(3);
+		applyExplicitWaitsUntilElementVisible(findElementByText("correct"));
+		int questions = oadt.get_Total_Number_Of_Questions_In_digital_Test();
+		System.out.println(questions);
 		int i = 0;
 		Boolean status;
-		applyExplicitWaitsUntilElementVisible(oadt.questionView);
+
 		while (i < questions) {
 
 			int[] qArray = new int[questions];
@@ -410,11 +478,14 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 				clickOnElement(oadt.next_questin_Arrow);
 			i++;
 		}
+		clickOnElement(oadt.next_questin_Arrow);
 
 		test.log(Status.INFO, "Submitting Test");
 		System.out.println("Submitting Test");
-		clickOnElement(oadt.next_questin_Arrow);
-
+		clickOnElement(oadt.submitTest);
+		applyExplicitWaitsUntilElementVisible(findElementByText("Check"));
+		clickOnElement(oadt.check_Answer);
+		applyExplicitWait(5);
 		//clickOnElement(oadt.check_Answer);
 
 		status = oadt.exit_Review.isDisplayed();
@@ -441,7 +512,7 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 		System.out.println("Attempting the test");
 		oadt.flag.click();
 		applyExplicitWait(5);
-		int questions = oadt.get_Total_Number_Of_Questions_In_Oral_Test();
+		int questions = oadt.get_Total_Number_Of_Questions_In_digital_Test();
 		int i = 0;
 		Boolean status;
 		applyExplicitWaitsUntilElementVisible(oadt.questionView);
@@ -472,30 +543,38 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 		System.out.println("Submitting Test");
 		clickOnElement(oadt.next_questin_Arrow);
 
-		clickOnElement(oadt.check_Answer);
-		// flag reflection 
+		clickOnElement(oadt.submitTest);
+		test.log(Status.INFO, "Test Submitted");
+		System.out.println("Test Submitted");
+		status = oadt.flagged.isDisplayed();
 
+		if (status) {
+			System.out.println("Flag  icon  only displayed to that question which user is selected flagged at time of  giving test");
+			test.log(Status.INFO, "Flag  icon  only displayed to that question which user is selected flagged at time of  giving test");
+		}
+		// flag reflection 
+		assert1.assertAll();
 
 	}
 
 
 
 
-	public void to_verify_the_Correct_Incorrect_answers_on_review_page() throws MalformedURLException {
+	public void to_verify_the_Correct_Incorrect_answers_on_review_page(String subject, String topic) throws MalformedURLException {
 
-		//	 	create_Assignment_Digital_Test(subject, topic);
-		//		clickOnElement(oadt.viewAssignmenBtn);
-		//
-		//		test.log(Status.INFO, "Traversing to Begin Test" );
-		//		System.out.println("Traversing to Begin Test");
-		//
+		create_Assignment_Digital_Test(subject, topic);
+		clickOnElement(oadt.viewAssignmenBtn);
+
+		test.log(Status.INFO, "Traversing to Begin Test" );
+		System.out.println("Traversing to Begin Test");
+
 		clickOnElement(oadt.beginTest);
 
 		test.log(Status.INFO, "Attempting the test " );
 		System.out.println("Attempting the test");
 		oadt.flag.click();
 		applyExplicitWait(5);
-		int questions = oadt.get_Total_Number_Of_Questions_In_Oral_Test();
+		int questions = oadt.get_Total_Number_Of_Questions_In_digital_Test();
 		int i = 0;
 		Boolean status;
 		applyExplicitWaitsUntilElementVisible(oadt.questionView);
@@ -527,9 +606,15 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 		clickOnElement(oadt.next_questin_Arrow);
 
 		clickOnElement(oadt.check_Answer);
-		//now chk flag reflection here
+		test.log(Status.INFO, "Going towards Review");
+		System.out.println("Going towards Review");
+
+		clickOnElement(oadt.backBtn);
+		applyExplicitWaitsUntilElementVisible(findElementByText("REVIEW"));
 		//-On review Correct answers should display with happy emoticon and  incorrect answers display with sad emoticon 
 		//-After click on emoticon page direct to perticular question 
+
+		assert1.assertAll();
 
 
 	}
@@ -538,19 +623,19 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 
 
 	public void to_verify_the_review_Scrolling(String subject, String topic) throws MalformedURLException {
-		//	 	create_Assignment_Digital_Test(subject, topic);
-		//		clickOnElement(oadt.viewAssignmenBtn);
-		//
-		//		test.log(Status.INFO, "Traversing to Begin Test" );
-		//		System.out.println("Traversing to Begin Test");
-		//
+		create_Assignment_Digital_Test(subject, topic);
+		clickOnElement(oadt.viewAssignmenBtn);
+
+		test.log(Status.INFO, "Traversing to Begin Test" );
+		System.out.println("Traversing to Begin Test");
+
 		clickOnElement(oadt.beginTest);
 
 		test.log(Status.INFO, "Attempting the test " );
 		System.out.println("Attempting the test");
 		oadt.flag.click();
 		applyExplicitWait(5);
-		int questions = oadt.get_Total_Number_Of_Questions_In_Oral_Test();
+		int questions = oadt.get_Total_Number_Of_Questions_In_digital_Test();
 		int i = 0;
 		Boolean status;
 		applyExplicitWaitsUntilElementVisible(oadt.questionView);
@@ -580,8 +665,27 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 		test.log(Status.INFO, "Submitting Test");
 		System.out.println("Submitting Test");
 		clickOnElement(oadt.next_questin_Arrow);
+		clickOnElement(oadt.submitTest);
 		clickOnElement(oadt.check_Answer);
-		//now chkreview scrolling functinality here
+		test.log(Status.INFO, "Going towards Review");
+		System.out.println("Going towards Review");
+
+		clickOnElement(oadt.backBtn);
+		applyExplicitWaitsUntilElementVisible(findElementByText("REVIEW"));
+		scrollToEnd();
+		scrollTo2("REVIEW");
+
+		status=findElementByText("REVIEW").isDisplayed();
+
+		//status = oadt.exit_Review.isDisplayed();
+		assert1.assertTrue(status);
+		if (status) {
+			System.out.println("Scrolling Functinality works successfully ");
+			test.log(Status.INFO, "Scrolling Functinality works successfully ");
+		}
+
+
+		assert1.assertAll();
 
 	}
 
@@ -590,80 +694,11 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 
 	public void to_verify_the_close_review(String subject, String topic) throws MalformedURLException {
 
-		//		create_Assignment_Digital_Test(subject, topic);
-		//		clickOnElement(oadt.viewAssignmenBtn);
-		//
-		//		test.log(Status.INFO, "Traversing to Begin Test" );
-		//		System.out.println("Traversing to Begin Test");
-		//
-		//		clickOnElement(oadt.beginTest);
+		create_Assignment_Digital_Test(subject, topic);
+		clickOnElement(oadt.viewAssignmenBtn);
 
-		test.log(Status.INFO, "Attempting the test " );
-		System.out.println("Attempting the test");
-		oadt.flag.click();
-		applyExplicitWait(5);
-		int questions =oadt.get_Total_Number_Of_Questions_In_Oral_Test();
-		int i = 0;
-		Boolean status;
-		applyExplicitWaitsUntilElementVisible(oadt.questionView);
-		while (i < questions) {
-
-			int[] qArray = new int[questions];
-			test.log(Status.INFO, "Question " + (i + 1));
-			System.out.println("Question " + (i + 1));
-
-			if (verifySCQorMCQ().contains("mcq")) {
-				qArray[i] = 1;
-				applyExplicitWait(5);
-				actualcount++;
-				swipeUp();
-				test.log(Status.INFO, "Selecting correct answer for question " + (i + 1));
-				System.out.println("Selecting correct answer for question " + (i + 1));
-
-				selectCorrectAnswer();
-
-			} else
-				qArray[i] = 0;
-			if ((i + 1) != questions)
-				clickOnElement(oadt.next_questin_Arrow);
-			i++;
-		}
-
-		test.log(Status.INFO, "Submitting Test");
-		System.out.println("Submitting Test");
-		clickOnElement(oadt.next_questin_Arrow);
-
-		oadt.submitTest.click();
-		test.log(Status.INFO, "Submitting Test");
-		System.out.println("Submitting Test");
-
-		oadt.check_Answer.click();
-		test.log(Status.INFO, "Clicked on Check Answer");
-		System.out.println("Clicked on Check Answer");
-
-		clickOnElement(oadt.backBtn);
-		test.log(Status.INFO, "Clicked On Back to Summary");
-		System.out.println("Clicked On Back to Summary");
-
-
-
-		status = oadt.closeTest2.isDisplayed();
-		assert1.assertTrue(status);
-		if (status) {
-			System.out.println("Closed the Test using close Sign");
-			test.log(Status.INFO, "Closed the Test using close Sign");
-		}
-		assert1.assertAll();
-	}
-
-
-
-	public void to_verify_the_exit_review(String subject, String topic) throws MalformedURLException {
-		//	 	create_Assignment_Digital_Test(subject, topic);
-		//		clickOnElement(oadt.viewAssignmenBtn);
-		//
-		//		test.log(Status.INFO, "Traversing to Begin Test" );
-		//		System.out.println("Traversing to Begin Test");
+		test.log(Status.INFO, "Traversing to Begin Test" );
+		System.out.println("Traversing to Begin Test");
 
 		clickOnElement(oadt.beginTest);
 
@@ -671,10 +706,16 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 		System.out.println("Attempting the test");
 		oadt.flag.click();
 		applyExplicitWait(5);
-		int questions = oadt.get_Total_Number_Of_Questions_In_Oral_Test();
+		test.log(Status.INFO, "Set the flag for First question " );
+		System.out.println("Set the flag for First question ");
+		oadt.closePopup();
+		//applyExplicitWait(3);
+		applyExplicitWaitsUntilElementVisible(findElementByText("correct"));
+		int questions = oadt.get_Total_Number_Of_Questions_In_digital_Test();
+		System.out.println(questions);
 		int i = 0;
 		Boolean status;
-		applyExplicitWaitsUntilElementVisible(oadt.questionView);
+
 		while (i < questions) {
 
 			int[] qArray = new int[questions];
@@ -697,26 +738,102 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 				clickOnElement(oadt.next_questin_Arrow);
 			i++;
 		}
-
-		test.log(Status.INFO, "End of the Test");
-		System.out.println("End of the Test");
 		clickOnElement(oadt.next_questin_Arrow);
 
 		test.log(Status.INFO, "Submitting Test");
 		System.out.println("Submitting Test");
 		clickOnElement(oadt.submitTest);
-
+		applyExplicitWaitsUntilElementVisible(findElementByText("Check"));
 		clickOnElement(oadt.check_Answer);
-		//exit review functinality here
+		applyExplicitWait(5);
 
-		clickOnElement(oadt.exit_Review);
-		status = oadt.check_Answer.isDisplayed();
+
+		status = oadt.exit_Review.isDisplayed();
 		assert1.assertTrue(status);
 		if (status) {
-			System.out.println("User able to EXit review after click on Exit Review Button  ");
-			test.log(Status.INFO, "User able to EXit review after click on Exit Review Button  ");
+			System.out.println("User able to review the answer of the questions on the clicking of Check Answer Button ");
+			test.log(Status.INFO, "User able to review the answer of the questions on the clicking of Check Answer Button ");
 		}
+
+
 		assert1.assertAll();
+
+	}
+
+
+	public void to_verify_the_exit_review(String subject, String topic) throws MalformedURLException {
+		create_Assignment_Digital_Test(subject, topic);
+		clickOnElement(oadt.viewAssignmenBtn);
+
+		test.log(Status.INFO, "Traversing to Begin Test" );
+		System.out.println("Traversing to Begin Test");
+
+		clickOnElement(oadt.beginTest);
+
+		test.log(Status.INFO, "Attempting the test " );
+		System.out.println("Attempting the test");
+		oadt.flag.click();
+		applyExplicitWait(5);
+		test.log(Status.INFO, "Set the flag for First question " );
+		System.out.println("Set the flag for First question ");
+		oadt.closePopup();
+		//applyExplicitWait(3);
+		applyExplicitWaitsUntilElementVisible(findElementByText("correct"));
+		int questions = oadt.get_Total_Number_Of_Questions_In_digital_Test();
+		System.out.println(questions);
+		int i = 0;
+		Boolean status;
+
+		while (i < questions) {
+
+			int[] qArray = new int[questions];
+			test.log(Status.INFO, "Question " + (i + 1));
+			System.out.println("Question " + (i + 1));
+
+			if (verifySCQorMCQ().contains("mcq")) {
+				qArray[i] = 1;
+				applyExplicitWait(5);
+				actualcount++;
+				swipeUp();
+				test.log(Status.INFO, "Selecting correct answer for question " + (i + 1));
+				System.out.println("Selecting correct answer for question " + (i + 1));
+
+				selectCorrectAnswer();
+
+			} else
+				qArray[i] = 0;
+			if ((i + 1) != questions)
+				clickOnElement(oadt.next_questin_Arrow);
+			i++;
+		}
+		clickOnElement(oadt.next_questin_Arrow);
+
+		test.log(Status.INFO, "Submitting Test");
+		System.out.println("Submitting Test");
+		clickOnElement(oadt.submitTest);
+		applyExplicitWaitsUntilElementVisible(findElementByText("Check"));
+		clickOnElement(oadt.check_Answer);
+		applyExplicitWait(5);
+
+
+		status = oadt.exit_Review.isDisplayed();
+		assert1.assertTrue(status);
+		if (status) {
+			System.out.println("User able to review the answer of the questions on the clicking of Check Answer Button ");
+			test.log(Status.INFO, "User able to review the answer of the questions on the clicking of Check Answer Button ");
+		}
+
+		clickOnElement(oadt.exit_Review);
+		applyExplicitWaitsUntilElementVisible(findElementByText("Redo"));
+		status = oadt.redo_Test.isDisplayed();
+		assert1.assertTrue(status);
+		if (status) {
+			System.out.println("After clcik on exit review button  page  directed to Redo test");
+			test.log(Status.INFO, "After clcik on exit review button  page  direcedt to Redo test");
+		}
+
+		assert1.assertAll();
+
 	}
 	public void to_verify_from_review_user_should_be_able_to_redirect_the_Test_Summary_and_redo_test(String subject, String topic) throws MalformedURLException {
 		create_Assignment_Digital_Test(subject, topic);
@@ -731,10 +848,16 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 		System.out.println("Attempting the test");
 		oadt.flag.click();
 		applyExplicitWait(5);
-		int questions = oadt.get_Total_Number_Of_Questions_In_Oral_Test();
+		test.log(Status.INFO, "Set the flag for First question " );
+		System.out.println("Set the flag for First question ");
+		oadt.closePopup();
+		//applyExplicitWait(3);
+		applyExplicitWaitsUntilElementVisible(findElementByText("correct"));
+		int questions = oadt.get_Total_Number_Of_Questions_In_digital_Test();
+		System.out.println(questions);
 		int i = 0;
 		Boolean status;
-		applyExplicitWaitsUntilElementVisible(oadt.questionView);
+
 		while (i < questions) {
 
 			int[] qArray = new int[questions];
@@ -757,9 +880,6 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 				clickOnElement(oadt.next_questin_Arrow);
 			i++;
 		}
-
-		test.log(Status.INFO, "End of the Test");
-		System.out.println("End of the Test");
 		clickOnElement(oadt.next_questin_Arrow);
 
 		test.log(Status.INFO, "Submitting Test");
@@ -767,8 +887,7 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 		clickOnElement(oadt.submitTest);
 
 		clickOnElement(oadt.check_Answer);
-		//now chk exit review functinality here
-
+		applyImplicitWait(3);
 		clickOnElement(oadt.exit_Review);
 
 		status = oadt.summary_Heading.isDisplayed();
@@ -791,51 +910,60 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 
 
 
-	public void to_verify_for_the_Abondon_Test() throws MalformedURLException {
-		//		create_Assignment_Digital_Test(subject, topic);
-		//		clickOnElement(oadt.viewAssignmenBtn);
-		//
-		//		test.log(Status.INFO, "Traversing to Begin Test" );
-		//		System.out.println("Traversing to Begin Test");
-		//
-		//		clickOnElement(oadt.beginTest);
-		//
+	public void to_verify_for_the_Abondon_Test(String subject, String topic) throws MalformedURLException {
+		create_Assignment_Digital_Test(subject, topic);
+		clickOnElement(oadt.viewAssignmenBtn);
+
+		test.log(Status.INFO, "Traversing to Begin Test" );
+		System.out.println("Traversing to Begin Test");
+
+		clickOnElement(oadt.beginTest);
+
 		//		test.log(Status.INFO, "Attempting the test " );
 		//		System.out.println("Attempting the test");
+		//		oadt.flag.click();
+		//		applyExplicitWait(5);
+		//		test.log(Status.INFO, "Set the flag for First question " );
+		//		System.out.println("Set the flag for First question ");
+		//		oadt.closePopup();
+		//		//applyExplicitWait(3);
 
-		applyExplicitWait(5);
-		int questions = oadt.get_Total_Number_Of_Questions_In_Oral_Test();
-		int i = 0;
-		Boolean status;
-		applyExplicitWaitsUntilElementVisible(oadt.questionView);
-		while (i < questions) {
-
-			int[] qArray = new int[questions];
-			test.log(Status.INFO, "Question " + (i + 1));
-			System.out.println("Question " + (i + 1));
-
-			if (verifySCQorMCQ().contains("mcq")) {
-				qArray[i] = 1;
-				applyExplicitWait(5);
-				actualcount++;
-				swipeUp();
-				test.log(Status.INFO, "Selecting correct answer for question " + (i + 1));
-				System.out.println("Selecting correct answer for question " + (i + 1));
-
-				selectCorrectAnswer();
-
-			} else
-				qArray[i] = 0;
-			if ((i + 1) != questions)
-				clickOnElement(oadt.next_questin_Arrow);
-			i++;
-		}
+		applyExplicitWaitsUntilElementVisible(findElementByText("correct"));
+		int questions = oadt.get_Total_Number_Of_Questions_In_digital_Test();
+		System.out.println(questions);
+		//		int i = 0;
+		//		Boolean status;
+		//
+		//		while (i < questions) {
+		//
+		//			int[] qArray = new int[questions];
+		//			test.log(Status.INFO, "Question " + (i + 1));
+		//			System.out.println("Question " + (i + 1));
+		//
+		//			if (verifySCQorMCQ().contains("mcq")) {
+		//				qArray[i] = 1;
+		//				applyExplicitWait(5);
+		//				actualcount++;
+		//				swipeUp();
+		//				test.log(Status.INFO, "Selecting correct answer for question " + (i + 1));
+		//				System.out.println("Selecting correct answer for question " + (i + 1));
+		//
+		//				selectCorrectAnswer();
+		//
+		//			} else
+		//				qArray[i] = 0;
+		//			if ((i + 1) != questions)
+		//				clickOnElement(oadt.next_questin_Arrow);
+		//			i++;
+		//		}
+		//		//clickOnElement(oadt.next_questin_Arrow);
+		//		applyExplicitWait(3);
 
 		clickOnElement(oadt.backBtn);
 		test.log(Status.INFO, "Clicked On Back Button from the Test" );
 		System.out.println("Clicked On Back Button from the Test");
-
-		status = oadt.abandon.isDisplayed();
+		applyExplicitWait(2);
+		status = oadt.abandon_Test.isDisplayed();
 		assert1.assertTrue(status);
 		if (status) {
 			System.out.println("User is able to Abandon Test without attempting  any question or with attempting questions");
@@ -845,69 +973,49 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 	}
 
 	public void to_verify_the_message_After_abandon_the_test(String subject, String topic) throws MalformedURLException {
-		//		create_Assignment_Digital_Test(subject, topic);
-		//		clickOnElement(oadt.viewAssignmenBtn);
-		//
-		//		test.log(Status.INFO, "Traversing to Begin Test" );
-		//		System.out.println("Traversing to Begin Test");
-		//
-		//		clickOnElement(oadt.beginTest);
-		//
-		//		test.log(Status.INFO, "Attempting the test " );
-		//		System.out.println("Attempting the test");
+		create_Assignment_Digital_Test(subject, topic);
+		clickOnElement(oadt.viewAssignmenBtn);
 
+		test.log(Status.INFO, "Traversing to Begin Test" );
+		System.out.println("Traversing to Begin Test");
+
+		clickOnElement(oadt.beginTest);
+
+		test.log(Status.INFO, "Attempting the test " );
+		System.out.println("Attempting the test");
+		oadt.flag.click();
 		applyExplicitWait(5);
-		int questions =oadt.get_Total_Number_Of_Questions_In_Oral_Test();
-		int i = 0;
-		Boolean status;
-		applyExplicitWaitsUntilElementVisible(oadt.questionView);
-		while (i < questions) {
-
-			int[] qArray = new int[questions];
-			test.log(Status.INFO, "Question " + (i + 1));
-			System.out.println("Question " + (i + 1));
-
-			if (verifySCQorMCQ().contains("mcq")) {
-				qArray[i] = 1;
-				applyExplicitWait(5);
-				actualcount++;
-				swipeUp();
-				test.log(Status.INFO, "Selecting correct answer for question " + (i + 1));
-				System.out.println("Selecting correct answer for question " + (i + 1));
-
-				selectCorrectAnswer();
-
-			} else
-				qArray[i] = 0;
-			if ((i + 1) != questions)
-				clickOnElement(oadt.next_questin_Arrow);
-			i++;
-		}
+		test.log(Status.INFO, "Set the flag for First question " );
+		System.out.println("Set the flag for First question ");
+		oadt.closePopup();
+		//applyExplicitWait(3);
+		applyExplicitWaitsUntilElementVisible(findElementByText("correct"));
+		int questions = oadt.get_Total_Number_Of_Questions_In_digital_Test();
+		System.out.println(questions);
 
 		clickOnElement(oadt.backBtn);
 		test.log(Status.INFO, "Clicked On Back Button from the Test" );
 		System.out.println("Clicked On Back Button from the Test");
-
-
-		clickOnElement(oadt.abandon);
+		clickOnElement(oadt.abandon_Test);
 		test.log(Status.INFO, "Clicked for Abandon the Test" );
 		System.out.println("Clicked for Abandon the Test");
-
-
-
 		status = oadt.abandon_msg.isDisplayed();
 		assert1.assertTrue(status);
 		if (status) {
 			System.out.println("Your Progress will be lost. Are you sure want to go Away? : Message Displayed");
 			test.log(Status.INFO, "Your Progress will be lost. Are you sure want to go Away? : Message Displayed");
 		}
+		clickOnElement(oadt.abandon_Test_msg);
+
+		status = oadt.redo_Test.isDisplayed();
+		assert1.assertTrue(status);
+		if (status) {
+			System.out.println("User  able to Abandon Test without attempting  any question or with attempting questions");
+			test.log(Status.INFO, "User  able to Abandon Test without attempting  any question or with attempting questions");
+		}
 		assert1.assertAll();
 
 	}
-
-
-
-
 
 	public void to_verify_after_submitting_the_test_user_should_be_able_to_Check_Answers(String subject, String topic) throws MalformedURLException {
 		create_Assignment_Digital_Test(subject, topic);
@@ -915,16 +1023,23 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 
 		test.log(Status.INFO, "Traversing to Begin Test" );
 		System.out.println("Traversing to Begin Test");
+
 		clickOnElement(oadt.beginTest);
 
 		test.log(Status.INFO, "Attempting the test " );
 		System.out.println("Attempting the test");
 		oadt.flag.click();
 		applyExplicitWait(5);
-		int questions = oadt.get_Total_Number_Of_Questions_In_Oral_Test();
+		test.log(Status.INFO, "Set the flag for First question " );
+		System.out.println("Set the flag for First question ");
+		oadt.closePopup();
+		//applyExplicitWait(3);
+		applyExplicitWaitsUntilElementVisible(findElementByText("correct"));
+		int questions = oadt.get_Total_Number_Of_Questions_In_digital_Test();
+		System.out.println(questions);
 		int i = 0;
 		Boolean status;
-		applyExplicitWaitsUntilElementVisible(oadt.questionView);
+
 		while (i < questions) {
 
 			int[] qArray = new int[questions];
@@ -947,26 +1062,39 @@ public class Module_Assignment_Digital_Task  extends BaseClass{
 				clickOnElement(oadt.next_questin_Arrow);
 			i++;
 		}
-
-		test.log(Status.INFO, "End of the Test");
-		System.out.println("End of the Test");
 		clickOnElement(oadt.next_questin_Arrow);
 
-		test.log(Status.INFO, "Submitting Test");
-		System.out.println("Submitting Test");
 		clickOnElement(oadt.submitTest);
+		test.log(Status.INFO, "Submitted The Test");
+		System.out.println("Submitted The Test");
 
 		clickOnElement(oadt.check_Answer);
-		//applyExplicitWaitsUntilElementVisible(oadt.wrong_ans_msg);
-		status = oadt.wrong_ans_msg.isDisplayed();
+		test.log(Status.INFO, "Verifying feedback after answer selection");
+		System.out.println("Verifying feedback after answer selection");
+
+		//applyExplicitWait(3);
+		status = oadt.answer_CorrectMsg.isDisplayed();
 		assert1.assertTrue(status);
 		if (status) {
-			System.out.println("After submitting the test user is able to Check the Answers");
-			test.log(Status.INFO, "After submitting the test user is able to Check the Answers");
+			System.out.println("Shown incorrect feedback for wrong answer");
+			test.log(Status.INFO, "Shown incorrect feedback for wrong answer");
 		}
-		assert1.assertAll();
+		
+		
+		else {
 
+			status = oadt.answer_InCorrect_Msg.isDisplayed();
+			assert1.assertTrue(status);
+			if (status) {
+				System.err.println("Shown incorrect feedback for wrong answer");
+				test.log(Status.INFO, "Shown incorrect feedback for wrong answer");
+			}
+			System.err.println("User should be able to check anwers of all questions attempted with the submitted  answers");
+			test.log(Status.INFO, "User should be able to check anwers of all questions attempted with the submitted  answers");
+		}
+		assert1.assertAll();	
 	}
-
-
 }
+
+
+

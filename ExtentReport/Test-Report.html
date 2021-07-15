@@ -38,8 +38,7 @@
 		<!-- slideout menu -->
 		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
 			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
-						<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
-			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+						<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
 		</ul>
 
 		<!-- report name -->
@@ -52,7 +51,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Jul 7, 2021 09:01:30 AM</span>
+                    <span class='label suite-start-time blue darken-3'>Jul 14, 2021 05:59:24 PM</span>
 				</a>
 			</li>
 			<li>
@@ -77,7 +76,7 @@
 					<i class='material-icons'>warning</i> Status
 				</a>
 				<ul id='tests-toggle' class='dropdown-content'>
-											<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+											<li status='skip'><a href='#!'>Skip <i class='material-icons cyan-text'>redo</i></a></li>
 					<li class='divider'></li>
 					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
 				</ul>
@@ -131,7 +130,7 @@
 					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> test(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='100%'>10</span> others
 				</div>
 			</div>
 		</div>
@@ -146,7 +145,7 @@
 					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='35.294%'>6</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='64.706%'>11</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='100%'>10</span> others
 				</div>
 			</div>
 		</div>
@@ -161,17 +160,17 @@
 			<ul id='test-collection' class='test-collection'>
 				
 				
-				<li class='test displayed active  fail' status='fail' bdd='false' test-id='2'>
+				<li class='test displayed active  skip' status='skip' bdd='false' test-id='2'>
 					<div class='test-heading'>
-						<span class='test-name'>TC08_To_Verify_the_review_of_Digital_test</span>
-						<span class='test-time'>Jul 7, 2021 09:02:09 AM</span>
-						<span class='test-status right fail'>fail</span>
+						<span class='test-name'>TC09_To_verify_user_should_be_able_to_select_date_for_the_test</span>
+						<span class='test-time'>Jul 14, 2021 05:59:48 PM</span>
+						<span class='test-status right skip'>skip</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Jul 7, 2021 09:02:09 AM</span>
-	<span class='label end-time'>Jul 7, 2021 09:07:29 AM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 5m 20s+450ms</span>
+	<span class='label start-time'>Jul 14, 2021 05:59:48 PM</span>
+	<span class='label end-time'>Jul 14, 2021 05:59:48 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+2ms</span>
 </div>
 	<div class='test-steps'>
 		<table class='bordered table-results'>
@@ -183,198 +182,316 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr class='log' status='info'>
-					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>9:02:09 AM</td>
-					<td class='step-details'>On Test Start : TC08_To_Verify_the_review_of_Digital_test</td>
+				<tr class='log' status='skip'>
+					<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+					<td class='timestamp'>5:59:48 PM</td>
+					<td class='step-details'><span class='label white-text orange'>TC09_To_verify_user_should_be_able_to_select_date_for_the_test</span></td>
 				</tr>
-				<tr class='log' status='info'>
-					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>9:02:12 AM</td>
-					<td class='step-details'>Clicked Assignments</td>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  skip' status='skip' bdd='false' test-id='3'>
+					<div class='test-heading'>
+						<span class='test-name'>TC01_To_Verify_when_click_on_Syllabus_shown_all_the_Chapters_Topics_from_BrowseBook_section</span>
+						<span class='test-time'>Jul 14, 2021 05:59:48 PM</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 14, 2021 05:59:48 PM</span>
+	<span class='label end-time'>Jul 14, 2021 05:59:48 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+0ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
 				</tr>
-				<tr class='log' status='info'>
-					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>9:02:16 AM</td>
-					<td class='step-details'>Opening Geography</td>
+			</thead>
+			<tbody>
+				<tr class='log' status='skip'>
+					<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+					<td class='timestamp'>5:59:48 PM</td>
+					<td class='step-details'><span class='label white-text orange'>TC01_To_Verify_when_click_on_Syllabus_shown_all_the_Chapters_Topics_from_BrowseBook_section</span></td>
 				</tr>
-				<tr class='log' status='info'>
-					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>9:02:29 AM</td>
-					<td class='step-details'>Selecting Natural Vegetation</td>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  skip' status='skip' bdd='false' test-id='4'>
+					<div class='test-heading'>
+						<span class='test-name'>TC03_To_Verify_user_should_be_able_to_add_the_Content_even_if_striked_off</span>
+						<span class='test-time'>Jul 14, 2021 05:59:48 PM</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 14, 2021 05:59:48 PM</span>
+	<span class='label end-time'>Jul 14, 2021 05:59:48 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+0ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
 				</tr>
-				<tr class='log' status='info'>
-					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>9:02:32 AM</td>
-					<td class='step-details'>Clicking on create assignment</td>
+			</thead>
+			<tbody>
+				<tr class='log' status='skip'>
+					<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+					<td class='timestamp'>5:59:48 PM</td>
+					<td class='step-details'><span class='label white-text orange'>TC03_To_Verify_user_should_be_able_to_add_the_Content_even_if_striked_off</span></td>
 				</tr>
-				<tr class='log' status='info'>
-					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>9:02:36 AM</td>
-					<td class='step-details'>Traversing to Begin Test</td>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  skip' status='skip' bdd='false' test-id='5'>
+					<div class='test-heading'>
+						<span class='test-name'>TC04_To_Verify_On_click_one_of_the_topic_or_chapter_next_button_shown</span>
+						<span class='test-time'>Jul 14, 2021 05:59:48 PM</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 14, 2021 05:59:48 PM</span>
+	<span class='label end-time'>Jul 14, 2021 05:59:48 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+0ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
 				</tr>
-				<tr class='log' status='info'>
-					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>9:02:37 AM</td>
-					<td class='step-details'>Attempting the test</td>
+			</thead>
+			<tbody>
+				<tr class='log' status='skip'>
+					<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+					<td class='timestamp'>5:59:48 PM</td>
+					<td class='step-details'><span class='label white-text orange'>TC04_To_Verify_On_click_one_of_the_topic_or_chapter_next_button_shown</span></td>
 				</tr>
-				<tr class='log' status='info'>
-					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>9:02:43 AM</td>
-					<td class='step-details'>Question 1</td>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  skip' status='skip' bdd='false' test-id='6'>
+					<div class='test-heading'>
+						<span class='test-name'>TC05_To_Verify_click_on_delete_icon_test_creation_will_be_aborted</span>
+						<span class='test-time'>Jul 14, 2021 05:59:48 PM</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 14, 2021 05:59:48 PM</span>
+	<span class='label end-time'>Jul 14, 2021 05:59:48 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+0ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
 				</tr>
-				<tr class='log' status='info'>
-					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>9:02:49 AM</td>
-					<td class='step-details'>Selecting correct answer for question 1</td>
+			</thead>
+			<tbody>
+				<tr class='log' status='skip'>
+					<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+					<td class='timestamp'>5:59:48 PM</td>
+					<td class='step-details'><span class='label white-text orange'>TC05_To_Verify_click_on_delete_icon_test_creation_will_be_aborted</span></td>
 				</tr>
-				<tr class='log' status='fail'>
-					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
-					<td class='timestamp'>9:07:27 AM</td>
-					<td class='step-details'>On Test Failure : TC08_To_Verify_the_review_of_Digital_test</td>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  skip' status='skip' bdd='false' test-id='7'>
+					<div class='test-heading'>
+						<span class='test-name'>TC06_To_Verify_user_should_not_be_allowed_to_proceed_further_keeping_Title_field_blank</span>
+						<span class='test-time'>Jul 14, 2021 05:59:48 PM</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 14, 2021 05:59:48 PM</span>
+	<span class='label end-time'>Jul 14, 2021 05:59:48 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+1ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
 				</tr>
-				<tr class='log' status='fail'>
-					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
-					<td class='timestamp'>9:07:27 AM</td>
-					<td class='step-details'><span class='label white-text red'>TC08_To_Verify_the_review_of_Digital_test</span></td>
+			</thead>
+			<tbody>
+				<tr class='log' status='skip'>
+					<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+					<td class='timestamp'>5:59:48 PM</td>
+					<td class='step-details'><span class='label white-text orange'>TC06_To_Verify_user_should_not_be_allowed_to_proceed_further_keeping_Title_field_blank</span></td>
 				</tr>
-				<tr class='log' status='info'>
-					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>9:07:27 AM</td>
-					<td class='step-details'>Fails Test</td>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  skip' status='skip' bdd='false' test-id='8'>
+					<div class='test-heading'>
+						<span class='test-name'>TC07_To_verify_user_should_be_able_to_Choose_difficulty_level</span>
+						<span class='test-time'>Jul 14, 2021 05:59:48 PM</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 14, 2021 05:59:48 PM</span>
+	<span class='label end-time'>Jul 14, 2021 05:59:48 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+0ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
 				</tr>
-				<tr class='log' status='fail'>
-					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
-					<td class='timestamp'>9:07:27 AM</td>
-					<td class='step-details'><pre>io.appium.java_client.NoSuchContextException: An unknown server-side error occurred while processing the command. Original error: A new session could not be created. Details: session not created
-from disconnected: Unable to receive message from renderer
-  (Session info: chrome=91.0.4472.101)
-  (Driver info: chromedriver=91.0.4472.19 (1bf021f248676a0b2ab3ee0561d83a59e424c23e-refs/branch-heads/4472@{#288}),platform=Windows NT 10.0.19041 x86_64)
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-TMI6UL6', ip: '192.168.29.241', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
-Driver info: io.appium.java_client.android.AndroidDriver
-Capabilities {app: C:\Users\LENOVO\Downloads\S..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, chromeOptions: {w3c: false}, chromedriverExecutable: C:\Users\LENOVO\Downloads\c..., databaseEnabled: false, desired: {app: C:\Users\LENOVO\Downloads\S..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, chromeOptions: {w3c: false}, chromedriverExecutable: C:\Users\LENOVO\Downloads\c..., deviceName: Appium, noReset: true, platformName: android, platformVersion: 11, takesScreenshot: true}, deviceApiLevel: 30, deviceManufacturer: samsung, deviceModel: SM-M015G, deviceName: R9ZN71027SD, deviceScreenDensity: 320, deviceScreenSize: 720x1520, deviceUDID: R9ZN71027SD, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, pixelRatio: 2, platform: LINUX, platformName: Android, platformVersion: 11, statBarHeight: 59, takesScreenshot: true, viewportRect: {height: 1306, left: 0, top: 59, width: 720}, warnings: {}, webStorageEnabled: false}
-Session ID: f9b5e39d-80d1-4b5b-a056-15291a2c5e59
-	at io.appium.java_client.AppiumDriver.context(AppiumDriver.java:201)
-	at studi.co.Base.BaseClass.selectCorrectAnswer(BaseClass.java:167)
-	at studi.co.pageModules.Module_Assignment_Digital_Task.to_verify_the_review_of_digital_test(Module_Assignment_Digital_Task.java:405)
-	at studi.co.testScripts.Assignment_Digital_Task.TC08_To_Verify_the_review_of_Digital_test(Assignment_Digital_Task.java:69)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:648)
-	at org.testng.TestRunner.run(TestRunner.java:505)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-	at org.testng.TestNG.runSuites(TestNG.java:1049)
-	at org.testng.TestNG.run(TestNG.java:1017)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: A new session could not be created. Details: session not created
-from disconnected: Unable to receive message from renderer
-  (Session info: chrome=91.0.4472.101)
-  (Driver info: chromedriver=91.0.4472.19 (1bf021f248676a0b2ab3ee0561d83a59e424c23e-refs/branch-heads/4472@{#288}),platform=Windows NT 10.0.19041 x86_64)
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-TMI6UL6', ip: '192.168.29.241', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
-Driver info: io.appium.java_client.android.AndroidDriver
-Capabilities {app: C:\Users\LENOVO\Downloads\S..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, chromeOptions: {w3c: false}, chromedriverExecutable: C:\Users\LENOVO\Downloads\c..., databaseEnabled: false, desired: {app: C:\Users\LENOVO\Downloads\S..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, chromeOptions: {w3c: false}, chromedriverExecutable: C:\Users\LENOVO\Downloads\c..., deviceName: Appium, noReset: true, platformName: android, platformVersion: 11, takesScreenshot: true}, deviceApiLevel: 30, deviceManufacturer: samsung, deviceModel: SM-M015G, deviceName: R9ZN71027SD, deviceScreenDensity: 320, deviceScreenSize: 720x1520, deviceUDID: R9ZN71027SD, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, pixelRatio: 2, platform: LINUX, platformName: Android, platformVersion: 11, statBarHeight: 59, takesScreenshot: true, viewportRect: {height: 1306, left: 0, top: 59, width: 720}, warnings: {}, webStorageEnabled: false}
-Session ID: f9b5e39d-80d1-4b5b-a056-15291a2c5e59
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:64)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
-	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
-	at io.appium.java_client.AppiumDriver.context(AppiumDriver.java:198)
-	... 28 more
-</pre></td>
+			</thead>
+			<tbody>
+				<tr class='log' status='skip'>
+					<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+					<td class='timestamp'>5:59:48 PM</td>
+					<td class='step-details'><span class='label white-text orange'>TC07_To_verify_user_should_be_able_to_Choose_difficulty_level</span></td>
 				</tr>
-				<tr class='log' status='fail'>
-					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
-					<td class='timestamp'>9:07:29 AM</td>
-					<td class='step-details'>On Test Failure : TC08_To_Verify_the_review_of_Digital_test</td>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  skip' status='skip' bdd='false' test-id='9'>
+					<div class='test-heading'>
+						<span class='test-name'>TC08_To_verify_user_should_be_able_to_select_Duration</span>
+						<span class='test-time'>Jul 14, 2021 05:59:48 PM</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 14, 2021 05:59:48 PM</span>
+	<span class='label end-time'>Jul 14, 2021 05:59:48 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+0ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
 				</tr>
-				<tr class='log' status='fail'>
-					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
-					<td class='timestamp'>9:07:29 AM</td>
-					<td class='step-details'><span class='label white-text red'>TC08_To_Verify_the_review_of_Digital_test</span></td>
+			</thead>
+			<tbody>
+				<tr class='log' status='skip'>
+					<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+					<td class='timestamp'>5:59:48 PM</td>
+					<td class='step-details'><span class='label white-text orange'>TC08_To_verify_user_should_be_able_to_select_Duration</span></td>
 				</tr>
-				<tr class='log' status='info'>
-					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>9:07:29 AM</td>
-					<td class='step-details'>Fails Test</td>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  skip' status='skip' bdd='false' test-id='10'>
+					<div class='test-heading'>
+						<span class='test-name'>TC10_To_verify_click_on_preview_the_details_of_the_test_will_be_shown</span>
+						<span class='test-time'>Jul 14, 2021 05:59:48 PM</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 14, 2021 05:59:48 PM</span>
+	<span class='label end-time'>Jul 14, 2021 05:59:48 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+0ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
 				</tr>
-				<tr class='log' status='fail'>
-					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
-					<td class='timestamp'>9:07:29 AM</td>
-					<td class='step-details'><pre>org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: Could not proxy command to the remote server. Original error: connect ECONNREFUSED 127.0.0.1:8200
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-TMI6UL6', ip: '192.168.29.241', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
-Driver info: io.appium.java_client.android.AndroidDriver
-Capabilities {app: C:\Users\LENOVO\Downloads\S..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, chromeOptions: {w3c: false}, chromedriverExecutable: C:\Users\LENOVO\Downloads\c..., databaseEnabled: false, desired: {app: C:\Users\LENOVO\Downloads\S..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, chromeOptions: {w3c: false}, chromedriverExecutable: C:\Users\LENOVO\Downloads\c..., deviceName: Appium, noReset: true, platformName: android, platformVersion: 11, takesScreenshot: true}, deviceApiLevel: 30, deviceManufacturer: samsung, deviceModel: SM-M015G, deviceName: R9ZN71027SD, deviceScreenDensity: 320, deviceScreenSize: 720x1520, deviceUDID: R9ZN71027SD, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, pixelRatio: 2, platform: LINUX, platformName: Android, platformVersion: 11, statBarHeight: 59, takesScreenshot: true, viewportRect: {height: 1306, left: 0, top: 59, width: 720}, warnings: {}, webStorageEnabled: false}
-Session ID: f9b5e39d-80d1-4b5b-a056-15291a2c5e59
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:64)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:46)
-	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:295)
-	at studi.co.Base.TestListener.screenshotforExtentReport(TestListener.java:126)
-	at studi.co.Base.TestListener.onTestFailure(TestListener.java:65)
-	at org.testng.internal.TestListenerHelper.runTestListeners(TestListenerHelper.java:67)
-	at org.testng.internal.Invoker.runTestListeners(Invoker.java:1389)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:636)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:648)
-	at org.testng.TestRunner.run(TestRunner.java:505)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-	at org.testng.TestNG.runSuites(TestNG.java:1049)
-	at org.testng.TestNG.run(TestNG.java:1017)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></td>
+			</thead>
+			<tbody>
+				<tr class='log' status='skip'>
+					<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+					<td class='timestamp'>5:59:48 PM</td>
+					<td class='step-details'><span class='label white-text orange'>TC10_To_verify_click_on_preview_the_details_of_the_test_will_be_shown</span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  skip' status='skip' bdd='false' test-id='11'>
+					<div class='test-heading'>
+						<span class='test-name'>TC11_To_verify_test_should_be_created_on_clicking_the_Assign_button</span>
+						<span class='test-time'>Jul 14, 2021 05:59:48 PM</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jul 14, 2021 05:59:48 PM</span>
+	<span class='label end-time'>Jul 14, 2021 05:59:48 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+0ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='skip'>
+					<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+					<td class='timestamp'>5:59:48 PM</td>
+					<td class='step-details'><span class='label white-text orange'>TC11_To_verify_test_should_be_created_on_clicking_the_Assign_button</span></td>
 				</tr>
 			</tbody>
 		</table>
@@ -407,201 +524,6 @@ Session ID: f9b5e39d-80d1-4b5b-a056-15291a2c5e59
 </div>
 <!-- test view -->
 <!-- category view -->
-<div id='exception-view' class='view hide'>
-
-    <section id='controls'>
-        <div class='controls grey lighten-4'>
-            <!-- search -->
-            <div class='chip transparent' alt='Search Tests' title='Search Tests'>
-                <a href="#" class='search-div'>
-                    <i class='material-icons'>search</i> Search
-                </a>
-
-                <div class='input-field left hide'>
-                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
-                </div>
-
-            </div>
-            <!-- search -->
-        </div>
-    </section>
-
-    <div class='subview-left left'>
-
-        <div class='view-summary'>
-            <h5>Exceptions</h3>
-                <ul id='exception-collection' class='exception-collection'>
-
-                        <li class='exception displayed active'>
-                            <div class='exception-heading'>
-                                <span class='exception-name'>io.appium.java_client.NoSuchContextException</span>
-                                <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
-                            </div>
-                            <div class='exception-content hide'>
-                                <div class='exception-tests'>
-                                    <table class='bordered table-results'>
-                                        <thead>
-                                        <tr>
-                                            <th>Timestamp</th>
-                                            <th>TestName</th>
-                                            <th>Status</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                                    <tr>
-                                                        <td>Jul 7, 2021 09:02:09 AM</td>
-                                                        <td class='linked' test-id='2'>TC08_To_Verify_the_review_of_Digital_test</td>
-                                                        <td><pre><pre>io.appium.java_client.NoSuchContextException: An unknown server-side error occurred while processing the command. Original error: A new session could not be created. Details: session not created
-from disconnected: Unable to receive message from renderer
-  (Session info: chrome=91.0.4472.101)
-  (Driver info: chromedriver=91.0.4472.19 (1bf021f248676a0b2ab3ee0561d83a59e424c23e-refs/branch-heads/4472@{#288}),platform=Windows NT 10.0.19041 x86_64)
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-TMI6UL6', ip: '192.168.29.241', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
-Driver info: io.appium.java_client.android.AndroidDriver
-Capabilities {app: C:\Users\LENOVO\Downloads\S..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, chromeOptions: {w3c: false}, chromedriverExecutable: C:\Users\LENOVO\Downloads\c..., databaseEnabled: false, desired: {app: C:\Users\LENOVO\Downloads\S..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, chromeOptions: {w3c: false}, chromedriverExecutable: C:\Users\LENOVO\Downloads\c..., deviceName: Appium, noReset: true, platformName: android, platformVersion: 11, takesScreenshot: true}, deviceApiLevel: 30, deviceManufacturer: samsung, deviceModel: SM-M015G, deviceName: R9ZN71027SD, deviceScreenDensity: 320, deviceScreenSize: 720x1520, deviceUDID: R9ZN71027SD, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, pixelRatio: 2, platform: LINUX, platformName: Android, platformVersion: 11, statBarHeight: 59, takesScreenshot: true, viewportRect: {height: 1306, left: 0, top: 59, width: 720}, warnings: {}, webStorageEnabled: false}
-Session ID: f9b5e39d-80d1-4b5b-a056-15291a2c5e59
-	at io.appium.java_client.AppiumDriver.context(AppiumDriver.java:201)
-	at studi.co.Base.BaseClass.selectCorrectAnswer(BaseClass.java:167)
-	at studi.co.pageModules.Module_Assignment_Digital_Task.to_verify_the_review_of_digital_test(Module_Assignment_Digital_Task.java:405)
-	at studi.co.testScripts.Assignment_Digital_Task.TC08_To_Verify_the_review_of_Digital_test(Assignment_Digital_Task.java:69)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:648)
-	at org.testng.TestRunner.run(TestRunner.java:505)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-	at org.testng.TestNG.runSuites(TestNG.java:1049)
-	at org.testng.TestNG.run(TestNG.java:1017)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: A new session could not be created. Details: session not created
-from disconnected: Unable to receive message from renderer
-  (Session info: chrome=91.0.4472.101)
-  (Driver info: chromedriver=91.0.4472.19 (1bf021f248676a0b2ab3ee0561d83a59e424c23e-refs/branch-heads/4472@{#288}),platform=Windows NT 10.0.19041 x86_64)
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-TMI6UL6', ip: '192.168.29.241', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
-Driver info: io.appium.java_client.android.AndroidDriver
-Capabilities {app: C:\Users\LENOVO\Downloads\S..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, chromeOptions: {w3c: false}, chromedriverExecutable: C:\Users\LENOVO\Downloads\c..., databaseEnabled: false, desired: {app: C:\Users\LENOVO\Downloads\S..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, chromeOptions: {w3c: false}, chromedriverExecutable: C:\Users\LENOVO\Downloads\c..., deviceName: Appium, noReset: true, platformName: android, platformVersion: 11, takesScreenshot: true}, deviceApiLevel: 30, deviceManufacturer: samsung, deviceModel: SM-M015G, deviceName: R9ZN71027SD, deviceScreenDensity: 320, deviceScreenSize: 720x1520, deviceUDID: R9ZN71027SD, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, pixelRatio: 2, platform: LINUX, platformName: Android, platformVersion: 11, statBarHeight: 59, takesScreenshot: true, viewportRect: {height: 1306, left: 0, top: 59, width: 720}, warnings: {}, webStorageEnabled: false}
-Session ID: f9b5e39d-80d1-4b5b-a056-15291a2c5e59
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:64)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
-	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
-	at io.appium.java_client.AppiumDriver.context(AppiumDriver.java:198)
-	... 28 more
-</pre></pre></td>
-                                                    </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </li>
-                        <li class='exception displayed active'>
-                            <div class='exception-heading'>
-                                <span class='exception-name'>org.openqa.selenium.WebDriverException</span>
-                                <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
-                            </div>
-                            <div class='exception-content hide'>
-                                <div class='exception-tests'>
-                                    <table class='bordered table-results'>
-                                        <thead>
-                                        <tr>
-                                            <th>Timestamp</th>
-                                            <th>TestName</th>
-                                            <th>Status</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                                    <tr>
-                                                        <td>Jul 7, 2021 09:02:09 AM</td>
-                                                        <td class='linked' test-id='2'>TC08_To_Verify_the_review_of_Digital_test</td>
-                                                        <td><pre><pre>org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: Could not proxy command to the remote server. Original error: connect ECONNREFUSED 127.0.0.1:8200
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-TMI6UL6', ip: '192.168.29.241', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
-Driver info: io.appium.java_client.android.AndroidDriver
-Capabilities {app: C:\Users\LENOVO\Downloads\S..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, chromeOptions: {w3c: false}, chromedriverExecutable: C:\Users\LENOVO\Downloads\c..., databaseEnabled: false, desired: {app: C:\Users\LENOVO\Downloads\S..., appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, chromeOptions: {w3c: false}, chromedriverExecutable: C:\Users\LENOVO\Downloads\c..., deviceName: Appium, noReset: true, platformName: android, platformVersion: 11, takesScreenshot: true}, deviceApiLevel: 30, deviceManufacturer: samsung, deviceModel: SM-M015G, deviceName: R9ZN71027SD, deviceScreenDensity: 320, deviceScreenSize: 720x1520, deviceUDID: R9ZN71027SD, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, pixelRatio: 2, platform: LINUX, platformName: Android, platformVersion: 11, statBarHeight: 59, takesScreenshot: true, viewportRect: {height: 1306, left: 0, top: 59, width: 720}, warnings: {}, webStorageEnabled: false}
-Session ID: f9b5e39d-80d1-4b5b-a056-15291a2c5e59
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:64)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:46)
-	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:295)
-	at studi.co.Base.TestListener.screenshotforExtentReport(TestListener.java:126)
-	at studi.co.Base.TestListener.onTestFailure(TestListener.java:65)
-	at org.testng.internal.TestListenerHelper.runTestListeners(TestListenerHelper.java:67)
-	at org.testng.internal.Invoker.runTestListeners(Invoker.java:1389)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:636)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:648)
-	at org.testng.TestRunner.run(TestRunner.java:505)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-	at org.testng.TestNG.runSuites(TestNG.java:1049)
-	at org.testng.TestNG.run(TestNG.java:1017)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></pre></td>
-                                                    </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </li>
-                </ul>
-        </div>
-    </div>
-
-    <div class='subview-right left'>
-        <div class='view-summary'>
-            <h5 class='exception-name'></h5>
-        </div>
-    </div>
-</div>
 <!-- exception view -->
 <div id='dashboard-view' class='view hide'>
 	<div class='card-panel transparent np-v'>
@@ -611,31 +533,31 @@ Session ID: f9b5e39d-80d1-4b5b-a056-15291a2c5e59
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Tests
-					<div class='panel-lead'>1</div>
+					<div class='panel-lead'>10</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>17</div>
+					<div class='panel-lead'>10</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Jul 7, 2021 09:01:30 AM</div>
+					<div class='panel-lead'>Jul 14, 2021 05:59:24 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Jul 7, 2021 09:07:34 AM</div>
+			 		<div class='panel-lead'>Jul 14, 2021 05:59:48 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>0h 6m 3s+925ms</div>
+					<div class='panel-lead'>0h 0m 24s+360ms</div>
 				</div>
 			</div>
 			<div class='col s4'>
@@ -665,21 +587,21 @@ Session ID: f9b5e39d-80d1-4b5b-a056-15291a2c5e59
 		<script>
 			var statusGroup = {
 				passParent: 0,
-				failParent: 1,
+				failParent: 0,
 				fatalParent: 0,
 				errorParent: 0,
 				warningParent: 0,
-				skipParent: 0,
-				exceptionsParent: 1,
+				skipParent: 10,
+				exceptionsParent: 10,
 				
 				passChild: 0,
-				failChild: 6,
+				failChild: 0,
 				fatalChild: 0,
 				errorChild: 0,
 				warningChild: 0,
-				skipChild: 0,
-				infoChild: 11,
-				exceptionsChild: 6,
+				skipChild: 10,
+				infoChild: 0,
+				exceptionsChild: 10,
 				
 				passGrandChild: 0,
 				failGrandChild: 0,

@@ -1388,12 +1388,6 @@ public class Module_ReviewPlan extends BaseClass{
 			MobileElement date1 = getDriver().findElement(By.xpath("//*[contains(@text, '" + date2 + ", 2021')]"));
 			date1.click();
 		}
-
-		//		for (int i = 0; i <2; i++) {
-		//			applyExplicitWait(5);
-		//			orp.backMonthButton.click();
-		//		}
-		//		orp.date1.click();
 		clickOnElement(findElementByText("Next Step"));
 		applyExplicitWait(5);
 		clickOnElement(findElementByText("Activate Plan"));
