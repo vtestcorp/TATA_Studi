@@ -73,7 +73,7 @@ public class EmailableReportListener implements ISuiteListener {
 
 	@Override
 	public void onStart(ISuite suite) {
-		file = new File(new File(suite.getOutputDirectory()).getParent(), REPORT_NAME);
+		file = new File(System.getProperty("user.dir")+"//ExtentReport//"+REPORT_NAME);
 		System.err.println("Listener start");
 	}
 	// ***********************************
