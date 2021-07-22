@@ -46,7 +46,7 @@ public class AFS_UserStory_65 extends BaseClass {
 
 	}
 
-	@Test(enabled = true,priority=-1)
+	@Test(enabled = true)
 	public void T04_To_Verify_User_Can_Attempt_Practise_Quetions() throws Exception {
 		Module_Verify_Syllabus_Section test = new Module_Verify_Syllabus_Section();
 		test.verify_User_Can_attempt_PractiseQuetions();

@@ -319,8 +319,9 @@ public class BaseClass {
 			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11");
 			caps.setCapability("appPackage", "com.tce.studi");
 			caps.setCapability("appActivity", "com.tce.view.ui.activities.SplashScreenActivity");
-			caps.setCapability("app", "C:\\Users\\LENOVO\\Downloads\\Studi_v1.1.9(6).apk");
-			caps.setCapability("chromedriverExecutable", "C:\\Users\\LENOVO\\Downloads\\chromedriver_win32_91\\chromedriver.exe");
+			caps.setCapability("app", "C:\\Users\\LENOVO\\Downloads\\Studi_v1.2.0(6).apk");
+			//caps.setCapability("chromedriverExecutable", "C:\\Users\\LENOVO\\Downloads\\chromedriver_win32_91\\chromedriver.exe");
+			//caps.setCapability("chromedriverExecutable", "C:\\Users\\LENOVO\\Downloads\\chromedriver_win32_92\\chromedriver.exe");
 			caps.setCapability("appium:chromeOptions", ImmutableMap.of("w3c", false));
 			caps.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, "true");
 			caps.setCapability(MobileCapabilityType.NO_RESET, true);
@@ -356,13 +357,14 @@ public class BaseClass {
 			caps = new DesiredCapabilities();
 			caps.setCapability("browserstack.user", "imran_O3Z2m1");
 			caps.setCapability("browserstack.key", "deH6qfn4rkytKBtiXAmF");
-			//caps.setCapability("app", "bs://60bf76a1e2d0a0bb6a43dcfc2262573d81f3932c");
-			caps.setCapability("app", "bs://45d22759c08eed2904e93fd3fe4d252dc87c7a18");
-
+			//caps.setCapability("app", "bs://656e3ca14750b2a060396a23b938db4288f1f854"); 
+			//caps.setCapability("app", "bs://45d22759c08eed2904e93fd3fe4d252dc87c7a18");
+			caps.setCapability("app", "bs://aacc82726ebee97794a2bb343a0b1ab05c1c5b96");
 			caps.setCapability("device", "OnePlus 8");
 			caps.setCapability("os_version", "10.0");
 
-			caps.setCapability("chromedriverExecutable", "C:\\Users\\LENOVO\\Downloads\\chromedriver_win32_91\\chromedriver.exe");
+			caps.setCapability("chromedriverExecutable", System.getProperty("user.dir")+"\\chromedriver.exe");
+			//caps.setCapability("chromedriverExecutable", "C:\\Users\\LENOVO\\Downloads\\chromedriver_win32_91\\chromedriver.exe");
 
 			//			caps.setCapability("device","Xiaomi Redmi Note 8");
 			//			caps.setCapability("os_version","9");
@@ -393,7 +395,7 @@ public class BaseClass {
 			caps.setCapability("browserstack.user", "vtestsoftware_kQGEst");
 			caps.setCapability("browserstack.key", "BwjqEyXMTkp5kHjioqzp");
 			//caps.setCapability("app", "bs://06a1b6b1f5d95c2364a170e262d595fc872f419b");
-			caps.setCapability("app", "bs://203c5e3b15c60f974d55710abce3b9540a3453bb");
+			caps.setCapability("app", "bs://a5d3a635c28a7c33f7d066490e571b94ba6a6ab4");
 
 			caps.setCapability("device", "iPad 5th");
 			caps.setCapability("os_version", "11");

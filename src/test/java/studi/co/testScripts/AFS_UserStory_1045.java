@@ -54,7 +54,7 @@ public class AFS_UserStory_1045 extends BaseClass{
 		mmp.toVerify_UserCanNavigate_BackTo_TheLandingPage();
 	}
 
-@Test(enabled=true)     
+	@Test(enabled=true)     
 	public void	T04_To_Verify_StudyRing_In_Default_State_For_New_StudyPlan() throws Exception{
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_StudyRing_For_NewStudyPlan();
@@ -213,33 +213,30 @@ public class AFS_UserStory_1045 extends BaseClass{
 		mmp.toVerify_Filter_Icon_On_Schedule_List_Should_Be_Tappable();
 	}
 
-	@Test(enabled=true,priority=-2)
+	@Test(enabled=true)
 	public void T34_To_Verify_Various_Filter_Options_On_Schedule_List() throws Exception {
 
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_Various_Filter_Options();
 	}
 
-	@Test(enabled=true,priority=-1)
+	@Test(enabled=true)
 	public void T35_To_Verify_Various_Filter_Options_On_Schedule_List_Should_Be_Functional() throws Exception {
 
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_Various_Filter_Options_On_Schedule_List_Should_Be_Functional();
 	}
-
 	@Test(enabled=true) 
 	public void T36_To_Verify_Various_Filter_Options_On_Schedule_List_Should_Be_Functional_For_All_The_Weeks() throws Exception {
 
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_Various_Filter_Options_On_Schedule_List_Should_Be_Functional_For_All_The_Weeks();
 	}
-
 	@Test(enabled=true)
 	public void T37_To_Verify_Various_Manage_And_Create_Plan() throws Exception {
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_Manage_And_Create_Plan();
 	}
-
 	@Test(enabled=true)
 	public void T38_To_Verify_Various_Manage_And_Create_Plan_Is_Tappable() throws Exception {
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();

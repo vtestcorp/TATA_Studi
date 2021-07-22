@@ -11,11 +11,6 @@ import studi.co.pageModules.Module_Login;
 
 public class Assignment_Listing extends BaseClass {
 
-	//Total=19
-	//Pending=5 search,filter,View All and Validation for StrikeThrough
-	//pass=12 ,fail=2
-
-
 	public Assignment_Listing() {
 		super();
 
@@ -31,7 +26,6 @@ public class Assignment_Listing extends BaseClass {
 			throws MalformedURLException, InterruptedException {
 		Module_Assignment_Listing as = new Module_Assignment_Listing();
 		as.toVerify_User_Should_Be_Able_To_See_Listing_Of_Today_Upcoming_Completed_Assignments();
-
 	}
 
 	@Test(enabled= true)//passed
@@ -41,14 +35,14 @@ public class Assignment_Listing extends BaseClass {
 		as.Verify_User_Able__to_Create_test_for_Students_Using_intent_creation_module();
 
 	}
-	@Test(enabled =false)//passed
+	@Test(enabled =true)//passed
 	public void TC03_To_verify_items_of_today_Upcoming_shown_prominently_on_the_listing_page()
 			throws MalformedURLException, InterruptedException {
 		Module_Assignment_Listing as = new Module_Assignment_Listing();
 		as.toVerify_User_Should_Be_Able_To_See_Listing_Of_Today_Upcoming_Completed_Assignments();
 
 	}
-	@Test(enabled= true)//passed
+	@Test(enabled= true,priority=-3)//passed
 	public void TC04_To_verify_Newly_Created_Assignments_In_Todays_Task_Are_Shown_With_New_Icon()
 			throws MalformedURLException, InterruptedException {
 
@@ -56,28 +50,25 @@ public class Assignment_Listing extends BaseClass {
 		as.toverify_newly_created_assignments_in_today_tasks_are_shown_with_new_icon(prop.getProperty("subject77"),prop.getProperty("topicmaths"));
 	}
 
-	@Test(enabled= true)//isdisplayed
-	public void TC05_To_Verify_New_Created_Tasks_Icon_Once_User_Exits_The_Current_Screen_And_Comes_Back_New_will_not_be_shown()
-			throws MalformedURLException, InterruptedException {
-
+	@Test(enabled= false)//isdisplayed need help to update
+	public void TC05_To_Verify_New_Created_Tasks_Icon_Once_User_Exits_The_Current_Screen_And_Comes_Back_New_will_not_be_shown()throws MalformedURLException, InterruptedException {
 		Module_Assignment_Listing as = new Module_Assignment_Listing();
 		as.to_verify_new_created_tasks_icon_once_user_exits_the_current_screen_and_comes_back_New_will_not_be_shown(prop.getProperty("subject77"),prop.getProperty("topicmaths"));
 	}
-	@Test(enabled= true)//pass
-	public void TC06_To_Verify_All_Assignments_are_Represents_With_Due_Date_of_That_Assignment()
-			throws MalformedURLException, InterruptedException {
+	@Test(enabled= true)//update
+	public void TC06_To_Verify_All_Assignments_are_Represents_With_Due_Date_of_That_Assignment()throws MalformedURLException, InterruptedException {
 
 		Module_Assignment_Listing as = new Module_Assignment_Listing();
 		as.to_verify_all_assignmenta_are_represents_with_due_date_of_that_assignment();
 	}
 
-	@Test(enabled = false)//passed
+	@Test(enabled = true)//passed
 	public void TC07_To_Verify_If_User_Does_Not_Complete_The_Assignment_On_Certain_Due_Date_Count_Of_Extra_Days_Will_Be_Shown_Above_The_Date()
 			throws MalformedURLException, InterruptedException {
 		Module_Assignment_Listing as = new Module_Assignment_Listing();
 		as.to_verify_extra_days_are_shown_on_certain_assigments_when_user_not_completed_within_stipulate_time();
 	}
-	@Test(enabled =false) //can attach only img now..Doubt
+	@Test(enabled =true) //pass
 	public void TC08_attachment_icon_will_be_shown_in_case_there_any_attachment_assignment()
 			throws MalformedURLException, InterruptedException {
 		Module_Assignment_Listing as = new Module_Assignment_Listing();
@@ -103,7 +94,7 @@ public class Assignment_Listing extends BaseClass {
 		as.to_verify_once_the_assignment_is_created_alert_notification_of_Success_message(prop.getProperty("subject"),prop.getProperty("topic"));
 	}
 
-	@Test(enabled= true,priority=-1)//passed
+	@Test(enabled= true)//passed
 	public void TC14_To_Verify_when_User_clicks_on_View_completed_link_all_completed_assignments_shown_to_user()
 			throws MalformedURLException, InterruptedException {
 		Module_Assignment_Listing as = new Module_Assignment_Listing();
@@ -129,18 +120,14 @@ public class Assignment_Listing extends BaseClass {
 		Module_Assignment_Listing as = new Module_Assignment_Listing();
 		as.to_verify_the_search_functionality();
 	}
-	@Test(enabled = false)// Future View All button is not there
-	public void TC18_To_Verify_click_on_view_all_button_all_the_upcoming_tasks_will_be_expanded() throws MalformedURLException, InterruptedException {
-		Module_Assignment_Listing as = new Module_Assignment_Listing();
-		as.To_Verify_click_on_view_all_button_all_the_upcoming_tasks_will_be_expanded();
-	}
 
-	@Test(enabled = false)//TC22 :W due resource number
+	@Test(enabled = true)//pass -TC22 -21 are same 
 	public void TC21_To_Verify_Total_Due_Resources_shown_to_user_In_each_section()
 			throws MalformedURLException, InterruptedException {
 		Module_Assignment_Listing as = new Module_Assignment_Listing();
 		as.to_verify_total_due_resources_shown_to_user_In_each_section();
 	}
+
 
 	@Test(enabled= true)//pass
 	public void TC23_To_Verify_On_Completed_Assignment_List_actul_Task_Complete_Date_is_Shown()

@@ -40,21 +40,24 @@ public class Module_Syllabus_Intent_Creation extends BaseClass{
 
 		for (MobileElement chapter : list_chapters) {
 			assert1.assertTrue(chapter.isDisplayed());
+			applyExplicitWait(2);
 			test.log(Status.INFO, chapter.getText());
+			applyExplicitWait(2);
 			System.out.println(chapter.getText());
 		}
-		applyExplicitWait(3);
-
-		scrollTo2(topic_1);
-		clickOnElement(findElementByText(topic_1));
-
+		scrollTo2("Geography");
+		clickOnElement(findElementByText("8. India: Climate, Vegetation, Wildlife"));
+		applyExplicitWait(3);	
 		System.out.println("Topics are available as follows");
 		test.log(Status.INFO, "Topics displayed are as follows :");
+
 		List<MobileElement> list_topics = getDriver().findElementsById("com.tce.studi:id/tvTopic");
 
 		for (MobileElement topic : list_topics) {
 			assert1.assertTrue(topic.isDisplayed());
+			applyExplicitWait(2);
 			test.log(Status.INFO, topic.getText());
+			applyExplicitWait(2);
 			System.out.println(topic.getText());
 		}
 		System.out.println("shown the all the Chapters and Topics from BrowseBook section");
@@ -140,17 +143,10 @@ public class Module_Syllabus_Intent_Creation extends BaseClass{
 			test.log(Status.INFO, "Title field is displayed on Assign a Digital Test");
 		}
 		assert1.assertTrue(status);
-		osic.title.clear();
-		osic.title.sendKeys("Testing Title field");
-		if (osic.title.getAttribute("")=="Testing Title field")
-		{
-			System.out.println("User able to Edit Title field");
-			test.log(Status.INFO, "User able to Edit Title field");
-		}
-
 		//preview Button
 
-		clickOnElement(findElementByText("Assign"));
+		//clickOnElement(findElementByText("Assign"));
+		clickOnElement(osic.assign_Final);
 
 
 		status =osic.notification.isDisplayed();
@@ -273,6 +269,8 @@ public class Module_Syllabus_Intent_Creation extends BaseClass{
 			test.log(Status.INFO, "Next button is available after selecting the topic");
 		}
 		assert1.assertTrue(status);
+		clickOnElement(findElementByText("Next"));
+	
 
 		status =osic.enter_test_details.isDisplayed();
 		if (status) {
@@ -340,7 +338,7 @@ public class Module_Syllabus_Intent_Creation extends BaseClass{
 		assert1.assertTrue(status);
 		clickOnElement(osic.please_Discard);
 
-		status =osic.assign_heading_OnBookShelf.isDisplayed();
+		status =osic.syllabus_AllSub.isDisplayed();
 		if (status) {
 			System.out.println("User navigated back to book shelf listing and digital test creation got aborted ");
 			test.log(Status.INFO, "User navigated back to book shelf listing and digital test creation got aborted ");
@@ -506,29 +504,24 @@ public class Module_Syllabus_Intent_Creation extends BaseClass{
 			System.out.println("Opening " + subject_History);
 			applyExplicitWaitsUntilElementClickable(findElementByText(subject_History));
 			clickOnElement(findElementByText(subject_History));
-
 			scrollTo1(topic_H);
 			test.log(Status.INFO, "Selecting " + topic_H);
 			System.out.println("Selecting " + topic_H);
 			applyExplicitWaitsUntilElementClickable(findElementByText(topic_H));
 			clickOnElement(findElementByText(topic_H));
 			clickOnElement(osic.next); //for blank title field need value
-
 			status =osic.title.isDisplayed();
 			if (status) {
 				System.out.println("Title is displyed on Test Details page");
 				test.log(Status.INFO, "Title is displyed on Test Details page");
 			}
 			assert1.assertTrue(status);
-
-
 			status =osic.duration.isDisplayed();
 			if (status) {
 				System.out.println("Tentative Duration is displayed -->");
 				test.log(Status.INFO, "Tentative Duration is displayed -->");
 			}
 			assert1.assertTrue(status);
-
 			tapOnElement(osic.five);
 			status = Boolean.parseBoolean(osic.five.getAttribute("clickable"));
 			if (status) {
@@ -554,95 +547,91 @@ public class Module_Syllabus_Intent_Creation extends BaseClass{
 				System.out.println("User able to set 30 Minutes of Duration");
 			}
 			assert1.assertAll();
-
-
 		}
 
 	}
 
-	//	public void to_verify_user_should_be_able_to_select_date_for_the_test(String subject_History, String topic_H,int day) throws MalformedURLException, InterruptedException {
-	//
-	//		clickOnElement(findElementByText("Syllabus"));
-	//		applyExplicitWait(2);
-	//		clickOnElement(osic.add_assignment);
-	//		test.log(Status.INFO, "Clicked on Add symbol to Open Assign-> Digital Test");
-	//		System.out.println("Clicked on Add symbol to Open Assign-> Digital Test");
-	//
-	//		status =osic.assign_Heading.isDisplayed();
-	//		if (status) {
-	//			System.out.println("Assign heading Shown on the page with Digital Test");
-	//			test.log(Status.INFO, "Assign heading Shown on the page with Digital Test");
-	//		}
-	//		assert1.assertTrue(status);
-	//
-	//		clickOnElement(findElementByText("Digital Test"));
-	//
-	//		System.out.println("Digital Test is clickable and Functional");
-	//		test.log(Status.INFO, "Digital Test is clickable and Functional");
-	//
-	//
-	//		status =osic.assign_heading_OnBookShelf.isDisplayed();
-	//		if (status) {
-	//			System.out.println("Assign a digital test heading Shown with Book shelves");
-	//			test.log(Status.INFO, "Assign a digital test heading Shown with Book shelves");
-	//		}
-	//		assert1.assertTrue(status);
-	//
-	//		System.out.println("Selecting the Striked topic from Subject");
-	//		test.log(Status.INFO, "Selecting the topic from Subject");
-	//		scrollTo1(subject_History);
-	//		test.log(Status.INFO, "Opening " + subject_History);
-	//		System.out.println("Opening " + subject_History);
-	//		applyExplicitWaitsUntilElementClickable(findElementByText(subject_History));
-	//		clickOnElement(findElementByText(subject_History));
-	//
-	//		scrollTo1(topic_H);
-	//		test.log(Status.INFO, "Selecting " + topic_H);
-	//		System.out.println("Selecting " + topic_H);
-	//		applyExplicitWaitsUntilElementClickable(findElementByText(topic_H));
-	//		clickOnElement(findElementByText(topic_H));
-	//		clickOnElement(osic.next); //for blank title field need value
-	//
-	//		status =osic.title.isDisplayed();
-	//		if (status) {
-	//			System.out.println("Title is displyed on Test Details page");
-	//			test.log(Status.INFO, "Title is displyed on Test Details page");
-	//		}
-	//		assert1.assertTrue(status);
-	//
-	//		String date=osic.select_Date.getText();
-	//		System.out.println(date);
-	//		String[] s = date.split(", ");
-	//		String[] s1 = s[1].split(" ");
-	//		String actualDate = s1[1].trim();
-	//		System.out.println(actualDate);
-	//		int i = Integer.parseInt(actualDate);
-	//		int date2=i+;
-	//
-	//		if(i>=22) {
-	//			osic.nextMonthButton.click();
-	//			Thread.sleep(2000);
-	//			//	 MobileElement date1=getDriver().findElement(By.xpath("//*[contains(@text, '1, 2021')]"));
-	//			//new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
-	//			//.until(ExpectedConditions.elementToBeClickable(orp.date1));
-	//
-	//			System.out.println(osic.date1.getText());
-	//			osic.date1.click();
-	//		}
-	//		else {
-	//			MobileElement date3=getDriver().findElement(By.xpath("//*[contains(@text, '"+date2+", 2021')]"));
-	//			date3.click();
-	//		}
+	public void to_verify_user_should_be_able_to_select_date_for_the_test() throws MalformedURLException, InterruptedException {
+		{	
+			clickOnElement(findElementByText("Syllabus"));
+			osic.add_assignment.click();
+			test.log(Status.INFO, "Clicked on Add symbol to Open Assign-> Digital Test");
+			System.out.println("Clicked on Add symbol to Open Assign-> Digital Test");
+			status =osic.assign_Heading.isDisplayed();
+			if (status) {
+				System.out.println("Assign heading Shown on the page with Digital Test");
+				test.log(Status.INFO, "Assign heading Shown on the page with Digital Test");
+			}
+			assert1.assertTrue(status);
+			clickOnElement(findElementByText("Digital Test"));
+			System.out.println("Digital Test is clickable and Functional");
+			test.log(Status.INFO, "Digital Test is clickable and Functional");
+			status =osic.assign_heading_OnBookShelf.isDisplayed();
+			if (status) {
+				System.out.println("Assign a digital test heading Shown with Book shelves");
+				test.log(Status.INFO, "Assign a digital test heading Shown with Book shelves");
+			}
+			assert1.assertTrue(status);
 
+			System.out.println("Selecting the topic from Subject");
+			test.log(Status.INFO, "Selecting the topic from Subject");
 
+			applyExplicitWaitsUntilElementVisible(osic.subjectAtCreatePlan);
+			osic.subjectAtCreatePlan.click();
+			applyExplicitWaitsUntilElementVisible(osic.topicCheckBoxAtCreateStudyPlan);
+			osic.topicCheckBoxAtCreateStudyPlan.click();
+			clickOnElement(findElementByText("Next")); //for blank title field need value
+			status =osic.title.isDisplayed();
+			if (status) {
+				System.out.println("Title is displyed on Test Details page");
+				test.log(Status.INFO, "Title is displyed on Test Details page");
+			}
+			assert1.assertTrue(status);
 
-	public void to_verify_click_on_preview_the_details_of_the_test_will_be_shown(String subject_History, String topic_H) {
+			String date=osic.select_Date.getText();
 
+			System.out.println("Actual Date is :"+date);
+			clickOnElement(osic.select_Date);
+			applyExplicitWait(2);
+			String[] s = date.split("-");
+			//System.out.println(s.length);
+			//String[] s1 = s[1].split(" ");
+			//String actualDate = s1[1].trim();
+			String actualDate=s[0];
+			//System.out.println(actualDate);
+			int i = Integer.parseInt(actualDate);
+			int date2=i+2;
+			if(i>=22) {
+				osic.nextMonthButton.click();
+				Thread.sleep(2000);
+				//	 MobileElement date1=getDriver().findElement(By.xpath("//*[contains(@text, '1, 2021')]"));
+				//new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
+				//.until(ExpectedConditions.elementToBeClickable(orp.date1));
+
+				System.out.println(osic.date1.getText());
+				osic.date1.click();
+			}
+			else {
+				MobileElement date3=getDriver().findElement(By.xpath("//*[contains(@text, '"+date2+"')]"));
+				date3.click();
+
+			}
+
+			String changed_date=osic.select_Date.getText();
+			System.out.println("The changed date is:"+changed_date);
+			clickOnElement(osic.ok_on_calendar);
+			clickOnElement(findElementByText("Assign"));
+			status =osic.notification.isDisplayed();
+
+			if (status) {
+				System.out.println("Notification Message Shown --> Digital Test is Ready!!");
+				test.log(Status.INFO, "Notification Message Shown --> Digital Test is Ready!!");
+			}
+			assert1.assertTrue(status);
+			assert1.assertAll();
+		}
 
 	}
-
-
-
 
 	public void test_should_be_created_on_clicking_the_Assign_button(String subject, String topic1) throws MalformedURLException {
 		clickOnElement(findElementByText("Syllabus"));
@@ -690,7 +679,9 @@ public class Module_Syllabus_Intent_Creation extends BaseClass{
 			test.log(Status.INFO, "Enter Test Details shown");
 		}
 		assert1.assertTrue(status);
-		clickOnElement(findElementByText("Assign"));
+		//clickOnElement(findElementByText("Assign"));
+		clickOnElement(osic.assign_Final);
+		
 		status =osic.notification.isDisplayed();
 		if (status) {
 			System.out.println("Notification Message Shown --> Digital Test is Ready!!");
@@ -706,16 +697,10 @@ public class Module_Syllabus_Intent_Creation extends BaseClass{
 
 	}
 
-
-
-	public void to_verify_user_should_be_able_to_select_date_for_the_test() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
-
-
 }
+
+
+
+
+
 

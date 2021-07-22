@@ -1,6 +1,7 @@
 package studi.co.pageModules;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.testng.Assert;
@@ -30,7 +31,6 @@ public class Module_Assignment_Listing extends BaseClass {
 		}
 		assert1.assertTrue(assign);
 		applyExplicitWait(5);
-
 		oas.digital_tets.click();
 		System.out.println("Clicked on Digital Test");
 
@@ -39,7 +39,6 @@ public class Module_Assignment_Listing extends BaseClass {
 		System.out.println("Opening " + subject);
 		applyExplicitWaitsUntilElementClickable(findElementByText(subject));
 		clickOnElement(findElementByText(subject));
-
 		scrollTo1(topic);
 		test.log(Status.INFO, "Selecting " + topic);
 		System.out.println("Selecting " + topic);
@@ -52,15 +51,10 @@ public class Module_Assignment_Listing extends BaseClass {
 		System.out.println("Clicking on create assignment");
 		oas.assign.click();
 		System.out.println("Created New Assignment");
-
-
 	}
-
 
 	public void toVerify_User_Should_Be_Able_To_See_Listing_Of_Today_Upcoming_Completed_Assignments()
 			throws MalformedURLException, InterruptedException {
-
-
 		Object_Assignment_Listing oas=new Object_Assignment_Listing();
 		SoftAssert assert1=new SoftAssert();
 		Boolean status;
@@ -99,7 +93,6 @@ public class Module_Assignment_Listing extends BaseClass {
 			System.out.println("User able to see to Completed Assignments Page,after tapping on Assignment");
 			test.log(Status.INFO, "User able to see  Completed Assignments Page,after tapping on Assignment");
 		}
-
 		assert1.assertTrue(completed);
 		assert1.assertAll();
 	}
@@ -109,7 +102,6 @@ public class Module_Assignment_Listing extends BaseClass {
 		Object_Assignment_Listing oas=new Object_Assignment_Listing();
 		SoftAssert assert1=new SoftAssert();
 		Boolean status;
-
 		status = oas.profilePic.isDisplayed();
 		assert1.assertTrue(status);
 		if (status) {
@@ -127,17 +119,12 @@ public class Module_Assignment_Listing extends BaseClass {
 		System.out.println("Clicked on Assignment");
 		applyExplicitWait(5);
 		oas.add_assignment.click();
-
 		Boolean assign=oas.intent_Creation.isDisplayed();
 		if(assign) {
 			System.out.println("The intent creation module shown to user");
 			test.log(Status.INFO, "The intent creation module shown to user");
 		}
-
 		assert1.assertTrue(assign);
-
-
-
 		assert1.assertAll();
 	}
 
@@ -160,7 +147,6 @@ public class Module_Assignment_Listing extends BaseClass {
 		scrollTo2("Assignments");
 		oas.assignment.click();
 		applyExplicitWait(5);
-
 		Boolean today=oas.today.isDisplayed();
 		if(today) {
 			System.out.println("User able to navigate to Today Assignment Page,after tapping on Assignment");
@@ -173,7 +159,6 @@ public class Module_Assignment_Listing extends BaseClass {
 			test.log(Status.INFO, "Today,s assignments items shown to user");
 		}
 		assert1.assertTrue(today);
-
 		Boolean upcoming_ass=oas.upcomig_assignments.isDisplayed();
 		if(upcoming_ass) {
 			System.out.println("Upcoming assignments items shown to user");
@@ -189,15 +174,20 @@ public class Module_Assignment_Listing extends BaseClass {
 		Object_Assignment_Listing oas=new Object_Assignment_Listing();
 		SoftAssert assert1=new SoftAssert();
 		create_new_assignment(subject77, topicmaths);
-		scrollTo2("Show more");
-		clickOnElement(oas.show_more);
-		scrollTo2("Show more");
-		clickOnElement(oas.show_more);
-		scrollTo2("Show more");
-		clickOnElement(oas.show_more);
-		scrollTo2("NEW");
-		clickOnElement(oas.show_more);
-		scrollTo2("NEW");
+
+//		//scrollTo2("Show more");
+//		try {
+//			//oas.show_more.isDisplayed();
+//			clickOnElement(oas.show_more);
+//
+//		}
+//		catch (NoSuchElementException e) {
+//
+//			System.out.println("New_icon is not shown to the user");
+//			test.log(Status.INFO, "New_icon is not shown to the user");
+//		}
+
+
 		Boolean new_assignment=oas.new_icon.isDisplayed();
 		if(new_assignment) {
 			System.out.println("Newly Created Assignmentsin today's tasks are shown with new icon which indicates that they have not seen yet");
@@ -246,7 +236,6 @@ public class Module_Assignment_Listing extends BaseClass {
 		assert1.assertAll();
 	}
 
-	@SuppressWarnings("unchecked")
 	public void to_verify_all_assignmenta_are_represents_with_due_date_of_that_assignment() throws MalformedURLException
 	{
 		Object_Assignment_Listing oas=new Object_Assignment_Listing();
@@ -267,33 +256,23 @@ public class Module_Assignment_Listing extends BaseClass {
 		scrollTo2("Assignments");
 		clickOnElement(oas.assignment);
 		applyExplicitWait(5);
-
-				Boolean due_date=oas.due_date.isDisplayed();
-				if(due_date) {
-					System.out.println("Due date of assignments is shown to user");
-					test.log(Status.INFO, "Due date of assignments is shown to user");
-				}
-				assert1.assertTrue(due_date);
-
-		//scrollTo1("Upcoming");
-
-		ArrayList due_dates= new ArrayList(oas.list_bag.size());
-		int i=0;
-		for(MobileElement mb:oas.list_bag)
-		{
-			MobileElement e =mb.findElementById("com.tce.studi:id/dueDate");
-			String actualLesson=e.getText();
-			due_dates.add(actualLesson);
-		}	
-		if(due_dates.contains("due"))
-		{
-			System.out.println("All the assignments are represent with due date");
-		}
-		else
-		{	
-			System.err.println("All the assignments are represent with due date");	
+		List<MobileElement> assignments = getDriver().findElementsById("com.tce.studi:id/listTitle");
+		int size_ass=assignments.size();
+		System.out.println("Assignments are :-->"+size_ass);
+		for (MobileElement ass : assignments ) {
+			assert1.assertTrue(ass.isDisplayed());
 		}
 
+		List<MobileElement> due_dates = getDriver().findElementsById("com.tce.studi:id/dueDate");
+		int size_due =due_dates.size();
+		System.out.println("Due Dates are :-->"+size_due);
+		for (MobileElement due : due_dates ) {
+			assert1.assertTrue(due.isDisplayed());
+		}
+		if( size_ass==size_due)
+		{
+			System.out.println("all assignments are represents with due date of that assignment");
+		}
 		assert1.assertAll();
 	}
 
@@ -318,8 +297,6 @@ public class Module_Assignment_Listing extends BaseClass {
 		scrollTo2("Assignments");
 		oas.assignment.click();
 		applyExplicitWait(5);
-
-
 		Boolean extra=oas.extra_days.isDisplayed();
 		if(extra) {
 			System.out.println("When User does not complete the assignment on certain due date, count of extra days are shown above the date");
@@ -350,39 +327,50 @@ public class Module_Assignment_Listing extends BaseClass {
 		oas.assignment.click();
 		applyExplicitWait(5);
 		clickOnElement(oas.add_assignment);
-		applyExplicitWaitsUntilElementClickable(oas.task);
+		clickOnElement(findElementByText("Task"));
+		oas.taskTitle.clear();
 		oas.taskTitle.sendKeys("TaskTest");
 		oas.taskInstruction.sendKeys("TATA Studi Task Test1");
-		scrollTo2("Attachment");
+		//scrollTo2("Attachment");
 		clickOnElement(oas.imgGallery);
-		clickOnElement(oas.cameraAttachment);
-		clickOnElement(oas.attachmentDone);
-		applyExplicitWaitsUntilElementClickable(oas.assign);
+
+		//clickOnElement(oas.cameraAttachment);
+		clickOnElement(oas.gallery_Attachment);
+		clickOnElement(oas.img_from_gallery);
+		scrollTo2("Assign");
+
+		//clickOnElement(findElementByText("Assign"));
+
+		status = oas.img_media_name.isDisplayed();
+
+		if (status) {
+			System.out.println("Attachment attached successfully and shown ");
+			test.log(Status.INFO, "Attachment attached successfully and shown ");
+		}
+		assert1.assertTrue(status);
+		assert1.assertAll();
+
+
 	}
-
-
-
-	
-
-
 	public void to_verify_completed_assignments_marked_as_striked() throws MalformedURLException {
 		Object_Assignment_Listing oas=new Object_Assignment_Listing();
 		SoftAssert assert1=new SoftAssert();
 		Boolean status;
 		status = oas.profilePic.isDisplayed();
-		assert1.assertTrue(status);
+
 		if (status) {
 			System.out.println("Logged in successfully");
 			test.log(Status.INFO, "Logged in successfully");
 		}
-		status = findElementByText("Assignments").isDisplayed();
 		assert1.assertTrue(status);
+		status = findElementByText("Assignments").isDisplayed();
+
 		if (status) {
 			System.out.println("Assignments tab displayed");
 			test.log(Status.INFO, "Assignments tab displayed");
 		}
+		assert1.assertTrue(status);
 		scrollTo2("Assignments");
-
 		clickOnElement(oas.assignment);
 		applyExplicitWait(5);
 
@@ -443,12 +431,12 @@ public class Module_Assignment_Listing extends BaseClass {
 		SoftAssert assert1=new SoftAssert();
 		Boolean status;
 		status = oas.profilePic.isDisplayed();
-		assert1.assertTrue(status);
+
 		if (status) {
 			System.out.println("Logged in successfully");
 			test.log(Status.INFO, "Logged in successfully");
 		}
-
+		assert1.assertTrue(status);
 		scrollTo2("Assignments");
 		oas.assignment.click();
 		applyExplicitWait(5);
@@ -470,7 +458,6 @@ public class Module_Assignment_Listing extends BaseClass {
 		System.out.println("Opening " + subject);
 		applyExplicitWaitsUntilElementClickable(findElementByText(subject));
 		clickOnElement(findElementByText(subject));
-
 		scrollTo1(topic);
 		test.log(Status.INFO, "Selecting " + topic);
 		System.out.println("Selecting " + topic);
@@ -506,7 +493,6 @@ public class Module_Assignment_Listing extends BaseClass {
 			System.out.println("Logged in successfully");
 			test.log(Status.INFO, "Logged in successfully");
 		}
-
 		scrollTo2("Assignments");
 		oas.assignment.click();
 		applyExplicitWait(5);
@@ -578,13 +564,24 @@ public class Module_Assignment_Listing extends BaseClass {
 	{
 
 	}
-	public void to_Verify_that_user_is_able_to_attempt_the_all_types_of_assignment()
+
+	public void to_verify_total_due_resources_shown_to_user_In_each_section() throws MalformedURLException
 	{
 
-	}
-
-	public void to_verify_total_due_resources_shown_to_user_In_each_section()
-	{
+		Object_Assignment_Listing oas=new Object_Assignment_Listing();
+		SoftAssert assert1=new SoftAssert();
+		scrollTo2("Assignments");
+		clickOnElement(findElementByText("Assignment"));
+		applyExplicitWaitsUntilElementVisible(findElementByText("Today"));
+		Boolean due=oas.due_resource.isDisplayed();
+		if(due) {
+			System.out.println("Due resources shown in Today Tab");
+			test.log(Status.INFO, "Due resources shown in Today Tab");
+		}
+		String due_count=oas.due_resource.getText();
+		System.out.println(due_count);
+		assert1.assertTrue(due);
+		assert1.assertAll();
 
 	}
 	public void to_verify_on_completed_assignment_list_actul_task_complete_date_is_Shown(String subject,String topic) throws MalformedURLException, InterruptedException{
@@ -601,6 +598,8 @@ public class Module_Assignment_Listing extends BaseClass {
 			test.log(Status.INFO, "Actual Task completion date is shown");
 
 		}
+
+		assert1.assertAll();
 	}
 
 	public void to_verify_that_on_listing_page_user_able_to_create_task_and_both_type_of_test(String subject, String topic) throws MalformedURLException {

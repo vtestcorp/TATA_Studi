@@ -33,6 +33,8 @@ public class Object_Assignment_Listing extends BaseClass {
 	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/dueDate\").textContains(\"Completed On\")")
 	public WebElement completedDate;
 
+	@AndroidFindBy(id="com.tce.studi:id/subHeading")
+	public WebElement due_resource;
 
 	@AndroidFindBy(id="com.tce.studi:id/fabAssignment")
 	public WebElement add_assignment;
@@ -63,10 +65,6 @@ public class Object_Assignment_Listing extends BaseClass {
 
 	@AndroidFindBy(id ="com.tce.studi:id/tvNew")
 	public WebElement new_icon;
-	
-	@AndroidFindBy(id ="com.tce.studi:id/showMore")
-	public WebElement show_more;
-
 
 	@AndroidFindBy(id ="com.tce.studi:id/iv_left_icon")
 	public WebElement back_btn;
@@ -99,17 +97,21 @@ public class Object_Assignment_Listing extends BaseClass {
 
 	@AndroidFindBy(id="com.tce.studi:id/etInstructions")
 	public WebElement taskInstruction;
+
 	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tvNextStep\").textContains(\"Assign\")")
 	public WebElement assign;
 
 	@AndroidFindBy(id="com.tce.studi:id/listTime")
 	public WebElement duration;
 
-	@AndroidFindBy(id="	com.tce.studi:id/imgGallery")
+	@AndroidFindBy(id="com.tce.studi:id/imgGallery")
 	public WebElement imgGallery;
 
 	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"android:id/text1\").textContains(\"Camera\")")
 	public WebElement cameraAttachment;
+
+	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ScrollView/android.widget.TabHost/android.widget.LinearLayout/android.widget.FrameLayout/com.android.internal.widget.ViewPager/android.widget.RelativeLayout/com.android.internal.widget.RecyclerView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.FrameLayout/android.widget.ImageView")
+	public WebElement gallery_Attachment;
 
 	@AndroidFindBy(id="com.android.camera2:id/shutter_button")
 	public WebElement clickCamera;
@@ -121,5 +123,13 @@ public class Object_Assignment_Listing extends BaseClass {
 	@AndroidFindBy(id="com.tce.studi:id/iv_left_icon")
 	public WebElement backBtn;
 
+	@AndroidFindBy(id="com.sec.android.gallery3d:id/thumbnail")
+	public WebElement img_from_gallery;
+
+	@AndroidFindBy(id="com.tce.studi:id/txtMediaFileName")
+	public WebElement img_media_name;
+
+	@AndroidFindBy(id="com.tce.studi:id/showMore")
+	public WebElement show_more;
 
 }

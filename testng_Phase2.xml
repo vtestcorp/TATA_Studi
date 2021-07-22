@@ -10,12 +10,15 @@
 		<parameter name="type" value="Android"></parameter>
 		<classes>
 			<!--<class name="studi.co.testScripts.Assignment_Listing" /> -->
-			<!--<class name="studi.co.testScripts.Assignment_Task" />-->
+			<!--<class name="studi.co.testScripts.Assignment_Task" /> -->
 			<!--<class name="studi.co.testScripts.Syllabus_BrowseBook" /> -->
 			<!--<class name="studi.co.testScripts.Assignment_Digital_Test" /> -->
 			<!--<class name="studi.co.testScripts.Home_Page_Tests" /> -->
-			<!--class name="studi.co.testScripts.Assignment_Oral_Test" />-->
+			<!--<class name="studi.co.testScripts.Assignment_Oral_Test" /> -->
 			<class name="studi.co.testScripts.Syllabus_Intent_Creation" />
+			<!--<class name="studi.co.testScripts.Subscription" /> -->
+			<!--<class name="studi.co.testScripts.Signup_Login_Tests" /> -->
+
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

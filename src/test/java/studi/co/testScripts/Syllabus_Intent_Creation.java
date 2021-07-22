@@ -14,25 +14,25 @@ public class Syllabus_Intent_Creation extends BaseClass {
 		super();
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = true)//Update-all sub ,topics chapters
 	public void TC01_To_Verify_when_click_on_Syllabus_shown_all_the_Chapters_Topics_from_BrowseBook_section() throws MalformedURLException, InterruptedException {
 		Module_Syllabus_Intent_Creation  msic =new Module_Syllabus_Intent_Creation();
 		msic.to_verify_all_the_Chapters_Topics_from_BrowseBook_section(prop.getProperty("subject"),prop.getProperty("topic_1"));
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)//click assign btn chk
 	public void TC02_To_Verify_user_should_be_able_to_view_the_link_to_create_Digital_test() throws MalformedURLException, InterruptedException {
 		Module_Syllabus_Intent_Creation  msic =new Module_Syllabus_Intent_Creation();
 		msic.to_verify_user_should_be_able_to_view_the_link_to_create_Digital_test(prop.getProperty("subject"),prop.getProperty("topic_1"));
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = true)//Assign btn
 	public void TC03_To_Verify_user_should_be_able_to_add_the_Content_even_if_striked_off() throws MalformedURLException, InterruptedException {
 		Module_Syllabus_Intent_Creation  msic =new Module_Syllabus_Intent_Creation();
 		msic.to_verify_user_should_be_able_to_add_the_Content_even_if_striked_off(prop.getProperty("subject"),prop.getProperty("topic1"));
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = true)//Next btn
 	public void TC04_To_Verify_On_click_one_of_the_topic_or_chapter_next_button_shown() throws MalformedURLException, InterruptedException {
 		Module_Syllabus_Intent_Creation  msic =new Module_Syllabus_Intent_Creation();
 		msic.On_click_one_of_the_topic_or_chapter_next_button_shown(prop.getProperty("subject"),prop.getProperty("topic_1"));
@@ -43,7 +43,7 @@ public class Syllabus_Intent_Creation extends BaseClass {
 		msic.to_Verify_click_on_delete_icon_test_creation_will_be_aborted(prop.getProperty("subject_History"),prop.getProperty("topic_H"));
 	}
 
-	@Test(enabled = true)//pending value for blank title field
+	@Test(enabled = false)//pending value for blank title field
 	public void TC06_To_Verify_user_should_not_be_allowed_to_proceed_further_keeping_Title_field_blank () throws MalformedURLException, InterruptedException {
 		Module_Syllabus_Intent_Creation  msic =new Module_Syllabus_Intent_Creation();
 		msic.to_verify_user_should_not_be_allowed_to_proceed_further_keeping_Title_field_blank(prop.getProperty("subject_History"),prop.getProperty("topic_H"));
@@ -59,17 +59,13 @@ public class Syllabus_Intent_Creation extends BaseClass {
 		Module_Syllabus_Intent_Creation  msic =new Module_Syllabus_Intent_Creation();
 		msic.to_verify_user_should_be_select_duration(prop.getProperty("subject_History"),prop.getProperty("topic_H"));
 	}
-	@Test(enabled = true,priority=-4)
+	@Test(enabled = true)
 	public void TC09_To_verify_user_should_be_able_to_select_date_for_the_test() throws MalformedURLException, InterruptedException {
 		Module_Syllabus_Intent_Creation  msic =new Module_Syllabus_Intent_Creation();
-		//msic.to_verify_user_should_be_able_to_select_date_for_the_test(prop.getProperty("subject_History"),prop.getProperty("topic_H"),prop.getProperty(day));
 		msic.to_verify_user_should_be_able_to_select_date_for_the_test();
+	
 	}
-	@Test(enabled = true)//pending for preview button
-	public void TC10_To_verify_click_on_preview_the_details_of_the_test_will_be_shown() throws MalformedURLException, InterruptedException {
-		Module_Syllabus_Intent_Creation  msic =new Module_Syllabus_Intent_Creation();
-		msic.to_verify_click_on_preview_the_details_of_the_test_will_be_shown(prop.getProperty("subject_History"),prop.getProperty("topic_H"));
-	}
+
 	@Test(enabled = true)
 	public void TC11_To_verify_test_should_be_created_on_clicking_the_Assign_button() throws MalformedURLException, InterruptedException {
 		Module_Syllabus_Intent_Creation  msic =new Module_Syllabus_Intent_Creation();

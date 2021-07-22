@@ -38,8 +38,10 @@ public class Object_Syllabus_Intent_Creation extends BaseClass {
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.TextView\").textContains(\"Assign a digital test\")")
 	public WebElement assign_heading_OnBookShelf;
-
-
+	
+	@AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.TextView\").textContains(\"syllabus\")")
+	public WebElement syllabus_AllSub;
+	
 	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tvAssignDigitalTest\").textContains(\"Enter test details\")")
 	public WebElement enter_test_details;
 
@@ -54,6 +56,7 @@ public class Object_Syllabus_Intent_Creation extends BaseClass {
 
 	@AndroidFindBy(id="com.tce.studi:id/tvTitleTest")
 	public WebElement title;
+
 
 	@AndroidFindBy(id="com.tce.studi:id/tvTitleInstructionTest")
 	public WebElement titleHelp;
@@ -120,14 +123,29 @@ public class Object_Syllabus_Intent_Creation extends BaseClass {
 
 	@AndroidFindBy(id ="com.tce.studi:id/tvDueDateSpinner")
 	public WebElement select_Date;
-	
+
 	@AndroidFindBy(xpath="//*[contains(@text, '1, 2021')]")
 	public WebElement date1;
 
 	@AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc=\"Next month\"]")
 	public WebElement nextMonthButton;
+
+	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tv_book_name\").textContains(\"Political Science\")")
+	//@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View/android.view.View[3]/android.view.View[2]")
+	public WebElement subjectAtCreatePlan;
+
+	//@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View[2]/android.view.View[2]/android.widget.TabWidget[2]/android.view.View[2]/android.view.View/android.view.View[2]/android.view.View")
+	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.ImageView[2]")
+	public WebElement topicCheckBoxAtCreateStudyPlan;
+
+
+	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"android:id/button1\").textContains(\"OK\")")
+	public WebElement ok_on_calendar;
 	
-	
+	@AndroidFindBy(id="com.tce.studi:id/tvNextStep")
+	public WebElement assign_Final;
+
+
 	public void create_test_changeDate(int day) throws Exception {
 	}
 }

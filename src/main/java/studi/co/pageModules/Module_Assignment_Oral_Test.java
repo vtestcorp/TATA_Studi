@@ -780,7 +780,6 @@ public class Module_Assignment_Oral_Test extends BaseClass{
 
 	public SoftAssert to_verify_the_Default_Correct_Answer_of_question_is_display(String subject_History, String topic_H) throws MalformedURLException, InterruptedException {
 		traverse_to_Begin_Oral_Test(subject_History, topic_H);
-
 		clickOnElement(oadt.begin_Test);
 		applyExplicitWait(3);
 		applyExplicitWaitsUntilElementVisible(findElementByText("correct"));
