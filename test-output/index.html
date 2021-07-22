@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <meta charset='utf-8'>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <br/>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" title="Collapse/expand all the suites" class="collapse-all-link">
+          <img src="collapseall.gif" class="collapse-all-icon">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" panel-name="suite-Tata_Studi_QA" class="navigator-link">
+              <span class="suite-name border-failed">Tata Studi QA</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" panel-name="test-xml-Tata_Studi_QA" class="navigator-link ">
+                    <span>C:\Users\LENOVO\git\TATA_Studi\testng.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="testlist-Tata_Studi_QA" class="navigator-link ">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="group-Tata_Studi_QA" class="navigator-link ">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="times-Tata_Studi_QA" class="navigator-link ">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="reporter-Tata_Studi_QA" class="navigator-link ">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="ignored-methods-Tata_Studi_QA" class="navigator-link ">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="chronological-Tata_Studi_QA" class="navigator-link ">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">6 methods, 1 failed,   5 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Tata_Studi_QA" class="hide-methods failed suite-Tata_Studi_QA"> (hide)</a> <!-- hide-methods failed suite-Tata_Studi_QA -->
+                      <a href="#" panel-name="suite-Tata_Studi_QA" class="show-methods failed suite-Tata_Studi_QA"> (show)</a> <!-- show-methods failed suite-Tata_Studi_QA -->
+                    </span>
+                    <div class="method-list-content failed suite-Tata_Studi_QA">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Tata_Studi_QA" title="studi.co.testScripts.AFS_UserStory_127" class="method navigator-link" hash-for-method="TC16_To_Verify_the_user_should_be_able_to_Navigate_to_Notes_listing_page">TC16_To_Verify_the_user_should_be_able_to_Navigate_to_Notes_listing_page</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Tata_Studi_QA -->
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Tata_Studi_QA" class="hide-methods passed suite-Tata_Studi_QA"> (hide)</a> <!-- hide-methods passed suite-Tata_Studi_QA -->
+                      <a href="#" panel-name="suite-Tata_Studi_QA" class="show-methods passed suite-Tata_Studi_QA"> (show)</a> <!-- show-methods passed suite-Tata_Studi_QA -->
+                    </span>
+                    <div class="method-list-content passed suite-Tata_Studi_QA">
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Tata_Studi_QA" title="studi.co.testScripts.AFS_UserStory_127" class="method navigator-link" hash-for-method="TC05_To_Verify_Use_Must_be_Able_To_View_The_Content_of_the_Chapter_Listing_Pages">TC05_To_Verify_Use_Must_be_Able_To_View_The_Content_of_the_Chapter_Listing_Pages</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Tata_Studi_QA" title="studi.co.testScripts.AFS_UserStory_127" class="method navigator-link" hash-for-method="TC07_To_Verify_Use_Must_be_Able_To_View_The_Details_of_The_Chapters">TC07_To_Verify_Use_Must_be_Able_To_View_The_Details_of_The_Chapters</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Tata_Studi_QA" title="studi.co.testScripts.AFS_UserStory_127" class="method navigator-link" hash-for-method="TC14_To_Verify_Use_Must_be_Able_To_Navigate_To_Revision_From_Topic">TC14_To_Verify_Use_Must_be_Able_To_Navigate_To_Revision_From_Topic</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Tata_Studi_QA" title="studi.co.testScripts.AFS_UserStory_127" class="method navigator-link" hash-for-method="TC15_To_Verify_Use_Must_be_Able_To_Navigate_To_Practice_From_Topic">TC15_To_Verify_Use_Must_be_Able_To_Navigate_To_Practice_From_Topic</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Tata_Studi_QA" title="studi.co.testScripts.AFS_UserStory_127" class="method navigator-link" hash-for-method="TC22_To_Verify_user_should_be_able_to_navigate_to_the_StrikedOut_Topics">TC22_To_Verify_user_should_be_able_to_navigate_to_the_StrikedOut_Topics</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Tata_Studi_QA -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-Tata_Studi_QA" class="panel Tata_Studi_QA">
+          <div class="suite-Tata_Studi_QA-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">studi.co.testScripts.AFS_UserStory_127</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC16_To_Verify_the_user_should_be_able_to_Navigate_to_Notes_listing_page">
+                  </a> <!-- TC16_To_Verify_the_user_should_be_able_to_Navigate_to_Notes_listing_page -->
+                  <span class="method-name">TC16_To_Verify_the_user_should_be_able_to_Navigate_to_Notes_listing_page</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters. (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-TMI6UL6&apos;, ip: &apos;192.168.29.241&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;15.0.2&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {64bit: false, acceptSslCert: false, acceptSslCerts: false, adbExecTimeout: 120000, appActivity: com.tce.view.ui.activities...., appPackage: com.tce.studi, automationName: uiautomator2, browserstack.appium_version: 1.17.0, browserstack.is_hub_canary: false, browserstack.minOSVersion: 5.0, browserstack.networkLogsOptions: {&quot;captureContent&quot;=&gt;true}, buildName: Java Android, bundleID: com.tce.studi, bundleId: com.tce.studi, chromeOptions: {w3c: false}, chromedriverPort: 18084, chromedriverPorts: [[18144, 18154]], databaseEnabled: false, detected_language: selenium/3.141.59 (java win..., device: oneplus 8, deviceApiLevel: 29, deviceManufacturer: OnePlus, deviceModel: IN2011, deviceName: b1c21cce, deviceScreenDensity: 420, deviceScreenSize: 1080x2400, deviceUDID: b1c21cce, enablePerformanceLogging: false, javascriptEnabled: true, locationContextEnabled: false, mobile: {browser: mobile, version: OnePlus 8-10.0}, nativeWebScreenshot: true, networkConnectionEnabled: true, newCommandTimeout: 0, new_bucketing: true, noReset: true, orig_os: android, osVersion: 10.0, os_version: 10.0, pixelRatio: 2.625, platform: ANDROID, platformName: Android, platformVersion: 10, projectName: First Java Project, realMobile: true, sessionName: Tata Studi Bhushan, skipServerInstallation: true, statBarHeight: 104, systemPort: 8204, takesScreenshot: true, udid: b1c21cce, uiautomator2ServerLaunchTimeout: 60000, version: , viewportRect: {height: 2067, left: 0, top: 104, width: 1080}, warnings: {}, webStorageEnabled: false}
+Session ID: e11c19b0b6e9e87fc9b91133253cdda1e7833f19
+*** Element info: {Using=-android uiautomator, value=new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(&quot;Notes&quot;).instance(0))}
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:62)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at io.appium.java_client.FindsByAndroidUIAutomator.findElementByAndroidUIAutomator(FindsByAndroidUIAutomator.java:38)
+	at io.appium.java_client.MobileBy$ByAndroidUIAutomator.findElement(MobileBy.java:278)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at studi.co.Base.BaseClass.scrollTo2(BaseClass.java:630)
+	at studi.co.pageModules.Module_Browsebook_Chapter_Listing.to_verify_the_user_should_be_able_to_Navigate_to_Notes_listing_page(Module_Browsebook_Chapter_Listing.java:241)
+	at studi.co.testScripts.AFS_UserStory_127.TC16_To_Verify_the_user_should_be_able_to_Navigate_to_Notes_listing_page(AFS_UserStory_127.java:56)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+... Removed 21 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Tata_Studi_QA-class-failed -->
+          <div class="suite-Tata_Studi_QA-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">studi.co.testScripts.AFS_UserStory_127</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC05_To_Verify_Use_Must_be_Able_To_View_The_Content_of_the_Chapter_Listing_Pages">
+                  </a> <!-- TC05_To_Verify_Use_Must_be_Able_To_View_The_Content_of_the_Chapter_Listing_Pages -->
+                  <span class="method-name">TC05_To_Verify_Use_Must_be_Able_To_View_The_Content_of_the_Chapter_Listing_Pages</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC07_To_Verify_Use_Must_be_Able_To_View_The_Details_of_The_Chapters">
+                  </a> <!-- TC07_To_Verify_Use_Must_be_Able_To_View_The_Details_of_The_Chapters -->
+                  <span class="method-name">TC07_To_Verify_Use_Must_be_Able_To_View_The_Details_of_The_Chapters</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC14_To_Verify_Use_Must_be_Able_To_Navigate_To_Revision_From_Topic">
+                  </a> <!-- TC14_To_Verify_Use_Must_be_Able_To_Navigate_To_Revision_From_Topic -->
+                  <span class="method-name">TC14_To_Verify_Use_Must_be_Able_To_Navigate_To_Revision_From_Topic</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC15_To_Verify_Use_Must_be_Able_To_Navigate_To_Practice_From_Topic">
+                  </a> <!-- TC15_To_Verify_Use_Must_be_Able_To_Navigate_To_Practice_From_Topic -->
+                  <span class="method-name">TC15_To_Verify_Use_Must_be_Able_To_Navigate_To_Practice_From_Topic</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC22_To_Verify_user_should_be_able_to_navigate_to_the_StrikedOut_Topics">
+                  </a> <!-- TC22_To_Verify_user_should_be_able_to_navigate_to_the_StrikedOut_Topics -->
+                  <span class="method-name">TC22_To_Verify_user_should_be_able_to_navigate_to_the_StrikedOut_Topics</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Tata_Studi_QA-class-passed -->
+        </div> <!-- panel Tata_Studi_QA -->
+        <div panel-name="test-xml-Tata_Studi_QA" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">C:\Users\LENOVO\git\TATA_Studi\testng.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite parallel=&quot;tests&quot; name=&quot;Tata Studi QA&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
+  &lt;listeners&gt;
+    &lt;listener class-name=&quot;studi.co.Base.TestListener&quot;/&gt;
+    &lt;listener class-name=&quot;studi.co.testng.EmailableReportListener&quot;/&gt;
+  &lt;/listeners&gt;
+  &lt;test thread-count=&quot;5&quot; parallel=&quot;tests&quot; name=&quot;Test1&quot;&gt;
+    &lt;parameter name=&quot;type&quot; value=&quot;Android-jenkins&quot;/&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;studi.co.testScripts.AFS_UserStory_127&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Test1 --&gt;
+&lt;/suite&gt; &lt;!-- Tata Studi QA --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-Tata_Studi_QA" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for Tata Studi QA</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">Test1 (1 class)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-Tata_Studi_QA" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for Tata Studi QA</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-Tata_Studi_QA" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for Tata Studi QA</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_Tata_Studi_QA');
+function tableData_Tata_Studi_QA() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(6);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'TC16_To_Verify_the_user_should_be_able_to_Navigate_to_Notes_listing_page')
+data.setCell(0, 2, 'studi.co.testScripts.AFS_UserStory_127')
+data.setCell(0, 3, 65183);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'TC14_To_Verify_Use_Must_be_Able_To_Navigate_To_Revision_From_Topic')
+data.setCell(1, 2, 'studi.co.testScripts.AFS_UserStory_127')
+data.setCell(1, 3, 49745);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'TC15_To_Verify_Use_Must_be_Able_To_Navigate_To_Practice_From_Topic')
+data.setCell(2, 2, 'studi.co.testScripts.AFS_UserStory_127')
+data.setCell(2, 3, 31977);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'TC05_To_Verify_Use_Must_be_Able_To_View_The_Content_of_the_Chapter_Listing_Pages')
+data.setCell(3, 2, 'studi.co.testScripts.AFS_UserStory_127')
+data.setCell(3, 3, 22552);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'TC22_To_Verify_user_should_be_able_to_navigate_to_the_StrikedOut_Topics')
+data.setCell(4, 2, 'studi.co.testScripts.AFS_UserStory_127')
+data.setCell(4, 3, 19301);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'TC07_To_Verify_Use_Must_be_Able_To_View_The_Details_of_The_Chapters')
+data.setCell(5, 2, 'studi.co.testScripts.AFS_UserStory_127')
+data.setCell(5, 3, 18782);
+window.suiteTableData['Tata_Studi_QA']= { tableData: data, tableDiv: 'times-div-Tata_Studi_QA'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 3 minutes</span>
+              <div id="times-div-Tata_Studi_QA">
+              </div> <!-- times-div-Tata_Studi_QA -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-Tata_Studi_QA" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for Tata Studi QA</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-Tata_Studi_QA" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-Tata_Studi_QA" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">studi.co.testScripts.AFS_UserStory_127</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">beforeTest(Android-jenkins)</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="test-method">
+                <span class="method-name">TC05_To_Verify_Use_Must_be_Able_To_View_The_Content_of_the_Chapter_Listing_Pages</span>
+                <span class="method-start">53004 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">restApp</span>
+                <span class="method-start">76148 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">TC07_To_Verify_Use_Must_be_Able_To_View_The_Details_of_The_Chapters</span>
+                <span class="method-start">77339 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">restApp</span>
+                <span class="method-start">96789 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">TC14_To_Verify_Use_Must_be_Able_To_Navigate_To_Revision_From_Topic</span>
+                <span class="method-start">97571 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">restApp</span>
+                <span class="method-start">147769 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">TC15_To_Verify_Use_Must_be_Able_To_Navigate_To_Practice_From_Topic</span>
+                <span class="method-start">148496 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">restApp</span>
+                <span class="method-start">180969 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">TC16_To_Verify_the_user_should_be_able_to_Navigate_to_Notes_listing_page</span>
+                <span class="method-start">181737 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">restApp</span>
+                <span class="method-start">247575 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">TC22_To_Verify_user_should_be_able_to_navigate_to_the_StrikedOut_Topics</span>
+                <span class="method-start">248286 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">restApp</span>
+                <span class="method-start">268199 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-test after">
+                <span class="method-name">afterTest</span>
+                <span class="method-start">269013 ms</span>
+              </div> <!-- configuration-test after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+</html>

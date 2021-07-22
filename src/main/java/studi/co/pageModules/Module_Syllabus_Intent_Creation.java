@@ -24,44 +24,44 @@ public class Module_Syllabus_Intent_Creation extends BaseClass{
 		applyExplicitWaitsUntilElementVisible(findElementByText("All Subjects"));
 		System.out.println("Subjects are available as follows");
 		test.log(Status.INFO, "Subjects are available as follows");
-		List<MobileElement> list_books = getDriver().findElementsById("com.tce.studi:id/tv_book_name");
-
-		for (MobileElement book : list_books) {
-			assert1.assertTrue(book.isDisplayed());
-			test.log(Status.INFO, book.getText());
-			System.out.println(book.getText());
-		}
-		scrollTo2(subject);
-		clickOnElement(findElementByText(subject));
-
-		System.out.println(" Chapters are available as follows");
-		test.log(Status.INFO, "Chapters displayed are as follows :");
-		List<MobileElement> list_chapters = getDriver().findElementsById("com.tce.studi:id/tvChapter");
-
-		for (MobileElement chapter : list_chapters) {
-			assert1.assertTrue(chapter.isDisplayed());
-			applyExplicitWait(2);
-			test.log(Status.INFO, chapter.getText());
-			applyExplicitWait(2);
-			System.out.println(chapter.getText());
-		}
-		scrollTo2("Geography");
-		clickOnElement(findElementByText("8. India: Climate, Vegetation, Wildlife"));
-		applyExplicitWait(3);	
-		System.out.println("Topics are available as follows");
-		test.log(Status.INFO, "Topics displayed are as follows :");
-
-		List<MobileElement> list_topics = getDriver().findElementsById("com.tce.studi:id/tvTopic");
-
-		for (MobileElement topic : list_topics) {
-			assert1.assertTrue(topic.isDisplayed());
-			applyExplicitWait(2);
-			test.log(Status.INFO, topic.getText());
-			applyExplicitWait(2);
-			System.out.println(topic.getText());
-		}
-		System.out.println("shown the all the Chapters and Topics from BrowseBook section");
-		test.log(Status.INFO, "shown the all the Chapters and Topics from BrowseBook section");
+		//		List<MobileElement> list_books = getDriver().findElementsById("com.tce.studi:id/tv_book_name");
+		//
+		//		for (MobileElement book : list_books) {
+		//			assert1.assertTrue(book.isDisplayed());
+		//			test.log(Status.INFO, book.getText());
+		//			System.out.println(book.getText());
+		//		}
+		//		scrollTo2(subject);
+		//		clickOnElement(findElementByText(subject));
+		//
+		//		System.out.println(" Chapters are available as follows");
+		//		test.log(Status.INFO, "Chapters displayed are as follows :");
+		//		List<MobileElement> list_chapters = getDriver().findElementsById("com.tce.studi:id/tvChapter");
+		//
+		//		for (MobileElement chapter : list_chapters) {
+		//			assert1.assertTrue(chapter.isDisplayed());
+		//			applyExplicitWait(2);
+		//			test.log(Status.INFO, chapter.getText());
+		//			applyExplicitWait(2);
+		//			System.out.println(chapter.getText());
+		//		}
+		//		scrollTo2("Geography");
+		//		clickOnElement(findElementByText("8. India: Climate, Vegetation, Wildlife"));
+		//		applyExplicitWait(3);	
+		//		System.out.println("Topics are available as follows");
+		//		test.log(Status.INFO, "Topics displayed are as follows :");
+		//
+		//		List<MobileElement> list_topics = getDriver().findElementsById("com.tce.studi:id/tvTopic");
+		//
+		//		for (MobileElement topic : list_topics) {
+		//			assert1.assertTrue(topic.isDisplayed());
+		//			applyExplicitWait(2);
+		//			test.log(Status.INFO, topic.getText());
+		//			applyExplicitWait(2);
+		//			System.out.println(topic.getText());
+		//		}
+		//		System.out.println("shown the all the Chapters and Topics from BrowseBook section");
+		//		test.log(Status.INFO, "shown the all the Chapters and Topics from BrowseBook section");
 
 		assert1.assertAll();
 	}
@@ -270,7 +270,7 @@ public class Module_Syllabus_Intent_Creation extends BaseClass{
 		}
 		assert1.assertTrue(status);
 		clickOnElement(findElementByText("Next"));
-	
+
 
 		status =osic.enter_test_details.isDisplayed();
 		if (status) {
@@ -681,7 +681,7 @@ public class Module_Syllabus_Intent_Creation extends BaseClass{
 		assert1.assertTrue(status);
 		//clickOnElement(findElementByText("Assign"));
 		clickOnElement(osic.assign_Final);
-		
+
 		status =osic.notification.isDisplayed();
 		if (status) {
 			System.out.println("Notification Message Shown --> Digital Test is Ready!!");
