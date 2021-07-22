@@ -34,7 +34,7 @@ public class AFS_UserStory_77 extends BaseClass {
 		rqr.Module_Receive_SCQ_Questions_Practice(prop.getProperty("subject77"), prop.getProperty("topic77"));
 	}
 
-	@Test(enabled = true)//pass
+	@Test(enabled = false)//pass
 	public void TC13_To_Verify_SCQ_Answers_Is_In_Default_State_In_Practice()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
@@ -42,7 +42,7 @@ public class AFS_UserStory_77 extends BaseClass {
 				prop.getProperty("topic77"));
 	}
 
-	@Test(enabled = true)//pass
+	@Test(enabled = false)//pass
 
 	public void TC14_To_Verify_Multiple_Answers_Shown_For_SCQ_In_Practice()
 			throws MalformedURLException, InterruptedException {
@@ -51,7 +51,7 @@ public class AFS_UserStory_77 extends BaseClass {
 				prop.getProperty("topic77"));
 	}
 
-	@Test(enabled = true)//pass
+	@Test(enabled = false)//pass
 
 	public void TC15_To_Verify_SCQ_Answer_Can_Be_Select_In_Practice()
 			throws MalformedURLException, InterruptedException {
@@ -60,7 +60,7 @@ public class AFS_UserStory_77 extends BaseClass {
 				prop.getProperty("topic77"));
 	}
 
-	@Test(enabled = true)//pass
+	@Test(enabled = false)//pass
 	public void TC16_To_Verify_Only_Single_SCQ_Answer_Can_Be_Select_In_Practice()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
@@ -68,7 +68,7 @@ public class AFS_UserStory_77 extends BaseClass {
 				prop.getProperty("topic77"));
 	}
 
-	@Test(enabled = true)//pass
+	@Test(enabled = false)//pass
 	public void TC17_To_Verify_Feedback_Shown_For_Correct_Answer_Selection_In_SCQ_Practice()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
@@ -77,14 +77,14 @@ public class AFS_UserStory_77 extends BaseClass {
 
 	}
 
-	@Test(enabled = true)//pass
+	@Test(enabled = false)//pass
 	public void TC18_To_Verify_Feedback_Shown_For_Incorrect_Answer_Selection_In_SCQ_Practice() throws Exception {
 		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
 		rqr.Module_Verify_Feedback_Shown_For_Incorrect_Answer_Selection_In_Practice(prop.getProperty("subject77"),
 				prop.getProperty("topic77"));
 	}
 
-	@Test(enabled = true)//pass
+	@Test(enabled = false)//pass
 	public void TC19_To_Verify_Attempting_SCQ_Quiz_Is_Mandatory_In_Practice()
 			throws MalformedURLException, InterruptedException {
 		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
@@ -92,7 +92,7 @@ public class AFS_UserStory_77 extends BaseClass {
 				prop.getProperty("topic77"));
 	}
 
-	@Test(enabled = true)//pass
+	@Test(enabled = false)//pass
 	public void TC20_To_Verify_In_Wrong_Answer_Selection_User_Should_Get_1_More_Attempt_For_SCQ_In_Practice()
 			throws Exception {
 		Module_Receive_Questions_Practice rqr = new Module_Receive_Questions_Practice();
@@ -100,7 +100,7 @@ public class AFS_UserStory_77 extends BaseClass {
 				prop.getProperty("subject77"), prop.getProperty("topic77"));
 	}
 
-	@Test(enabled = true)//passed
+	@Test(enabled = false)//passed
 
 	public void TC21_To_Verify_User_Should_Be_Able_To_Abandon_The_SCQ_In_Practice()
 			throws MalformedURLException, InterruptedException {
