@@ -44,6 +44,9 @@ public class Object_Assignment_Oral_Test extends BaseClass {
 	@AndroidFindBy(id ="com.tce.studi:id/tvPrimaryAction")
 	public WebElement begin_Test ;
 
+	@AndroidFindBy(id ="com.tce.studi:id/tvOverview")
+	public WebElement why_tested_msg  ;
+	
 	@AndroidFindBy(id ="com.tce.studi:id/imgDeleteSheet")
 	public WebElement delete_note ;
 
@@ -57,7 +60,8 @@ public class Object_Assignment_Oral_Test extends BaseClass {
 	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView")
 	public WebElement all_Sub;
 
-	@AndroidFindBy(id ="com.tce.studi:id/tvAssignDigitalTest")
+	//@AndroidFindBy(id ="com.tce.studi:id/tvAssignDigitalTest")
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/tvAssignDigitalTest\").textContains(\"Enter test details\")")
 	public WebElement test_Details ;
 
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/helpSwitch\").textContains(\"ON\")")
@@ -68,6 +72,10 @@ public class Object_Assignment_Oral_Test extends BaseClass {
 
 	@AndroidFindBy(id ="com.tce.studi:id/tvTitleInstructionTest")
 	public WebElement title_Instruction ;
+	
+	@AndroidFindBy(id ="com.tce.studi:id/helpSwitch")
+	public WebElement help ;
+	
 
 	@AndroidFindBy(id ="com.tce.studi:id/tvDifficultyInstruction")
 	public WebElement difficulty_level_Instruction ;
@@ -77,6 +85,9 @@ public class Object_Assignment_Oral_Test extends BaseClass {
 
 	@AndroidFindBy(id ="com.tce.studi:id/iv_left_icon")
 	public WebElement back_btn ;
+	
+	@AndroidFindBy(id ="com.tce.studi:id/ivConfidence")
+	public WebElement confidence_icon;
 
 	@AndroidFindBy(id ="com.tce.studi:id/etTitleTest")
 	public WebElement title_field;
@@ -182,7 +193,8 @@ public class Object_Assignment_Oral_Test extends BaseClass {
 	public WebElement title_blank;
 
 	public int get_Total_Number_Of_Questions_In_oral_Test() {
-		if (device.equalsIgnoreCase("Android"))
+		//if (device.equalsIgnoreCase("Android")
+		if (device.contains("Android")||device.contains("Android-Jenkins"))
 		{
 			MobileElement ele=findElementByText("1 of");
 			String temp[] = ele.getText().split(" ");

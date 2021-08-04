@@ -32,17 +32,22 @@ public class Object_Browsebook_Chapter_Listing extends BaseClass {
 	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tvHeading\").textContains(\"Syllabus\")")
 	public WebElement syllabus;
 	
-	//@AndroidFindBy(xpath = getLocator("syllabus"))
-	//WebElement syllabus;
+	@AndroidFindBy(uiAutomator="new UiSelector().class(\"android.widget.TextView\").textContains(\"All Subjects\")")
+	public WebElement all_Subjects;
 	
 	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tvCS\").textContains(\"Completed in School\")")
 	public WebElement completedInSchool;
 
 	@AndroidFindBy(id="com.tce.studi:id/tv_grade")
 	public WebElement grade;
-
+	
 	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView")
 	public WebElement syllabusSectionHeading;
+	
+	
+	@AndroidFindBy(id="com.tce.studi:id/tv_book_name")
+	public WebElement book_name;
+	
 
 	@AndroidFindBy(id="com.tce.studi:id/clTopic")
 	public List<MobileElement> topics;

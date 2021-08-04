@@ -58,12 +58,12 @@ public class Module_Assignment_Listing extends BaseClass {
 		Object_Assignment_Listing oas=new Object_Assignment_Listing();
 		SoftAssert assert1=new SoftAssert();
 		Boolean status;
-		status = oas.profilePic.isDisplayed();
-		assert1.assertTrue(status);
-		if (status) {
-			System.out.println("Logged in successfully");
-			test.log(Status.INFO, "Logged in successfully");
-		}
+		//		status = oas.profilePic.isDisplayed();
+		//		assert1.assertTrue(status);
+		//		if (status) {
+		//			System.out.println("Logged in successfully");
+		//			test.log(Status.INFO, "Logged in successfully");
+		//		}
 		status = findElementByText("Assignments").isDisplayed();
 		assert1.assertTrue(status);
 		if (status) {
@@ -102,12 +102,12 @@ public class Module_Assignment_Listing extends BaseClass {
 		Object_Assignment_Listing oas=new Object_Assignment_Listing();
 		SoftAssert assert1=new SoftAssert();
 		Boolean status;
-		status = oas.profilePic.isDisplayed();
-		assert1.assertTrue(status);
-		if (status) {
-			System.out.println("Logged in successfully");
-			test.log(Status.INFO, "Logged in successfully"); 
-		}
+		//		status = oas.profilePic.isDisplayed();
+		//		assert1.assertTrue(status);
+		//		if (status) {
+		//			System.out.println("Logged in successfully");
+		//			test.log(Status.INFO, "Logged in successfully"); 
+		//		}
 		status = findElementByText("Assignments").isDisplayed();
 		assert1.assertTrue(status);
 		if (status) {
@@ -132,12 +132,12 @@ public class Module_Assignment_Listing extends BaseClass {
 		Object_Assignment_Listing oas=new Object_Assignment_Listing();
 		SoftAssert assert1=new SoftAssert();
 		Boolean status;
-		status = oas.profilePic.isDisplayed();
-		assert1.assertTrue(status);
-		if (status) {
-			System.out.println("Logged in successfully");
-			test.log(Status.INFO, "Logged in successfully");
-		}
+		//		status = oas.profilePic.isDisplayed();
+		//		assert1.assertTrue(status);
+		//		if (status) {
+		//			System.out.println("Logged in successfully");
+		//			test.log(Status.INFO, "Logged in successfully");
+		//		}
 		status = findElementByText("Assignments").isDisplayed();
 		assert1.assertTrue(status);
 		if (status) {
@@ -175,17 +175,18 @@ public class Module_Assignment_Listing extends BaseClass {
 		SoftAssert assert1=new SoftAssert();
 		create_new_assignment(subject77, topicmaths);
 
-//		//scrollTo2("Show more");
-//		try {
-//			//oas.show_more.isDisplayed();
-//			clickOnElement(oas.show_more);
-//
-//		}
-//		catch (NoSuchElementException e) {
-//
-//			System.out.println("New_icon is not shown to the user");
-//			test.log(Status.INFO, "New_icon is not shown to the user");
-//		}
+		scrollTo2("Show more");
+		try {
+			//oas.show_more.isDisplayed();
+			scrollTo2("Show more");
+			clickOnElement(oas.show_more);
+
+		}
+		catch (NoSuchElementException e) {
+
+			System.out.println("New_icon is not shown to the user");
+			test.log(Status.INFO, "New_icon is not shown to the user");
+		}
 
 
 		Boolean new_assignment=oas.new_icon.isDisplayed();
@@ -201,36 +202,44 @@ public class Module_Assignment_Listing extends BaseClass {
 		Object_Assignment_Listing oas=new Object_Assignment_Listing();
 		SoftAssert assert1=new SoftAssert();
 		create_new_assignment(subject77, topicmaths);
-		//		scrollTo2("NEW");
-		//		Boolean new_assignment=oas.new_icon.isDisplayed();
-		//		if(new_assignment) {
-		//			System.out.println("Newly Created Assignments in today's tasks are shown with New_icon which indicates that they have not seen yet");
-		//			test.log(Status.INFO, "Newly Created Assignments in today's tasks are shown with New_icon icon which indicates that they have not seen yet");
-		//		}
-		//		assert1.assertTrue(new_assignment);
-		//		
-		//		oas.back_btn.click();
-		//System.out.println("Clicking on Back Button");
-		//test.log(Status.INFO, "CLicking on Back Button");
-		//		scrollTo2("Assignments");
-		//		oas.assignment.click();
-		//System.out.println("Clicking on Back Assignments");
-		//test.log(Status.INFO, "Clicking on Back Assignments");
-		//		applyExplicitWait(5); 
-
-		scrollTo2("Completed");
-
-		Assert.assertNull(oas.new_icon);
-
+		
+		
 		try {
-			oas.new_icon.isDisplayed();
+			scrollTo2("Show more");
+			clickOnElement(findElementByText("Show more"));
+
+	
+	oas.new_icon.isDisplayed();
 			System.out.println("New_icon is shown to the user");
 			test.log(Status.INFO, "New_icon not shown to the user");
+			clickOnElement(findElementByText("NEW"));
+			applyExplicitWaitsUntilElementVisible(findElementByText("Begin Test"));
+
+
+			boolean status = oas.why_tested_msg.isDisplayed();
+
+			if (status) {
+				System.out.println("Clicked on New Assignments and Assignment is opened");
+				test.log(Status.INFO, "Clicked on New Assignments and Assignment is opened");
+			}
+			assert1.assertTrue(status);
+
+			clickOnElement(oas.back_btn);
+			applyExplicitWaitsUntilElementVisible(findElementByText("My Assignments"));
+
+			status = oas.new_icon.isDisplayed();
+			assert1.assertFalse(status);
+			if (status) {
+				System.out.println("NEW icon snot shown for opened Assignment ");
+				test.log(Status.INFO, "NEW icon snot shown for opened Assignment ");
+			}
+			assert1.assertFalse(status);
+
 		}
 		catch (NoSuchElementException e) {
 
-			System.out.println("New_icon is not shown to the user");
-			test.log(Status.INFO, "New_icon is not shown to the user");
+			System.out.println("New_icon is shown to the user");
+			test.log(Status.INFO, "New_icon not shown to the user");
 		}
 		assert1.assertFalse(false);
 		assert1.assertAll();
@@ -258,14 +267,14 @@ public class Module_Assignment_Listing extends BaseClass {
 		applyExplicitWait(5);
 		List<MobileElement> assignments = getDriver().findElementsById("com.tce.studi:id/listTitle");
 		int size_ass=assignments.size();
-		System.out.println("Assignments are :-->"+size_ass);
+		System.out.println("Assignments are :-->"+ size_ass);
 		for (MobileElement ass : assignments ) {
 			assert1.assertTrue(ass.isDisplayed());
 		}
 
 		List<MobileElement> due_dates = getDriver().findElementsById("com.tce.studi:id/dueDate");
 		int size_due =due_dates.size();
-		System.out.println("Due Dates are :-->"+size_due);
+		System.out.println("Due Dates are :-->" +size_due);
 		for (MobileElement due : due_dates ) {
 			assert1.assertTrue(due.isDisplayed());
 		}
@@ -382,12 +391,12 @@ public class Module_Assignment_Listing extends BaseClass {
 		Object_Assignment_Listing oas=new Object_Assignment_Listing();
 		SoftAssert assert1=new SoftAssert();
 		Boolean status;
-		status = oas.profilePic.isDisplayed();
-		assert1.assertTrue(status);
-		if (status) {
-			System.out.println("Logged in successfully");
-			test.log(Status.INFO, "Logged in successfully");
-		}
+		//		status = oas.profilePic.isDisplayed();
+		//		assert1.assertTrue(status);
+		//		if (status) {
+		//			System.out.println("Logged in successfully");
+		//			test.log(Status.INFO, "Logged in successfully");
+		//		}
 
 		scrollTo2("Assignments");
 		oas.assignment.click();
@@ -437,6 +446,7 @@ public class Module_Assignment_Listing extends BaseClass {
 			test.log(Status.INFO, "Logged in successfully");
 		}
 		assert1.assertTrue(status);
+
 		scrollTo2("Assignments");
 		oas.assignment.click();
 		applyExplicitWait(5);
@@ -487,12 +497,12 @@ public class Module_Assignment_Listing extends BaseClass {
 		Object_Assignment_Listing oas=new Object_Assignment_Listing();
 		SoftAssert assert1=new SoftAssert();
 		Boolean status;
-		status = oas.profilePic.isDisplayed();
-		assert1.assertTrue(status);
-		if (status) {
-			System.out.println("Logged in successfully");
-			test.log(Status.INFO, "Logged in successfully");
-		}
+		//		status = oas.profilePic.isDisplayed();
+		//		assert1.assertTrue(status);
+		//		if (status) {
+		//			System.out.println("Logged in successfully");
+		//			test.log(Status.INFO, "Logged in successfully");
+		//		}
 		scrollTo2("Assignments");
 		oas.assignment.click();
 		applyExplicitWait(5);
@@ -536,7 +546,8 @@ public class Module_Assignment_Listing extends BaseClass {
 		scrollTo2("Assignments");
 		oas.assignment.click();
 
-		swipeUp();
+		//swipeUp();
+		scrollTo2("My Assignments");
 		status=oas.add_assignment.isDisplayed();
 		if (status) {
 			System.out.println("Scrolling down successfully");
@@ -544,7 +555,8 @@ public class Module_Assignment_Listing extends BaseClass {
 		}
 		assert1.assertTrue(status);
 
-		swipeDown();
+		//swipeDown();
+		scrollTo2("Today");
 		status=oas.today.isDisplayed();
 		if (status) {
 			System.out.println("Scrolling Up successfully");
@@ -556,14 +568,6 @@ public class Module_Assignment_Listing extends BaseClass {
 	}
 
 
-	public void to_verify_the_search_functionality()
-	{
-
-	}
-	public void To_Verify_click_on_view_all_button_all_the_upcoming_tasks_will_be_expanded()
-	{
-
-	}
 
 	public void to_verify_total_due_resources_shown_to_user_In_each_section() throws MalformedURLException
 	{
@@ -607,12 +611,12 @@ public class Module_Assignment_Listing extends BaseClass {
 		Object_Assignment_Listing oas=new Object_Assignment_Listing();
 		SoftAssert assert1=new SoftAssert();
 		Boolean status;
-		status = oas.profilePic.isDisplayed();
-		assert1.assertTrue(status);
-		if (status) {
-			System.out.println("Logged in successfully");
-			test.log(Status.INFO, "Logged in successfully");
-		}
+		//		status = oas.profilePic.isDisplayed();
+		//		assert1.assertTrue(status);
+		//		if (status) {
+		//			System.out.println("Logged in successfully");
+		//			test.log(Status.INFO, "Logged in successfully");
+		//		}
 
 		scrollTo2("Assignments");
 		oas.assignment.click();
@@ -663,9 +667,11 @@ public class Module_Assignment_Listing extends BaseClass {
 		test.log(Status.INFO, "Setting Task Instruction " );
 		System.out.println("Setting Task Instruction");
 		oas.taskInstruction.sendKeys("TATA Studi Test for Task and Digital Test");
-		//scrollTo2("Assign");
-		scrollToEnd();
+		
+		scrollTo2("Assign");
+		
 		clickOnElement(oas.assignTask);
+
 		status = oas.notification.isDisplayed();
 		assert1.assertTrue(status);
 		if (status) {
@@ -684,12 +690,12 @@ public class Module_Assignment_Listing extends BaseClass {
 		Object_Assignment_Listing oas=new Object_Assignment_Listing();
 		SoftAssert assert1=new SoftAssert();
 		Boolean status;
-		status = oas.profilePic.isDisplayed();
-		assert1.assertTrue(status);
-		if (status) {
-			System.out.println("Logged in successfully");
-			test.log(Status.INFO, "Logged in successfully");
-		}
+		//		status = oas.profilePic.isDisplayed();
+		//		assert1.assertTrue(status);
+		//		if (status) {
+		//			System.out.println("Logged in successfully");
+		//			test.log(Status.INFO, "Logged in successfully");
+		//		}
 		scrollTo2("Assignments");
 		oas.assignment.click();
 		applyExplicitWait(5);
@@ -722,7 +728,7 @@ public class Module_Assignment_Listing extends BaseClass {
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Clicking on create assignment " );
 		System.out.println("Clicking on create assignment");
-		oas.assign.click();
+		//oas.assign.click();
 		test.log(Status.INFO, "New assignment created successfully " );
 		System.out.println("New assignment created successfully ");
 

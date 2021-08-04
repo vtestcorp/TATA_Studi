@@ -24,8 +24,11 @@ public class Object_Home_Page extends BaseClass{
 	
 	@AndroidFindBy(id = "com.tce.studi:id/btnVerify")
 	public WebElement verifyBtn;
+	@AndroidFindBy(id = "com.tce.studi:id/tvAlreadyUser")
+    public WebElement alreadyUser;
 	
-	@AndroidFindBy(id = "com.tce.studi:id/logo")
+	//@AndroidFindBy(id = "com.tce.studi:id/logo")
+	@AndroidFindBy(id ="com.tce.studi:id/imgStudiLogo")
 	public WebElement logo;
 	
 	@AndroidFindBy(id = "com.tce.studi:id/txtCountryCode")

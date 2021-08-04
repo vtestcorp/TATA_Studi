@@ -29,6 +29,7 @@ public class Object_Syllabus_Intent_Creation extends BaseClass {
 
 	@AndroidFindBy(id="com.tce.studi:id/fab_assignment")
 	public WebElement add_assignment;
+	
 
 	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tv_intent_title\").textContains(\"Digital Test\")")
 	public WebElement digital_tets;
@@ -87,7 +88,10 @@ public class Object_Syllabus_Intent_Creation extends BaseClass {
 
 	@AndroidFindBy(id ="com.tce.studi:id/imgDeleteSheet")
 	public WebElement delete_test ;
-
+	
+	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"android:id/button1\").textContains(\"OK\")")
+	public WebElement ok_btn ;
+	
 	@AndroidFindBy(id ="com.tce.studi:id/txtPositiveBtn")
 	public WebElement please_Discard ;
 
@@ -129,15 +133,6 @@ public class Object_Syllabus_Intent_Creation extends BaseClass {
 
 	@AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc=\"Next month\"]")
 	public WebElement nextMonthButton;
-
-	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tv_book_name\").textContains(\"Political Science\")")
-	//@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View/android.view.View[3]/android.view.View[2]")
-	public WebElement subjectAtCreatePlan;
-
-	//@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View[2]/android.view.View[2]/android.widget.TabWidget[2]/android.view.View[2]/android.view.View/android.view.View[2]/android.view.View")
-	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.ImageView[2]")
-	public WebElement topicCheckBoxAtCreateStudyPlan;
-
 
 	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"android:id/button1\").textContains(\"OK\")")
 	public WebElement ok_on_calendar;

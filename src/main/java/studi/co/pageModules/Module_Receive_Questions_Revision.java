@@ -57,6 +57,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		Thread.sleep(3000);
 
 		try {
+			applyExplicitWaitsUntilElementVisible(RMQR.why_tested_msg);
 			clickOnElement(findElementByText("Revis"));
 		} catch (Exception e) {
 			if (device.contains("Android"))
@@ -425,8 +426,9 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 			throws InterruptedException, WebDriverException, IOException {
 		traverse_To_Begin_Revision(subject, topic);
 		test.log(Status.INFO, "Video started");
-		Thread.sleep(1000);
-		Thread.sleep(1000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
+		Thread.sleep(2000);
+		
+		applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 		applyExplicitWaitsUntilElementVisible(RMQR.question);
 		int questions;
@@ -459,12 +461,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		System.out.println("Ending Test");
 		test.log(Status.INFO, "Ending Test");
 		
-		Thread.sleep(4000);
-		if (device.contains("Android"))
-			driver.navigate().back();
-		else
-			clickOnElement(RMQR.backBtn);
-		clickOnElement(RMQR.submitTestPopup);
+		Thread.sleep(2000);
 		
 		
 		applyExplicitWait(5);

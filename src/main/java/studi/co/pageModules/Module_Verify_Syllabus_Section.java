@@ -30,7 +30,7 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		osm.syllabus.click();
 
 		applyExplicitWait(5);
-		scrollTo2(subject);
+		scrollTo1(subject);
 		clickOnElement(findElementByText(subject));
 		test.log(Status.INFO, "Cilcked on "+subject+" subject");
 		applyExplicitWait(5);
@@ -56,7 +56,7 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		//swipeTop();
 
 		applyExplicitWait(5);
-		scrollTo2(topic1);
+		scrollTo1(topic1);
 		applyExplicitWait(5);
 		List<MobileElement> list = getDriver().findElements(By.id("com.tce.studi:id/tvTopic")); 	
 		System.out.println("Topics available in given chapter are :");
@@ -108,7 +108,7 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		osm.syllabus.click();
 
 		applyExplicitWait(5);
-		scrollTo2(subject);
+		scrollTo1(subject);
 		clickOnElement(findElementByText(subject));
 		test.log(Status.INFO, "Cilcked on "+subject+" subject");
 		clickOnElement(findElementByText(topic1));
@@ -139,28 +139,28 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 	}
 
 	public void verify_Practise_Quetions() throws Exception {
-		//		verify_beginPractise_Button();
+		
 		String subject = "Political Science";
 		String topic1 = "Diversity in India";
-
 		osm = new Object_Syllabus_Section();
-		//		scrollTo2("Syllabus");
 		osm.syllabus.click();
 
 		applyExplicitWait(5);
-		scrollTo2(subject);
+		scrollTo1(subject);
 		clickOnElement(findElementByText(subject));
 		test.log(Status.INFO, "Cilcked on "+subject+" subject");
 		clickOnElement(findElementByText(topic1));
 		test.log(Status.INFO, "Clicked on "+topic1+" Topic");
 		applyExplicitWait(5);
 		Thread.sleep(3000);
-		//		osm.practice.click();
 		clickOnElement(findElementByText("Practice"));
-		applyExplicitWaitsUntilElementVisible(osm.practice1);
+		applyExplicitWaitsUntilElementVisible(findElementByText("Practice"));
+		//applyExplicitWaitsUntilElementVisible(osm.practice1);
+		applyExplicitWaitsUntilElementClickable(osm.practice1);
 		//		osm.practice1.click();
 		//applyExplicitWaitsUntilElementVisible(getDriver().findElementById("com.tce.studi:id/tv_heading_id"));
-		applyExplicitWaitsUntilElementVisible(osm.topicHeader);
+		applyExplicitWaitsUntilElementVisible(osm.status);
+		
 		clickOnElement(findElementByText("Practice"));
 
 		applyExplicitWait(30);
@@ -197,7 +197,7 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		osm.syllabus.click();
 
 		applyExplicitWait(5);
-		scrollTo2(subject);
+		scrollTo1(subject);
 		clickOnElement(findElementByText(subject));
 		test.log(Status.INFO, "Cilcked on "+subject+" Subject");
 		clickOnElement(findElementByText(topic1));
@@ -206,7 +206,7 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		//		osm.practise.click();
 		clickOnElement(findElementByText("Practice"));
 		//applyExplicitWaitsUntilElementVisible(getDriver().findElementById("com.tce.studi:id/tv_heading_id"));
-		applyExplicitWaitsUntilElementVisible(osm.topicHeader);
+		applyExplicitWaitsUntilElementVisible(osm.status);
 		clickOnElement(findElementByText("Practice"));
 		//		osm.practice1.click();
 		int quetionsCount = verify_Question_Count_In_Test_Module();
@@ -493,9 +493,11 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		Thread.sleep(2000);
 		//		osm.answerOption1.click();
 		//		applyExplicitWait(5);
-		selectIncorrectAnswer();
+		
+		//selectIncorrectAnswer();
+		tapOnElement(findElementByText(tempstr));
 		osm.check_answer.click();
-
+	
 		String error=osm.Not_quite_Lets_continue.getText();
 		if(error.equals("Not quite. Let's continue.")) {
 			//		test.log(Status.INFO, "Not quite. Let's continue.- Heading is displayed");
@@ -524,6 +526,7 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		String topic1="Diversity in India";
 		osm.syllabus.click();
 		applyExplicitWait(10);
+		scrollTo1(subject);
 		clickOnElement(findElementByText(subject));
 		System.out.println("Clicked on "+subject+" subject");
 		test.log(Status.INFO, "Clicked on "+subject+" subject");
@@ -667,6 +670,7 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		osm = new Object_Syllabus_Section();
 		osm.syllabus.click();
 		applyExplicitWait(10);
+		scrollTo1(subject);
 		clickOnElement(findElementByText(subject));
 		System.out.println("Clicked on "+subject+" subject");
 		test.log(Status.INFO, "Clicked on "+subject+" subject");
@@ -682,7 +686,7 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 		applyExplicitWait(30);
 		//		Thread.sleep(5000);
 		//applyExplicitWaitsUntilElementVisible(getDriver().findElementById("com.tce.studi:id/tv_heading_id"));
-		applyExplicitWaitsUntilElementVisible(osm.topic_Heading);
+		applyExplicitWaitsUntilElementVisible(osm.status);
 		//applyExplicitWaitsUntilElementVisible(osm.begin_Practise);
 		//osm.begin_Practise_1.click();
 		//		Keyword.clickOnElementUsingText("Practice");

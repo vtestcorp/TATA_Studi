@@ -23,7 +23,7 @@ public class AFS_UserStory_63 extends BaseClass {
 		login.Login_to_app();
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = true,priority=-1)
 	public void TC01_Verify_Create_Note_Icon_Should_Be_Visible_In_Video()
 			throws MalformedURLException, InterruptedException {
 				Module_Syllabus_Options so = new Module_Syllabus_Options();
@@ -81,7 +81,7 @@ public class AFS_UserStory_63 extends BaseClass {
 		so.Verify_Save_Note_And_Discard_Button_Should_Be_Disable_Initially(prop.getProperty("subject"), prop.getProperty("topic"));
 	}
 	
-	@Test(enabled = true)
+	@Test(enabled = true,priority=-2)
 	public void TC11_Verify_Save_Note_And_Discard_Button_Enable_After_User_Entering_Note()
 			throws MalformedURLException, InterruptedException, AWTException {
 		Module_Syllabus_Options so = new Module_Syllabus_Options();
@@ -111,7 +111,6 @@ public class AFS_UserStory_63 extends BaseClass {
 		so.Verify_Warning_Message_Shown_After_Clicking_Discard_In_Notes(prop.getProperty("subject"),
 				prop.getProperty("topic"));
 	}
-
 	@Test(enabled = true)
 	public void TC43_Verify_Notes_Will_Be_Saved_Using_Save_Note_Option()
 			throws MalformedURLException, InterruptedException, AWTException {

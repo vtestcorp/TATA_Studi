@@ -101,7 +101,7 @@ import studi.co.pageObjects.Object_Syllabus_Option;
 
 public class BaseClass {
 
-	public static String device;
+	public static String device,tempstr;
 	public static Boolean notesFlag = false;
 	public static ExtentTest test, temptest;
 	public static Properties prop; // Property file initialization
@@ -256,11 +256,13 @@ public class BaseClass {
 			if (cont.contains("WEBVIEW"))
 				getDriver().context(cont);
 		}
-		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		//((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
 		List<MobileElement> as = driver.findElements(By.tagName("tce-option"));
 		for (WebElement s : as) {
 
-			if (!s.getAttribute("class").equalsIgnoreCase("tick")) {
+			//if (!s.getAttribute("class").equalsIgnoreCase("tick")) {
+			if (s.getAttribute("class")==null) {
+				tempstr=s.findElement(By.className("ql-editor")).getText();
 				int index = as.indexOf(s);
 				getDriver().context("NATIVE_APP");
 				if (device.contains("Android")||device.contains("Android-Jenkins"))
@@ -320,8 +322,11 @@ public class BaseClass {
 			caps.setCapability("appPackage", "com.tce.studi");
 			caps.setCapability("appActivity", "com.tce.view.ui.activities.SplashScreenActivity");
 			caps.setCapability("app", "C:\\Users\\LENOVO\\Downloads\\Studi_v1.2.0(6).apk");
-			//caps.setCapability("chromedriverExecutable", "C:\\Users\\LENOVO\\Downloads\\chromedriver_win32_91\\chromedriver.exe");
+
+			caps.setCapability("chromedriverExecutable", "C:\\Users\\LENOVO\\Downloads\\chromedriver_win32_91\\chromedriver.exe");
 			//caps.setCapability("chromedriverExecutable", "C:\\Users\\LENOVO\\Downloads\\chromedriver_win32_92\\chromedriver.exe");
+			//caps.setCapability("chromedriverExecutable", System.getProperty("user.dir")+"\\chromedriver.exe");
+
 			caps.setCapability("appium:chromeOptions", ImmutableMap.of("w3c", false));
 			caps.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, "true");
 			caps.setCapability(MobileCapabilityType.NO_RESET, true);
@@ -350,7 +355,6 @@ public class BaseClass {
 			caps.setCapability("webviewConnectTimeout", "60000");
 			caps.setCapability("newCommandTimeout", "120");
 			driver = new IOSDriver<>(new URL("http://localhost:4723/wd/hub"), caps);
-
 			System.out.println("iOSDriver Configured with the required Desired Capabilities and URL");
 
 		} else if (s.equalsIgnoreCase("Android-Jenkins")) {
@@ -362,14 +366,11 @@ public class BaseClass {
 			caps.setCapability("app", "bs://aacc82726ebee97794a2bb343a0b1ab05c1c5b96");
 			caps.setCapability("device", "OnePlus 8");
 			caps.setCapability("os_version", "10.0");
-
 			caps.setCapability("chromedriverExecutable", System.getProperty("user.dir")+"\\chromedriver.exe");
 			//caps.setCapability("chromedriverExecutable", "C:\\Users\\LENOVO\\Downloads\\chromedriver_win32_91\\chromedriver.exe");
 
 			//			caps.setCapability("device","Xiaomi Redmi Note 8");
 			//			caps.setCapability("os_version","9");
-
-
 			caps.setCapability(MobileCapabilityType.NO_RESET, true);
 			HashMap<String, Boolean> networkLogsOptions = new HashMap<>();
 			networkLogsOptions.put("captureContent", true);
@@ -378,15 +379,6 @@ public class BaseClass {
 			caps.setCapability("project", "First Java Project");
 			caps.setCapability("build", "Java Android");
 			caps.setCapability("name", "Tata Studi Bhushan");
-
-			// Initialise the remote Webdriver using BrowserStack remote URL
-			// and desired capabilities defined above
-			//caps.setCapability("real_mobile", "true");
-			//caps.setCapability("autoAcceptAlerts", true);
-
-			// caps.setCapability("browserstack.appium_version", "1.7.1");
-			//caps.setCapability("browserstack.local", "false");
-
 			driver = new AndroidDriver<MobileElement>(new URL("http://hub.browserstack.com/wd/hub"), caps);
 			System.out.println("Launched");
 
@@ -396,31 +388,16 @@ public class BaseClass {
 			caps.setCapability("browserstack.key", "BwjqEyXMTkp5kHjioqzp");
 			//caps.setCapability("app", "bs://06a1b6b1f5d95c2364a170e262d595fc872f419b");
 			caps.setCapability("app", "bs://a5d3a635c28a7c33f7d066490e571b94ba6a6ab4");
-
 			caps.setCapability("device", "iPad 5th");
 			caps.setCapability("os_version", "11");
 			caps.setCapability(MobileCapabilityType.NO_RESET, true);
-
-			//caps.setCapability("bundleId", "com.google.Chrome");
-			//caps.setCapability("appActivity", "com.demo.liveplaces.view.activity.SplashActivity");
 			caps.setCapability("project", "First Java Project");
 			caps.setCapability("build", "Java Android");
 			caps.setCapability("name", "Tata Studi IOS");
-
-			// Initialise the remote Webdriver using BrowserStack remote URL
-			// and desired capabilities defined above
-			//caps.setCapability("real_mobile", "true");
-			//caps.setCapability("autoAcceptAlerts", true);
-
-			// caps.setCapability("browserstack.appium_version", "1.7.1");
-			//caps.setCapability("browserstack.local", "false");
-
 			driver = new AppiumDriver<MobileElement>(new URL("http://hub.browserstack.com/wd/hub"), caps);
 			System.out.println("Launched");
 
 		}
-
-
 		driver.manage().timeouts().implicitlyWait(Integer.parseInt(prop.getProperty("object_wait_timeout")),
 				TimeUnit.SECONDS);
 		Module_Login login = new Module_Login();
@@ -885,7 +862,7 @@ public class BaseClass {
 	}
 
 	public List<MobileElement> getAllElementsFromPageUsingID(String id) throws Exception {
-		System.out.println("startef");
+		System.out.println("started");
 		int c = 0;
 		List<MobileElement> topics1 = (List<MobileElement>) driver.findElementsById(id);
 		int flag = 0;

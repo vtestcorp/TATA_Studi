@@ -1,6 +1,9 @@
 package studi.co.pageModules;
 
 import java.net.MalformedURLException;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -8,7 +11,9 @@ import org.testng.asserts.SoftAssert;
 
 import com.aventstack.extentreports.Status;
 
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
 import studi.co.Base.BaseClass;
 import studi.co.pageObjects.Object_ReviewPlan;
 import studi.co.pageObjects.Object_Syllabus_Intent_Creation;
@@ -19,49 +24,71 @@ public class Module_Syllabus_Intent_Creation extends BaseClass{
 	SoftAssert assert1=new SoftAssert();
 	Boolean status;
 	//subject=Geography topic1=The Universe
-	public void to_verify_all_the_Chapters_Topics_from_BrowseBook_section(String subject , String topic_1) throws MalformedURLException {
+	public void to_verify_all_the_Chapters_Topics_from_BrowseBook_section() throws Exception {
 		osic.syllabus.click();
 		applyExplicitWaitsUntilElementVisible(findElementByText("All Subjects"));
 		System.out.println("Subjects are available as follows");
 		test.log(Status.INFO, "Subjects are available as follows");
-		//		List<MobileElement> list_books = getDriver().findElementsById("com.tce.studi:id/tv_book_name");
-		//
-		//		for (MobileElement book : list_books) {
-		//			assert1.assertTrue(book.isDisplayed());
-		//			test.log(Status.INFO, book.getText());
-		//			System.out.println(book.getText());
-		//		}
-		//		scrollTo2(subject);
-		//		clickOnElement(findElementByText(subject));
-		//
-		//		System.out.println(" Chapters are available as follows");
-		//		test.log(Status.INFO, "Chapters displayed are as follows :");
-		//		List<MobileElement> list_chapters = getDriver().findElementsById("com.tce.studi:id/tvChapter");
-		//
-		//		for (MobileElement chapter : list_chapters) {
-		//			assert1.assertTrue(chapter.isDisplayed());
-		//			applyExplicitWait(2);
-		//			test.log(Status.INFO, chapter.getText());
-		//			applyExplicitWait(2);
-		//			System.out.println(chapter.getText());
-		//		}
-		//		scrollTo2("Geography");
-		//		clickOnElement(findElementByText("8. India: Climate, Vegetation, Wildlife"));
-		//		applyExplicitWait(3);	
-		//		System.out.println("Topics are available as follows");
-		//		test.log(Status.INFO, "Topics displayed are as follows :");
-		//
-		//		List<MobileElement> list_topics = getDriver().findElementsById("com.tce.studi:id/tvTopic");
-		//
-		//		for (MobileElement topic : list_topics) {
-		//			assert1.assertTrue(topic.isDisplayed());
-		//			applyExplicitWait(2);
-		//			test.log(Status.INFO, topic.getText());
-		//			applyExplicitWait(2);
-		//			System.out.println(topic.getText());
-		//		}
-		//		System.out.println("shown the all the Chapters and Topics from BrowseBook section");
-		//		test.log(Status.INFO, "shown the all the Chapters and Topics from BrowseBook section");
+
+		List<MobileElement> books = getDriver().findElements(By.id("com.tce.studi:id/tv_book_name")); 	
+		System.out.println("Books available are :");
+		System.out.println(books.size());
+		int i=1;
+		for (MobileElement book : books) {
+			assert1.assertTrue(book.isDisplayed());
+			test.log(Status.INFO, "Topic "+i+" is Displayed");
+			System.out.println(book.getText());
+			i++;
+		}
+
+		SoftAssert assert1 = new SoftAssert();
+		String subject = "Political Science";
+		String topic1 = "Diversity in India";
+
+
+		applyExplicitWait(5);
+		scrollTo1(subject);
+		clickOnElement(findElementByText(subject));
+		test.log(Status.INFO, "Cilcked on "+subject+" subject");
+		applyExplicitWait(5);
+
+		action = new TouchAction(driver);
+		List<MobileElement> chapters = getAllElementsFromPageUsingID("com.tce.studi:id/tvChapter");
+
+		ArrayList<String> aa = new ArrayList<>(); 
+		for (MobileElement mobileElement : chapters) {
+			aa.add(mobileElement.getText().replaceAll("\\d", "").trim());
+		}
+
+		System.out.println("Chapters available in given subject are :");
+		test.log(Status.INFO, "Chapters available in given subject are :");
+		List<String> chaptersWD = new ArrayList<>(new HashSet<>(aa));
+		chaptersWD.sort(Comparator.naturalOrder());
+
+		System.out.println(chaptersWD.size());
+		for (String chapter1 : chaptersWD) {
+			test.log(Status.INFO, chapter1);
+			System.out.println(chapter1);
+		}
+		//swipeTop();
+
+		applyExplicitWait(5);
+		scrollTo1(topic1);
+		applyExplicitWait(5);
+		List<MobileElement> list = getDriver().findElements(By.id("com.tce.studi:id/tvTopic")); 	
+		System.out.println("Topics available in given chapter are :");
+		System.out.println(list.size());
+		int j=1;
+		for (MobileElement topic : list) {
+			assert1.assertTrue(topic.isDisplayed());
+			test.log(Status.INFO, "Topic "+i+" is Displayed");
+			System.out.println(topic.getText());
+			j++;
+		}
+		clickOnElement(findElementByText(topic1));
+		test.log(Status.INFO, "Clicked on "+topic1);
+
+		applyExplicitWait(5);
 
 		assert1.assertAll();
 	}
@@ -208,7 +235,9 @@ public class Module_Syllabus_Intent_Creation extends BaseClass{
 			test.log(Status.INFO, "Enter Test Details shown");
 		}
 		assert1.assertTrue(status);
-		clickOnElement(findElementByText("Assign"));
+		//scrollTo2("Assign");
+		//clickOnElement(findElementByText("Assign"));
+		clickOnElement(osic.assign_Final);
 		status =osic.notification.isDisplayed();
 		if (status) {
 			System.out.println("Notification Message Shown --> Digital Test is Ready!!");
@@ -551,7 +580,7 @@ public class Module_Syllabus_Intent_Creation extends BaseClass{
 
 	}
 
-	public void to_verify_user_should_be_able_to_select_date_for_the_test() throws MalformedURLException, InterruptedException {
+	public void to_verify_user_should_be_able_to_select_date_for_the_test(String subject_History,String topic_H) throws MalformedURLException, InterruptedException {
 		{	
 			clickOnElement(findElementByText("Syllabus"));
 			osic.add_assignment.click();
@@ -575,12 +604,15 @@ public class Module_Syllabus_Intent_Creation extends BaseClass{
 
 			System.out.println("Selecting the topic from Subject");
 			test.log(Status.INFO, "Selecting the topic from Subject");
+			System.err.println("Clicked on " + subject_History);
+			scrollTo2(subject_History);
+			clickOnElement(findElementByText(subject_History));
 
-			applyExplicitWaitsUntilElementVisible(osic.subjectAtCreatePlan);
-			osic.subjectAtCreatePlan.click();
-			applyExplicitWaitsUntilElementVisible(osic.topicCheckBoxAtCreateStudyPlan);
-			osic.topicCheckBoxAtCreateStudyPlan.click();
-			clickOnElement(findElementByText("Next")); //for blank title field need value
+			System.err.println("Clicked on " + topic_H);
+			scrollTo2(topic_H);
+			clickOnElement(findElementByText(topic_H));
+
+			clickOnElement(findElementByText("Next")); 
 			status =osic.title.isDisplayed();
 			if (status) {
 				System.out.println("Title is displyed on Test Details page");
@@ -594,22 +626,19 @@ public class Module_Syllabus_Intent_Creation extends BaseClass{
 			clickOnElement(osic.select_Date);
 			applyExplicitWait(2);
 			String[] s = date.split("-");
-			//System.out.println(s.length);
-			//String[] s1 = s[1].split(" ");
-			//String actualDate = s1[1].trim();
 			String actualDate=s[0];
-			//System.out.println(actualDate);
 			int i = Integer.parseInt(actualDate);
 			int date2=i+2;
-			if(i>=22) {
+			if(i>=26) {
 				osic.nextMonthButton.click();
-				Thread.sleep(2000);
+				//Thread.sleep(2000);
 				//	 MobileElement date1=getDriver().findElement(By.xpath("//*[contains(@text, '1, 2021')]"));
 				//new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
 				//.until(ExpectedConditions.elementToBeClickable(orp.date1));
 
-				System.out.println(osic.date1.getText());
-				osic.date1.click();
+				clickOnElement(driver.findElement(MobileBy.AndroidUIAutomator("new UiSelector().descriptionContains(\"01\")")));	
+				System.out.println(driver.findElement(MobileBy.AndroidUIAutomator("new UiSelector().descriptionContains(\"01\")")).getText());
+
 			}
 			else {
 				MobileElement date3=getDriver().findElement(By.xpath("//*[contains(@text, '"+date2+"')]"));
@@ -617,9 +646,12 @@ public class Module_Syllabus_Intent_Creation extends BaseClass{
 
 			}
 
-			String changed_date=osic.select_Date.getText();
-			System.out.println("The changed date is:"+changed_date);
-			clickOnElement(osic.ok_on_calendar);
+			//String changed_date=osic.select_Date.getText();
+			//System.out.println("The changed date is:"+changed_date);
+			//clickOnElement(osic.ok_on_calendar);
+			//applyExplicitWaitsUntilElementClickable(pauseBtn);
+			clickOnElement(findElementByText("OK"));
+		
 			clickOnElement(findElementByText("Assign"));
 			status =osic.notification.isDisplayed();
 

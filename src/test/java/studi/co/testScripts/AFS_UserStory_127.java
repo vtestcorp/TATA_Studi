@@ -24,7 +24,7 @@ public class AFS_UserStory_127 extends BaseClass {
 	public void TC05_To_Verify_Use_Must_be_Able_To_View_The_Content_of_the_Chapter_Listing_Pages()
 			throws Exception {
 		Module_Browsebook_Chapter_Listing mbcl=new Module_Browsebook_Chapter_Listing();
-		mbcl.to_verify_use_must_be_able_to_view_the_content_of_the_Chapter_Listing_page(prop.getProperty("subject"),prop.getProperty("topic"));
+		mbcl.to_verify_use_must_be_able_to_view_the_content_of_the_Chapter_Listing_page();
 
 	}
 	@Test(enabled = true)

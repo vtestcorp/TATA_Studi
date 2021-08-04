@@ -120,16 +120,16 @@ public class Object_Syllabus_Section extends BaseClass {
 	public WebElement green_Smiley_icon;
 
 	//@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[3]/android.view.View[1]/android.view.View")
-	 @AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"Great job! Let's continue.\")" )
+	@AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"Great job! Let's continue.\")" )
 	public WebElement right_Answer_message;
-	
+
 	@AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"Uh-oh! Give it another shot!\")" )
 	public WebElement wrong_Answer_message;
-	
+
 
 	@AndroidFindBy(id="com.tce.studi:id/tvPrimaryAction")
 	public WebElement continue_Button;
-	
+
 	@AndroidFindBy(id="com.tce.studi:id/tvSecondaryAction")
 	public WebElement practice_again;
 
@@ -180,8 +180,9 @@ public class Object_Syllabus_Section extends BaseClass {
 
 	//@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[3]/android.view.View[1]/android.view.View")
 	@AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"Not quite. Let's continue\")")
+	//@AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"Not quite right.\")")
 	public WebElement Not_quite_Lets_continue;
-	
+
 	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]/android.view.ViewGroup/android.widget.TextView[1]")
 	public WebElement estimation_of_Numbers;
 
@@ -272,17 +273,19 @@ public class Object_Syllabus_Section extends BaseClass {
 
 	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView[1]")
 	public WebElement practise_Again1;
-	
-	
-	
 
+
+	@AndroidFindBy(id = "com.tce.studi:id/ivConfidence")
+	public WebElement status;
+	
 	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.TextView")
 	public WebElement comparingNumberHeading;
 
 
-	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.TextView")
+	//@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.TextView")
+	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.TextView")
 	public WebElement topic_Heading;
-	
+
 	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView[1]")
 	public WebElement beginPractise1;
 
@@ -306,8 +309,8 @@ public class Object_Syllabus_Section extends BaseClass {
 	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tvLesson\").textContains(\"Practice again\")")
 	public WebElement practice;
 
-	@AndroidFindBy(id="com.tce.studi:id/tvPrimaryAction")
-	//@AndroidFindBy(id="com.tce.studi:id/tvSecondaryAction")
+	//@AndroidFindBy(id="com.tce.studi:id/tvPrimaryAction")
+	@AndroidFindBy(id="com.tce.studi:id/tvSecondaryAction")
 	public WebElement practice1;
 
 	public WebElement getHighlight() {

@@ -53,7 +53,7 @@ public class Object_Assignment_Digital_Test  extends BaseClass {
 	@AndroidFindBy(id ="com.tce.studi:id/ivConfidence")
 	public WebElement confidenceStatus;
 
-	@AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[3]")
+	@AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[3]")
 	public WebElement questionView;
 
 
@@ -71,7 +71,16 @@ public class Object_Assignment_Digital_Test  extends BaseClass {
 
 	@AndroidFindBy(id="com.tce.studi:id/helpSwitch")
 	public WebElement help;
-	
+
+	@AndroidFindBy(id ="com.tce.studi:id/tvTitleInstructionTest")
+	public WebElement title_Instruction ;
+
+	@AndroidFindBy(id ="com.tce.studi:id/tvDifficultyInstruction")
+	public WebElement difficulty_level_Instruction ;
+
+	@AndroidFindBy(id ="com.tce.studi:id/tvTentativeDurationInstructionTest")
+	public WebElement duration_instruction ;
+
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/helpSwitch\").textContains(\"ON\")")
 	public WebElement help_ON;
 
@@ -173,8 +182,23 @@ public class Object_Assignment_Digital_Test  extends BaseClass {
 	@AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"Not quite right.\")" )
 	public WebElement answer_InCorrect_Msg;
 
+
+	@AndroidFindBy(id = "com.tce.studi:id/ivFlag")
+	public WebElement queFlag; 
+
+	@AndroidFindBy(id = "com.tce.studi:id/ivFlag")
+	public WebElement hamFlag;
+	
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/iv_left_icon\").index(0)")
+	public WebElement hamburgerBtn;
+	@AndroidFindBy(id = "com.tce.studi:id/layoutQuiz")
+	public WebElement question;
+
+
+
 	public int get_Total_Number_Of_Questions_In_digital_Test() {
-		if (device.equalsIgnoreCase("Android"))
+		//if (device.equalsIgnoreCase("Android"))
+		if (device.contains("Android")||device.contentEquals("Android-Jenkins"))
 		{
 			MobileElement ele=findElementByText("1 of");
 			String temp[] = ele.getText().split(" ");

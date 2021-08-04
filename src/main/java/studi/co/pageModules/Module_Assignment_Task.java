@@ -71,6 +71,7 @@ public class Module_Assignment_Task extends BaseClass {
 		test.log(Status.INFO, "Selected the Task Duration");
 		System.out.println("Selected the Task Duration");
 		clickOnElement(findElementByText("Assign"));
+		//show more
 		status = oas.createdTask.isDisplayed();
 		assert1.assertTrue(status);
 		if (status) {

@@ -2,6 +2,7 @@ package studi.co.testScripts;
 
 import java.net.MalformedURLException;
 
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import studi.co.Base.BaseClass;
@@ -49,15 +50,21 @@ public class Subscription extends BaseClass {
 		Module_Subscription subscription =new Module_Subscription();
 		subscription.to_validate_Order_Summary_Checkout_page();
 	}
-	@Test(enabled = true)//TBD
+	@Test(enabled = false)//TBD
 	public void TC_09_To_validate_Order_Summary_Checkout_page_section_with_Details() throws MalformedURLException {
 		Module_Subscription subscription =new Module_Subscription();
 		subscription.to_validate_Order_Summary_Checkout_page_section_with_Details();
 	}
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void TC12_To_validate_Payment_information_section_with_details_of_Checkout_page() throws MalformedURLException {
 		Module_Subscription subscription =new Module_Subscription();
 		subscription.To_validate_Payment_information_section_with_details_of_Checkout_page();
+	}
+
+	@AfterMethod
+	public void restApp() throws MalformedURLException {
+		applyExplicitWait(5);
+		getDriver().launchApp();
 	}
 
 }

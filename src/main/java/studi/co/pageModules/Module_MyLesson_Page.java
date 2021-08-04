@@ -33,6 +33,8 @@ import studi.co.pageObjects.Object_ReviewPlan;
 public class Module_MyLesson_Page extends BaseClass{
 	Object_MyLesson_Page omp;
 	Object_ReviewPlan orp;
+	private String topic_eng;
+	private String subject_eng;
 
 
 	public void toVerify_User_Navigate_to_MyLessonsPage() throws MalformedURLException {
@@ -966,7 +968,7 @@ public class Module_MyLesson_Page extends BaseClass{
 
 
 	public void toVerify_Schedule_List_Of_Plan_For_Other_Weeks() throws Exception {
-		createPlan1(7);
+		createPlan1(subject_eng,topic_eng);
 		omp= new Object_MyLesson_Page();
 		Thread.sleep(2000);
 		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
@@ -1316,7 +1318,7 @@ public class Module_MyLesson_Page extends BaseClass{
 
 	public void toVerify_HighLighted_Lesson() throws Exception {
 
-		createPlan1(0);
+		createPlan1(subject_eng,topic_eng);
 		omp= new Object_MyLesson_Page();
 		Thread.sleep(2000);
 		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
@@ -1387,7 +1389,7 @@ public class Module_MyLesson_Page extends BaseClass{
 	}
 
 
-	public void createPlan1(int day) throws Exception {
+	public void createPlan1(String subject, String topic) throws Exception {
 		orp=new Object_ReviewPlan();
 		if(orp.subHeading.getText().contains("Paused")){
 			orp.test_unit.click();
@@ -1404,11 +1406,15 @@ public class Module_MyLesson_Page extends BaseClass{
 		applyExplicitWait(5);
 		orp.manageAndCreatePlan.click();
 		clickOnElement(findElementByText("Create"));
-		applyExplicitWaitsUntilElementVisible(orp.subjectAtCreatePlan);
-		orp.subjectAtCreatePlan.click();
-		scrollTo2("Natural Vegetation");
-		applyExplicitWaitsUntilElementVisible(orp.chapterCheckBox);
-		orp.chapterCheckBox.click();
+		
+		System.err.println("Clicked on " + subject);
+		scrollTo2(subject);
+		clickOnElement(findElementByText(subject));
+
+		System.err.println("Clicked on " + topic);
+		scrollTo2(topic);
+		clickOnElement(findElementByText(topic));
+		
 		orp.addToPortion.click();
 
 		clickOnElement(findElementByText("Next Step"));
@@ -1423,6 +1429,7 @@ public class Module_MyLesson_Page extends BaseClass{
 		String actualDate = s1[1].trim();
 		System.out.println(actualDate);
 		int i = Integer.parseInt(actualDate);
+		int day=1;
 		int date2=i+day;
 
 		if(i>=22) {
@@ -1476,14 +1483,14 @@ public class Module_MyLesson_Page extends BaseClass{
 		orp.subjectAtCreatePlan.click();
 		applyExplicitWaitsUntilElementVisible(orp.topicCheckBoxAtCreateStudyPlan);
 		orp.topicCheckBoxAtCreateStudyPlan.click();
-		
+
 		scrollTo2("Natural Vegetation");
 		applyExplicitWaitsUntilElementVisible(orp.checkbox_Natural);
 		orp.checkbox_Natural.click();
-		
+
 		//applyExplicitWaitsUntilElementVisible(orp.topicCheckBox_2_AtCreateStudyPlan);
 		//orp.topicCheckBox_2_AtCreateStudyPlan.click();
-		
+
 		orp.addToPortion.click();
 
 		clickOnElement(findElementByText("Next Step"));
@@ -1742,7 +1749,7 @@ public class Module_MyLesson_Page extends BaseClass{
 
 	public void toVerify_Locked_Lessons_Functionality() throws Exception {
 
-		createPlan1(4);
+		createPlan1(subject_eng,topic_eng);
 		omp= new Object_MyLesson_Page();
 		Thread.sleep(2000);
 		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
@@ -1834,10 +1841,9 @@ public class Module_MyLesson_Page extends BaseClass{
 		scrollTo2("Manage and Create Plans");		
 		applyExplicitWait(5);
 		orp.manageAndCreatePlan.click();
-
 		clickOnElement(findElementByText("Create"));
 
-		applyExplicitWaitsUntilElementVisible(orp.subject_Political_AtCreatePlan);
+		scrollTo2("Political Science");
 		orp.subject_Political_AtCreatePlan.click();
 		applyExplicitWaitsUntilElementVisible(orp.topicCheckBoxAt_ps);
 		orp.topicCheckBoxAt_ps.click();
@@ -1853,6 +1859,7 @@ public class Module_MyLesson_Page extends BaseClass{
 		orp.addToPortion.click();
 		clickOnElement(findElementByText("Next Step"));
 		applyExplicitWait(5);
+		
 		clickOnElement(findElementByText("Next Step"));
 
 		String date=orp.selectDate.getText();

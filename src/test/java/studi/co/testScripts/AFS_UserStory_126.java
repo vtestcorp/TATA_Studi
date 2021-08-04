@@ -80,19 +80,19 @@ public class AFS_UserStory_126 extends BaseClass {
 		mss.toVerify_User_Should_Be_Shown_Status_Of_Each_TP(prop.getProperty("subject1"),prop.getProperty("topic1"));
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = true,priority=-3)
 	public void	T20_To_Verify_User_Should_Be_Shown_Low_Confidence_Status_For_The_Tp_In_Which_User_Has_Scored_Low_Confidence() throws Exception{
 		Module_Syllabus_Section mss=new Module_Syllabus_Section();
-		mss.toVerify_User_Should_Be_Shown_Low_Confidence_Status_For_The_Tp_In_Which_User_Has_Scored_Low_Confidence(prop.getProperty("subject2"),prop.getProperty("topic2"));
+		mss.toVerify_User_Should_Be_Shown_Low_Confidence_Status_For_The_Tp_In_Which_User_Has_Scored_Low_Confidence(prop.getProperty("subject_low"),prop.getProperty("topic_low"));
 	}
 
-	@Test(enabled=true) 
+	@Test(enabled=true,priority=-2) 
 	public void	T21_To_Verify_User_Should_Be_Shown_Medium_Confidence_Status_For_The_Tp_In_Which_User_Has_Scored_Low_Confidence() throws Exception{
 		Module_Syllabus_Section mss=new Module_Syllabus_Section();
-		mss.toVerify_User_Should_Be_Shown_Medium_Confidence_Status_For_The_Tp_In_Which_User_Has_Scored_Low_Confidence(prop.getProperty("subject2"),prop.getProperty("topic2"));
+		mss.toVerify_User_Should_Be_Shown_Medium_Confidence_Status_For_The_Tp_In_Which_User_Has_Scored_Low_Confidence(prop.getProperty("subject_eng"),prop.getProperty("topic_medium"));
 	}
 
-	@Test(enabled=true)   
+	@Test(enabled=true,priority=-1)   
 	public void	T22_To_Verify_User_Should_Be_Shown_High_Confidence_Status_For_The_Tp_In_Which_User_Has_Scored_Low_Confidence() throws Exception{
 		Module_Syllabus_Section mss=new Module_Syllabus_Section();
 		mss.toVerify_User_Should_Be_Shown_High_Confidence_Status_For_The_Tp_In_Which_User_Has_Scored_Low_Confidence(prop.getProperty("subject2"),prop.getProperty("topic2"));

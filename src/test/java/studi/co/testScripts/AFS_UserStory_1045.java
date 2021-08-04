@@ -108,26 +108,26 @@ public class AFS_UserStory_1045 extends BaseClass{
 		mmp.toVerify_Lessons_In_Upcoming_Tab();
 	}
 
-	@Test(enabled=true)
+	@Test(enabled=true,priority=-5)
 	public void T17_To_Verify_Various_Colour_Code_Schema_For_Various_Books() throws Exception {	
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_Various_Colour_Code_Schema_For_Various_Books();
 	}
 
 
-	@Test(enabled=true)
+	@Test(enabled=true,priority=-4)
 	public void T19_To_Verify_User_Should_Be_Shown_HighLighted_Lesson() throws Exception {
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_HighLighted_Lesson();
 	}
 
-	@Test(enabled=true)
+	@Test(enabled=true,priority=-3)
 	public void T20_To_Verify_the_Highlighted_lessons_gets_changed_when_user_complete_the_previous_highlighted_lesson() throws Exception {
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_the_Highlighted_lessons_gets_changed();
 	}
 
-	@Test(enabled=true) 
+	@Test(enabled=true,priority=-2) 
 	public void T21_To_Verify_Lesson_Card_Content() throws Exception {
 		Module_MyLesson_Page mmp=new Module_MyLesson_Page();
 		mmp.toVerify_Lesson_Card_Content();

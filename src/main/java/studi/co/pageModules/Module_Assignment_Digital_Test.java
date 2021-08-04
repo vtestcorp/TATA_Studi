@@ -2,7 +2,11 @@ package studi.co.pageModules;
 
 import java.net.MalformedURLException;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
+import org.openqa.selenium.By;
 import org.testng.asserts.SoftAssert;
 
 import com.aventstack.extentreports.Status;
@@ -19,6 +23,7 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 		clickOnElement(oadt.assignment);
 		test.log(Status.INFO, "Clicked Assignments" );
 		System.out.println("Clicked on Assignments");
+		//applyExplicitWaitsUntilElementVisible(oadt.add_assignment);
 		clickOnElement(oadt.add_assignment);
 		oadt.digital_tets.click();
 		System.out.println("Clicked on Digital Test");
@@ -55,13 +60,11 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 		applyExplicitWaitsUntilElementVisible(oadt.questionView);
 		swipeDown();
 		status =oadt.testTimer.isDisplayed();
-
 		if (status) {
 			System.out.println("Test Duration is displayed");
 			test.log(Status.INFO, "Test Duration is displayed");
 			assert1.assertTrue(status);
 		}
-
 		assert1.assertAll();
 
 	}
@@ -75,7 +78,7 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 		applyExplicitWaitsUntilElementVisible(oadt.questionView);
 		swipeDown();
 		status =oadt.testTimer.isDisplayed();
-		
+
 		if (status) {
 			System.out.println("Test Duration is displayed");
 			test.log(Status.INFO, "Test Duration is displayed");
@@ -167,7 +170,6 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 		System.out.println("Opening " + subject);
 		applyExplicitWaitsUntilElementClickable(findElementByText(subject));
 		clickOnElement(findElementByText(subject));
-
 		scrollTo1(topic);
 		test.log(Status.INFO, "Selecting " + topic);
 		System.out.println("Selecting " + topic);
@@ -176,71 +178,46 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 		applyExplicitWait(5);
 		clickOnElement(oadt.next1);
 		applyExplicitWait(5);
-
 		test.log(Status.INFO, "Clicking on Help Switch--> OFF" );
 		System.out.println("Clicking on Help Switch--> OFF");
-
 		clickOnElement(oadt.help);//OFF help btn
-
-		status=findElementByText("Add a title that is easy to scan").isDisplayed();
-		assert1.assertFalse(status, "No guideline for Title shown to the user");
-		if (!status) {
-			System.out.println("User is able to see the guidelines for Title");
-			test.log(Status.INFO, "User is able to see the guidelines for Title");
+		try {
+			oadt.title_Instruction.isDisplayed();
+			assert1.assertFalse(true);
+			System.out.println("If Help is OFF then guidlines for Title is not Removed  ");
+			test.log(Status.INFO, "If Help is OFF then guidlines for Title is not Removed  ");
 		}
-		status=findElementByText("").isDisplayed();
-		assert1.assertFalse(status, "No guideline for Difficulty level shown to the user");
-		if (!status) {
-			System.out.println("User is able to see the guidelines");
-			test.log(Status.INFO, "User is able to see the guidelines");
-		}
-
-		status=findElementByText("Add a title that is easy to scan").isDisplayed();
-		assert1.assertFalse(status, "No guideline shown to the user");
-		if (!status) {
-			System.out.println("User is able to see the guidelines");
-			test.log(Status.INFO, "User is able to see the guidelines");
-		}
-		status=findElementByText("Add a title that is easy to scan").isDisplayed();
-		assert1.assertFalse(status, "No guideline shown to the user");
-		if (!status) {
-			System.out.println("User is able to see the guidelines");
-			test.log(Status.INFO, "User is able to see the guidelines");
-		}
-
-
-		if(oadt.help_OFF.isDisplayed())
+		catch(Exception e)
 		{
-			status =oadt.titleHelp.isDisplayed();
-			assert1.assertFalse(status);
-			if (status) {
-				System.out.println("Title guideline is not there");
-				test.log(Status.INFO, "Title guideline is not there");
-			}
+			assert1.assertFalse(false); 
+			System.out.println("If Help is OFF then guidlines for Title is Removed  ");
+			test.log(Status.INFO, "If Help is OFF then guidlines for Title is Removed  ");
 
 		}
-		//				status =oadt.difficultyLevelHelp.isDisplayed();
-		//				assert1.assertFalse(status);
-		//				if (status) {
-		//					System.out.println("Difficulty level Guideline is not there");
-		//					test.log(Status.INFO,"Difficulty level Guideline is not there");
-		//				}
-		//
-		//				status =oadt.durationHelp.isDisplayed();
-		//				assert1.assertFalse(status);
-		//				if (status) {
-		//					System.out.println("Tentative Duration Guideline is not there");
-		//					test.log(Status.INFO, "Tentative Duration Guideline is not there");
-		//				}
-		//
-		//				status =oadt.dueDateHelp.isDisplayed();
-		//				assert1.assertFalse(status);
-		//				if (status) {
-		//					System.out.println("Due Date Guidline is not there");
-		//					test.log(Status.INFO, "Due Date Guidline is not there");
-		//				}
-		//			
-
+		try {
+			oadt.difficulty_level_Instruction.isDisplayed();
+			assert1.assertFalse(true);
+			System.out.println("If Help is OFF then guidlines for Difficulty level  is not Removed  ");
+			test.log(Status.INFO, "If Help is OFF then guidlines for Difficulty level  is not Removed  ");
+		}
+		catch(Exception e)
+		{
+			assert1.assertFalse(false); 
+			System.out.println("If Help is OFF then guidlines for Difficulty level is Removed  ");
+			test.log(Status.INFO, "If Help is OFF then guidlines for Difficulty level is Removed  ");
+		}
+		try {
+			oadt.difficulty_level_Instruction.isDisplayed();
+			assert1.assertFalse(true);
+			System.out.println("If Help is OFF then guidlines for entative Duration is not Removed  ");
+			test.log(Status.INFO, "If Help is OFF then guidlines for entative Duration is not Removed  ");
+		}
+		catch(Exception e) {
+			assert1.assertFalse(false); 
+			System.out.println("If Help is OFF then guidlines for entative Duration is Removed  ");
+			test.log(Status.INFO, "If Help is OFF then guidlines for entative Duration is Removed  ");
+		}
+		assert1.assertAll();
 
 	}
 
@@ -283,28 +260,23 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 			test.log(Status.INFO, "Alert Notification of success message is displayed");
 		}
 		assert1.assertAll();
-
-
-
-
 	}
-
-
-
 	public void to_verify_add_flag_for_review_before_submission(String subject, String topic) throws MalformedURLException {
 		create_Assignment_Digital_Test(subject, topic);
 		clickOnElement(oadt.viewAssignmenBtn);
-
 		test.log(Status.INFO, "Traversing to Begin Test" );
 		System.out.println("Traversing to Begin Test");
-
 		clickOnElement(oadt.beginTest);
-
 		test.log(Status.INFO, "Attempting the test " );
 		System.out.println("Attempting the test");
-		oadt.flag.click();
+		
+		
+		
+		
+		
+		
+		clickOnElement(oadt.flag);
 		applyExplicitWait(5);
-
 		test.log(Status.INFO, "Set the flag for First question " );
 		System.out.println("Set the flag for First question ");
 		int questions = oadt.get_Total_Number_Of_Questions_In_digital_Test();
@@ -667,6 +639,7 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 		clickOnElement(oadt.next_questin_Arrow);
 		clickOnElement(oadt.submitTest);
 		clickOnElement(oadt.check_Answer);
+
 		test.log(Status.INFO, "Going towards Review");
 		System.out.println("Going towards Review");
 
@@ -1079,8 +1052,8 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 			System.out.println("Shown incorrect feedback for wrong answer");
 			test.log(Status.INFO, "Shown incorrect feedback for wrong answer");
 		}
-		
-		
+
+
 		else {
 
 			status = oadt.answer_InCorrect_Msg.isDisplayed();
@@ -1094,7 +1067,88 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 		}
 		assert1.assertAll();	
 	}
+
+
+
+	public SoftAssert to_set_the_flag() throws MalformedURLException
+	{
+		SoftAssert assert1 = new SoftAssert();
+		Set<String> allQuestions = new HashSet<>();
+
+		applyExplicitWait(5);
+		applyExplicitWaitsUntilElementVisible(oadt.question);
+		int questions = oadt.get_Total_Number_Of_Questions_In_digital_Test();
+		int i = 0;
+		int j = 0;
+		clickOnElement(oadt.hamburgerBtn);
+		Iterator<String> it = allQuestions.iterator();
+		ArrayList<MobileElement> queCount;
+
+		if (device.contains("Android"))
+			queCount = (ArrayList<MobileElement>) getDriver().findElementsById("com.tce.studi:id/tvQuestion");
+		else
+			queCount = (ArrayList<MobileElement>) getDriver().findElements(By.xpath(
+					"//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell"));
+
+		System.err.println("Count : " + queCount.size());
+		String[] hList = new String[queCount.size()];
+		for (MobileElement mobileElement : queCount)
+			hList[j++] = mobileElement.getText();
+
+		applyExplicitWait(2);
+		if (device.contains("Android"))
+			clickOnElement(findElementByText(hList[0].toString()));
+		else
+			clickOnElement(findElementByText("Q1"));
+
+		while (i < questions) {
+
+			applyExplicitWait(2);
+			clickOnElement(oadt.queFlag);
+			test.log(Status.INFO, "quesetiong flag");
+			System.out.println("quesetiong flag");
+			applyExplicitWait(2);
+			clickOnElement(oadt.hamburgerBtn);
+
+			assert1.assertTrue(oadt.hamFlag.isDisplayed());
+			test.log(Status.INFO, "Hamburger flag");
+			System.out.println("Hamburger flag");
+
+			applyExplicitWait(2);
+			if (device.contains("Android"))
+				clickOnElement(findElementByText(hList[i].split(":")[0]));
+			else
+				clickOnElement(findElementByText("Q" + (i + 1)));
+			test.log(Status.INFO, it.toString());
+			System.out.println(it.toString());
+			test.log(Status.INFO, "quesetion number");
+			System.out.println("quesetion number");
+
+			applyExplicitWait(2);
+			clickOnElement(oadt.queFlag);
+			test.log(Status.INFO, "quesetiong flag");
+			System.out.println("quesetiong flag");
+
+			applyExplicitWait(2);
+			clickOnElement(oadt.hamburgerBtn);
+			applyExplicitWait(2);
+			if ((i + 1) != questions) {
+				if (device.contains("Android"))
+					clickOnElement(findElementByText(hList[i + 1].split(":")[0]));
+				else
+					clickOnElement(findElementByText("Q" + (i + 2)));
+			}
+			i++;
+		}
+
+		return assert1;
+
+	}
+
 }
+
+
+
 
 
 

@@ -1,7 +1,10 @@
 package studi.co.testScripts;
 
+import static org.testng.Assert.assertTrue;
+
 import java.net.MalformedURLException;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
@@ -18,8 +21,9 @@ public class Assignment_Task extends BaseClass{
 		super();
 	}
 
-	@Test(enabled= true)//pass..can attach
+	@Test(enabled= true)//pass..can attach.... need update for show more
 	public void TC01_To_Verify_Successful_Creation_of_Task() throws MalformedURLException, InterruptedException {
+	Assert.assertTrue(true);
 		Module_Assignment_Task  mas=new Module_Assignment_Task();
 		mas.to_verify_successful_creation_of_task();
 	}
@@ -74,7 +78,7 @@ public class Assignment_Task extends BaseClass{
 		Module_Assignment_Task  mas=new Module_Assignment_Task();
 		mas.to_verify_delete_btn_functinality_with_take_back_btn_at_task_creation();
 	}
-	@Test(enabled= false)//pending due to validation
+	@Test(enabled= false)//Hold
 	public void TC11_To_verify_Creation_of_Task_Without_Mandatory_Fields() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Task  mas=new Module_Assignment_Task();
 		mas.to_verify_creation_of_task_without_mandatory_fields();

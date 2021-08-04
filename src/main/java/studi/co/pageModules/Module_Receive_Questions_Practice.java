@@ -159,7 +159,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 		if (firstQuestion.contains(lastQuestion))
 			test.log(Status.INFO, "Unattempted question appear again. So it's mandetory for practice");
 		System.out.println("Unattempted question appear again. So it's mandetory for practice");
-		
+
 		sAss.assertAll();
 	}
 
@@ -357,7 +357,6 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 	}
 
 	public SoftAssert verify_All_SCQ_Answer_In_Default_State() throws InterruptedException, MalformedURLException {
-
 		SoftAssert sAss = new SoftAssert();
 		applyExplicitWaitsUntilElementVisible(obp.question);
 		int questions = getTotalQuestionsInPractice();
@@ -527,7 +526,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
+
 				for (MobileElement mobileElement2 : answerCount) {
 					swipeUp();
 					if (device.contains("Android"))
@@ -1279,7 +1278,7 @@ public class Module_Receive_Questions_Practice extends BaseClass {
 			Thread.sleep(500);
 			if ((i + 1) != questions) {
 				if(device.contains("Android"))
-				clickOnElement(obp.conti_nue);
+					clickOnElement(obp.conti_nue);
 				else
 					clickOnElement(findElementByText("Continue"));}
 			i++;

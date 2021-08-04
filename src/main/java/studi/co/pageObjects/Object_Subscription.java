@@ -93,7 +93,7 @@ public class Object_Subscription extends BaseClass{
 	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tvName\").textContains(\"Liam\")")
 	public WebElement new_user_name;
 
-	@AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.TextView\").textContains(\"Order Summary\")")
+	@AndroidFindBy(uiAutomator ="new UiSelector().className(\"android.widget.TextView\").textContains(\"Order Summary\")")
 	public WebElement order_Summary;
 
 	@AndroidFindBy(id ="com.android.vending:id/0_resource_name_obfuscated")

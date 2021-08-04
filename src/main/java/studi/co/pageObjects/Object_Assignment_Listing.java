@@ -57,7 +57,8 @@ public class Object_Assignment_Listing extends BaseClass {
 	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tvNextStep\").textContains(\"Next\")")
 	public WebElement next1;
 
-	@AndroidFindBy(id="com.tce.studi:id/tvAssign")
+	//@AndroidFindBy(id="com.tce.studi:id/tvAssign")
+	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tvAssign\").textContains(\"Assign\")")
 	public WebElement assignTask;
 
 	@AndroidFindBy(id ="com.tce.studi:id/tvPrimaryAction")
@@ -66,6 +67,9 @@ public class Object_Assignment_Listing extends BaseClass {
 	@AndroidFindBy(id ="com.tce.studi:id/tvNew")
 	public WebElement new_icon;
 
+	@AndroidFindBy(id ="com.tce.studi:id/tvOverview")
+	public WebElement why_tested_msg  ;
+	
 	@AndroidFindBy(id ="com.tce.studi:id/iv_left_icon")
 	public WebElement back_btn;
 
@@ -86,6 +90,7 @@ public class Object_Assignment_Listing extends BaseClass {
 
 	@AndroidFindBy(id="com.tce.studi:id/txtNegativeBtn")
 	public WebElement hideReport;
+	
 	@AndroidFindBy(id="com.tce.studi:id/listAttachment")
 	public WebElement attachmentIcon;
 

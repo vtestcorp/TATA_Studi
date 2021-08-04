@@ -19,30 +19,56 @@ import studi.co.pageObjects.Object_Syllabus_Section;
 public class Module_Browsebook_Chapter_Listing extends BaseClass{
 	Object_Browsebook_Chapter_Listing obcl=new Object_Browsebook_Chapter_Listing();
 
-	public void to_verify_use_must_be_able_to_view_the_content_of_the_Chapter_Listing_page(String subject, String topic) throws Exception
+	public void to_verify_use_must_be_able_to_view_the_content_of_the_Chapter_Listing_page() throws Exception
 	{
 		SoftAssert assert1 = new SoftAssert();
-		obcl = new Object_Browsebook_Chapter_Listing();	
-		
-		//System.out.println(getLocator("syllabus"));
-		clickOnElement(obcl.syllabus);
-		
+		Object_Browsebook_Chapter_Listing obcl = new Object_Browsebook_Chapter_Listing();	
+		String subject = "Political Science";
+		String topic1 = "Diversity in India";
+		obcl.syllabus.click();
 
+		applyExplicitWait(5);
 		scrollTo1(subject);
-		test.log(Status.INFO, "Opening " + subject);
-		System.out.println("Opening " + subject);
 		clickOnElement(findElementByText(subject));
-		System.out.println("");
-		test.log(Status.INFO, "Grade of the student is shown");
-		scrollTo2("Class");
-		//swipeUp();
-		Boolean grade = obcl.grade.isDisplayed();
-		assert1.assertTrue(grade);
-		if (grade) {
-			System.out.println("Grade of the student is shown");
-			test.log(Status.INFO, "Grade of the student is shown");
+		test.log(Status.INFO, "Cilcked on "+subject+" subject");
+		applyExplicitWait(5);
+
+		action = new TouchAction(driver);
+		List<MobileElement> chapters = getAllElementsFromPageUsingID("com.tce.studi:id/tvChapter");
+
+		ArrayList<String> aa = new ArrayList<>(); 
+		for (MobileElement mobileElement : chapters) {
+			aa.add(mobileElement.getText().replaceAll("\\d", "").trim());
 		}
-		assert1.assertTrue(grade);
+
+		System.out.println("Chapters available in given subject are :");
+		test.log(Status.INFO, "Chapters available in given subject are :");
+		List<String> chaptersWD = new ArrayList<>(new HashSet<>(aa));
+		chaptersWD.sort(Comparator.naturalOrder());
+
+		System.out.println(chaptersWD.size());
+		for (String chapter1 : chaptersWD) {
+			test.log(Status.INFO, chapter1);
+			System.out.println(chapter1);
+			
+		}
+		//swipeTop();
+
+		applyExplicitWait(5);
+		scrollTo1(topic1);
+		applyExplicitWait(5);
+		List<MobileElement> list = getDriver().findElements(By.id("com.tce.studi:id/tvTopic")); 	
+		System.out.println("Topics available in given chapter are :");
+		System.out.println(list.size());
+		int i=1;
+		for (MobileElement topic : list) {
+			assert1.assertTrue(topic.isDisplayed());
+			test.log(Status.INFO, "Topic "+i+" is Displayed");
+			System.out.println(topic.getText());
+			i++;
+		}
+		
+		
 		assert1.assertAll();
 	}
 
@@ -237,7 +263,6 @@ public class Module_Browsebook_Chapter_Listing extends BaseClass{
 		System.out.println("Selecting " + topic);
 		applyExplicitWaitsUntilElementClickable(findElementByText(topic));
 		clickOnElement(findElementByText(topic));
-		
 		scrollTo2("Notes");
 
 		applyExplicitWait(5);
@@ -315,6 +340,7 @@ public class Module_Browsebook_Chapter_Listing extends BaseClass{
 
 
 	}
+	
 }
 
 

@@ -19,7 +19,7 @@ public class Assignment_Digital_Test extends BaseClass{
 		super();
 	}
 
-	@Test(enabled = true)//for 10 min
+	@Test(enabled = true)
 	public void TC01_To_Verify_Test_Duration_should_be_display_as_per_selection_in_the_test_Settings() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Digital_Test  mas=new Module_Assignment_Digital_Test();
 		mas.to_verify_display_of_test_duration(prop.getProperty("subject"),prop.getProperty("topic"));
@@ -37,7 +37,7 @@ public class Assignment_Digital_Test extends BaseClass{
 		mas.to_verify_that_User_able_to_ON_Help_toggle(prop.getProperty("subject"),prop.getProperty("topic"));
 	}
 
-	@Test(enabled = true)//fail
+	@Test(enabled = true)
 	public void TC04_To_Verify_while_Entering_Test_Setting_Details_User_Able_To_OFF_Help_Toggle() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Digital_Test  mas=new Module_Assignment_Digital_Test();
 		mas.to_verify_that_User_able_to_OFF_Help_toggle(prop.getProperty("subject"),prop.getProperty("topic"));
@@ -50,13 +50,13 @@ public class Assignment_Digital_Test extends BaseClass{
 		mas.to_verify_assign_digital_test_and_success_message(prop.getProperty("subject"),prop.getProperty("topic"));
 	}
 
-	@Test(enabled = true)//pass
+	@Test(enabled = true)
 	public void TC06_To_Verify_Add_Flag_For_Review_Before_Submission() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Digital_Test  mas=new Module_Assignment_Digital_Test();
 		mas.to_verify_add_flag_for_review_before_submission(prop.getProperty("subject"),prop.getProperty("topic"));
 	}
 
-	@Test(enabled = true)//pass
+	@Test(enabled = true,priority=-2)//pass
 	public void TC07_To_verify_that_at_time_of_test_submission_count_of_attempted_Pending_Flagged_questions_should_be_display() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Digital_Test  mas=new Module_Assignment_Digital_Test();
 		mas.to_verify_Count_of_attempted_Pending_Flagged_questions_should_be_display(prop.getProperty("subject"),prop.getProperty("topic"));;
@@ -69,7 +69,7 @@ public class Assignment_Digital_Test extends BaseClass{
 		mas.to_verify_the_review_of_digital_test(prop.getProperty("subject"),prop.getProperty("topic"));
 	}
 
-	@Test(enabled = true)//flag on review TBD
+	@Test(enabled = false)//flag on review TBD
 	public void TC09_To_Verify_The_Flag_Reflection_On_Review() throws MalformedURLException, InterruptedException {
 
 		Module_Assignment_Digital_Test  mas=new Module_Assignment_Digital_Test();
@@ -83,7 +83,7 @@ public class Assignment_Digital_Test extends BaseClass{
 		mas.to_verify_the_Correct_Incorrect_answers_on_review_page(prop.getProperty("subject"),prop.getProperty("topic"));
 	}
 
-	@Test(enabled = true)//pass
+	@Test(enabled = true)//f
 	public void TC11_To_Verify_the_review_Scrolling() throws MalformedURLException, InterruptedException {
 
 		Module_Assignment_Digital_Test  mas=new Module_Assignment_Digital_Test();
@@ -95,19 +95,19 @@ public class Assignment_Digital_Test extends BaseClass{
 		Module_Assignment_Digital_Test  mas=new Module_Assignment_Digital_Test();
 		mas.to_verify_the_close_review(prop.getProperty("subject"),prop.getProperty("topic"));
 	}
-	@Test(enabled = true)//pass
+	@Test(enabled = true)//f
 	public void TC13_To_Verify_The_Exit_Review() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Digital_Test  mas=new Module_Assignment_Digital_Test();
 		mas.to_verify_the_exit_review(prop.getProperty("subject"),prop.getProperty("topic"));
 	}
 
-	@Test(enabled = true)//pass
+	@Test(enabled = true)//f
 	public void TC14_To_Verify_From_Review_User_Should_be_Able_To_Redirect_The_Test_Summary_and_Redo_Test() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Digital_Test  mas=new Module_Assignment_Digital_Test();
 		mas.to_verify_from_review_user_should_be_able_to_redirect_the_Test_Summary_and_redo_test(prop.getProperty("subject"),prop.getProperty("topic"));
 	}
 
-	@Test(enabled = true)//pass
+	@Test(enabled = true)//f
 	public void TC15_To_verify_for_the_Abondon_Test() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Digital_Test  mas=new Module_Assignment_Digital_Test();
 		mas.to_verify_for_the_Abondon_Test(prop.getProperty("subject"),prop.getProperty("topic"));
