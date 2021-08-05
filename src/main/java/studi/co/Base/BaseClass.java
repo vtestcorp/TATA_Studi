@@ -342,7 +342,6 @@ public class BaseClass {
 			applyExplicitWait(20);
 
 		} else if (s.equalsIgnoreCase("IOS")) {
-
 			caps = new DesiredCapabilities();
 			caps.setCapability("automationName", "XCUITest");
 			caps.setCapability("deviceName", prop2.getProperty("Device_Name"));
