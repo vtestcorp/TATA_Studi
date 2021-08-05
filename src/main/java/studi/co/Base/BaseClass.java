@@ -104,7 +104,7 @@ public class BaseClass {
 	public static String device,tempstr;
 	public static Boolean notesFlag = false;
 	public static ExtentTest test, temptest;
-	public static Properties prop; // Property file initialization
+	public static Properties prop,prop2; // Property file initialization
 	public static ExtentHtmlReporter htmlReporter;
 	public static ExtentReports extent;
 	public ExtentTest logger;
@@ -138,6 +138,13 @@ public class BaseClass {
 			FileInputStream ip = new FileInputStream(
 					System.getProperty("user.dir") + "/src/main/java/studi/co/Config/config.properties");
 			prop.load(ip);
+			
+			prop2 = new Properties();
+			FileInputStream ip2 = new FileInputStream(
+					System.getProperty("user.dir") + "TataConfig.properties");
+			prop2.load(ip2);
+
+			
 		} catch (Exception ex) {
 			System.out.println(ex.getStackTrace());
 		}
@@ -310,23 +317,17 @@ public class BaseClass {
 	 * device.
 	 */
 	@BeforeTest
-	@Parameters({ "type" })
 	public static void beforeTest(String type) throws Exception {
-		String s = type;
+		String s = prop2.getProperty("platformName");
 		device = new String(type);
 		caps = new DesiredCapabilities();
 		if (s.equalsIgnoreCase("Android")) {
 			caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Appium");
 			caps.setCapability("platformName", "Android");
-			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11");
+			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, prop2.getProperty("OS_Version"));
 			caps.setCapability("appPackage", "com.tce.studi");
 			caps.setCapability("appActivity", "com.tce.view.ui.activities.SplashScreenActivity");
-			caps.setCapability("app", "C:\\Users\\LENOVO\\Downloads\\Studi_v1.2.0(6).apk");
-
-			caps.setCapability("chromedriverExecutable", "C:\\Users\\LENOVO\\Downloads\\chromedriver_win32_91\\chromedriver.exe");
-			//caps.setCapability("chromedriverExecutable", "C:\\Users\\LENOVO\\Downloads\\chromedriver_win32_92\\chromedriver.exe");
-			//caps.setCapability("chromedriverExecutable", System.getProperty("user.dir")+"\\chromedriver.exe");
-
+						
 			caps.setCapability("appium:chromeOptions", ImmutableMap.of("w3c", false));
 			caps.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, "true");
 			caps.setCapability(MobileCapabilityType.NO_RESET, true);
@@ -344,11 +345,11 @@ public class BaseClass {
 
 			caps = new DesiredCapabilities();
 			caps.setCapability("automationName", "XCUITest");
-			caps.setCapability("deviceName", "iPhone 6s");
+			caps.setCapability("deviceName", prop2.getProperty("Device_Name"));
 			caps.setCapability("udid", "dd587b26e65a1100a6ba7b2026478c1967bb4422");
 			caps.setCapability("platformName", "iOS");
 			caps.setCapability("app", appPath);
-			caps.setCapability("platformVersion", "13");
+			caps.setCapability("platformVersion", prop2.getProperty("OS_Version"));
 			caps.setCapability("appActivity", "com.tce.view.ui.activities.SplashScreenActivity");
 			caps.setCapability(MobileCapabilityType.NO_RESET, true);
 			caps.setCapability("simpleIsVisibleCheck", true);
@@ -359,41 +360,35 @@ public class BaseClass {
 
 		} else if (s.equalsIgnoreCase("Android-Jenkins")) {
 			caps = new DesiredCapabilities();
-			caps.setCapability("browserstack.user", "imran_O3Z2m1");
-			caps.setCapability("browserstack.key", "deH6qfn4rkytKBtiXAmF");
-			//caps.setCapability("app", "bs://656e3ca14750b2a060396a23b938db4288f1f854"); 
-			//caps.setCapability("app", "bs://45d22759c08eed2904e93fd3fe4d252dc87c7a18");
-			caps.setCapability("app", "bs://aacc82726ebee97794a2bb343a0b1ab05c1c5b96");
+			caps.setCapability("browserstack.user", prop2.getProperty("browserstack_user"));
+			caps.setCapability("browserstack.key", prop2.getProperty("browserstack_key"));
+			caps.setCapability("app", "bs://"+prop2.getProperty("app_Key"));
 			
-			caps.setCapability("device", "OnePlus 8");
-			caps.setCapability("os_version", "10.0");
+			caps.setCapability("device", prop2.getProperty("Device_Name"));
+			caps.setCapability("os_version", prop2.getProperty("OS_Version"));
 			
-			caps.setCapability("chromedriverExecutable", System.getProperty("user.dir")+"\\chromedriver.exe");
-			//caps.setCapability("chromedriverExecutable", "C:\\Users\\LENOVO\\Downloads\\chromedriver_win32_91\\chromedriver.exe");
-
-			//			caps.setCapability("device","Xiaomi Redmi Note 8");
-			//			caps.setCapability("os_version","9");
+			caps.setCapability("chromedriverExecutable", System.getProperty("user.dir")+"\\chromedriver");
 			caps.setCapability(MobileCapabilityType.NO_RESET, true);
 			HashMap<String, Boolean> networkLogsOptions = new HashMap<>();
 			networkLogsOptions.put("captureContent", true);
 			caps.setCapability("browserstack.networkLogs", true);
 			caps.setCapability("browserstack.networkLogsOptions", networkLogsOptions);
-			caps.setCapability("project", "First Java Project");
+			caps.setCapability("project", "Tata Studi");
 			caps.setCapability("build", "Java Android");
-			caps.setCapability("name", "Tata Studi Bhushan");
+			caps.setCapability("name", "Tata Studi");
 			driver = new AndroidDriver<MobileElement>(new URL("http://hub.browserstack.com/wd/hub"), caps);
 			System.out.println("Launched");
 
 		}else if (s.equalsIgnoreCase("IOS-Jenkins")) {
 			caps = new DesiredCapabilities();
-			caps.setCapability("browserstack.user", "vtestsoftware_kQGEst");
-			caps.setCapability("browserstack.key", "BwjqEyXMTkp5kHjioqzp");
-			//caps.setCapability("app", "bs://06a1b6b1f5d95c2364a170e262d595fc872f419b");
-			caps.setCapability("app", "bs://a5d3a635c28a7c33f7d066490e571b94ba6a6ab4");
-			caps.setCapability("device", "iPad 5th");
-			caps.setCapability("os_version", "11");
+			caps.setCapability("browserstack.user", prop2.getProperty("browserstack_user"));
+			caps.setCapability("browserstack.key", prop2.getProperty("browserstack_key"));
+			
+			caps.setCapability("app", "bs://"+prop2.getProperty("app_Key"));
+			caps.setCapability("device", prop2.getProperty("Device_Name"));
+			caps.setCapability("os_version", prop2.getProperty("OS_Version"));
 			caps.setCapability(MobileCapabilityType.NO_RESET, true);
-			caps.setCapability("project", "First Java Project");
+			caps.setCapability("project", "Tata Studi");
 			caps.setCapability("build", "Java Android");
 			caps.setCapability("name", "Tata Studi IOS");
 			driver = new AppiumDriver<MobileElement>(new URL("http://hub.browserstack.com/wd/hub"), caps);
