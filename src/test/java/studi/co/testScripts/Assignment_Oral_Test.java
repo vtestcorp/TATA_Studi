@@ -22,7 +22,7 @@ public class Assignment_Oral_Test  extends BaseClass {
 		maot.to_verify_that_from_syllabus_menu_user_should_be_able_to_navigate_oral_test();
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC08_To_Verify_After_Clicking_On_Oral_Test_User_Should_be_able_to_View_Oral_Test_Option() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Oral_Test  maot=new Module_Assignment_Oral_Test();
 		maot.to_verify_after_clicking_on_oral_test_user_should_be_able_to_view_oral_test_option();
@@ -106,7 +106,7 @@ public class Assignment_Oral_Test  extends BaseClass {
 		Module_Assignment_Oral_Test  maot=new Module_Assignment_Oral_Test();
 		maot.to_verify__with_blank_Title(prop.getProperty("subject"),prop.getProperty("topic1"));
 	}
-	@Test(enabled =true)
+	@Test(enabled =false)
 	public void TC28_To_Verify_Edit_Title_of_the_Oral_test() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Oral_Test  maot=new Module_Assignment_Oral_Test();
 		maot.to_verify__edit_title_of_the_oral_test(prop.getProperty("subject"),prop.getProperty("topic_1"));
@@ -220,7 +220,7 @@ public class Assignment_Oral_Test  extends BaseClass {
 		maot.to_verify_that_submit_test_successfully(prop.getProperty("subject"),prop.getProperty("topic_1"));
 	}
 
-	@Test(enabled =true)
+	@Test(enabled =false)
 	public void TC47_To_verify_after_submit_oral_test_there_should_not_be_any_scoring_critria() throws MalformedURLException, InterruptedException{ 
 		Module_Assignment_Oral_Test  maot=new Module_Assignment_Oral_Test();
 		maot.to_verify_after_submi_oral_test_there_should_not_be_any_scoring_critria(prop.getProperty("subject"),prop.getProperty("topic_1"));
