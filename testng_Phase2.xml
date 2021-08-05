@@ -7,7 +7,7 @@
 			class-name="studi.co.testng.EmailableReportListener" />
 	</listeners>
 	<test thread-count="5" name="Test">
-		<parameter name="type" value="Android-jenkins"></parameter>
+		
 		<classes>
 
 			<!--<class name="studi.co.testScripts.Syllabus_BrowseBook" /> -->
