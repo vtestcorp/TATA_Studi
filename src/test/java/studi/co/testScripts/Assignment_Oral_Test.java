@@ -1,13 +1,8 @@
 package studi.co.testScripts;
 
-import static org.testng.Assert.assertTrue;
-
 import java.net.MalformedURLException;
-
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
-
-import junit.framework.Assert;
 import studi.co.Base.BaseClass;
 import studi.co.pageModules.Module_Assignment_Oral_Test;
 
@@ -144,7 +139,7 @@ public class Assignment_Oral_Test  extends BaseClass {
 		maot.to_verify_When_click_on_start_test_button_before_starting_test_user_should_be_Able_to_view_Videos(prop.getProperty("subject"),prop.getProperty("topic_1"));
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC35_To_verify_Begin_test() throws MalformedURLException{
 		Module_Assignment_Oral_Test  maot=new Module_Assignment_Oral_Test();
 		maot.to_verify_the_begin_test(prop.getProperty("subject"),prop.getProperty("topic_1"));
@@ -176,7 +171,7 @@ public class Assignment_Oral_Test  extends BaseClass {
 		maot.to_verify_that_user_should_be_able_to_hide_answers(prop.getProperty("subject_History"),prop.getProperty("topic_H"));
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC40_To_verify_after_hiding_Answer_user_should_be_able_to_view_Answer_Again() throws MalformedURLException, InterruptedException{
 
 		Module_Assignment_Oral_Test  maot=new Module_Assignment_Oral_Test();
