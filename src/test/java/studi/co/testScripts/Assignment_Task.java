@@ -21,7 +21,7 @@ public class Assignment_Task extends BaseClass{
 		super();
 	}
 
-	@Test(enabled= true)//pass..can attach.... need update for show more
+	@Test(enabled= true)//pass
 	public void TC01_To_Verify_Successful_Creation_of_Task() throws MalformedURLException, InterruptedException {
 	Assert.assertTrue(true);
 		Module_Assignment_Task  mas=new Module_Assignment_Task();
@@ -47,28 +47,28 @@ public class Assignment_Task extends BaseClass{
 		mas.to_verify_closing_task_details();
 	}
 
-	@Test(enabled= true)//
+	@Test(enabled= true)
 	public void TC05_To_Verify_Marking_Task_as_Completed() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Task  mas=new Module_Assignment_Task();
 		mas.to_verify_marking_task_as_completed();
 	}
-	@Test(enabled= true)//pending
+	@Test(enabled= true)
 	public void TC06_To_verify_the_Help_Toggle_Button_ON_Functionality_At_Time_of_Task_Creation() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Task  mas=new Module_Assignment_Task();
 		mas.to_verify_the_help_toggle_button_ON_functionality_at_time_of_task_creation();
 	}
-	@Test(enabled= true)//pending
+	@Test(enabled= true)
 	public void TC07_To_verify_the_Help_Toggle_Button_OFF_Functionality_At_Time_of_Task_Creation() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Task  mas=new Module_Assignment_Task();
 		mas.to_verify_the_help_toggle_button_OFF_functionality_at_time_of_task_creation();
 	}
 
-	@Test(enabled= true)//pass
+	@Test(enabled= true)
 	public void TC08_To_verify_Delete_Btn_Functinality_at_the_time_of_task_creation() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Task  mas=new Module_Assignment_Task();
 		mas.to_verify_delete_btn_functinality_at_the_time_of_task_creation();
 	}
-	@Test(enabled = true)//pass
+	@Test(enabled = true)
 	public void TC09_To_verify_Delete_Btn_Functinality_at_the_time_of_task_creation() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Task  mas=new Module_Assignment_Task();
 		mas.to_verify_delete_btn_functinality_with_discard_at_task_creation();

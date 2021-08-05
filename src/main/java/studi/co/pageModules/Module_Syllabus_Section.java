@@ -106,8 +106,6 @@ public class Module_Syllabus_Section extends BaseClass {
 		}
 		// scrollTo2("Assignments");
 		oso.syllabus.click();
-		
-		
 		Thread.sleep(2000);
 		scrollTo2("Class");
 		swipeUp();
@@ -118,7 +116,6 @@ public class Module_Syllabus_Section extends BaseClass {
 			test.log(Status.INFO, "Grade is displayed");
 		}
 		status = oso.editButton.isDisplayed();
-
 		assert1.assertTrue(status);
 		if (status) {
 			System.out.println("Edit icon is displayed");
@@ -126,9 +123,7 @@ public class Module_Syllabus_Section extends BaseClass {
 		}
 
 		oso.editButton.click();
-
 		status = oso.assign.isDisplayed();
-
 		assert1.assertTrue(status);
 		if (status) {
 			System.out.println("Edit icon is tappable");
@@ -137,7 +132,6 @@ public class Module_Syllabus_Section extends BaseClass {
 		assert1.assertAll();
 	}
 
-	// TC-8
 	public void toVerify_User_Should_Be_Shown_Completed_In_School_Status() throws Exception {
 		Boolean status;
 		SoftAssert assert1 = new SoftAssert();

@@ -364,8 +364,10 @@ public class BaseClass {
 			//caps.setCapability("app", "bs://656e3ca14750b2a060396a23b938db4288f1f854"); 
 			//caps.setCapability("app", "bs://45d22759c08eed2904e93fd3fe4d252dc87c7a18");
 			caps.setCapability("app", "bs://aacc82726ebee97794a2bb343a0b1ab05c1c5b96");
+			
 			caps.setCapability("device", "OnePlus 8");
 			caps.setCapability("os_version", "10.0");
+			
 			caps.setCapability("chromedriverExecutable", System.getProperty("user.dir")+"\\chromedriver.exe");
 			//caps.setCapability("chromedriverExecutable", "C:\\Users\\LENOVO\\Downloads\\chromedriver_win32_91\\chromedriver.exe");
 

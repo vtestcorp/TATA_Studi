@@ -2,6 +2,7 @@ package studi.co.testScripts;
 
 import java.net.MalformedURLException;
 
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import studi.co.Base.BaseClass;
@@ -23,17 +24,24 @@ public class Study_Plan_Create_Plan extends BaseClass{
 
 	}
 
-	@Test(enabled= true,priority=-2)
+	@Test(enabled= true)
 	public void TC02_To_Verify_user_is_able_create_another_study_plan() throws MalformedURLException, InterruptedException {
 		Module_Studya_plan_Create_plan mspcp=new Module_Studya_plan_Create_plan();
 		mspcp.To_Verify_user_is_able_create_another_study_plan(prop.getProperty("subject"),prop.getProperty("topic"));
 
 
 	}
+	@Test(enabled= true)
 	public void TC03_To_verify_user_is_able_to_see_the_previous_plan() throws MalformedURLException, InterruptedException {
 		Module_Studya_plan_Create_plan mspcp=new Module_Studya_plan_Create_plan();
 		mspcp.To_Verify_user_is_able_to_see_previous_plan(prop.getProperty("subject"),prop.getProperty("topic"));
 
+	}
+
+	@AfterMethod
+	public void restApp() throws MalformedURLException {
+		applyExplicitWait(5);
+		getDriver().launchApp();
 	}
 }
 
