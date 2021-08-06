@@ -346,7 +346,7 @@ public class BaseClass {
 		if (s.equalsIgnoreCase("Android")) {
 			caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Appium");
 			caps.setCapability("platformName", "Android");
-			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, prop2.getProperty("OS_Version"));
+			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11");
 			caps.setCapability("appPackage", "com.tce.studi");
 			caps.setCapability("appActivity", "com.tce.view.ui.activities.SplashScreenActivity");
 						

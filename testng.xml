@@ -7,10 +7,9 @@
 			class-name="studi.co.testng.EmailableReportListener" />
 	</listeners>
 	<test name="Test1">
-		<parameter name="type" value="Android"></parameter>
 		<classes>
 			<!--<class name="studi.co.testScripts.Syllabus_ViewNotes" /> -->
-			<!-- <class name="studi.co.testScripts.AFS_UserStory_77" /> -->
+			<class name="studi.co.testScripts.AFS_UserStory_77" />
 			<!-- <class name="studi.co.testScripts.AFS_UserStory_76" /> -->
 			<!--<class name="studi.co.testScripts.AFS_UserStory_65" />-->
 			<!--<class name="studi.co.testScripts.AFS_UserStory_2" /> -->
@@ -18,7 +17,7 @@
 			<!--<class name="studi.co.testScripts.AFS_UserStory_1046" /> -->
 			<!--<class name="studi.co.testScripts.AFS_UserStory_1045" /> -->
 			<!--<class name="studi.co.testScripts.AFS_UserStory_1044" /> -->
-			<class name="studi.co.testScripts.AFS_UserStory_126" /> 
+			<!-- <class name="studi.co.testScripts.AFS_UserStory_126" /> --> 
 			<!--<class name="studi.co.testScripts.AFS_UserStory_127" /> -->
 		</classes>
 

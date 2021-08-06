@@ -115,7 +115,8 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
 		System.out.println("Video Started");
-		Thread.sleep(1000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
+		Thread.sleep(2000);
+		applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 
 		int questions;
