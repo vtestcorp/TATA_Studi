@@ -15,27 +15,24 @@ import studi.co.Base.BaseClass;
 
 public class Object_Receive_Questions_Revision extends BaseClass {
 
-	@AndroidFindBy(id ="com.tce.studi:id/tvOverview")
-	public WebElement why_tested_msg;
-
 	@iOSFindBy(id = "WebviewQuiz")
 	@AndroidFindBy(id = "com.tce.studi:id/layoutQuiz")
 	public WebElement question;
-
+	
 	@iOSFindBy(id = "backWithBackground")
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/iv_left_icon\")")
 	public WebElement backBtn;
-
+	
 	@AndroidFindBy(id = "com.tce.studi:id/iv_right_action_primary")
 	public WebElement skip;
-
+	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/ib_create_note\")")
 	public WebElement addNotesBtn;
-
+	
 	@iOSFindBy(xpath = "//XCUIElementTypeButton[@name=\"OK\"]")
 	@AndroidFindBy(id = "com.tce.studi:id/txtPositiveBtn")
 	public WebElement submitTestPopup;
-
+	
 	@iOSFindBy(id = "ic closs blue")
 	@AndroidFindBy(id = "android:id/content")
 	public WebElement exitPopup;
@@ -54,7 +51,7 @@ public class Object_Receive_Questions_Revision extends BaseClass {
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[3]/android.widget.Button")
 	// @AndroidFindBy(xpath = "//[contains(text(),'Check Answer')]")
 	public WebElement checkAnswer;
-
+	
 
 	@iOSFindBy(xpath = "//XCUIElementTypeButton[@name=\"nextBtn\"]")
 	@AndroidFindBy(id = "com.tce.studi:id/ivNext")
@@ -72,14 +69,14 @@ public class Object_Receive_Questions_Revision extends BaseClass {
 
 	@AndroidFindBy(id = "com.tce.studi:id/tv_lets_summarise")
 	public WebElement letsSummriseTxt;
-
+	
 	@AndroidFindBy(id = "com.tce.studi:id/iv_right_action_primary")
 	public WebElement forward;
 
 	@AndroidFindBy(id = "com.tce.studi:id/ivTertiaryAction")
 	public WebElement backToSubject;
 
-
+	
 
 	public Object_Receive_Questions_Revision() {
 		PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);
@@ -90,10 +87,10 @@ public class Object_Receive_Questions_Revision extends BaseClass {
 		if (device.equalsIgnoreCase("Android"))
 			return getDriver().findElementsByXPath(
 					"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.widget.LinearLayout/android.widget.ImageView").size();
-		//"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView").size();
+					//"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView").size();
 		else {
 			MobileElement ele=driver.findElementByXPath("//*[@type=\"XCUIElementTypePageIndicator\"]");
-
+			
 			String temp[] = ele.getAttribute("value").split(" ");
 			int temp1=Integer.parseInt(temp[temp.length-1]);
 			System.err.println("que1 :"+ele.getAttribute("value"));

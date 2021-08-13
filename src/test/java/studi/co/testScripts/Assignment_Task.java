@@ -1,7 +1,5 @@
 package studi.co.testScripts;
 
-import static org.testng.Assert.assertTrue;
-
 import java.net.MalformedURLException;
 
 import org.testng.Assert;
@@ -23,7 +21,7 @@ public class Assignment_Task extends BaseClass{
 
 	@Test(enabled= true)//pass
 	public void TC01_To_Verify_Successful_Creation_of_Task() throws MalformedURLException, InterruptedException {
-	Assert.assertTrue(true);
+
 		Module_Assignment_Task  mas=new Module_Assignment_Task();
 		mas.to_verify_successful_creation_of_task();
 	}
@@ -47,11 +45,11 @@ public class Assignment_Task extends BaseClass{
 		mas.to_verify_closing_task_details();
 	}
 
-	@Test(enabled= true)
-	public void TC05_To_Verify_Marking_Task_as_Completed() throws MalformedURLException, InterruptedException {
-		Module_Assignment_Task  mas=new Module_Assignment_Task();
-		mas.to_verify_marking_task_as_completed();
-	}
+//	@Test(enabled= false)//Hold Completed TAsk_Striked through need unique value
+//	public void TC05_To_Verify_Marking_Task_as_Completed() throws MalformedURLException, InterruptedException {
+//		Module_Assignment_Task  mas=new Module_Assignment_Task();
+//		mas.to_verify_marking_task_as_completed();
+//	}
 	@Test(enabled= true)
 	public void TC06_To_verify_the_Help_Toggle_Button_ON_Functionality_At_Time_of_Task_Creation() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Task  mas=new Module_Assignment_Task();
@@ -78,12 +76,12 @@ public class Assignment_Task extends BaseClass{
 		Module_Assignment_Task  mas=new Module_Assignment_Task();
 		mas.to_verify_delete_btn_functinality_with_take_back_btn_at_task_creation();
 	}
-	@Test(enabled= false)//Hold
-	public void TC11_To_verify_Creation_of_Task_Without_Mandatory_Fields() throws MalformedURLException, InterruptedException {
-		Module_Assignment_Task  mas=new Module_Assignment_Task();
-		mas.to_verify_creation_of_task_without_mandatory_fields();
-		//Title contains same value after blank title  with error
-	}
+//	@Test(enabled= false)//Hold
+//	public void TC11_To_verify_Creation_of_Task_Without_Mandatory_Fields() throws MalformedURLException, InterruptedException {
+//		Module_Assignment_Task  mas=new Module_Assignment_Task();
+//		mas.to_verify_creation_of_task_without_mandatory_fields();
+//		//Title contains same value after blank title  with error
+//	}
 	@Test(enabled= true)//pass
 	public void TC12_To_verify_Back_to_Todays_Assignments_takes_user_back_to_My_Assignments_screen() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Task  mas=new Module_Assignment_Task();

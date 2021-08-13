@@ -3,6 +3,7 @@ package studi.co.pageObjects;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
+import com.android.uiautomator.core.UiSelector;
 import com.aventstack.extentreports.Status;
 
 import io.appium.java_client.MobileElement;
@@ -157,7 +158,7 @@ public class Object_Assignment_Digital_Test  extends BaseClass {
 	@AndroidFindBy(id="com.tce.studi:id/tvPrimaryAction")
 	public WebElement redo_Test;
 
-	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tvOverview\").textContains(\"What you were tested on:\")")
+	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tvOverview\").textContains(\"What you were tested on\")")
 	public WebElement summary_Heading;
 
 	//@AndroidFindBy(id="com.tce.studi:id/iv_left_icon")
@@ -191,6 +192,7 @@ public class Object_Assignment_Digital_Test  extends BaseClass {
 	
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/iv_left_icon\").index(0)")
 	public WebElement hamburgerBtn;
+	
 	@AndroidFindBy(id = "com.tce.studi:id/layoutQuiz")
 	public WebElement question;
 

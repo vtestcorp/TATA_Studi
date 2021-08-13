@@ -25,9 +25,6 @@ public class Module_BrowseBook_Resource_Listing extends BaseClass
 	Object_BrowseBook_Resource_Listing osbl = new Object_BrowseBook_Resource_Listing();
 	SoftAssert assert1=new SoftAssert();
 	Boolean status;
-	private String subject_eng2; {
-
-	}
 
 	public void to_Verify_User_should_be_shown_Confidence_score_of_each_chapter_against_every_book(String subject,
 			String topic) throws Exception {
@@ -74,10 +71,8 @@ public class Module_BrowseBook_Resource_Listing extends BaseClass
 		for (String chapter1 : chaptersWD) {
 			test.log(Status.INFO, chapter1);
 			System.out.println(chapter1);
-
 		}
 		//swipeTop();
-
 		applyExplicitWait(5);
 		scrollTo2(topic);
 		applyExplicitWait(5);
@@ -103,98 +98,7 @@ public class Module_BrowseBook_Resource_Listing extends BaseClass
 
 
 
-	public void to_verify_user_should_be_shown_Not_Accessed_Status_when_user_has_not_started_that_particular_chapter(String subject_eng, String topic_eng2) throws Exception {
-		{
-
-			toVerify_The_Available_Resource_Of_The_BookShelf();
-			Boolean status;
-			SoftAssert assert1 = new SoftAssert();
-
-			status=osbl.status.isDisplayed();
-			if(status) {
-				System.out.println("Various status of each chapter against every book listed in its Curriculum is shown to the User");
-				test.log(Status.INFO, "Various status of each chapter against every book listed in its Curriculum is shown to the User");
-			}
-			assert1.assertTrue(status);
-
-			System.out.println(subject_eng);
-			scrollTo2(subject_eng);
-			clickOnElement(findElementByText(subject_eng));
-
-			applyExplicitWaitsUntilElementVisible(osbl.subjectHeading);
-			status=osbl.subjectHeading.isDisplayed();
-			if(status) {
-
-				System.out.println("User able to tap on any book");
-				test.log(Status.INFO, "User able to tap on the book");
-			}
-			assert1.assertTrue(status);
-
-			scrollTo2(topic_eng2);
-
-			action = new TouchAction(driver);
-			List<MobileElement> chapters = getAllElementsFromPageUsingID("com.tce.studi:id/tvChapter");
-
-			ArrayList<String> aa = new ArrayList<>();
-			for (MobileElement mobileElement : chapters) {
-				aa.add(mobileElement.getText().replaceAll("\\d", "").trim());
-			}
-
-			System.out.println("Chapters available in given subject are :");
-			test.log(Status.INFO, "chapters available in given subject are :");
-			List<String> chaptersWD = new ArrayList<>(new HashSet<>(aa));
-			chaptersWD.sort(Comparator.naturalOrder());
-
-			System.out.println(chaptersWD.size());
-			for (String chapter1 : chaptersWD) {
-				test.log(Status.INFO, chapter1);
-				System.out.println(chapter1);
-
-			}
-			applyExplicitWait(5);
-			scrollTo2(topic_eng2);
-			applyExplicitWait(5);
-			List<MobileElement> list = getDriver().findElements(By.id("com.tce.studi:id/tvTopic")); 	
-			System.out.println("Topics available in given chapter are :");
-			System.out.println(list.size());
-			int i=1;
-			for (MobileElement topic : list) {
-				assert1.assertTrue(topic.isDisplayed());
-				test.log(Status.INFO, "Topic "+i+" is Displayed");
-				System.out.println(topic.getText());
-				i++;
-
-			}
-
-			status =osbl.initial_status.isDisplayed();
-			if(status) {
-
-				System.out.println("Status Shown for particular chapter");
-				test.log(Status.INFO, "Status Shown for particular chapter");
-			}
-			assert1.assertTrue(status);
-
-
-			scrollTo2(topic_eng2);
-
-			tapOnElement(driver.findElement(By.xpath("//*[contains(@text, '"+topic_eng2+"')]/parent::*")).findElement(By.id("com.tce.studi:id/ivTopic")));
-			String msg=osbl.confidence_status.getText();
-			assert1.assertEquals("Not Assessed", msg);
-			{
-				System.out.println("when user has not started studying any particular Chapter  in a book, use shown the Not Accessed Status for that chapter against that book");
-				test.log(Status.INFO, "when user has not started studying any particular Chapter  in a book, use shown the Not Accessed Status for that chapter against that book");
-			}
-			assert1.assertAll();
-
-
-
-
-		}
-		assert1.assertAll();
-	}
-
-	public void to_verify_User_should_be_shown_Low_Confidence_Status_for_the_chapter_in_which_user_has_scored_Low_Confidence(
-			String subject_eng, String topic_low) throws Exception {
+	public void to_verify_user_should_be_shown_Not_Accessed_Status_when_user_has_not_started_that_particular_chapter(String not_accessed_sub,String not_accessed_topic) throws Exception {
 
 		toVerify_The_Available_Resource_Of_The_BookShelf();
 		Boolean status;
@@ -207,8 +111,92 @@ public class Module_BrowseBook_Resource_Listing extends BaseClass
 		}
 		assert1.assertTrue(status);
 
-		scrollTo2(subject_eng);
-		clickOnElement(findElementByText(subject_eng));
+		System.out.println(not_accessed_sub);
+		scrollTo2(not_accessed_sub);
+		clickOnElement(findElementByText(not_accessed_sub));
+
+		applyExplicitWaitsUntilElementVisible(osbl.subjectHeading);
+		status=osbl.subjectHeading.isDisplayed();
+		if(status) {
+
+			System.out.println("User able to tap on any book");
+			test.log(Status.INFO, "User able to tap on the book");
+		}
+		assert1.assertTrue(status);
+
+		scrollTo2(not_accessed_topic);
+
+		action = new TouchAction(driver);
+		List<MobileElement> chapters = getAllElementsFromPageUsingID("com.tce.studi:id/tvChapter");
+
+		ArrayList<String> aa = new ArrayList<>();
+		for (MobileElement mobileElement : chapters) {
+			aa.add(mobileElement.getText().replaceAll("\\d", "").trim());
+		}
+
+		System.out.println("Chapters available in given subject are :");
+		test.log(Status.INFO, "chapters available in given subject are :");
+		List<String> chaptersWD = new ArrayList<>(new HashSet<>(aa));
+		chaptersWD.sort(Comparator.naturalOrder());
+
+		System.out.println(chaptersWD.size());
+		for (String chapter1 : chaptersWD) {
+			test.log(Status.INFO, chapter1);
+			System.out.println(chapter1);
+
+		}
+		applyExplicitWait(5);
+		scrollTo2(not_accessed_topic);
+		applyExplicitWait(5);
+		List<MobileElement> list = getDriver().findElements(By.id("com.tce.studi:id/tvTopic")); 	
+		System.out.println("Topics available in given chapter are :");
+		System.out.println(list.size());
+		int i=1;
+		for (MobileElement topic : list) {
+			assert1.assertTrue(topic.isDisplayed());
+			test.log(Status.INFO, "Topic "+i+" is Displayed");
+			System.out.println(topic.getText());
+			i++;
+
+		}
+		status =osbl.initial_status.isDisplayed();
+		if(status) {
+
+			System.out.println("Status Shown for particular chapter");
+			test.log(Status.INFO, "Status Shown for particular chapter");
+		}
+		assert1.assertTrue(status);
+
+
+		scrollTo2(not_accessed_topic);
+
+		tapOnElement(driver.findElement(By.xpath("//*[contains(@text, '"+not_accessed_topic+"')]/parent::*")).findElement(By.id("com.tce.studi:id/ivTopic")));
+		String msg=osbl.confidence_status.getText();
+		assert1.assertEquals("Not Assessed", msg);
+		{
+			System.out.println("when user has not started studying any particular Chapter  in a book, use shown the Not Accessed Status for that chapter against that book");
+			test.log(Status.INFO, "when user has not started studying any particular Chapter  in a book, use shown the Not Accessed Status for that chapter against that book");
+		}
+		assert1.assertAll();
+
+
+	}
+	public void to_verify_User_should_be_shown_Low_Confidence_Status_for_the_chapter_in_which_user_has_scored_Low_Confidence(
+			String subject_low, String topic_low) throws Exception {
+
+		toVerify_The_Available_Resource_Of_The_BookShelf();
+		Boolean status;
+		SoftAssert assert1 = new SoftAssert();
+
+		status=osbl.status.isDisplayed();
+		if(status) {
+			System.out.println("Various status of each chapter against every book listed in its Curriculum is shown to the User");
+			test.log(Status.INFO, "Various status of each chapter against every book listed in its Curriculum is shown to the User");
+		}
+		assert1.assertTrue(status);
+
+		scrollTo2("Mathematics");
+		clickOnElement(findElementByText("Mathematics"));
 
 		applyExplicitWaitsUntilElementVisible(osbl.subjectHeading);
 		status=osbl.subjectHeading.isDisplayed();
@@ -218,8 +206,8 @@ public class Module_BrowseBook_Resource_Listing extends BaseClass
 		}
 		assert1.assertTrue(status);
 
-		scrollTo2(topic_low);
-		clickOnElement(findElementByText(topic_low));
+		scrollTo2("The Number Line");
+		clickOnElement(findElementByText("The Number Line"));
 
 		scrollTo2("Practice");
 		clickOnElement(findElementByText("Practice"));
@@ -239,23 +227,32 @@ public class Module_BrowseBook_Resource_Listing extends BaseClass
 				selectIncorrectAnswer();
 				clickOnElement(findElementByText("Check"));
 				Thread.sleep(300);
-				//clickOnElement(findElementByText("Try"));
+
 				try{clickOnElement(driver.findElement(By.id("com.tce.studi:id/tvSecondaryAction")));}
-				catch(Exception e) {}
-				//selectIncorrectAnswer();
-				//clickOnElement(findElementByText("Check"));
-				clickOnElement(findElementByText("Continue"));
+				catch(Exception e) {
+
+				}
+				Thread.sleep(1500);
+				clickOnElement(findElementByText("continue"));
+			}
+			else {
+
 			}
 		}
 		applyExplicitWaitsUntilElementVisible(osbl.target);
 		osbl.hamBurgerMenu.click();
 		applyExplicitWaitsUntilElementVisible(osbl.returnTitle);
 		osbl.returnTitle.click();
-		Thread.sleep(3000);
 
-		scrollTo2(topic_low);
+		//		osbl.backButton.click();
+		//		
+		//		Thread.sleep(3000);
+		//		clickOnElement(findElementByText("Yes"));
+		//		
+		//		clickOnElement(findElementByText("Return"));
+		//		scrollTo2("The Number Line");
 
-		tapOnElement(driver.findElement(By.xpath("//*[contains(@text, '"+topic_low+"')]/parent::*")).findElement(By.id("com.tce.studi:id/ivTopic")));
+		tapOnElement(driver.findElement(By.xpath("//*[contains(@text, '"+"The Number Line"+"')]/parent::*")).findElement(By.id("com.tce.studi:id/ivTopic")));
 		String msg=osbl.confidence_status.getText();
 		assert1.assertEquals("Low Confidence", msg);
 		{
@@ -264,10 +261,11 @@ public class Module_BrowseBook_Resource_Listing extends BaseClass
 		}
 		assert1.assertAll();
 
+
 	}
 
 	public void to_verify_User_should_be_shown_medium_Confidence_Status_for_the_chapter_in_which_user_has_scored_Low_Confidence(
-			String subject_low, String topic_low) throws Exception {
+			String subject_eng, String topic_medium) throws Exception {
 		toVerify_The_Available_Resource_Of_The_BookShelf();
 		Boolean status;
 		SoftAssert assert1 = new SoftAssert();
@@ -281,8 +279,8 @@ public class Module_BrowseBook_Resource_Listing extends BaseClass
 		}
 		assert1.assertTrue(status);
 
-		scrollTo2(subject_low);
-		clickOnElement(findElementByText(subject_low));
+		scrollTo2(subject_eng);
+		clickOnElement(findElementByText(subject_eng));
 
 		applyExplicitWaitsUntilElementVisible(osbl.subjectHeading);
 		status = osbl.subjectHeading.isDisplayed();
@@ -292,66 +290,76 @@ public class Module_BrowseBook_Resource_Listing extends BaseClass
 		}
 		assert1.assertTrue(status);
 
-		scrollTo2(topic_low);
-		clickOnElement(findElementByText(topic_low));
+		scrollTo2(topic_medium);
+		tapOnElement(findElementByText(topic_medium));
 
 		scrollTo2("Practice");
 		clickOnElement(findElementByText("Practice"));
 		applyExplicitWaitsUntilElementVisible(findElementByText("you"));
 		clickOnElement(findElementByText("Practice"));
-
+		applyExplicitWait(30);
 		applyExplicitWaitsUntilElementVisible(osbl.question1_part_Text);
 		String questionCount = osbl.quetionCount.getText();
 		String[] s = questionCount.split("of");
 		String s1 = s[1].trim();
 		int question = Integer.parseInt(s1);
 
-		for (int j = 0; j < question / 4; j++) {
-			if (verifySCQorMCQ().equalsIgnoreCase("scq") || verifySCQorMCQ().equalsIgnoreCase("mcq")) {
+		for (int j = 1; j <= question; j++) {
+
+			if (j == 0) {
+
 				applyExplicitWaitsUntilElementVisible(osbl.question1_part_Text);
+
+				// swipeUp();
+				selectCorrectAnswer();
+				clickOnElement(findElementByText("Check Answer"));
+
+				clickOnElement(findElementByText("Continue"));
+			}
+
+			else {
+
+				applyExplicitWaitsUntilElementVisible(osbl.question1_part_Text);
+				// scrollToEnd();
 				selectIncorrectAnswer();
-				clickOnElement(findElementByText("Check"));
-				Thread.sleep(300);
+				clickOnElement(findElementByText("Check Answer"));
 				try {
 					clickOnElement(driver.findElement(By.id("com.tce.studi:id/tvSecondaryAction")));
 				} catch (Exception e) {
 				}
+				// selectIncorrectAnswer();
+				// clickOnElement(findElementByText("Check"));
 				clickOnElement(findElementByText("Continue"));
-
 			}
+
 		}
-		clickOnElement(osbl.backButton);
-		clickOnElement(findElementByText("Yes"));
 
 		applyExplicitWaitsUntilElementVisible(osbl.target);
 		osbl.hamBurgerMenu.click();
 		applyExplicitWaitsUntilElementVisible(osbl.returnTitle);
 		osbl.returnTitle.click();
-		Thread.sleep(3000);
 
-		scrollTo2(topic_low);
+		scrollTo2(topic_medium);
 
-		tapOnElement(driver.findElement(By.xpath("//*[contains(@text, '" + topic_low + "')]/parent::*"))
+		tapOnElement(driver.findElement(By.xpath("//*[contains(@text, '" + topic_medium + "')]/parent::*"))
 				.findElement(By.id("com.tce.studi:id/ivTopic")));
 		String msg = osbl.confidence_status.getText();
-		System.err.println(msg);
-		assert1.assertEquals(msg, "Low Confidence");
+
+		assert1.assertEquals("Medium Confidence", msg);
 		{
 			System.out.println(
-					"Low Confidence Status is shown to the user for those particular TP for which user has scored Medium Confidence");
+					"Medium Confidence Status is shown to the user for those particular TP for which user has scored Medium Confidence");
 			test.log(Status.INFO,
-					"Low Confidence Status is shown to the user for those particular TP for which user has scored Medium Confidence");
+					"Medium Confidence Status is shown to the user for those particular TP for which user has scored Medium Confidence");
 		}
+
 		assert1.assertAll();
 
-
 	}
-
-
-
 	public void to_verify_User_should_be_shown_High_Confidence_Status_for_the_chapter_in_which_user_has_scored_Low_Confidence(
 			String subject_eng, String topic_eng) throws Exception {
-
+		String subject="Political Science";
+		String topic="Diversity in India";
 		toVerify_The_Available_Resource_Of_The_BookShelf();
 		Boolean status;
 		SoftAssert assert1 = new SoftAssert();
@@ -363,8 +371,8 @@ public class Module_BrowseBook_Resource_Listing extends BaseClass
 		}
 		assert1.assertTrue(status);
 
-		scrollTo2(subject_eng);
-		clickOnElement(findElementByText(subject_eng));
+		scrollTo2(subject);
+		clickOnElement(findElementByText(subject));
 
 		applyExplicitWaitsUntilElementVisible(osbl.subjectHeading);
 		status=osbl.subjectHeading.isDisplayed();
@@ -374,8 +382,8 @@ public class Module_BrowseBook_Resource_Listing extends BaseClass
 		}
 		assert1.assertTrue(status);
 
-		scrollTo2(subject_eng);
-		clickOnElement(findElementByText(subject_eng));
+		scrollTo2(subject);
+		clickOnElement(findElementByText(subject));
 
 		applyExplicitWaitsUntilElementVisible(osbl.subjectHeading);
 		status=osbl.subjectHeading.isDisplayed();
@@ -385,8 +393,8 @@ public class Module_BrowseBook_Resource_Listing extends BaseClass
 		}
 		assert1.assertTrue(status);
 
-		scrollTo2(subject_eng);
-		clickOnElement(findElementByText(subject_eng));
+		scrollTo2(subject);
+		clickOnElement(findElementByText(subject));
 
 		applyExplicitWaitsUntilElementVisible(osbl.subjectHeading);
 		status=osbl.subjectHeading.isDisplayed();
@@ -396,8 +404,8 @@ public class Module_BrowseBook_Resource_Listing extends BaseClass
 		}
 		assert1.assertTrue(status);
 
-		scrollTo2(topic_eng);
-		clickOnElement(findElementByText(topic_eng));
+		scrollTo2(topic);
+		clickOnElement(findElementByText(topic));
 
 		scrollTo2("Practice");
 		clickOnElement(findElementByText("Practice"));
@@ -418,15 +426,15 @@ public class Module_BrowseBook_Resource_Listing extends BaseClass
 			selectCorrectAnswer();
 			clickOnElement(findElementByText("Check"));
 
-			clickOnElement(findElementByText("Continue"));
+			clickOnElement(findElementByText("continue"));
 		}
 
 		applyExplicitWaitsUntilElementVisible(osbl.target);
 		osbl.hamBurgerMenu.click();
 		applyExplicitWaitsUntilElementVisible(osbl.returnTitle);
 		osbl.returnTitle.click();
-		scrollTo2(topic_eng);
-		tapOnElement(driver.findElement(By.xpath("//*[contains(@text, '"+topic_eng+"')]/parent::*")).findElement(By.id("com.tce.studi:id/ivTopic")));
+		scrollTo2(topic);
+		tapOnElement(driver.findElement(By.xpath("//*[contains(@text, '"+topic+"')]/parent::*")).findElement(By.id("com.tce.studi:id/ivTopic")));
 		String msg=osbl.confidence_status.getText();
 		assert1.assertEquals("High Confidence", msg);
 		{
@@ -671,9 +679,6 @@ public class Module_BrowseBook_Resource_Listing extends BaseClass
 			System.out.println("Syllabus tab shown to the user on Home Page is tappable");
 			test.log(Status.INFO, "Syllabus tab shown to the user on Home Page is tappable");
 		}
-
-
-
 		for(MobileElement book : osbl.books) {
 			status=	book.isDisplayed();
 

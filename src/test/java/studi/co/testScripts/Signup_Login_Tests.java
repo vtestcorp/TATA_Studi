@@ -14,11 +14,11 @@ public class Signup_Login_Tests extends BaseClass {
 		super();
 	}
 	
-	@Test(enabled = false)// we can not automate OTP
-	public void  verify_The_SignUp_Functionality_For_New_User_Who_Dont_Have_An_Account() throws MalformedURLException {
-		Module_Login_Signup loginsignup = new Module_Login_Signup();
-		loginsignup.signup_To_App();
-	}
+//	@Test(enabled = false)// we can not automate OTP
+//	public void  verify_The_SignUp_Functionality_For_New_User_Who_Dont_Have_An_Account() throws MalformedURLException {
+//		Module_Login_Signup loginsignup = new Module_Login_Signup();
+//		loginsignup.signup_To_App();
+//	}
 	
 	
 	@Test(enabled = true)
@@ -68,11 +68,11 @@ public class Signup_Login_Tests extends BaseClass {
 		loginsignup.verify_Logout_Functionality();
 		
 	}
-	
-	@Test(enabled = false)//we can not perform "enter" action on mobile App
-	public void TC_13_Verify_Functionality_After_Adding_Valid_Username_And_Valid_Password_In_Application_URL() throws MalformedURLException, AWTException {
-		Module_Login_Signup loginsignup = new Module_Login_Signup();
-		//loginsignup.enter_Valid_Credentials();
-		loginsignup.press_Enter_Button();
-	}
+//	
+//	@Test(enabled = false)//we can not perform "enter" action on mobile App
+//	public void TC_13_Verify_Functionality_After_Adding_Valid_Username_And_Valid_Password_In_Application_URL() throws MalformedURLException, AWTException {
+//		Module_Login_Signup loginsignup = new Module_Login_Signup();
+//		//loginsignup.enter_Valid_Credentials();
+//		loginsignup.press_Enter_Button();
+//	}
 }

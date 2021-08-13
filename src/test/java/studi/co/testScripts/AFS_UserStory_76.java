@@ -182,9 +182,9 @@ public class AFS_UserStory_76 extends BaseClass {
 	public void TC08_To_Verify_Instant_Feedback_Shown_After_MCQ_Wrong_Answer_Selection_In_Revision()
 			throws InterruptedException, WebDriverException, IOException {
 		Assert.assertTrue(true);
-		//Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
-		//rqr.Module_Verify_Instant_Feedback_Shown_After_MCQ_Wrong_Answer_Selection_In_Revision(
-		//prop.getProperty("subject76"), prop.getProperty("topic76"));
+		Module_Receive_Questions_Revision rqr = new Module_Receive_Questions_Revision();
+		rqr.Module_Verify_Instant_Feedback_Shown_After_MCQ_Wrong_Answer_Selection_In_Revision(
+		prop.getProperty("subject76"), prop.getProperty("topic76"));
 	}
 
 	@Test(enabled = true)
@@ -341,6 +341,7 @@ public class AFS_UserStory_76 extends BaseClass {
 
 		System.err.println("Clicked on " + prop.getProperty("subject77"));
 		scrollTo1(prop.getProperty("subject77"));
+		swipeUp();
 		applyExplicitWaitsUntilElementVisible(findElementByText(prop.getProperty("subject77")));
 		clickOnElement(findElementByText(prop.getProperty("subject77")));
 
@@ -424,6 +425,7 @@ public class AFS_UserStory_76 extends BaseClass {
 		clickOnElement(temp.backBtnTestUnit);
 
 	}
+	
 
 	/*
 	 * @Test(enabled = true) public void

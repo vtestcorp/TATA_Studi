@@ -4,6 +4,7 @@ import java.net.MalformedURLException;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.tools.ant.taskdefs.Sleep;
 import org.openqa.selenium.By;
 import org.testng.asserts.SoftAssert;
 
@@ -244,7 +245,7 @@ public class Module_Assignment_Oral_Test extends BaseClass {
 	}
 
 	public void to_verify_that__on_all_steps_user_able_to_delete_it_the_all_oral_creation_process(String subject,
-			String topic_1) throws MalformedURLException {
+			String topic_1) throws MalformedURLException, InterruptedException {
 		try {
 			creation_of_Oral_Test(subject, topic_1);
 		} catch (MalformedURLException e) {
@@ -255,6 +256,7 @@ public class Module_Assignment_Oral_Test extends BaseClass {
 		// clickOnElement(oadt.next1);
 		applyExplicitWait(5);
 		//applyExplicitWaitsUntilElementClickable(oadt.delete_note);
+		Thread.sleep(2000);
 		clickOnElement(oadt.delete_note);
 		applyExplicitWait(5);
 		System.out.println("Clicked On Delete Note");
@@ -271,13 +273,14 @@ public class Module_Assignment_Oral_Test extends BaseClass {
 	}
 
 	public void to_verify_that_after_click_on_delete_two_option_should_get_display(String subject, String topic_1)
-			throws MalformedURLException {
+			throws MalformedURLException, InterruptedException {
 
 		creation_of_Oral_Test(subject, topic_1);
 		applyExplicitWait(5);
 		// clickOnElement(oadt.next1);
 		applyExplicitWait(5);
 		//applyExplicitWaitsUntilElementClickable(oadt.delete_note);
+		Thread.sleep(2000);
 		clickOnElement(oadt.delete_note);
 		applyExplicitWait(5);
 		System.out.println("Clicked On Delete Note");
@@ -352,10 +355,11 @@ public class Module_Assignment_Oral_Test extends BaseClass {
 
 	}
 
-	public void to_verify_TakeMeBack_Button(String subject, String topic_1) throws MalformedURLException {
+	public void to_verify_TakeMeBack_Button(String subject, String topic_1) throws MalformedURLException, InterruptedException {
 		creation_of_Oral_Test(subject, topic_1);
 
 		// clickOnElement(oadt.next1);
+		Thread.sleep(1000);
 		applyExplicitWaitsUntilElementClickable(oadt.delete_note);
 		clickOnElement(oadt.delete_note);
 		applyExplicitWait(5);
@@ -488,24 +492,6 @@ public class Module_Assignment_Oral_Test extends BaseClass {
 		System.out.println(title);
 		System.out.println("As per selection of chapters and topics Default Title name is display");
 		assert1.assertAll();
-	}
-
-	public void to_verify__with_blank_Title(String subject, String topic1) throws MalformedURLException {
-		creation_of_Oral_Test(subject, topic1);
-		clickOnElement(oadt.next1);
-		Boolean status = oadt.title_field.isDisplayed();
-		if (status) {
-			System.out.println("Title field is shown on Enter Test Settings screen ");
-			test.log(Status.INFO, "Title field is shown on Enter Test Settings screen ");
-		}
-		oadt.title_field.clear();
-		System.out.println("Cleared the text in Title FIeld");
-		clickOnElement(oadt.start_Test);
-		System.out.println("Clicked on Start Test");
-		String error_msg = oadt.title_field.getText();
-		System.out.println(error_msg);
-		assert1.assertAll();
-
 	}
 
 	public void to_verify__edit_title_of_the_oral_test(String subject, String topic_1) throws MalformedURLException {
@@ -661,6 +647,8 @@ public class Module_Assignment_Oral_Test extends BaseClass {
 		clickOnElement(oadt.syllabus);
 		test.log(Status.INFO, "Clicked Syllabus");
 		System.out.println("Clicked on Syllabus");
+		
+		
 		clickOnElement(oadt.add_Symbol);
 		test.log(Status.INFO, "Clicked to Add Oral test");
 		System.out.println("Clicked to Add Oral test");
@@ -739,7 +727,7 @@ public class Module_Assignment_Oral_Test extends BaseClass {
 			System.out.println("User able to play the video before starting the Test");
 			test.log(Status.INFO, "User able to play the video before starting the Test");
 		}
-		assert1.assertTrue(status);
+		assert1.assertTrue(status2);
 		// System.out.println("Closing the Video");
 		// clickOnElement(oadt.video_close);
 		assert1.assertAll();
@@ -774,7 +762,7 @@ public class Module_Assignment_Oral_Test extends BaseClass {
 		if(verifySCQorMCQ().contains("scq")) {
 			Set<String> context = driver.getContextHandles();
 			for (String cont : context) {
-				if (cont.contains("WEBVIEW"))
+				if (cont.contains("WEBVIEW_com"))
 					getDriver().context(cont);
 			}
 			List<MobileElement> as = driver.findElements(By.tagName("tce-option"));
@@ -1154,24 +1142,17 @@ public class Module_Assignment_Oral_Test extends BaseClass {
 		}
 		clickOnElement(oadt.next_arrow);
 		clickOnElement(oadt.submit_Test);
-
-
-		//		Boolean score = oadt.confidence_icon.isDisplayed();
-		//		if (score) {
-		//			System.out.println("Cofidence Icon is shown");
-		//			test.log(Status.INFO, "Cofidence Icon is shown");
-		//		}
-		//		assert1.assertTrue(score);
-
-		String msg=oadt.confidence_icon.getText();
-
-		if(msg.contains(" "))
+		Boolean score = oadt.confidence_icon.isDisplayed();
+		if (score) {
+			System.out.println("Cofidence Icon is shown");
+			test.log(Status.INFO, "Cofidence Icon is shown");
+		}
+		else
 		{
 			System.out.println("Confidence level should not be display for oral Test ");
 			test.log(Status.INFO, "Confidence level should not be display for oral Test ");
 		}
-
-		assert1.assertAll();	
+		assert1.assertAll();
 	}
 
 	public void to_verify_the_actions_on_last_question_of_the_Oral_test(String subject_History, String topic_H)
@@ -1303,7 +1284,7 @@ public class Module_Assignment_Oral_Test extends BaseClass {
 	}
 
 	public void to_check_for_the_confirmation_Message_for_redo_test_after_submiting_test(String subject_History,
-			String topic_H) throws MalformedURLException {
+			String topic_H) throws MalformedURLException, InterruptedException {
 		to_verify_the_begin_test(subject_History, topic_H);
 		int questions = oadt.get_Total_Number_Of_Questions_In_oral_Test();
 		System.out.println(questions);
@@ -1333,6 +1314,7 @@ public class Module_Assignment_Oral_Test extends BaseClass {
 			i++;
 		}
 		clickOnElement(oadt.next_arrow);
+		Thread.sleep(1000);
 		clickOnElement(oadt.submit_Test);
 		//applyExplicitWaitsUntilElementVisible(findElementByText("Redo"));
 		clickOnElement(findElementByText("Redo"));

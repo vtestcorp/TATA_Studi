@@ -22,15 +22,26 @@ public class Object_Assignment_Task extends BaseClass {
 	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tvHeading\").textContains(\"Assignment\")")
 	public WebElement assignment;
 
-	@AndroidFindBy(id ="com.tce.studi:id/assignmentViewed")
+	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/assignmentViewed\").textContains(\"Assignment Viewed\")")
 	public WebElement assignmentViewed;
 
-	@AndroidFindBy(id ="com.tce.studi:id/markAsCompleted")
+	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/markAsCompleted\").textContains(\"Mark as Completed\")")
 	public WebElement markAsCompleted;
 
 	@AndroidFindBy(id ="com.tce.studi:id/deleteIntent")
 	public WebElement deleteTask;
 
+	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tvView\").textContains(\"View Assignment\")")
+	public WebElement view_created_Assignment;
+	
+	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tvTitle\").textContains(\"Task is Ready!\")")
+	public WebElement task_is_Ready;
+	
+	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tvContent\").textContains(\"1 is saved under My Assignments.\")")
+	public WebElement saved_task_msg;
+	
+	
+	
 	@AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.TextView[1]")
 	public WebElement enterTaskDetails;
 
@@ -60,7 +71,10 @@ public class Object_Assignment_Task extends BaseClass {
 
 	@AndroidFindBy(id="com.tce.studi:id/iv_left_icon")
 	public WebElement closeTaskDetails;
-
+	
+	@AndroidFindBy(id="com.tce.studi:id/iv_left_icon")
+	public WebElement back_btn;;
+	
 	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/header\").textContains(\"Upcoming\")")
 	public WebElement upcoming;
 
@@ -91,7 +105,7 @@ public class Object_Assignment_Task extends BaseClass {
 	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tvNextStep\").textContains(\"Next\")")
 	public WebElement next1;
 
-	@AndroidFindBy(id="com.tce.studi:id/tvAssign")
+	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tvAssign\").textContains(\"Assign\")")
 	public WebElement assignTask;
 
 	@AndroidFindBy(id ="com.tce.studi:id/tvPrimaryAction")
@@ -101,7 +115,7 @@ public class Object_Assignment_Task extends BaseClass {
 	public WebElement new_icon;
 
 	@AndroidFindBy(id ="com.tce.studi:id/iv_left_icon")
-	public WebElement back_btn;
+	public WebElement back_button;
 
 	//@AndroidFindBy(id="com.tce.studi:id/dueDate")
 	//public WebElement due_date;
@@ -136,7 +150,10 @@ public class Object_Assignment_Task extends BaseClass {
 
 	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tvNextStep\").textContains(\"Assign\")")
 	public WebElement assign;
-
+	
+	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tvSubHeading\").textContains(\"Assignments due\")")
+	public WebElement assign_count;
+	
 	//@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"android:id/text1\").textContains(\"Camera\")")
 	//public WebElement cameraAttachment;
 

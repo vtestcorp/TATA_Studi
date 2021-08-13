@@ -14,12 +14,12 @@ public class Syllabus_Notes_Listing extends BaseClass {
 		super();
 	}
 
-	@Test(enabled = false)//hold --'Search' text box and Search icon and 'X' icon to close the modal window
-	public void TC01_To_verify_user_should_be_able_to_view_the_added_notes_from_the_hamburger_menu() throws Exception {
-		Module_Syllabus_Notes_Listing  msnl =new Module_Syllabus_Notes_Listing();
-		msnl.To_verify_user_should_be_able_to_view_the_added_notes_from_the_hamburger_menu(prop.getProperty("subject"),prop.getProperty("topic_2"));
-	}
-	
+//	@Test(enabled = false)//hold --'Search' text box and Search icon and 'X' icon to close the modal window
+//	public void TC01_To_verify_user_should_be_able_to_view_the_added_notes_from_the_hamburger_menu() throws Exception {
+//		Module_Syllabus_Notes_Listing  msnl =new Module_Syllabus_Notes_Listing();
+//		msnl.To_verify_user_should_be_able_to_view_the_added_notes_from_the_hamburger_menu(prop.getProperty("subject"),prop.getProperty("topic_2"));
+//	}
+//	
 
 	@Test(enabled = true)//pass
 	public void TC02_To_verify_user_should_be_able_to_view_the_added_note_in_detail_in_expanded_form () throws Exception {

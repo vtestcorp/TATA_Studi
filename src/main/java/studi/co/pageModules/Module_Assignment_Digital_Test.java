@@ -9,6 +9,7 @@ import java.util.Set;
 import org.openqa.selenium.By;
 import org.testng.asserts.SoftAssert;
 
+import com.android.uiautomator.core.UiSelector;
 import com.aventstack.extentreports.Status;
 
 import io.appium.java_client.MobileElement;
@@ -53,10 +54,14 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 	public void to_verify_display_of_test_duration(String subject, String topic) throws MalformedURLException {
 		create_Assignment_Digital_Test(subject, topic);
 		clickOnElement(oadt.viewAssignmenBtn);
+		test.log(Status.INFO, "Opening the created Assignment" );
+		System.out.println("Opening the created Assignment");
 
 		test.log(Status.INFO, "Traversing to Begin Test" );
 		System.out.println("Traversing to Begin Test");
-		clickOnElement(oadt.beginTest);
+		applyExplicitWaitsUntilElementVisible(findElementByText("What you will be tested on"));
+		//clickOnElement(oadt.beginTest);
+		clickOnElement(findElementByText("Begin Test"));
 		applyExplicitWaitsUntilElementVisible(oadt.questionView);
 		swipeDown();
 		status =oadt.testTimer.isDisplayed();
@@ -72,9 +77,14 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 	public void to_verify_that_after_test_begin_timer_should_get_start(String subject, String topic) throws MalformedURLException {
 		create_Assignment_Digital_Test(subject, topic);
 		clickOnElement(oadt.viewAssignmenBtn);
+		test.log(Status.INFO, "Opening the created Assignment" );
+		System.out.println("Opening the created Assignment");
+
 		test.log(Status.INFO, "Traversing to Begin Test" );
 		System.out.println("Traversing to Begin Test");
-		clickOnElement(oadt.beginTest);
+		applyExplicitWaitsUntilElementVisible(findElementByText("What you will be tested on"));
+		//clickOnElement(oadt.beginTest);
+		clickOnElement(findElementByText("Begin Test"));
 		applyExplicitWaitsUntilElementVisible(oadt.questionView);
 		swipeDown();
 		status =oadt.testTimer.isDisplayed();
@@ -264,17 +274,18 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 	public void to_verify_add_flag_for_review_before_submission(String subject, String topic) throws MalformedURLException {
 		create_Assignment_Digital_Test(subject, topic);
 		clickOnElement(oadt.viewAssignmenBtn);
+		test.log(Status.INFO, "Opening the created Assignment" );
+		System.out.println("Opening the created Assignment");
+
 		test.log(Status.INFO, "Traversing to Begin Test" );
 		System.out.println("Traversing to Begin Test");
-		clickOnElement(oadt.beginTest);
+		applyExplicitWaitsUntilElementVisible(findElementByText("What you will be tested on"));
+		//clickOnElement(oadt.beginTest);
+		clickOnElement(findElementByText("Begin Test"));
 		test.log(Status.INFO, "Attempting the test " );
 		System.out.println("Attempting the test");
-		
-		
-		
-		
-		
-		
+
+		applyExplicitWaitsUntilElementVisible(findElementByText("correct"));
 		clickOnElement(oadt.flag);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Set the flag for First question " );
@@ -328,14 +339,18 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 	public void to_verify_Count_of_attempted_Pending_Flagged_questions_should_be_display(String subject, String topic) throws MalformedURLException {
 		create_Assignment_Digital_Test(subject, topic);
 		clickOnElement(oadt.viewAssignmenBtn);
+		test.log(Status.INFO, "Opening the created Assignment" );
+		System.out.println("Opening the created Assignment");
 
 		test.log(Status.INFO, "Traversing to Begin Test" );
 		System.out.println("Traversing to Begin Test");
-
-		clickOnElement(oadt.beginTest);
+		applyExplicitWaitsUntilElementVisible(findElementByText("What you will be tested on"));
+		clickOnElement(findElementByText("Begin Test"));
+		//clickOnElement(oadt.beginTest);
 
 		test.log(Status.INFO, "Attempting the test " );
 		System.out.println("Attempting the test");
+		applyExplicitWaitsUntilElementVisible(findElementByText("correct"));
 		oadt.flag.click();
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Set the flag for First question " );
@@ -408,12 +423,14 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 	public void to_verify_the_review_of_digital_test(String subject, String topic) throws MalformedURLException {
 		create_Assignment_Digital_Test(subject, topic);
 		clickOnElement(oadt.viewAssignmenBtn);
+		test.log(Status.INFO, "Opening the created Assignment" );
+		System.out.println("Opening the created Assignment");
 
 		test.log(Status.INFO, "Traversing to Begin Test" );
 		System.out.println("Traversing to Begin Test");
-
-		clickOnElement(oadt.beginTest);
-
+		applyExplicitWaitsUntilElementVisible(findElementByText("What you will be tested on"));
+		//clickOnElement(oadt.beginTest);
+		clickOnElement(findElementByText("Begin Test"));
 		test.log(Status.INFO, "Attempting the test " );
 		System.out.println("Attempting the test");
 		//		oadt.flag.click();
@@ -471,18 +488,21 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 	}
 
 
-	public void to_verify_the_the_flag_reflection_on_Review(String subject, String topic) throws MalformedURLException {
+	public void to_verify_the_the_flag_reflection_on_Review(String subject, String topic) throws MalformedURLException, InterruptedException {
 		create_Assignment_Digital_Test(subject, topic);
 		clickOnElement(oadt.viewAssignmenBtn);
+		test.log(Status.INFO, "Opening the created Assignment" );
+		System.out.println("Opening the created Assignment");
 
 		test.log(Status.INFO, "Traversing to Begin Test" );
 		System.out.println("Traversing to Begin Test");
-
-		clickOnElement(oadt.beginTest);
-
+		applyExplicitWaitsUntilElementVisible(findElementByText("What you will be tested on"));
+		//clickOnElement(oadt.beginTest);
+		clickOnElement(findElementByText("Begin Test"));
 		test.log(Status.INFO, "Attempting the test " );
 		System.out.println("Attempting the test");
-		oadt.flag.click();
+		//oadt.flag.click();
+		clickOnElement(oadt.flag);
 		applyExplicitWait(5);
 		int questions = oadt.get_Total_Number_Of_Questions_In_digital_Test();
 		int i = 0;
@@ -514,34 +534,53 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 		test.log(Status.INFO, "Submitting Test");
 		System.out.println("Submitting Test");
 		clickOnElement(oadt.next_questin_Arrow);
-
+		System.out.println("Attempted the last question of the Test");
+		test.log(Status.INFO, "Attempted the last question of the Test");
+		Thread.sleep(3000);
 		clickOnElement(oadt.submitTest);
+
 		test.log(Status.INFO, "Test Submitted");
 		System.out.println("Test Submitted");
-		status = oadt.flagged.isDisplayed();
 
-		if (status) {
-			System.out.println("Flag  icon  only displayed to that question which user is selected flagged at time of  giving test");
-			test.log(Status.INFO, "Flag  icon  only displayed to that question which user is selected flagged at time of  giving test");
+		applyExplicitWaitsUntilElementVisible(findElementByText("Check Answers"));
+		clickOnElement(findElementByText("Check Answers"));
+		clickOnElement(oadt.hamburgerBtn);
+		applyExplicitWaitsUntilElementVisible(findElementByText("REVIEW"));
+
+		System.out.println("Review Page is opened after click on Check Answers");
+		test.log(Status.INFO, "Flag  icon  only displayed to that question which user is selected flagged at time of  giving test");
+		applyExplicitWait(5);
+
+
+		try {
+			status = oadt.flagged.isDisplayed();
+
+			if (status) {
+				System.out.println("Flag  icon  only displayed to that question which user is selected flagged at time of  giving test");
+				test.log(Status.INFO, "Flag  icon  only displayed to that question which user is selected flagged at time of  giving test");
+			}
+		}
+		catch(Exception ex) {
+			System.out.println("Flag  icon  is not displayed on REVIEW page to that question which user is selected flagged at time of  giving test");
+			test.log(Status.INFO, "Flag  icon  is not displayed on REVIEW page to that question which user is selected flagged at time of  giving test");
+
 		}
 		// flag reflection 
 		assert1.assertAll();
 
 	}
-
-
-
-
 	public void to_verify_the_Correct_Incorrect_answers_on_review_page(String subject, String topic) throws MalformedURLException {
 
 		create_Assignment_Digital_Test(subject, topic);
 		clickOnElement(oadt.viewAssignmenBtn);
+		test.log(Status.INFO, "Opening the created Assignment" );
+		System.out.println("Opening the created Assignment");
 
 		test.log(Status.INFO, "Traversing to Begin Test" );
 		System.out.println("Traversing to Begin Test");
-
-		clickOnElement(oadt.beginTest);
-
+		applyExplicitWaitsUntilElementVisible(findElementByText("What you will be tested on"));
+		//clickOnElement(oadt.beginTest);
+		clickOnElement(findElementByText("Begin Test"));
 		test.log(Status.INFO, "Attempting the test " );
 		System.out.println("Attempting the test");
 		oadt.flag.click();
@@ -598,14 +637,18 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 		create_Assignment_Digital_Test(subject, topic);
 		clickOnElement(oadt.viewAssignmenBtn);
 
+		test.log(Status.INFO, "Opening the created Assignment" );
+		System.out.println("Opening the created Assignment");
+
 		test.log(Status.INFO, "Traversing to Begin Test" );
 		System.out.println("Traversing to Begin Test");
-
-		clickOnElement(oadt.beginTest);
-
+		applyExplicitWaitsUntilElementVisible(findElementByText("What you will be tested on"));
+		//clickOnElement(oadt.beginTest);
+		clickOnElement(findElementByText("Begin Test"));
 		test.log(Status.INFO, "Attempting the test " );
 		System.out.println("Attempting the test");
-		oadt.flag.click();
+		//oadt.flag.click();
+		applyExplicitWaitsUntilElementVisible(findElementByText("correct"));
 		applyExplicitWait(5);
 		int questions = oadt.get_Total_Number_Of_Questions_In_digital_Test();
 		int i = 0;
@@ -642,8 +685,8 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 
 		test.log(Status.INFO, "Going towards Review");
 		System.out.println("Going towards Review");
-
-		clickOnElement(oadt.backBtn);
+		applyExplicitWaitsUntilElementClickable(oadt.hamburgerBtn);
+		clickOnElement(oadt.hamburgerBtn);
 		applyExplicitWaitsUntilElementVisible(findElementByText("REVIEW"));
 		scrollToEnd();
 		scrollTo2("REVIEW");
@@ -670,13 +713,17 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 		create_Assignment_Digital_Test(subject, topic);
 		clickOnElement(oadt.viewAssignmenBtn);
 
+		test.log(Status.INFO, "Opening the created Assignment" );
+		System.out.println("Opening the created Assignment");
+
 		test.log(Status.INFO, "Traversing to Begin Test" );
 		System.out.println("Traversing to Begin Test");
-
-		clickOnElement(oadt.beginTest);
-
+		applyExplicitWaitsUntilElementVisible(findElementByText("What you will be tested on"));
+		//clickOnElement(oadt.beginTest);
+		clickOnElement(findElementByText("Begin Test"));
 		test.log(Status.INFO, "Attempting the test " );
 		System.out.println("Attempting the test");
+		applyExplicitWaitsUntilElementVisible(findElementByText("correct"));
 		oadt.flag.click();
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Set the flag for First question " );
@@ -740,9 +787,9 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 
 		test.log(Status.INFO, "Traversing to Begin Test" );
 		System.out.println("Traversing to Begin Test");
-
-		clickOnElement(oadt.beginTest);
-
+		applyExplicitWaitsUntilElementVisible(findElementByText("What you will be tested on"));
+		//clickOnElement(oadt.beginTest);
+		clickOnElement(findElementByText("Begin Test"));
 		test.log(Status.INFO, "Attempting the test " );
 		System.out.println("Attempting the test");
 		oadt.flag.click();
@@ -789,16 +836,18 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 		applyExplicitWait(5);
 
 
-		status = oadt.exit_Review.isDisplayed();
+		//status = oadt.exit_Review.isDisplayed();
+		status=findElementByText("Exit Review").isDisplayed();
 		assert1.assertTrue(status);
 		if (status) {
 			System.out.println("User able to review the answer of the questions on the clicking of Check Answer Button ");
 			test.log(Status.INFO, "User able to review the answer of the questions on the clicking of Check Answer Button ");
 		}
 
-		clickOnElement(oadt.exit_Review);
+		clickOnElement(findElementByText("Exit Review"));
 		applyExplicitWaitsUntilElementVisible(findElementByText("Redo"));
-		status = oadt.redo_Test.isDisplayed();
+
+		status = findElementByText("Redo Test").isDisplayed();
 		assert1.assertTrue(status);
 		if (status) {
 			System.out.println("After clcik on exit review button  page  directed to Redo test");
@@ -811,14 +860,17 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 	public void to_verify_from_review_user_should_be_able_to_redirect_the_Test_Summary_and_redo_test(String subject, String topic) throws MalformedURLException {
 		create_Assignment_Digital_Test(subject, topic);
 		clickOnElement(oadt.viewAssignmenBtn);
+		test.log(Status.INFO, "Opening the created Assignment" );
+		System.out.println("Opening the created Assignment");
 
 		test.log(Status.INFO, "Traversing to Begin Test" );
 		System.out.println("Traversing to Begin Test");
-
-		clickOnElement(oadt.beginTest);
-
+		applyExplicitWaitsUntilElementVisible(findElementByText("What you will be tested on"));
+		//clickOnElement(oadt.beginTest);
+		clickOnElement(findElementByText("Begin Test"));
 		test.log(Status.INFO, "Attempting the test " );
 		System.out.println("Attempting the test");
+		applyExplicitWaitsUntilElementVisible(findElementByText("correct"));
 		oadt.flag.click();
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Set the flag for First question " );
@@ -854,16 +906,16 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 			i++;
 		}
 		clickOnElement(oadt.next_questin_Arrow);
-
 		test.log(Status.INFO, "Submitting Test");
 		System.out.println("Submitting Test");
 		clickOnElement(oadt.submitTest);
-
+		applyExplicitWaitsUntilElementVisible(findElementByText("Check Answers"));
 		clickOnElement(oadt.check_Answer);
-		applyImplicitWait(3);
-		clickOnElement(oadt.exit_Review);
-
-		status = oadt.summary_Heading.isDisplayed();
+		applyExplicitWait(3);
+		//clickOnElement(oadt.exit_Review);
+		applyExplicitWaitsUntilElementClickable(findElementByText("Exit Review"));
+		clickOnElement(findElementByText("Exit Review"));
+		status =findElementByText("Check Answers").isDisplayed();
 		assert1.assertTrue(status);
 		if (status) {
 			System.out.println("Summary with Check Answer Button is displayed   ");
@@ -886,11 +938,15 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 	public void to_verify_for_the_Abondon_Test(String subject, String topic) throws MalformedURLException {
 		create_Assignment_Digital_Test(subject, topic);
 		clickOnElement(oadt.viewAssignmenBtn);
+		test.log(Status.INFO, "Opening the created Assignment" );
+		System.out.println("Opening the created Assignment");
 
 		test.log(Status.INFO, "Traversing to Begin Test" );
 		System.out.println("Traversing to Begin Test");
 
-		clickOnElement(oadt.beginTest);
+		//clickOnElement(oadt.beginTest);
+		applyExplicitWaitsUntilElementVisible(findElementByText("What you will be tested on"));
+		clickOnElement(findElementByText("Begin Test"));
 
 		//		test.log(Status.INFO, "Attempting the test " );
 		//		System.out.println("Attempting the test");
@@ -932,11 +988,13 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 		//		//clickOnElement(oadt.next_questin_Arrow);
 		//		applyExplicitWait(3);
 
-		clickOnElement(oadt.backBtn);
+		//clickOnElement(oadt.backBtn);
+		clickOnElement(oadt.hamburgerBtn);
 		test.log(Status.INFO, "Clicked On Back Button from the Test" );
 		System.out.println("Clicked On Back Button from the Test");
 		applyExplicitWait(2);
 		status = oadt.abandon_Test.isDisplayed();
+
 		assert1.assertTrue(status);
 		if (status) {
 			System.out.println("User is able to Abandon Test without attempting  any question or with attempting questions");
@@ -948,14 +1006,18 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 	public void to_verify_the_message_After_abandon_the_test(String subject, String topic) throws MalformedURLException {
 		create_Assignment_Digital_Test(subject, topic);
 		clickOnElement(oadt.viewAssignmenBtn);
+		test.log(Status.INFO, "Opening the created Assignment" );
+		System.out.println("Opening the created Assignment");
 
 		test.log(Status.INFO, "Traversing to Begin Test" );
 		System.out.println("Traversing to Begin Test");
-
-		clickOnElement(oadt.beginTest);
+		applyExplicitWaitsUntilElementVisible(findElementByText("What you will be tested on"));
+		//clickOnElement(oadt.beginTest);
+		clickOnElement(findElementByText("Begin Test"));
 
 		test.log(Status.INFO, "Attempting the test " );
 		System.out.println("Attempting the test");
+		applyExplicitWaitsUntilElementVisible(findElementByText("correct"));
 		oadt.flag.click();
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Set the flag for First question " );
@@ -966,7 +1028,7 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 		int questions = oadt.get_Total_Number_Of_Questions_In_digital_Test();
 		System.out.println(questions);
 
-		clickOnElement(oadt.backBtn);
+		clickOnElement(oadt.hamburgerBtn);
 		test.log(Status.INFO, "Clicked On Back Button from the Test" );
 		System.out.println("Clicked On Back Button from the Test");
 		clickOnElement(oadt.abandon_Test);
@@ -993,14 +1055,17 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 	public void to_verify_after_submitting_the_test_user_should_be_able_to_Check_Answers(String subject, String topic) throws MalformedURLException {
 		create_Assignment_Digital_Test(subject, topic);
 		clickOnElement(oadt.viewAssignmenBtn);
+		test.log(Status.INFO, "Opening the created Assignment" );
+		System.out.println("Opening the created Assignment");
 
 		test.log(Status.INFO, "Traversing to Begin Test" );
 		System.out.println("Traversing to Begin Test");
-
-		clickOnElement(oadt.beginTest);
-
+		applyExplicitWaitsUntilElementVisible(findElementByText("What you will be tested on"));
+		//clickOnElement(oadt.beginTest);
+		clickOnElement(findElementByText("Begin Test"));
 		test.log(Status.INFO, "Attempting the test " );
 		System.out.println("Attempting the test");
+		applyExplicitWaitsUntilElementVisible(findElementByText("correct"));
 		oadt.flag.click();
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Set the flag for First question " );
@@ -1019,7 +1084,7 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 			test.log(Status.INFO, "Question " + (i + 1));
 			System.out.println("Question " + (i + 1));
 
-			if (verifySCQorMCQ().contains("mcq")) {
+			if (verifySCQorMCQ().contains("SCQ")||(verifySCQorMCQ().contains("mcq"))) {
 				qArray[i] = 1;
 				applyExplicitWait(5);
 				actualcount++;
@@ -1046,25 +1111,26 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 		System.out.println("Verifying feedback after answer selection");
 
 		//applyExplicitWait(3);
-		status = oadt.answer_CorrectMsg.isDisplayed();
-		assert1.assertTrue(status);
-		if (status) {
-			System.out.println("Shown incorrect feedback for wrong answer");
-			test.log(Status.INFO, "Shown incorrect feedback for wrong answer");
+		try {
+			status = findElementByText("That’s right.").isDisplayed();
+			assert1.assertTrue(status);
+			if (status) {
+				System.out.println("Shown incorrect feedback for wrong answer");
+				test.log(Status.INFO, "Shown incorrect feedback for wrong answer");
+			}
 		}
 
+		catch(Exception ex) {
 
-		else {
-
-			status = oadt.answer_InCorrect_Msg.isDisplayed();
+			status = findElementByText("Oops! You missed this.").isDisplayed();
 			assert1.assertTrue(status);
 			if (status) {
 				System.err.println("Shown incorrect feedback for wrong answer");
 				test.log(Status.INFO, "Shown incorrect feedback for wrong answer");
 			}
-			System.err.println("User should be able to check anwers of all questions attempted with the submitted  answers");
-			test.log(Status.INFO, "User should be able to check anwers of all questions attempted with the submitted  answers");
 		}
+		System.err.println("User should be able to check anwers of all questions attempted with the submitted  answers");
+		test.log(Status.INFO, "User should be able to check anwers of all questions attempted with the submitted  answers");
 		assert1.assertAll();	
 	}
 

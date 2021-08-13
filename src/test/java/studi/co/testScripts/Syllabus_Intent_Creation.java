@@ -43,11 +43,11 @@ public class Syllabus_Intent_Creation extends BaseClass {
 		msic.to_Verify_click_on_delete_icon_test_creation_will_be_aborted(prop.getProperty("subject_History"),prop.getProperty("topic_H"));
 	}
 
-	@Test(enabled = false)//Hold
-	public void TC06_To_Verify_user_should_not_be_allowed_to_proceed_further_keeping_Title_field_blank () throws MalformedURLException, InterruptedException {
-		Module_Syllabus_Intent_Creation  msic =new Module_Syllabus_Intent_Creation();
-		msic.to_verify_user_should_not_be_allowed_to_proceed_further_keeping_Title_field_blank(prop.getProperty("subject_History"),prop.getProperty("topic_H"));
-	}
+//	@Test(enabled = false)//Hold
+//	public void TC06_To_Verify_user_should_not_be_allowed_to_proceed_further_keeping_Title_field_blank () throws MalformedURLException, InterruptedException {
+//		Module_Syllabus_Intent_Creation  msic =new Module_Syllabus_Intent_Creation();
+//		msic.to_verify_user_should_not_be_allowed_to_proceed_further_keeping_Title_field_blank(prop.getProperty("subject_History"),prop.getProperty("topic_H"));
+//	}
 
 	@Test(enabled = true)
 	public void TC07_To_verify_user_should_be_able_to_Choose_difficulty_level() throws MalformedURLException, InterruptedException {

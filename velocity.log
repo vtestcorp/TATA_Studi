@@ -1,0 +1,227 @@
+2021-08-13 18:05:58,219 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2021-08-13 18:05:58,220 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2021-08-13 18:05:58,220 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2021-08-13 18:05:58,274 - Null reference [template 'report.vm', line 26, column 29] : $summary.getStartDate() cannot be resolved.
+2021-08-13 18:05:58,274 - Left side of math operation ($summary.getEndDate().getTime()) has a null value. report.vm[line 30, column 74]
+2021-08-13 18:05:58,275 - RHS of #set statement is null. Context will not be modified. report.vm[line 30, column 25]
+2021-08-13 18:05:58,301 - Left side of math operation ($millis) has a null value. report.vm[line 31, column 51]
+2021-08-13 18:05:58,301 - Left side of math operation ( 1000.0 ) has a null value. report.vm[line 31, column 60]
+2021-08-13 18:05:58,301 - RHS of #set statement is null. Context will not be modified. report.vm[line 31, column 8]
+2021-08-13 18:05:58,305 - Null reference [template 'report.vm', line 32, column 29] : $numberTool.format("#0.00", $minutes) cannot be resolved.
+2021-08-13 18:05:58,305 - Null reference [template 'report.vm', line 32, column 76] : $millis cannot be resolved.
+2021-08-13 18:12:05,019 - Log4JLogChute initialized using file 'velocity.log'
+2021-08-13 18:12:05,020 - Initializing Velocity, Calling init()...
+2021-08-13 18:12:05,020 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2021-08-13 18:12:05,020 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2021-08-13 18:12:05,020 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2021-08-13 18:12:05,020 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2021-08-13 18:12:05,020 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2021-08-13 18:12:05,020 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2021-08-13 18:12:05,025 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2021-08-13 18:12:05,026 - Do unicode file recognition:  false
+2021-08-13 18:12:05,026 - FileResourceLoader : adding path '.'
+2021-08-13 18:12:05,037 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2021-08-13 18:12:05,039 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2021-08-13 18:12:05,040 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2021-08-13 18:12:05,040 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2021-08-13 18:12:05,041 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2021-08-13 18:12:05,042 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2021-08-13 18:12:05,043 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2021-08-13 18:12:05,044 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2021-08-13 18:12:05,045 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2021-08-13 18:12:05,046 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2021-08-13 18:12:05,072 - Created '20' parsers.
+2021-08-13 18:12:05,076 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2021-08-13 18:12:05,076 - Velocimacro : Default library not found.
+2021-08-13 18:12:05,076 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2021-08-13 18:12:05,076 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2021-08-13 18:12:05,076 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2021-08-13 18:12:05,076 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2021-08-13 18:12:05,122 - Null reference [template 'report.vm', line 26, column 29] : $summary.getStartDate() cannot be resolved.
+2021-08-13 18:12:05,122 - Left side of math operation ($summary.getEndDate().getTime()) has a null value. report.vm[line 30, column 74]
+2021-08-13 18:12:05,123 - RHS of #set statement is null. Context will not be modified. report.vm[line 30, column 25]
+2021-08-13 18:12:05,123 - Left side of math operation ($millis) has a null value. report.vm[line 31, column 51]
+2021-08-13 18:12:05,124 - Left side of math operation ( 1000.0 ) has a null value. report.vm[line 31, column 60]
+2021-08-13 18:12:05,124 - RHS of #set statement is null. Context will not be modified. report.vm[line 31, column 8]
+2021-08-13 18:12:05,127 - Null reference [template 'report.vm', line 32, column 29] : $numberTool.format("#0.00", $minutes) cannot be resolved.
+2021-08-13 18:12:05,127 - Null reference [template 'report.vm', line 32, column 76] : $millis cannot be resolved.
+2021-08-13 18:34:27,463 - Log4JLogChute initialized using file 'velocity.log'
+2021-08-13 18:34:27,463 - Initializing Velocity, Calling init()...
+2021-08-13 18:34:27,463 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2021-08-13 18:34:27,463 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2021-08-13 18:34:27,463 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2021-08-13 18:34:27,463 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2021-08-13 18:34:27,463 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2021-08-13 18:34:27,463 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2021-08-13 18:34:27,469 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2021-08-13 18:34:27,470 - Do unicode file recognition:  false
+2021-08-13 18:34:27,470 - FileResourceLoader : adding path '.'
+2021-08-13 18:34:27,480 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2021-08-13 18:34:27,482 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2021-08-13 18:34:27,483 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2021-08-13 18:34:27,484 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2021-08-13 18:34:27,485 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2021-08-13 18:34:27,485 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2021-08-13 18:34:27,486 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2021-08-13 18:34:27,487 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2021-08-13 18:34:27,489 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2021-08-13 18:34:27,490 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2021-08-13 18:34:27,517 - Created '20' parsers.
+2021-08-13 18:34:27,522 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2021-08-13 18:34:27,522 - Velocimacro : Default library not found.
+2021-08-13 18:34:27,522 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2021-08-13 18:34:27,522 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2021-08-13 18:34:27,522 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2021-08-13 18:34:27,522 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2021-08-13 18:34:27,573 - Null reference [template 'report.vm', line 26, column 29] : $summary.getStartDate() cannot be resolved.
+2021-08-13 18:34:27,574 - Left side of math operation ($summary.getEndDate().getTime()) has a null value. report.vm[line 30, column 74]
+2021-08-13 18:34:27,574 - RHS of #set statement is null. Context will not be modified. report.vm[line 30, column 25]
+2021-08-13 18:34:27,575 - Left side of math operation ($millis) has a null value. report.vm[line 31, column 51]
+2021-08-13 18:34:27,575 - Left side of math operation ( 1000.0 ) has a null value. report.vm[line 31, column 60]
+2021-08-13 18:34:27,575 - RHS of #set statement is null. Context will not be modified. report.vm[line 31, column 8]
+2021-08-13 18:34:27,578 - Null reference [template 'report.vm', line 32, column 29] : $numberTool.format("#0.00", $minutes) cannot be resolved.
+2021-08-13 18:34:27,578 - Null reference [template 'report.vm', line 32, column 76] : $millis cannot be resolved.
+2021-08-13 18:37:35,812 - Log4JLogChute initialized using file 'velocity.log'
+2021-08-13 18:37:35,813 - Initializing Velocity, Calling init()...
+2021-08-13 18:37:35,813 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2021-08-13 18:37:35,813 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2021-08-13 18:37:35,813 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2021-08-13 18:37:35,813 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2021-08-13 18:37:35,813 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2021-08-13 18:37:35,813 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2021-08-13 18:37:35,818 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2021-08-13 18:37:35,819 - Do unicode file recognition:  false
+2021-08-13 18:37:35,819 - FileResourceLoader : adding path '.'
+2021-08-13 18:37:35,831 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2021-08-13 18:37:35,832 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2021-08-13 18:37:35,833 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2021-08-13 18:37:35,834 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2021-08-13 18:37:35,835 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2021-08-13 18:37:35,835 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2021-08-13 18:37:35,836 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2021-08-13 18:37:35,838 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2021-08-13 18:37:35,840 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2021-08-13 18:37:35,841 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2021-08-13 18:37:35,874 - Created '20' parsers.
+2021-08-13 18:37:35,879 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2021-08-13 18:37:35,879 - Velocimacro : Default library not found.
+2021-08-13 18:37:35,879 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2021-08-13 18:37:35,879 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2021-08-13 18:37:35,879 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2021-08-13 18:37:35,879 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2021-08-13 18:37:35,925 - Null reference [template 'report.vm', line 26, column 29] : $summary.getStartDate() cannot be resolved.
+2021-08-13 18:37:35,925 - Left side of math operation ($summary.getEndDate().getTime()) has a null value. report.vm[line 30, column 74]
+2021-08-13 18:37:35,926 - RHS of #set statement is null. Context will not be modified. report.vm[line 30, column 25]
+2021-08-13 18:37:35,927 - Left side of math operation ($millis) has a null value. report.vm[line 31, column 51]
+2021-08-13 18:37:35,927 - Left side of math operation ( 1000.0 ) has a null value. report.vm[line 31, column 60]
+2021-08-13 18:37:35,927 - RHS of #set statement is null. Context will not be modified. report.vm[line 31, column 8]
+2021-08-13 18:37:35,930 - Null reference [template 'report.vm', line 32, column 29] : $numberTool.format("#0.00", $minutes) cannot be resolved.
+2021-08-13 18:37:35,930 - Null reference [template 'report.vm', line 32, column 76] : $millis cannot be resolved.
+2021-08-13 18:43:34,605 - Log4JLogChute initialized using file 'velocity.log'
+2021-08-13 18:43:34,605 - Initializing Velocity, Calling init()...
+2021-08-13 18:43:34,605 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2021-08-13 18:43:34,606 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2021-08-13 18:43:34,606 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2021-08-13 18:43:34,606 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2021-08-13 18:43:34,606 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2021-08-13 18:43:34,606 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2021-08-13 18:43:34,611 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2021-08-13 18:43:34,612 - Do unicode file recognition:  false
+2021-08-13 18:43:34,614 - FileResourceLoader : adding path '.'
+2021-08-13 18:43:34,627 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2021-08-13 18:43:34,630 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2021-08-13 18:43:34,631 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2021-08-13 18:43:34,633 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2021-08-13 18:43:34,634 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2021-08-13 18:43:34,635 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2021-08-13 18:43:34,636 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2021-08-13 18:43:34,637 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2021-08-13 18:43:34,638 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2021-08-13 18:43:34,640 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2021-08-13 18:43:34,669 - Created '20' parsers.
+2021-08-13 18:43:34,674 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2021-08-13 18:43:34,674 - Velocimacro : Default library not found.
+2021-08-13 18:43:34,674 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2021-08-13 18:43:34,675 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2021-08-13 18:43:34,675 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2021-08-13 18:43:34,675 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2021-08-13 18:43:34,720 - Null reference [template 'report.vm', line 26, column 29] : $summary.getStartDate() cannot be resolved.
+2021-08-13 18:43:34,720 - Left side of math operation ($summary.getEndDate().getTime()) has a null value. report.vm[line 30, column 74]
+2021-08-13 18:43:34,721 - RHS of #set statement is null. Context will not be modified. report.vm[line 30, column 25]
+2021-08-13 18:43:34,722 - Left side of math operation ($millis) has a null value. report.vm[line 31, column 51]
+2021-08-13 18:43:34,722 - Left side of math operation ( 1000.0 ) has a null value. report.vm[line 31, column 60]
+2021-08-13 18:43:34,722 - RHS of #set statement is null. Context will not be modified. report.vm[line 31, column 8]
+2021-08-13 18:43:34,726 - Null reference [template 'report.vm', line 32, column 29] : $numberTool.format("#0.00", $minutes) cannot be resolved.
+2021-08-13 18:43:34,726 - Null reference [template 'report.vm', line 32, column 76] : $millis cannot be resolved.
+2021-08-13 18:50:15,812 - Log4JLogChute initialized using file 'velocity.log'
+2021-08-13 18:50:15,812 - Initializing Velocity, Calling init()...
+2021-08-13 18:50:15,812 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2021-08-13 18:50:15,813 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2021-08-13 18:50:15,813 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2021-08-13 18:50:15,813 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2021-08-13 18:50:15,813 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2021-08-13 18:50:15,813 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2021-08-13 18:50:15,818 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2021-08-13 18:50:15,822 - Do unicode file recognition:  false
+2021-08-13 18:50:15,822 - FileResourceLoader : adding path '.'
+2021-08-13 18:50:15,834 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2021-08-13 18:50:15,836 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2021-08-13 18:50:15,837 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2021-08-13 18:50:15,838 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2021-08-13 18:50:15,839 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2021-08-13 18:50:15,840 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2021-08-13 18:50:15,841 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2021-08-13 18:50:15,842 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2021-08-13 18:50:15,844 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2021-08-13 18:50:15,845 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2021-08-13 18:50:15,878 - Created '20' parsers.
+2021-08-13 18:50:15,883 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2021-08-13 18:50:15,883 - Velocimacro : Default library not found.
+2021-08-13 18:50:15,883 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2021-08-13 18:50:15,883 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2021-08-13 18:50:15,883 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2021-08-13 18:50:15,883 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2021-08-13 18:50:15,935 - Null reference [template 'report.vm', line 26, column 29] : $summary.getStartDate() cannot be resolved.
+2021-08-13 18:50:15,935 - Left side of math operation ($summary.getEndDate().getTime()) has a null value. report.vm[line 30, column 74]
+2021-08-13 18:50:15,935 - RHS of #set statement is null. Context will not be modified. report.vm[line 30, column 25]
+2021-08-13 18:50:15,936 - Left side of math operation ($millis) has a null value. report.vm[line 31, column 51]
+2021-08-13 18:50:15,936 - Left side of math operation ( 1000.0 ) has a null value. report.vm[line 31, column 60]
+2021-08-13 18:50:15,936 - RHS of #set statement is null. Context will not be modified. report.vm[line 31, column 8]
+2021-08-13 18:50:15,939 - Null reference [template 'report.vm', line 32, column 29] : $numberTool.format("#0.00", $minutes) cannot be resolved.
+2021-08-13 18:50:15,940 - Null reference [template 'report.vm', line 32, column 76] : $millis cannot be resolved.
+2021-08-13 18:53:21,802 - Log4JLogChute initialized using file 'velocity.log'
+2021-08-13 18:53:21,803 - Initializing Velocity, Calling init()...
+2021-08-13 18:53:21,803 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2021-08-13 18:53:21,803 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2021-08-13 18:53:21,803 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2021-08-13 18:53:21,803 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2021-08-13 18:53:21,803 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2021-08-13 18:53:21,803 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2021-08-13 18:53:21,808 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+2021-08-13 18:53:21,809 - Do unicode file recognition:  false
+2021-08-13 18:53:21,809 - FileResourceLoader : adding path '.'
+2021-08-13 18:53:21,821 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2021-08-13 18:53:21,823 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2021-08-13 18:53:21,824 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2021-08-13 18:53:21,824 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2021-08-13 18:53:21,825 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2021-08-13 18:53:21,826 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2021-08-13 18:53:21,827 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2021-08-13 18:53:21,828 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2021-08-13 18:53:21,829 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2021-08-13 18:53:21,831 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2021-08-13 18:53:21,859 - Created '20' parsers.
+2021-08-13 18:53:21,863 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2021-08-13 18:53:21,863 - Velocimacro : Default library not found.
+2021-08-13 18:53:21,864 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2021-08-13 18:53:21,864 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2021-08-13 18:53:21,864 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2021-08-13 18:53:21,864 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2021-08-13 18:53:21,908 - Null reference [template 'report.vm', line 26, column 29] : $summary.getStartDate() cannot be resolved.
+2021-08-13 18:53:21,908 - Left side of math operation ($summary.getEndDate().getTime()) has a null value. report.vm[line 30, column 74]
+2021-08-13 18:53:21,908 - RHS of #set statement is null. Context will not be modified. report.vm[line 30, column 25]
+2021-08-13 18:53:21,909 - Left side of math operation ($millis) has a null value. report.vm[line 31, column 51]
+2021-08-13 18:53:21,909 - Left side of math operation ( 1000.0 ) has a null value. report.vm[line 31, column 60]
+2021-08-13 18:53:21,909 - RHS of #set statement is null. Context will not be modified. report.vm[line 31, column 8]
+2021-08-13 18:53:21,913 - Null reference [template 'report.vm', line 32, column 29] : $numberTool.format("#0.00", $minutes) cannot be resolved.
+2021-08-13 18:53:21,913 - Null reference [template 'report.vm', line 32, column 76] : $millis cannot be resolved.

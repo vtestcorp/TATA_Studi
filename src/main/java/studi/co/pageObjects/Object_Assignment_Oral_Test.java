@@ -116,7 +116,7 @@ public class Object_Assignment_Oral_Test extends BaseClass {
 	@AndroidFindBy(id ="com.tce.studi:id/ivPlayVideo")
 	public WebElement video_icon;
 
-	@AndroidFindBy(id ="com.tce.studi:id/ib_close_video")
+	@AndroidFindBy(id ="com.tce.studi:id/ivCloseVideo")
 	public WebElement video_close;
 
 	@AndroidFindBy(id ="com.tce.studi:id/tvQuestionNumber")

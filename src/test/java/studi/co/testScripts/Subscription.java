@@ -32,20 +32,19 @@ public class Subscription extends BaseClass {
 		subscription.Verify_the_functionality_of_select_new_plan_on_expired_plan_profile();
 	}
 
-	@Test(enabled = false)//Hold ..need 5 there r 3 plans
-
-	public void TC_06_To_validate_user_should_be_shown_subscription_plan_on_the_select_subscription_page () throws MalformedURLException {
-		Module_Subscription subscription =new Module_Subscription();
-		subscription.To_validate_user_should_be_shown_subscription_plan_on_the_select_subscription_page();
-	}
-
+//	@Test(enabled = false)//Hold ..need 5 there r 3 plans
+//
+//	public void TC_06_To_validate_user_should_be_shown_subscription_plan_on_the_select_subscription_page () throws MalformedURLException {
+//		Module_Subscription subscription =new Module_Subscription();
+//		subscription.To_validate_user_should_be_shown_subscription_plan_on_the_select_subscription_page();
+//	}
 	@Test(enabled = true)//pass 
 	public void TC07_To_validate_the_Proceed_to_PayButton() throws MalformedURLException {
 		Module_Subscription subscription =new Module_Subscription();
 		subscription.to_validate_the_Proceed_to_PayButton();
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void TC_08_To_validate_Order_Summary_Checkout_page() throws MalformedURLException {
 		Module_Subscription subscription =new Module_Subscription();
 		subscription.to_validate_Order_Summary_Checkout_page();

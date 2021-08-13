@@ -50,13 +50,9 @@ import javax.swing.Timer;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.FormulaEvaluator;
+
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFCell;
+
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
@@ -138,13 +134,13 @@ public class BaseClass {
 			FileInputStream ip = new FileInputStream(
 					System.getProperty("user.dir") + "/src/main/java/studi/co/Config/config.properties");
 			prop.load(ip);
-			
+
 			prop2 = new Properties();
 			FileInputStream ip2 = new FileInputStream(
 					System.getProperty("user.dir") + "TataConfig.properties");
 			prop2.load(ip2);
 
-			
+
 		} catch (Exception ex) {
 			System.out.println(ex.getStackTrace());
 		}
@@ -263,12 +259,12 @@ public class BaseClass {
 			if (cont.contains("WEBVIEW"))
 				getDriver().context(cont);
 		}
-		//((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+
 		List<MobileElement> as = driver.findElements(By.tagName("tce-option"));
 		for (WebElement s : as) {
 
 			//if (!s.getAttribute("class").equalsIgnoreCase("tick")) {
-			if (s.getAttribute("class")==null) {
+			if (s.getAttribute("class")==null||s.getAttribute("class").isBlank()) {
 				tempstr=s.findElement(By.className("ql-editor")).getText();
 				int index = as.indexOf(s);
 				getDriver().context("NATIVE_APP");
@@ -292,7 +288,11 @@ public class BaseClass {
 
 	public String verifySCQorMCQ() {
 		correctAnswers = 0;
-		getDriver().context("WEBVIEW_com.tce.studi");
+		Set<String> context = driver.getContextHandles();
+		for (String cont : context) {
+			if (cont.contains("WEBVIEW"))
+				getDriver().context(cont);
+		}
 		try {
 			Thread.sleep(500);
 		} catch (InterruptedException e) {
@@ -317,17 +317,22 @@ public class BaseClass {
 	 * device.
 	 */
 	@BeforeTest
-	public static void beforeTest(String type) throws Exception {
-		String s = prop2.getProperty("platformName");
-		device = new String(type);
+	public static void beforeTest() throws Exception {
+		String s = "Android";
+		device = s;
 		caps = new DesiredCapabilities();
 		if (s.equalsIgnoreCase("Android")) {
 			caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Appium");
 			caps.setCapability("platformName", "Android");
+			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION,"11");
 			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, prop2.getProperty("OS_Version"));
 			caps.setCapability("appPackage", "com.tce.studi");
 			caps.setCapability("appActivity", "com.tce.view.ui.activities.SplashScreenActivity");
-						
+
+			caps.setCapability("chromedriverExecutable", System.getProperty("user.dir")+"//chromedriver.exe");
+
+			//caps.setCapability("chromedriverExecutable", "C:\\Users\\LENOVO\\Downloads\\chromedriver_win32_92\\chromedriver.exe");
+
 			caps.setCapability("appium:chromeOptions", ImmutableMap.of("w3c", false));
 			caps.setCapability(MobileCapabilityType.TAKES_SCREENSHOT, "true");
 			caps.setCapability(MobileCapabilityType.NO_RESET, true);
@@ -342,7 +347,6 @@ public class BaseClass {
 			applyExplicitWait(20);
 
 		} else if (s.equalsIgnoreCase("IOS")) {
-
 			caps = new DesiredCapabilities();
 			caps.setCapability("automationName", "XCUITest");
 			caps.setCapability("deviceName", prop2.getProperty("Device_Name"));
@@ -362,12 +366,12 @@ public class BaseClass {
 			caps = new DesiredCapabilities();
 			caps.setCapability("browserstack.user", prop2.getProperty("browserstack_user"));
 			caps.setCapability("browserstack.key", prop2.getProperty("browserstack_key"));
-			caps.setCapability("app", "bs://"+prop2.getProperty("app_Key"));
-			
+			caps.setCapability("app", "bs://"+prop2.getProperty("app_Key")+"");
+
 			caps.setCapability("device", prop2.getProperty("Device_Name"));
 			caps.setCapability("os_version", prop2.getProperty("OS_Version"));
-			
-			caps.setCapability("chromedriverExecutable", System.getProperty("user.dir")+"\\chromedriver");
+
+			//caps.setCapability("chromedriverExecutable", System.getProperty("user.dir")+"\\chromedriver");
 			caps.setCapability(MobileCapabilityType.NO_RESET, true);
 			HashMap<String, Boolean> networkLogsOptions = new HashMap<>();
 			networkLogsOptions.put("captureContent", true);
@@ -383,7 +387,7 @@ public class BaseClass {
 			caps = new DesiredCapabilities();
 			caps.setCapability("browserstack.user", prop2.getProperty("browserstack_user"));
 			caps.setCapability("browserstack.key", prop2.getProperty("browserstack_key"));
-			
+
 			caps.setCapability("app", "bs://"+prop2.getProperty("app_Key"));
 			caps.setCapability("device", prop2.getProperty("Device_Name"));
 			caps.setCapability("os_version", prop2.getProperty("OS_Version"));

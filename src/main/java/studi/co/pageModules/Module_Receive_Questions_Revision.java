@@ -47,17 +47,16 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		System.out.println("Opening revision for " + topic);
 
 		try {
-			// applyExplicitWaitsUntilElementClickable(findElementByText("Revis"));
+			applyExplicitWaitsUntilElementClickable(findElementByText("Revis"));
 			clickOnElement(findElementByText("Revis"));
 		} catch (Exception e) {
-			// applyExplicitWaitsUntilElementClickable(findElementByText("Revise"));
+			applyExplicitWaitsUntilElementClickable(findElementByText("Revise"));
 			clickOnElement(findElementByText("Revise"));
 		}
 
 		Thread.sleep(3000);
 
 		try {
-			applyExplicitWaitsUntilElementVisible(RMQR.why_tested_msg);
 			clickOnElement(findElementByText("Revis"));
 		} catch (Exception e) {
 			if (device.contains("Android"))
@@ -115,7 +114,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
 		System.out.println("Video Started");
-		Thread.sleep(1000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
+		Thread.sleep(2000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 
 		int questions;
@@ -170,7 +169,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
 
-		Thread.sleep(1000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
+		Thread.sleep(2000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 		applyExplicitWaitsUntilElementVisible(RMQR.question);
 		int questions;
@@ -235,7 +234,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
 		System.out.println("Video started");
-		Thread.sleep(1000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
+		Thread.sleep(2000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 		applyExplicitWait(15);
 
@@ -303,7 +302,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
-		Thread.sleep(1000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
+		Thread.sleep(2000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 		applyExplicitWait(15);
 
@@ -379,8 +378,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 			throws InterruptedException, WebDriverException, IOException {
 		traverse_To_Begin_Revision(subject, topic);
 		test.log(Status.INFO, "Video started");
-		Thread.sleep(1000);
-		Thread.sleep(1000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
+		Thread.sleep(2000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 		applyExplicitWaitsUntilElementVisible(RMQR.question);
 		int questions;
@@ -427,7 +425,6 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		test.log(Status.INFO, "Video started");
 		Thread.sleep(2000);
-		
 		applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 		applyExplicitWaitsUntilElementVisible(RMQR.question);
@@ -461,8 +458,8 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		System.out.println("Ending Test");
 		test.log(Status.INFO, "Ending Test");
 		
-		Thread.sleep(2000);
-		
+		Thread.sleep(3000);
+			
 		
 		applyExplicitWait(5);
 		if (device.contains("Android"))
@@ -484,8 +481,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
 		System.out.println("Video Started");
-		Thread.sleep(1000);
-		Thread.sleep(1000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
+		Thread.sleep(2000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 		applyExplicitWaitsUntilElementVisible(RMQR.question);
 		int questions;
@@ -542,7 +538,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		// pauseVideo();
 		// forwardVideoTimerToEnd();
 		Thread.sleep(1000);
-		Thread.sleep(1000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
+		Thread.sleep(2000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 		applyExplicitWait(15);
 		applyExplicitWaitsUntilElementVisible(RMQR.question);
@@ -596,9 +592,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
 		System.out.println("Video started");
-
-		Thread.sleep(2000);
-		Thread.sleep(1000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
+		Thread.sleep(2000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 		applyExplicitWaitsUntilElementVisible(RMQR.question);
 		int questions;
@@ -656,7 +650,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
 
-		Thread.sleep(1000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
+		Thread.sleep(2000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 		Thread.sleep(2000);
 		applyExplicitWaitsUntilElementVisible(RMQR.question);
@@ -748,7 +742,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
-		Thread.sleep(1000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
+		Thread.sleep(2000);//applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 		applyExplicitWait(15);
 		int questions;
@@ -813,8 +807,9 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		applyExplicitWaitsUntilElementClickable(RMQR.skip);
+		Thread.sleep(2000);
 		clickOnElement(RMQR.skip);
 		applyExplicitWait(15);
 		int questions;
@@ -867,7 +862,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
-		Thread.sleep(1000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
+		Thread.sleep(2000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 
 		int questions;
@@ -932,7 +927,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
-		Thread.sleep(1000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
+		Thread.sleep(2000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 		applyExplicitWait(15);
 
@@ -1007,7 +1002,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
 
-		Thread.sleep(1000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
+		Thread.sleep(2000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 		applyExplicitWait(15);
 
@@ -1064,7 +1059,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
-		Thread.sleep(1000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
+		Thread.sleep(2000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 		applyExplicitWaitsUntilElementVisible(RMQR.question);
 		int questions;
@@ -1120,7 +1115,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
-		Thread.sleep(1000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
+		Thread.sleep(2000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 		applyExplicitWaitsUntilElementVisible(RMQR.question);
 		int questions;
@@ -1211,8 +1206,7 @@ public class Module_Receive_Questions_Revision extends BaseClass {
 		traverse_To_Begin_Revision(subject, topic);
 		applyExplicitWait(5);
 		test.log(Status.INFO, "Video started");
-		Thread.sleep(1000);
-		Thread.sleep(1000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
+		Thread.sleep(2000);applyExplicitWaitsUntilElementClickable(RMQR.skip);
 		clickOnElement(RMQR.skip);
 		applyExplicitWaitsUntilElementVisible(RMQR.question);
 		int questions;

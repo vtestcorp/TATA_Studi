@@ -8,18 +8,16 @@
   <test thread-count="5" name="Test(failed)">
     <parameter name="type" value="Android"/>
     <classes>
-      <class name="studi.co.testScripts.StudyPlan_ScheduledPlanView">
+      <class name="studi.co.testScripts.Assignment_Digital_Test">
         <methods>
           <include name="restApp"/>
-          <include name="restApp"/>
           <include name="afterTest"/>
-          <include name="TC04_To_Verify_check_uncheck_for_Filteration"/>
-          <include name="TC06_To_verify_scheduled_plan_view_for_plan_not_started"/>
-          <include name="TC08_To_verify_scheduled_plan_view_for_no_lesson_scheduled"/>
+          <include name="TC14_To_Verify_From_Review_User_Should_be_Able_To_Redirect_The_Test_Summary_and_Redo_Test"/>
+          <include name="TC16_To_verify_the_message_After_abandon_the_test"/>
+          <include name="TC17_To_verify_after_submitting_the_test_user_should_be_able_to_Check_Answers"/>
           <include name="beforeTest"/>
-          <include name="TC07_To_verify_Week_Cycle_plan_which_is_started_in_the_middle_of_week_days"/>
         </methods>
-      </class> <!-- studi.co.testScripts.StudyPlan_ScheduledPlanView -->
+      </class> <!-- studi.co.testScripts.Assignment_Digital_Test -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Tata Studi QA] -->

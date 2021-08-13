@@ -42,8 +42,11 @@ public class Module_Syllabus_Notes_Listing extends BaseClass
 		{
 			System.out.println("Towards list on Notes by CLicking back button");
 		}
+
 		Thread.sleep(2000);
 		applyExplicitWaitsUntilElementClickable(osnl.backBtn);
+		clickOnElement(osnl.backBtn);
+
 		scrollTo2("Notes");
 		clickOnElement(findElementByText("Notes"));
 		System.out.println("Clicked on Notes List");
@@ -145,7 +148,7 @@ public class Module_Syllabus_Notes_Listing extends BaseClass
 		clickOnElement(osnl.update_note_final);
 		System.out.println("Clicked On Update Note Button");
 		test.log(Status.INFO, "Clicked On Update Note Button");
-
+		Thread.sleep(1000);
 		status=osnl.to_note_location.isDisplayed();
 		{
 			System.out.println("Note updated Successfully using Edit Icon on Expanded note");
@@ -170,6 +173,8 @@ public class Module_Syllabus_Notes_Listing extends BaseClass
 		}
 		Thread.sleep(2000);
 		applyExplicitWaitsUntilElementClickable(osnl.backBtn);
+		clickOnElement(osnl.backBtn);
+		applyExplicitWait(3);
 		scrollTo2("Notes");
 		clickOnElement(findElementByText("Notes"));
 		System.out.println("Clicked on Notes List");

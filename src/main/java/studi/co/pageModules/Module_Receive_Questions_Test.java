@@ -682,7 +682,7 @@ public class Module_Receive_Questions_Test extends BaseClass {
 						e.printStackTrace();
 					}
 					if (device.contains("Android"))
-						status = Boolean.parseBoolean(mobileElement2.getAttribute("Focused"));
+						status = Boolean.parseBoolean(mobileElement2.getAttribute("checked"));
 					else
 						status = mobileElement2.getAttribute("value").equalsIgnoreCase("1");
 					if (status)

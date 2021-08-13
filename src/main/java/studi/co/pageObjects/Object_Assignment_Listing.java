@@ -33,7 +33,7 @@ public class Object_Assignment_Listing extends BaseClass {
 	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/dueDate\").textContains(\"Completed On\")")
 	public WebElement completedDate;
 
-	@AndroidFindBy(id="com.tce.studi:id/subHeading")
+	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/subHeading\").textContains(\"assignments due\")")
 	public WebElement due_resource;
 
 	@AndroidFindBy(id="com.tce.studi:id/fabAssignment")
@@ -69,7 +69,7 @@ public class Object_Assignment_Listing extends BaseClass {
 
 	@AndroidFindBy(id ="com.tce.studi:id/tvOverview")
 	public WebElement why_tested_msg  ;
-	
+
 	@AndroidFindBy(id ="com.tce.studi:id/iv_left_icon")
 	public WebElement back_btn;
 
@@ -79,7 +79,7 @@ public class Object_Assignment_Listing extends BaseClass {
 	@AndroidFindBy(id="com.tce.studi:id/overdue")
 	public WebElement over_due;
 
-	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tvOverdue\").textContains(\"days\")")
+	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/overdue\").textContains(\"overdue\")")
 	public WebElement extra_days;
 
 	@AndroidFindBy(id="com.tce.studi:id/linearListBg")
@@ -88,11 +88,28 @@ public class Object_Assignment_Listing extends BaseClass {
 	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tvTitle\").textContains(\"Digital Test is Ready!\")")
 	public WebElement notification;
 
+	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tvView\").textContains(\"View Assignment\")")
+	public WebElement view_created_ass;
+
 	@AndroidFindBy(id="com.tce.studi:id/txtNegativeBtn")
 	public WebElement hideReport;
-	
+
+	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tvView\").textContains(\"NEW\")")
+	public WebElement new_lbl;
+
 	@AndroidFindBy(id="com.tce.studi:id/listAttachment")
 	public WebElement attachmentIcon;
+
+	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/tvContent\").textContains(\"Digital Test:\")")
+	public WebElement click_to_open_created_ass;
+
+	@AndroidFindBy(uiAutomator="new UiSelector().resourceId(\"com.tce.studi:id/dueDate\").textContains(\"Completed On\")")
+	public WebElement completion_date;
+
+
+	@AndroidFindBy(uiAutomator="new UiSelector().className(\"android.widget.TextView\").textContains(\"Completed Assignments\")")
+	public WebElement heading_on_completed_ass;
+
 
 	@AndroidFindBy(id="com.tce.studi:id/listTitle")
 	public WebElement assignmentTitle;

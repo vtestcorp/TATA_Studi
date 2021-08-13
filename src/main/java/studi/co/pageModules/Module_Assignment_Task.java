@@ -30,7 +30,8 @@ public class Module_Assignment_Task extends BaseClass {
 		System.out.println("Setting Task Instruction");
 		oas.taskInstruction.sendKeys("TATA Studi Test for Task and Digital Test");
 		scrollTo2("Assign");
-		clickOnElement(oas.assignmentViewed);
+		clickOnElement(findElementByText("Assignment Viewed"));
+		//clickOnElement(oas.assignmentViewed);
 		test.log(Status.INFO, "Clicked on Assignment Viewd" );
 		System.out.println("Clicked on Assignment Viewd");
 
@@ -70,23 +71,47 @@ public class Module_Assignment_Task extends BaseClass {
 		clickOnElement(oas.taskDuration);
 		test.log(Status.INFO, "Selected the Task Duration");
 		System.out.println("Selected the Task Duration");
+		scrollTo2("Assign");
+		applyExplicitWaitsUntilElementClickable(oas.assignTask);
 		clickOnElement(findElementByText("Assign"));
-		//show more
-		status = oas.createdTask.isDisplayed();
+		//tapOnElement(findElementByText("Assign"));
+		status = oas.task_is_Ready.isDisplayed();
 		assert1.assertTrue(status);
 		if (status) {
-			System.out.println("Task is created");
-			test.log(Status.INFO, "Task is created");
-		}
+			System.out.println("Task is created and Message Displayed-> ");
+			test.log(Status.INFO, "Task is created and Message Displayed-> ");
 
+		}
 		assert1.assertAll();
 
 	}
 
 
 
-	public void to_verify_creation_of_task_and_visible_under_due_today(){
-		scrollTo2("Assignments");
+	public void to_verify_creation_of_task_and_visible_under_due_today() throws MalformedURLException{
+
+		to_verify_successful_creation_of_task();
+
+
+		//back btn scroll ass chk count of ass
+		clickOnElement(oas.back_btn);{
+			System.out.println("Clicked on Back button and Traversing to Assignment");
+			test.log(Status.INFO,"Clicked on Back button and Traversing to Assignment");
+		}
+		applyExplicitWaitsUntilElementVisible(oas.assignment);
+
+		status = oas.assign_count.isDisplayed();
+		assert1.assertTrue(status);
+		if (status) {
+			System.out.println("Task get saved and appeared under Today section.");
+			test.log(Status.INFO,"Task should get saved and appeared under Today section.");
+		}
+
+		assert1.assertAll();
+	}
+
+
+	public void to_verify_clicking_on_tasks_task_details_are_displayed() throws MalformedURLException {
 		clickOnElement(oas.assignment);
 		test.log(Status.INFO, "Clicked Assignments" );
 		System.out.println("Clicked on Assignments");
@@ -95,9 +120,12 @@ public class Module_Assignment_Task extends BaseClass {
 		test.log(Status.INFO, "Setting Task  Title" );
 		System.out.println("Setting Task  Title");
 		oas.taskTitle.sendKeys("Task Test");
+
 		test.log(Status.INFO, "Setting Task Instruction " );
 		System.out.println("Setting Task Instruction");
+
 		oas.taskInstruction.sendKeys("TATA Studi Test for Task and Digital Test");
+
 		scrollTo2("Assign");
 		clickOnElement(oas.assignmentViewed);
 		test.log(Status.INFO, "Clicked on Assignment Viewd" );
@@ -106,74 +134,66 @@ public class Module_Assignment_Task extends BaseClass {
 		clickOnElement(oas.taskDuration);
 		test.log(Status.INFO, "Selected the Task Duration");
 		System.out.println("Selected the Task Duration");
+		scrollTo2("Assign");
+		applyExplicitWaitsUntilElementClickable(oas.assignTask);
+		clickOnElement(findElementByText("Assign"));
 
-		scrollToEnd();		
-		clickOnElement(oas.assignTask);
-
-		status = oas.today.isDisplayed();
-		assert1.assertTrue(status);
+		clickOnElement(oas.view_created_Assignment);
+		applyExplicitWaitsUntilElementVisible(oas.assignmentDetails);
+		status=oas.assignmentDetails.isDisplayed();
 		if (status) {
-			System.out.println("Today is displayed");
-			test.log(Status.INFO,"Today is displayed");
-		}
+			System.out.println("Task is created and Message Displayed after successful creation of Task ");
 
-		status = oas.createdTask.isDisplayed();
-		assert1.assertTrue(status);
-		if (status) {
-			System.out.println("Task is created and visible under due Today");
-			test.log(Status.INFO, "Task is created and visible under due Today");
 		}
+		assert1.assertTrue(status);
 
 		assert1.assertAll();
 	}
 
-
-	public void to_verify_clicking_on_tasks_task_details_are_displayed() {
-		//creation_of_task();
-		scrollTo2("Assignments");
-		clickOnElement(oas.assignment);
-
-		test.log(Status.INFO, "Clicked Assignments" );
-		System.out.println("Clicked on Assignments");
-
-		oas.createdTask.click();
-
-		System.out.println("Clicked on created Task");
-		test.log(Status.INFO,"Clicked on created Task");
-		status = oas.assignmentDetails.isDisplayed();
-		assert1.assertTrue(status);
-		if (status) {
-			System.out.println("Assignment Details are displayed after clicking on Task");
-			test.log(Status.INFO, "Assignment Details are displayed after clicking on Task");
-		}
-
-		assert1.assertAll();
-	}
-
-	public void to_verify_closing_task_details()
+	public void to_verify_closing_task_details() throws MalformedURLException
 	{
-		scrollTo2("Assignments");
 		clickOnElement(oas.assignment);
-
 		test.log(Status.INFO, "Clicked Assignments" );
 		System.out.println("Clicked on Assignments");
+		clickOnElement(oas.add_assignment);
+		clickOnElement(oas.task);
+		test.log(Status.INFO, "Setting Task  Title" );
+		System.out.println("Setting Task  Title");
+		oas.taskTitle.sendKeys("Task Test");
 
-		oas.createdTask.click();
+		test.log(Status.INFO, "Setting Task Instruction " );
+		System.out.println("Setting Task Instruction");
 
-		System.out.println("Clicked on created Task");
-		test.log(Status.INFO,"Clicked on created Task");
-		status = oas.assignmentDetails.isDisplayed();
-		assert1.assertTrue(status);
+		oas.taskInstruction.sendKeys("TATA Studi Test for Task and Digital Test");
+
+		scrollTo2("Assign");
+		clickOnElement(oas.assignmentViewed);
+		test.log(Status.INFO, "Clicked on Assignment Viewd" );
+		System.out.println("Clicked on Assignment Viewd");
+
+		clickOnElement(oas.taskDuration);
+		test.log(Status.INFO, "Selected the Task Duration");
+		System.out.println("Selected the Task Duration");
+		scrollTo2("Assign");
+		applyExplicitWaitsUntilElementClickable(oas.assignTask);
+		clickOnElement(findElementByText("Assign"));
+
+		clickOnElement(oas.view_created_Assignment);
+		applyExplicitWaitsUntilElementVisible(oas.assignmentDetails);
+		status=oas.assignmentDetails.isDisplayed();
 		if (status) {
-			System.out.println("Assignment Details are displayed after clicking on Task");
-			test.log(Status.INFO, "Assignment Details are displayed after clicking on Task");
-		}
+			System.out.println("Task is created and Message Displayed-> ");
+			test.log(Status.INFO, "Task is created and Message Displayed-> ");
 
-		oas.closeTaskDetails.click();
+		}
+		assert1.assertTrue(status);
+
+
+		clickOnElement(oas.closeTaskDetails);
 		System.out.println("Clicked on close Task");
 		test.log(Status.INFO,"Clicked on close Task");
 
-		status = oas.today.isDisplayed();
+		status = oas.back_btn.isDisplayed();
 		assert1.assertTrue(status);
 		if (status) {
 			System.out.println("My Assignments page is displayed after closing Assignment Details");
@@ -182,24 +202,49 @@ public class Module_Assignment_Task extends BaseClass {
 		assert1.assertAll();
 	}
 
-	public void to_verify_marking_task_as_completed()
+	public void to_verify_marking_task_as_completed() throws MalformedURLException
 	{
-		scrollTo2("Assignments");
 		clickOnElement(oas.assignment);
 		test.log(Status.INFO, "Clicked Assignments" );
 		System.out.println("Clicked on Assignments");
+		clickOnElement(oas.add_assignment);
+		clickOnElement(oas.task);
+		test.log(Status.INFO, "Setting Task  Title" );
+		System.out.println("Setting Task  Title");
+		oas.taskTitle.sendKeys("Task Test");
 
-		oas.createdTask.click();
+		test.log(Status.INFO, "Setting Task Instruction " );
+		System.out.println("Setting Task Instruction");
 
-		System.out.println("Clicked on created Task");
-		test.log(Status.INFO,"Clicked on created Task");
-		status = oas.assignmentDetails.isDisplayed();
-		assert1.assertTrue(status);
+		oas.taskInstruction.sendKeys("TATA Studi Test for Task and Digital Test");
+
+		scrollTo2("Assign");
+		clickOnElement(oas.assignmentViewed);
+		test.log(Status.INFO, "Clicked on Assignment Viewd" );
+		System.out.println("Clicked on Assignment Viewd");
+
+		clickOnElement(oas.taskDuration);
+		test.log(Status.INFO, "Selected the Task Duration");
+		System.out.println("Selected the Task Duration");
+		scrollTo2("Assign");
+		applyExplicitWaitsUntilElementClickable(oas.assignTask);
+		clickOnElement(findElementByText("Assign"));
+		System.out.println("Clicked on Assign Tab to create New Assignment");
+		test.log(Status.INFO, "Clicked on Assign Tab to create New Assignment");
+		clickOnElement(oas.view_created_Assignment);
+		System.out.println("Clicked on View created Assignnment Tab to view Newly created Assignment");
+		test.log(Status.INFO, "Clicked on View created Assignnment Tab to view Newly created Assignment");
+		applyExplicitWaitsUntilElementVisible(oas.assignmentDetails);
+		status=oas.assignmentDetails.isDisplayed();
 		if (status) {
-			System.out.println("Assignment Details are displayed after clicking on Task");
-			test.log(Status.INFO, "Assignment Details are displayed after clicking on Task");
+			System.out.println("Task is created and Message Displayed-> ");
+			test.log(Status.INFO, "Task is created and Message Displayed-> ");
+
 		}
-		oas.markAsCompleted.click();
+		assert1.assertTrue(status);
+
+		clickOnElement(findElementByText("Mark as Completed"));
+		//oas.markAsCompleted.click();
 		System.out.println("Clicked on Mark as Completed");
 		test.log(Status.INFO,"Clicked on Mark as Completed");
 
@@ -276,65 +321,35 @@ public class Module_Assignment_Task extends BaseClass {
 
 		clickOnElement(oas.help);
 
-		status=findElementByText("Add a title that is easy to scan").isDisplayed();
-		assert1.assertFalse(status, "No guideline for Title shown to the user");
-		if (!status) {
-			System.out.println("User is able to see the guidelines for Title");
-			test.log(Status.INFO, "User is able to see the guidelines for Title");
-		}
-		status=findElementByText("").isDisplayed();
-		assert1.assertFalse(status, "No guideline for Difficulty level shown to the user");
-		if (!status) {
-			System.out.println("User is able to see the guidelines");
-			test.log(Status.INFO, "User is able to see the guidelines");
-		}
-
-		status=findElementByText("Add a title that is easy to scan").isDisplayed();
-		assert1.assertFalse(status, "No guideline shown to the user");
-		if (!status) {
-			System.out.println("User is able to see the guidelines");
-			test.log(Status.INFO, "User is able to see the guidelines");
-		}
-		status=findElementByText("Add a title that is easy to scan").isDisplayed();
-		assert1.assertFalse(status, "No guideline shown to the user");
-		if (!status) {
-			System.out.println("User is able to see the guidelines");
-			test.log(Status.INFO, "User is able to see the guidelines");
-		}
 
 
-		if(oas.help_OFF.isDisplayed())
+		try {
+			oas.title_gudeline.isDisplayed();
+			assert1.assertFalse(true);
+			System.out.println("If Help is OFF then guidlines for Title is not Removed  ");
+			test.log(Status.INFO, "If Help is OFF then guidlines for Title is not Removed  ");
+		}
+		catch(Exception e)
 		{
-			status =oas.titleHelp.isDisplayed();
-			assert1.assertFalse(status);
-			if (status) {
-				System.out.println("Title guideline is not there");
-				test.log(Status.INFO, "Title guideline is not there");
-			}
+			assert1.assertFalse(false); 
+			System.out.println("If Help is OFF then guidlines for Title is Removed  ");
+			test.log(Status.INFO, "If Help is OFF then guidlines for Title is Removed  ");
 
 		}
-		//				status =oadt.difficultyLevelHelp.isDisplayed();
-		//				assert1.assertFalse(status);
-		//				if (status) {
-		//					System.out.println("Difficulty level Guideline is not there");
-		//					test.log(Status.INFO,"Difficulty level Guideline is not there");
-		//				}
-		//
-		//				status =oadt.durationHelp.isDisplayed();
-		//				assert1.assertFalse(status);
-		//				if (status) {
-		//					System.out.println("Tentative Duration Guideline is not there");
-		//					test.log(Status.INFO, "Tentative Duration Guideline is not there");
-		//				}
-		//
-		//				status =oadt.dueDateHelp.isDisplayed();
-		//				assert1.assertFalse(status);
-		//				if (status) {
-		//					System.out.println("Due Date Guidline is not there");
-		//					test.log(Status.INFO, "Due Date Guidline is not there");
-		//				}
-		//			
 
+		try {
+			oas.instruction_guidline.isDisplayed();
+			assert1.assertFalse(true);
+			System.out.println("If Help is OFF then guidlines for Instructions is not Removed  ");
+			test.log(Status.INFO, "If Help is OFF then guidlines for Instructions is not Removed  ");
+		}
+		catch(Exception e)
+		{
+			assert1.assertFalse(false); 
+			System.out.println("If Help is OFF then guidlines for Instructions is Removed  ");
+			test.log(Status.INFO, "If Help is OFF then guidlines for Instructions is Removed  ");
+		}
+		assert1.assertAll();		
 
 	}
 

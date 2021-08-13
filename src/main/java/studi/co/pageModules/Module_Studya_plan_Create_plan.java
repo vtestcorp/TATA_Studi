@@ -11,7 +11,6 @@ import com.aventstack.extentreports.Status;
 
 import io.appium.java_client.MobileElement;
 import studi.co.Base.BaseClass;
-
 import studi.co.pageObjects.Object_Study_Plan_Create_Plan;
 
 public class Module_Studya_plan_Create_plan  extends BaseClass{
@@ -69,7 +68,6 @@ public class Module_Studya_plan_Create_plan  extends BaseClass{
 			System.out.println("Instruction to select Book in the bookshelf page Displayed");
 			test.log(Status.INFO, "Instruction to select Book in the bookshelf page Displayed");
 		}
-
 		create_plan(subject, topic);
 		clickOnElement(findElementByText("Add to portion"));
 
@@ -79,7 +77,6 @@ public class Module_Studya_plan_Create_plan  extends BaseClass{
 		}
 
 		applyExplicitWaitsUntilElementClickable(findElementByText("Next Step"));
-
 		clickOnElement(findElementByText("Next Step"));
 		if (status) {
 			System.out.println("Clicked on Next Step on Create Study Plan");
@@ -128,7 +125,7 @@ public class Module_Studya_plan_Create_plan  extends BaseClass{
 		assert1.assertAll();
 
 	}
-	public void To_Verify_user_is_able_create_another_study_plan(String subject, String topic) {
+	public void To_Verify_user_is_able_create_another_study_plan(String subject, String topic) throws MalformedURLException {
 		SoftAssert assert1 = new SoftAssert();
 		Boolean status;
 
@@ -139,7 +136,7 @@ public class Module_Studya_plan_Create_plan  extends BaseClass{
 			test.log(Status.INFO, "Logged in successfully");
 		}
 
-		//scrollTo1("Report an issue");
+
 		status = ospcp.testUnitModule.isDisplayed();
 		assert1.assertTrue(status);
 		if (status) {
@@ -165,22 +162,18 @@ public class Module_Studya_plan_Create_plan  extends BaseClass{
 		applyExplicitWaitsUntilElementClickable(ospcp.editPlan);
 		System.out.println("Clicking on Edit Plan Button");
 		test.log(Status.INFO, "Clicking on Edit Plan Button");
-		applyExplicitWaitsUntilElementClickable(ospcp.editPlan);
+
 		clickOnElement(ospcp.editPlan);
-		try {
-			applyExplicitWait(5);
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 
 		//applyExplicitWaitsUntilElementClickable(ospcp.object44);
+		scrollTo2("Portion");
 
-		applyExplicitWaitsUntilElementClickable(findElementByText("Portion"));
+		applyExplicitWait(5);
+
 
 		clickOnElement(findElementByText("Portion"));
-
-		applyExplicitWaitsUntilElementClickable(findElementByText("Next Step"));
+		applyExplicitWait(5);
+		//applyExplicitWaitsUntilElementClickable(findElementByText("Next Step"));
 
 		clickOnElement(findElementByText("Next Step"));
 
@@ -221,6 +214,7 @@ public class Module_Studya_plan_Create_plan  extends BaseClass{
 		}
 		try {
 			applyExplicitWaitsUntilElementVisible(findElementByText("Next"));
+			clickOnElement(findElementByText("Next"));
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -272,8 +266,10 @@ public class Module_Studya_plan_Create_plan  extends BaseClass{
 		clickOnElement(ospcp.plan_on_MyPlans);
 
 		applyExplicitWaitsUntilElementClickable(ospcp.editPlan);
+
 		System.out.println("Clicking on Edit Plan Button");
 		test.log(Status.INFO, "Clicking on Edit Plan Button");
+
 		applyExplicitWaitsUntilElementClickable(ospcp.editPlan);
 		clickOnElement(ospcp.editPlan);
 		try {
@@ -321,6 +317,7 @@ public class Module_Studya_plan_Create_plan  extends BaseClass{
 		}
 		try {
 			applyExplicitWaitsUntilElementVisible(findElementByText("Next"));
+			clickOnElement(findElementByText("Next"));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
@@ -337,7 +334,6 @@ public class Module_Studya_plan_Create_plan  extends BaseClass{
 		test.log(Status.INFO, "User is able to see the previous plan");
 		assert1.assertAll();
 	}
-
 	public void create_plan(String subject,String topic)
 	{
 		System.err.println("Clicked on " + subject);
@@ -348,4 +344,172 @@ public class Module_Studya_plan_Create_plan  extends BaseClass{
 		scrollTo2(topic);
 		clickOnElement(findElementByText(topic));
 	}
+	public void To_Verify_check_uncheck_for_Filteration(String property, String property2) {
+		try {
+			to_Verify_functionality_of_Filter_Icon_On_Schedule_List();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		ospcp.filter.click();
+		try {
+			applyExplicitWaitsUntilElementVisible(ospcp.filterHeading);
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Boolean filterHeading=ospcp.filterHeading.isDisplayed();
+		if(filterHeading) {
+			System.out.println("Filter Icon  of the Full schedule list page is tappable");
+			test.log(Status.INFO, "Filter Icon of the Full schedule list page is tappable");
+		}
+		assert1.assertTrue(filterHeading);
+		//ospsv.sub_checked.getAttribute("")
+		clickOnElement(ospcp.sub_checked);
+		{
+			System.out.println("Selecting the All SUbjects Checkbox");
+			test.log(Status.INFO, "Selecting the All SUbjects Checkbox");
+		}
+		clickOnElement(findElementByText("Apply"));
+		{
+			System.out.println("Clicked on Apply Button");
+			test.log(Status.INFO, "Clicked on Apply Button");
+
+		}
+		assert1.assertAll();
+	}
+	public void to_verify_scheduled_plan_view_for_plan_not_started(String subject_english, String topic_not_started) throws Exception {
+		to_Verify_functionality_of_Filter_Icon_On_Schedule_List();
+		scrollTo2("Sat");
+		status=ospcp.not_studied.isDisplayed();
+		{
+			System.out.println("If plan is created and user still not completed any task from started date then status is getting displayed as plan not started");
+			test.log(Status.INFO, "If plan is created and user still not completed any task from started date then status is getting displayed as plan not started");
+
+		}
+		assert1.assertTrue(status);
+		assert1.assertAll();
+
+	}
+	public void to_verify_Week_Cycle_plan_which_is_started_in_the_middle_of_week_days() throws Exception {
+		to_Verify_functionality_of_Filter_Icon_On_Schedule_List();
+		scrollTo2("Sat");
+		status=ospcp.not_started.isDisplayed();
+		{
+			System.out.println("If the plan start date is middle of the week days then plan not started message is getting displayed for the date which is less than plan start date");
+			test.log(Status.INFO, "If the plan start date is middle of the week days then plan not started  message is getting displayed for the date which is less than plan start date");
+
+		}
+		assert1.assertTrue(status);
+		assert1.assertAll();
+
+	}
+	public void to_verify_scheduled_plan_view_for_no_lesson_scheduled() throws Exception {
+		to_Verify_functionality_of_Filter_Icon_On_Schedule_List();
+		scrollTo2("Sat");
+		status=ospcp.no_scheduled.isDisplayed();//change locator of no scheduled lession
+		{
+			System.out.println("If the plan end date is middle of the week days then no lesson schedule message is getting displayed for the date which is greater than plan end date");
+			test.log(Status.INFO, "If the plan end date is middle of the week days then no lesson scheduled message is getting displayed for the date which is greater than plan end date");
+
+		}
+		assert1.assertTrue(status);
+		assert1.assertAll();
+
+	}
+
+
+	public void to_Verify_functionality_of_Filter_Icon_On_Schedule_List() throws Exception {
+		Object_Study_Plan_Create_Plan ospcp= new Object_Study_Plan_Create_Plan();
+		SoftAssert assert1=new SoftAssert();
+
+		Boolean landingPage=ospcp.userName.isDisplayed();
+		if(landingPage) {
+			System.out.println("User can be navigated to the landing page after login");
+			test.log(Status.INFO, "User can be navigated to the landing page after login");
+		}
+		else {
+			System.out.println("User can not be navigated to the landing page after login");
+			test.log(Status.INFO, "User can not be navigated to the landing page after login");
+		}
+		assert1.assertTrue(landingPage);
+
+		Boolean testUnit=ospcp.test_unit.isDisplayed();
+		if(testUnit) {
+			System.out.println("In the landing page,Active StudyPlan tab is displayed");
+			test.log(Status.INFO, "In the landing page,Active StudyPlan tab is displayed");
+		}
+		assert1.assertTrue(testUnit);
+		ospcp.test_unit.click();
+		applyExplicitWait(5);
+		Boolean myLessonPage=ospcp.planTestUnit.isDisplayed();
+		if(myLessonPage) {
+			System.out.println("User able to navigate to MyLessons Page,after tapping on active study plan");
+			test.log(Status.INFO, "User able to navigate to MyLessons Page,after tapping on active study plan");
+		}
+		assert1.assertTrue(myLessonPage);
+		scrollTo2("View");
+		applyExplicitWaitsUntilElementVisible(findElementByText("View Full Schedule"));
+		clickOnElement(findElementByText("View Full Schedule"));
+
+		Boolean scheduleListPage=ospcp.fullSchedule.isDisplayed();
+		if(scheduleListPage) {
+			System.out.println("On tapping View Full Schedule, user navigated to the Schedule list page");
+			test.log(Status.INFO, "On tapping View Full Schedule, user navigated to the Schedule list page");
+		}
+		assert1.assertTrue(scheduleListPage);
+
+		applyExplicitWaitsUntilElementVisible(ospcp.filter);
+		Boolean filter=ospcp.filter.isDisplayed();
+		if(filter) {
+			System.out.println("Filter Icon  of the Full schedule list page is shown to the User");
+			test.log(Status.INFO, "Filter Icon of the Full schedule list page is shown to the User");
+		}
+		assert1.assertTrue(filter);		
+
+	}
+
+		public void create_plan_for_not_started(String subject_History, String topic_not_started) throws MalformedURLException, InterruptedException
+	{		
+		clickOnElement(findElementByText("Plan"));
+
+		scrollTo2("Manage and Create Plans");
+		clickOnElement(findElementByText("Manage and Create Plans"));
+		clickOnElement(findElementByText("Create Plan"));
+
+
+
+		System.err.println("Clicked on " + subject_History);
+		scrollTo2(subject_History);
+		clickOnElement(findElementByText(subject_History));
+
+		System.err.println("Clicked on " + topic_not_started);
+		scrollTo2(topic_not_started);
+		clickOnElement(findElementByText(topic_not_started));
+
+
+		clickOnElement(findElementByText("Add to Portion"));
+		applyExplicitWait(5);
+		clickOnElement(findElementByText("Next Step"));
+
+		//calender
+		Thread.sleep(2000);
+		clickOnElement(findElementByText("Next Step"));
+
+		clickOnElement(findElementByText("Activate Plan"));
+		System.out.println("Activating tha plan for Given Subject and Topic");
+		test.log(Status.INFO, "Activating tha plan for Given Subject and Topic");
+		applyExplicitWait(3);
+		clickOnElement(findElementByText("Bagin Studying"));
+		applyExplicitWait(3);
+
+		applyExplicitWaitsUntilElementVisible(findElementByText("Today"));
+		System.out.println("The plan has been successfully created");
+		test.log(Status.INFO, "The plan has been successfully created");
+
+
+
+	}
+
+
 }

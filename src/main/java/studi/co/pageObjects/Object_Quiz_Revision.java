@@ -14,7 +14,8 @@ public class Object_Quiz_Revision extends BaseClass {
 	@iOSFindBy(xpath = "//XCUIElementTypeButton[@name=\"nextBtn\"]")
 	@AndroidFindBy(id = "com.tce.studi:id/ivNext")
 	public WebElement nextButton;
-
+	@AndroidFindBy(id="com.tce.studi:id/tvName")
+	public WebElement userName;
 	@AndroidFindBy(id ="com.tce.studi:id/tvOverview")
 	public WebElement why_tested_msg;
 
@@ -26,9 +27,11 @@ public class Object_Quiz_Revision extends BaseClass {
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/iv_left_icon\")")
 	public WebElement backBtn;
 
-	@AndroidFindBy(id = "com.tce.studi:id/iv_right_action_primary")
+	@AndroidFindBy(id ="com.tce.studi:id/iv_right_action_primary")
 	public WebElement skip;
 
+	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/ib_create_note\")")
+	public WebElement addNotesBtn;
 
 	@iOSFindBy(xpath = "//XCUIElementTypeApplication[@name=\"Studi QA\"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[2]")
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/tvHeading\").textContains(\"Test Unit\")")
@@ -46,8 +49,10 @@ public class Object_Quiz_Revision extends BaseClass {
 
 	@AndroidFindBy(id = "com.tce.studi:id/txtPositiveBtn")
 	public WebElement exitTestOK;
+	
 	@AndroidFindBy(id = "com.tce.studi:id/vp_lesson_cards")
 	public WebElement objectiveCard;
+	
 	@AndroidFindBy(id = "com.tce.studi:id/tvPrimaryAction")
 	public WebElement conti_nue;
 

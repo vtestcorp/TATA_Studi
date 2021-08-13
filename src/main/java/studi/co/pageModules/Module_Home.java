@@ -1,6 +1,7 @@
 package studi.co.pageModules;
 import java.net.MalformedURLException;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
@@ -19,22 +20,36 @@ public class Module_Home extends BaseClass{
 	public void login_To_App() throws MalformedURLException {
 		Object_Home_Page oh=new Object_Home_Page();
 		Boolean status;
-		getDriver().resetApp();
-		applyExplicitWaitsUntilElementVisible(oh.alreadyUser);
-		clickOnElement(oh.alreadyUser);
+		if(device.contains("Android"))
+			getDriver().resetApp();
+			else
+			{
+				try {
+					clickOnElement(findElementByText("Sign-out"));}
+				catch(Exception e) {System.out.println("Already logged out");}
+			}
+		try{applyExplicitWaitsUntilElementVisible(oh.alreadyUser);
+		clickOnElement(oh.alreadyUser);}
+		catch(Exception e) {}
 		applyExplicitWaitsUntilElementVisible(oh.mobileNoTB);
 		sendText(oh.mobileNoTB, prop.getProperty("mobileNumber"));
 		System.out.println("Entered Mobile Number");
-		applyExplicitWait(2);
+		if(device.equalsIgnoreCase("ios"))
+			{clickOnElement(findElementByText("Done"));
+				tapOnElement(oh.loginBtn);
+			}
+		else {		
 		clickOnElement(oh.clickLoginButton());
-		applyExplicitWait(2);
+		}
 
 		sendText(oh.passwordTB, prop.getProperty("password"));
 		System.out.println("Entered Password");
+		if(device.equalsIgnoreCase("ios"))
+			clickOnElement(findElementByText("Done"));
 		applyExplicitWait(2);
 
-		clickOnElement(oh.clickOnVerify());
-		applyExplicitWait(2);
+		tapOnElement(oh.clickOnVerify());
+		applyExplicitWaitsUntilElementVisible(oh.logo);
 		System.out.println("login sucessfully");
 
 			status =oh.logo.isDisplayed();
@@ -45,33 +60,23 @@ public class Module_Home extends BaseClass{
 		}
 	
 		assert1.assertTrue(status);
-		
-		clickOnElement(oh.logo);
-		
-		String click=oh.logo.getAttribute("clickable");
-		if (click.contains("true"))
-
-			{
-			System.out.println("Logo is Clickable");
-			test.log(Status.INFO, "Logo is Clickable");
-			}
-		
-		else
-		{
-			System.out.println("Logo is not Clickable");
-			test.log(Status.INFO, "Logo is not Clickable");
-			}
-
-		
 		assert1.assertAll();
 	}
 	
 	public void verify_country_code() throws InterruptedException, MalformedURLException {
 		Object_Home_Page oh=new Object_Home_Page();
+		if(device.contains("Android"))
 		getDriver().resetApp();
+		else
+		{
+			try {
+			clickOnElement(findElementByText("out"));}
+			catch(Exception e) {System.out.println("Already logged out");}
+		}
 		Thread.sleep(3000);
-		applyExplicitWaitsUntilElementVisible(oh.alreadyUser);
-		clickOnElement(oh.alreadyUser);
+		try{applyExplicitWaitsUntilElementVisible(oh.alreadyUser);
+		clickOnElement(oh.alreadyUser);}
+		catch(Exception e) {}
 		assert1.assertEquals(oh.countrycode.isDisplayed(), true);
 		System.out.println("By Default country code is displayed");
 		

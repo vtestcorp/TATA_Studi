@@ -645,13 +645,14 @@ public class Module_Syllabus_Intent_Creation extends BaseClass{
 				date3.click();
 
 			}
-
+			Thread.sleep(3);
 			//String changed_date=osic.select_Date.getText();
 			//System.out.println("The changed date is:"+changed_date);
 			//clickOnElement(osic.ok_on_calendar);
 			//applyExplicitWaitsUntilElementClickable(pauseBtn);
 			clickOnElement(findElementByText("OK"));
-		
+			scrollTo2("Assign");
+			applyExplicitWaitsUntilElementClickable(findElementByText("Assign"));
 			clickOnElement(findElementByText("Assign"));
 			status =osic.notification.isDisplayed();
 
