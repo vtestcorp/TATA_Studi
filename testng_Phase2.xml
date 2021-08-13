@@ -8,7 +8,11 @@
 			class-name="studi.co.testng.EmailableReportListener" />
 	</listeners>
 	<test thread-count="5" name="Test">
+<<<<<<< HEAD
 		<parameter name="type" value="Android"></parameter>
+=======
+		
+>>>>>>> 4540b4c02b2b48196ab7879a21c7cd119e28e367
 		<classes>
 
 			<!--<class name="studi.co.testScripts.Signup_Login_Tests" /> -->

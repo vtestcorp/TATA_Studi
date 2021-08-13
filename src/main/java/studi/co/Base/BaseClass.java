@@ -30,6 +30,7 @@ import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -69,6 +70,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import com.aventstack.extentreports.ExtentReports;
@@ -127,6 +129,7 @@ public class BaseClass {
 	@AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tce.studi:id/exo_pause\")")
 	public WebElement pauseBtn;
 
+	
 	public BaseClass() {
 		try {
 
@@ -146,8 +149,26 @@ public class BaseClass {
 		}
 		PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);
 	}
-
+	
+	@BeforeSuite
 	public static String RandomString() {
+		prop2 = new Properties();
+		FileInputStream ip2;
+		try {
+			ip2 = new FileInputStream(
+					System.getProperty("user.dir") + "\\TataConfig.properties");
+			try {
+				prop2.load(ip2);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
 
 		int length = 10;
 		boolean useLetters = true;
@@ -318,8 +339,14 @@ public class BaseClass {
 	 */
 	@BeforeTest
 	public static void beforeTest() throws Exception {
+<<<<<<< HEAD
 		String s = "Android";
 		device = s;
+=======
+		String s = prop2.getProperty("platformName");
+		device = s;
+		System.out.println("S :"+s);
+>>>>>>> 4540b4c02b2b48196ab7879a21c7cd119e28e367
 		caps = new DesiredCapabilities();
 		if (s.equalsIgnoreCase("Android")) {
 			caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Appium");
@@ -367,7 +394,11 @@ public class BaseClass {
 			caps.setCapability("browserstack.user", prop2.getProperty("browserstack_user"));
 			caps.setCapability("browserstack.key", prop2.getProperty("browserstack_key"));
 			caps.setCapability("app", "bs://"+prop2.getProperty("app_Key")+"");
+<<<<<<< HEAD
 
+=======
+			
+>>>>>>> 4540b4c02b2b48196ab7879a21c7cd119e28e367
 			caps.setCapability("device", prop2.getProperty("Device_Name"));
 			caps.setCapability("os_version", prop2.getProperty("OS_Version"));
 
@@ -387,8 +418,13 @@ public class BaseClass {
 			caps = new DesiredCapabilities();
 			caps.setCapability("browserstack.user", prop2.getProperty("browserstack_user"));
 			caps.setCapability("browserstack.key", prop2.getProperty("browserstack_key"));
+<<<<<<< HEAD
 
 			caps.setCapability("app", "bs://"+prop2.getProperty("app_Key"));
+=======
+			
+			caps.setCapability("app", "bs://"+prop2.getProperty("app_Key")+"");
+>>>>>>> 4540b4c02b2b48196ab7879a21c7cd119e28e367
 			caps.setCapability("device", prop2.getProperty("Device_Name"));
 			caps.setCapability("os_version", prop2.getProperty("OS_Version"));
 			caps.setCapability(MobileCapabilityType.NO_RESET, true);
