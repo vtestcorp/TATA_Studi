@@ -7,7 +7,7 @@
 			class-name="studi.co.testng.EmailableReportListener" />
 	</listeners>
 	<test name="Test1">
-		<parameter name="type" value="Android"></parameter>
+		<parameter name="type" value="Android-Jenkins"></parameter>
 		<classes>
 		
 			<class name="studi.co.testScripts.Syllabus_ViewNotes" /> 

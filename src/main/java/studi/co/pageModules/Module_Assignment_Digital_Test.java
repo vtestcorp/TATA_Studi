@@ -9,7 +9,6 @@ import java.util.Set;
 import org.openqa.selenium.By;
 import org.testng.asserts.SoftAssert;
 
-import com.android.uiautomator.core.UiSelector;
 import com.aventstack.extentreports.Status;
 
 import io.appium.java_client.MobileElement;

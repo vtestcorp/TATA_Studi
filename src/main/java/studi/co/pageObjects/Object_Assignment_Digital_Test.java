@@ -3,7 +3,6 @@ package studi.co.pageObjects;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-import com.android.uiautomator.core.UiSelector;
 import com.aventstack.extentreports.Status;
 
 import io.appium.java_client.MobileElement;

@@ -85,12 +85,12 @@ public class Module_Verify_Syllabus_Section extends BaseClass {
 
 		applyExplicitWait(5);
 
-		Boolean topicHeading=osm.topic_Heading.isDisplayed();
-		if(topicHeading) {
-			System.out.println("Begin Practise link is functional");
-			test.log(Status.INFO, "Begin Practise link is functional");
-		}
-		assert1.assertTrue(topicHeading);
+		/*
+		 * Boolean topicHeading=osm.topic_Heading.isDisplayed(); if(topicHeading) {
+		 * System.out.println("Begin Practise link is functional");
+		 * test.log(Status.INFO, "Begin Practise link is functional"); }
+		 * assert1.assertTrue(topicHeading);
+		 */
 		assert1.assertAll();
 	}
 

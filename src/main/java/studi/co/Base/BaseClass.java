@@ -339,14 +339,9 @@ public class BaseClass {
 	 */
 	@BeforeTest
 	public static void beforeTest() throws Exception {
-<<<<<<< HEAD
-		String s = "Android";
-		device = s;
-=======
 		String s = prop2.getProperty("platformName");
 		device = s;
 		System.out.println("S :"+s);
->>>>>>> 4540b4c02b2b48196ab7879a21c7cd119e28e367
 		caps = new DesiredCapabilities();
 		if (s.equalsIgnoreCase("Android")) {
 			caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Appium");
@@ -394,11 +389,6 @@ public class BaseClass {
 			caps.setCapability("browserstack.user", prop2.getProperty("browserstack_user"));
 			caps.setCapability("browserstack.key", prop2.getProperty("browserstack_key"));
 			caps.setCapability("app", "bs://"+prop2.getProperty("app_Key")+"");
-<<<<<<< HEAD
-
-=======
-			
->>>>>>> 4540b4c02b2b48196ab7879a21c7cd119e28e367
 			caps.setCapability("device", prop2.getProperty("Device_Name"));
 			caps.setCapability("os_version", prop2.getProperty("OS_Version"));
 
@@ -418,13 +408,7 @@ public class BaseClass {
 			caps = new DesiredCapabilities();
 			caps.setCapability("browserstack.user", prop2.getProperty("browserstack_user"));
 			caps.setCapability("browserstack.key", prop2.getProperty("browserstack_key"));
-<<<<<<< HEAD
-
 			caps.setCapability("app", "bs://"+prop2.getProperty("app_Key"));
-=======
-			
-			caps.setCapability("app", "bs://"+prop2.getProperty("app_Key")+"");
->>>>>>> 4540b4c02b2b48196ab7879a21c7cd119e28e367
 			caps.setCapability("device", prop2.getProperty("Device_Name"));
 			caps.setCapability("os_version", prop2.getProperty("OS_Version"));
 			caps.setCapability(MobileCapabilityType.NO_RESET, true);
