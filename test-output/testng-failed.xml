@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Failed suite [Tata Studi QA]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="studi.co.Base.TestListener"/>
+    <listener class-name="studi.co.testng.EmailableReportListener"/>
+  </listeners>
+  <test thread-count="5" parallel="tests" name="Test1(failed)">
+    <parameter name="type" value="Android-Jenkins"/>
+    <classes>
+      <class name="studi.co.testScripts.AFS_UserStory_77">
+        <methods>
+          <include name="TC05_To_Verify_Only_Single_Answer_Can_Be_Select_For_SCQ_Question_In_Revision"/>
+          <include name="TC27_To_Verify_Correct_Feedback_Shown_After_SCQ_Answer_Selection_In_Test"/>
+          <include name="TC28_To_Verify_Correct_Feedback_Shown_Under_Hamburger_Menu_In_Test"/>
+          <include name="afterTest"/>
+          <include name="RandomString"/>
+          <include name="beforeTest"/>
+          <include name="restApp"/>
+          <include name="TC29_To_Verify_Attempting_SCQ_Quiz_Is_Not_Mandatory_In_Test"/>
+        </methods>
+      </class> <!-- studi.co.testScripts.AFS_UserStory_77 -->
+    </classes>
+  </test> <!-- Test1(failed) -->
+</suite> <!-- Failed suite [Tata Studi QA] -->

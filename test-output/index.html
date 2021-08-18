@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <meta charset='utf-8'>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <br/>
+      <span class="top-banner-font-1">1 suite</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" title="Collapse/expand all the suites" class="collapse-all-link">
+          <img src="collapseall.gif" class="collapse-all-icon">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-Tata_Studi_QA" class="panel Tata_Studi_QA">
+        </div> <!-- panel Tata_Studi_QA -->
+        <div panel-name="test-xml-Tata_Studi_QA" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">C:\Users\Dell\eclipse-workspace-temp\TATA_Studi\testng.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite parallel=&quot;tests&quot; name=&quot;Tata Studi QA&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
+  &lt;listeners&gt;
+    &lt;listener class-name=&quot;studi.co.Base.TestListener&quot;/&gt;
+    &lt;listener class-name=&quot;studi.co.testng.EmailableReportListener&quot;/&gt;
+  &lt;/listeners&gt;
+  &lt;test thread-count=&quot;5&quot; parallel=&quot;tests&quot; name=&quot;Test1&quot;&gt;
+    &lt;parameter name=&quot;type&quot; value=&quot;Android-Jenkins&quot;/&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;studi.co.testScripts.AFS_UserStory_77&quot;/&gt;
+      &lt;class name=&quot;studi.co.testScripts.AFS_UserStory_76&quot;/&gt;
+      &lt;class name=&quot;studi.co.testScripts.AFS_UserStory_65&quot;/&gt;
+      &lt;class name=&quot;studi.co.testScripts.AFS_UserStory_2&quot;/&gt;
+      &lt;class name=&quot;studi.co.testScripts.AFS_UserStory_63&quot;/&gt;
+      &lt;class name=&quot;studi.co.testScripts.AFS_UserStory_1046&quot;/&gt;
+      &lt;class name=&quot;studi.co.testScripts.AFS_UserStory_1045&quot;/&gt;
+      &lt;class name=&quot;studi.co.testScripts.AFS_UserStory_1044&quot;/&gt;
+      &lt;class name=&quot;studi.co.testScripts.AFS_UserStory_126&quot;/&gt;
+      &lt;class name=&quot;studi.co.testScripts.AFS_UserStory_127&quot;/&gt;
+      &lt;class name=&quot;studi.co.testScripts.Signup_Login_Tests&quot;/&gt;
+      &lt;class name=&quot;studi.co.testScripts.Study_Plan_Create_Plan&quot;/&gt;
+      &lt;class name=&quot;studi.co.testScripts.Home_Page_Tests&quot;/&gt;
+      &lt;class name=&quot;studi.co.testScripts.Syllabus_Notes_Listing&quot;/&gt;
+      &lt;class name=&quot;studi.co.testScripts.Syllabus_Intent_Creation&quot;/&gt;
+      &lt;class name=&quot;studi.co.testScripts.Syllabus_BrowseBook&quot;/&gt;
+      &lt;class name=&quot;studi.co.testScripts.Quiz_Rivision&quot;/&gt;
+      &lt;class name=&quot;studi.co.testScripts.Quiz_Practise_Tests&quot;/&gt;
+      &lt;class name=&quot;studi.co.testScripts.Subscription&quot;/&gt;
+      &lt;class name=&quot;studi.co.testScripts.Assignment_Task&quot;/&gt;
+      &lt;class name=&quot;studi.co.testScripts.BrowseBook_Resource_Listing&quot;/&gt;
+      &lt;class name=&quot;studi.co.testScripts.Assignment_Listing&quot;/&gt;
+      &lt;class name=&quot;studi.co.testScripts.Assignment_Oral_Test&quot;/&gt;
+      &lt;class name=&quot;studi.co.testScripts.Assignment_Digital_Test&quot;/&gt;
+      &lt;class name=&quot;studi.co.testScripts.My_Account_Tests&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Test1 --&gt;
+&lt;/suite&gt; &lt;!-- Tata Studi QA --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-Tata_Studi_QA" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for Tata Studi QA</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">Test1 (25 classes)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-Tata_Studi_QA" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for Tata Studi QA</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-Tata_Studi_QA" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for Tata Studi QA</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_Tata_Studi_QA');
+function tableData_Tata_Studi_QA() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(0);
+window.suiteTableData['Tata_Studi_QA']= { tableData: data, tableDiv: 'times-div-Tata_Studi_QA'}
+return data;
+}
+              </script>
+              <div id="times-div-Tata_Studi_QA">
+              </div> <!-- times-div-Tata_Studi_QA -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-Tata_Studi_QA" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for Tata Studi QA</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-Tata_Studi_QA" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">79 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">studi.co.testScripts.AFS_UserStory_127</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">afterTest</span>
+                <br/>
+                <span class="ignored-method-name">RandomString</span>
+                <br/>
+                <span class="ignored-method-name">beforeTest</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">studi.co.testScripts.Quiz_Rivision</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">afterTest</span>
+                <br/>
+                <span class="ignored-method-name">RandomString</span>
+                <br/>
+                <span class="ignored-method-name">beforeTest</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">studi.co.testScripts.Assignment_Listing</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">afterTest</span>
+                <br/>
+                <span class="ignored-method-name">RandomString</span>
+                <br/>
+                <span class="ignored-method-name">beforeTest</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">studi.co.testScripts.AFS_UserStory_1044</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">afterTest</span>
+                <br/>
+                <span class="ignored-method-name">RandomString</span>
+                <br/>
+                <span class="ignored-method-name">beforeTest</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">studi.co.testScripts.Syllabus_Intent_Creation</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">afterTest</span>
+                <br/>
+                <span class="ignored-method-name">RandomString</span>
+                <br/>
+                <span class="ignored-method-name">beforeTest</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">studi.co.testScripts.BrowseBook_Resource_Listing</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">afterTest</span>
+                <br/>
+                <span class="ignored-method-name">RandomString</span>
+                <br/>
+                <span class="ignored-method-name">beforeTest</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">studi.co.testScripts.Assignment_Task</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">afterTest</span>
+                <br/>
+                <span class="ignored-method-name">RandomString</span>
+                <br/>
+                <span class="ignored-method-name">beforeTest</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">studi.co.testScripts.Subscription</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">TC_09_To_validate_Order_Summary_Checkout_page_section_with_Details</span>
+                <br/>
+                <span class="ignored-method-name">TC12_To_validate_Payment_information_section_with_details_of_Checkout_page</span>
+                <br/>
+                <span class="ignored-method-name">TC_08_To_validate_Order_Summary_Checkout_page</span>
+                <br/>
+                <span class="ignored-method-name">afterTest</span>
+                <br/>
+                <span class="ignored-method-name">RandomString</span>
+                <br/>
+                <span class="ignored-method-name">beforeTest</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">studi.co.testScripts.AFS_UserStory_76</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">afterTest</span>
+                <br/>
+                <span class="ignored-method-name">RandomString</span>
+                <br/>
+                <span class="ignored-method-name">beforeTest</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">studi.co.testScripts.AFS_UserStory_2</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">afterTest</span>
+                <br/>
+                <span class="ignored-method-name">RandomString</span>
+                <br/>
+                <span class="ignored-method-name">beforeTest</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">studi.co.testScripts.Study_Plan_Create_Plan</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">afterTest</span>
+                <br/>
+                <span class="ignored-method-name">RandomString</span>
+                <br/>
+                <span class="ignored-method-name">beforeTest</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">studi.co.testScripts.Assignment_Oral_Test</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">afterTest</span>
+                <br/>
+                <span class="ignored-method-name">RandomString</span>
+                <br/>
+                <span class="ignored-method-name">beforeTest</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">studi.co.testScripts.Home_Page_Tests</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">afterTest</span>
+                <br/>
+                <span class="ignored-method-name">RandomString</span>
+                <br/>
+                <span class="ignored-method-name">beforeTest</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">studi.co.testScripts.AFS_UserStory_1046</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">afterTest</span>
+                <br/>
+                <span class="ignored-method-name">RandomString</span>
+                <br/>
+                <span class="ignored-method-name">beforeTest</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">studi.co.testScripts.AFS_UserStory_63</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">afterTest</span>
+                <br/>
+                <span class="ignored-method-name">RandomString</span>
+                <br/>
+                <span class="ignored-method-name">beforeTest</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">studi.co.testScripts.Quiz_Practise_Tests</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">afterTest</span>
+                <br/>
+                <span class="ignored-method-name">RandomString</span>
+                <br/>
+                <span class="ignored-method-name">beforeTest</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">studi.co.testScripts.Syllabus_Notes_Listing</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">afterTest</span>
+                <br/>
+                <span class="ignored-method-name">RandomString</span>
+                <br/>
+                <span class="ignored-method-name">beforeTest</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">studi.co.testScripts.Signup_Login_Tests</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">afterTest</span>
+                <br/>
+                <span class="ignored-method-name">RandomString</span>
+                <br/>
+                <span class="ignored-method-name">beforeTest</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">studi.co.testScripts.My_Account_Tests</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">TC_28_Verify_The_Functionality_Of_Reprot_An_Issues</span>
+                <br/>
+                <span class="ignored-method-name">TC_26_Verify_The_Data_In_Carousel_What_Would_You_Like_To_Do_Next_In_Case_Of_Multiuser</span>
+                <br/>
+                <span class="ignored-method-name">afterTest</span>
+                <br/>
+                <span class="ignored-method-name">RandomString</span>
+                <br/>
+                <span class="ignored-method-name">TC_08_Verify_Select_New_Plan_On_Expired_Plan_Profile_Functionality_On_Profile_Page</span>
+                <br/>
+                <span class="ignored-method-name">beforeTest</span>
+                <br/>
+                <span class="ignored-method-name">TC_27_Verify_The_Data_In_Carousel_What_Would_You_Like_To_Do_Next_In_Case_Of_Religion</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">studi.co.testScripts.AFS_UserStory_1045</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">afterTest</span>
+                <br/>
+                <span class="ignored-method-name">RandomString</span>
+                <br/>
+                <span class="ignored-method-name">beforeTest</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">studi.co.testScripts.Assignment_Digital_Test</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">afterTest</span>
+                <br/>
+                <span class="ignored-method-name">RandomString</span>
+                <br/>
+                <span class="ignored-method-name">beforeTest</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">studi.co.testScripts.Syllabus_BrowseBook</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">afterTest</span>
+                <br/>
+                <span class="ignored-method-name">RandomString</span>
+                <br/>
+                <span class="ignored-method-name">beforeTest</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">studi.co.testScripts.AFS_UserStory_65</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">afterTest</span>
+                <br/>
+                <span class="ignored-method-name">RandomString</span>
+                <br/>
+                <span class="ignored-method-name">beforeTest</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">studi.co.testScripts.AFS_UserStory_126</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">afterTest</span>
+                <br/>
+                <span class="ignored-method-name">RandomString</span>
+                <br/>
+                <span class="ignored-method-name">beforeTest</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-Tata_Studi_QA" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">studi.co.testScripts.AFS_UserStory_77</div> <!-- chronological-class-name -->
+              <div class="configuration-suite before">
+                <span class="method-name">RandomString</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-suite before -->
+              <div class="configuration-test before">
+                <span class="method-name">beforeTest</span>
+                <span class="method-start">417 ms</span>
+              </div> <!-- configuration-test before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">studi.co.testScripts.Subscription</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">TC07_To_validate_the_Proceed_to_PayButton</span>
+                <span class="method-start">59617 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">restApp</span>
+                <span class="method-start">117535 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">studi.co.testScripts.AFS_UserStory_63</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">TC01_Verify_Create_Note_Icon_Should_Be_Visible_In_Video</span>
+                <span class="method-start">118804 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">restApp</span>
+                <span class="method-start">151771 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">studi.co.testScripts.AFS_UserStory_1044</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">Validate_Login(public void studi.co.testScripts.AFS_UserStory_1044.TC45_Verify_Spaced_Practice1_And_Prctice2_Not_Co...)</span>
+                <span class="method-start">152487 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">TC45_Verify_Spaced_Practice1_And_Prctice2_Not_Come_In_Same_Day</span>
+                <span class="method-start">152489 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">restApp</span>
+                <span class="method-start">184190 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">Validate_Login(public void studi.co.testScripts.AFS_UserStory_1044.TC52_Verify_Past_Completed_Lessons_Can_Be_Attemp...)</span>
+                <span class="method-start">184909 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">TC52_Verify_Past_Completed_Lessons_Can_Be_Attempted_Again</span>
+                <span class="method-start">184909 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">restApp</span>
+                <span class="method-start">217395 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">studi.co.testScripts.Assignment_Oral_Test</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">TC54_To_verify_the_functionality_of_redo_test</span>
+                <span class="method-start">218148 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">restApp</span>
+                <span class="method-start">250930 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">studi.co.testScripts.Assignment_Digital_Test</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">TC07_To_verify_that_at_time_of_test_submission_count_of_attempted_Pending_Flagged_questions_should_be_display</span>
+                <span class="method-start">251644 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">restApp</span>
+                <span class="method-start">285028 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">TC08_To_Verify_the_review_of_Digital_test</span>
+                <span class="method-start">286195 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">restApp</span>
+                <span class="method-start">317125 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">TC09_To_Verify_The_Flag_Reflection_On_Review</span>
+                <span class="method-start">317855 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">restApp</span>
+                <span class="method-start">349344 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">TC13_To_Verify_The_Exit_Review</span>
+                <span class="method-start">350045 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">restApp</span>
+                <span class="method-start">383606 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">TC15_To_verify_for_the_Abondon_Test</span>
+                <span class="method-start">384266 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">restApp</span>
+                <span class="method-start">418033 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">studi.co.testScripts.My_Account_Tests</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">TC_13_Verify_The_Functionality_Of_Profile_Popup_For_Add_New_Profile</span>
+                <span class="method-start">418701 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">studi.co.testScripts.AFS_UserStory_77</div> <!-- chronological-class-name -->
+              <div class="configuration-test after">
+                <span class="method-name">afterTest</span>
+                <span class="method-start">443437 ms</span>
+              </div> <!-- configuration-test after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+</html>
