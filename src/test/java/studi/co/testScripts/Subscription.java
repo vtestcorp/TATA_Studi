@@ -15,13 +15,13 @@ public class Subscription extends BaseClass {
 	}
 
 	@Test(enabled = true)//pass
-	public void TC_01_verify_The_Functionality_Of_Select_New_Plan_For_Adding_New_Profile_On_Choose_Profile_Page() throws MalformedURLException {
+	public void TC01_verify_The_Functionality_Of_Select_New_Plan_For_Adding_New_Profile_On_Choose_Profile_Page() throws MalformedURLException {
 		Module_Subscription subscription =new Module_Subscription();
 		subscription.verify_New_Plan_Functionality();
 	}
 
 	@Test(enabled = true)//TBD instead of 15 ..1 days free trial is there
-	public void TC_02_Verify_The_Functionality_Of_Select_Free_Trail_For_Newly_Added_Profile_On_Choose_Profile_Page() throws MalformedURLException {
+	public void TC02_Verify_The_Functionality_Of_Select_Free_Trail_For_Newly_Added_Profile_On_Choose_Profile_Page() throws MalformedURLException {
 		Module_Subscription subscription =new Module_Subscription();
 		subscription.verify_Functionality_Of_Free_Plan();
 	}
@@ -38,7 +38,7 @@ public class Subscription extends BaseClass {
 //		Module_Subscription subscription =new Module_Subscription();
 //		subscription.To_validate_user_should_be_shown_subscription_plan_on_the_select_subscription_page();
 //	}
-	@Test(enabled = true)//pass 
+	@Test(enabled = true, priority=-2)//pass 
 	public void TC07_To_validate_the_Proceed_to_PayButton() throws MalformedURLException {
 		Module_Subscription subscription =new Module_Subscription();
 		subscription.to_validate_the_Proceed_to_PayButton();

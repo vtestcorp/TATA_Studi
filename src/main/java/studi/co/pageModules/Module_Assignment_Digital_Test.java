@@ -337,6 +337,7 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 
 	public void to_verify_Count_of_attempted_Pending_Flagged_questions_should_be_display(String subject, String topic) throws MalformedURLException {
 		create_Assignment_Digital_Test(subject, topic);
+		
 		clickOnElement(oadt.viewAssignmenBtn);
 		test.log(Status.INFO, "Opening the created Assignment" );
 		System.out.println("Opening the created Assignment");
@@ -489,6 +490,7 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 
 	public void to_verify_the_the_flag_reflection_on_Review(String subject, String topic) throws MalformedURLException, InterruptedException {
 		create_Assignment_Digital_Test(subject, topic);
+		Thread.sleep(1000);
 		clickOnElement(oadt.viewAssignmenBtn);
 		test.log(Status.INFO, "Opening the created Assignment" );
 		System.out.println("Opening the created Assignment");
@@ -842,8 +844,9 @@ public class Module_Assignment_Digital_Test  extends BaseClass{
 			System.out.println("User able to review the answer of the questions on the clicking of Check Answer Button ");
 			test.log(Status.INFO, "User able to review the answer of the questions on the clicking of Check Answer Button ");
 		}
-
-		clickOnElement(findElementByText("Exit Review"));
+		
+		applyExplicitWaitsUntilElementVisible(oadt.question);
+		tapOnElement(findElementByText("Exit Review"));
 		applyExplicitWaitsUntilElementVisible(findElementByText("Redo"));
 
 		status = findElementByText("Redo Test").isDisplayed();

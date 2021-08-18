@@ -56,20 +56,20 @@ public class Assignment_Digital_Test extends BaseClass{
 		mas.to_verify_add_flag_for_review_before_submission(prop.getProperty("subject"),prop.getProperty("topic"));
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = true, priority=-1)
 	public void TC07_To_verify_that_at_time_of_test_submission_count_of_attempted_Pending_Flagged_questions_should_be_display() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Digital_Test  mas=new Module_Assignment_Digital_Test();
 		mas.to_verify_Count_of_attempted_Pending_Flagged_questions_should_be_display(prop.getProperty("subject"),prop.getProperty("topic"));;
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = true, priority=-1)
 	public void TC08_To_Verify_the_review_of_Digital_test() throws MalformedURLException, InterruptedException {
 
 		Module_Assignment_Digital_Test  mas=new Module_Assignment_Digital_Test();
 		mas.to_verify_the_review_of_digital_test(prop.getProperty("subject"),prop.getProperty("topic"));
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = true, priority=-1)
 	public void TC09_To_Verify_The_Flag_Reflection_On_Review() throws MalformedURLException, InterruptedException {
 
 		Module_Assignment_Digital_Test  mas=new Module_Assignment_Digital_Test();
@@ -90,12 +90,12 @@ public class Assignment_Digital_Test extends BaseClass{
 		mas.to_verify_the_review_Scrolling(prop.getProperty("subject"),prop.getProperty("topic"));
 	}
 
-	@Test(enabled = true )//pass
+	@Test(enabled = true)//pass
 	public void TC12_To_Verify_the_Close_Review() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Digital_Test  mas=new Module_Assignment_Digital_Test();
 		mas.to_verify_the_close_review(prop.getProperty("subject"),prop.getProperty("topic"));
 	}
-	@Test(enabled = true)
+	@Test(enabled = true, priority=-1)
 	public void TC13_To_Verify_The_Exit_Review() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Digital_Test  mas=new Module_Assignment_Digital_Test();
 		mas.to_verify_the_exit_review(prop.getProperty("subject"),prop.getProperty("topic"));
@@ -107,7 +107,7 @@ public class Assignment_Digital_Test extends BaseClass{
 		mas.to_verify_from_review_user_should_be_able_to_redirect_the_Test_Summary_and_redo_test(prop.getProperty("subject"),prop.getProperty("topic"));
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = true, priority=-1)
 	public void TC15_To_verify_for_the_Abondon_Test() throws MalformedURLException, InterruptedException {
 		Module_Assignment_Digital_Test  mas=new Module_Assignment_Digital_Test();
 		mas.to_verify_for_the_Abondon_Test(prop.getProperty("subject"),prop.getProperty("topic"));

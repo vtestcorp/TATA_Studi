@@ -90,7 +90,7 @@ public class AFS_UserStory_2 extends BaseClass {
 		so.Verify_Functionality_After_Killing_The_App(prop.getProperty("subject77"), prop.getProperty("topic77"));
 	}
 
-	//@Test(enabled = true) //// only worked with emulator
+	@Test(enabled = true) //// only worked with emulator
 	public void TC14_Verify_Functionality_The_App_After_Network_Loss_() throws InterruptedException, IOException {
 		Module_Syllabus_Options so = new Module_Syllabus_Options();
 		so.Verify_Functionality_After_Network_Loss_The_App(prop.getProperty("subject77"), prop.getProperty("topic77"));

@@ -32,7 +32,7 @@ public class Module_Browsebook_Chapter_Listing extends BaseClass{
 		clickOnElement(findElementByText(subject));
 		test.log(Status.INFO, "Cilcked on "+subject+" subject");
 		applyExplicitWait(5);
-
+		Thread.sleep(1000);
 		action = new TouchAction(driver);
 		List<MobileElement> chapters = getAllElementsFromPageUsingID("com.tce.studi:id/tvChapter");
 
@@ -101,7 +101,8 @@ public class Module_Browsebook_Chapter_Listing extends BaseClass{
 		applyExplicitWait(5);
 		String title=obcl.chapterHeading.getText();
 		System.out.println("Chapter Title:"+ title+ "shown");
-
+		
+		Thread.sleep(300);
 		clickOnElement(obcl.chapterHeading);
 		status = obcl.completedInSchool.isDisplayed();
 
@@ -175,6 +176,12 @@ public class Module_Browsebook_Chapter_Listing extends BaseClass{
 
 	public void to_verify_use_must_be_able_to_navigate_to_practice_from_topic(String subject, String topic) throws MalformedURLException {
 		SoftAssert assert1 = new SoftAssert();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Boolean status = obcl.userName.isDisplayed();
 		if(status) {
 			System.out.println("User can be navigated to the Home page after login");

@@ -146,7 +146,7 @@ public class Assignment_Oral_Test  extends BaseClass {
 		maot.to_verify_the_begin_test(prop.getProperty("subject"),prop.getProperty("topic_1"));
 	}
 
-	@Test(enabled = true,priority=-1)//f
+	@Test(enabled = true)//f
 	public void TC36_To_verify_the_question_with_Answer_appears_in_Green_Color() throws MalformedURLException{
 		
 		Module_Assignment_Oral_Test  maot=new Module_Assignment_Oral_Test();
@@ -154,7 +154,7 @@ public class Assignment_Oral_Test  extends BaseClass {
 	}
 
 	
-	@Test(enabled = true,priority=-3)
+	@Test(enabled = true)
 	public void TC38_To_verify_the_Default_Correct_Answer_of_question_is_display() throws MalformedURLException, InterruptedException{
 		Module_Assignment_Oral_Test  maot=new Module_Assignment_Oral_Test();
 		maot.to_verify_the_Default_Correct_Answer_of_question_is_display(prop.getProperty("subject_History"),prop.getProperty("topic_H"));
@@ -216,7 +216,7 @@ public class Assignment_Oral_Test  extends BaseClass {
 		Module_Assignment_Oral_Test  maot=new Module_Assignment_Oral_Test();
 		maot.to_check_for_the_confirmation_Message_for_redo_test_after_submiting_test(prop.getProperty("subject"),prop.getProperty("topic_1"));
 	}
-	@Test(enabled = true)
+	@Test(enabled = true,priority=-1)
 	public void TC54_To_verify_the_functionality_of_redo_test() throws MalformedURLException, InterruptedException{ 
 		Module_Assignment_Oral_Test  maot=new Module_Assignment_Oral_Test();
 		maot.to_verify_the_functionality_of_redo_test(prop.getProperty("subject"),prop.getProperty("topic_1"));

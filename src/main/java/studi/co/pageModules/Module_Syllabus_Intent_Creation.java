@@ -653,7 +653,7 @@ public class Module_Syllabus_Intent_Creation extends BaseClass{
 			clickOnElement(findElementByText("OK"));
 			scrollTo2("Assign");
 			applyExplicitWaitsUntilElementClickable(findElementByText("Assign"));
-			clickOnElement(findElementByText("Assign"));
+			clickOnElement(osic.assign_Final);
 			status =osic.notification.isDisplayed();
 
 			if (status) {

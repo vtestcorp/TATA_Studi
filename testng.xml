@@ -9,8 +9,6 @@
 	<test name="Test1">
 		<parameter name="type" value="Android-Jenkins"></parameter>
 		<classes>
-		
-			<class name="studi.co.testScripts.Syllabus_ViewNotes" /> 
 			 <class name="studi.co.testScripts.AFS_UserStory_77" /> 
 			 <class name="studi.co.testScripts.AFS_UserStory_76" /> 
 			<class name="studi.co.testScripts.AFS_UserStory_65" />
@@ -22,7 +20,6 @@
 			<class name="studi.co.testScripts.AFS_UserStory_126" /> 
 			<class name="studi.co.testScripts.AFS_UserStory_127" /> 
 			
-			
 			<class name="studi.co.testScripts.Signup_Login_Tests" />
 			<class name="studi.co.testScripts.Study_Plan_Create_Plan" /> 
 			<class name="studi.co.testScripts.Home_Page_Tests" /> 
@@ -32,25 +29,12 @@
 			<class name="studi.co.testScripts.Quiz_Rivision" /> 
 			<class name="studi.co.testScripts.Quiz_Practise_Tests" /> 
 			<class name="studi.co.testScripts.Subscription" /> 
-			<class name="studi.co.testScripts.Assignment_Task" /> 
-			<class name="studi.co.testScripts.Account_Validations "/> 
-
+			<class name="studi.co.testScripts.Assignment_Task" />  
 			<class name="studi.co.testScripts.BrowseBook_Resource_Listing" /> 
-			
 			<class name="studi.co.testScripts.Assignment_Listing" />
 			<class name="studi.co.testScripts.Assignment_Oral_Test" /> 
 			<class name="studi.co.testScripts.Assignment_Digital_Test" />
-			
-			
+			<class name="studi.co.testScripts.My_Account_Tests" />
 		</classes>
 
-	</test> <!-- Test -->
-	<!-- <test name="Test2"> <parameter name="type" value="IOS-Jenkins"></parameter> 
-		<classes> <class name="studi.co.testScripts.Syllabus_ViewNotes" /> <class 
-		name="studi.co.testScripts.AFS_UserStory_77" /> <class name="studi.co.testScripts.AFS_UserStory_76" 
-		/> <class name="studi.co.testScripts.AFS_UserStory_65" /> <class name="studi.co.testScripts.AFS_UserStory_2" 
-		/> <class name="studi.co.testScripts.AFS_UserStory_63" /> <class name="studi.co.testScripts.AFS_UserStory_1046" 
-		/> <class name="studi.co.testScripts.AFS_UserStory_1045" /> <class name="studi.co.testScripts.AFS_UserStory_1044" 
-		/> <class name="studi.co.testScripts.AFS_UserStory_126" /> <class name="studi.co.testScripts.AFS_UserStory_127" 
-		/> </classes> </test> Test -->
-</suite> <!-- Suite -->
+	</test> </suite> <!-- Suite -->

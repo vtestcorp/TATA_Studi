@@ -3,6 +3,7 @@ package studi.co.testScripts;
 import java.awt.AWTException;
 import java.net.MalformedURLException;
 
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import studi.co.Base.BaseClass;
@@ -68,11 +69,11 @@ public class Signup_Login_Tests extends BaseClass {
 		loginsignup.verify_Logout_Functionality();
 		
 	}
-//	
-//	@Test(enabled = false)//we can not perform "enter" action on mobile App
-//	public void TC_13_Verify_Functionality_After_Adding_Valid_Username_And_Valid_Password_In_Application_URL() throws MalformedURLException, AWTException {
-//		Module_Login_Signup loginsignup = new Module_Login_Signup();
-//		//loginsignup.enter_Valid_Credentials();
-//		loginsignup.press_Enter_Button();
-//	}
+
+	@AfterMethod
+	public void restApp() throws MalformedURLException {
+		applyExplicitWait(5);
+		getDriver().launchApp();
+	}	
+	
 }

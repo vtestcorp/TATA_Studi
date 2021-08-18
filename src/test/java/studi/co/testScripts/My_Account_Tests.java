@@ -34,7 +34,7 @@ public class My_Account_Tests extends BaseClass {
 		account.verify_Choose_A_Profile_Functionality_On_My_Account_Page();
 	}
 	
-	@Test(enabled = true,priority=-9)//pass done
+	@Test(enabled = true)//pass done
 	public void TC_04_Verify_Choose_A_Profile_Functionality_On_Profile_Page_In_Case_Of_Multi_User() throws MalformedURLException {
 		Module_My_Account account=new Module_My_Account();
 		account.verify_Choose_A_Profile_Functionality_On_Profile_Page_In_Case_Of_Multi_User();
@@ -97,7 +97,7 @@ public class My_Account_Tests extends BaseClass {
     	
     }
    
-   @Test(enabled = true)//fail done only two profile supported
+   @Test(enabled = true, priority=-1)//fail done only two profile supported
    public void TC_13_Verify_The_Functionality_Of_Profile_Popup_For_Add_New_Profile() throws MalformedURLException {
 	   Module_My_Account account=new Module_My_Account();
 	   account.verify_The_Functionality_Of_Profile_Popup_For_Add_New_Profile();
@@ -132,27 +132,27 @@ public class My_Account_Tests extends BaseClass {
 	   
    }
    
-   @Test(enabled = true,priority=-7)//pass done
+   @Test(enabled = true)//pass done
    public void TC_22_Verify_The_Functionality_Of_Carousel_What_Would_You_Like_To_Do_Next() throws MalformedURLException, InterruptedException {
 	   Module_My_Account account=new Module_My_Account();
 	   account.verify_The_Functionality_Of_Carousel_What_Would_You_Like_To_Do_Next();
 	   
    }
    
-    @Test(enabled = true,priority=-6)//done fail
+    @Test(enabled = true)//done fail
     public void TC_23_Verify_The_Functionality_Of_Each_Carousel_Page() throws MalformedURLException, InterruptedException {
 	    Module_My_Account account=new Module_My_Account();
 	    account.verify_The_Functionality_Of_Each_Carousel_Page();
    }
    
-    @Test(enabled = true,priority=-4)//done wip fail
+    @Test(enabled = true, priority=-1)//done wip fail
     public void TC_24_Verify_The_Functionality_Of_Assignments_Carousel() throws MalformedURLException {
     	Module_My_Account account=new Module_My_Account();
     	account.verify_The_Functionality_Of_Assignments_Carousel();
     	
      } 
     
-    @Test(enabled = true,priority=-5)//WIp
+    @Test(enabled = true, priority=-1)//WIp
     public void TC_25_Verify_The_Functionality_Of_Carousel_In_Case_Of_Update_Delete() throws MalformedURLException, InterruptedException {
     	Module_My_Account account=new Module_My_Account();
     	account.verify_The_Functionality_Of_Carousel_In_Case_Of_Update_Delete();
@@ -173,7 +173,7 @@ public class My_Account_Tests extends BaseClass {
     
     
     
-    @Test(enabled = true)//done
+    @Test(enabled = true, priority=-1)//done
     public void TC_32_Verify_Logout_Functionality() throws MalformedURLException {
     	Module_My_Account account=new Module_My_Account();
     	account.verify_Logout_Functionality();

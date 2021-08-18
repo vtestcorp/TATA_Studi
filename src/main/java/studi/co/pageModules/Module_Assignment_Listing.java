@@ -180,7 +180,8 @@ public class Module_Assignment_Listing extends BaseClass {
 		try {
 			//oas.show_more.isDisplayed();
 			scrollTo2("Show more");
-			clickOnElement(oas.show_more);
+			Thread.sleep(500);
+			clickOnElement(findElementByText("Show more"));
 
 		}
 		catch (NoSuchElementException e) {

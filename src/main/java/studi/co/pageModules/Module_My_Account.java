@@ -313,8 +313,6 @@ public class Module_My_Account extends BaseClass{
 		getDriver().resetApp();
 		login_To_App();
 		
-		//clickOnElement(account.contactUsLink);
-		//assert1.assertEquals(account.createNewProfile.isDisplayed(), true);
 		status =account.contactUsLink.isDisplayed();
 		clickOnElement(account.contactUsLink);
 		if (account.contactUsLink.getAttribute("clickable").equals(true)) {
@@ -327,7 +325,7 @@ public class Module_My_Account extends BaseClass{
 		else {
 			System.out.println("user is unable to click on contact us To add more functionality");
 			test.log(Status.INFO, "user is unable to click on contact us To add more functionality");
-			assert1.assertTrue(false);
+			assert1.assertTrue(false,"user is unable to click on contact us To add more functionality");
 			
 		}
 
@@ -627,7 +625,7 @@ public class Module_My_Account extends BaseClass{
 		swipeLeft();
 		assert1.assertEquals(account.carousel2.isDisplayed(), true);
 		swipeRight();
-		Thread.sleep(10000);
+		Thread.sleep(3000);
 		assert1.assertEquals(account.carousel1.isDisplayed(), true);
 		test.log(Status.INFO, "User is able to swipe carousel right side" );
 		System.out.println("User is able to swipe carousel right side");
@@ -636,10 +634,9 @@ public class Module_My_Account extends BaseClass{
   
   public void verify_The_Functionality_Of_Each_Carousel_Page() throws MalformedURLException, InterruptedException {
 	    getDriver().resetApp();
-	  login_To_App();
+	    login_To_App();
 		clickOnElement(account.profileFirst);
 		clickOnElement(account.sessionStart);
-		applyExplicitWait(2);
 		clickOnElement(account.hideMessage);
 		/*List<MobileElement> carousels=null;
 		if(device.contains("Android")) 
@@ -654,7 +651,7 @@ public class Module_My_Account extends BaseClass{
 			assert1.assertEquals(account.page1.isDisplayed(), true);
 			assert1.assertEquals(account.page1.isDisplayed(), true);
 		}*/
-	     Thread.sleep(5000);
+	     Thread.sleep(3000);
 	     applyExplicitWaitsUntilElementVisible(account.corousel1);
 		clickOnElement(account.corousel1);
 		//assert1.assertEquals(account.modifyBtn.isDisplayed(), true);
@@ -665,7 +662,7 @@ public class Module_My_Account extends BaseClass{
 		account.yesBtn.click();
 		clickOnElement(account.backBtn);
 		swipeLeft();
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		clickOnElement(account.corousel2);
 		assert1.assertEquals(account.redoTestBtn.isDisplayed(), true);
 		test.log(Status.INFO, "User is able to click on second carousel" );
@@ -673,7 +670,7 @@ public class Module_My_Account extends BaseClass{
 		clickOnElement(account.backBtn);
 		clickOnElement(account.leftIcon);
 		swipeLeft();
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		clickOnElement(account.corousel3);
 		assert1.assertEquals(account.syllabustab.isDisplayed(), true);
 		test.log(Status.INFO, "User is able to click on Third carousel" );
@@ -681,14 +678,14 @@ public class Module_My_Account extends BaseClass{
 		clickOnElement(account.backBtn);
 		//clickOnElement(account.leftIcon);
 		swipeLeft();
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		clickOnElement(account.corousel4);
 		System.out.println("Clarify concepts Carousel are not clickable");
 		swipeLeft();
 		clickOnElement(account.corousel5);
 		System.out.println("Manage Your Schedules Carousel are not clickable");
 		swipeLeft();
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		clickOnElement(account.corousel6);
 		assert1.assertEquals(account.weeklyReport.isDisplayed(), true);
 		clickOnElement(account.backBtn);

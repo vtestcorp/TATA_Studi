@@ -12,8 +12,8 @@ import studi.co.pageModules.Module_Assignment_Task;
 public class Assignment_Task extends BaseClass{
 
 	//Total=12
-	//TC 5,TC 6,TC 7,TC 11 =Pending. Functions not yet implimented
-	//  Pass=8, Fail=0
+	//TC 5,TC 11 =Pending. Functions not yet implimented
+	//  Pass=10, Fail=0
 
 	public  Assignment_Task() {
 		super();

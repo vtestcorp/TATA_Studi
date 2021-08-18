@@ -145,7 +145,7 @@ public class BaseClass {
 
 
 		} catch (Exception ex) {
-			System.out.println(ex.getStackTrace());
+			
 		}
 		PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);
 	}
@@ -388,7 +388,7 @@ public class BaseClass {
 			caps = new DesiredCapabilities();
 			caps.setCapability("browserstack.user", prop2.getProperty("browserstack_user"));
 			caps.setCapability("browserstack.key", prop2.getProperty("browserstack_key"));
-			caps.setCapability("app", "bs://"+prop2.getProperty("app_Key")+"");
+			caps.setCapability("app", "bs://"+prop2.getProperty("app_Key"));
 			caps.setCapability("device", prop2.getProperty("Device_Name"));
 			caps.setCapability("os_version", prop2.getProperty("OS_Version"));
 

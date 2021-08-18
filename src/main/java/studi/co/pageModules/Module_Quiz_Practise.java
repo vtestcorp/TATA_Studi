@@ -177,8 +177,8 @@ public class Module_Quiz_Practise extends BaseClass {
 
 		}
 
-		test.log(Status.INFO, "Total " + actualcount + " SCQ questions are displayed");
-		System.out.println("Total " + actualcount + " SCQ questions are displayed");
+		test.log(Status.INFO, "Total " + actualcount + " MCQ questions are displayed");
+		System.out.println("Total " + actualcount + " MCQ questions are displayed");
 		sAss.assertAll();
 
 	}

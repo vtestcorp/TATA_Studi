@@ -1,322 +1,498 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<testng-results ignored="10" total="16" passed="3" failed="3" skipped="0">
+<testng-results ignored="0" total="31" passed="27" failed="4" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-08-13T10:07:20Z" name="Tata Studi QA" finished-at="2021-08-13T10:22:42Z" duration-ms="922119">
+  <suite started-at="2021-08-16T05:33:38Z" name="Tata Studi QA" finished-at="2021-08-16T06:28:11Z" duration-ms="3272788">
     <groups>
     </groups>
-    <test started-at="2021-08-13T10:07:20Z" name="Test" finished-at="2021-08-13T10:22:42Z" duration-ms="922119">
-      <class name="studi.co.testScripts.Assignment_Digital_Test">
-        <test-method is-config="true" signature="beforeTest()[pri:0, instance:studi.co.testScripts.Assignment_Digital_Test@274872f8]" started-at="2021-08-13T10:07:20Z" name="beforeTest" finished-at="2021-08-13T10:07:34Z" duration-ms="13894" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeTest -->
-        <test-method signature="TC11_To_Verify_the_review_Scrolling()[pri:0, instance:studi.co.testScripts.Assignment_Digital_Test@274872f8]" started-at="2021-08-13T10:07:34Z" name="TC11_To_Verify_the_review_Scrolling" finished-at="2021-08-13T10:10:05Z" duration-ms="150933" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC11_To_Verify_the_review_Scrolling -->
-        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.Assignment_Digital_Test@274872f8]" started-at="2021-08-13T10:10:06Z" name="restApp" finished-at="2021-08-13T10:10:07Z" duration-ms="1597" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- restApp -->
-        <test-method signature="TC13_To_Verify_The_Exit_Review()[pri:0, instance:studi.co.testScripts.Assignment_Digital_Test@274872f8]" started-at="2021-08-13T10:10:07Z" name="TC13_To_Verify_The_Exit_Review" finished-at="2021-08-13T10:13:18Z" duration-ms="190394" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC13_To_Verify_The_Exit_Review -->
-        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.Assignment_Digital_Test@274872f8]" started-at="2021-08-13T10:13:18Z" name="restApp" finished-at="2021-08-13T10:13:20Z" duration-ms="1661" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- restApp -->
-        <test-method signature="TC14_To_Verify_From_Review_User_Should_be_Able_To_Redirect_The_Test_Summary_and_Redo_Test()[pri:0, instance:studi.co.testScripts.Assignment_Digital_Test@274872f8]" started-at="2021-08-13T10:13:20Z" name="TC14_To_Verify_From_Review_User_Should_be_Able_To_Redirect_The_Test_Summary_and_Redo_Test" finished-at="2021-08-13T10:16:24Z" duration-ms="184224" status="FAIL">
-          <exception class="org.openqa.selenium.NoSuchElementException">
-            <message>
-              <![CDATA[Can't locate an element by this strategy: By.chained({By.id: com.tce.studi:id/ivNext})]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.chained({By.id: com.tce.studi:id/ivNext})
-at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:126)
-at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.intercept(InterceptorOfASingleElement.java:59)
-at io.appium.java_client.android.AndroidElement$$EnhancerByCGLIB$$b598166c.getText(<generated>)
-at studi.co.Base.BaseClass.clickOnElement(BaseClass.java:487)
-at studi.co.pageModules.Module_Assignment_Digital_Test.to_verify_from_review_user_should_be_able_to_redirect_the_Test_Summary_and_redo_test(Module_Assignment_Digital_Test.java:908)
-at studi.co.testScripts.Assignment_Digital_Test.TC14_To_Verify_From_Review_User_Should_be_Able_To_Redirect_The_Test_Summary_and_Redo_Test(Assignment_Digital_Test.java:107)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:564)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
-at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-at org.testng.TestRunner.privateRun(TestRunner.java:648)
-at org.testng.TestRunner.run(TestRunner.java:505)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-at org.testng.TestNG.runSuites(TestNG.java:1049)
-at org.testng.TestNG.run(TestNG.java:1017)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@6aae0e6f (tried for 1 second(s) with 500 milliseconds interval)
-at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:304)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:99)
-at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:119)
-... 30 more
-Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.chained({By.id: com.tce.studi:id/ivNext})
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-TMI6UL6', ip: '192.168.31.152', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
-Driver info: driver.version: AndroidDriver
-at io.appium.java_client.pagefactory.bys.builder.ByChained.findElement(ByChained.java:74)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
-at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
-at io.appium.java_client.pagefactory.bys.ContentMappedBy.findElement(ContentMappedBy.java:50)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
-at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
-at io.appium.java_client.pagefactory.AppiumElementLocator.lambda$0(AppiumElementLocator.java:120)
-at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:172)
-at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:1)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-... 32 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC14_To_Verify_From_Review_User_Should_be_Able_To_Redirect_The_Test_Summary_and_Redo_Test -->
-        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.Assignment_Digital_Test@274872f8]" started-at="2021-08-13T10:16:25Z" name="restApp" finished-at="2021-08-13T10:16:26Z" duration-ms="1731" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- restApp -->
-        <test-method signature="TC15_To_verify_for_the_Abondon_Test()[pri:0, instance:studi.co.testScripts.Assignment_Digital_Test@274872f8]" started-at="2021-08-13T10:16:26Z" name="TC15_To_verify_for_the_Abondon_Test" finished-at="2021-08-13T10:17:20Z" duration-ms="53753" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC15_To_verify_for_the_Abondon_Test -->
-        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.Assignment_Digital_Test@274872f8]" started-at="2021-08-13T10:17:21Z" name="restApp" finished-at="2021-08-13T10:17:23Z" duration-ms="1790" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- restApp -->
-        <test-method signature="TC16_To_verify_the_message_After_abandon_the_test()[pri:0, instance:studi.co.testScripts.Assignment_Digital_Test@274872f8]" started-at="2021-08-13T10:17:23Z" name="TC16_To_verify_the_message_After_abandon_the_test" finished-at="2021-08-13T10:19:16Z" duration-ms="112979" status="FAIL">
-          <exception class="org.openqa.selenium.NoSuchElementException">
-            <message>
-              <![CDATA[Can't locate an element by this strategy: By.chained({By.xpath: /hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ImageView[1]})]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.chained({By.xpath: /hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ImageView[1]})
-at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:126)
-at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.intercept(InterceptorOfASingleElement.java:59)
-at io.appium.java_client.android.AndroidElement$$EnhancerByCGLIB$$b598166c.getText(<generated>)
-at studi.co.Base.BaseClass.clickOnElement(BaseClass.java:487)
-at studi.co.pageModules.Module_Assignment_Digital_Test.to_verify_the_message_After_abandon_the_test(Module_Assignment_Digital_Test.java:1031)
-at studi.co.testScripts.Assignment_Digital_Test.TC16_To_verify_the_message_After_abandon_the_test(Assignment_Digital_Test.java:119)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:564)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
-at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-at org.testng.TestRunner.privateRun(TestRunner.java:648)
-at org.testng.TestRunner.run(TestRunner.java:505)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-at org.testng.TestNG.runSuites(TestNG.java:1049)
-at org.testng.TestNG.run(TestNG.java:1017)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@7e2c6702 (tried for 1 second(s) with 500 milliseconds interval)
-at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:304)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:99)
-at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:119)
-... 30 more
-Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.chained({By.xpath: /hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ImageView[1]})
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-TMI6UL6', ip: '192.168.31.152', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
-Driver info: driver.version: AndroidDriver
-at io.appium.java_client.pagefactory.bys.builder.ByChained.findElement(ByChained.java:74)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
-at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
-at io.appium.java_client.pagefactory.bys.ContentMappedBy.findElement(ContentMappedBy.java:50)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
-at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
-at io.appium.java_client.pagefactory.AppiumElementLocator.lambda$0(AppiumElementLocator.java:120)
-at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:172)
-at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:1)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-... 32 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC16_To_verify_the_message_After_abandon_the_test -->
-        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.Assignment_Digital_Test@274872f8]" started-at="2021-08-13T10:19:16Z" name="restApp" finished-at="2021-08-13T10:19:18Z" duration-ms="1646" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- restApp -->
-        <test-method signature="TC17_To_verify_after_submitting_the_test_user_should_be_able_to_Check_Answers()[pri:0, instance:studi.co.testScripts.Assignment_Digital_Test@274872f8]" started-at="2021-08-13T10:19:18Z" name="TC17_To_verify_after_submitting_the_test_user_should_be_able_to_Check_Answers" finished-at="2021-08-13T10:22:38Z" duration-ms="200574" status="FAIL">
-          <exception class="org.openqa.selenium.NoSuchElementException">
-            <message>
-              <![CDATA[Can't locate an element by this strategy: By.chained({By.AndroidUIAutomator: new UiSelector().textContains("That’s right.")})]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.chained({By.AndroidUIAutomator: new UiSelector().textContains("That’s right.")})
-at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:126)
-at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.intercept(InterceptorOfASingleElement.java:59)
-at io.appium.java_client.android.AndroidElement$$EnhancerByCGLIB$$b598166c.isDisplayed(<generated>)
-at studi.co.pageModules.Module_Assignment_Digital_Test.to_verify_after_submitting_the_test_user_should_be_able_to_Check_Answers(Module_Assignment_Digital_Test.java:1114)
-at studi.co.testScripts.Assignment_Digital_Test.TC17_To_verify_after_submitting_the_test_user_should_be_able_to_Check_Answers(Assignment_Digital_Test.java:126)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:564)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
-at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-at org.testng.TestRunner.privateRun(TestRunner.java:648)
-at org.testng.TestRunner.run(TestRunner.java:505)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-at org.testng.TestNG.runSuites(TestNG.java:1049)
-at org.testng.TestNG.run(TestNG.java:1017)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@4404a6b (tried for 1 second(s) with 500 milliseconds interval)
-at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:304)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:99)
-at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:119)
-... 29 more
-Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.chained({By.AndroidUIAutomator: new UiSelector().textContains("That’s right.")})
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-TMI6UL6', ip: '192.168.31.152', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
-Driver info: driver.version: AndroidDriver
-at io.appium.java_client.pagefactory.bys.builder.ByChained.findElement(ByChained.java:74)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
-at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
-at io.appium.java_client.pagefactory.bys.ContentMappedBy.findElement(ContentMappedBy.java:50)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
-at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
-at io.appium.java_client.pagefactory.AppiumElementLocator.lambda$0(AppiumElementLocator.java:120)
-at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:172)
-at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:1)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-... 31 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC17_To_verify_after_submitting_the_test_user_should_be_able_to_Check_Answers -->
-        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.Assignment_Digital_Test@274872f8]" started-at="2021-08-13T10:22:39Z" name="restApp" finished-at="2021-08-13T10:22:41Z" duration-ms="1692" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- restApp -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:studi.co.testScripts.Assignment_Digital_Test@274872f8]" started-at="2021-08-13T10:22:41Z" name="afterTest" finished-at="2021-08-13T10:22:42Z" duration-ms="987" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterTest -->
-      </class> <!-- studi.co.testScripts.Assignment_Digital_Test -->
-=======
-<testng-results ignored="37" total="41" passed="4" failed="0" skipped="0">
-  <reporter-output>
-  </reporter-output>
-  <suite started-at="2021-08-05T10:12:27Z" name="Tata Studi QA" finished-at="2021-08-05T10:15:20Z" duration-ms="172723">
-    <groups>
-    </groups>
-    <test started-at="2021-08-05T10:12:27Z" name="Test" finished-at="2021-08-05T10:15:20Z" duration-ms="172723">
-      <class name="studi.co.testScripts.Assignment_Oral_Test">
-        <test-method is-config="true" signature="RandomString()[pri:0, instance:studi.co.testScripts.Assignment_Oral_Test@119f1f2a]" started-at="2021-08-05T10:12:27Z" name="RandomString" finished-at="2021-08-05T10:12:27Z" duration-ms="26" status="PASS">
+    <test started-at="2021-08-16T05:33:38Z" name="Test1" finished-at="2021-08-16T06:28:11Z" duration-ms="3272788">
+      <class name="studi.co.testScripts.AFS_UserStory_77">
+        <test-method is-config="true" signature="RandomString()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:33:38Z" name="RandomString" finished-at="2021-08-16T05:33:38Z" duration-ms="31" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- RandomString -->
-        <test-method is-config="true" signature="beforeTest()[pri:0, instance:studi.co.testScripts.Assignment_Oral_Test@119f1f2a]" started-at="2021-08-05T10:12:27Z" name="beforeTest" finished-at="2021-08-05T10:13:21Z" duration-ms="53492" status="PASS">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:33:39Z" name="beforeTest" finished-at="2021-08-16T05:35:08Z" duration-ms="89500" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method signature="TC07_To_Verify_that_from_syllabus_menu_user_should_be_able_to_Navigate_Oral_Test()[pri:0, instance:studi.co.testScripts.Assignment_Oral_Test@119f1f2a]" started-at="2021-08-05T10:13:21Z" name="TC07_To_Verify_that_from_syllabus_menu_user_should_be_able_to_Navigate_Oral_Test" finished-at="2021-08-05T10:13:27Z" duration-ms="5944" status="PASS">
+        <test-method signature="TC01_To_Verify_Receive_SCQ_Questions_In_Revision()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:35:08Z" name="TC01_To_Verify_Receive_SCQ_Questions_In_Revision" finished-at="2021-08-16T05:36:20Z" duration-ms="72286" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC07_To_Verify_that_from_syllabus_menu_user_should_be_able_to_Navigate_Oral_Test -->
-        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.Assignment_Oral_Test@119f1f2a]" started-at="2021-08-05T10:13:28Z" name="restApp" finished-at="2021-08-05T10:13:29Z" duration-ms="1146" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- restApp -->
-        <test-method signature="TC08_To_Verify_After_Clicking_On_Oral_Test_User_Should_be_able_to_View_Oral_Test_Option()[pri:0, instance:studi.co.testScripts.Assignment_Oral_Test@119f1f2a]" started-at="2021-08-05T10:13:29Z" name="TC08_To_Verify_After_Clicking_On_Oral_Test_User_Should_be_able_to_View_Oral_Test_Option" finished-at="2021-08-05T10:13:45Z" duration-ms="16308" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC08_To_Verify_After_Clicking_On_Oral_Test_User_Should_be_able_to_View_Oral_Test_Option -->
-        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.Assignment_Oral_Test@119f1f2a]" started-at="2021-08-05T10:13:46Z" name="restApp" finished-at="2021-08-05T10:13:47Z" duration-ms="1210" status="PASS">
+        </test-method> <!-- TC01_To_Verify_Receive_SCQ_Questions_In_Revision -->
+        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:36:21Z" name="restApp" finished-at="2021-08-16T05:36:22Z" duration-ms="1253" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- restApp -->
-        <test-method signature="TC35_To_verify_Begin_test()[pri:0, instance:studi.co.testScripts.Assignment_Oral_Test@119f1f2a]" started-at="2021-08-05T10:13:47Z" name="TC35_To_verify_Begin_test" finished-at="2021-08-05T10:14:29Z" duration-ms="41800" status="PASS">
+        <test-method signature="TC02_To_Verify_SCQ_Answers_In_Default_State_In_Revision()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:36:22Z" name="TC02_To_Verify_SCQ_Answers_In_Default_State_In_Revision" finished-at="2021-08-16T05:37:19Z" duration-ms="56945" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC35_To_verify_Begin_test -->
-        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.Assignment_Oral_Test@119f1f2a]" started-at="2021-08-05T10:14:31Z" name="restApp" finished-at="2021-08-05T10:14:32Z" duration-ms="1267" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- restApp -->
-        <test-method signature="TC40_To_verify_after_hiding_Answer_user_should_be_able_to_view_Answer_Again()[pri:0, instance:studi.co.testScripts.Assignment_Oral_Test@119f1f2a]" started-at="2021-08-05T10:14:32Z" name="TC40_To_verify_after_hiding_Answer_user_should_be_able_to_view_Answer_Again" finished-at="2021-08-05T10:15:14Z" duration-ms="42248" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC40_To_verify_after_hiding_Answer_user_should_be_able_to_view_Answer_Again -->
-        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.Assignment_Oral_Test@119f1f2a]" started-at="2021-08-05T10:15:17Z" name="restApp" finished-at="2021-08-05T10:15:18Z" duration-ms="717" status="PASS">
+        </test-method> <!-- TC02_To_Verify_SCQ_Answers_In_Default_State_In_Revision -->
+        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:37:20Z" name="restApp" finished-at="2021-08-16T05:37:21Z" duration-ms="753" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- restApp -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:studi.co.testScripts.Assignment_Oral_Test@119f1f2a]" started-at="2021-08-05T10:15:18Z" name="afterTest" finished-at="2021-08-05T10:15:20Z" duration-ms="1704" status="PASS">
+        <test-method signature="TC03_To_Verify_Various_SCQ_Answers_Available_In_Revision()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:37:21Z" name="TC03_To_Verify_Various_SCQ_Answers_Available_In_Revision" finished-at="2021-08-16T05:38:13Z" duration-ms="52503" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC03_To_Verify_Various_SCQ_Answers_Available_In_Revision -->
+        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:38:14Z" name="restApp" finished-at="2021-08-16T05:38:15Z" duration-ms="753" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restApp -->
+        <test-method signature="TC04_To_Verify_SCQ_Answers_Can_Be_Select_In_Revision()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:38:15Z" name="TC04_To_Verify_SCQ_Answers_Can_Be_Select_In_Revision" finished-at="2021-08-16T05:40:10Z" duration-ms="115390" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC04_To_Verify_SCQ_Answers_Can_Be_Select_In_Revision -->
+        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:40:11Z" name="restApp" finished-at="2021-08-16T05:40:12Z" duration-ms="931" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restApp -->
+        <test-method signature="TC05_To_Verify_Only_Single_Answer_Can_Be_Select_For_SCQ_Question_In_Revision()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:40:12Z" name="TC05_To_Verify_Only_Single_Answer_Can_Be_Select_For_SCQ_Question_In_Revision" finished-at="2021-08-16T05:42:14Z" duration-ms="122224" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+Multiple answers can be select for SCQ expected [true] but found [false],
+Multiple answers can be select for SCQ expected [true] but found [false],
+Multiple answers can be select for SCQ expected [true] but found [false],
+Multiple answers can be select for SCQ expected [true] but found [false],
+Multiple answers can be select for SCQ expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+Multiple answers can be select for SCQ expected [true] but found [false],
+Multiple answers can be select for SCQ expected [true] but found [false],
+Multiple answers can be select for SCQ expected [true] but found [false],
+Multiple answers can be select for SCQ expected [true] but found [false],
+Multiple answers can be select for SCQ expected [true] but found [false]
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+at studi.co.pageModules.Module_Receive_Questions_Revision.Verify_Only_Single_Answer_Can_Be_Select_For_SCQ_Question_In_Revision(Module_Receive_Questions_Revision.java:373)
+at studi.co.testScripts.AFS_UserStory_77.TC05_To_Verify_Only_Single_Answer_Can_Be_Select_For_SCQ_Question_In_Revision(AFS_UserStory_77.java:148)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+at java.base/java.lang.Thread.run(Thread.java:834)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC05_To_Verify_Only_Single_Answer_Can_Be_Select_For_SCQ_Question_In_Revision -->
+        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:42:15Z" name="restApp" finished-at="2021-08-16T05:42:16Z" duration-ms="712" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restApp -->
+        <test-method signature="TC06_To_Verify_Instant_Feedback_Shown_After_CQ_Correct_Answer_Selection_In_Revision()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:42:16Z" name="TC06_To_Verify_Instant_Feedback_Shown_After_CQ_Correct_Answer_Selection_In_Revision" finished-at="2021-08-16T05:44:00Z" duration-ms="104536" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC06_To_Verify_Instant_Feedback_Shown_After_CQ_Correct_Answer_Selection_In_Revision -->
+        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:44:01Z" name="restApp" finished-at="2021-08-16T05:44:02Z" duration-ms="726" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restApp -->
+        <test-method signature="TC07_To_Verify_State_Of_Answer_Should_Be_Maintained_For_SCQ_Question_In_Revision()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:44:02Z" name="TC07_To_Verify_State_Of_Answer_Should_Be_Maintained_For_SCQ_Question_In_Revision" finished-at="2021-08-16T05:46:23Z" duration-ms="141346" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC07_To_Verify_State_Of_Answer_Should_Be_Maintained_For_SCQ_Question_In_Revision -->
+        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:46:24Z" name="restApp" finished-at="2021-08-16T05:46:25Z" duration-ms="687" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restApp -->
+        <test-method signature="TC08_To_Verify_Instant_Feedback_Shown_After_SCQ_Wrong_Answer_Selection_In_Revision()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:46:25Z" name="TC08_To_Verify_Instant_Feedback_Shown_After_SCQ_Wrong_Answer_Selection_In_Revision" finished-at="2021-08-16T05:47:40Z" duration-ms="75958" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC08_To_Verify_Instant_Feedback_Shown_After_SCQ_Wrong_Answer_Selection_In_Revision -->
+        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:47:41Z" name="restApp" finished-at="2021-08-16T05:47:42Z" duration-ms="903" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restApp -->
+        <test-method signature="TC09_To_Verify_Attempting_SCQ_Quiz_Is_Not_Mandatory_In_Revision()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:47:42Z" name="TC09_To_Verify_Attempting_SCQ_Quiz_Is_Not_Mandatory_In_Revision" finished-at="2021-08-16T05:48:21Z" duration-ms="39188" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC09_To_Verify_Attempting_SCQ_Quiz_Is_Not_Mandatory_In_Revision -->
+        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:48:22Z" name="restApp" finished-at="2021-08-16T05:48:22Z" duration-ms="700" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restApp -->
+        <test-method signature="TC11_To_Verify_User_Can_Abandon_SCQ_Quiz_In_Revision()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:48:22Z" name="TC11_To_Verify_User_Can_Abandon_SCQ_Quiz_In_Revision" finished-at="2021-08-16T05:48:56Z" duration-ms="33919" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC11_To_Verify_User_Can_Abandon_SCQ_Quiz_In_Revision -->
+        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:48:57Z" name="restApp" finished-at="2021-08-16T05:48:58Z" duration-ms="750" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restApp -->
+        <test-method signature="TC12_To_Verify_Receive_SCQ_Questions_In_Practice()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:48:58Z" name="TC12_To_Verify_Receive_SCQ_Questions_In_Practice" finished-at="2021-08-16T05:50:03Z" duration-ms="65227" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC12_To_Verify_Receive_SCQ_Questions_In_Practice -->
+        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:50:04Z" name="restApp" finished-at="2021-08-16T05:50:05Z" duration-ms="960" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restApp -->
+        <test-method signature="TC13_To_Verify_SCQ_Answers_Is_In_Default_State_In_Practice()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:50:05Z" name="TC13_To_Verify_SCQ_Answers_Is_In_Default_State_In_Practice" finished-at="2021-08-16T05:51:18Z" duration-ms="73152" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC13_To_Verify_SCQ_Answers_Is_In_Default_State_In_Practice -->
+        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:51:19Z" name="restApp" finished-at="2021-08-16T05:51:20Z" duration-ms="724" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restApp -->
+        <test-method signature="TC14_To_Verify_Multiple_Answers_Shown_For_SCQ_In_Practice()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:51:20Z" name="TC14_To_Verify_Multiple_Answers_Shown_For_SCQ_In_Practice" finished-at="2021-08-16T05:52:06Z" duration-ms="46607" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC14_To_Verify_Multiple_Answers_Shown_For_SCQ_In_Practice -->
+        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:52:07Z" name="restApp" finished-at="2021-08-16T05:52:08Z" duration-ms="672" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restApp -->
+        <test-method signature="TC15_To_Verify_SCQ_Answer_Can_Be_Select_In_Practice()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:52:08Z" name="TC15_To_Verify_SCQ_Answer_Can_Be_Select_In_Practice" finished-at="2021-08-16T05:53:50Z" duration-ms="102044" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC15_To_Verify_SCQ_Answer_Can_Be_Select_In_Practice -->
+        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:53:51Z" name="restApp" finished-at="2021-08-16T05:53:51Z" duration-ms="665" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restApp -->
+        <test-method signature="TC16_To_Verify_Only_Single_SCQ_Answer_Can_Be_Select_In_Practice()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:53:51Z" name="TC16_To_Verify_Only_Single_SCQ_Answer_Can_Be_Select_In_Practice" finished-at="2021-08-16T05:55:31Z" duration-ms="99976" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC16_To_Verify_Only_Single_SCQ_Answer_Can_Be_Select_In_Practice -->
+        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:55:32Z" name="restApp" finished-at="2021-08-16T05:55:33Z" duration-ms="729" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restApp -->
+        <test-method signature="TC17_To_Verify_Feedback_Shown_For_Correct_Answer_Selection_In_SCQ_Practice()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:55:33Z" name="TC17_To_Verify_Feedback_Shown_For_Correct_Answer_Selection_In_SCQ_Practice" finished-at="2021-08-16T05:57:08Z" duration-ms="95332" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC17_To_Verify_Feedback_Shown_For_Correct_Answer_Selection_In_SCQ_Practice -->
+        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:57:09Z" name="restApp" finished-at="2021-08-16T05:57:09Z" duration-ms="664" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restApp -->
+        <test-method signature="TC18_To_Verify_Feedback_Shown_For_Incorrect_Answer_Selection_In_SCQ_Practice()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:57:09Z" name="TC18_To_Verify_Feedback_Shown_For_Incorrect_Answer_Selection_In_SCQ_Practice" finished-at="2021-08-16T05:59:07Z" duration-ms="117379" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC18_To_Verify_Feedback_Shown_For_Incorrect_Answer_Selection_In_SCQ_Practice -->
+        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:59:08Z" name="restApp" finished-at="2021-08-16T05:59:09Z" duration-ms="1745" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restApp -->
+        <test-method signature="TC19_To_Verify_Attempting_SCQ_Quiz_Is_Mandatory_In_Practice()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:59:09Z" name="TC19_To_Verify_Attempting_SCQ_Quiz_Is_Mandatory_In_Practice" finished-at="2021-08-16T05:59:45Z" duration-ms="35691" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC19_To_Verify_Attempting_SCQ_Quiz_Is_Mandatory_In_Practice -->
+        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:59:46Z" name="restApp" finished-at="2021-08-16T05:59:46Z" duration-ms="722" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restApp -->
+        <test-method signature="TC20_To_Verify_In_Wrong_Answer_Selection_User_Should_Get_1_More_Attempt_For_SCQ_In_Practice()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T05:59:46Z" name="TC20_To_Verify_In_Wrong_Answer_Selection_User_Should_Get_1_More_Attempt_For_SCQ_In_Practice" finished-at="2021-08-16T06:01:44Z" duration-ms="117574" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC20_To_Verify_In_Wrong_Answer_Selection_User_Should_Get_1_More_Attempt_For_SCQ_In_Practice -->
+        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T06:01:45Z" name="restApp" finished-at="2021-08-16T06:01:46Z" duration-ms="647" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restApp -->
+        <test-method signature="TC21_To_Verify_User_Should_Be_Able_To_Abandon_The_SCQ_In_Practice()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T06:01:46Z" name="TC21_To_Verify_User_Should_Be_Able_To_Abandon_The_SCQ_In_Practice" finished-at="2021-08-16T06:02:22Z" duration-ms="35916" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC21_To_Verify_User_Should_Be_Able_To_Abandon_The_SCQ_In_Practice -->
+        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T06:02:24Z" name="restApp" finished-at="2021-08-16T06:02:24Z" duration-ms="667" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restApp -->
+        <test-method signature="TC22_To_Verify_Receive_SCQ_Questions_In_Test()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T06:02:24Z" name="TC22_To_Verify_Receive_SCQ_Questions_In_Test" finished-at="2021-08-16T06:05:14Z" duration-ms="169949" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC22_To_Verify_Receive_SCQ_Questions_In_Test -->
+        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T06:05:15Z" name="restApp" finished-at="2021-08-16T06:05:16Z" duration-ms="712" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restApp -->
+        <test-method signature="TC23_Module_Receive_SCQ_Answers_In_Default_State_In_Test()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T06:05:16Z" name="TC23_Module_Receive_SCQ_Answers_In_Default_State_In_Test" finished-at="2021-08-16T06:07:41Z" duration-ms="145600" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC23_Module_Receive_SCQ_Answers_In_Default_State_In_Test -->
+        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T06:07:42Z" name="restApp" finished-at="2021-08-16T06:07:43Z" duration-ms="702" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restApp -->
+        <test-method signature="TC24_To_Verify_Multiple_Answers_Shown_For_SCQ_In_Test()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T06:07:43Z" name="TC24_To_Verify_Multiple_Answers_Shown_For_SCQ_In_Test" finished-at="2021-08-16T06:09:31Z" duration-ms="108205" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC24_To_Verify_Multiple_Answers_Shown_For_SCQ_In_Test -->
+        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T06:09:31Z" name="restApp" finished-at="2021-08-16T06:09:32Z" duration-ms="717" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restApp -->
+        <test-method signature="TC25_To_Verify_SCQ_Answers_Can_Be_Select_In_Test()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T06:09:32Z" name="TC25_To_Verify_SCQ_Answers_Can_Be_Select_In_Test" finished-at="2021-08-16T06:12:34Z" duration-ms="181946" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC25_To_Verify_SCQ_Answers_Can_Be_Select_In_Test -->
+        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T06:12:35Z" name="restApp" finished-at="2021-08-16T06:12:36Z" duration-ms="751" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restApp -->
+        <test-method signature="TC26_To_Verify_Only_Single_SCQ_Answer_Can_Be_Select_In_Test()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T06:12:36Z" name="TC26_To_Verify_Only_Single_SCQ_Answer_Can_Be_Select_In_Test" finished-at="2021-08-16T06:15:15Z" duration-ms="158937" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC26_To_Verify_Only_Single_SCQ_Answer_Can_Be_Select_In_Test -->
+        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T06:15:15Z" name="restApp" finished-at="2021-08-16T06:15:16Z" duration-ms="663" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restApp -->
+        <test-method signature="TC27_To_Verify_Correct_Feedback_Shown_After_SCQ_Answer_Selection_In_Test()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T06:15:16Z" name="TC27_To_Verify_Correct_Feedback_Shown_After_SCQ_Answer_Selection_In_Test" finished-at="2021-08-16T06:18:42Z" duration-ms="206459" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[Can't locate an element by this strategy: By.chained({By.id: com.tce.studi:id/vp_lesson_cards})]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.chained({By.id: com.tce.studi:id/vp_lesson_cards})
+at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:126)
+at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.intercept(InterceptorOfASingleElement.java:59)
+at io.appium.java_client.android.AndroidElement$$EnhancerByCGLIB$$b598166c.isDisplayed(<generated>)
+at studi.co.pageModules.Module_Receive_Questions_Test.Correct_Feedback_Shown_After_Test_Complition(Module_Receive_Questions_Test.java:635)
+at studi.co.pageModules.Module_Receive_Questions_Test.Module_Verify_Correct_Feedback_Shown_After_SCQ_Answer_Selection_In_Test(Module_Receive_Questions_Test.java:164)
+at studi.co.testScripts.AFS_UserStory_77.TC27_To_Verify_Correct_Feedback_Shown_After_SCQ_Answer_Selection_In_Test(AFS_UserStory_77.java:235)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@3fdf384c (tried for 1 second(s) with 500 milliseconds interval)
+at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:304)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:99)
+at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:119)
+... 25 more
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.chained({By.id: com.tce.studi:id/vp_lesson_cards})
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-JHURRHK', ip: '192.168.31.92', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.9'
+Driver info: driver.version: AndroidDriver
+at io.appium.java_client.pagefactory.bys.builder.ByChained.findElement(ByChained.java:74)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
+at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+at io.appium.java_client.pagefactory.bys.ContentMappedBy.findElement(ContentMappedBy.java:50)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
+at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+at io.appium.java_client.pagefactory.AppiumElementLocator.lambda$0(AppiumElementLocator.java:120)
+at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:172)
+at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:1)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+... 27 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC27_To_Verify_Correct_Feedback_Shown_After_SCQ_Answer_Selection_In_Test -->
+        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T06:18:44Z" name="restApp" finished-at="2021-08-16T06:18:45Z" duration-ms="782" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restApp -->
+        <test-method signature="TC28_To_Verify_Correct_Feedback_Shown_Under_Hamburger_Menu_In_Test()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T06:18:45Z" name="TC28_To_Verify_Correct_Feedback_Shown_Under_Hamburger_Menu_In_Test" finished-at="2021-08-16T06:21:01Z" duration-ms="136003" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[Can't locate an element by this strategy: By.chained({By.id: com.tce.studi:id/vp_lesson_cards})]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.chained({By.id: com.tce.studi:id/vp_lesson_cards})
+at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:126)
+at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.intercept(InterceptorOfASingleElement.java:59)
+at io.appium.java_client.android.AndroidElement$$EnhancerByCGLIB$$b598166c.isDisplayed(<generated>)
+at studi.co.pageModules.Module_Receive_Questions_Test.Correct_Feedback_Shown_Under_Hamburger_Menu(Module_Receive_Questions_Test.java:745)
+at studi.co.pageModules.Module_Receive_Questions_Test.Module_Verify_Correct_Feedback_Shown_Under_Hamburger_Menu_In_Test(Module_Receive_Questions_Test.java:176)
+at studi.co.testScripts.AFS_UserStory_77.TC28_To_Verify_Correct_Feedback_Shown_Under_Hamburger_Menu_In_Test(AFS_UserStory_77.java:244)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@50f128ff (tried for 1 second(s) with 500 milliseconds interval)
+at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:304)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:99)
+at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:119)
+... 25 more
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.chained({By.id: com.tce.studi:id/vp_lesson_cards})
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-JHURRHK', ip: '192.168.31.92', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.9'
+Driver info: driver.version: AndroidDriver
+at io.appium.java_client.pagefactory.bys.builder.ByChained.findElement(ByChained.java:74)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
+at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+at io.appium.java_client.pagefactory.bys.ContentMappedBy.findElement(ContentMappedBy.java:50)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
+at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+at io.appium.java_client.pagefactory.AppiumElementLocator.lambda$0(AppiumElementLocator.java:120)
+at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:172)
+at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:1)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+... 27 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC28_To_Verify_Correct_Feedback_Shown_Under_Hamburger_Menu_In_Test -->
+        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T06:21:01Z" name="restApp" finished-at="2021-08-16T06:21:02Z" duration-ms="692" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restApp -->
+        <test-method signature="TC29_To_Verify_Attempting_SCQ_Quiz_Is_Not_Mandatory_In_Test()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T06:21:02Z" name="TC29_To_Verify_Attempting_SCQ_Quiz_Is_Not_Mandatory_In_Test" finished-at="2021-08-16T06:22:56Z" duration-ms="114289" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[Can't locate an element by this strategy: By.chained({By.id: com.tce.studi:id/vp_lesson_cards})]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.chained({By.id: com.tce.studi:id/vp_lesson_cards})
+at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:126)
+at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.intercept(InterceptorOfASingleElement.java:59)
+at io.appium.java_client.android.AndroidElement$$EnhancerByCGLIB$$b598166c.isEnabled(<generated>)
+at studi.co.pageModules.Module_Receive_Questions_Test.verify_Quiz_Is_Not_Mandatory(Module_Receive_Questions_Test.java:857)
+at studi.co.pageModules.Module_Receive_Questions_Test.Module_Verify_Attempting_SCQ_Quiz_Is_Not_Mandatory_In_Test(Module_Receive_Questions_Test.java:188)
+at studi.co.testScripts.AFS_UserStory_77.TC29_To_Verify_Attempting_SCQ_Quiz_Is_Not_Mandatory_In_Test(AFS_UserStory_77.java:253)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@251b9d60 (tried for 1 second(s) with 500 milliseconds interval)
+at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:304)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:99)
+at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:119)
+... 25 more
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.chained({By.id: com.tce.studi:id/vp_lesson_cards})
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-JHURRHK', ip: '192.168.31.92', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.9'
+Driver info: driver.version: AndroidDriver
+at io.appium.java_client.pagefactory.bys.builder.ByChained.findElement(ByChained.java:74)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
+at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+at io.appium.java_client.pagefactory.bys.ContentMappedBy.findElement(ContentMappedBy.java:50)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
+at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+at io.appium.java_client.pagefactory.AppiumElementLocator.lambda$0(AppiumElementLocator.java:120)
+at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:172)
+at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:1)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+... 27 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC29_To_Verify_Attempting_SCQ_Quiz_Is_Not_Mandatory_In_Test -->
+        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T06:22:57Z" name="restApp" finished-at="2021-08-16T06:22:58Z" duration-ms="686" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restApp -->
+        <test-method signature="TC30_To_Verify_User_Should_Be_Able_To_Flag_The_SCQ_Question_In_Test()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T06:22:58Z" name="TC30_To_Verify_User_Should_Be_Able_To_Flag_The_SCQ_Question_In_Test" finished-at="2021-08-16T06:25:23Z" duration-ms="145032" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC30_To_Verify_User_Should_Be_Able_To_Flag_The_SCQ_Question_In_Test -->
+        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T06:25:24Z" name="restApp" finished-at="2021-08-16T06:25:24Z" duration-ms="655" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restApp -->
+        <test-method signature="TC32_To_Verify_Marks_Shown_With_SCQ_In_Test()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T06:25:24Z" name="TC32_To_Verify_Marks_Shown_With_SCQ_In_Test" finished-at="2021-08-16T06:26:35Z" duration-ms="71003" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC32_To_Verify_Marks_Shown_With_SCQ_In_Test -->
+        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T06:26:36Z" name="restApp" finished-at="2021-08-16T06:26:37Z" duration-ms="656" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restApp -->
+        <test-method signature="TC33_To_Verify_User_Can_Abond_SCQ_Quiz_In_Test()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T06:26:37Z" name="TC33_To_Verify_User_Can_Abond_SCQ_Quiz_In_Test" finished-at="2021-08-16T06:28:08Z" duration-ms="91027" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC33_To_Verify_User_Can_Abond_SCQ_Quiz_In_Test -->
+        <test-method is-config="true" signature="restApp()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T06:28:08Z" name="restApp" finished-at="2021-08-16T06:28:09Z" duration-ms="825" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restApp -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:studi.co.testScripts.AFS_UserStory_77@226642a5]" started-at="2021-08-16T06:28:09Z" name="afterTest" finished-at="2021-08-16T06:28:11Z" duration-ms="1732" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- studi.co.testScripts.Assignment_Oral_Test -->
->>>>>>> 4540b4c02b2b48196ab7879a21c7cd119e28e367
-    </test> <!-- Test -->
+      </class> <!-- studi.co.testScripts.AFS_UserStory_77 -->
+    </test> <!-- Test1 -->
   </suite> <!-- Tata Studi QA -->
 </testng-results>

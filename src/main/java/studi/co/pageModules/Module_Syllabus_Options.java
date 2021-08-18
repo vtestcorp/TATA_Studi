@@ -1377,7 +1377,7 @@ public class Module_Syllabus_Options extends BaseClass {
 		applyExplicitWait(5);
 		if (device.contains("Android"))
 			status = getDriver().findElement(By.xpath(
-					"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]"))
+					"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]"))
 					.isDisplayed();
 		else
 			status = getDriver().findElement(By.xpath(
@@ -1845,7 +1845,7 @@ public class Module_Syllabus_Options extends BaseClass {
 		applyExplicitWait(5);
 		if (device.contains("Android"))
 			status = getDriver().findElement(By.xpath(
-					"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]/android.widget.FrameLayout[3]/android.view.View[2]"))
+					"//android.widget.FrameLayout[@content-desc=\"Show player controls\"]"))
 					.isDisplayed();
 		else
 			status = getDriver().findElement(By.xpath(
@@ -2342,7 +2342,7 @@ public class Module_Syllabus_Options extends BaseClass {
 		System.out.println("Checking for Initial message available in text area");
 		test.log(Status.INFO, "Checking for Initial message available in text area");
 
-		status = oso.noteTxtArea.getText().equalsIgnoreCase("Insert text here");
+		status = oso.noteTxtArea.getText().contains("Insert text here");
 		sAss.assertTrue(status, "Guidance message not available in Note Text area");
 		if (status) {
 			System.out.println("Guidance message available in Note Text area as : " + oso.noteTxtArea.getText());

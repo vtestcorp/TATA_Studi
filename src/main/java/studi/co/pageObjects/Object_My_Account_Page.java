@@ -242,7 +242,7 @@ public class Object_My_Account_Page extends BaseClass{
    public WebElement createPlan;
    
    @AndroidFindBy(xpath= "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View[2]/android.view.View[2]/android.widget.TabWidget[2]/android.view.View[3]/android.view.View/android.view.View[2]/android.view.View")
-	public WebElement checkBoxGeography;
+   public WebElement checkBoxGeography;
    
    //@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View[2]/android.view.View[1]/android.widget.Button[2]")
    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.Button\").textContains(\"Add to portion\")")
@@ -287,8 +287,6 @@ public class Object_My_Account_Page extends BaseClass{
    
    @AndroidFindBy(id="com.tce.studi:id/fabAssignment")
 	public WebElement add_assignment;
-   
-   
    
    //temporary for add new profile
    @AndroidFindBy(id = "com.tce.studi:id/txtCreateNewProfile")

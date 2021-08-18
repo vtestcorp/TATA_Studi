@@ -644,6 +644,12 @@ public class Module_Assignment_Oral_Test extends BaseClass {
 	public void creation_of_Oral_Test(String subject, String topic_1) throws MalformedURLException {
 
 		scrollTo2("Assignments");
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		clickOnElement(oadt.syllabus);
 		test.log(Status.INFO, "Clicked Syllabus");
 		System.out.println("Clicked on Syllabus");

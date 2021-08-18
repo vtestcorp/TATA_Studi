@@ -84,7 +84,7 @@ public class Object_Login_Signup_Page extends BaseClass {
 	public WebElement errorMsg;
 	
 	@iOSFindBy(xpath = "//XCUIElementTypeButton[@name=\"Re-enter password\"]")
-	@AndroidFindBy(id = "com.tce.studi:id/txtPositiveBtn")
+	@AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.TextView\").textContains(\"Re-enter password\")")
 	public WebElement passwdErrorMsg;
 	
 	@iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Sign-out\"]")

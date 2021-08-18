@@ -58,11 +58,6 @@ public class Quiz_Practise_Tests extends BaseClass {
 
 	}
 
-	@Test(enabled = false) // hold
-	public void TC_13_verify_That_User_Chooses_One_Option_Right_And_Another_Wrong_Or_viceversa_The_Answers_Are_Considered_Partially_Correct_In_Case_Of_Sorting_Question() {
-		Module_Quiz_Practise quiz = new Module_Quiz_Practise();
-	}
-
 	@AfterMethod
 	public void restApp() throws MalformedURLException {
 		applyExplicitWait(5);

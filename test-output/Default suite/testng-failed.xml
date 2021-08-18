@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
+    <classes>
+      <class name="studi.co.testScripts.Study_Plan_Create_Plan">
+        <methods>
+          <include name="TC01_To_Verify_user_is_able_to_unflag_Book_for_which_the_user_dont_wants_to_pay_extra_attention"/>
+          <include name="TC02_To_Verify_user_is_able_create_another_study_plan"/>
+          <include name="TC04_To_Verify_check_uncheck_for_Filteration"/>
+          <include name="TC06_To_verify_scheduled_plan_view_for_plan_not_started"/>
+          <include name="TC08_To_verify_scheduled_plan_view_for_no_lesson_scheduled"/>
+          <include name="TC03_To_verify_user_is_able_to_see_the_previous_plan"/>
+          <include name="TC07_To_verify_Week_Cycle_plan_which_is_started_in_the_middle_of_week_days"/>
+          <include name="afterTest"/>
+          <include name="restApp"/>
+          <include name="RandomString"/>
+          <include name="beforeTest"/>
+        </methods>
+      </class> <!-- studi.co.testScripts.Study_Plan_Create_Plan -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

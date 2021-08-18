@@ -74,8 +74,10 @@ public class Module_Home extends BaseClass{
 			catch(Exception e) {System.out.println("Already logged out");}
 		}
 		Thread.sleep(3000);
-		try{applyExplicitWaitsUntilElementVisible(oh.alreadyUser);
-		clickOnElement(oh.alreadyUser);}
+		try{
+		applyExplicitWaitsUntilElementVisible(oh.alreadyUser);
+		clickOnElement(oh.alreadyUser);
+		}
 		catch(Exception e) {}
 		assert1.assertEquals(oh.countrycode.isDisplayed(), true);
 		System.out.println("By Default country code is displayed");

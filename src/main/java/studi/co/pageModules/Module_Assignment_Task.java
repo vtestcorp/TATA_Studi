@@ -62,19 +62,30 @@ public class Module_Assignment_Task extends BaseClass {
 		System.out.println("Setting Task Instruction");
 
 		oas.taskInstruction.sendKeys("TATA Studi Test for Task and Digital Test");
-
-		scrollTo2("Assign");
+		scrollTo2("Due Date");
+		//scrollTo2("Assign");
 		clickOnElement(oas.assignmentViewed);
 		test.log(Status.INFO, "Clicked on Assignment Viewd" );
 		System.out.println("Clicked on Assignment Viewd");
-
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		clickOnElement(oas.taskDuration);
 		test.log(Status.INFO, "Selected the Task Duration");
 		System.out.println("Selected the Task Duration");
-		scrollTo2("Assign");
-		applyExplicitWaitsUntilElementClickable(oas.assignTask);
-		clickOnElement(findElementByText("Assign"));
+		//scrollTo2("Assign");
+
+		//applyExplicitWaitsUntilElementClickable(oas.assignTask);
+		//clickOnElement(findElementByText("Assign"));
 		//tapOnElement(findElementByText("Assign"));
+
+
+		scrollTo2("Due Date");
+		clickOnElement(oas.assignTask);
+
 		status = oas.task_is_Ready.isDisplayed();
 		assert1.assertTrue(status);
 		if (status) {
@@ -126,7 +137,7 @@ public class Module_Assignment_Task extends BaseClass {
 
 		oas.taskInstruction.sendKeys("TATA Studi Test for Task and Digital Test");
 
-		scrollTo2("Assign");
+		scrollTo2("Due Date");
 		clickOnElement(oas.assignmentViewed);
 		test.log(Status.INFO, "Clicked on Assignment Viewd" );
 		System.out.println("Clicked on Assignment Viewd");
@@ -134,10 +145,11 @@ public class Module_Assignment_Task extends BaseClass {
 		clickOnElement(oas.taskDuration);
 		test.log(Status.INFO, "Selected the Task Duration");
 		System.out.println("Selected the Task Duration");
-		scrollTo2("Assign");
-		applyExplicitWaitsUntilElementClickable(oas.assignTask);
-		clickOnElement(findElementByText("Assign"));
 
+		//applyExplicitWaitsUntilElementClickable(oas.assignTask);
+		//clickOnElement(findElementByText("Assign"));
+		scrollTo2("Due Date");
+		clickOnElement(oas.assignTask);
 		clickOnElement(oas.view_created_Assignment);
 		applyExplicitWaitsUntilElementVisible(oas.assignmentDetails);
 		status=oas.assignmentDetails.isDisplayed();
@@ -166,7 +178,7 @@ public class Module_Assignment_Task extends BaseClass {
 
 		oas.taskInstruction.sendKeys("TATA Studi Test for Task and Digital Test");
 
-		scrollTo2("Assign");
+		scrollTo2("Due Date");
 		clickOnElement(oas.assignmentViewed);
 		test.log(Status.INFO, "Clicked on Assignment Viewd" );
 		System.out.println("Clicked on Assignment Viewd");
@@ -174,10 +186,12 @@ public class Module_Assignment_Task extends BaseClass {
 		clickOnElement(oas.taskDuration);
 		test.log(Status.INFO, "Selected the Task Duration");
 		System.out.println("Selected the Task Duration");
-		scrollTo2("Assign");
-		applyExplicitWaitsUntilElementClickable(oas.assignTask);
-		clickOnElement(findElementByText("Assign"));
 
+		//applyExplicitWaitsUntilElementClickable(oas.assignTask);
+		//clickOnElement(findElementByText("Assign"));
+
+		scrollTo2("Due Date");
+		clickOnElement(oas.assignTask);
 		clickOnElement(oas.view_created_Assignment);
 		applyExplicitWaitsUntilElementVisible(oas.assignmentDetails);
 		status=oas.assignmentDetails.isDisplayed();
@@ -218,7 +232,7 @@ public class Module_Assignment_Task extends BaseClass {
 
 		oas.taskInstruction.sendKeys("TATA Studi Test for Task and Digital Test");
 
-		scrollTo2("Assign");
+		scrollTo2("DUe Date");
 		clickOnElement(oas.assignmentViewed);
 		test.log(Status.INFO, "Clicked on Assignment Viewd" );
 		System.out.println("Clicked on Assignment Viewd");
@@ -226,9 +240,13 @@ public class Module_Assignment_Task extends BaseClass {
 		clickOnElement(oas.taskDuration);
 		test.log(Status.INFO, "Selected the Task Duration");
 		System.out.println("Selected the Task Duration");
-		scrollTo2("Assign");
-		applyExplicitWaitsUntilElementClickable(oas.assignTask);
-		clickOnElement(findElementByText("Assign"));
+		
+		//scrollTo2("Assign");
+		//applyExplicitWaitsUntilElementClickable(oas.assignTask);
+		//clickOnElement(findElementByText("Assign"));
+		
+		scrollTo2("Due Date");
+		clickOnElement(oas.assignTask);
 		System.out.println("Clicked on Assign Tab to create New Assignment");
 		test.log(Status.INFO, "Clicked on Assign Tab to create New Assignment");
 		clickOnElement(oas.view_created_Assignment);
@@ -284,7 +302,7 @@ public class Module_Assignment_Task extends BaseClass {
 				System.out.println("Attachment Guidline is Shown");
 				test.log(Status.INFO, "Attachment Guidline is Shown");
 			}
-			scrollTo2("Assign");
+			scrollTo2("Due Date");
 			status =oas.completion_criteria_guidline.isDisplayed();
 			assert1.assertTrue(status);
 			if (status) {
@@ -496,7 +514,7 @@ public class Module_Assignment_Task extends BaseClass {
 		System.out.println("Clicked on Completed Assignments");
 		applyExplicitWait(2000);
 		//applyExplicitWaitsUntilElementVisible(oas.back_btn);
-		swipeDown();
+		//swipeDown();
 		oas.back_btn.click();
 		test.log(Status.INFO, "Clicked on back to My Assignments" );
 		System.out.println("Clicked on back to My Assignments");
