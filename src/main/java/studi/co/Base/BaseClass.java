@@ -285,7 +285,7 @@ public class BaseClass {
 		for (WebElement s : as) {
 
 			//if (!s.getAttribute("class").equalsIgnoreCase("tick")) {
-			if (s.getAttribute("class")==null||s.getAttribute("class").isBlank()) {
+			if (s.getAttribute("class")==null) {
 				tempstr=s.findElement(By.className("ql-editor")).getText();
 				int index = as.indexOf(s);
 				getDriver().context("NATIVE_APP");
